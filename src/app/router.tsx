@@ -1,4 +1,5 @@
 import { createContext, useCallback, useContext, useEffect, useState, type ReactNode } from 'react';
+import { stopSpeaking } from '../lib/speech';
 
 export interface Route {
   path: string;
@@ -25,6 +26,7 @@ export function RouterProvider({ children }: { children: ReactNode }) {
 
   useEffect(() => {
     const onChange = () => {
+      void stopSpeaking();
       setRoute(parseHash());
       window.scrollTo(0, 0);
     };

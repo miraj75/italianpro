@@ -1,6 +1,6 @@
-import { useState } from 'react';
+import { useEffect, useRef, useState } from 'react';
 import { Loader2, Play } from 'lucide-react';
-import { speakItalian } from '../lib/speech';
+import { speakItalian, startSpeechSession } from '../lib/speech';
 import { useI18n } from '../lib/i18n';
 import { cx } from './ui';
 
@@ -8,14 +8,28 @@ import { cx } from './ui';
 export function SpeakButton({ text, size = 40, className }: { text: string; size?: number; className?: string }) {
   const { t } = useI18n();
   const [state, setState] = useState<'idle' | 'playing' | 'error'>('idle');
+  const mountedRef = useRef(true);
+
+  useEffect(() => {
+    mountedRef.current = true;
+    return () => {
+      mountedRef.current = false;
+    };
+  }, []);
 
   const play = async () => {
+    const sessionId = startSpeechSession();
     setState('playing');
     try {
-      await speakItalian(text);
-      setState('idle');
-    } catch {
-      setState('error');
+      await speakItalian(text, 0.9, sessionId);
+      if (mountedRef.current) setState('idle');
+    } catch (err) {
+      if (!mountedRef.current) return;
+      if (err instanceof Error && err.message === 'speech-cancelled') {
+        setState('idle');
+      } else {
+        setState('error');
+      }
     }
   };
 

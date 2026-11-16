@@ -1,0 +1,6 @@
+{
+  "name": "ItalianPro",
+  "description": "ItalianPro — Learn Italian. Live Italian. Complete CEFR A1–B2 Italian learning app with Bengali & English explanations.",
+  "requestFramePermissions": ["microphone"],
+  "capabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}

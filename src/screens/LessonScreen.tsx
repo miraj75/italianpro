@@ -5,7 +5,7 @@ import type { Lesson } from '../content/types';
 import { useRouter } from '../app/router';
 import { useI18n } from '../lib/i18n';
 import { dayKey } from '../lib/date';
-import { speakItalian, stopSpeaking } from '../lib/speech';
+import { isSpeechSessionActive, speakItalian, startSpeechSession, stopSpeaking } from '../lib/speech';
 import { useProgress, useStudyTimer } from '../state/ProgressContext';
 import { isLessonUnlocked } from '../state/progress';
 import { LESSON_PASS_SCORE } from '../content/types';
@@ -202,36 +202,45 @@ function DialogueTab({ lesson }: { lesson: Lesson }) {
   const [showTr, setShowTr] = useState(true);
   const [playing, setPlaying] = useState<number | null>(null);
   const [error, setError] = useState(false);
-  const cancelled = useRef(false);
+  const sessionRef = useRef(0);
   const speakers = [...new Set(lesson.dialogue.lines.map((l) => l.speaker))];
 
   useEffect(
     () => () => {
-      cancelled.current = true;
+      sessionRef.current += 1;
       void stopSpeaking();
     },
     [],
   );
 
   const playAll = async () => {
-    cancelled.current = false;
+    const sessionId = startSpeechSession();
+    sessionRef.current = sessionId;
     setError(false);
     try {
       for (let i = 0; i < lesson.dialogue.lines.length; i++) {
-        if (cancelled.current) break;
+        if (sessionRef.current !== sessionId || !isSpeechSessionActive(sessionId)) break;
         setPlaying(i);
-        await speakItalian(lesson.dialogue.lines[i]!.it, 0.85);
+        await speakItalian(lesson.dialogue.lines[i]!.it, 0.85, sessionId);
+        if (sessionRef.current !== sessionId || !isSpeechSessionActive(sessionId)) break;
       }
       // Listening counts only when the whole dialogue was heard.
-      if (!cancelled.current) dispatch({ type: 'completeTask', task: 'listening', today: dayKey() });
-    } catch {
-      setError(true);
+      if (sessionRef.current === sessionId && isSpeechSessionActive(sessionId)) {
+        dispatch({ type: 'completeTask', task: 'listening', today: dayKey() });
+      }
+    } catch (err) {
+      if (!(err instanceof Error && err.message === 'speech-cancelled')) {
+        setError(true);
+      }
+    } finally {
+      if (sessionRef.current === sessionId) {
+        setPlaying(null);
+      }
     }
-    setPlaying(null);
   };
 
   const stop = () => {
-    cancelled.current = true;
+    sessionRef.current += 1;
     void stopSpeaking();
     setPlaying(null);
   };

@@ -1,10 +1,13 @@
 import { useEffect, useState } from 'react';
 import { Capacitor } from '@capacitor/core';
 import { App as CapApp } from '@capacitor/app';
+import { SplashScreen as CapSplashScreen } from '@capacitor/splash-screen';
+import { StatusBar, Style } from '@capacitor/status-bar';
 import { RouterProvider, matchPath, useRouter } from './router';
 import { AppShell } from './AppShell';
 import { ProgressProvider } from '../state/ProgressContext';
 import { SplashScreen } from '../components/SplashScreen';
+import { stopSpeaking } from '../lib/speech';
 import { HomeScreen } from '../screens/HomeScreen';
 import { CoursesScreen, LevelScreen } from '../screens/CoursesScreen';
 import { LessonScreen } from '../screens/LessonScreen';
@@ -105,23 +108,42 @@ function Screen() {
   return <AppShell>{screens[path] ?? <HomeScreen />}</AppShell>;
 }
 
-/** Android hardware back: go back in history, exit from the home screen. */
-function useAndroidBack() {
+/** Android native lifecycle: hardware back navigation, status bar theming, and speech cleanup on background. */
+function useAndroidNativeLifecycle() {
   useEffect(() => {
     if (!Capacitor.isNativePlatform()) return;
-    const handle = CapApp.addListener('backButton', () => {
-      const atHome = (window.location.hash.replace(/^#/, '') || '/') === '/';
-      if (atHome) void CapApp.exitApp();
-      else window.history.back();
+
+    void StatusBar.setStyle({ style: Style.Dark }).catch(() => {});
+    void StatusBar.setBackgroundColor({ color: '#041917' }).catch(() => {});
+    void CapSplashScreen.hide().catch(() => {});
+
+    const backHandle = CapApp.addListener('backButton', ({ canGoBack }) => {
+      void stopSpeaking();
+      const currentPath = window.location.hash.replace(/^#/, '') || '/';
+      if (currentPath === '/') {
+        void CapApp.exitApp();
+      } else if (canGoBack && window.history.length > 1) {
+        window.history.back();
+      } else {
+        window.location.hash = '/';
+      }
     });
+
+    const stateHandle = CapApp.addListener('appStateChange', ({ isActive }) => {
+      if (!isActive) {
+        void stopSpeaking();
+      }
+    });
+
     return () => {
-      void handle.then((h) => h.remove());
+      void backHandle.then((h) => h.remove());
+      void stateHandle.then((h) => h.remove());
     };
   }, []);
 }
 
 export function App() {
-  useAndroidBack();
+  useAndroidNativeLifecycle();
 
   const isTestEnv = typeof navigator !== 'undefined' && /jsdom/i.test(navigator.userAgent);
   const searchParams = typeof window !== 'undefined' ? new URLSearchParams(window.location.search) : null;
