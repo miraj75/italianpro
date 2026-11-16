@@ -1,11 +1,12 @@
-import { useEffect } from 'react';
+import { useEffect, useState } from 'react';
 import { Capacitor } from '@capacitor/core';
 import { App as CapApp } from '@capacitor/app';
 import { RouterProvider, matchPath, useRouter } from './router';
 import { AppShell } from './AppShell';
 import { ProgressProvider } from '../state/ProgressContext';
+import { SplashScreen } from '../components/SplashScreen';
 import { HomeScreen } from '../screens/HomeScreen';
-import { CoursesScreen } from '../screens/CoursesScreen';
+import { CoursesScreen, LevelScreen } from '../screens/CoursesScreen';
 import { LessonScreen } from '../screens/LessonScreen';
 import { ChallengeScreen } from '../screens/ChallengeScreen';
 import { ProfileScreen } from '../screens/ProfileScreen';
@@ -15,18 +16,26 @@ import { VocabularyScreen } from '../screens/practice/VocabularyScreen';
 import { VerbsScreen } from '../screens/practice/VerbsScreen';
 import { SurvivalScreen } from '../screens/practice/SurvivalScreen';
 import { MistakesScreen } from '../screens/practice/MistakesScreen';
-import { LessonIndexScreen } from '../screens/practice/LessonIndexScreen';
-import { LevelScreen } from '../screens/CoursesScreen';
 import { WordBankScreen } from '../screens/practice/WordBankScreen';
 import { PhrasesScreen, SentencesScreen } from '../screens/practice/SentencesScreen';
 import { PuzzleScreen } from '../screens/practice/PuzzleScreen';
 import { GrammarHubScreen, GrammarTopicScreen } from '../screens/practice/GrammarScreens';
+import { StoriesScreen, StoryReaderScreen } from '../screens/practice/StoriesScreen';
+import { ListeningScreen } from '../screens/practice/ListeningScreen';
+import { ReadingScreen } from '../screens/practice/ReadingScreen';
+import { WritingScreen } from '../screens/practice/WritingScreen';
+import { SpeakingScreen } from '../screens/practice/SpeakingScreen';
+import { AssessmentScreen } from '../screens/AssessmentScreen';
 import { LEVEL_ORDER } from '../content/courses';
 import type { LevelId } from '../content/types';
 
 function Screen() {
   const { route } = useRouter();
   const path = route.path;
+
+  if (path === '/splash') {
+    return <SplashScreen holdOpen />;
+  }
 
   const lesson = matchPath('/lesson/:id', path);
   if (lesson) {
@@ -53,6 +62,22 @@ function Screen() {
       </AppShell>
     );
   }
+  const story = matchPath('/practice/stories/:id', path);
+  if (story) {
+    return (
+      <AppShell>
+        <StoryReaderScreen key={story.id} storyId={story.id!} />
+      </AppShell>
+    );
+  }
+  const assessment = matchPath('/assessment/:level/:id', path);
+  if (assessment && (LEVEL_ORDER as string[]).includes(assessment.level!)) {
+    return (
+      <AppShell>
+        <AssessmentScreen key={`${assessment.level}-${assessment.id}`} level={assessment.level as LevelId} id={assessment.id!} />
+      </AppShell>
+    );
+  }
 
   const screens: Record<string, JSX.Element> = {
     '/': <HomeScreen />,
@@ -67,7 +92,11 @@ function Screen() {
     '/practice/sentences': <SentencesScreen />,
     '/practice/phrases': <PhrasesScreen />,
     '/practice/puzzle': <PuzzleScreen />,
-    '/practice/listening': <LessonIndexScreen mode="listening" />,
+    '/practice/stories': <StoriesScreen />,
+    '/practice/listening': <ListeningScreen />,
+    '/practice/reading': <ReadingScreen />,
+    '/practice/writing': <WritingScreen />,
+    '/practice/speaking': <SpeakingScreen />,
     '/challenge': <ChallengeScreen />,
     '/profile': <ProfileScreen />,
     '/saved': <SavedScreen />,
@@ -93,9 +122,23 @@ function useAndroidBack() {
 
 export function App() {
   useAndroidBack();
+
+  const isTestEnv = typeof navigator !== 'undefined' && /jsdom/i.test(navigator.userAgent);
+  const searchParams = typeof window !== 'undefined' ? new URLSearchParams(window.location.search) : null;
+  const forceSplashHold = searchParams?.get('splash') === '1';
+  const skipSplash = isTestEnv || searchParams?.get('nosplash') === '1';
+
+  const [showSplash, setShowSplash] = useState(() => !skipSplash);
+
   return (
     <ProgressProvider>
       <RouterProvider>
+        {showSplash && (
+          <SplashScreen
+            holdOpen={forceSplashHold}
+            onFinish={() => setShowSplash(false)}
+          />
+        )}
         <Screen />
       </RouterProvider>
     </ProgressProvider>

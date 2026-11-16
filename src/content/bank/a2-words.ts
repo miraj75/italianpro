@@ -521,4 +521,31 @@ diverso|ভিন্ন|different
 uguale|একই রকম|equal / same
 possibile|সম্ভব|possible
 impossibile|অসম্ভব|impossible
+# ব্যাংক, নথিপত্র ও সংবাদমাধ্যম / Banking, documents & media
+la marca da bollo|রাজস্ব স্ট্যাম্প|revenue stamp
+l'ufficio postale|ডাকঘর|post office
+il bollettino|বিল পরিশোধের স্লিপ|payment slip
+la ricevuta|রসিদ (আদায়ের প্রমাণ)|official receipt
+il prestito|ঋণ|loan
+la rata|কিস্তি|instalment
+il portafoglio|মানিব্যাগ|wallet
+l'abbonamento|মাসিক/বার্ষিক পাস বা সাবস্ক্রিপশন|pass / subscription
+la patente|ড্রাইভিং লাইসেন্স|driving licence
+il certificato|সনদপত্র|certificate
+la delega|প্রতিনিধিত্বের অনুমতিপত্র|written authorisation
+il tirocinio|ইন্টার্নশিপ|internship
+la tesi|থিসিস / গবেষণাপত্র|thesis
+il compagno di corso|সহপাঠী (কোর্সের)|coursemate
+l'amicizia|বন্ধুত্ব|friendship
+il telegiornale|টিভি সংবাদ|TV news
+la rivista|সাময়িকী / ম্যাগাজিন|magazine
+il giornale|সংবাদপত্র|newspaper
+la notizia|খবর|piece of news
+la spedizione|পার্সেল পাঠানো / ডেলিভারি|shipping / dispatch
+il corriere|কুরিয়ার|courier
+il reclamo|অভিযোগ|complaint
+il rimborso|টাকা ফেরত|refund
+l'assicurazione|বীমা|insurance
+il mutuo|গৃহঋণ / মর্টগেজ|mortgage
+il cambio|বিনিময় হার / বদল|exchange / swap
 `;

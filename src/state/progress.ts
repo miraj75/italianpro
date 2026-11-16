@@ -20,13 +20,25 @@ export interface ProgressState {
   settings: { explainLang: ExplainLang; dailyGoalMinutes: number };
   xp: number;
   lessons: Record<string, LessonProgress>;
-  /** Spaced-repetition cards keyed by `${lessonId}:${phraseId}`. */
+  /** Spaced-repetition cards keyed by `${lessonId}:${phraseId}` or `w:<level>:<it>`. */
   cards: Record<string, CardState>;
   /** Wrong quiz answers keyed by `${lessonId}:${questionId}`. */
   mistakes: Record<string, number>;
+  /** Optional recorded wrong answer text for lesson quiz mistakes. */
+  mistakeAnswers?: Record<string, string>;
   /** Per-day study seconds and completed plan tasks. */
   days: Record<string, { seconds: number; tasks: TaskKind[] }>;
   saved: string[];
+  storiesDone: Record<string, boolean>;
+  bookmarkedStories: string[];
+  listeningScores: Record<string, number>;
+  readingDone: Record<string, boolean>;
+  writingDone: string[];
+  speakingDone: string[];
+  assessments: Record<string, { score: number; passed: boolean }>;
+  puzzleMistakes: Record<string, number>;
+  /** Optional recorded wrong answer text for puzzle mistakes. */
+  puzzleMistakeAnswers?: Record<string, string>;
 }
 
 export const XP = {
@@ -34,6 +46,12 @@ export const XP = {
   correctAnswer: 5,
   cardReview: 2,
   challenge: 50,
+  storyComplete: 25,
+  listeningComplete: 20,
+  readingComplete: 20,
+  writingComplete: 25,
+  speakingComplete: 20,
+  assessmentPass: 60,
 } as const;
 
 export function initialState(): ProgressState {
@@ -44,14 +62,24 @@ export function initialState(): ProgressState {
     lessons: {},
     cards: {},
     mistakes: {},
+    mistakeAnswers: {},
     days: {},
     saved: [],
+    storiesDone: {},
+    bookmarkedStories: [],
+    listeningScores: {},
+    readingDone: {},
+    writingDone: [],
+    speakingDone: [],
+    assessments: {},
+    puzzleMistakes: {},
+    puzzleMistakeAnswers: {},
   };
 }
 
 export type Action =
   | { type: 'viewLessonTab'; lessonId: string; tab: string; phraseIds: string[]; today: string }
-  | { type: 'submitQuiz'; lessonId: string; results: { questionId: string; correct: boolean }[]; today: string }
+  | { type: 'submitQuiz'; lessonId: string; results: { questionId: string; correct: boolean; chosen?: string }[]; today: string }
   | { type: 'reviewCard'; key: string; remembered: boolean; today: string }
   | { type: 'completeTask'; task: TaskKind; today: string }
   | { type: 'completeChallenge'; correct: number; today: string }
@@ -60,6 +88,15 @@ export type Action =
   | { type: 'clearMistake'; key: string }
   | { type: 'addCards'; keys: string[]; today: string }
   | { type: 'awardXp'; amount: number; today: string }
+  | { type: 'completeStory'; storyId: string; today: string }
+  | { type: 'toggleBookmarkStory'; storyId: string }
+  | { type: 'recordListening'; exerciseId: string; score: number; today: string }
+  | { type: 'completeReading'; readingId: string; score?: number; today: string }
+  | { type: 'completeWriting'; writingId: string; today: string }
+  | { type: 'completeSpeaking'; speakingId: string; today: string }
+  | { type: 'submitAssessment'; assessmentId: string; score: number; passScore: number; today: string }
+  | { type: 'recordPuzzleMistake'; puzzleId: string; givenAnswer?: string }
+  | { type: 'clearPuzzleMistake'; puzzleId: string; today: string }
   | { type: 'setExplainLang'; lang: ExplainLang }
   | { type: 'setDailyGoal'; minutes: number }
   | { type: 'reset' };
@@ -94,14 +131,21 @@ export function reducer(state: ProgressState, action: Action): ProgressState {
       const passed = score >= LESSON_PASS_SCORE;
       const newlyCompleted = passed && !prev.completed;
       const mistakes = { ...state.mistakes };
+      const mistakeAnswers = { ...(state.mistakeAnswers ?? {}) };
       for (const r of action.results) {
         const key = `${action.lessonId}:${r.questionId}`;
-        if (r.correct) delete mistakes[key];
-        else mistakes[key] = (mistakes[key] ?? 0) + 1;
+        if (r.correct) {
+          delete mistakes[key];
+          delete mistakeAnswers[key];
+        } else {
+          mistakes[key] = (mistakes[key] ?? 0) + 1;
+          if (r.chosen !== undefined) mistakeAnswers[key] = r.chosen;
+        }
       }
       let next: ProgressState = {
         ...state,
         mistakes,
+        mistakeAnswers,
         xp: state.xp + correct * XP.correctAnswer + (newlyCompleted ? XP.lessonComplete : 0),
         lessons: {
           ...state.lessons,
@@ -156,11 +200,128 @@ export function reducer(state: ProgressState, action: Action): ProgressState {
       const day = state.days[action.today] ?? { seconds: 0, tasks: [] };
       return { ...state, xp: state.xp + action.amount, days: { ...state.days, [action.today]: day } };
     }
+    case 'completeStory': {
+      const first = !state.storiesDone[action.storyId];
+      const next = withTask(
+        {
+          ...state,
+          xp: state.xp + (first ? XP.storyComplete : 0),
+          storiesDone: { ...state.storiesDone, [action.storyId]: true },
+        },
+        action.today,
+        'review',
+      );
+      return next;
+    }
+    case 'toggleBookmarkStory': {
+      const has = state.bookmarkedStories.includes(action.storyId);
+      const bookmarkedStories = has
+        ? state.bookmarkedStories.filter((id) => id !== action.storyId)
+        : [...state.bookmarkedStories, action.storyId];
+      return { ...state, bookmarkedStories };
+    }
+    case 'recordListening': {
+      const prev = state.listeningScores[action.exerciseId];
+      const first = prev === undefined;
+      return withTask(
+        {
+          ...state,
+          xp: state.xp + (first ? XP.listeningComplete : 0),
+          listeningScores: {
+            ...state.listeningScores,
+            [action.exerciseId]: Math.max(prev ?? 0, action.score),
+          },
+        },
+        action.today,
+        'listening',
+      );
+    }
+    case 'completeReading': {
+      if (action.score !== undefined && action.score <= 0) {
+        return state;
+      }
+      const first = !state.readingDone[action.readingId];
+      return withTask(
+        {
+          ...state,
+          xp: state.xp + (first ? XP.readingComplete : 0),
+          readingDone: { ...state.readingDone, [action.readingId]: true },
+        },
+        action.today,
+        'review',
+      );
+    }
+    case 'completeWriting': {
+      const has = state.writingDone.includes(action.writingId);
+      return withTask(
+        {
+          ...state,
+          xp: state.xp + (has ? 0 : XP.writingComplete),
+          writingDone: has ? state.writingDone : [...state.writingDone, action.writingId],
+        },
+        action.today,
+        'review',
+      );
+    }
+    case 'completeSpeaking': {
+      const has = state.speakingDone.includes(action.speakingId);
+      return withTask(
+        {
+          ...state,
+          xp: state.xp + (has ? 0 : XP.speakingComplete),
+          speakingDone: has ? state.speakingDone : [...state.speakingDone, action.speakingId],
+        },
+        action.today,
+        'listening',
+      );
+    }
+    case 'submitAssessment': {
+      const prev = state.assessments[action.assessmentId];
+      const passed = action.score >= action.passScore;
+      const newlyPassed = passed && !prev?.passed;
+      return withTask(
+        {
+          ...state,
+          xp: state.xp + (newlyPassed ? XP.assessmentPass : 0),
+          assessments: {
+            ...state.assessments,
+            [action.assessmentId]: {
+              score: Math.max(prev?.score ?? 0, action.score),
+              passed: prev?.passed || passed,
+            },
+          },
+        },
+        action.today,
+        'lesson',
+      );
+    }
+    case 'recordPuzzleMistake': {
+      const count = (state.puzzleMistakes[action.puzzleId] ?? 0) + 1;
+      const puzzleMistakeAnswers = { ...(state.puzzleMistakeAnswers ?? {}) };
+      if (action.givenAnswer !== undefined) {
+        puzzleMistakeAnswers[action.puzzleId] = action.givenAnswer;
+      }
+      return {
+        ...state,
+        puzzleMistakes: { ...state.puzzleMistakes, [action.puzzleId]: count },
+        puzzleMistakeAnswers,
+      };
+    }
+    case 'clearPuzzleMistake': {
+      if (!(action.puzzleId in state.puzzleMistakes)) return state;
+      const puzzleMistakes = { ...state.puzzleMistakes };
+      const puzzleMistakeAnswers = { ...(state.puzzleMistakeAnswers ?? {}) };
+      delete puzzleMistakes[action.puzzleId];
+      delete puzzleMistakeAnswers[action.puzzleId];
+      return { ...state, puzzleMistakes, puzzleMistakeAnswers, xp: state.xp + XP.correctAnswer };
+    }
     case 'clearMistake': {
       if (!(action.key in state.mistakes)) return state;
       const mistakes = { ...state.mistakes };
+      const mistakeAnswers = { ...(state.mistakeAnswers ?? {}) };
       delete mistakes[action.key];
-      return { ...state, mistakes, xp: state.xp + XP.correctAnswer };
+      delete mistakeAnswers[action.key];
+      return { ...state, mistakes, mistakeAnswers, xp: state.xp + XP.correctAnswer };
     }
     case 'setExplainLang':
       return { ...state, settings: { ...state.settings, explainLang: action.lang } };

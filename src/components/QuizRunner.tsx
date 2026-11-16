@@ -7,6 +7,7 @@ import { Button, GlassCard, ProgressBar, cx } from './ui';
 export interface QuizResult {
   questionId: string;
   correct: boolean;
+  chosen?: string;
 }
 
 /** Reusable multiple-choice runner with per-question explanations. */
@@ -21,6 +22,7 @@ export function QuizRunner({
   const [index, setIndex] = useState(0);
   const [selected, setSelected] = useState<number | null>(null);
   const [checked, setChecked] = useState(false);
+  const [finished, setFinished] = useState(false);
   const [results, setResults] = useState<QuizResult[]>([]);
 
   const q = questions[index];
@@ -28,13 +30,15 @@ export function QuizRunner({
   const isCorrect = selected === q.answer;
 
   const check = () => {
-    if (selected === null) return;
+    if (selected === null || checked) return;
     setChecked(true);
-    setResults((r) => [...r, { questionId: q.id, correct: selected === q.answer }]);
+    setResults((r) => [...r, { questionId: q.id, correct: selected === q.answer, chosen: q.options[selected] }]);
   };
 
   const next = () => {
     if (index + 1 >= questions.length) {
+      if (finished) return;
+      setFinished(true);
       onFinish(results);
       return;
     }

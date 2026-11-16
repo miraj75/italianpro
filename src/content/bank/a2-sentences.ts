@@ -206,4 +206,168 @@ Quando arrivo, ti chiamo.|পৌঁছালে তোমাকে ফোন দ
 Mentre aspettavo, ho letto il giornale.|অপেক্ষার সময় আমি পত্রিকা পড়েছি।|While I was waiting, I read the paper.|connettivi
 Purtroppo il museo era chiuso.|দুর্ভাগ্যবশত জাদুঘর বন্ধ ছিল।|Unfortunately the museum was closed.|connettivi
 Anche se è tardi, voglio finire.|দেরি হলেও আমি শেষ করতে চাই।|Even though it's late, I want to finish.|connettivi
+Ho fatto tutti i compiti prima di cena.|রাতের খাবারের আগেই আমি সব বাড়ির কাজ করেছি।|I did all the homework before dinner.|passato-irregolari
+Cosa hai detto al direttore?|তুমি পরিচালককে কী বলেছো?|What did you say to the director?|passato-irregolari
+Abbiamo letto l'articolo sul giornale di oggi.|আমরা আজকের পত্রিকায় প্রবন্ধটা পড়েছি।|We read the article in today's newspaper.|passato-irregolari
+Marco ha scritto una mail all'ufficio postale.|মার্কো ডাকঘর অফিসে একটা ইমেইল লিখেছে।|Marco wrote an email to the post office.|passato-irregolari
+Ho preso l'abbonamento mensile per il tram.|আমি ট্রামের মাসিক পাস নিয়েছি।|I got the monthly pass for the tram.|passato-irregolari
+Avete visto la nuova mostra in centro?|তোমরা কি শহরের কেন্দ্রের নতুন প্রদর্শনী দেখেছো?|Have you seen the new exhibition downtown?|passato-irregolari
+Il comune ha aperto uno sportello nuovo.|পৌরসভা একটা নতুন কাউন্টার খুলেছে।|The town hall opened a new desk.|passato-irregolari
+Ho chiuso la finestra perché faceva freddo.|ঠান্ডা লাগছিল বলে আমি জানালা বন্ধ করেছি।|I closed the window because it was cold.|passato-irregolari
+Non ha ancora risposto al mio messaggio.|সে এখনো আমার মেসেজের উত্তর দেয়নি।|He hasn't replied to my message yet.|passato-irregolari
+Abbiamo chiesto un certificato di residenza.|আমরা বসবাসের সনদপত্র চেয়েছি।|We requested a residence certificate.|passato-irregolari
+Siamo rimasti in banca per quasi un'ora.|আমরা প্রায় এক ঘণ্টা ব্যাংকে ছিলাম।|We stayed at the bank for almost an hour.|passato-irregolari
+Ho perso il portafoglio sull'autobus ieri.|গতকাল বাসে আমার মানিব্যাগ হারিয়ে গেছে।|I lost my wallet on the bus yesterday.|passato-irregolari
+Maria è arrivata in stazione alle otto precise.|মারিয়া ঠিক আটটায় স্টেশনে পৌঁছেছে।|Maria arrived at the station at eight sharp.|accordo-participio
+Le mie amiche sono partite per Bologna stamattina.|আমার বান্ধবীরা আজ সকালে বোলোনিয়ার উদ্দেশ্যে রওনা হয়েছে।|My female friends left for Bologna this morning.|accordo-participio
+Hai comprato le mele? Sì, le ho comprate al mercato.|আপেল কিনেছো? হ্যাঁ, বাজার থেকে সেগুলো কিনেছি।|Did you buy the apples? Yes, I bought them at the market.|accordo-participio
+Ecco la ricevuta, l'ho messa nella tua borsa.|এই যে রসিদ, আমি ওটা তোমার ব্যাগে রেখেছি।|Here is the receipt, I put it in your bag.|accordo-participio
+Dov'è il passaporto? L'ho lasciato sul tavolo.|পাসপোর্ট কোথায়? ওটা টেবিলের ওপর রেখে এসেছি।|Where is the passport? I left it on the table.|accordo-participio
+I biglietti del treno? Li ho già stampati.|ট্রেনের টিকিটগুলো? আমি ইতিমধ্যে সেগুলো প্রিন্ট করেছি।|The train tickets? I have already printed them.|accordo-participio
+La lettera è stata scritta con molta cura.|চিঠিটি খুব যত্ন নিয়ে লেখা হয়েছে।|The letter was written very carefully.|accordo-participio
+Quando siamo tornati a casa, pioveva forte.|আমরা যখন বাড়ি ফিরলাম, তখন জোরে বৃষ্টি হচ্ছিল।|When we came back home, it was raining heavily.|accordo-participio
+Le ragazze si sono alzate presto per l'esame.|মেয়েরা পরীক্ষার জন্য তাড়াতাড়ি উঠেছে।|The girls got up early for the exam.|accordo-participio
+Quella foto è bellissima, chi l'ha scattata?|ঐ ছবিটা খুব সুন্দর, কে তুলেছে?|That photo is lovely, who took it?|accordo-participio
+Mentre studiavo in biblioteca, è arrivato il mio compagno di corso.|আমি যখন লাইব্রেরিতে পড়ছিলাম, তখন আমার কোর্সের সহপাঠী এলো।|While I was studying at the library, my coursemate arrived.|imperfetto-vs-passato
+Da bambino abitavo al mare, ma poi mi sono trasferito a Milano.|ছোটবেলায় আমি সমুদ্রতীরে থাকতাম, কিন্তু পরে মিলানে চলে আসি।|As a child I lived by the sea, then I moved to Milan.|imperfetto-vs-passato
+Faceva molto caldo, quindi abbiamo comprato due gelati.|খুব গরম ছিল, তাই আমরা দুটো আইসক্রিম কিনেছি।|It was very hot, so we bought two ice creams.|imperfetto-vs-passato
+Di solito andavo al lavoro in bici, ma ieri ho preso il metro.|সাধারণত আমি সাইকেলে কাজে যেতাম, কিন্তু গতকাল মেট্রো ধরেছি।|Usually I cycled to work, but yesterday I took the metro.|imperfetto-vs-passato
+Ero molto stanco perché avevo lavorato otto ore.|আমি খুব ক্লান্ত ছিলাম কারণ আট ঘণ্টা কাজ করেছিলাম।|I was very tired because I had worked eight hours.|imperfetto-vs-passato
+Stavamo cenando quando è suonato il campanello.|আমরা রাতের খাবার খাচ্ছিলাম, ঠিক তখন দরজার ঘণ্টা বাজল।|We were having dinner when the doorbell rang.|imperfetto-vs-passato
+Quando avevo dieci anni, suonavo sempre la chitarra.|যখন আমার দশ বছর বয়স ছিল, আমি সবসময় গিটার বাজাতাম।|When I was ten, I always played the guitar.|imperfetto-vs-passato
+L'anno scorso andavamo spesso al cinema il venerdì.|গত বছর আমরা প্রায়ই শুক্রবারে সিনেমায় যেতাম।|Last year we often went to the cinema on Fridays.|imperfetto-vs-passato
+Ho visto Luca mentre attraversava la piazza.|আমি লুকাকে দেখেছি যখন সে চত্বর পার হচ্ছিল।|I saw Luca while he was crossing the square.|imperfetto-vs-passato
+Non sono uscito stamattina perché nevicava troppo.|আজ সকালে আমি বের হইনি কারণ খুব তুষারপাত হচ্ছিল।|I didn't go out this morning because it was snowing too hard.|imperfetto-vs-passato
+Sbrigati, il treno sta per partire dal binario due!|তাড়াতাড়ি করো, ট্রেন এইমাত্র দুই নম্বর প্ল্যাটফর্ম থেকে ছাড়তে যাচ্ছে!|Hurry up, the train is about to leave from platform two!|stare-per
+Prendi l'ombrello, sta per piovere.|ছাতা নাও, এইমাত্র বৃষ্টি শুরু হতে যাচ্ছে।|Take your umbrella, it's about to rain.|stare-per
+Stavo per uscire quando mi ha telefonato il capo.|আমি ঠিক বের হতে যাচ্ছিলাম, তখন বস ফোন দিলেন।|I was about to go out when my boss phoned me.|stare-per
+Il negozio sta per chiudere tra dieci minuti.|দোকানটি দশ মিনিটের মধ্যে বন্ধ হতে যাচ্ছে।|The shop is about to close in ten minutes.|stare-per
+Stiamo per iniziare la riunione con i colleghi.|আমরা সহকর্মীদের সাথে মিটিং শুরু করতে যাচ্ছি।|We are about to start the meeting with colleagues.|stare-per
+La batteria del telefono sta per finire.|ফোনের ব্যাটারি প্রায় শেষ হয়ে যাচ্ছে।|The phone battery is about to run out.|stare-per
+Stavo per addormentarmi sul divano.|আমি সোফার ওপর প্রায় ঘুমিয়ে পড়েছিলাম।|I was about to fall asleep on the sofa.|stare-per
+Il film sta per cominciare, spegni il cellulare.|সিনেমা শুরু হতে যাচ্ছে, মোবাইল বন্ধ করো।|The film is about to start, switch off your phone.|stare-per
+Stavate per pagare il conto quando siamo arrivati?|আমরা যখন এলাম, তোমরা কি বিল দিতে যাচ্ছিলে?|Were you about to pay the bill when we arrived?|stare-per
+Il corso d'italiano sta per finire questa settimana.|এই সপ্তাহে ইতালিয়ান কোর্স শেষ হতে যাচ্ছে।|The Italian course is about to end this week.|stare-per
+L'amico che ti ho presentato ieri studia medicina.|যে বন্ধুকে গতকাল তোমার সাথে পরিচয় করিয়ে দিয়েছিলাম সে মেডিকেল পড়ে।|The friend I introduced to you yesterday studies medicine.|pronomi-relativi-a2
+Il libro che sto leggendo parla della storia di Venezia.|যে বইটা আমি পড়ছি, তা ভেনিসের ইতিহাস নিয়ে লেখা।|The book I am reading is about the history of Venice.|pronomi-relativi-a2
+La città dove sono nato è molto vivace.|যে শহরে আমার জন্ম, তা খুব প্রাণবন্ত।|The city where I was born is very lively.|pronomi-relativi-a2
+Il palazzo in cui abito ha un piccolo giardino.|আমি যে ভবনে থাকি সেখানে একটা ছোট বাগান আছে।|The building in which I live has a small garden.|pronomi-relativi-a2
+La collega con cui lavoro è molto paziente.|আমি যে সহকর্মীর সাথে কাজ করি সে খুব ধৈর্যশীল।|The colleague with whom I work is very patient.|pronomi-relativi-a2
+Questo è il ristorante di cui ti parlavo.|এটাই সেই রেস্টুরেন্ট যার কথা তোমাকে বলছিলাম।|This is the restaurant I was telling you about.|pronomi-relativi-a2
+Non trovo la borsa che ho comprato sabato.|শনিবার যে ব্যাগটা কিনেছি সেটা খুঁজে পাচ্ছি না।|I can't find the bag I bought on Saturday.|pronomi-relativi-a2
+L'albergo dove abbiamo dormito era vicino al porto.|যে হোটেলে আমরা ঘুমিয়েছিলাম সেটা বন্দরের কাছে ছিল।|The hotel where we slept was near the port.|pronomi-relativi-a2
+Il treno che arriva alle dieci è sempre affollato.|দশটায় যে ট্রেনটা আসে সেটা সবসময় ভিড় থাকে।|The train that arrives at ten is always crowded.|pronomi-relativi-a2
+La persona che ha chiamato prima non ha lasciato il nome.|আগে যে ব্যক্তি ফোন করেছিল সে নাম বলেনি।|The person who called earlier didn't leave a name.|pronomi-relativi-a2
+Qualcuno ha bussato alla porta poco fa.|একটু আগে কেউ দরজায় কড়া নেড়েছে।|Someone knocked on the door a moment ago.|indefiniti-a2
+Vuoi bere qualcosa di caldo dopo la passeggiata?|হাঁটাহাঁটির পর গরম কিছু পান করতে চাও?|Do you want to drink something warm after the walk?|indefiniti-a2
+Ogni mattina faccio colazione al bar sotto casa.|প্রতিদিন সকালে আমি বাড়ির নিচের ক্যাফেতে নাস্তা করি।|Every morning I have breakfast at the café downstairs.|indefiniti-a2
+Tutti i miei amici parlano almeno due lingue.|আমার সব বন্ধু অন্তত দুটি ভাষায় কথা বলে।|All my friends speak at least two languages.|indefiniti-a2
+Ho comprato qualche rivista italiana per esercitarmi.|অনুশীলন করার জন্য আমি কয়েকটি ইতালিয়ান ম্যাগাজিন কিনেছি।|I bought a few Italian magazines to practise.|indefiniti-a2
+Alcuni studenti preferiscono studiare la notte.|কিছু ছাত্র রাতে পড়তে পছন্দ করে।|Some students prefer to study at night.|indefiniti-a2
+C'è qualcosa che non capisco in questo modulo.|এই ফর্মে এমন কিছু আছে যা আমি বুঝতে পারছি না।|There is something I don't understand on this form.|indefiniti-a2
+Non conosco nessuno in questo quartiere nuovo.|এই নতুন পাড়ায় আমি কাউকে চিনি না।|I don't know anyone in this new neighbourhood.|indefiniti-a2
+Tutta la città era piena di turisti in agosto.|আগস্টে পুরো শহর পর্যটকে ভরা ছিল।|The whole city was full of tourists in August.|indefiniti-a2
+Qualche volta cuciniamo piatti tradizionali insieme.|মাঝে মাঝে আমরা একসাথে ঐতিহ্যবাহী খাবার রান্না করি।|Sometimes we cook traditional dishes together.|indefiniti-a2
+Il professore spiega sempre molto chiaramente.|অধ্যাপক সবসময় খুব স্পষ্টভাবে বোঝান।|The professor always explains very clearly.|avverbi-a2
+Parla più lentamente, per favore, non riesco a seguire.|অনুগ্রহ করে আরও ধীরে বলুন, আমি ধরতে পারছি না।|Speak more slowly, please, I can't follow.|avverbi-a2
+Fortunatamente abbiamo trovato un tavolo libero subito.|সৌভাগ্যবশত আমরা সাথে সাথেই একটা খালি টেবিল পেয়ে গেছি।|Fortunately we found a free table straight away.|avverbi-a2
+Ho imparato facilmente le parole di questa unità.|আমি সহজেই এই ইউনিটের শব্দগুলো শিখে নিয়েছি।|I easily learned the words in this unit.|avverbi-a2
+Vado spesso in palestra dopo il lavoro.|কাজের পর আমি প্রায়ই জিমে যাই।|I often go to the gym after work.|avverbi-a2
+Non guardo quasi mai il telegiornale la sera.|সন্ধ্যায় আমি প্রায় কখনোই টিভি সংবাদ দেখি না।|I hardly ever watch the evening news.|avverbi-a2
+Abbiamo appena ricevuto la conferma della prenotazione.|আমরা এইমাত্র বুকিংয়ের নিশ্চয়তা পেয়েছি।|We have just received the booking confirmation.|avverbi-a2
+Sei già stato all'ufficio postale stamattina?|তুমি কি আজ সকালে ইতিমধ্যে ডাকঘরে গিয়েছো?|Have you already been to the post office this morning?|avverbi-a2
+Non ho ancora compilato il bollettino.|আমি এখনো পেমেন্ট স্লিপটা পূরণ করিনি।|I haven't filled in the payment slip yet.|avverbi-a2
+Probabilmente partiremo venerdì pomeriggio.|সম্ভবত আমরা শুক্রবার বিকেলে রওনা দেব।|We will probably leave on Friday afternoon.|avverbi-a2
+Ho iniziato a lavorare in questa azienda un mese fa.|আমি এক মাস আগে এই কোম্পানিতে কাজ শুরু করেছি।|I started working at this company a month ago.|preposizioni-verbi
+Abbiamo deciso di traslocare vicino all'università.|আমরা বিশ্ববিদ্যালয়ের কাছে বাসা বদলানোর সিদ্ধান্ত নিয়েছি।|We decided to move near the university.|preposizioni-verbi
+Non riesco a trovare il mio codice fiscale.|আমি আমার ট্যাক্স কোড খুঁজে পাচ্ছি না।|I can't manage to find my tax code.|preposizioni-verbi
+Spero di superare l'esame con un buon voto.|আমি ভালো নম্বর পেয়ে পরীক্ষায় পাস করার আশা করি।|I hope to pass the exam with a good grade.|preposizioni-verbi
+Sto imparando a guidare la macchina con mio zio.|আমি আমার চাচার সাথে গাড়ি চালানো শিখছি।|I am learning to drive a car with my uncle.|preposizioni-verbi
+Hai finito di scrivere la tesi di laurea?|তুমি কি স্নাতকের থিসিস লেখা শেষ করেছো?|Have you finished writing your degree thesis?|preposizioni-verbi
+Non dimenticare di firmare il contratto prima di spedirlo.|পাঠানোর আগে চুক্তিতে স্বাক্ষর করতে ভুলো না।|Don't forget to sign the contract before sending it.|preposizioni-verbi
+Provo a chiamare il corriere per la spedizione.|পার্সেল ডেলিভারির জন্য আমি কুরিয়ারকে ফোন করার চেষ্টা করছি।|I'm trying to call the courier about the delivery.|preposizioni-verbi
+Cominciamo a preparare la cena alle sette.|আমরা সাতটায় রাতের খাবার তৈরি করা শুরু করি।|We begin preparing dinner at seven.|preposizioni-verbi
+Cerchiamo di risparmiare per le vacanze estive.|গ্রীষ্মের ছুটির জন্য আমরা টাকা জমানোর চেষ্টা করছি।|We are trying to save up for the summer holidays.|preposizioni-verbi
+Non preoccuparti, vedrai che ce la farai!|চিন্তা কোরো না, দেখবে তুমি ঠিকই পারবে!|Don't worry, you'll see you'll make it!|verbi-pronominali-a2
+È tardi, me ne vado a casa adesso.|দেরি হয়ে গেছে, আমি এখন বাড়ি চলে যাচ্ছি।|It's late, I'm heading home now.|verbi-pronominali-a2
+Quanto tempo ci vuole per arrivare in aeroporto?|বিমানবন্দরে পৌঁছাতে কত সময় লাগে?|How long does it take to get to the airport?|verbi-pronominali-a2
+Ci vogliono almeno quaranta minuti in autobus.|বাসে অন্তত চল্লিশ মিনিট লাগে।|It takes at least forty minutes by bus.|verbi-pronominali-a2
+Non ce la faccio più a fare questa fila infinita.|এই অন্তহীন লাইনে দাঁড়িয়ে থাকতে আর পারছি না।|I can't stand queueing in this endless line anymore.|verbi-pronominali-a2
+Quando te ne vai in vacanza quest'anno?|এ বছর তুমি কবে ছুটিতে চলে যাচ্ছো?|When are you going away on holiday this year?|verbi-pronominali-a2
+Ci è voluto molto coraggio per cambiare lavoro.|চাকরি বদলাতে অনেক সাহসের দরকার হয়েছিল।|It took a lot of courage to change jobs.|verbi-pronominali-a2
+I nostri vicini se ne sono andati ieri sera.|আমাদের প্রতিবেশীরা গতকাল সন্ধ্যায় চলে গেছে।|Our neighbours left yesterday evening.|verbi-pronominali-a2
+Ce l'hai fatta a consegnare i documenti in tempo?|সময়মতো কাগজপত্র জমা দিতে পেরেছো কি?|Did you manage to hand in the documents on time?|verbi-pronominali-a2
+Ci metto venti minuti a piedi fino alla stazione.|স্টেশন পর্যন্ত হেঁটে যেতে আমার বিশ মিনিট লাগে।|It takes me twenty minutes on foot to the station.|verbi-pronominali-a2
+Il nostro appartamento è al terzo piano senza ascensore.|আমাদের অ্যাপার্টমেন্ট লিফট ছাড়া তিন তলায়।|Our flat is on the third floor without a lift.|numerali-ordinali
+È la prima volta che visito il sud Italia.|এটাই প্রথমবার আমি দক্ষিণ ইতালি ঘুরছি।|It's the first time I'm visiting southern Italy.|numerali-ordinali
+Scenda alla quarta fermata dopo il ponte.|সেতুর পরে চতুর্থ স্টপেজে নামুন।|Get off at the fourth stop after the bridge.|numerali-ordinali
+Marco è arrivato secondo alla gara di nuoto.|সাঁতার প্রতিযোগিতায় মার্কো দ্বিতীয় হয়েছে।|Marco came second in the swimming race.|numerali-ordinali
+Questo è il quinto capitolo del libro.|এটা বইয়ের পঞ্চম অধ্যায়।|This is the fifth chapter of the book.|numerali-ordinali
+Abito qui dal ventesimo secolo, dice ridendo il nonno.|দাদা হেসে বলেন, আমি বিংশ শতাব্দী থেকে এখানে থাকি।|Granddad laughs and says I've lived here since the twentieth century.|numerali-ordinali
+Prendi la seconda strada a destra dopo il semaforo.|ট্রাফিক লাইটের পর ডানদিকের দ্বিতীয় রাস্তা ধরো।|Take the second street on the right after the traffic lights.|numerali-ordinali
+Il sesto mese dell'anno è giugno.|বছরের ষষ্ঠ মাস হলো জুন।|The sixth month of the year is June.|numerali-ordinali
+Abbiamo festeggiato il decimo anniversario di matrimonio.|আমরা দশম বিবাহবার্ষিকী উদযাপন করেছি।|We celebrated our tenth wedding anniversary.|numerali-ordinali
+È l'ottava lezione del nostro corso A2.|এটা আমাদের A2 কোর্সের অষ্টম পাঠ।|It's the eighth lesson of our A2 course.|numerali-ordinali
+Questo lavoro ha un orario migliore del precedente.|আগেরটার চেয়ে এই কাজের সময়সূচি ভালো।|This job has better hours than the previous one.|comparativi-irregolari
+La pizza di questo forno è ottima!|এই বেকারির পিৎজা চমৎকার!|The pizza from this bakery is excellent!|comparativi-irregolari
+Oggi parlo italiano molto meglio rispetto all'anno scorso.|গত বছরের তুলনায় আজ আমি অনেক ভালো ইতালিয়ান বলি।|Today I speak Italian much better compared to last year.|comparativi-irregolari
+Il servizio di questo corriere è pessimo, arriva sempre tardi.|এই কুরিয়ারের সেবা খুব খারাপ, সবসময় দেরিতে আসে।|This courier's service is terrible, it always arrives late.|comparativi-irregolari
+Mia sorella minore studia al liceo.|আমার ছোট বোন উচ্চমাধ্যমিকে পড়ে।|My younger sister studies at high school.|comparativi-irregolari
+Il mio fratello maggiore lavora a Torino come ingegnere.|আমার বড় ভাই তুরিনে প্রকৌশলী হিসেবে কাজ করেন।|My older brother works in Turin as an engineer.|comparativi-irregolari
+La situazione del traffico oggi è peggiore di ieri.|আজকের যানজটের অবস্থা গতকালের চেয়ে খারাপ।|Today's traffic situation is worse than yesterday's.|comparativi-irregolari
+Abbiamo fatto un ottimo affare con i saldi.|সেলের সময় আমরা দারুণ একটা লাভজনক কেনাকাটা করেছি।|We got an excellent bargain during the sales.|comparativi-irregolari
+Penso che il treno sia la scelta migliore per viaggiare.|আমার মনে হয় ভ্রমণের জন্য ট্রেনই সেরা পছন্দ।|I think the train is the best choice for travelling.|comparativi-irregolari
+Dormendo otto ore si lavora molto meglio.|আট ঘণ্টা ঘুমালে কাজ অনেক ভালো হয়।|By sleeping eight hours you work much better.|comparativi-irregolari
+Come si dice "ricevuta" in inglese?|ইংরেজিতে "ricevuta" কীভাবে বলে?|How do you say "ricevuta" in English?|si-impersonale-a2
+Qui si parla italiano, bengalese e inglese.|এখানে ইতালিয়ান, বাংলা এবং ইংরেজিতে কথা বলা হয়।|Italian, Bengali and English are spoken here.|si-impersonale-a2
+Scusi, si può pagare con il bancomat?|মাফ করবেন, এটিএম কার্ড দিয়ে কি টাকা দেওয়া যায়?|Excuse me, can one pay by debit card?|si-impersonale-a2
+In questa trattoria si mangia benissimo e si spende poco.|এই রেস্তোরাঁয় খুব ভালো খাওয়া যায় আর খরচও কম।|In this trattoria you eat really well and spend little.|si-impersonale-a2
+Dove si comprano i francobolli per l'estero?|বিদেশের জন্য ডাকটিকিট কোথায় কেনা যায়?|Where do you buy stamps for abroad?|si-impersonale-a2
+Si entra da questa porta e si gira a sinistra.|এই দরজা দিয়ে ঢুকে বাম দিকে যেতে হয়।|You enter through this door and turn left.|si-impersonale-a2
+La domenica mattina ci si riposa volentieri.|রবিবার সকালে সবাই আনন্দে বিশ্রাম নেয়।|On Sunday mornings people gladly rest.|si-impersonale-a2
+In Italia si bevono molti caffè durante la giornata.|ইতালিতে সারাদিনে অনেক কফি পান করা হয়।|In Italy people drink a lot of coffees during the day.|si-impersonale-a2
+Come si compila questo modulo per la residenza?|বসবাস নিবন্ধনের এই ফর্মটা কীভাবে পূরণ করতে হয়?|How do you fill in this residence form?|si-impersonale-a2
+In biblioteca si deve parlare a voce bassa.|লাইব্রেরিতে নিচু স্বরে কথা বলতে হয়।|In the library one must speak in a low voice.|si-impersonale-a2
+Ieri ho dovuto lavorare fino alle otto di sera.|গতকাল আমাকে রাত আটটা পর্যন্ত কাজ করতে হয়েছে।|Yesterday I had to work until eight in the evening.|modali-passato
+Non siamo potuti venire alla festa perché pioveva.|বৃষ্টি হচ্ছিল বলে আমরা পার্টিতে আসতে পারিনি।|We couldn't come to the party because it was raining.|modali-passato
+Maria ha voluto pagare la cena per tutti.|মারিয়া সবার রাতের খাবারের বিল নিজেই দিতে চেয়েছে।|Maria wanted to pay for dinner for everyone.|modali-passato
+Sono dovuto andare in questura per il permesso di soggiorno.|পারমেসো দি সজর্নোর জন্য আমাকে পুলিশ দপ্তরে যেতে হয়েছে।|I had to go to the police HQ for my residence permit.|modali-passato
+Hai potuto parlare con l'avvocato stamattina?|আজ সকালে কি আইনজীবীর সাথে কথা বলতে পেরেছো?|Were you able to talk to the lawyer this morning?|modali-passato
+Non hanno voluto accettare il pacco senza ricevuta.|রসিদ ছাড়া তারা পার্সেলটা গ্রহণ করতে চায়নি।|They didn't want to accept the parcel without a receipt.|modali-passato
+Siamo dovute partire presto per prendere il volo.|ফ্লাইট ধরার জন্য আমাদের (মেয়েদের) তাড়াতাড়ি রওনা হতে হয়েছে।|We had to leave early to catch the flight.|modali-passato
+Non ho potuto rispondere subito perché ero in riunione.|মিটিংয়ে ছিলাম বলে সাথে সাথে উত্তর দিতে পারিনি।|I couldn't reply straight away because I was in a meeting.|modali-passato
+Voi avete dovuto fare la fila all'ufficio postale?|ডাকঘরে কি তোমাদের লাইনে দাঁড়াতে হয়েছে?|Did you have to queue at the post office?|modali-passato
+Ho voluto imparare l'italiano per lavorare qui.|এখানে কাজ করার জন্য আমি ইতালিয়ান শিখতে চেয়েছি।|I wanted to learn Italian in order to work here.|modali-passato
+Potrei avere un bicchiere d'acqua naturale, per favore?|অনুগ্রহ করে আমাকে এক গ্লাস সাধারণ পানি দেবেন?|Could I have a glass of still water, please?|volere-piacere-cortesia
+Le va di prendere un caffè dopo la lezione?|ক্লাসের পরে কি আপনার কফি খেতে ইচ্ছে করছে?|Would you like to grab a coffee after the lesson?|volere-piacere-cortesia
+Mi farebbe un favore? Potrebbe firmare qui?|আমাকে একটু উপকার করবেন? এখানে কি স্বাক্ষর করতে পারবেন?|Would you do me a favour? Could you sign here?|volere-piacere-cortesia
+Le dispiace se apro un po' la finestra?|আমি জানালাটা একটু খুললে কি আপনার আপত্তি আছে?|Do you mind if I open the window a little?|volere-piacere-cortesia
+Ti andrebbe di fare una gita al lago domenica?|রবিবারে হ্রদে ছোট ভ্রমণে যেতে তোমার কেমন লাগবে?|Would you feel like going on a day trip to the lake on Sunday?|volere-piacere-cortesia
+Scusi, potrebbe ripetere il numero del binario?|মাফ করবেন, প্ল্যাটফর্ম নম্বরটা আরেকবার বলতে পারবেন?|Excuse me, could you repeat the platform number?|volere-piacere-cortesia
+Mi potrebbe dare un sacchetto per la spesa?|বাজারের জন্য আমাকে একটা ব্যাগ দিতে পারবেন?|Could you give me a bag for the groceries?|volere-piacere-cortesia
+Posso offrirti qualcosa da bere?|তোমাকে কিছু পানীয় অফার করতে পারি?|Can I get you something to drink?|volere-piacere-cortesia
+Se non Le dispiace, preferirei pagare in contanti.|আপনার আপত্তি না থাকলে আমি নগদে পরিশোধ করতে চাই।|If you don't mind, I would prefer to pay in cash.|volere-piacere-cortesia
+Avrebbe bisogno di una ricevuta per il rimborso?|টাকা ফেরতের জন্য কি আপনার রসিদ দরকার হবে?|Would you need a receipt for the refund?|volere-piacere-cortesia
+Sai a che ora chiude la farmacia stasera?|আজ সন্ধ্যায় ফার্মেসি কয়টায় বন্ধ হয় তুমি কি জানো?|Do you know what time the pharmacy closes tonight?|verbi-servizio-a2
+Conosci un buon dentista in questo quartiere?|এই এলাকায় তুমি কি কোনো ভালো দাঁতের ডাক্তারকে চেনো?|Do you know a good dentist in this neighbourhood?|verbi-servizio-a2
+So nuotare bene, ma non so ancora cucinare la lasagna.|আমি ভালো সাঁতার কাটতে জানি, কিন্তু এখনো লাসানিয়া রান্না করতে জানি না।|I know how to swim well, but I still don't know how to cook lasagne.|verbi-servizio-a2
+Conosco Milano molto bene perché ci ho lavorato tre anni.|আমি মিলান খুব ভালো চিনি কারণ আমি সেখানে তিন বছর কাজ করেছি।|I know Milan very well because I worked there for three years.|verbi-servizio-a2
+Non so dove ho messo le chiavi della macchina.|গাড়ির চাবি কোথায় রেখেছি আমি জানি না।|I don't know where I put the car keys.|verbi-servizio-a2
+Conoscete il nuovo direttore dell'azienda?|কোম্পানির নতুন পরিচালককে তোমরা কি চেনো?|Do you know the new director of the company?|verbi-servizio-a2
+Mi scusi, sa dirmi dov'è lo sportello delle tasse?|মাফ করবেন, করের কাউন্টারটা কোথায় বলতে পারবেন?|Excuse me, can you tell me where the tax counter is?|verbi-servizio-a2
+Abbiamo conosciuto i nostri vicini durante la festa.|উৎসবের সময় আমরা আমাদের প্রতিবেশীদের সাথে পরিচিত হয়েছি।|We got to know our neighbours during the party.|verbi-servizio-a2
+Non sapevo che il museo fosse chiuso di lunedì.|সোমবারে জাদুঘর বন্ধ থাকে তা আমি জানতাম না।|I didn't know the museum was closed on Mondays.|verbi-servizio-a2
+Chi conosce la strada più veloce per l'ospedale?|হাসপাতালে যাওয়ার সবচেয়ে দ্রুত রাস্তা কে চেনে?|Who knows the fastest road to the hospital?|verbi-servizio-a2
+Non ho capito niente di quello che ha detto.|সে যা বলেছে তার কিছুই আমি বুঝিনি।|I didn't understand anything of what he said.|doppia-negazione
+Non c'è nessuno in ufficio dopo le sei.|ছয়টার পর অফিসে কেউ থাকে না।|There is nobody in the office after six.|doppia-negazione
+Non fumo più da quando faccio sport.|খেলাধুলা শুরু করার পর থেকে আমি আর ধূমপান করি না।|I haven't smoked anymore since I started doing sport.|doppia-negazione
+Non ho mai preso un prestito in banca.|আমি কখনো ব্যাংক থেকে ঋণ নিইনি।|I have never taken a loan from a bank.|doppia-negazione
+Non voglio né il caffè né il tè, grazie.|আমি কফি বা চা কোনোটাই চাই না, ধন্যবাদ।|I want neither coffee nor tea, thanks.|doppia-negazione
+Non trovo da nessuna parte il mio passaporto.|আমি কোথাও আমার পাসপোর্ট খুঁজে পাচ্ছি না।|I can't find my passport anywhere.|doppia-negazione
+Stamattina non ha chiamato nessuno per il colloquio.|সাক্ষাৎকারের জন্য আজ সকালে কেউ ফোন করেনি।|Nobody called this morning for the interview.|doppia-negazione
+Non compro mai cose inutili durante i saldi.|সেলের সময় আমি কখনো অপ্রয়োজনীয় জিনিস কিনি না।|I never buy useless things during the sales.|doppia-negazione
+Non c'è niente di male nel chiedere aiuto.|সাহায্য চাওয়ার মধ্যে খারাপ কিছু নেই।|There is nothing wrong with asking for help.|doppia-negazione
+Non vedo Marco da nessuna settimana, forse è all'estero.|কয়েক সপ্তাহ ধরে মার্কোকে দেখছি না, হয়তো সে বিদেশে আছে।|I haven't seen Marco for weeks, maybe he is abroad.|doppia-negazione
+Ho già rinnovato la patente l'anno scorso.|আমি গত বছরই ড্রাইভিং লাইসেন্স নবায়ন করেছি।|I already renewed my driving licence last year.|passato-prossimo
+Mia sorella ha finito il tirocinio in banca.|আমার বোন ব্যাংকে ইন্টার্নশিপ শেষ করেছে।|My sister finished her internship at the bank.|passato-prossimo
 `;

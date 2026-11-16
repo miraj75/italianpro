@@ -1,0 +1,98 @@
+import type { LevelAssessment } from '../academyTypes';
+
+export const A1_ASSESSMENTS: LevelAssessment[] = [
+  {
+    id: 'assess-a1-u1',
+    level: 'A1',
+    unitNumber: 1,
+    title: { bn: 'ইউনিট ১ মূল্যায়ন: প্রথম পদক্ষেপ', en: 'Unit 1 Assessment: First Steps' },
+    passScore: 0.7,
+    questions: [
+      { id: 'u1a1', prompt: { bn: 'সঠিক রূপ বেছে নিন:', en: 'Choose the right form:' }, it: 'Ciao, come ___ chiami?', options: ['mi', 'ti', 'si', 'ci'], answer: 1, explanation: { bn: 'tu-এর সাথে ti chiami।', en: 'tu uses ti chiami.' } },
+      { id: 'u1a2', prompt: { bn: 'সঠিক ক্রিয়া:', en: 'Choose the right verb:' }, it: 'Noi ___ studenti di Roma.', options: ['sono', 'sei', 'siamo', 'siete'], answer: 2, explanation: { bn: 'noi siamo।', en: 'noi siamo.' } },
+      { id: 'u1a3', prompt: { bn: 'বয়স বলার সঠিক বাক্য:', en: 'Correct way to state age:' }, options: ['Sono diciannove anni.', 'Ho diciannove anni.', 'Stai diciannove anni.', 'Vengo diciannove anni.'], answer: 1, explanation: { bn: 'বয়সে avere ব্যবহার হয়।', en: 'Age uses avere.' } },
+      { id: 'u1a4', prompt: { bn: 'অপরিচিত কর্মকর্তাকে ভদ্রভাবে জিজ্ঞেস করুন:', en: 'Ask a formal stranger where they are from:' }, options: ['Di dove sei?', "Di dov'è Lei?", 'Come stai?', 'Chi sei?'], answer: 1, explanation: { bn: 'আনুষ্ঠানিক Lei-তে è ব্যবহার হয়।', en: 'Formal Lei uses è.' } },
+    ],
+  },
+  {
+    id: 'assess-a1-u2',
+    level: 'A1',
+    unitNumber: 2,
+    title: { bn: 'ইউনিট ২ মূল্যায়ন: পরিবার ও আর্টিকেল', en: 'Unit 2 Assessment: Family & Articles' },
+    passScore: 0.7,
+    questions: [
+      { id: 'u2a1', prompt: { bn: 'সঠিক আর্টিকেল:', en: 'Pick the right article:' }, it: '___ zaini sono pesanti.', options: ['I', 'Gli', 'Le', 'Lo'], answer: 1, explanation: { bn: 'lo zaino → gli zaini।', en: 'lo zaino → gli zaini.' } },
+      { id: 'u2a2', prompt: { bn: 'পরিবারের সদস্যের আগে:', en: 'Before a singular family member:' }, it: '___ sorella abita a Milano.', options: ['La mia', 'Mia', 'Il mio', 'Mio'], answer: 1, explanation: { bn: 'একবচন পরিবারে আর্টিকেল বসে না।', en: 'Singular family nouns drop the article.' } },
+      { id: 'u2a3', prompt: { bn: 'বিশেষণের সঠিক রূপ:', en: 'Pick the right adjective:' }, it: 'Le città sono molto ___.', options: ['antico', 'antica', 'antiche', 'antichi'], answer: 2, explanation: { bn: 'le città স্ত্রীলিঙ্গ বহুবচন → antiche।', en: 'le città is feminine plural → antiche.' } },
+      { id: 'u2a4', prompt: { bn: 'সঠিক অনির্দিষ্ট আর্টিকেল:', en: 'Pick the indefinite article:' }, it: 'Marco è ___ studente bravo.', options: ['un', 'uno', 'una', "un'"], answer: 1, explanation: { bn: 'st- দিয়ে শুরু পুংলিঙ্গ শব্দে uno।', en: 'Masculine st- takes uno.' } },
+    ],
+  },
+  {
+    id: 'assess-a1-u3',
+    level: 'A1',
+    unitNumber: 3,
+    title: { bn: 'ইউনিট ৩ মূল্যায়ন: ক্যাফে ও পছন্দ', en: 'Unit 3 Assessment: Café & Likes' },
+    passScore: 0.7,
+    questions: [
+      { id: 'u3a1', prompt: { bn: 'ভদ্র অর্ডার:', en: 'Polite order:' }, it: '___ un succo di frutta, per favore.', options: ['Vorrei', 'Devo', 'Faccio', 'Sono'], answer: 0, explanation: { bn: 'ক্যাফেতে Vorrei সবচেয়ে ভদ্র।', en: 'Vorrei is polite.' } },
+      { id: 'u3a2', prompt: { bn: 'সঠিক রূপ:', en: 'Pick the right form:' }, it: 'Non mi ___ i pomodori crudi.', options: ['piace', 'piacciono', 'piaci', 'piaciamo'], answer: 1, explanation: { bn: 'i pomodori বহুবচন, তাই piacciono।', en: 'Plural nouns take piacciono.' } },
+      { id: 'u3a3', prompt: { bn: 'মডাল ক্রিয়া:', en: 'Modal verb rule:' }, it: 'Possiamo ___ con la carta?', options: ['paghiamo', 'pagare', 'di pagare', 'a pagare'], answer: 1, explanation: { bn: 'মডালের পরে সরাসরি infinito বসে।', en: 'Modals take a bare infinitive.' } },
+      { id: 'u3a4', prompt: { bn: '"চিনি ছাড়া":', en: '"Without sugar":' }, options: ['con zucchero', 'senza zucchero', 'su zucchero', 'da zucchero'], answer: 1, explanation: { bn: 'senza = ছাড়া।', en: 'senza = without.' } },
+    ],
+  },
+  {
+    id: 'assess-a1-u4',
+    level: 'A1',
+    unitNumber: 4,
+    title: { bn: 'ইউনিট ৪ মূল্যায়ন: রুটিন ও কাল', en: 'Unit 4 Assessment: Routine & Tenses' },
+    passScore: 0.7,
+    questions: [
+      { id: 'u4a1', prompt: { bn: '"১টা বাজে":', en: '"It is 1 o’clock":' }, options: ['Sono le una.', "È l'una.", 'Sono uno.', 'Alle una.'], answer: 1, explanation: { bn: "È l'una একবচন।", en: "1:00 uses È l'una." } },
+      { id: 'u4a2', prompt: { bn: '-are ক্রিয়া:', en: 'Present -are verb:' }, it: 'Voi ___ molto bene italiano.', options: ['parliamo', 'parlate', 'parlano', 'parli'], answer: 1, explanation: { bn: 'voi প্রত্যয় -ate।', en: 'voi takes -ate.' } },
+      { id: 'u4a3', prompt: { bn: '-isc- ক্রিয়া:', en: '-isc- verb:' }, it: 'Io non ___ questa parola.', options: ['capo', 'capisco', 'capisci', 'capiamo'], answer: 1, explanation: { bn: 'capire → capisco।', en: 'capire → capisco.' } },
+      { id: 'u4a4', prompt: { bn: 'প্রতিফলক ক্রিয়া:', en: 'Reflexive verb:' }, it: 'A che ora ___ svegli la mattina?', options: ['mi', 'ti', 'si', 'ci'], answer: 1, explanation: { bn: 'tu-এর সাথে ti।', en: 'tu takes ti.' } },
+    ],
+  },
+  {
+    id: 'assess-a1-u5',
+    level: 'A1',
+    unitNumber: 5,
+    title: { bn: 'ইউনিট ৫ মূল্যায়ন: শহর ও যাতায়াত', en: 'Unit 5 Assessment: City & Transport' },
+    passScore: 0.7,
+    questions: [
+      { id: 'u5a1', prompt: { bn: 'শহর ও দেশ:', en: 'City and country:' }, it: 'Abito ___ Firenze, ___ Italia.', options: ['in / a', 'a / in', 'da / a', 'per / in'], answer: 1, explanation: { bn: 'শহরে a, দেশে in।', en: 'a + city, in + country.' } },
+      { id: 'u5a2', prompt: { bn: 'অবস্থান:', en: 'Location:' }, it: 'La banca è ___ alla stazione.', options: ['vicino', 'vicina', 'lontano', 'dentro'], answer: 0, explanation: { bn: 'vicino alla = কাছে।', en: 'vicino alla = near.' } },
+      { id: 'u5a3', prompt: { bn: 'যানবাহন:', en: 'Transport:' }, it: 'Andiamo a Venezia ___ treno.', options: ['a', 'in', 'da', 'con'], answer: 1, explanation: { bn: 'in treno।', en: 'in treno.' } },
+      { id: 'u5a4', prompt: { bn: 'স্বাস্থ্য:', en: 'Health:' }, it: '___ mal di testa oggi.', options: ['Sono', 'Ho', 'Sto', 'Faccio'], answer: 1, explanation: { bn: 'Ho mal di testa।', en: 'Ho mal di testa.' } },
+    ],
+  },
+  {
+    id: 'assess-a1-u6',
+    level: 'A1',
+    unitNumber: 6,
+    title: { bn: 'ইউনিট ৬ মূল্যায়ন: কেনাকাটা ও তারিখ', en: 'Unit 6 Assessment: Shopping & Dates' },
+    passScore: 0.7,
+    questions: [
+      { id: 'u6a1', prompt: { bn: 'নির্দেশক সর্বনাম:', en: 'Demonstrative:' }, it: 'Quanto costano ___ scarpe nere?', options: ['questo', 'questa', 'questi', 'queste'], answer: 3, explanation: { bn: 'scarpe স্ত্রীলিঙ্গ বহুবচন → queste।', en: 'scarpe is fem. plural → queste.' } },
+      { id: 'u6a2', prompt: { bn: 'তারিখ:', en: 'Date:' }, it: 'Partiamo il ___ giugno.', options: ['uno', 'primo', 'prima', 'un'], answer: 1, explanation: { bn: 'মাসের ১ তারিখে il primo।', en: '1st of the month uses il primo.' } },
+      { id: 'u6a3', prompt: { bn: 'দাম জিজ্ঞাসা:', en: 'Asking price:' }, it: 'Quanto ___ questi pantaloni?', options: ['costa', 'costano', 'custa', 'costate'], answer: 1, explanation: { bn: 'pantaloni বহুবচন → costano।', en: 'pantaloni is plural → costano.' } },
+      { id: 'u6a4', prompt: { bn: 'রসিদ:', en: 'Receipt:' }, options: ['il carrello', 'lo scontrino', 'lo sconto', 'il sacchetto'], answer: 1, explanation: { bn: 'lo scontrino = রসিদ।', en: 'lo scontrino = receipt.' } },
+    ],
+  },
+  {
+    id: 'assess-a1-final',
+    level: 'A1',
+    title: { bn: 'A1 চূড়ান্ত পরীক্ষা (সম্পূর্ণ মূল্যায়ন)', en: 'A1 Final Comprehensive Assessment' },
+    passScore: 0.75,
+    questions: [
+      { id: 'a1f1', prompt: { bn: 'পরিচয় ও ক্রিয়া:', en: 'Introductions & verb:' }, it: 'Buonasera signora, come ___ chiama?', options: ['ti', 'mi', 'si', 'vi'], answer: 2, explanation: { bn: 'আনুষ্ঠানিক Lei-তে si chiama।', en: 'Formal Lei uses si chiama.' } },
+      { id: 'a1f2', prompt: { bn: 'আর্টিকেল:', en: 'Articles:' }, it: '___ orologi di mio nonno sono antichi.', options: ['I', 'Gli', 'Le', 'Lo'], answer: 1, explanation: { bn: "l'orologio → gli orologi।", en: "l'orologio → gli orologi." } },
+      { id: 'a1f3', prompt: { bn: 'অনিয়মিত ক্রিয়া:', en: 'Irregular verbs:' }, it: 'Stasera noi ___ al cinema insieme.', options: ['vado', 'andate', 'andiamo', 'vanno'], answer: 2, explanation: { bn: 'noi andiamo।', en: 'noi andiamo.' } },
+      { id: 'a1f4', prompt: { bn: 'অব্যয়:', en: 'Prepositions:' }, it: 'Vengo ___ Bangladesh e studio ___ Roma.', options: ['di / in', 'dal / a', 'da / in', 'a / a'], answer: 1, explanation: { bn: 'দেশের সাথে dal Bangladesh, শহরের সাথে a Roma।', en: 'dal Bangladesh, a Roma.' } },
+      { id: 'a1f5', prompt: { bn: 'piacere:', en: 'piacere:' }, it: 'Non ci ___ le giornate di pioggia.', options: ['piace', 'piacciono', 'piaci', 'piacete'], answer: 1, explanation: { bn: 'le giornate বহুবচন → piacciono।', en: 'Plural subject → piacciono.' } },
+      { id: 'a1f6', prompt: { bn: 'না-বাচক:', en: 'Negation:' }, it: 'Marco ___ beve ___ caffè dopo cena.', options: ['mai / non', 'non / mai', 'non / niente', 'non / nessuno'], answer: 1, explanation: { bn: 'non + ক্রিয়া + mai।', en: 'non + verb + mai.' } },
+      { id: 'a1f7', prompt: { bn: 'avere অভিব্যক্তি:', en: 'avere idioms:' }, it: 'I bambini ___ molto sonno.', options: ['sono', 'hanno', 'fanno', 'stanno'], answer: 1, explanation: { bn: 'ঘুম পাওয়া = avere sonno।', en: 'to be sleepy = avere sonno.' } },
+      { id: 'a1f8', prompt: { bn: 'সময় ও প্রশ্ন:', en: 'Time & question:' }, it: '___ inizia la lezione? Alle nove!', options: ['Dove', 'A che ora', 'Quanti', 'Chi'], answer: 1, explanation: { bn: 'কয়টায় বোঝাতে A che ora।', en: 'At what time = A che ora.' } },
+    ],
+  },
+];

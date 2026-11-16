@@ -21,11 +21,21 @@ describe('unlocking', () => {
     expect(isLessonUnlocked(s, 'A1', lessons[1]!.id)).toBe(true);
   });
 
-  it('does not unlock A2 by XP alone or while A1 content is incomplete', () => {
+  it('does not unlock A2 by XP alone or partial lessons, unlocks A2 on full A1 completion, B1 on full A2 completion, and B2 on full B1 completion', () => {
     let s = { ...initialState(), xp: 100000 };
     expect(isLevelUnlocked(s, 'A2')).toBe(false);
-    for (const l of lessons) s = pass(s, l.id);
+    s = pass(s, lessons[0]!.id);
     expect(isLevelUnlocked(s, 'A2')).toBe(false);
+    const a1Lessons = allLessons().filter((r) => r.level.id === 'A1').map((r) => r.lesson);
+    for (const l of a1Lessons) s = pass(s, l.id);
+    expect(isLevelUnlocked(s, 'A2')).toBe(true);
+    expect(isLevelUnlocked(s, 'B1')).toBe(false);
+    const a2Lessons = allLessons().filter((r) => r.level.id === 'A2').map((r) => r.lesson);
+    for (const l of a2Lessons) s = pass(s, l.id);
+    expect(isLevelUnlocked(s, 'B1')).toBe(true);
+    expect(isLevelUnlocked(s, 'B2')).toBe(false);
+    for (const l of lessons) s = pass(s, l.id);
+    expect(isLevelUnlocked(s, 'B2')).toBe(true);
   });
 
   it('a failing score does not complete the lesson and records mistakes', () => {

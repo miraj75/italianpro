@@ -1,10 +1,22 @@
 import type { Lesson, Level, LevelId, Unit } from './types';
 import { a1Unit1 } from './a1/unit1';
-
-/** Planned unit outline; units with no lessons are shown as "in preparation". */
-function planned(levelId: string, number: number, title: string, bn: string, en: string): Unit {
-  return { id: `${levelId.toLowerCase()}-u${number}`, number, title, subtitle: { bn, en }, lessons: [] };
-}
+import { a1Unit2 } from './a1/unit2';
+import { a1Unit3 } from './a1/unit3';
+import { a1Unit4 } from './a1/unit4';
+import { a1Unit5 } from './a1/unit5';
+import { a1Unit6 } from './a1/unit6';
+import { a2Unit1 } from './a2/unit1';
+import { a2Unit2 } from './a2/unit2';
+import { a2Unit3 } from './a2/unit3';
+import { a2Unit4 } from './a2/unit4';
+import { b1Unit1 } from './b1/unit1';
+import { b1Unit2 } from './b1/unit2';
+import { b1Unit3 } from './b1/unit3';
+import { b1Unit4 } from './b1/unit4';
+import { b2Unit1 } from './b2/unit1';
+import { b2Unit2 } from './b2/unit2';
+import { b2Unit3 } from './b2/unit3';
+import { b2Unit4 } from './b2/unit4';
 
 export const LEVELS: Level[] = [
   {
@@ -13,11 +25,11 @@ export const LEVELS: Level[] = [
     description: { bn: 'ইতালিয়ান ভাষার ভিত্তি: পরিচিতি, দৈনন্দিন কথা, মৌলিক ব্যাকরণ', en: 'Foundations: introductions, everyday phrases, basic grammar' },
     units: [
       a1Unit1,
-      planned('A1', 2, 'La famiglia', 'পরিবার ও আর্টিকেল', 'Family and articles'),
-      planned('A1', 3, 'Al bar', 'ক্যাফেতে অর্ডার করা', 'Ordering at a café'),
-      planned('A1', 4, 'La mia giornata', 'দৈনন্দিন রুটিন (-are ক্রিয়া)', 'Daily routine (-are verbs)'),
-      planned('A1', 5, 'In città', 'শহরে দিক নির্দেশনা', 'Getting around town'),
-      planned('A1', 6, 'Fare la spesa', 'কেনাকাটা ও দাম', 'Shopping and prices'),
+      a1Unit2,
+      a1Unit3,
+      a1Unit4,
+      a1Unit5,
+      a1Unit6,
     ],
   },
   {
@@ -25,9 +37,10 @@ export const LEVELS: Level[] = [
     name: { bn: 'প্রাথমিক (Elementary)', en: 'Elementary' },
     description: { bn: 'আরও বিস্তৃত কথোপকথন, ভ্রমণ, কাজ, অতীতের অভিজ্ঞতা', en: 'Wider conversations, travel, work, past experiences' },
     units: [
-      planned('A2', 1, 'Il passato prossimo', 'অতীত কাল', 'The past tense'),
-      planned('A2', 2, 'In viaggio', 'ভ্রমণ', 'Travelling'),
-      planned('A2', 3, 'Il lavoro', 'কাজ', 'Work'),
+      a2Unit1,
+      a2Unit2,
+      a2Unit3,
+      a2Unit4,
     ],
   },
   {
@@ -35,8 +48,10 @@ export const LEVELS: Level[] = [
     name: { bn: 'মধ্যম (Intermediate)', en: 'Intermediate' },
     description: { bn: 'বিস্তারিতভাবে নিজের মতামত, অভিজ্ঞতা, খবর ও সমাজ', en: 'Opinions in detail, experiences, news and society' },
     units: [
-      planned('B1', 1, 'Opinioni', 'মতামত প্রকাশ', 'Expressing opinions'),
-      planned('B1', 2, 'Il congiuntivo', 'congiuntivo-র পরিচয়', 'Introducing the subjunctive'),
+      b1Unit1,
+      b1Unit2,
+      b1Unit3,
+      b1Unit4,
     ],
   },
   {
@@ -44,8 +59,10 @@ export const LEVELS: Level[] = [
     name: { bn: 'উচ্চ মধ্যম (Upper Intermediate)', en: 'Upper Intermediate' },
     description: { bn: 'জটিল বিষয়, যুক্তি, বিতর্ক, পেশাগত যোগাযোগ', en: 'Complex topics, argumentation, debate, professional communication' },
     units: [
-      planned('B2', 1, 'Argomentare', 'যুক্তি উপস্থাপন', 'Building arguments'),
-      planned('B2', 2, 'Italiano professionale', 'পেশাগত ইতালিয়ান', 'Professional Italian'),
+      b2Unit1,
+      b2Unit2,
+      b2Unit3,
+      b2Unit4,
     ],
   },
 ];

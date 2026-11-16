@@ -1,0 +1,421 @@
+import type { ListeningExercise } from '../academyTypes';
+import { buildListening } from '../builders';
+
+export const B1_LISTENING_2: ListeningExercise[] = [
+  buildListening({
+    id: 'ls-b1-27', level: 'B1', kind: 'discussion',
+    titleIt: 'Dibattito sulla mobilità verde', title: { bn: 'সবুজ যাতায়াত নিয়ে বিতর্ক', en: 'Debate on green mobility' },
+    topic: { bn: 'পরিবেশ ও অতীত কালে si passivante', en: 'Environment & past passive si' },
+    lines: [
+      { speaker: 'Moderatore', it: 'Durante il dibattito di ieri si sono analizzate tre proposte per ridurre il traffico.', tr: { bn: 'গতকালের বিতর্কে যানজট কমানোর তিনটি প্রস্তাব বিশ্লেষণ করা হয়েছে।', en: 'During yesterday’s debate three proposals to reduce traffic were analysed.' } },
+      { speaker: 'Ospite', it: 'Sì, e per fortuna si è trovata subito una soluzione condivisa per la tutela ambientale.', tr: { bn: 'হ্যাঁ, এবং সৌভাগ্যবশত পরিবেশ সুরক্ষার জন্য সাথে সাথেই একটি সর্বসম্মত সমাধান পাওয়া গেছে।', en: 'Yes, and fortunately a shared solution for environmental protection was immediately found.' } },
+    ],
+    explanation: { bn: 'si sono analizzate (বহুবচন) এবং si è trovata (একবচন)।', en: 'Passive si in the past agrees with the noun: si sono analizzate, si è trovata.' },
+    vocabList: [{ it: 'dibattito', tr: { bn: 'বিতর্ক', en: 'debate' } }, { it: 'ambientale', tr: { bn: 'পরিবেশগত', en: 'environmental' } }],
+    vocabKeys: ['w:B1:il dibattito', 'w:B1:ambientale', 'w:B1:la soluzione'],
+    grammarIds: ['si-passivante-tempi'],
+    questions: [
+      { id: 'lsb1-27-q1', prompt: { bn: 'বিতর্কে কয়টি প্রস্তাব বিশ্লেষণ করা হয়েছে?', en: 'How many proposals were analysed in the debate?' }, options: ['১টি', '২টি', '৩টি', '৫টি'], answer: 2, explanation: { bn: 'tre proposte।', en: 'Three proposals.' } },
+    ],
+  }),
+  buildListening({
+    id: 'ls-b1-28', level: 'B1', kind: 'conversation',
+    titleIt: 'Cavarsela con i moduli online', title: { bn: 'অনলাইন ফর্মের কাজ সামলে নেওয়া', en: 'Managing online forms' },
+    topic: { bn: 'আমলাতন্ত্র ও সর্বনামযুক্ত ক্রিয়া', en: 'Bureaucracy & pronominal verbs' },
+    lines: [
+      { speaker: 'Luca', it: 'All’inizio la burocrazia digitale mi spaventava, ma ormai con lo SPID me la cavo benissimo.', tr: { bn: 'শুরুতে ডিজিটাল আমলাতন্ত্র আমাকে ভয় দেখাত, কিন্তু এখন SPID দিয়ে আমি দারুণভাবে সামলে নিই।', en: 'At first digital bureaucracy scared me, but now with SPID I manage very well.' } },
+      { speaker: 'Elena', it: 'Anche noi abbiamo dovuto arrangiarci da soli, però alla fine ce l’abbiamo fatta!', tr: { bn: 'আমাদেরও নিজেদের চেষ্টায় চালিয়ে নিতে হয়েছে, তবে শেষমেশ আমরা সফল হয়েছি!', en: 'We also had to manage on our own, but in the end we made it!' } },
+    ],
+    explanation: { bn: 'me la cavo, arrangiarci এবং ce l’abbiamo fatta।', en: 'Idiomatic pronominal verbs cavarsela, arrangiarsi, and farcela.' },
+    vocabList: [{ it: 'cavarsela', tr: { bn: 'সামলে নেওয়া', en: 'to manage / get by' } }, { it: 'burocrazia', tr: { bn: 'আমলাতন্ত্র', en: 'bureaucracy' } }],
+    vocabKeys: ['w:B1:cavarsela', 'w:B1:arrangiarsi', 'w:B1:la burocrazia'],
+    grammarIds: ['verbi-pronominali-b1'],
+    questions: [
+      { id: 'lsb1-28-q1', prompt: { bn: 'লুকা এখন কিসের সাহায্যে অনলাইন কাজ ভালোভাবে সামলে নেয়?', en: 'What tool helps Luca manage online procedures well now?' }, options: ['ফ্যাক্স', 'SPID', 'টেলিগ্রাম', 'ডাকঘর'], answer: 1, explanation: { bn: 'con lo SPID।', en: 'With SPID.' } },
+    ],
+  }),
+  buildListening({
+    id: 'ls-b1-29', level: 'B1', kind: 'dialogue',
+    titleIt: 'Far controllare il contratto di mutuo', title: { bn: 'গৃহঋণের চুক্তি পরীক্ষা করানো', en: 'Having the mortgage contract checked' },
+    topic: { bn: 'ব্যাংক ও প্রেরণার্থক ক্রিয়া (fare/lasciare)', en: 'Banking & causatives' },
+    lines: [
+      { speaker: 'Tariq', it: 'Prima di firmare il mutuo, abbiamo fatto controllare ogni pagina da un notaio di fiducia.', tr: { bn: 'গৃহঋণে সই করার আগে আমরা একজন বিশ্বস্ত নোটারিকে দিয়ে প্রতিটি পৃষ্ঠা পরীক্ষা করিয়েছি।', en: 'Before signing the mortgage, we had every page checked by a trusted notary.' } },
+      { speaker: 'Samira', it: 'E nel frattempo abbiamo fatto riparare anche le finestre della camera da letto.', tr: { bn: 'আর ইতিমধ্যে আমরা শোবার ঘরের জানালাগুলোও মেরামত করিয়েছি।', en: 'And in the meantime we also had the bedroom windows repaired.' } },
+    ],
+    explanation: { bn: 'abbiamo fatto controllare / abbiamo fatto riparare (অন্যকে দিয়ে করানো)।', en: 'Causative fare + infinitive.' },
+    vocabList: [{ it: 'mutuo', tr: { bn: 'গৃহঋণ', en: 'mortgage' } }, { it: 'notaio', tr: { bn: 'নোটারি', en: 'notary' } }],
+    vocabKeys: ['w:B1:riparare', 'w:B1:il mutuo'],
+    grammarIds: ['causativi-fare-lasciare'],
+    questions: [
+      { id: 'lsb1-29-q1', prompt: { bn: 'তারা কাকে দিয়ে গৃহঋণের চুক্তি পরীক্ষা করিয়েছে?', en: 'Who checked the mortgage contract for them?' }, options: ['প্রতিবেশী', 'একজন বিশ্বস্ত নোটারি', 'দোকানদার', 'প্রকৌশলী'], answer: 1, explanation: { bn: 'da un notaio di fiducia।', en: 'A trusted notary.' } },
+    ],
+  }),
+  buildListening({
+    id: 'ls-b1-30', level: 'B1', kind: 'news',
+    titleIt: 'Aggiornamento sul cantiere stradale', title: { bn: 'রাস্তার সংস্কার কাজের আপডেট', en: 'Roadworks update' },
+    topic: { bn: 'সংবাদ ও অতীতের পরোক্ষ উক্তি', en: 'Local news & past reported speech' },
+    lines: [
+      { speaker: 'Giornalista', it: 'Nella sua dichiarazione di ieri, il sindaco ha confermato che il cantiere stradale sarebbe stato chiuso entro venerdì.', tr: { bn: 'গতকালের ঘোষণায় মেয়র নিশ্চিত করেছেন যে শুক্রবারের মধ্যে রাস্তার নির্মাণস্থল বন্ধ (সম্পন্ন) করা হবে।', en: 'In his statement yesterday, the mayor confirmed that the roadworks site would be closed by Friday.' } },
+      { speaker: 'Giornalista', it: 'I tecnici avevano spiegato che il ritardo dipendeva dal maltempo della settimana precedente.', tr: { bn: 'টেকনিশিয়ানরা ব্যাখ্যা করেছিলেন যে আগের সপ্তাহের খারাপ আবহাওয়ার কারণে দেরি হয়েছিল।', en: 'Technicians had explained that the delay was due to the bad weather the previous week.' } },
+    ],
+    explanation: { bn: 'sarebbe stato chiuso (condizionale passato) এবং avevano spiegato (trapassato)।', en: 'Past reported speech uses past conditional and pluperfect.' },
+    vocabList: [{ it: 'sindaco', tr: { bn: 'মেয়র', en: 'mayor' } }, { it: 'cantiere stradale', tr: { bn: 'রাস্তার নির্মাণস্থল', en: 'roadworks' } }],
+    vocabKeys: ['w:B1:il sindaco', 'w:B1:la dichiarazione', 'w:B1:il cantiere stradale'],
+    grammarIds: ['discorso-indiretto-passato'],
+    questions: [
+      { id: 'lsb1-30-q1', prompt: { bn: 'রাস্তার কাজ কবে নাগাদ শেষ হওয়ার কথা?', en: 'By when are the roadworks set to finish?' }, options: ['শুক্রবারের মধ্যে', 'সোমবারের মধ্যে', 'আগামী মাসে', 'পরের বছর'], answer: 0, explanation: { bn: 'entro venerdì।', en: 'By Friday.' } },
+    ],
+  }),
+  buildListening({
+    id: 'ls-b1-31', level: 'B1', kind: 'interview',
+    titleIt: 'Esperienza di tirocinio universitario', title: { bn: 'বিশ্ববিদ্যালয়ের ইন্টার্নশিপের অভিজ্ঞতা', en: 'University internship experience' },
+    topic: { bn: 'গবেষণা ও অতীত ইনফিনিটিভ', en: 'Research & past infinitive' },
+    lines: [
+      { speaker: 'Studentessa', it: 'Dopo aver analizzato i campioni in laboratorio, ho preparato un riassunto per il gruppo di lavoro.', tr: { bn: 'ল্যাবরেটরিতে নমুনা বিশ্লেষণ করার পর আমি কর্মদলের জন্য একটি সারাংশ তৈরি করেছি।', en: 'After analysing the samples in the lab, I prepared a summary for the working group.' } },
+      { speaker: 'Professore', it: 'Siamo felici di aver ospitato il tuo tirocinio questo semestre.', tr: { bn: 'এই সেমিস্টারে তোমার ইন্টার্নশিপের সুযোগ দিতে পেরে আমরা আনন্দিত।', en: 'We are happy to have hosted your internship this semester.' } },
+    ],
+    explanation: { bn: 'Dopo aver analizzato এবং di aver ospitato (infinito passato)।', en: 'Past infinitive expresses a completed prior action.' },
+    vocabList: [{ it: 'analizzare', tr: { bn: 'বিশ্লেষণ করা', en: 'to analyse' } }, { it: 'tirocinio', tr: { bn: 'ইন্টার্নশিপ', en: 'internship' } }],
+    vocabKeys: ['w:B1:analizzare', 'w:B1:il riassunto', 'w:B1:il tirocinio'],
+    grammarIds: ['infinito-passato'],
+    questions: [
+      { id: 'lsb1-31-q1', prompt: { bn: 'নমুনা বিশ্লেষণের পর ছাত্রীটি কী তৈরি করেছে?', en: 'What did the student prepare after analysing the samples?' }, options: ['একটি সারাংশ (riassunto)', 'একটি ভিডিও', 'একটি পোস্টার', 'একটি চিঠি'], answer: 0, explanation: { bn: 'un riassunto per il gruppo di lavoro।', en: 'A summary for the working group.' } },
+    ],
+  }),
+  buildListening({
+    id: 'ls-b1-32', level: 'B1', kind: 'announcement',
+    titleIt: 'Controllo carte d’imbarco al gate', title: { bn: 'গেটে বোর্ডিং পাস পরীক্ষা', en: 'Boarding pass check at the gate' },
+    topic: { bn: 'বিমানবন্দর ও যৌগিক জেরুন্ড', en: 'Airport & compound gerund' },
+    lines: [
+      { speaker: 'Addetto', it: 'Avendo smarrito la carta d’imbarco cartacea, può scaricare quella digitale sull’app.', tr: { bn: 'কাগুজে বোর্ডিং পাস হারিয়ে ফেলায় আপনি অ্যাপে ডিজিটাল পাসটি ডাউনলোড করতে পারেন।', en: 'Having lost your paper boarding pass, you can download the digital one on the app.' } },
+      { speaker: 'Passeggero', it: 'Grazie! Essendo arrivato a lungo in anticipo, ho tutto il tempo per farlo.', tr: { bn: 'ধন্যবাদ! অনেক আগে পৌঁছে যাওয়ায় এটি করার মতো যথেষ্ট সময় আমার আছে।', en: 'Thank you! Having arrived well in advance, I have plenty of time to do so.' } },
+    ],
+    explanation: { bn: 'Avendo smarrito এবং Essendo arrivato (gerundio composto)।', en: 'Compound gerund for prior cause.' },
+    vocabList: [{ it: 'smarrire', tr: { bn: 'হারিয়ে ফেলা', en: 'to lose / misplace' } }, { it: 'carta d’imbarco', tr: { bn: 'বোর্ডিং পাস', en: 'boarding pass' } }],
+    vocabKeys: ['w:B1:smarrire', "w:B1:la carta d'imbarco", 'w:B1:a lungo'],
+    grammarIds: ['gerundio-composto'],
+    questions: [
+      { id: 'lsb1-32-q1', prompt: { bn: 'যাত্রীটি কোথায় ডিজিটাল বোর্ডিং পাস ডাউনলোড করতে পারবেন?', en: 'Where can the passenger download the digital boarding pass?' }, options: ['ফোনের অ্যাপে', 'ট্যাক্সিতে', 'দোকানে', 'বিমানের ভেতরে'], answer: 0, explanation: { bn: 'sull’app।', en: 'On the app.' } },
+    ],
+  }),
+  buildListening({
+    id: 'ls-b1-33', level: 'B1', kind: 'conversation',
+    titleIt: 'Contratto firmato e spese di casa', title: { bn: 'চুক্তি স্বাক্ষর ও বাসার খরচ', en: 'Signed contract and household expenses' },
+    topic: { bn: 'কাজের অনুমতি ও participio assoluto', en: 'Work permit & absolute participle' },
+    lines: [
+      { speaker: 'Rafiq', it: 'Ottenuto il permesso di lavoro, ho potuto subito firmare il contratto in fabbrica.', tr: { bn: 'কাজের অনুমতি পাওয়ার পর আমি সাথে সাথে কারখানায় চুক্তিতে সই করতে পেরেছি।', en: 'Once the work permit was obtained, I was immediately able to sign the contract at the factory.' } },
+      { speaker: 'Moglie', it: 'E pagate le spese condominiali di questo mese, metteremo da parte il resto dello stipendio.', tr: { bn: 'আর এই মাসের ভবনের রক্ষণাবেক্ষণ খরচ পরিশোধ করার পর আমরা বাকি বেতন সঞ্চয় করব।', en: 'And once this month’s building charges are paid, we will set aside the rest of the salary.' } },
+    ],
+    explanation: { bn: 'Ottenuto il permesso এবং pagate le spese (participio passato assoluto)।', en: 'Absolute past participle agrees with its noun.' },
+    vocabList: [{ it: 'permesso di lavoro', tr: { bn: 'কাজের অনুমতিপত্র', en: 'work permit' } }, { it: 'spese condominiali', tr: { bn: 'ভবনের রক্ষণাবেক্ষণ খরচ', en: 'building charges' } }],
+    vocabKeys: ['w:B1:ottenere', 'w:B1:il permesso di lavoro', 'w:B1:le spese condominiali'],
+    grammarIds: ['participio-passato-assoluto'],
+    questions: [
+      { id: 'lsb1-33-q1', prompt: { bn: 'কাজের অনুমতি পাওয়ার পর রফিক কোথায় চুক্তিতে সই করেছে?', en: 'Where did Rafiq sign the contract after getting his work permit?' }, options: ['কারখানায় (in fabbrica)', 'স্কুলে', 'হোটেলে', 'হাসপাতালে'], answer: 0, explanation: { bn: 'in fabbrica।', en: 'At the factory.' } },
+    ],
+  }),
+  buildListening({
+    id: 'ls-b1-34', level: 'B1', kind: 'interview',
+    titleIt: 'Presentazione dell’associazione', title: { bn: 'সংগঠনের পরিচিতি ও গবেষণা', en: 'Introducing the association' },
+    topic: { bn: 'সম্বন্ধবাচক সর্বনাম (il cui / il quale)', en: 'Relative pronouns (il cui / il quale)' },
+    lines: [
+      { speaker: 'Presidente', it: 'La nostra è un’associazione il cui scopo è sostenere i giovani ricercatori.', tr: { bn: 'আমাদেরটি এমন এক সংগঠন যার উদ্দেশ্য তরুণ গবেষকদের সহায়তা করা।', en: 'Ours is an association whose purpose is to support young researchers.' } },
+      { speaker: 'Ricercatrice', it: 'L’istituto con il quale collaboriamo ha appena pubblicato una ricerca importante.', tr: { bn: 'যে প্রতিষ্ঠানের সাথে আমরা কাজ করি সেটি এইমাত্র একটি গুরুত্বপূর্ণ গবেষণা প্রকাশ করেছে।', en: 'The institute with which we collaborate has just published an important study.' } },
+    ],
+    explanation: { bn: 'il cui scopo (যার উদ্দেশ্য) এবং con il quale (যার সাথে)।', en: 'il cui expresses possession; con il quale follows a preposition.' },
+    vocabList: [{ it: 'associazione', tr: { bn: 'সংগঠন', en: 'association' } }, { it: 'scopo', tr: { bn: 'উদ্দেশ্য', en: 'purpose' } }],
+    vocabKeys: ["w:B1:l'associazione", 'w:B1:lo scopo', 'w:B1:la ricerca'],
+    grammarIds: ['relativi-il-quale-cui'],
+    questions: [
+      { id: 'lsb1-34-q1', prompt: { bn: 'সংগঠনটির মূল উদ্দেশ্য কাদের সহায়তা করা?', en: 'Who does the association aim to support?' }, options: ['তরুণ গবেষকদের', 'পর্যটকদের', 'খেলোয়াড়দের', 'গাড়িচালকদের'], answer: 0, explanation: { bn: 'sostenere i giovani ricercatori।', en: 'Young researchers.' } },
+    ],
+  }),
+  buildListening({
+    id: 'ls-b1-35', level: 'B1', kind: 'discussion',
+    titleIt: 'Evitare lo spreco delle risorse', title: { bn: 'সম্পদের অপচয় রোধ', en: 'Avoiding resource waste' },
+    topic: { bn: 'পরিবেশ ও chi / ciò che', en: 'Environment & chi / ciò che' },
+    lines: [
+      { speaker: 'Docente', it: 'Ciò che dobbiamo fare subito è ridurre lo spreco di acqua e di carta nelle scuole.', tr: { bn: 'আমাদের এখনই যা করতে হবে তা হলো স্কুলে পানি ও কাগজের অপচয় কমানো।', en: 'What we must do right away is reduce water and paper waste in schools.' } },
+      { speaker: 'Studente', it: 'Chi partecipa al progetto ecologico riceverà una borraccia riutilizzabile.', tr: { bn: 'যারা পরিবেশ প্রকল্পে অংশ নেবে তারা একটি পুনর্ব্যবহারযোগ্য পানির বোতল পাবে।', en: 'Whoever takes part in the green project will receive a reusable water bottle.' } },
+    ],
+    explanation: { bn: 'Ciò che (যা কিছু) এবং Chi + একবচন ক্রিয়া (partecipa, riceverà)।', en: 'Ciò che means what; Chi takes a singular verb.' },
+    vocabList: [{ it: 'spreco', tr: { bn: 'অপচয়', en: 'waste' } }, { it: 'risorse', tr: { bn: 'সম্পদ', en: 'resources' } }],
+    vocabKeys: ['w:B1:lo spreco', 'w:B1:le risorse', 'w:B1:ridurre'],
+    grammarIds: ['chi-quello-che-cio-che'],
+    questions: [
+      { id: 'lsb1-35-q1', prompt: { bn: 'প্রকল্পে অংশ নিলে কী পাওয়া যাবে?', en: 'What will participants in the green project receive?' }, options: ['একটি বই', 'একটি পুনর্ব্যবহারযোগ্য পানির বোতল', 'একটি ছাতা', 'বাসের টিকিট'], answer: 1, explanation: { bn: 'una borraccia riutilizzabile।', en: 'A reusable water bottle.' } },
+    ],
+  }),
+  buildListening({
+    id: 'ls-b1-36', level: 'B1', kind: 'announcement',
+    titleIt: 'Chiusura del centro storico al traffico', title: { bn: 'ঐতিহাসিক কেন্দ্রে যান চলাচল বন্ধ', en: 'Closure of the historic centre to traffic' },
+    topic: { bn: 'কারণবাচক সংযোজক (siccome, dato che)', en: 'Causal connectors' },
+    lines: [
+      { speaker: 'Vigile', it: 'Siccome stamattina si svolge la maratona cittadina, il centro storico resterà chiuso fino alle tredici.', tr: { bn: 'যেহেতু আজ সকালে নগর ম্যারাথন অনুষ্ঠিত হচ্ছে, ঐতিহাসিক কেন্দ্রটি একটা পর্যন্ত বন্ধ থাকবে।', en: 'Since the city marathon is taking place this morning, the historic centre will remain closed until 1 p.m.' } },
+      { speaker: 'Vigile', it: 'Dato che i parcheggi centrali sono inaccessibili, consigliamo di usare la metropolitana.', tr: { bn: 'যেহেতু কেন্দ্রীয় পার্কিংগুলোয় প্রবেশ করা যাচ্ছে না, আমরা মেট্রো ব্যবহারের পরামর্শ দিচ্ছি।', en: 'Given that central car parks are inaccessible, we advise using the metro.' } },
+    ],
+    explanation: { bn: 'বাক্যের শুরুতে কারণ বোঝাতে Siccome এবং Dato che ব্যবহৃত হয়েছে।', en: 'Siccome and Dato che introduce causes at the start of sentences.' },
+    vocabList: [{ it: 'siccome', tr: { bn: 'যেহেতু', en: 'since' } }, { it: 'centro storico', tr: { bn: 'ঐতিহাসিক কেন্দ্র', en: 'historic centre' } }],
+    vocabKeys: ['w:B1:siccome', 'w:B1:dato che', 'w:B1:il centro storico'],
+    grammarIds: ['connettivi-causali-b1'],
+    questions: [
+      { id: 'lsb1-36-q1', prompt: { bn: 'কেন ঐতিহাসিক কেন্দ্রটি একটা পর্যন্ত বন্ধ থাকবে?', en: 'Why will the historic centre remain closed until 1 p.m.?' }, options: ['রাস্তা মেরামতের জন্য', 'নগর ম্যারাথনের কারণে', 'বাজারের জন্য', 'বৃষ্টির কারণে'], answer: 1, explanation: { bn: 'si svolge la maratona cittadina।', en: 'Because of the city marathon.' } },
+    ],
+  }),
+  buildListening({
+    id: 'ls-b1-37', level: 'B1', kind: 'conversation',
+    titleIt: 'Nuove competenze digitali', title: { bn: 'নতুন ডিজিটাল দক্ষতা অর্জন', en: 'Acquiring new digital skills' },
+    topic: { bn: 'স্বীকারোক্তিমূলক সংযোজক (sebbene, benché)', en: 'Concessive connectors' },
+    lines: [
+      { speaker: 'Nadia', it: 'Sebbene il corso di programmazione fosse impegnativo, mi ha dato una competenza preziosa.', tr: { bn: 'প্রোগ্রামিং কোর্সটি কঠিন হওয়া সত্ত্বেও এটি আমাকে মূল্যবান দক্ষতা দিয়েছে।', en: 'Although the programming course was demanding, it gave me a valuable skill.' } },
+      { speaker: 'Marco', it: 'È vero: benché richieda tempo, imparare un linguaggio informatico apre molte porte.', tr: { bn: 'সত্যিই: সময় লাগা সত্ত্বেও একটি কম্পিউটার ভাষা শেখা অনেক দরজা খুলে দেয়।', en: 'It is true: although it takes time, learning a programming language opens many doors.' } },
+    ],
+    explanation: { bn: 'Sebbene fosse এবং benché richieda (+ congiuntivo)।', en: 'Sebbene and benché require the subjunctive.' },
+    vocabList: [{ it: 'sebbene', tr: { bn: 'যদিও / সত্ত্বেও', en: 'although' } }, { it: 'competenza', tr: { bn: 'দক্ষতা', en: 'skill / competence' } }],
+    vocabKeys: ['w:B1:sebbene', 'w:B1:benché', 'w:B1:la competenza'],
+    grammarIds: ['connettivi-concessivi-b1'],
+    questions: [
+      { id: 'lsb1-37-q1', prompt: { bn: 'নাদিয়া কিসের কোর্স করেছে?', en: 'What course did Nadia take?' }, options: ['চিত্রকলা', 'প্রোগ্রামিং', 'রান্না', 'ইতিহাস'], answer: 1, explanation: { bn: 'il corso di programmazione।', en: 'A programming course.' } },
+    ],
+  }),
+  buildListening({
+    id: 'ls-b1-38', level: 'B1', kind: 'dialogue',
+    titleIt: 'Informazioni allo sportello unico', title: { bn: 'একক কাউন্টারে তথ্য অনুসন্ধান', en: 'Information at the one-stop desk' },
+    topic: { bn: 'affinché ও purché', en: 'Purpose & conditional connectors' },
+    lines: [
+      { speaker: 'Impiegata', it: 'Abbiamo aperto questo sportello unico affinché i cittadini non debbano girare tra tre uffici diversi.', tr: { bn: 'নাগরিকদের যাতে তিনটি ভিন্ন অফিসে ঘুরতে না হয় সেজন্য আমরা এই একক কাউন্টার খুলেছি।', en: 'We opened this one-stop desk so that citizens do not have to go around three different offices.' } },
+      { speaker: 'Utente', it: 'Posso presentare la domanda oggi stesso, purché abbia con me il documento d’identità?', tr: { bn: 'সাথে পরিচয়পত্র থাকার শর্তে আমি কি আজই আবেদন জমা দিতে পারি?', en: 'Can I submit the application today, provided I have my ID document with me?' } },
+    ],
+    explanation: { bn: 'affinché non debbano এবং purché abbia (+ congiuntivo)।', en: 'affinché and purché take the subjunctive.' },
+    vocabList: [{ it: 'sportello unico', tr: { bn: 'একক কাউন্টার', en: 'one-stop desk' } }, { it: 'purché', tr: { bn: 'শর্ত থাকে যে', en: 'provided that' } }],
+    vocabKeys: ['w:B1:affinché', 'w:B1:purché', 'w:B1:lo sportello unico'],
+    grammarIds: ['connettivi-finali-condizionali'],
+    questions: [
+      { id: 'lsb1-38-q1', prompt: { bn: 'আজই আবেদন জমা দিতে সাথে কী থাকতে হবে?', en: 'What must the user have with them to apply today?' }, options: ['পরিচয়পত্র', 'বিদ্যুৎ বিল', 'ট্রেনের টিকিট', 'ব্যাংক চেক'], answer: 0, explanation: { bn: 'il documento d’identità।', en: 'An identity document.' } },
+    ],
+  }),
+  buildListening({
+    id: 'ls-b1-39', level: 'B1', kind: 'conversation',
+    titleIt: 'Allenarsi nel parco della comunità', title: { bn: 'কমিউনিটি পার্কে শরীরচর্চা', en: 'Training in the community park' },
+    topic: { bn: 'আনুপাতিক তুলনা (più… più…)', en: 'Proportional comparison' },
+    lines: [
+      { speaker: 'Lorenzo', it: 'Più ci ritroviamo ad allenarci insieme nel parco, più cresce lo spirito di comunità.', tr: { bn: 'পার্কে একসাথে অনুশীলন করতে যত বেশি আমরা মিলিত হই, সম্প্রদায়ের চেতনা তত বাড়ে।', en: 'The more we meet to train together in the park, the more community spirit grows.' } },
+      { speaker: 'Samira', it: 'Verissimo! E più si partecipa alle attività locali, più diventa naturale l’integrazione.', tr: { bn: 'একদম সত্যি! আর স্থানীয় কর্মকাণ্ডে যত বেশি অংশ নেওয়া যায়, সমন্বয় তত স্বাভাবিক হয়ে ওঠে।', en: 'Very true! And the more one takes part in local activities, the more natural integration becomes.' } },
+    ],
+    explanation: { bn: 'Più… più… দিয়ে সমান্তরাল বৃদ্ধি বোঝানো হয়েছে।', en: 'Più… più… expresses proportional correlation.' },
+    vocabList: [{ it: 'integrazione', tr: { bn: 'সমন্বয়', en: 'integration' } }, { it: 'comunità', tr: { bn: 'সম্প্রদায়', en: 'community' } }],
+    vocabKeys: ["w:B1:l'integrazione", 'w:B1:la comunità', 'w:B1:allenarsi'],
+    grammarIds: ['comparativi-proporzionali'],
+    questions: [
+      { id: 'lsb1-39-q1', prompt: { bn: 'তারা কোথায় একসাথে শরীরচর্চা করে?', en: 'Where do they train together?' }, options: ['পার্কে', 'সুইমিং পুলে', 'স্টেশনে', 'অফিসে'], answer: 0, explanation: { bn: 'nel parco।', en: 'In the park.' } },
+    ],
+  }),
+  buildListening({
+    id: 'ls-b1-40', level: 'B1', kind: 'dialogue',
+    titleIt: 'Iscriversi al volontariato cittadino', title: { bn: 'নগর স্বেচ্ছাসেবায় নাম লেখানো', en: 'Signing up for city volunteering' },
+    topic: { bn: 'chiunque ও qualsiasi + congiuntivo', en: 'Indefinites + subjunctive' },
+    lines: [
+      { speaker: 'Coordinatrice', it: 'Chiunque voglia dedicare qualche ora al volontariato può sostenere la biblioteca dei ragazzi.', tr: { bn: 'যে কেউ স্বেচ্ছাসেবায় কয়েক ঘণ্টা দিতে চাইলে কিশোর গ্রন্থাগারকে সহায়তা করতে পারে।', en: 'Anyone who wishes to devote a few hours to volunteering can support the youth library.' } },
+      { speaker: 'Volontario', it: 'Qualsiasi dubbio emerga durante il turno, manterremo la calma e chiederemo al referente.', tr: { bn: 'ডিউটির সময় যে সন্দেহই দেখা দিক না কেন, আমরা শান্ত থাকব এবং দায়িত্বপ্রাপ্তকে জিজ্ঞেস করব।', en: 'Whatever doubt arises during the shift, we will keep calm and ask the coordinator.' } },
+    ],
+    explanation: { bn: 'Chiunque voglia এবং Qualsiasi dubbio emerga (+ congiuntivo)।', en: 'Chiunque and qualsiasi take the subjunctive.' },
+    vocabList: [{ it: 'volontariato', tr: { bn: 'স্বেচ্ছাসেবা', en: 'volunteering' } }, { it: 'sostenere', tr: { bn: 'সহায়তা করা', en: 'to support' } }],
+    vocabKeys: ['w:B1:il volontariato', 'w:B1:la calma', 'w:B1:sostenere'],
+    grammarIds: ['indefiniti-negativi-b1'],
+    questions: [
+      { id: 'lsb1-40-q1', prompt: { bn: 'স্বেচ্ছাসেবকেরা কোন গ্রন্থাগারকে সহায়তা করতে পারে?', en: 'Which library can volunteers support?' }, options: ['কিশোর গ্রন্থাগার (biblioteca dei ragazzi)', 'আইন গ্রন্থাগার', 'চিকিৎসা গ্রন্থাগার', 'সংগীত গ্রন্থাগার'], answer: 0, explanation: { bn: 'la biblioteca dei ragazzi।', en: 'The youth library.' } },
+    ],
+  }),
+  buildListening({
+    id: 'ls-b1-41', level: 'B1', kind: 'conversation',
+    titleIt: 'Confrontare i preventivi prima dei lavori', title: { bn: 'কাজের আগে প্রাক্কলন তুলনা করা', en: 'Comparing quotes before repairs' },
+    topic: { bn: 'অতীত মডাল (avrei dovuto / potuto)', en: 'Past modals' },
+    lines: [
+      { speaker: 'Marco', it: 'Abbiamo speso troppo per l’idraulico: avremmo dovuto confrontare almeno due preventivi prima di accettare!', tr: { bn: 'প্লাম্বারের পেছনে আমরা অতিরিক্ত খরচ করেছি: গ্রহণ করার আগে আমাদের অন্তত দুটি প্রাক্কলন তুলনা করা উচিত ছিল!', en: 'We spent too much on the plumber: we should have compared at least two quotes before accepting!' } },
+      { speaker: 'Sara', it: 'Hai ragione, e avresti potuto avvertire anche l’amministratore del condominio.', tr: { bn: 'ঠিক বলেছ, আর তুমি ভবনের প্রশাসককেও জানাতে পারতে।', en: 'You are right, and you could also have notified the building administrator.' } },
+    ],
+    explanation: { bn: 'avremmo dovuto confrontare এবং avresti potuto avvertire।', en: 'Past conditional of dovere/potere + infinitive.' },
+    vocabList: [{ it: 'confrontare', tr: { bn: 'তুলনা করা', en: 'to compare' } }, { it: 'avvertire', tr: { bn: 'জানানো / সতর্ক করা', en: 'to notify / warn' } }],
+    vocabKeys: ['w:B1:avvertire', 'w:B1:confrontare', 'w:B1:il preventivo'],
+    grammarIds: ['modali-condizionale-passato'],
+    questions: [
+      { id: 'lsb1-41-q1', prompt: { bn: 'তাদের অন্তত কয়টি প্রাক্কলন তুলনা করা উচিত ছিল?', en: 'How many quotes should they have compared?' }, options: ['অন্তত দুটি', 'পাঁচটি', 'দশটি', 'একটিও না'], answer: 0, explanation: { bn: 'almeno due preventivi।', en: 'At least two quotes.' } },
+    ],
+  }),
+  buildListening({
+    id: 'ls-b1-42', level: 'B1', kind: 'formal',
+    titleIt: 'Telefonata formale alla segreteria', title: { bn: 'দপ্তরে আনুষ্ঠানিক ফোনালাপ', en: 'Formal phone call to the office' },
+    topic: { bn: 'আনুষ্ঠানিক নিবেদন (La / Le)', en: 'Formal register' },
+    lines: [
+      { speaker: 'Utente', it: 'Gentile Dottore, Le confermo di aver inviato nell’allegato la ricevuta digitale del versamento.', tr: { bn: 'মাননীয় ডক্টর, আপনাকে নিশ্চিত করছি যে সংযুক্তিতে পেমেন্টের ডিজিটাল রসিদ পাঠিয়েছি।', en: 'Dear Doctor, I confirm to you that I sent the digital payment receipt in the attachment.' } },
+      { speaker: 'Segreteria', it: 'Perfetto, La ringraziamo per la puntualità e per la preziosa collaborazione.', tr: { bn: 'চমৎকার, সময়ানুবর্তিতা ও মূল্যবান সহযোগিতার জন্য আমরা আপনাকে ধন্যবাদ জানাচ্ছি।', en: 'Perfect, we thank you for your punctuality and valuable cooperation.' } },
+    ],
+    explanation: { bn: 'Le confermo (পরোক্ষ) এবং La ringraziamo (প্রত্যক্ষ আনুষ্ঠানিক সর্বনাম)।', en: 'Formal indirect Le and direct La.' },
+    vocabList: [{ it: 'allegato', tr: { bn: 'সংযুক্তি', en: 'attachment' } }, { it: 'collaborazione', tr: { bn: 'সহযোগিতা', en: 'cooperation' } }],
+    vocabKeys: ["w:B1:l'allegato", 'w:B1:la ricevuta digitale', 'w:B1:la collaborazione'],
+    grammarIds: ['registro-formale-b1'],
+    questions: [
+      { id: 'lsb1-42-q1', prompt: { bn: 'সংযুক্তিতে কী পাঠানো হয়েছে?', en: 'What was sent in the attachment?' }, options: ['পেমেন্টের ডিজিটাল রসিদ', 'একটি ছবি', 'মেডিকেল রিপোর্ট', 'ট্রেনের টিকিট'], answer: 0, explanation: { bn: 'la ricevuta digitale del versamento।', en: 'The digital payment receipt.' } },
+    ],
+  }),
+  buildListening({
+    id: 'ls-b1-43', level: 'B1', kind: 'dialogue',
+    titleIt: 'Aprire un conto corrente cointestato', title: { bn: 'যৌথ ব্যাংক হিসাব খোলা', en: 'Opening a joint bank account' },
+    topic: { bn: 'ব্যাংকিং ও শর্তবাচক সংযোজক', en: 'Banking & conditional connectors' },
+    lines: [
+      { speaker: 'Consulente', it: 'Potete aprire il conto online senza spese, purché accreditiate lo stipendio o la borsa di studio.', tr: { bn: 'বেতন বা বৃত্তি জমা করার শর্তে আপনারা বিনা খরচে অনলাইনে হিসাবটি খুলতে পারবেন।', en: 'You can open the account online free of charge, provided you credit your salary or scholarship to it.' } },
+      { speaker: 'Cliente', it: 'Ottimo! E se chiedessimo anche la carta di debito internazionale?', tr: { bn: 'দারুণ! আর আমরা যদি আন্তর্জাতিক ডেবিট কার্ডও চাইতাম?', en: 'Great! And what if we also asked for the international debit card?' } },
+    ],
+    explanation: { bn: 'purché accreditiate এবং se chiedessimo।', en: 'purché + present subjunctive; hypothetical se + imperfect subjunctive.' },
+    vocabList: [{ it: 'conto', tr: { bn: 'ব্যাংক হিসাব', en: 'bank account' } }, { it: 'accreditare', tr: { bn: 'জমা করা', en: 'to credit' } }],
+    vocabKeys: ['w:B1:purché', 'w:B1:il consulente'],
+    grammarIds: ['connettivi-finali-condizionali', 'periodo-ipotetico-2'],
+    questions: [
+      { id: 'lsb1-43-q1', prompt: { bn: 'কোন শর্তে ব্যাংক হিসাবটি বিনা খরচে খোলা যাবে?', en: 'On what condition is the account free of charge?' }, options: ['বেতন বা বৃত্তি জমা করলে', 'নগদ টাকা দিলে', 'বাড়ি কিনলে', 'ছাত্র হলে'], answer: 0, explanation: { bn: 'purché accreditiate lo stipendio o la borsa di studio।', en: 'Provided salary or scholarship is credited.' } },
+    ],
+  }),
+  buildListening({
+    id: 'ls-b1-44', level: 'B1', kind: 'conversation',
+    titleIt: 'Organizzare una mostra fotografica', title: { bn: 'আলোকচিত্র প্রদর্শনীর আয়োজন', en: 'Organising a photo exhibition' },
+    topic: { bn: 'সংস্কৃতি ও কর্মবাচ্য', en: 'Culture & passive voice' },
+    lines: [
+      { speaker: 'Curatrice', it: 'Tutte le fotografie dell’esposizione sono state scattate dagli studenti delle scuole superiori.', tr: { bn: 'প্রদর্শনীর সব ছবি উচ্চমাধ্যমিক স্কুলের শিক্ষার্থীদের দ্বারা তোলা হয়েছে।', en: 'All the photographs in the exhibition were taken by high-school students.' } },
+      { speaker: 'Visitatore', it: 'Che bel progetto! Mi hanno detto che il catalogo verrà pubblicato anche sul sito del comune.', tr: { bn: 'কী সুন্দর প্রকল্প! আমাকে বলা হয়েছে যে ক্যাটালগটি পৌরসভার ওয়েবসাইটেও প্রকাশ করা হবে।', en: 'What a lovely project! I was told that the catalogue will also be published on the municipal website.' } },
+    ],
+    explanation: { bn: 'sono state scattate এবং verrà pubblicato।', en: 'Compound passive with essere and future dynamic passive with venire.' },
+    vocabList: [{ it: 'esposizione', tr: { bn: 'প্রদর্শনী', en: 'exhibition' } }, { it: 'catalogo', tr: { bn: 'ক্যাটালগ / তালিকা', en: 'catalogue' } }],
+    vocabKeys: ['w:B1:pubblicare', 'w:B1:il cittadino'],
+    grammarIds: ['passivo', 'passivo-venire-andare'],
+    questions: [
+      { id: 'lsb1-44-q1', prompt: { bn: 'প্রদর্শনীর ছবিগুলো কারা তুলেছে?', en: 'Who took the photos in the exhibition?' }, options: ['পেশাদার সাংবাদিকেরা', 'উচ্চমাধ্যমিক স্কুলের শিক্ষার্থীরা', 'পর্যটকেরা', 'পৌর কর্মীরা'], answer: 1, explanation: { bn: 'dagli studenti delle scuole superiori।', en: 'High-school students.' } },
+    ],
+  }),
+  buildListening({
+    id: 'ls-b1-45', level: 'B1', kind: 'phone',
+    titleIt: 'Spostare la data dell’esame medico', title: { bn: 'মেডিকেল পরীক্ষার তারিখ পরিবর্তন', en: 'Rescheduling a medical test' },
+    topic: { bn: 'স্বাস্থ্য ও আনুষ্ঠানিক নিবেদন', en: 'Healthcare & formal register' },
+    lines: [
+      { speaker: 'Paziente', it: 'Buongiorno, chiamo perché avrei bisogno di anticipare la visita cardiologica prenotata per il venti.', tr: { bn: 'শুভ সকাল, আমি ফোন করেছি কারণ বিশ তারিখে বুক করা হৃদরোগ বিশেষজ্ঞের সাক্ষাৎটি এগিয়ে আনা দরকার।', en: 'Good morning, I am calling because I need to bring forward the cardiology appointment booked for the twentieth.' } },
+      { speaker: 'Operatore', it: 'Si è appena liberato un posto per giovedì alle undici: Le mando subito il promemoria via SMS.', tr: { bn: 'বৃহস্পতিবার এগারোটায় এইমাত্র একটি জায়গা খালি হয়েছে: আমি এখনই আপনাকে এসএমএসে অনুস্মারক পাঠিয়ে দিচ্ছি।', en: 'A slot has just opened up for Thursday at eleven: I will send you the reminder by SMS right away.' } },
+    ],
+    explanation: { bn: 'avrei bisogno (ভদ্র অনুরোধ) এবং Le mando (আনুষ্ঠানিক পরোক্ষ সর্বনাম)।', en: 'Polite conditional avrei bisogno and formal indirect pronoun Le.' },
+    vocabList: [{ it: 'anticipare', tr: { bn: 'এগিয়ে আনা', en: 'to bring forward' } }, { it: 'promemoria', tr: { bn: 'অনুস্মারক', en: 'reminder' } }],
+    vocabKeys: ['w:B1:la pratica', 'w:B1:la ricevuta digitale'],
+    grammarIds: ['registro-formale-b1'],
+    questions: [
+      { id: 'lsb1-45-q1', prompt: { bn: 'নতুন অ্যাপয়েন্টমেন্টটি কবে পাওয়া গেছে?', en: 'When is the new appointment slot?' }, options: ['সোমবার সকালে', 'বৃহস্পতিবার এগারোটায়', 'শুক্রবার বিকেলে', 'বিশ তারিখে'], answer: 1, explanation: { bn: 'giovedì alle undici।', en: 'Thursday at eleven.' } },
+    ],
+  }),
+  buildListening({
+    id: 'ls-b1-46', level: 'B1', kind: 'discussion',
+    titleIt: 'Orti urbani e prodotti a chilometro zero', title: { bn: 'নগর বাগান ও স্থানীয় কৃষিপণ্য', en: 'Urban gardens and zero-mile produce' },
+    topic: { bn: 'কৃষি, পরিবেশ ও সংযোজক ভাব', en: 'Green living & subjunctive' },
+    lines: [
+      { speaker: 'Agronomo', it: 'Crediamo che coltivare gli orti urbani aiuti le famiglie a riscoprire i prodotti stagionali.', tr: { bn: 'আমাদের বিশ্বাস নগর বাগান চাষ করা পরিবারগুলোকে মৌসুমি পণ্য নতুন করে চিনতে সাহায্য করে।', en: 'We believe cultivating urban gardens helps families rediscover seasonal produce.' } },
+      { speaker: 'Cittadina', it: 'Sì, e comprando direttamente dai contadini si riduce l’inquinamento dei trasporti.', tr: { bn: 'হ্যাঁ, এবং সরাসরি কৃষকদের কাছ থেকে কিনলে পরিবহন দূষণ কমে।', en: 'Yes, and by buying directly from farmers transport pollution is reduced.' } },
+    ],
+    explanation: { bn: 'Crediamo che aiuti (congiuntivo) এবং comprando (gerundio)।', en: 'Subjunctive after Crediamo che and gerund of means comprando.' },
+    vocabList: [{ it: 'orto urbano', tr: { bn: 'নগর সবজি বাগান', en: 'urban garden' } }, { it: 'stagionale', tr: { bn: 'মৌসুমি', en: 'seasonal' } }],
+    vocabKeys: ['w:B1:ridurre', 'w:B1:ambientale'],
+    grammarIds: ['congiuntivo', 'gerundio-b1'],
+    questions: [
+      { id: 'lsb1-46-q1', prompt: { bn: 'সরাসরি কৃষকদের কাছ থেকে কিনলে কী কমে?', en: 'What is reduced by buying directly from farmers?' }, options: ['পণ্যের স্বাদ', 'পরিবহন দূষণ', 'সবজির ওজন', 'বাজারের সময়'], answer: 1, explanation: { bn: 'l’inquinamento dei trasporti।', en: 'Transport pollution.' } },
+    ],
+  }),
+  buildListening({
+    id: 'ls-b1-47', level: 'B1', kind: 'dialogue',
+    titleIt: 'Preparare la presentazione in gruppo', title: { bn: 'দলে উপস্থাপনা প্রস্তুত করা', en: 'Preparing a group presentation' },
+    topic: { bn: 'বিশ্ববিদ্যালয় ও প্রেরণার্থক/সর্বনামযুক্ত ক্রিয়া', en: 'University & pronominal verbs' },
+    lines: [
+      { speaker: 'Lorenzo', it: 'Te la senti di esporre tu la prima parte della ricerca domani mattina?', tr: { bn: 'আগামীকাল সকালে গবেষণার প্রথম অংশটি তুমি উপস্থাপন করার সাহস পাচ্ছ কি?', en: 'Do you feel up to presenting the first part of the research tomorrow morning?' } },
+      { speaker: 'Mina', it: 'Volentieri! Prima però facciamo controllare le diapositive dal tutor del laboratorio.', tr: { bn: 'সানন্দে! তবে তার আগে চলো ল্যাবরেটরির টিউটরকে দিয়ে স্লাইডগুলো পরীক্ষা করিয়ে নিই।', en: 'Gladly! First, though, let’s have the slides checked by the lab tutor.' } },
+    ],
+    explanation: { bn: 'Te la senti di (sentirsela) এবং facciamo controllare (fare + infinito)।', en: 'sentirsela di + infinitive and causative fare + infinitive.' },
+    vocabList: [{ it: 'diapositive', tr: { bn: 'স্লাইড', en: 'slides' } }, { it: 'esporre', tr: { bn: 'উপস্থাপন করা', en: 'to present / expound' } }],
+    vocabKeys: ['w:B1:la ricerca', 'w:B1:collaborare'],
+    grammarIds: ['verbi-pronominali-b1', 'causativi-fare-lasciare'],
+    questions: [
+      { id: 'lsb1-47-q1', prompt: { bn: 'মিনা কাকে দিয়ে স্লাইডগুলো পরীক্ষা করাতে চায়?', en: 'Who does Mina want to have check the slides?' }, options: ['ল্যাবরেটরির টিউটরকে দিয়ে', 'বন্ধুকে দিয়ে', 'গ্রন্থাগারিককে দিয়ে', 'অধ্যাপককে দিয়ে'], answer: 0, explanation: { bn: 'dal tutor del laboratorio।', en: 'The lab tutor.' } },
+    ],
+  }),
+  buildListening({
+    id: 'ls-b1-48', level: 'B1', kind: 'conversation',
+    titleIt: 'Racconto di un viaggio in treno notturno', title: { bn: 'রাতের ট্রেনে ভ্রমণের গল্প', en: 'Story of an overnight train trip' },
+    topic: { bn: 'ভ্রমণ ও পুরাঘটিত অতীত', en: 'Travel & pluperfect' },
+    lines: [
+      { speaker: 'Tariq', it: 'Non avevo mai viaggiato in vagone letto prima del mese scorso: è stata un’esperienza comodissima.', tr: { bn: 'গত মাসের আগে আমি কখনো স্লিপিং কোচে ভ্রমণ করিনি: এটি অত্যন্ত আরামদায়ক অভিজ্ঞতা ছিল।', en: 'I had never travelled in a sleeping car before last month: it was a very comfortable experience.' } },
+      { speaker: 'Elena', it: 'Anch’io! Appena siamo saliti a Bologna, il controllore ci aveva già preparato la cabina.', tr: { bn: 'আমিও! বোলোনিয়ায় ওঠা মাত্রই দেখলাম টিটিই ইতিমধ্যে আমাদের কেবিন প্রস্তুত করে রেখেছেন।', en: 'Me too! As soon as we boarded in Bologna, the conductor had already prepared our cabin.' } },
+    ],
+    explanation: { bn: 'Non avevo mai viaggiato এবং aveva già preparato (trapassato prossimo)।', en: 'Pluperfect tense for prior experience and completed setup.' },
+    vocabList: [{ it: 'vagone letto', tr: { bn: 'স্লিপিং কোচ', en: 'sleeping car' } }, { it: 'cabina', tr: { bn: 'কেবিন', en: 'cabin' } }],
+    vocabKeys: ['w:B1:il pendolare', 'w:B1:puntuale'],
+    grammarIds: ['trapassato'],
+    questions: [
+      { id: 'lsb1-48-q1', prompt: { bn: 'তারিক গত মাসে কিসে ভ্রমণ করেছে?', en: 'How did Tariq travel last month?' }, options: ['বিমানে', 'ট্রেনের স্লিপিং কোচে (vagone letto)', 'জাহাজে', 'বাসে'], answer: 1, explanation: { bn: 'in vagone letto।', en: 'In a sleeping car.' } },
+    ],
+  }),
+  buildListening({
+    id: 'ls-b1-49', level: 'B1', kind: 'interview',
+    titleIt: 'Artigianato e innovazione tecnologica', title: { bn: 'কারুশিল্প ও প্রযুক্তিগত উদ্ভাবন', en: 'Craftsmanship and technological innovation' },
+    topic: { bn: 'ব্যবসা ও সম্বন্ধবাচক সর্বনাম', en: 'Business & relative pronouns' },
+    lines: [
+      { speaker: 'Artigiano', it: 'La bottega nella quale lavoro apparteneva a mio nonno, ma oggi vendiamo in tutta Europa.', tr: { bn: 'যে কারখানায় আমি কাজ করি সেটি আমার দাদার ছিল, কিন্তু আজ আমরা সারা ইউরোপে বিক্রি করি।', en: 'The workshop in which I work belonged to my grandfather, but today we sell across Europe.' } },
+      { speaker: 'Giornalista', it: 'Quindi ciò che vi distingue è l’unione tra tradizione manuale e commercio digitale!', tr: { bn: 'তাহলে যা আপনাদের আলাদা করে তা হলো হাতের ঐতিহ্য ও ডিজিটাল বাণিজ্যের মেলবন্ধন!', en: 'So what sets you apart is the blend of manual tradition and digital commerce!' } },
+    ],
+    explanation: { bn: 'nella quale (যেখানে) এবং ciò che (যা)।', en: 'nella quale and ciò che.' },
+    vocabList: [{ it: 'bottega', tr: { bn: 'কারুশিল্পের দোকান/কারখানা', en: 'artisan workshop' } }, { it: 'distinguere', tr: { bn: 'স্বতন্ত্র করা', en: 'to distinguish' } }],
+    vocabKeys: ["w:B1:l'impresa", 'w:B1:la competenza'],
+    grammarIds: ['relativi-il-quale-cui', 'chi-quello-che-cio-che'],
+    questions: [
+      { id: 'lsb1-49-q1', prompt: { bn: 'কারখানাটি আগে কার ছিল?', en: 'Who did the workshop previously belong to?' }, options: ['তার দাদার (mio nonno)', 'পৌরসভার', 'একজন বন্ধুর', 'ব্যাংকের'], answer: 0, explanation: { bn: 'apparteneva a mio nonno।', en: 'His grandfather.' } },
+    ],
+  }),
+  buildListening({
+    id: 'ls-b1-50', level: 'B1', kind: 'dialogue',
+    titleIt: 'Rimborso del biglietto per sciopero', title: { bn: 'ধর্মঘটের কারণে টিকিটের টাকা ফেরত', en: 'Ticket refund due to a strike' },
+    topic: { bn: 'যাতায়াত ও অতীত ইনফিনিটিভ/জেরুন্ড', en: 'Transport & non-finite clauses' },
+    lines: [
+      { speaker: 'Viaggiatrice', it: 'Essendo stato cancellato il treno per lo sciopero, ho chiesto il rimborso integrale sul portale.', tr: { bn: 'ধর্মঘটের কারণে ট্রেন বাতিল হওয়ায় আমি পোর্টালে সম্পূর্ণ টাকা ফেরতের আবেদন করেছি।', en: 'The train having been cancelled due to the strike, I requested a full refund on the portal.' } },
+      { speaker: 'Addetto', it: 'Ha fatto benissimo: dopo aver compilato il modulo online, riceverà l’accredito entro sette giorni.', tr: { bn: 'খুব ভালো করেছেন: অনলাইনে ফর্মটি পূরণ করার পর সাত দিনের মধ্যে টাকা ফেরত পাবেন।', en: 'You did the right thing: after filling in the online form, you will receive the credit within seven days.' } },
+    ],
+    explanation: { bn: 'Essendo stato cancellato (যৌগিক কর্মবাচ্য জেরুন্ড) এবং dopo aver compilato (অতীত ইনফিনিটিভ)।', en: 'Compound passive gerund and past infinitive.' },
+    vocabList: [{ it: 'rimborso integrale', tr: { bn: 'সম্পূর্ণ অর্থ ফেরত', en: 'full refund' } }, { it: 'accredito', tr: { bn: 'জমা / ক্রেডিট', en: 'credit / refund' } }],
+    vocabKeys: ['w:B1:il risparmio', 'w:B1:la pratica'],
+    grammarIds: ['gerundio-composto', 'infinito-passato'],
+    questions: [
+      { id: 'lsb1-50-q1', prompt: { bn: 'কত দিনের মধ্যে টাকা অ্যাকাউন্টে ফেরত আসবে?', en: 'Within how many days will the refund be credited?' }, options: ['২ দিন', '৭ দিন', '৩০ দিন', '৬০ দিন'], answer: 1, explanation: { bn: 'entro sette giorni।', en: 'Within seven days.' } },
+    ],
+  }),
+  buildListening({
+    id: 'ls-b1-51', level: 'B1', kind: 'announcement',
+    titleIt: 'Iscrizioni al corso di italiano professionale', title: { bn: 'পেশাগত ইতালিয়ান কোর্সে ভর্তি', en: 'Enrolment for business Italian' },
+    topic: { bn: 'শিক্ষা ও সংযোজক অব্যয়', en: 'Education & connectors' },
+    lines: [
+      { speaker: 'Segreteria', it: 'Si avvisano gli studenti che il corso di italiano per il lavoro inizierà martedì, a meno che non ci siano variazioni d’aula.', tr: { bn: 'শিক্ষার্থীদের জানানো যাচ্ছে যে কক্ষ পরিবর্তন না হলে কর্মক্ষেত্রের ইতালিয়ান কোর্সটি মঙ্গলবার শুরু হবে।', en: 'Students are informed that the Italian for work course will start on Tuesday, unless there are room changes.' } },
+      { speaker: 'Segreteria', it: 'Il materiale didattico viene distribuito gratuitamente a chiunque completi la registrazione entro oggi.', tr: { bn: 'আজকের মধ্যে যে কেউ নিবন্ধন সম্পন্ন করলে তাকে বিনামূল্যে শিক্ষা উপকরণ দেওয়া হয়।', en: 'Teaching material is distributed free of charge to anyone who completes registration by today.' } },
+    ],
+    explanation: { bn: 'a meno che non ci siano এবং a chiunque completi (+ congiuntivo)।', en: 'a meno che non and chiunque take the subjunctive.' },
+    vocabList: [{ it: 'materiale didattico', tr: { bn: 'শিক্ষা উপকরণ', en: 'teaching material' } }, { it: 'variazione', tr: { bn: 'পরিবর্তন', en: 'change / variation' } }],
+    vocabKeys: ['w:B1:a meno che', 'w:B1:la formazione'],
+    grammarIds: ['senza-che-prima-che', 'indefiniti-negativi-b1'],
+    questions: [
+      { id: 'lsb1-51-q1', prompt: { bn: 'কোর্সটি কবে শুরু হবে?', en: 'When will the course start?' }, options: ['সোমবার', 'মঙ্গলবার', 'বৃহস্পতিবার', 'শনিবার'], answer: 1, explanation: { bn: 'inizierà martedì।', en: 'On Tuesday.' } },
+    ],
+  }),
+  buildListening({
+    id: 'ls-b1-52', level: 'B1', kind: 'discussion',
+    titleIt: 'Bilancio di fine anno in azienda', title: { bn: 'কোম্পানিতে বছর শেষের মূল্যায়ন', en: 'Year-end company review' },
+    topic: { bn: 'ব্যবসা, participio assoluto ও অতীত মডাল', en: 'Business, absolute participle & past modals' },
+    lines: [
+      { speaker: 'Direttrice', it: 'Chiuso il bilancio annuale, possiamo dire che i risultati hanno superato le aspettative nonostante le difficoltà.', tr: { bn: 'বার্ষিক হিসাব সমাপ্ত হওয়ার পর আমরা বলতে পারি যে জটিলতা সত্ত্বেও ফলাফল প্রত্যাশা ছাড়িয়ে গেছে।', en: 'Once the annual balance sheet is closed, we can say that results exceeded expectations despite difficulties.' } },
+      { speaker: 'Responsabile', it: 'Sì, e se avessimo aperto prima il canale online, avremmo potuto raggiungere ancora più clienti!', tr: { bn: 'হ্যাঁ, আর আমরা যদি আগে অনলাইন মাধ্যমটি খুলতাম, তবে আরও বেশি গ্রাহকের কাছে পৌঁছাতে পারতাম!', en: 'Yes, and if we had opened the online channel earlier, we could have reached even more customers!' } },
+    ],
+    explanation: { bn: 'Chiuso il bilancio (participio assoluto) এবং Se avessimo aperto → avremmo potuto (৩য় প্রকার শর্তবাক্য)।', en: 'Absolute past participle and 3rd conditional with modal verb.' },
+    vocabList: [{ it: 'bilancio annuale', tr: { bn: 'বার্ষিক হিসাব', en: 'annual balance sheet' } }, { it: 'aspettative', tr: { bn: 'প্রত্যাশা', en: 'expectations' } }],
+    vocabKeys: ["w:B1:l'impresa", 'w:B1:il vantaggio'],
+    grammarIds: ['participio-passato-assoluto', 'periodo-ipotetico-3'],
+    questions: [
+      { id: 'lsb1-52-q1', prompt: { bn: 'বার্ষিক ফলাফল কেমন হয়েছে?', en: 'How were the annual results?' }, options: ['প্রত্যাশার চেয়ে কম', 'প্রত্যাশা ছাড়িয়ে গেছে', 'আগের মতোই', 'লোকসান হয়েছে'], answer: 1, explanation: { bn: 'hanno superato le aspettative।', en: 'They exceeded expectations.' } },
+    ],
+  }),
+];

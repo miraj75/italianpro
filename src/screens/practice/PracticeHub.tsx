@@ -1,6 +1,6 @@
 import {
+  BookMarked,
   BookOpen,
-  Bot,
   FilePenLine,
   FileText,
   Headphones,
@@ -21,17 +21,36 @@ import { useRouter } from '../../app/router';
 import { useI18n } from '../../lib/i18n';
 import { useProgress } from '../../state/ProgressContext';
 import { dueCards } from '../../state/progress';
-import { ScreenTitle, cx } from '../../components/ui';
+import { cx } from '../../components/ui';
+import { countReviewableMistakes } from './MistakesScreen';
 
 type Hue = 'emerald' | 'violet' | 'cyan' | 'pink' | 'gold' | 'blue';
 
 const HUES: Record<Hue, { tile: string; icon: string }> = {
-  emerald: { tile: 'from-emerald/30 to-emerald-deep/60 border-neon/35', icon: 'text-neon' },
-  violet: { tile: 'from-violet/30 to-navy-900/60 border-violet/40', icon: 'text-violet' },
-  cyan: { tile: 'from-cyan/25 to-navy-900/60 border-cyan/35', icon: 'text-cyan' },
-  pink: { tile: 'from-pink/25 to-navy-900/60 border-pink/35', icon: 'text-pink' },
-  gold: { tile: 'from-gold/25 to-emerald-deep/60 border-gold/40', icon: 'text-gold' },
-  blue: { tile: 'from-blue/25 to-navy-900/60 border-blue/35', icon: 'text-blue' },
+  emerald: {
+    tile: 'from-[#084438]/90 via-[#072e28]/90 to-[#05201d]/95 border-neon/40 shadow-[inset_0_1px_0_rgba(0,245,160,0.18)]',
+    icon: 'text-neon',
+  },
+  violet: {
+    tile: 'from-[#2e1c54]/90 via-[#1d173c]/90 to-[#0e1828]/95 border-violet/45 shadow-[inset_0_1px_0_rgba(168,85,247,0.2)]',
+    icon: 'text-violet',
+  },
+  cyan: {
+    tile: 'from-[#073b46]/90 via-[#072834]/90 to-[#051d24]/95 border-cyan/40 shadow-[inset_0_1px_0_rgba(39,223,255,0.18)]',
+    icon: 'text-cyan',
+  },
+  blue: {
+    tile: 'from-[#0b2f52]/90 via-[#09233e]/90 to-[#061b2c]/95 border-blue/45 shadow-[inset_0_1px_0_rgba(57,139,255,0.2)]',
+    icon: 'text-blue',
+  },
+  pink: {
+    tile: 'from-[#44193d]/90 via-[#2a1530]/90 to-[#131726]/95 border-pink/40 shadow-[inset_0_1px_0_rgba(255,79,216,0.2)]',
+    icon: 'text-pink',
+  },
+  gold: {
+    tile: 'from-[#3d3515]/90 via-[#252819]/90 to-[#0d201c]/95 border-gold/40 shadow-[inset_0_1px_0_rgba(255,209,102,0.2)]',
+    icon: 'text-gold',
+  },
 };
 
 interface Module {
@@ -40,27 +59,126 @@ interface Module {
   hue: Hue;
   title: string;
   sub: Tr;
-  /** Undefined = not built yet; shown honestly as "coming soon". */
-  route?: string;
+  route: string;
+  proTag?: boolean;
 }
 
-const total = WORDS.A1.length + WORDS.A2.length + WORDS.B1.length;
+const total = WORDS.A1.length + WORDS.A2.length + WORDS.B1.length + WORDS.B2.length;
 
 const MODULES: Module[] = [
-  { id: 'words', icon: BookOpen, hue: 'emerald', title: 'Vocabulary', sub: { bn: `${total}+ শব্দভাণ্ডার শিখুন`, en: `${total}+ words, A1–B1` }, route: '/practice/words' },
-  { id: 'grammar', icon: Layers, hue: 'violet', title: 'Grammar', sub: { bn: 'ব্যাকরণ অনুশীলন', en: 'Grammar topics' }, route: '/practice/grammar' },
-  { id: 'puzzle', icon: Puzzle, hue: 'cyan', title: 'Sentence Builder', sub: { bn: 'গ্রামার দিয়ে বাক্য গঠন (পাজল)', en: 'Build sentences (puzzle)' }, route: '/practice/puzzle' },
-  { id: 'sentences', icon: Text, hue: 'blue', title: 'Sentences', sub: { bn: 'নমুনা বাক্য শুনুন ও শিখুন', en: 'Model sentences' }, route: '/practice/sentences' },
-  { id: 'cards', icon: SpellCheck, hue: 'pink', title: 'Flashcards', sub: { bn: 'রিভিশন কার্ড', en: 'Spaced repetition' }, route: '/practice/vocabulary' },
-  { id: 'phrases', icon: MessageSquareQuote, hue: 'gold', title: 'Phrases (B1)', sub: { bn: 'প্রবাদ ও এক্সপ্রেশন', en: 'Idioms & expressions' }, route: '/practice/phrases' },
-  { id: 'listening', icon: Headphones, hue: 'cyan', title: 'Listening', sub: { bn: 'শুনে বুঝুন', en: 'Listen to dialogues' }, route: '/practice/listening' },
-  { id: 'verbs', icon: InfinityIcon, hue: 'violet', title: 'Important Verbs', sub: { bn: 'গুরুত্বপূর্ণ ক্রিয়াপদ', en: 'Key verb conjugations' }, route: '/practice/verbs' },
-  { id: 'survival', icon: Signpost, hue: 'gold', title: 'Survival Italian', sub: { bn: 'ইতালিতে টিকে থাকার ভাষা', en: 'Real situations in Italy' }, route: '/practice/survival' },
-  { id: 'mistakes', icon: RotateCcw, hue: 'pink', title: 'Review Mistakes', sub: { bn: 'ভুলগুলো আবার অনুশীলন', en: 'Practise past mistakes' }, route: '/practice/mistakes' },
-  { id: 'speaking', icon: Mic, hue: 'violet', title: 'Speaking', sub: { bn: 'কথা বলার অনুশীলন', en: 'Speaking practice' } },
-  { id: 'reading', icon: FileText, hue: 'emerald', title: 'Reading', sub: { bn: 'পড়ে বুঝুন', en: 'Reading' } },
-  { id: 'writing', icon: FilePenLine, hue: 'cyan', title: 'Writing', sub: { bn: 'লিখে অনুশীলন করুন', en: 'Writing' } },
-  { id: 'tutor', icon: Bot, hue: 'blue', title: 'AI Tutor', sub: { bn: 'এআই-এর সাথে ইতালিয়ান', en: 'AI tutor' } },
+  {
+    id: 'words',
+    icon: BookOpen,
+    hue: 'emerald',
+    title: 'Vocabulary',
+    sub: { bn: `${total}+ গুরুত্বপূর্ণ শব্দ`, en: `${total}+ essential words` },
+    route: '/practice/words',
+  },
+  {
+    id: 'grammar',
+    icon: Layers,
+    hue: 'violet',
+    title: 'Grammar',
+    sub: { bn: 'ব্যাকরণ ও নিয়ম', en: 'Grammar & rules' },
+    route: '/practice/grammar',
+  },
+  {
+    id: 'puzzle',
+    icon: Puzzle,
+    hue: 'cyan',
+    title: 'Sentence Builder',
+    sub: { bn: 'সঠিক বাক্য গঠন অনুশীলন', en: '12 sentence & grammar puzzles' },
+    route: '/practice/puzzle',
+  },
+  {
+    id: 'sentences',
+    icon: Text,
+    hue: 'blue',
+    title: 'Sentences',
+    sub: { bn: 'বহুল ব্যবহৃত বাক্য', en: 'Common model sentences' },
+    route: '/practice/sentences',
+  },
+  {
+    id: 'cards',
+    icon: SpellCheck,
+    hue: 'pink',
+    title: 'Flashcards',
+    sub: { bn: 'দ্রুত মনে রাখুন', en: 'Spaced repetition' },
+    route: '/practice/vocabulary',
+    proTag: true,
+  },
+  {
+    id: 'phrases',
+    icon: MessageSquareQuote,
+    hue: 'gold',
+    title: 'Phrases (B1)',
+    sub: { bn: 'দৈনন্দিন কথোপকথন', en: 'Idioms & expressions' },
+    route: '/practice/phrases',
+  },
+  {
+    id: 'listening',
+    icon: Headphones,
+    hue: 'cyan',
+    title: 'Listening',
+    sub: { bn: 'শুনে শিখুন', en: 'Audio & comprehension' },
+    route: '/practice/listening',
+  },
+  {
+    id: 'verbs',
+    icon: InfinityIcon,
+    hue: 'violet',
+    title: 'Important Verbs',
+    sub: { bn: 'গুরুত্বপূর্ণ ১০০টি ক্রিয়া', en: 'Key verb conjugations' },
+    route: '/practice/verbs',
+  },
+  {
+    id: 'survival',
+    icon: Signpost,
+    hue: 'gold',
+    title: 'Survival Italian',
+    sub: { bn: 'ইতালিতে টিকে থাকার বাক্য', en: 'Real situations in Italy' },
+    route: '/practice/survival',
+  },
+  {
+    id: 'mistakes',
+    icon: RotateCcw,
+    hue: 'pink',
+    title: 'Review Mistakes',
+    sub: { bn: 'ভুলগুলো দেখুন এবং শুদ্ধ করুন', en: 'Practise past mistakes' },
+    route: '/practice/mistakes',
+  },
+  {
+    id: 'speaking',
+    icon: Mic,
+    hue: 'violet',
+    title: 'Speaking',
+    sub: { bn: 'উচ্চারণ ও বলার অনুশীলন', en: 'Mic & pronunciation' },
+    route: '/practice/speaking',
+  },
+  {
+    id: 'reading',
+    icon: FileText,
+    hue: 'emerald',
+    title: 'Reading',
+    sub: { bn: 'পড়া ও বোঝা অনুশীলন', en: 'Reading comprehension' },
+    route: '/practice/reading',
+  },
+  {
+    id: 'writing',
+    icon: FilePenLine,
+    hue: 'cyan',
+    title: 'Writing',
+    sub: { bn: 'ইতালিয়ান ভাষায় লেখার অনুশীলন', en: 'Guided writing & rubric' },
+    route: '/practice/writing',
+  },
+  {
+    id: 'stories',
+    icon: BookMarked,
+    hue: 'blue',
+    title: 'Stories',
+    sub: { bn: 'গল্পভিত্তিক ব্যাকরণ ও পাঠ', en: 'Story-based learning' },
+    route: '/practice/stories',
+  },
 ];
 
 export function PracticeHub() {
@@ -68,33 +186,54 @@ export function PracticeHub() {
   const { state } = useProgress();
   const { t, tr } = useI18n();
   const due = dueCards(state).length;
-  const mistakes = Object.keys(state.mistakes).length;
+  const mistakes = countReviewableMistakes(state);
 
   return (
     <div className="animate-rise">
-      <ScreenTitle title={t('practiceHub')} subtitle={t('practiceSub')} />
+      <header className="mb-4">
+        <h1 className="bn text-[2.1rem] sm:text-[2.3rem] leading-tight font-extrabold text-white">
+          {t('practiceHub')}
+        </h1>
+        <p className="bn mt-1 text-base sm:text-lg font-semibold text-ink-2">{t('practiceSub')}</p>
+      </header>
+
       <div className="grid grid-cols-2 gap-3 sm:grid-cols-3">
         {MODULES.map((m) => {
-          const badge = m.id === 'cards' && due > 0 ? due : m.id === 'mistakes' && mistakes > 0 ? mistakes : null;
-          const available = !!m.route;
+          const countBadge =
+            m.id === 'cards' && due > 0 ? due : m.id === 'mistakes' && mistakes > 0 ? mistakes : null;
           const hue = HUES[m.hue];
           return (
             <button
               key={m.id}
               type="button"
-              disabled={!available}
-              onClick={() => m.route && navigate(m.route)}
+              onClick={() => navigate(m.route)}
               className={cx(
-                'relative flex min-h-36 flex-col items-center justify-center rounded-[1.4rem] border bg-gradient-to-br p-4 text-center backdrop-blur transition active:scale-[0.98]',
+                'relative flex min-h-34 sm:min-h-36 flex-col items-center justify-center rounded-[1.35rem] border bg-gradient-to-br p-3.5 sm:p-4 text-center backdrop-blur-md transition hover:brightness-110 active:scale-[0.98]',
                 hue.tile,
-                !available && 'cursor-not-allowed opacity-50',
               )}
             >
-              {badge !== null && <span className="bg-grad-primary absolute top-2 right-2 rounded-full px-2 text-xs font-bold text-navy-950">{badge}</span>}
-              <m.icon size={40} strokeWidth={1.7} className={cx(hue.icon, 'drop-shadow-[0_0_10px_currentColor]')} aria-hidden />
-              <span className="mt-2 text-[1.08rem] leading-tight font-extrabold">{m.title}</span>
-              <span className="bn mt-0.5 text-[0.85rem] leading-snug font-semibold text-ink-2">{tr(m.sub)}</span>
-              {!available && <span className="mt-1.5 rounded-full border border-white/20 px-2 py-0.5 text-[10px] font-bold text-ink-3">{t('comingSoon')}</span>}
+              {countBadge !== null ? (
+                <span className="bg-grad-primary glow-neon absolute top-2.5 right-2.5 rounded-full px-2.5 py-0.5 text-xs font-extrabold text-navy-950 tabular-nums">
+                  {countBadge}
+                </span>
+              ) : m.proTag ? (
+                <span className="bg-grad-primary glow-neon absolute top-2.5 right-2.5 rounded-full px-2.5 py-0.5 text-[0.7rem] font-extrabold tracking-wide text-navy-950 uppercase">
+                  PRO
+                </span>
+              ) : null}
+
+              <m.icon
+                size={36}
+                strokeWidth={1.85}
+                className={cx(hue.icon, 'drop-shadow-[0_0_12px_currentColor]')}
+                aria-hidden
+              />
+              <span className="mt-2.5 text-[1.05rem] sm:text-[1.12rem] leading-tight font-extrabold text-white">
+                {m.title}
+              </span>
+              <span className="bn mt-1 text-[0.8rem] sm:text-[0.85rem] leading-snug font-semibold text-ink-2">
+                {tr(m.sub)}
+              </span>
             </button>
           );
         })}

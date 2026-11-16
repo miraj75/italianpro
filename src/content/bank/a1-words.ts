@@ -347,4 +347,52 @@ i contanti|নগদ|cash
 lo sconto|ছাড়|discount
 la taglia|সাইজ|size
 lo scontrino|রসিদ|receipt
+# সুপারমার্কেট / Supermarket
+il carrello|শপিং কার্ট|shopping trolley
+la cassa|ক্যাশ কাউন্টার|checkout
+la bottiglia|বোতল|bottle
+il sacchetto|ব্যাগ / থলে|shopping bag
+la scatola|বাক্স|box
+il burro|মাখন|butter
+la farina|ময়দা|flour
+la marmellata|জ্যাম|jam
+il biscotto|বিস্কুট|biscuit
+il prosciutto|হ্যাম|ham
+# অনুভূতি ও সামাজিক জীবন / Emotions & social life
+la gioia|আনন্দ|joy
+la paura|ভয়|fear
+la sorpresa|বিস্ময় / সারপ্রাইজ|surprise
+l'invito|আমন্ত্রণ|invitation
+la festa|পার্টি / উৎসব|party
+il compleanno|জন্মদিন|birthday
+il regalo|উপহার|gift
+l'appuntamento|অ্যাপয়েন্টমেন্ট|appointment
+arrabbiato|রাগান্বিত|angry
+preoccupato|চিন্তিত|worried
+# প্রযুক্তি / Technology
+il cellulare|মোবাইল ফোন|mobile phone
+il messaggio|মেসেজ / বার্তা|message
+l'email|ইমেইল|email
+la foto|ছবি / ফটো|photo
+lo schermo|স্ক্রিন|screen
+la password|পাসওয়ার্ড|password
+il sito|ওয়েবসাইট|website
+internet|ইন্টারনেট|internet
+il caricabatterie|চার্জার|charger
+# মাস ও তারিখ / Months & dates
+la data|তারিখ|date
+l'orologio|ঘড়ি|watch / clock
+il calendario|ক্যালেন্ডার|calendar
+gennaio|জানুয়ারি|January
+febbraio|ফেব্রুয়ারি|February
+marzo|মার্চ|March
+aprile|এপ্রিল|April
+maggio|মে|May
+giugno|জুন|June
+luglio|জুলাই|July
+agosto|আগস্ট|August
+settembre|সেপ্টেম্বর|September
+ottobre|অক্টোবর|October
+novembre|নভেম্বর|November
+dicembre|ডিসেম্বর|December
 `;

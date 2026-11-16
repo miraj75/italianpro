@@ -332,4 +332,116 @@ l'impegno|প্রতিশ্রুতি / নিষ্ঠা|commitment
 la gratitudine|কৃতজ্ঞতা|gratitude
 il rimpianto|অনুশোচনা|regret
 pentirsi|অনুতপ্ত হওয়া|to regret
+# বিশ্ববিদ্যালয়, গবেষণা ও ব্যাংকিং / University, research & finance
+la facoltà|অনুষদ / বিভাগ|university faculty
+il semestre|সেমিস্টার|semester
+l'appello|পরীক্ষার সেশন|exam session
+fuori corso|নির্ধারিত সময়ের পর অধ্যয়নরত|beyond standard degree time
+la media dei voti|নম্বরের গড়|grade average
+il relatore|থিসিস তত্ত্বাবধায়ক|thesis supervisor
+il laboratorio|গবেষণাগার|laboratory
+l'esperimento|পরীক্ষা-নিরীক্ষা|experiment
+il dato statistico|পরিসংখ্যানগত তথ্য|statistical datum
+la percentuale|শতকরা হার|percentage
+il sondaggio|জনমত জরিপ|poll / survey
+il tasso d'interesse|সুদের হার|interest rate
+la commissione bancaria|ব্যাংক চার্জ|bank fee
+il finanziamento|অর্থায়ন|financing / funding
+il preventivo|খরচের প্রাক্কলন / কোটেশন|quote / estimate
+la ricevuta fiscale|কর রসিদ|tax receipt
+il rimborso spese|খরচ ফেরত|expense reimbursement
+la detrazione|কর ছাড়|tax deduction
+la dichiarazione dei redditi|আয়কর বিবরণী|tax return
+il consulente|পরামর্শদাতা|consultant / adviser
+la filiale|শাখা অফিস|branch office
+la scadenza fiscale|করের শেষ তারিখ|tax deadline
+l'inflazione annua|বার্ষিক মুদ্রাস্ফীতি|annual inflation
+il potere d'acquisto|ক্রয়ক্ষমতা|purchasing power
+il bonifico istantaneo|তাৎক্ষণিক ব্যাংক ট্রান্সফার|instant bank transfer
+la ricevuta digitale|ডিজিটাল রসিদ|digital receipt
+# নাগরিক জীবন, পরিবহন ও নগরায়ন / Civic life, transport & urbanism
+il municipio|পৌর ভবন|city hall
+l'anagrafe|নাগরিক নিবন্ধন দপ্তর|registry office
+lo stato di famiglia|পারিবারিক সনদ|family status certificate
+il casellario giudiziale|পুলিশ ক্লিয়ারেন্স সনদ|criminal record certificate
+la marca temporale|সময়ের সিলমোহর|timestamp
+la raccomandata|রেজিস্টার্ড চিঠি|registered mail
+la posta elettronica certificata|অনুমোদিত ইমেইল (PEC)|certified email (PEC)
+lo sportello unico|সমন্বিত সেবা কাউন্টার|one-stop desk
+l'autocertificazione|স্ব-ঘোষণাপত্র|self-certification
+il codice identificativo|শনাক্তকরণ কোড|identification code
+la zona a traffico limitato|সীমিত যান চলাচল এলাকা (ZTL)|limited traffic zone
+il car sharing|গাড়ি ভাগাভাগি সেবা|car sharing
+la mobilità sostenibile|টেকসই যাতায়াত ব্যবস্থা|sustainable mobility
+il pendolare|নিত্যযাত্রী|commuter
+l'alta velocità|উচ্চগতির ট্রেন|high-speed rail
+la coincidenza persa|মিস হওয়া সংযোগ ট্রেন|missed connection
+il guasto tecnico|যান্ত্রিক ত্রুটি|technical fault
+la deviazione|বিকল্প পথ|diversion / detour
+il cantiere stradale|রাস্তার কাজ|roadworks
+il limite di velocità|গতিসীমা|speed limit
+la rotatoria|গোলচত্বর|roundabout
+il sorpasso|ওভারটেকিং|overtaking
+l'assicurazione auto|গাড়ির বিমা|car insurance
+la revisione|গাড়ির ফিটনেস পরীক্ষা|vehicle inspection (MOT)
+il soccorso stradale|রাস্তায় জরুরি সহায়তা|breakdown recovery
+# মনস্তত্ত্ব, সম্পর্ক ও সমাজজীবন / Psychology, relationships & social life
+l'autostima|আত্মমর্যাদা|self-esteem
+l'empatia|সহমর্মিতা|empathy
+empatico|সহমর্মী|empathetic
+la comprensione|বোঝাপড়া|understanding
+comprensivo|সহানুভূতিশীল|understanding / sympathetic
+il malinteso|ভুল বোঝাবুঝি|misunderstanding
+chiarire|স্পষ্ট করা / মিটিয়ে নেওয়া|to clarify / clear up
+perdonare|ক্ষমা করা|to forgive
+il perdono|ক্ষমা|forgiveness
+la riconciliazione|পুনর্মিলন|reconciliation
+la convivenza|একসাথে বসবাস|cohabitation / living together
+convivere|একসাথে বাস করা|to live together
+il coinquilino|রুমমেট / ফ্ল্যাটমেট|flatmate
+l'ospitalità|আতিথেয়তা|hospitality
+ospitale|অতিথিপরায়ণ|hospitable
+la conoscenza superficiale|সাধারণ পরিচয়|acquaintance
+l'amicizia stretta|ঘনিষ্ঠ বন্ধুত্ব|close friendship
+confidarsi|মনের কথা খুলে বলা|to confide
+il segreto professionale|পেশাগত গোপনীয়তা|professional secrecy
+la discrezione|বিচক্ষণতা / গোপনীয়তা রক্ষা|discretion
+discreto|বিচক্ষণ / পরিমিত|discreet / decent
+l'invito formale|আনুষ্ঠানিক আমন্ত্রণ|formal invitation
+accogliere|স্বাগত জানানো|to welcome / host
+accompagnare|সাথে যাওয়া / পৌঁছে দেওয়া|to accompany
+collaborativo|সহযোগিতাপূর্ণ|cooperative
+tollerante|সহনশীল|tolerant
+la tolleranza|সহনশীলতা|tolerance
+l'integrazione sociale|সামাজিক অন্তর্ভুক্তি|social inclusion
+il centro culturale|সাংস্কৃতিক কেন্দ্র|cultural centre
+l'associazione|সংগঠন / সমিতি|association
+# খাবার, কৃষি ও টেকসই জীবন / Gastronomy, agriculture & green living
+l'agricoltura biologica|জৈব কৃষি|organic farming
+biologico|জৈব (অর্গানিক)|organic
+il prodotto locale|স্থানীয় পণ্য|local product
+a chilometro zero|স্থানীয়ভাবে উৎপাদিত|locally sourced (zero-mile)
+la stagionalità|মৌসুমি প্রাপ্যতা|seasonality
+di stagione|মৌসুমি|seasonal / in season
+la conservazione|সংরক্ষণ|preservation / storage
+conservare|সংরক্ষণ করা|to preserve / keep
+la scadenza alimentare|খাবারের মেয়াদ|use-by date
+lo spreco alimentare|খাদ্য অপচয়|food waste
+la raccolta porta a porta|বাড়ি থেকে বর্জ্য সংগ্রহ|door-to-door waste collection
+il contenitore|পাত্র / বিন|container / bin
+compostabile|পচনশীল (কম্পোস্টযোগ্য)|compostable
+la borraccia|পুনর্ব্যবহারযোগ্য পানির বোতল|reusable water bottle
+il risparmio energetico|শক্তি সাশ্রয়|energy saving
+l'elettrodomestico|গৃহস্থালি বৈদ্যুতিক যন্ত্র|household appliance
+il consumo responsabile|দায়িত্বশীল ভোগ|responsible consumption
+la qualità della vita|জীবনযাত্রার মান|quality of life
+l'equilibrio|ভারসাম্য|balance
+equilibrato|ভারসাম্যপূর্ণ|balanced
+la serenità|মানসিক প্রশান্তি|serenity
+sereno|শান্ত / নির্মল|serene / clear
+consapevole|সচেতন|aware / conscious
+la consapevolezza|সচেতনতা|awareness
+l'abitudine quotidiana|দৈনন্দিন অভ্যাস|daily habit
+la scelta consapevole|সচেতন সিদ্ধান্ত|informed choice
 `;
+

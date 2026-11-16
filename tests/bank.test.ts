@@ -6,10 +6,17 @@ import { isCorrect, puzzlePool, shuffleTiles, tokenize } from '../src/state/puzz
 describe('vocabulary and sentence bank', () => {
   it('meets the level targets', () => {
     expect(WORDS.A1.length).toBeGreaterThanOrEqual(300);
-    expect(SENTENCES.A1.length).toBeGreaterThanOrEqual(100);
+    expect(SENTENCES.A1.length).toBeGreaterThanOrEqual(200);
+    expect(GRAMMAR_TOPICS.filter((g) => g.level === 'A1').length).toBeGreaterThanOrEqual(20);
     expect(WORDS.A2.length).toBeGreaterThanOrEqual(500);
-    expect(SENTENCES.A2.length).toBeGreaterThanOrEqual(200);
-    expect(WORDS.B1.length).toBeGreaterThanOrEqual(600);
+    expect(SENTENCES.A2.length).toBeGreaterThanOrEqual(350);
+    expect(GRAMMAR_TOPICS.filter((g) => g.level === 'A2').length).toBeGreaterThanOrEqual(30);
+    expect(WORDS.B1.length).toBeGreaterThanOrEqual(700);
+    expect(SENTENCES.B1.length).toBeGreaterThanOrEqual(500);
+    expect(GRAMMAR_TOPICS.filter((g) => g.level === 'B1').length).toBeGreaterThanOrEqual(40);
+    expect(WORDS.B2.length).toBeGreaterThanOrEqual(1000);
+    expect(SENTENCES.B2.length).toBeGreaterThanOrEqual(700);
+    expect(GRAMMAR_TOPICS.filter((g) => g.level === 'B2').length).toBeGreaterThanOrEqual(50);
     expect(PHRASES.length).toBeGreaterThanOrEqual(50);
   });
 
@@ -50,6 +57,6 @@ describe('sentence puzzle', () => {
   });
 
   it('has puzzles for every level', () => {
-    for (const l of ['A1', 'A2', 'B1'] as const) expect(puzzlePool(l).length).toBeGreaterThan(50);
+    for (const l of ['A1', 'A2', 'B1', 'B2'] as const) expect(puzzlePool(l).length).toBeGreaterThan(50);
   });
 });
