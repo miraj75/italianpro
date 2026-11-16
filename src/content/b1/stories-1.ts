@@ -19,17 +19,17 @@ export const B1_STORIES_1: StoryItem[] = [
       { word: 'cittadino', base: 'il cittadino', tr: { bn: 'নাগরিক', en: 'citizen' }, pos: 'noun' },
     ],
     grammarBreakdown: [
-      { sentenceIt: 'Credo che sia efficace trasformare il vecchio magazzino.', ruleTitle: { bn: 'Credo che + congiuntivo presente', en: 'Credo che + present subjunctive' }, explanation: { bn: 'মতামত প্রকাশক Credo che-এর পরে essere ক্রিয়ার সংযোজক রূপ sia বসেছে।', en: 'Credo che triggers the present subjunctive sia.' }, grammarId: 'congiuntivo' },
+      { sentenceIt: 'Credo che sia efficace trasformare il vecchio magazzino.', ruleTitle: { bn: 'মতামত প্রকাশে বর্তমান সাবজাংক্টিভ (Credo che + congiuntivo presente)', en: 'Credo che + present subjunctive' }, explanation: { bn: 'মতামত প্রকাশক Credo che-এর পরে essere ক্রিয়ার সংযোজক রূপ sia বসেছে।', en: 'Credo che triggers the present subjunctive sia.' }, grammarId: 'congiuntivo' },
     ],
     mcq: [
-      { id: 'stb1-1-q1', prompt: { bn: 'পুরোনো গুদামটিকে কিসে রূপান্তর করার প্রস্তাব দেওয়া হয়েছে?', en: 'What did the narrator propose turning the old warehouse into?' }, options: ['সুপারমার্কেট', 'তরুণদের পড়ার স্থান', 'গাড়ির গ্যারেজ', 'সিনেমা হল'], answer: 1, explanation: { bn: 'uno spazio di studio per i giovani।', en: 'A study space for young people.' } },
+      { id: 'stb1-1-q1', prompt: { bn: 'পুরোনো গুদামটিকে কিসে রূপান্তর করার প্রস্তাব দেওয়া হয়েছে?', en: 'What did the narrator propose turning the old warehouse into?' }, options: ['সুপারমার্কেট', 'তরুণদের পড়ার স্থান', 'গাড়ির গ্যারেজ', 'সিনেমা হল'], answer: 1, explanation: { bn: 'সঠিক উত্তর: তরুণদের পড়ার স্থান — পাঠ্যাংশে বলা হয়েছে: «সভা চলাকালীন আমি একটি সুনির্দিষ্ট প্রস্তাব উপস্থাপন করেছি। আমার বিশ্বাস পরিত্যক্ত পুরোনো গুদামটিকে তরুণদের পড়ার স্থানে রূপান্তর করা কার্যকর হবে।» (uno spazio di studio per i giovani)।', en: 'A study space for young people.' } },
       { id: 'stb1-1-q2', prompt: { bn: 'কমিটির সভাপতি কবে নাগাদ অনুমোদনের আশা করছেন?', en: 'By when does the chair hope for approval?' }, options: ['শীতের মধ্যে', 'গ্রীষ্মের মধ্যে', 'আগামী সপ্তাহে', 'দুই বছর পর'], answer: 1, explanation: { bn: 'entro l’estate = গ্রীষ্মের মধ্যে।', en: 'By summer.' } },
     ],
     trueFalse: [
-      { id: 'stb1-1-tf1', statementIt: 'L’assemblea era riservata solo ai consiglieri comunali.', statement: { bn: 'সভাটি কেবল পৌর কাউন্সিলরদের জন্য সংরক্ষিত ছিল।', en: 'The assembly was reserved only for municipal councillors.' }, answer: false, explanation: { bn: 'era aperta a tutti gli abitanti।', en: 'It was open to all residents.' } },
+      { id: 'stb1-1-tf1', statementIt: 'L’assemblea era riservata solo ai consiglieri comunali.', statement: { bn: 'সভাটি কেবল পৌর কাউন্সিলরদের জন্য সংরক্ষিত ছিল।', en: 'The assembly was reserved only for municipal councillors.' }, answer: false, explanation: { bn: 'বাক্যটি মিথ্যা — গল্পে আসলে বলা হয়েছে: «গতকাল সন্ধ্যায় পৌর মিলনায়তনে সব বাসিন্দার জন্য উন্মুক্ত একটি সভা অনুষ্ঠিত হয়েছে। অনেকেই মনে করেন পাড়াটিতে আরও সবুজ এলাকা ও একটি আধুনিক গ্রন্থাগার প্রয়োজন।» (era aperta a tutti gli abitanti)।', en: 'It was open to all residents.' } },
     ],
     fillBlank: [
-      { id: 'stb1-1-fb1', sentence: 'Molti pensano che il quartiere ___ bisogno di aree verdi.', options: ['ha', 'abbia', 'avrà', 'aveva'], answer: 1, explanation: { bn: 'pensano che + abbia।', en: 'pensano che takes abbia.' } },
+      { id: 'stb1-1-fb1', sentence: 'Molti pensano che il quartiere ___ bisogno di aree verdi.', options: ['ha', 'abbia', 'avrà', 'aveva'], answer: 1, explanation: { bn: 'ব্যাকরণগত গঠন: এখানে «pensano che + abbia» কাঠামোটি অনুসরণ করা হয়েছে।', en: 'pensano che takes abbia.' } },
     ],
     shortAnswer: [
       { id: 'stb1-1-sa1', question: { bn: 'পাড়ায় কীসের প্রয়োজন বলে বাসিন্দারা মনে করেন?', en: 'What do residents think the neighbourhood needs?' }, sampleAnswerIt: 'Pensano che abbia bisogno di più aree verdi e di una biblioteca.', keywords: ['aree', 'verdi', 'biblioteca'] },
@@ -59,23 +59,23 @@ export const B1_STORIES_1: StoryItem[] = [
       { word: 'accettare', base: 'accettare', tr: { bn: 'গ্রহণ করা', en: 'to accept' }, pos: 'verb' },
     ],
     grammarBreakdown: [
-      { sentenceIt: 'Se lavorassi da casa, otterrei un notevole risparmio.', ruleTitle: { bn: 'Se + congiuntivo imperfetto, condizionale', en: '2nd conditional structure' }, explanation: { bn: 'সম্ভাব্য বা কাল্পনিক শর্তে Se lavorassi এবং ফলাফলে otterrei ব্যবহৃত হয়েছে।', en: 'Hypothetical condition uses lavorassi and result uses otterrei.' }, grammarId: 'periodo-ipotetico' },
+      { sentenceIt: 'Se lavorassi da casa, otterrei un notevole risparmio.', ruleTitle: { bn: 'দ্বিতীয় প্রকার শর্তমূলক বাক্য (Se + congiuntivo imperfetto, condizionale)', en: '2nd conditional structure' }, explanation: { bn: 'সম্ভাব্য বা কাল্পনিক শর্তে Se lavorassi এবং ফলাফলে otterrei ব্যবহৃত হয়েছে।', en: 'Hypothetical condition uses lavorassi and result uses otterrei.' }, grammarId: 'periodo-ipotetico' },
     ],
     mcq: [
-      { id: 'stb1-2-q1', prompt: { bn: 'বাসা থেকে কাজ করলে কোন খরচে সাশ্রয় হতো?', en: 'What costs would working from home save on?' }, options: ['বাড়ি ভাড়া', 'জ্বালানি ও গণপরিবহন', 'ইন্টারনেট বিল', 'পোশাক'], answer: 1, explanation: { bn: 'costi del carburante e dei mezzi pubblici।', en: 'Fuel and public transport costs.' } },
+      { id: 'stb1-2-q1', prompt: { bn: 'বাসা থেকে কাজ করলে কোন খরচে সাশ্রয় হতো?', en: 'What costs would working from home save on?' }, options: ['বাড়ি ভাড়া', 'জ্বালানি ও গণপরিবহন', 'ইন্টারনেট বিল', 'পোশাক'], answer: 1, explanation: { bn: 'সঠিক উত্তর: জ্বালানি ও গণপরিবহন — পাঠ্যাংশে বলা হয়েছে: «পাঁচ দিনের মধ্যে তিন দিন বাসা থেকে কাজ করলে জ্বালানি ও গণপরিবহনের খরচে উল্লেখযোগ্য সাশ্রয় পেতাম।» (costi del carburante e dei mezzi pubblici)।', en: 'Fuel and public transport costs.' } },
     ],
     trueFalse: [
       { id: 'stb1-2-tf1', statementIt: 'Il narratore vorrebbe lavorare solo da casa senza mai andare in ufficio.', statement: { bn: 'বক্তা কখনো অফিসে না গিয়ে কেবল বাসা থেকেই কাজ করতে চান।', en: 'The narrator wants to work exclusively from home without ever going to the office.' }, answer: false, explanation: { bn: 'তিনি একটি মিশ্র পদ্ধতি (una formula mista) পছন্দ করেন।', en: 'He prefers a hybrid arrangement.' } },
     ],
     fillBlank: [
-      { id: 'stb1-2-fb1', sentence: 'Se non ___ i colleghi, mi mancherebbe il confronto.', options: ['vedrò', 'vedessi', 'vedrei', 'vedo'], answer: 1, explanation: { bn: 'Se + congiuntivo imperfetto (vedessi)।', en: 'Se takes imperfect subjunctive vedessi.' } },
+      { id: 'stb1-2-fb1', sentence: 'Se non ___ i colleghi, mi mancherebbe il confronto.', options: ['vedrò', 'vedessi', 'vedrei', 'vedo'], answer: 1, explanation: { bn: 'ব্যাকরণ সূত্র: Se + congiuntivo imperfetto (vedessi) — Se এর পরে ইমপারফেক্ট সাবজাংক্টিভ (congiuntivo imperfetto) বসে vedessi।', en: 'Se takes imperfect subjunctive vedessi.' } },
     ],
     shortAnswer: [
       { id: 'stb1-2-sa1', question: { bn: 'বক্তা কোন ধরনের কাজের পদ্ধতি গ্রহণ করতেন?', en: 'What kind of work arrangement would the narrator accept?' }, sampleAnswerIt: 'Accetterebbe volentieri una formula mista.', keywords: ['formula', 'mista'] },
     ],
     practice: {
       retellPrompt: { bn: 'স্মার্ট ওয়ার্কিংয়ের সুবিধা ও অসুবিধা ৩ বাক্যে লিখুন।', en: 'Write 3 sentences on the pros and cons of remote working.' },
-      completeMissing: { promptIt: 'Se ___ più vicino, andrei al lavoro a piedi.', hint: { bn: 'abitare → abitassi', en: 'imperfect subjunctive abitassi' }, sampleIt: 'Se abitassi più vicino, andrei al lavoro a piedi.' },
+      completeMissing: { promptIt: 'Se ___ più vicino, andrei al lavoro a piedi.', hint: { bn: 'abitare ক্রিয়ার ইমপারফেক্ট সাবজাংক্টিভ রূপ abitassi বসান', en: 'imperfect subjunctive abitassi' }, sampleIt: 'Se abitassi più vicino, andrei al lavoro a piedi.' },
       buildSimilar: { patternIt: 'Se lavorassi da casa, risparmierei tempo.', prompt: { bn: 'Se potessi... দিয়ে একটি কাল্পনিক বাক্য লিখুন।', en: 'Write a hypothetical sentence with Se potessi...' }, sampleIt: 'Se potessi scegliere, lavorerei da casa due giorni.' },
       altEndingPrompt: { bn: 'কোম্পানি নতুন চুক্তি দিলে কর্মীরা কী করবে তা লিখুন।', en: 'Write how employees will react to the hybrid contract.' },
     },
@@ -101,20 +101,20 @@ export const B1_STORIES_1: StoryItem[] = [
       { sentenceIt: 'Promise che li avrebbe chiamati ogni domenica.', ruleTitle: { bn: 'Condizionale passato (অতীতে ভবিষ্যৎ)', en: 'Past conditional for future-in-the-past' }, explanation: { bn: 'অতীতে দেওয়া প্রতিশ্রুতি বোঝাতে avrebbe chiamati ব্যবহৃত হয়েছে।', en: 'Future-in-the-past after promise uses avrebbe chiamati.' }, grammarId: 'condizionale-passato' },
     ],
     mcq: [
-      { id: 'stb1-3-q1', prompt: { bn: 'তারিক কবে মা-বাবাকে ফোন করার প্রতিশ্রুতি দিয়েছিল?', en: 'When did Tariq promise he would call his parents?' }, options: ['প্রতিদিন সকালে', 'প্রতি রবিবার সন্ধ্যায়', 'মাসে একবার', 'শুক্রবার দুপুরে'], answer: 1, explanation: { bn: 'ogni domenica sera।', en: 'Every Sunday evening.' } },
+      { id: 'stb1-3-q1', prompt: { bn: 'তারিক কবে মা-বাবাকে ফোন করার প্রতিশ্রুতি দিয়েছিল?', en: 'When did Tariq promise he would call his parents?' }, options: ['প্রতিদিন সকালে', 'প্রতি রবিবার সন্ধ্যায়', 'মাসে একবার', 'শুক্রবার দুপুরে'], answer: 1, explanation: { bn: 'সঠিক উত্তর: প্রতি রবিবার সন্ধ্যায় — পাঠ্যাংশে বলা হয়েছে: «তারিক যখন পলিটেকনিকের জন্য তুরিনে চলে আসে, তখন মা-বাবাকে কথা দিয়েছিল যে প্রতি রবিবার সন্ধ্যায় ফোন করবে এবং শৃঙ্খলার সাথে পড়াশোনা করবে।» (ogni domenica sera)।', en: 'Every Sunday evening.' } },
     ],
     trueFalse: [
       { id: 'stb1-3-tf1', statementIt: 'Tariq ha molti rimpianti per gli anni universitari.', statement: { bn: 'বিশ্ববিদ্যালয়ের বছরগুলো নিয়ে তারিকের অনেক আক্ষেপ আছে।', en: 'Tariq has many regrets about his university years.' }, answer: false, explanation: { bn: 'senza alcun rimpianto = কোনো আক্ষেপ ছাড়া।', en: 'He graduated without any regret.' } },
     ],
     fillBlank: [
-      { id: 'stb1-3-fb1', sentence: 'Pensava che ___ voluto partecipare a più eventi.', options: ['avrebbe', 'avrà', 'abbia', 'avesse'], answer: 0, explanation: { bn: 'avrebbe voluto partecipare।', en: 'avrebbe voluto.' } },
+      { id: 'stb1-3-fb1', sentence: 'Pensava che ___ voluto partecipare a più eventi.', options: ['avrebbe', 'avrà', 'abbia', 'avesse'], answer: 0, explanation: { bn: 'পাঠ্যাংশের তথ্যানুযায়ী: «শুরুতে তীব্র শীতের সাথে মানিয়ে নেওয়া সহজ ছিল না। প্রায়ই সে ভাবত আরও সাংস্কৃতিক অনুষ্ঠানে অংশ নিতে পারলে ভালো হতো, কিন্তু পরীক্ষার জন্য ল্যাবরেটরিতে অনেক ঘণ্টা দিতে হতো।» (সঠিক উত্তর: avrebbe)।', en: 'avrebbe voluto.' } },
     ],
     shortAnswer: [
       { id: 'stb1-3-sa1', question: { bn: 'তারিক কেন তুরিনে গিয়েছিল?', en: 'Why did Tariq move to Turin?' }, sampleAnswerIt: 'Si trasferì a Torino per studiare al politecnico.', keywords: ['politecnico', 'studiare'] },
     ],
     practice: {
       retellPrompt: { bn: 'তারিকের প্রতিশ্রুতি ও সাফল্য ৩ বাক্যে লিখুন।', en: 'Retell Tariq’s promise and graduation in 3 sentences.' },
-      completeMissing: { promptIt: 'Giulia ha detto che ___ arrivata alle otto.', hint: { bn: 'essere → sarebbe', en: 'past conditional sarebbe' }, sampleIt: 'Giulia ha detto che sarebbe arrivata alle otto.' },
+      completeMissing: { promptIt: 'Giulia ha detto che ___ arrivata alle otto.', hint: { bn: 'essere ক্রিয়ার কন্ডিশনাল রূপ sarebbe ব্যবহার করুন', en: 'past conditional sarebbe' }, sampleIt: 'Giulia ha detto che sarebbe arrivata alle otto.' },
       buildSimilar: { patternIt: 'Avrei voluto partecipare al concerto.', prompt: { bn: 'অতীতে আপনি কী করতে চেয়েছিলেন তা লিখুন।', en: 'Write something you would have liked to do in the past.' }, sampleIt: 'Avrei voluto visitare anche Venezia.' },
       altEndingPrompt: { bn: 'স্নাতক হওয়ার পর তারিক মা-বাবাকে কী বলল তা লিখুন।', en: 'Write what Tariq told his parents at graduation.' },
     },
@@ -137,10 +137,10 @@ export const B1_STORIES_1: StoryItem[] = [
       { word: 'copertina', base: 'la copertina', tr: { bn: 'প্রচ্ছদ', en: 'book cover' }, pos: 'noun' },
     ],
     grammarBreakdown: [
-      { sentenceIt: 'Cercavo un romanzo che avevo letto molti anni prima.', ruleTitle: { bn: 'Trapassato prossimo (avevo letto)', en: 'Pluperfect tense' }, explanation: { bn: 'খোঁজারও অনেক আগে পড়া হয়ে গিয়েছিল বোঝাতে avevo letto বসেছে।', en: 'Action prior to cercavo uses avevo letto.' }, grammarId: 'trapassato' },
+      { sentenceIt: 'Cercavo un romanzo che avevo letto molti anni prima.', ruleTitle: { bn: 'পুরাঘটিত অতীত কাল: Trapassato prossimo (avevo letto)', en: 'Pluperfect tense' }, explanation: { bn: 'খোঁজারও অনেক আগে পড়া হয়ে গিয়েছিল বোঝাতে avevo letto বসেছে।', en: 'Action prior to cercavo uses avevo letto.' }, grammarId: 'trapassato' },
     ],
     mcq: [
-      { id: 'stb1-4-q1', prompt: { bn: 'বক্তা উপন্যাসটি প্রথম কবে পড়েছিলেন?', en: 'When had the narrator first read the novel?' }, options: ['গত সপ্তাহে', 'হাইস্কুলে থাকতে', 'বিশ্ববিদ্যালয়ের শেষে', 'গত গ্রীষ্মে'], answer: 1, explanation: { bn: 'durante il liceo।', en: 'During high school.' } },
+      { id: 'stb1-4-q1', prompt: { bn: 'বক্তা উপন্যাসটি প্রথম কবে পড়েছিলেন?', en: 'When had the narrator first read the novel?' }, options: ['গত সপ্তাহে', 'হাইস্কুলে থাকতে', 'বিশ্ববিদ্যালয়ের শেষে', 'গত গ্রীষ্মে'], answer: 1, explanation: { bn: 'সঠিক উত্তর: হাইস্কুলে থাকতে — পাঠ্যাংশে বলা হয়েছে: «শনিবার সকালে আমি বিশ্ববিদ্যালয়ের কাছের ছোট পুরোনো বইয়ের দোকানে ফিরে গিয়েছিলাম। আমি একটি ঐতিহাসিক উপন্যাস খুঁজছিলাম যা অনেক বছর আগে হাইস্কুলে থাকতে পড়েছিলাম।» (durante il liceo)।', en: 'During high school.' } },
     ],
     trueFalse: [
       { id: 'stb1-4-tf1', statementIt: 'Il libraio aveva venduto il libro a un altro cliente.', statement: { bn: 'বইবিক্রেতা বইটি অন্য গ্রাহকের কাছে বিক্রি করে দিয়েছিলেন।', en: 'The bookseller had sold the book to another customer.' }, answer: false, explanation: { bn: 'তিনি বইটি আলাদা করে রেখেছিলেন (aveva messo da parte)।', en: 'He had set it aside for the narrator.' } },
@@ -153,7 +153,7 @@ export const B1_STORIES_1: StoryItem[] = [
     ],
     practice: {
       retellPrompt: { bn: 'পুরোনো বইয়ের দোকানের ঘটনাটি ৩ বাক্যে লিখুন।', en: 'Retell the bookshop story in 3 sentences.' },
-      completeMissing: { promptIt: 'Quando sono arrivato, il treno ___ già partito.', hint: { bn: 'essere imperfetto: era', en: 'era già partito' }, sampleIt: 'Quando sono arrivato, il treno era già partito.' },
+      completeMissing: { promptIt: 'Quando sono arrivato, il treno ___ già partito.', hint: { bn: 'essere ক্রিয়ার ইমপারফেক্ট রূপ era বসান', en: 'era già partito' }, sampleIt: 'Quando sono arrivato, il treno era già partito.' },
       buildSimilar: { patternIt: 'Ho ritrovato un libro che avevo letto anni fa.', prompt: { bn: 'আগে করেছিলেন এমন কোনো কাজের কথা trapassato দিয়ে লিখুন।', en: 'Write a sentence using trapassato prossimo.' }, sampleIt: 'Ho visitato il museo di cui mi avevi parlato.' },
       altEndingPrompt: { bn: 'বইটি কিনে বাসায় ফিরে বক্তা কী করলেন লিখুন।', en: 'Write what the narrator did after taking the book home.' },
     },
@@ -182,17 +182,17 @@ export const B1_STORIES_1: StoryItem[] = [
       { id: 'stb1-5-q1', prompt: { bn: 'আগের পাড়াটির সমস্যা কী ছিল?', en: 'What was the problem with the previous neighbourhood?' }, options: ['দোকান ছিল না', 'অতিরিক্ত কোলাহলপূর্ণ ছিল', 'মেট্রো থেকে দূরে ছিল', 'খুব ঠান্ডা ছিল'], answer: 1, explanation: { bn: 'troppo rumoroso = অতিরিক্ত কোলাহলপূর্ণ।', en: 'It was too noisy.' } },
     ],
     trueFalse: [
-      { id: 'stb1-5-tf1', statementIt: 'Il nuovo appartamento si trova vicino al parco.', statement: { bn: 'নতুন ফ্ল্যাটটি পার্কের কাছে অবস্থিত।', en: 'The new flat is located near the park.' }, answer: true, explanation: { bn: 'un appartamento luminoso vicino al parco।', en: 'Near the park.' } },
+      { id: 'stb1-5-tf1', statementIt: 'Il nuovo appartamento si trova vicino al parco.', statement: { bn: 'নতুন ফ্ল্যাটটি পার্কের কাছে অবস্থিত।', en: 'The new flat is located near the park.' }, answer: true, explanation: { bn: 'বাক্যটি সত্য — গল্পের তথ্যানুযায়ী: «যে রিয়েল এস্টেট এজেন্সির শরণাপন্ন আমরা হয়েছিলাম তারা আমাদের পার্কের কাছে একটি আলোকিত ফ্ল্যাট দেখিয়েছে। যাঁর সাথে আমরা চুক্তিতে সই করেছি সেই মালিক অত্যন্ত ভদ্র মানুষ।» (un appartamento luminoso vicino al parco)।', en: 'Near the park.' } },
     ],
     fillBlank: [
-      { id: 'stb1-5-fb1', sentence: 'L’argomento ___ cui parliamo è importante.', options: ['che', 'di', 'chi', 'quale'], answer: 1, explanation: { bn: 'parlare di → di cui।', en: 'parlare di → di cui.' } },
+      { id: 'stb1-5-fb1', sentence: 'L’argomento ___ cui parliamo è importante.', options: ['che', 'di', 'chi', 'quale'], answer: 1, explanation: { bn: 'সঠিক রূপান্তর: «parlare di» থেকে পরিবর্তিত হয়ে «di cui» ব্যবহৃত হয়।', en: 'parlare di → di cui.' } },
     ],
     shortAnswer: [
       { id: 'stb1-5-sa1', question: { bn: 'নতুন প্রতিবেশীরা তাদের কীভাবে স্বাগত জানিয়েছে?', en: 'How did the new neighbours welcome them?' }, sampleAnswerIt: 'I nuovi vicini li hanno accolti con calore.', keywords: ['accolto', 'calore'] },
     ],
     practice: {
       retellPrompt: { bn: 'নতুন পাড়ায় বাসা বদলের গল্পটি ৩ বাক্যে লিখুন।', en: 'Summarise the move to the new neighbourhood in 3 sentences.' },
-      completeMissing: { promptIt: 'La città in ___ vivo è ricca di storia.', hint: { bn: 'in + cui', en: 'cui' }, sampleIt: 'La città in cui vivo è ricca di storia.' },
+      completeMissing: { promptIt: 'La città in ___ vivo è ricca di storia.', hint: { bn: 'প্রিপোজিশনযুক্ত সম্বন্ধবাচক সর্বনাম in cui ব্যবহার করুন', en: 'cui' }, sampleIt: 'La città in cui vivo è ricca di storia.' },
       buildSimilar: { patternIt: 'Il quartiere in cui abitiamo è tranquillo.', prompt: { bn: 'in cui বা con cui দিয়ে একটি বাক্য লিখুন।', en: 'Write a sentence with in cui or con cui.' }, sampleIt: 'I colleghi con cui lavoro sono molto disponibili.' },
       altEndingPrompt: { bn: 'নতুন পার্কে সপ্তাহান্তে তারা কী করবে তা লিখুন।', en: 'Write what the family will do in the park at the weekend.' },
     },
@@ -215,16 +215,16 @@ export const B1_STORIES_1: StoryItem[] = [
       { word: 'trimestrale', base: 'trimestrale', tr: { bn: 'ত্রৈমাসিক', en: 'quarterly' }, pos: 'adj' },
     ],
     grammarBreakdown: [
-      { sentenceIt: 'Appena ho controllato il file, gliel’ho inviato.', ruleTitle: { bn: 'le + lo = glielo (gliel’)', en: 'Combined pronoun glielo' }, explanation: { bn: 'পরিচালিকাকে (le) ফাইলটি (lo) পাঠানো হয়েছে → gliel’ho inviato।', en: 'le + lo combines into glielo (elided to gliel’ before ho).' }, grammarId: 'pronomi-combinati' },
+      { sentenceIt: 'Appena ho controllato il file, gliel’ho inviato.', ruleTitle: { bn: 'যুক্ত সর্বনাম: পরোক্ষ le + প্রত্যক্ষ lo = glielo (gliel’)', en: 'Combined pronoun glielo' }, explanation: { bn: 'পরিচালিকাকে (le) ফাইলটি (lo) পাঠানো হয়েছে → gliel’ho inviato।', en: 'le + lo combines into glielo (elided to gliel’ before ho).' }, grammarId: 'pronomi-combinati' },
     ],
     mcq: [
       { id: 'stb1-6-q1', prompt: { bn: 'মার্কো কখন জেনোভার গ্রাহককে তালিকাগুলো পাঠিয়েছে?', en: 'When did Marco send the tables to the client in Genoa?' }, options: ['গতকাল রাতে', 'দুপুরের খাবারের আগে', 'সন্ধ্যায়', 'পরের সপ্তাহে'], answer: 1, explanation: { bn: 'prima di pranzo = দুপুরের খাবারের আগে।', en: 'Before lunch.' } },
     ],
     trueFalse: [
-      { id: 'stb1-6-tf1', statementIt: 'Marco ha dimenticato di allegare i grafici.', statement: { bn: 'মার্কো গ্রাফ সংযুক্ত করতে ভুলে গেছে।', en: 'Marco forgot to attach the charts.' }, answer: false, explanation: { bn: 'si è ricordato di allegare i grafici।', en: 'He remembered to attach them.' } },
+      { id: 'stb1-6-tf1', statementIt: 'Marco ha dimenticato di allegare i grafici.', statement: { bn: 'মার্কো গ্রাফ সংযুক্ত করতে ভুলে গেছে।', en: 'Marco forgot to attach the charts.' }, answer: false, explanation: { bn: 'বাক্যটি মিথ্যা — গল্পে আসলে বলা হয়েছে: «জেনোভার গ্রাহকও আমাদের কাছে হালনাগাদ তালিকাগুলো চেয়েছিলেন; আমার সহকর্মী মার্কো গ্রাফগুলো সংযুক্ত করার কথা মনে রেখেছে এবং দুপুরের খাবারের আগেই তাঁকে সেগুলো পাঠিয়েছে।» (si è ricordato di allegare i grafici)।', en: 'He remembered to attach them.' } },
     ],
     fillBlank: [
-      { id: 'stb1-6-fb1', sentence: 'Se ti servono i modelli, ___ preparo subito.', options: ['ti li', 'te li', 'me li', 'glieli'], answer: 1, explanation: { bn: 'ti + li = te li।', en: 'ti + li becomes te li.' } },
+      { id: 'stb1-6-fb1', sentence: 'Se ti servono i modelli, ___ preparo subito.', options: ['ti li', 'te li', 'me li', 'glieli'], answer: 1, explanation: { bn: 'ব্যাকরণগত সংযোজন: ti + li = te li নিয়ম অনুসারে সঠিক রূপটি গঠিত হয়েছে।', en: 'ti + li becomes te li.' } },
     ],
     shortAnswer: [
       { id: 'stb1-6-sa1', question: { bn: 'পরিচালিকার কী প্রয়োজন ছিল?', en: 'What did the director need?' }, sampleAnswerIt: 'Aveva bisogno del bilancio trimestrale.', keywords: ['bilancio', 'trimestrale'] },
@@ -257,10 +257,10 @@ export const B1_STORIES_1: StoryItem[] = [
       { sentenceIt: 'Quando si è troppo stressati, si perde la concentrazione.', ruleTitle: { bn: 'Si impersonale + পুংলিঙ্গ বহুবচন বিশেষণ', en: 'Impersonal si + plural adjective' }, explanation: { bn: 'নৈর্ব্যক্তিক si-এর সাথে essere বসলে পরের বিশেষণটি পুংলিঙ্গ বহুবচন (stressati) হয়।', en: 'After impersonal si è, adjectives take masculine plural (-i): stressati.' }, grammarId: 'si-impersonale' },
     ],
     mcq: [
-      { id: 'stb1-7-q1', prompt: { bn: 'অনেক ইতালীয় শহরে পার্কে কী উৎসাহিত করা হচ্ছে?', en: 'What is promoted in parks in many Italian cities?' }, options: ['নৈশ বাজার', 'বিনামূল্যে খেলাধুলার কোর্স', 'গাড়ির প্রদর্শনী', 'বইমেলা'], answer: 1, explanation: { bn: 'corsi gratuiti di sport nei parchi।', en: 'Free sports courses in parks.' } },
+      { id: 'stb1-7-q1', prompt: { bn: 'অনেক ইতালীয় শহরে পার্কে কী উৎসাহিত করা হচ্ছে?', en: 'What is promoted in parks in many Italian cities?' }, options: ['নৈশ বাজার', 'বিনামূল্যে খেলাধুলার কোর্স', 'গাড়ির প্রদর্শনী', 'বইমেলা'], answer: 1, explanation: { bn: 'সঠিক উত্তর: বিনামূল্যে খেলাধুলার কোর্স — পাঠ্যাংশে বলা হয়েছে: «অনেক ইতালীয় শহরে আজ পার্কে বিনামূল্যে খেলাধুলার কোর্স উৎসাহিত করা হয়, কারণ খোলা বাতাসে চলাফেরা করলে অনেক ভালো থাকা যায়।» (corsi gratuiti di sport nei parchi)।', en: 'Free sports courses in parks.' } },
     ],
     trueFalse: [
-      { id: 'stb1-7-tf1', statementIt: 'Quando si è stressati, ci si concentra meglio.', statement: { bn: 'মানসিক চাপে থাকলে মনোযোগ আরও ভালো হয়।', en: 'When one is stressed, one concentrates better.' }, answer: false, explanation: { bn: 'si perde facilmente la concentrazione।', en: 'One easily loses concentration.' } },
+      { id: 'stb1-7-tf1', statementIt: 'Quando si è stressati, ci si concentra meglio.', statement: { bn: 'মানসিক চাপে থাকলে মনোযোগ আরও ভালো হয়।', en: 'When one is stressed, one concentrates better.' }, answer: false, explanation: { bn: 'বাক্যটি মিথ্যা — গল্পে আসলে বলা হয়েছে: «সমসাময়িক সমাজে মানুষ অবিরাম ছুটছে এবং প্রায়ই সপ্তাহান্তেও থামে না। অতিরিক্ত মানসিক চাপে থাকলে সহজেই মনোযোগ হারিয়ে যায়।» (si perde facilmente la concentrazione)।', en: 'One easily loses concentration.' } },
     ],
     fillBlank: [
       { id: 'stb1-7-fb1', sentence: 'Quando ___ muove all’aria aperta, si vive meglio.', options: ['si si', 'ci si', 'se ci', 'vi si'], answer: 1, explanation: { bn: 'প্রতিফলক muoversi নৈর্ব্যক্তিক রূপে ci si muove হয়।', en: 'Reflexive muoversi becomes ci si muove.' } },
@@ -293,13 +293,13 @@ export const B1_STORIES_1: StoryItem[] = [
       { word: 'pubblicare', base: 'pubblicare', tr: { bn: 'প্রকাশ করা', en: 'to publish' }, pos: 'verb' },
     ],
     grammarBreakdown: [
-      { sentenceIt: 'Una nuova legge è stata approvata dal parlamento.', ruleTitle: { bn: 'Essere + participio passato + da', en: 'Passive voice with essere' }, explanation: { bn: 'স্ত্রীলিঙ্গ একবচন কর্তা (una nuova legge) অনুযায়ী è stata approvata এবং কর্তা বোঝাতে dal parlamento বসেছে।', en: 'Passive participle agrees feminine singular with una nuova legge.' }, grammarId: 'passivo' },
+      { sentenceIt: 'Una nuova legge è stata approvata dal parlamento.', ruleTitle: { bn: 'কর্মবাচ্য গঠন (Essere + participio passato + da)', en: 'Passive voice with essere' }, explanation: { bn: 'স্ত্রীলিঙ্গ একবচন কর্তা (una nuova legge) অনুযায়ী è stata approvata এবং কর্তা বোঝাতে dal parlamento বসেছে।', en: 'Passive participle agrees feminine singular with una nuova legge.' }, grammarId: 'passivo' },
     ],
     mcq: [
-      { id: 'stb1-8-q1', prompt: { bn: 'নতুন আইনটির লক্ষ্য কী কমানো?', en: 'What does the new law aim to reduce?' }, options: ['বিদ্যুৎ খরচ', 'একবার ব্যবহারযোগ্য প্লাস্টিক', 'কাগজের বই', 'ট্রেনের ভাড়া'], answer: 1, explanation: { bn: 'ridurre l’uso della plastica monouso।', en: 'Reduce single-use plastic.' } },
+      { id: 'stb1-8-q1', prompt: { bn: 'নতুন আইনটির লক্ষ্য কী কমানো?', en: 'What does the new law aim to reduce?' }, options: ['বিদ্যুৎ খরচ', 'একবার ব্যবহারযোগ্য প্লাস্টিক', 'কাগজের বই', 'ট্রেনের ভাড়া'], answer: 1, explanation: { bn: 'সঠিক উত্তর: একবার ব্যবহারযোগ্য প্লাস্টিক — পাঠ্যাংশে বলা হয়েছে: «ক্যান্টিন ও সরকারি দপ্তরে একবার ব্যবহারযোগ্য প্লাস্টিকের ব্যবহার কমাতে গত সপ্তাহে সংসদ কর্তৃক একটি নতুন পরিবেশ আইন অনুমোদিত হয়েছে।» (ridurre l’uso della plastica monouso)।', en: 'Reduce single-use plastic.' } },
     ],
     trueFalse: [
-      { id: 'stb1-8-tf1', statementIt: 'I dati ufficiali sono stati pubblicati dal ministero.', statement: { bn: 'সরকারি তথ্য মন্ত্রণালয় কর্তৃক প্রকাশিত হয়েছে।', en: 'Official data were published by the ministry.' }, answer: true, explanation: { bn: 'sono stati pubblicati ieri dal ministero।', en: 'Published by the ministry.' } },
+      { id: 'stb1-8-tf1', statementIt: 'I dati ufficiali sono stati pubblicati dal ministero.', statement: { bn: 'সরকারি তথ্য মন্ত্রণালয় কর্তৃক প্রকাশিত হয়েছে।', en: 'Official data were published by the ministry.' }, answer: true, explanation: { bn: 'বাক্যটি সত্য — গল্পের তথ্যানুযায়ী: «গতকাল মন্ত্রণালয় কর্তৃক সরকারি তথ্য প্রকাশ করা হয়েছে: পৃথক বর্জ্য সংগ্রহের কল্যাণে প্রতি বছর লক্ষ লক্ষ টন কাগজ ও কাচ পুনরুদ্ধার করা হয়।» (sono stati pubblicati ieri dal ministero)।', en: 'Published by the ministry.' } },
     ],
     fillBlank: [
       { id: 'stb1-8-fb1', sentence: 'Nuove fontanelle ___ installate nelle piazze.', options: ['saranno', 'avranno', 'faranno', 'stanno'], answer: 0, explanation: { bn: 'ভবিষ্যৎ কর্মবাচ্য: saranno installate।', en: 'Future passive saranno installate.' } },
@@ -309,7 +309,7 @@ export const B1_STORIES_1: StoryItem[] = [
     ],
     practice: {
       retellPrompt: { bn: 'নতুন পরিবেশ আইনটি কর্মবাচ্য ব্যবহার করে ৩ বাক্যে লিখুন।', en: 'Summarise the new environmental law in 3 sentences using the passive voice.' },
-      completeMissing: { promptIt: 'Il progetto è ___ presentato dagli studenti.', hint: { bn: 'stato', en: 'stato' }, sampleIt: 'Il progetto è stato presentato dagli studenti.' },
+      completeMissing: { promptIt: 'Il progetto è ___ presentato dagli studenti.', hint: { bn: 'কর্মবাচ্য গঠনে অতীত পার্টিসিপল stato বসান', en: 'stato' }, sampleIt: 'Il progetto è stato presentato dagli studenti.' },
       buildSimilar: { patternIt: 'La legge è stata approvata dal parlamento.', prompt: { bn: 'è stato / è stata দিয়ে একটি কর্মবাচ্যের বাক্য লিখুন।', en: 'Write a passive sentence with è stato / è stata.' }, sampleIt: 'L’articolo è stato scritto da una giornalista esperta.' },
       altEndingPrompt: { bn: 'স্কুলগুলোতে এই আইন কীভাবে বাস্তবায়িত হবে তা লিখুন।', en: 'Write how schools will implement this initiative.' },
     },
@@ -335,10 +335,10 @@ export const B1_STORIES_1: StoryItem[] = [
       { sentenceIt: 'Mi ha consigliato di scaricare la ricevuta.', ruleTitle: { bn: 'পরোক্ষ উপদেশ: di + infinito', en: 'Reported advice with di + infinitive' }, explanation: { bn: 'consigliare / dire / chiedere-র পরে পরামর্শ বা অনুরোধ রিপোর্ট করতে di + infinito বসে।', en: 'Reported requests and advice use di + infinitive.' }, grammarId: 'discorso-indiretto' },
     ],
     mcq: [
-      { id: 'stb1-9-q1', prompt: { bn: 'সিস্টেমে কী বাকি ছিল?', en: 'What was missing in the system?' }, options: ['ছবি', 'একটি ডিজিটাল স্বাক্ষর', 'জন্মসনদ', 'ট্যাক্স স্ট্যাম্প'], answer: 1, explanation: { bn: 'mancava solo una firma digitale।', en: 'Only a digital signature was missing.' } },
+      { id: 'stb1-9-q1', prompt: { bn: 'সিস্টেমে কী বাকি ছিল?', en: 'What was missing in the system?' }, options: ['ছবি', 'একটি ডিজিটাল স্বাক্ষর', 'জন্মসনদ', 'ট্যাক্স স্ট্যাম্প'], answer: 1, explanation: { bn: 'সঠিক উত্তর: একটি ডিজিটাল স্বাক্ষর — পাঠ্যাংশে বলা হয়েছে: «আমি তাঁকে উত্তর দিলাম যে সেটি ফোনে সেভ করে রেখেছি। সিস্টেমে যাচাই করার পর তিনি আমাকে ব্যাখ্যা করলেন যে কেবল একটি ডিজিটাল স্বাক্ষর বাকি ছিল।» (mancava solo una firma digitale)।', en: 'Only a digital signature was missing.' } },
     ],
     trueFalse: [
-      { id: 'stb1-9-tf1', statementIt: 'Il narratore aveva dimenticato il codice a casa.', statement: { bn: 'বক্তা কোডটি বাসায় ভুলে রেখে এসেছিলেন।', en: 'The narrator had forgotten the code at home.' }, answer: false, explanation: { bn: 'lo avevo salvato sul telefono।', en: 'He had saved it on his phone.' } },
+      { id: 'stb1-9-tf1', statementIt: 'Il narratore aveva dimenticato il codice a casa.', statement: { bn: 'বক্তা কোডটি বাসায় ভুলে রেখে এসেছিলেন।', en: 'The narrator had forgotten the code at home.' }, answer: false, explanation: { bn: 'বাক্যটি মিথ্যা — গল্পে আসলে বলা হয়েছে: «আমি তাঁকে উত্তর দিলাম যে সেটি ফোনে সেভ করে রেখেছি। সিস্টেমে যাচাই করার পর তিনি আমাকে ব্যাখ্যা করলেন যে কেবল একটি ডিজিটাল স্বাক্ষর বাকি ছিল।» (lo avevo salvato sul telefono)।', en: 'He had saved it on his phone.' } },
     ],
     fillBlank: [
       { id: 'stb1-9-fb1', sentence: 'L’impiegato mi ha chiesto ___ avessi il codice.', options: ['che', 'se', 'di', 'per'], answer: 1, explanation: { bn: 'হ্যাঁ/না পরোক্ষ প্রশ্নে se বসে।', en: 'Yes/no indirect questions use se.' } },
@@ -348,7 +348,7 @@ export const B1_STORIES_1: StoryItem[] = [
     ],
     practice: {
       retellPrompt: { bn: 'সহায়তা কেন্দ্রে কথোপকথনটি পরোক্ষ উক্তিতে ৩ বাক্যে লিখুন।', en: 'Report the conversation at the assistance office in 3 sentences.' },
-      completeMissing: { promptIt: 'La segretaria mi ha detto ___ aspettare cinque minuti.', hint: { bn: 'di', en: 'di' }, sampleIt: 'La segretaria mi ha detto di aspettare cinque minuti.' },
+      completeMissing: { promptIt: 'La segretaria mi ha detto ___ aspettare cinque minuti.', hint: { bn: 'সঠিক প্রিপোজিশন di ব্যবহার করুন', en: 'di' }, sampleIt: 'La segretaria mi ha detto di aspettare cinque minuti.' },
       buildSimilar: { patternIt: 'Mi ha chiesto se avessi il documento.', prompt: { bn: 'Mi ha chiesto se... দিয়ে একটি বাক্য লিখুন।', en: 'Write a sentence starting with Mi ha chiesto se...' }, sampleIt: 'Mi ha chiesto se conoscessi l’indirizzo dell’ufficio.' },
       altEndingPrompt: { bn: 'শুক্রবার পোর্টালে লগইন করে বক্তা কী দেখলেন লিখুন।', en: 'Write what the narrator saw when logging into the portal on Friday.' },
     },
@@ -371,23 +371,23 @@ export const B1_STORIES_1: StoryItem[] = [
       { word: 'elettrodomestico', base: "l'elettrodomestico", tr: { bn: 'গৃহস্থালি বৈদ্যুতিক যন্ত্র', en: 'household appliance' }, pos: 'noun' },
     ],
     grammarBreakdown: [
-      { sentenceIt: 'Invece di sprecare energia, abbiamo installato lampadine a basso consumo.', ruleTitle: { bn: 'Invece di / Prima di / Senza + infinito', en: 'Preposition + infinitive clauses' }, explanation: { bn: 'একই কর্তা থাকলে invece di, prima di, oltre a, senza-র পরে সরাসরি ইনফিনিটিভ বসে।', en: 'Same-subject subordinate clauses use preposition + infinitive.' }, grammarId: 'infinito' },
+      { sentenceIt: 'Invece di sprecare energia, abbiamo installato lampadine a basso consumo.', ruleTitle: { bn: 'প্রিপোজিশন + ইনফিনিটিভ খণ্ডবাক্য (Invece di / Prima di / Senza + infinito)', en: 'Preposition + infinitive clauses' }, explanation: { bn: 'একই কর্তা থাকলে invece di, prima di, oltre a, senza-র পরে সরাসরি ইনফিনিটিভ বসে।', en: 'Same-subject subordinate clauses use preposition + infinitive.' }, grammarId: 'infinito' },
     ],
     mcq: [
       { id: 'stb1-10-q1', prompt: { bn: 'বিদ্যুৎ বিল কত শতাংশ কমেছে?', en: 'By what percentage did the electricity bill drop?' }, options: ['৫ শতাংশ', '১০ শতাংশ', '২০ শতাংশ', '৫০ শতাংশ'], answer: 2, explanation: { bn: 'del venti per cento = ২০ শতাংশ।', en: 'Twenty per cent.' } },
     ],
     trueFalse: [
-      { id: 'stb1-10-tf1', statementIt: 'La famiglia ha dovuto rinunciare a ogni comfort.', statement: { bn: 'পরিবারটিকে সব আরাম ত্যাগ করতে হয়েছে।', en: 'The family had to give up all comfort.' }, answer: false, explanation: { bn: 'senza rinunciare al comfort।', en: 'Without giving up comfort.' } },
+      { id: 'stb1-10-tf1', statementIt: 'La famiglia ha dovuto rinunciare a ogni comfort.', statement: { bn: 'পরিবারটিকে সব আরাম ত্যাগ করতে হয়েছে।', en: 'The family had to give up all comfort.' }, answer: false, explanation: { bn: 'বাক্যটি মিথ্যা — গল্পে আসলে বলা হয়েছে: «পরিবেশ রক্ষা করার পাশাপাশি এই পরিবর্তন আমাদের আরাম ত্যাগ না করেই বিদ্যুৎ বিল বিশ শতাংশ কমাতে সাহায্য করেছে।» (senza rinunciare al comfort)।', en: 'Without giving up comfort.' } },
     ],
     fillBlank: [
-      { id: 'stb1-10-fb1', sentence: 'Prima di ___ di casa, spegniamo le luci.', options: ['usciamo', 'uscire', 'uscito', 'uscendo'], answer: 1, explanation: { bn: 'Prima di + infinito (uscire)।', en: 'Prima di takes the infinitive.' } },
+      { id: 'stb1-10-fb1', sentence: 'Prima di ___ di casa, spegniamo le luci.', options: ['usciamo', 'uscire', 'uscito', 'uscendo'], answer: 1, explanation: { bn: 'ব্যাকরণ সূত্র: Prima di + infinito (uscire) — Prima di এর পরে ক্রিয়ার মূল রূপ (infinito) বসে।', en: 'Prima di takes the infinitive.' } },
     ],
     shortAnswer: [
       { id: 'stb1-10-sa1', question: { bn: 'প্রতিটি ঘরে তারা কী লাগিয়েছে?', en: 'What did they install in every room?' }, sampleAnswerIt: 'Hanno installato lampadine a basso consumo.', keywords: ['lampadine', 'basso', 'consumo'] },
     ],
     practice: {
       retellPrompt: { bn: 'বিদ্যুৎ সাশ্রয়ের উপায়গুলো ৩ বাক্যে লিখুন।', en: 'Describe 3 ways the family saves energy.' },
-      completeMissing: { promptIt: 'Invece di ___ l’auto, prendo la bici.', hint: { bn: 'usare', en: 'infinitive usare' }, sampleIt: 'Invece di usare l’auto, prendo la bici.' },
+      completeMissing: { promptIt: 'Invece di ___ l’auto, prendo la bici.', hint: { bn: 'সঠিক উত্তর ও ব্যাকরণ সূত্র: «usare» (infinitive usare)।', en: 'infinitive usare' }, sampleIt: 'Invece di usare l’auto, prendo la bici.' },
       buildSimilar: { patternIt: 'Oltre a proteggere l’ambiente, risparmiamo denaro.', prompt: { bn: 'Oltre a... বা Senza... দিয়ে একটি বাক্য লিখুন।', en: 'Write a sentence with Oltre a... or Senza...' }, sampleIt: 'Oltre a studiare l’italiano, leggo i giornali locali.' },
       altEndingPrompt: { bn: 'প্রতিবেশীরাও এই উদ্যোগ দেখে কী করল তা লিখুন।', en: 'Write how the neighbours followed their example.' },
     },
@@ -413,10 +413,10 @@ export const B1_STORIES_1: StoryItem[] = [
       { sentenceIt: 'Pur avendo punti di vista diversi, abbiamo deciso di ascoltarci.', ruleTitle: { bn: 'Pur + gerundio (সত্ত্বেও)', en: 'Concessive pur + gerund' }, explanation: { bn: 'pur + বর্তমান জেরুন্ড (avendo) দ্বারা "থাকা সত্ত্বেও" বোঝানো হয়েছে।', en: 'pur + gerund expresses "despite having".' }, grammarId: 'gerundio-b1' },
     ],
     mcq: [
-      { id: 'stb1-11-q1', prompt: { bn: 'বাসিন্দারা কীভাবে উঠানটি ভাগ করেছেন?', en: 'How did the residents divide the courtyard?' }, options: ['দেয়াল তুলে', 'কাঠের ফুলের টব দিয়ে', 'লোহার গেট দিয়ে', 'রঙের দাগ দিয়ে'], answer: 1, explanation: { bn: 'con delle fioriere di legno।', en: 'With wooden planters.' } },
+      { id: 'stb1-11-q1', prompt: { bn: 'বাসিন্দারা কীভাবে উঠানটি ভাগ করেছেন?', en: 'How did the residents divide the courtyard?' }, options: ['দেয়াল তুলে', 'কাঠের ফুলের টব দিয়ে', 'লোহার গেট দিয়ে', 'রঙের দাগ দিয়ে'], answer: 1, explanation: { bn: 'সঠিক উত্তর: কাঠের ফুলের টব দিয়ে — পাঠ্যাংশে বলা হয়েছে: «সবাই মিলে সহযোগিতা করে আমরা সমস্যাটি সমাধান করতে পেরেছি: কাঠের টব দিয়ে উঠানটিকে ভাগ করে নিয়েছি।» (con delle fioriere di legno)।', en: 'With wooden planters.' } },
     ],
     trueFalse: [
-      { id: 'stb1-11-tf1', statementIt: 'Durante l’assemblea tutti hanno litigato con toni polemici.', statement: { bn: 'সভায় সবাই তর্কের সুরে ঝগড়া করেছে।', en: 'During the meeting everyone argued polemically.' }, answer: false, explanation: { bn: 'evitando toni polemici।', en: 'They avoided polemical tones.' } },
+      { id: 'stb1-11-tf1', statementIt: 'Durante l’assemblea tutti hanno litigato con toni polemici.', statement: { bn: 'সভায় সবাই তর্কের সুরে ঝগড়া করেছে।', en: 'During the meeting everyone argued polemically.' }, answer: false, explanation: { bn: 'বাক্যটি মিথ্যা — গল্পে আসলে বলা হয়েছে: «খুব ভিন্ন দৃষ্টিভঙ্গি থাকা সত্ত্বেও গত সভায় আমরা তর্কের সুর এড়িয়ে শান্তভাবে একে অপরের কথা শোনার সিদ্ধান্ত নিয়েছি।» (evitando toni polemici)।', en: 'They avoided polemical tones.' } },
     ],
     fillBlank: [
       { id: 'stb1-11-fb1', sentence: '___ tutti insieme, abbiamo risolto il problema.', options: ['Collaborare', 'Collaborando', 'Collaborato', 'Collaborano'], answer: 1, explanation: { bn: 'উপায় বোঝাতে জেরুন্ড: Collaborando।', en: 'Gerund of means: Collaborando.' } },
@@ -452,10 +452,10 @@ export const B1_STORIES_1: StoryItem[] = [
       { sentenceIt: 'A mio parere la formazione offre un vantaggio, e molti ritengono che le lezioni siano utili.', ruleTitle: { bn: 'A mio parere (+ indicativo) বনাম Ritengo che (+ congiuntivo)', en: 'Indicative vs subjunctive with opinions' }, explanation: { bn: 'A mio parere-র পরে সাধারণ indicativo (offre) বসে, কিন্তু ritengono che-র পরে congiuntivo (siano) বসে।', en: 'A mio parere takes indicative offre; ritengono che takes subjunctive siano.' }, grammarId: 'opinione' },
     ],
     mcq: [
-      { id: 'stb1-12-q1', prompt: { bn: 'সান্ধ্যকালীন কোর্সগুলোতে কী কী শেখানো হচ্ছে?', en: 'Which subjects are taught in the evening courses?' }, options: ['চিত্রকলা ও সংগীত', 'কম্পিউটার, হিসাবরক্ষণ ও ইতালিয়ান', 'রান্না ও বাগান করা', 'স্থাপত্য'], answer: 1, explanation: { bn: 'informatica, contabilità e lingua italiana।', en: 'Computing, accounting, and Italian.' } },
+      { id: 'stb1-12-q1', prompt: { bn: 'সান্ধ্যকালীন কোর্সগুলোতে কী কী শেখানো হচ্ছে?', en: 'Which subjects are taught in the evening courses?' }, options: ['চিত্রকলা ও সংগীত', 'কম্পিউটার, হিসাবরক্ষণ ও ইতালিয়ান', 'রান্না ও বাগান করা', 'স্থাপত্য'], answer: 1, explanation: { bn: 'সঠিক উত্তর: কম্পিউটার, হিসাবরক্ষণ ও ইতালিয়ান — পাঠ্যাংশে বলা হয়েছে: «এ বছর পৌরসভা দিনে কর্মরত মানুষদের জন্য কম্পিউটার, হিসাবরক্ষণ ও ইতালিয়ান ভাষার নতুন সান্ধ্যকালীন কোর্সের আয়োজন করেছে।» (informatica, contabilità e lingua italiana)।', en: 'Computing, accounting, and Italian.' } },
     ],
     trueFalse: [
-      { id: 'stb1-12-tf1', statementIt: 'I corsi sono pensati per chi è libero tutta la mattina.', statement: { bn: 'কোর্সগুলো তাদের জন্য যারা সারা সকাল ফ্রি থাকে।', en: 'The courses are designed for people who are free all morning.' }, answer: false, explanation: { bn: 'per chi lavora durante il giorno।', en: 'For those who work during the day.' } },
+      { id: 'stb1-12-tf1', statementIt: 'I corsi sono pensati per chi è libero tutta la mattina.', statement: { bn: 'কোর্সগুলো তাদের জন্য যারা সারা সকাল ফ্রি থাকে।', en: 'The courses are designed for people who are free all morning.' }, answer: false, explanation: { bn: 'বাক্যটি মিথ্যা — গল্পে আসলে বলা হয়েছে: «এ বছর পৌরসভা দিনে কর্মরত মানুষদের জন্য কম্পিউটার, হিসাবরক্ষণ ও ইতালিয়ান ভাষার নতুন সান্ধ্যকালীন কোর্সের আয়োজন করেছে।» (per chi lavora durante il giorno)।', en: 'For those who work during the day.' } },
     ],
     fillBlank: [
       { id: 'stb1-12-fb1', sentence: 'A mio ___, questo corso è davvero utile.', options: ['parere', 'credo', 'penso', 'sembra'], answer: 0, explanation: { bn: 'A mio parere = আমার মতে।', en: 'A mio parere = in my opinion.' } },
@@ -488,13 +488,13 @@ export const B1_STORIES_1: StoryItem[] = [
       { word: 'sereno', base: 'sereno', tr: { bn: 'শান্ত / নির্মল', en: 'calm / serene' }, pos: 'adj' },
     ],
     grammarBreakdown: [
-      { sentenceIt: 'Trovare una stanza non è semplice; tuttavia, chi usa la bici può abitare fuori.', ruleTitle: { bn: 'Tuttavia / Inoltre / Da un lato… dall’altro', en: 'Discourse connectors' }, explanation: { bn: 'বিপরীত যুক্তি যোগ করতে tuttavia এবং অতিরিক্ত তথ্য যোগ করতে inoltre ব্যবহৃত হয়েছে।', en: 'tuttavia introduces contrast and inoltre adds a supporting point.' }, grammarId: 'connettivi-b1' },
+      { sentenceIt: 'Trovare una stanza non è semplice; tuttavia, chi usa la bici può abitare fuori.', ruleTitle: { bn: 'সঠিক উত্তর ও ব্যাকরণ সূত্র: «Tuttavia / Inoltre / Da un lato… dall’altro» (Discourse connectors)।', en: 'Discourse connectors' }, explanation: { bn: 'বিপরীত যুক্তি যোগ করতে tuttavia এবং অতিরিক্ত তথ্য যোগ করতে inoltre ব্যবহৃত হয়েছে।', en: 'tuttavia introduces contrast and inoltre adds a supporting point.' }, grammarId: 'connettivi-b1' },
     ],
     mcq: [
-      { id: 'stb1-13-q1', prompt: { bn: 'শহরতলি থেকে সাইকেলে কেন্দ্রে যেতে কত সময় লাগে?', en: 'How long does it take to cycle from outer neighbourhoods to the centre?' }, options: ['৫ মিনিট', '১৫ মিনিট', '১ ঘণ্টা', '৪৫ মিনিট'], answer: 1, explanation: { bn: 'in quindici minuti।', en: 'Fifteen minutes.' } },
+      { id: 'stb1-13-q1', prompt: { bn: 'শহরতলি থেকে সাইকেলে কেন্দ্রে যেতে কত সময় লাগে?', en: 'How long does it take to cycle from outer neighbourhoods to the centre?' }, options: ['৫ মিনিট', '১৫ মিনিট', '১ ঘণ্টা', '৪৫ মিনিট'], answer: 1, explanation: { bn: 'সঠিক উত্তর: ১৫ মিনিট — পাঠ্যাংশে বলা হয়েছে: «অনুষদগুলোর কাছে সিঙ্গেল রুম পাওয়া সহজ নয়; তবুও যারা সাইকেলে চলাচল করে তারা শহরতলির পাড়ায় থেকে পনেরো মিনিটে কেন্দ্রে পৌঁছাতে পারে।» (in quindici minuti)।', en: 'Fifteen minutes.' } },
     ],
     trueFalse: [
-      { id: 'stb1-13-tf1', statementIt: 'Il costo della vita è diminuito negli ultimi anni.', statement: { bn: 'সাম্প্রতিক বছরগুলোতে জীবনযাত্রার ব্যয় কমেছে।', en: 'The cost of living has decreased in recent years.' }, answer: false, explanation: { bn: 'è cresciuto sensibilmente।', en: 'It has risen noticeably.' } },
+      { id: 'stb1-13-tf1', statementIt: 'Il costo della vita è diminuito negli ultimi anni.', statement: { bn: 'সাম্প্রতিক বছরগুলোতে জীবনযাত্রার ব্যয় কমেছে।', en: 'The cost of living has decreased in recent years.' }, answer: false, explanation: { bn: 'বাক্যটি মিথ্যা — গল্পে আসলে বলা হয়েছে: «পাদোভা ও বোলোনিয়া সারা ইউরোপে বিখ্যাত বিশ্ববিদ্যালয় শহর। একদিকে এগুলো হাজার হাজার গবেষক ও শিক্ষার্থীকে আকর্ষণ করে; অন্যদিকে সাম্প্রতিক বছরগুলোতে জীবনযাত্রার ব্যয় উল্লেখযোগ্যভাবে বেড়েছে।» (è cresciuto sensibilmente)।', en: 'It has risen noticeably.' } },
     ],
     fillBlank: [
       { id: 'stb1-13-fb1', sentence: 'L’affitto è alto; ___, i servizi pubblici sono ottimi.', options: ['tuttavia', 'siccome', 'affinché', 'benché'], answer: 0, explanation: { bn: 'indicativo-সহ বিপরীত বাক্যে tuttavia।', en: 'tuttavia connects contrasting indicative clauses.' } },
@@ -504,7 +504,7 @@ export const B1_STORIES_1: StoryItem[] = [
     ],
     practice: {
       retellPrompt: { bn: 'বিশ্ববিদ্যালয় শহরের সুবিধা ও চ্যালেঞ্জ ৩ বাক্যে লিখুন।', en: 'Describe the pros and cons of living in a university city in 3 sentences.' },
-      completeMissing: { promptIt: 'Da un lato il lavoro è impegnativo; ___ lato dà grandi soddisfazioni.', hint: { bn: 'dall’altro', en: 'dall’altro' }, sampleIt: 'Da un lato il lavoro è impegnativo; dall’altro lato dà grandi soddisfazioni.' },
+      completeMissing: { promptIt: 'Da un lato il lavoro è impegnativo; ___ lato dà grandi soddisfazioni.', hint: { bn: 'সঠিক উত্তর ও ব্যাকরণ সূত্র: «dall’altro» (dall’altro)।', en: 'dall’altro' }, sampleIt: 'Da un lato il lavoro è impegnativo; dall’altro lato dà grandi soddisfazioni.' },
       buildSimilar: { patternIt: 'Il prezzo è alto; tuttavia la qualità è ottima.', prompt: { bn: 'tuttavia বা inoltre দিয়ে একটি বাক্য লিখুন।', en: 'Write a sentence using tuttavia or inoltre.' }, sampleIt: 'Il treno era pieno; tuttavia siamo arrivati puntuali.' },
       altEndingPrompt: { bn: 'নতুন শিক্ষার্থীদের জন্য আবাসন পরামর্শ লিখুন।', en: 'Write housing advice for incoming students.' },
     },
@@ -527,23 +527,23 @@ export const B1_STORIES_1: StoryItem[] = [
       { word: 'sollevato', base: 'sollevato', tr: { bn: 'স্বস্তিপ্রাপ্ত / ভারমুক্ত', en: 'relieved' }, pos: 'adj' },
     ],
     grammarBreakdown: [
-      { sentenceIt: 'Credevamo che lo sportello aprisse alle nove.', ruleTitle: { bn: 'Credevamo che + congiuntivo imperfetto', en: 'Imperfect subjunctive after past belief' }, explanation: { bn: 'অতীতের ক্রিয়া Credevamo এবং temeva-র পরে সমসাময়িক কাজে aprisse ও mancasse বসেছে।', en: 'Past main verbs Credevamo and temeva trigger aprisse and mancasse.' }, grammarId: 'congiuntivo-imperfetto' },
+      { sentenceIt: 'Credevamo che lo sportello aprisse alle nove.', ruleTitle: { bn: 'ব্যাকরণগত গঠন: এখানে «Credevamo che + congiuntivo imperfetto» কাঠামোটি অনুসরণ করা হয়েছে।', en: 'Imperfect subjunctive after past belief' }, explanation: { bn: 'অতীতের ক্রিয়া Credevamo এবং temeva-র পরে সমসাময়িক কাজে aprisse ও mancasse বসেছে।', en: 'Past main verbs Credevamo and temeva trigger aprisse and mancasse.' }, grammarId: 'congiuntivo-imperfetto' },
     ],
     mcq: [
-      { id: 'stb1-14-q1', prompt: { bn: 'কাউন্টারটি আসলে কয়টা থেকে খোলা ছিল?', en: 'What time had the counter actually been open from?' }, options: ['সকাল ৭টা', 'সকাল ৮টা', 'সকাল ৯টা', 'সকাল ১০টা'], answer: 1, explanation: { bn: 'era già aperto dalle otto।', en: 'Since eight o’clock.' } },
+      { id: 'stb1-14-q1', prompt: { bn: 'কাউন্টারটি আসলে কয়টা থেকে খোলা ছিল?', en: 'What time had the counter actually been open from?' }, options: ['সকাল ৭টা', 'সকাল ৮টা', 'সকাল ৯টা', 'সকাল ১০টা'], answer: 1, explanation: { bn: 'সঠিক উত্তর: সকাল ৮টা — পাঠ্যাংশে বলা হয়েছে: «গত বৃহস্পতিবার আমি আমার চাচাতো ভাই আরিফকে তার পারমিট নবায়নের জন্য অভিবাসন অফিসে নিয়ে গিয়েছিলাম। আমরা ভেবেছিলাম কাউন্টারটি নয়টায় খোলে, অথচ সেটি আটটা থেকেই খোলা ছিল।» (era già aperto dalle otto)।', en: 'Since eight o’clock.' } },
     ],
     trueFalse: [
       { id: 'stb1-14-tf1', statementIt: 'Mancavano le buste paga nella domanda di Arif.', statement: { bn: 'আরিফের আবেদনে বেতনের রসিদগুলো ছিল না।', en: 'Payslips were missing from Arif’s application.' }, answer: false, explanation: { bn: 'সব বেতনের রসিদ ঠিকঠাক ছিল।', en: 'All payslips were present and checked.' } },
     ],
     fillBlank: [
-      { id: 'stb1-14-fb1', sentence: 'Arif temeva che ___ qualche documento.', options: ['manca', 'mancasse', 'mancherà', 'mancava'], answer: 1, explanation: { bn: 'temeva che + mancasse।', en: 'temeva che takes mancasse.' } },
+      { id: 'stb1-14-fb1', sentence: 'Arif temeva che ___ qualche documento.', options: ['manca', 'mancasse', 'mancherà', 'mancava'], answer: 1, explanation: { bn: 'ব্যাকরণগত গঠন: এখানে «temeva che + mancasse» কাঠামোটি অনুসরণ করা হয়েছে।', en: 'temeva che takes mancasse.' } },
     ],
     shortAnswer: [
       { id: 'stb1-14-sa1', question: { bn: 'ইলেকট্রনিক কার্ডটি নিতে আরিফকে কতদিন পর ফিরতে হতো?', en: 'How much later did Arif need to return for the card?' }, sampleAnswerIt: 'Bastava che tornasse dopo tre settimane.', keywords: ['tre', 'settimane'] },
     ],
     practice: {
       retellPrompt: { bn: 'অভিবাসন অফিসের অভিজ্ঞতাটি ৩ বাক্যে লিখুন।', en: 'Retell the visit to the immigration office in 3 sentences.' },
-      completeMissing: { promptIt: 'Pensavo che l’ufficio ___ chiuso il giovedì.', hint: { bn: 'essere → fosse', en: 'imperfect subjunctive fosse' }, sampleIt: 'Pensavo che l’ufficio fosse chiuso il giovedì.' },
+      completeMissing: { promptIt: 'Pensavo che l’ufficio ___ chiuso il giovedì.', hint: { bn: 'সঠিক রূপান্তর: «essere» থেকে পরিবর্তিত হয়ে «fosse» ব্যবহৃত হয়।', en: 'imperfect subjunctive fosse' }, sampleIt: 'Pensavo che l’ufficio fosse chiuso il giovedì.' },
       buildSimilar: { patternIt: 'Credevamo che lo sportello aprisse alle nove.', prompt: { bn: 'Pensavo che... দিয়ে একটি অতীত ধারণার বাক্য লিখুন।', en: 'Write a sentence starting with Pensavo che...' }, sampleIt: 'Pensavo che servissero due marche da bollo.' },
       altEndingPrompt: { bn: 'তিন সপ্তাহ পর কার্ড হাতে পেয়ে আরিফ কী করল লিখুন।', en: 'Write what Arif did three weeks later when collecting his card.' },
     },

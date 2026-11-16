@@ -13,7 +13,7 @@ export const B2_READING_1: ReadingPassage[] = [
     grammarHighlights: [{ excerpt: 'vorrebbero che… avesse già valutato', note: { bn: 'বর্তমান ইচ্ছা/কন্ডিশনালের পর পূর্ববর্তী অপূর্ণ প্রত্যাশায় congiuntivo trapassato।', en: 'Past unfulfilled preference triggers congiuntivo trapassato.' }, grammarId: 'concordanza-avanzata' }],
     relatedGrammarIds: ['concordanza-avanzata', 'lessico-giuridico-burocratico'],
     questions: [
-      { id: 'rd-b2-01-q1', prompt: { bn: 'বিধিমালা অনুযায়ী দপ্তরগুলোকে কী করতে হয়?', en: 'What must offices do under the regulations?' }, options: ['সিদ্ধান্তের যাচাইযোগ্য ব্যাখ্যা দিতে হয়', 'আবেদন নষ্ট করতে হয়', 'গোপন রাখতে হয়', 'নতুন ফি নিতে হয়'], answer: 0, explanation: { bn: 'motivino ogni decisione in modo verificabile।', en: 'Justify every decision in a verifiable manner.' } },
+      { id: 'rd-b2-01-q1', prompt: { bn: 'বিধিমালা অনুযায়ী দপ্তরগুলোকে কী করতে হয়?', en: 'What must offices do under the regulations?' }, options: ['সিদ্ধান্তের যাচাইযোগ্য ব্যাখ্যা দিতে হয়', 'আবেদন নষ্ট করতে হয়', 'গোপন রাখতে হয়', 'নতুন ফি নিতে হয়'], answer: 0, explanation: { bn: 'সঠিক উত্তর: সিদ্ধান্তের যাচাইযোগ্য ব্যাখ্যা দিতে হয় — পাঠ্যাংশে বলা হয়েছে: «যখন কোনো প্রতিষ্ঠান একটি সরকারি আবেদন প্রত্যাখ্যান করে, তখন পরামর্শদাতারা চান যে পর্ষদ যেন ইতিমধ্যে প্রতিটি কারিগরি সংযুক্তি নিরপেক্ষভাবে মূল্যায়ন করে থাকে। এমন পরিস্থিতিতে বিধিমালা বাধ্যতামূলক করে যে দপ্তরগুলো প্রতিটি সিদ্ধান্তের যাচাইযোগ্য ব্যাখ্যা দেবে।» (motivino ogni decisione in modo verificabile)।', en: 'Justify every decision in a verifiable manner.' } },
     ],
   }),
   buildReading({
@@ -27,7 +27,7 @@ export const B2_READING_1: ReadingPassage[] = [
     grammarHighlights: [{ excerpt: 'se… fosse stato dotato, oggi… risulterebbero', note: { bn: 'অতীত শর্ত ও বর্তমান ফলাফলের মিশ্র শর্তবাক্য।', en: 'Mixed conditional linking past cause to present result.' }, grammarId: 'periodo-ipotetico-misto' }],
     relatedGrammarIds: ['periodo-ipotetico-misto'],
     questions: [
-      { id: 'rd-b2-02-q1', prompt: { bn: 'দলিলে স্বাক্ষরের আগে ক্রেতারা কী চান?', en: 'What do buyers ask for before the deed?' }, options: ['হালনাগাদ জ্বালানি সনদ', 'আসবাবপত্রের রসিদ', 'রঙের নমুনা', 'টেলিভিশন'], answer: 0, explanation: { bn: 'la certificazione energetica aggiornata।', en: 'The updated energy certificate.' } },
+      { id: 'rd-b2-02-q1', prompt: { bn: 'দলিলে স্বাক্ষরের আগে ক্রেতারা কী চান?', en: 'What do buyers ask for before the deed?' }, options: ['হালনাগাদ জ্বালানি সনদ', 'আসবাবপত্রের রসিদ', 'রঙের নমুনা', 'টেলিভিশন'], answer: 0, explanation: { bn: 'সঠিক উত্তর: হালনাগাদ জ্বালানি সনদ — পাঠ্যাংশে বলা হয়েছে: «দলিলে স্বাক্ষরের জন্য নোটরির কাছে সময় নির্ধারণের আগে ক্রেতারা ক্রমশ বেশি করে হালনাগাদ জ্বালানি সনদ চেয়ে থাকেন।» (la certificazione energetica aggiornata)।', en: 'The updated energy certificate.' } },
     ],
   }),
   buildReading({
@@ -41,7 +41,7 @@ export const B2_READING_1: ReadingPassage[] = [
     grammarHighlights: [{ excerpt: 'Sia chiaro / Volesse il cielo / Vengano pure', note: { bn: 'প্রধান বাক্যে স্বাধীন congiuntivo আদেশ, কামনা ও ছাড় প্রকাশ করে।', en: 'Independent subjunctive expresses wishes, concessions, or exhortations.' }, grammarId: 'congiuntivo-indipendente' }],
     relatedGrammarIds: ['congiuntivo-indipendente'],
     questions: [
-      { id: 'rd-b2-03-q1', prompt: { bn: 'লেখকের মতে কঠোর সমালোচনার সাথে কী থাকা উচিত?', en: 'What should accompany rigorous criticism?' }, options: ['টেকসই প্রস্তাব ও যাচাইকৃত পরিসংখ্যান', 'দীর্ঘ বক্তৃতা', 'মিডিয়া প্রচার', 'গোপন চিঠি'], answer: 0, explanation: { bn: 'proposte sostenibili e numeri verificati।', en: 'Sustainable proposals and verified figures.' } },
+      { id: 'rd-b2-03-q1', prompt: { bn: 'লেখকের মতে কঠোর সমালোচনার সাথে কী থাকা উচিত?', en: 'What should accompany rigorous criticism?' }, options: ['টেকসই প্রস্তাব ও যাচাইকৃত পরিসংখ্যান', 'দীর্ঘ বক্তৃতা', 'মিডিয়া প্রচার', 'গোপন চিঠি'], answer: 0, explanation: { bn: 'সঠিক উত্তর: টেকসই প্রস্তাব ও যাচাইকৃত পরিসংখ্যান — পাঠ্যাংশে বলা হয়েছে: «কঠোর সমালোচনা নিশ্চয়ই পেশ করা হোক, তবে শর্ত হলো সেগুলোর সাথে যেন টেকসই প্রস্তাব ও যাচাইকৃত পরিসংখ্যান থাকে।» (proposte sostenibili e numeri verificati)।', en: 'Sustainable proposals and verified figures.' } },
     ],
   }),
   buildReading({
@@ -55,7 +55,7 @@ export const B2_READING_1: ReadingPassage[] = [
     grammarHighlights: [{ excerpt: 'Non esiste alcun sistema… che garantisca', note: { bn: 'নেতিবাচক বা অনির্দিষ্ট পূর্বপদের পর relative clause-এ congiuntivo।', en: 'Negative antecedent triggers subjunctive in the relative clause.' }, grammarId: 'congiuntivo-relativo' }],
     relatedGrammarIds: ['congiuntivo-relativo'],
     questions: [
-      { id: 'rd-b2-04-q1', prompt: { bn: 'নিবন্ধ অনুযায়ী সম্পূর্ণ নিরাপত্তার জন্য কী অপরিহার্য?', en: 'What is essential alongside software for security?' }, options: ['নিয়মিত নিরীক্ষা ও প্রশিক্ষিত কর্মী', 'সব কম্পিউটার বন্ধ রাখা', 'কাগজের চিঠি', 'পাসওয়ার্ড শেয়ার করা'], answer: 0, explanation: { bn: 'audit periodici e personale formato।', en: 'Periodic audits and trained staff.' } },
+      { id: 'rd-b2-04-q1', prompt: { bn: 'নিবন্ধ অনুযায়ী সম্পূর্ণ নিরাপত্তার জন্য কী অপরিহার্য?', en: 'What is essential alongside software for security?' }, options: ['নিয়মিত নিরীক্ষা ও প্রশিক্ষিত কর্মী', 'সব কম্পিউটার বন্ধ রাখা', 'কাগজের চিঠি', 'পাসওয়ার্ড শেয়ার করা'], answer: 0, explanation: { bn: 'সঠিক উত্তর: নিয়মিত নিরীক্ষা ও প্রশিক্ষিত কর্মী — পাঠ্যাংশে বলা হয়েছে: «নিয়মিত নিরীক্ষা এবং প্রশিক্ষিত কর্মী ছাড়া এমন কোনো ডিজিটাল ব্যবস্থা নেই যা সম্পূর্ণ নিরাপত্তা নিশ্চিত করতে পারে।» (audit periodici e personale formato)।', en: 'Periodic audits and trained staff.' } },
     ],
   }),
   buildReading({
@@ -69,7 +69,7 @@ export const B2_READING_1: ReadingPassage[] = [
     grammarHighlights: [{ excerpt: 'Per quanto… possa apparire / Malgrado… rallentino', note: { bn: 'Per quanto এবং Malgrado সংযোজক congiuntivo নেয়।', en: 'Per quanto and Malgrado always require the subjunctive.' }, grammarId: 'congiuntivo-concessivo' }],
     relatedGrammarIds: ['congiuntivo-concessivo'],
     questions: [
-      { id: 'rd-b2-05-q1', prompt: { bn: 'বিশেষ রক্ষণাবেক্ষণ কাজ কখন শুরু করা হয়?', en: 'When are extraordinary maintenance works launched?' }, options: ['শীতের আগে', 'গ্রীষ্মের শেষে', 'নির্বাচনের পর', 'বসন্তের শেষে'], answer: 0, explanation: { bn: 'prima dell’inverno।', en: 'Before winter.' } },
+      { id: 'rd-b2-05-q1', prompt: { bn: 'বিশেষ রক্ষণাবেক্ষণ কাজ কখন শুরু করা হয়?', en: 'When are extraordinary maintenance works launched?' }, options: ['শীতের আগে', 'গ্রীষ্মের শেষে', 'নির্বাচনের পর', 'বসন্তের শেষে'], answer: 0, explanation: { bn: 'সঠিক উত্তর: শীতের আগে — পাঠ্যাংশে বলা হয়েছে: «যদিও আমলাতান্ত্রিক প্রক্রিয়াগুলো অর্থ ফেরত দিতে বিলম্ব ঘটায়, তবুও শীতের আগেই বিশেষ রক্ষণাবেক্ষণ কাজ শুরু করা হয়।» (prima dell’inverno)।', en: 'Before winter.' } },
     ],
   }),
   buildReading({
@@ -83,7 +83,7 @@ export const B2_READING_1: ReadingPassage[] = [
     grammarHighlights: [{ excerpt: 'Qualora… riceva / a meno che non dimostri', note: { bn: 'শর্তসূচক congiuntivo ব্যবহার।', en: 'Formal conditional conjunctions taking subjunctive.' }, grammarId: 'congiuntivo-condizionale-b2' }],
     relatedGrammarIds: ['congiuntivo-condizionale-b2'],
     questions: [
-      { id: 'rd-b2-06-q1', prompt: { bn: 'কোন ক্ষেত্রে বিক্রেতা দায় এড়াতে পারেন?', en: 'When can the seller avoid replacement responsibility?' }, options: ['ক্রেতা পরে ক্ষতি করেছেন তা প্রমাণ করলে', 'দাম কম হলে', 'রসিদ সাদা হলে', 'সপ্তাহান্তে কিনলে'], answer: 0, explanation: { bn: 'a meno che non dimostri un danneggiamento causato dall’acquirente।', en: 'If they prove damage caused by the buyer.' } },
+      { id: 'rd-b2-06-q1', prompt: { bn: 'কোন ক্ষেত্রে বিক্রেতা দায় এড়াতে পারেন?', en: 'When can the seller avoid replacement responsibility?' }, options: ['ক্রেতা পরে ক্ষতি করেছেন তা প্রমাণ করলে', 'দাম কম হলে', 'রসিদ সাদা হলে', 'সপ্তাহান্তে কিনলে'], answer: 0, explanation: { bn: 'সঠিক উত্তর: ক্রেতা পরে ক্ষতি করেছেন তা প্রমাণ করলে — পাঠ্যাংশে বলা হয়েছে: «বিক্রেতাকে দ্রুত সাড়া দিতে হবে, যদি না তিনি প্রমাণ করেন যে পরবর্তী ক্ষতি ক্রেতার দ্বারা হয়েছে।» (a meno che non dimostri un danneggiamento causato dall’acquirente)।', en: 'If they prove damage caused by the buyer.' } },
     ],
   }),
   buildReading({
@@ -97,7 +97,7 @@ export const B2_READING_1: ReadingPassage[] = [
     grammarHighlights: [{ excerpt: 'lavorò / scrissero', note: { bn: 'ঐতিহাসিক বিবরণে passato remoto-র প্রয়োগ।', en: 'Passato remoto marks historical events.' }, grammarId: 'passato-remoto-irregolari' }],
     relatedGrammarIds: ['passato-remoto-irregolari'],
     questions: [
-      { id: 'rd-b2-07-q1', prompt: { bn: 'সংবিধান প্রণেতারা কেন স্পষ্ট ভাষা ব্যবহার করেছিলেন?', en: 'Why did the framers write clear articles?' }, options: ['যাতে প্রতিটি নাগরিক তা বুঝতে পারে', 'কাগজ বাঁচাতে', 'অনুবাদ সহজ করতে', 'বিতর্ক এড়াতে'], answer: 0, explanation: { bn: 'rimanesse comprensibile a ogni cittadina e cittadino।', en: 'So it remained intelligible to every citizen.' } },
+      { id: 'rd-b2-07-q1', prompt: { bn: 'সংবিধান প্রণেতারা কেন স্পষ্ট ভাষা ব্যবহার করেছিলেন?', en: 'Why did the framers write clear articles?' }, options: ['যাতে প্রতিটি নাগরিক তা বুঝতে পারে', 'কাগজ বাঁচাতে', 'অনুবাদ সহজ করতে', 'বিতর্ক এড়াতে'], answer: 0, explanation: { bn: 'সঠিক উত্তর: যাতে প্রতিটি নাগরিক তা বুঝতে পারে — পাঠ্যাংশে বলা হয়েছে: «সংবিধান প্রণেতারা স্পষ্ট অনুচ্ছেদ লিখেছিলেন যাতে আইন কার্যকর হয় এবং প্রতিটি নাগরিকের কাছে বোধগম্য থাকে।» (rimanesse comprensibile a ogni cittadina e cittadino)।', en: 'So it remained intelligible to every citizen.' } },
     ],
   }),
   buildReading({
@@ -111,7 +111,7 @@ export const B2_READING_1: ReadingPassage[] = [
     grammarHighlights: [{ excerpt: 'Appena… ebbero aperto / Dopo che… ebbero terminato', note: { bn: 'তাৎক্ষণিক পূর্ববর্তী ঐতিহাসিক ঘটনা: trapassato remoto + passato remoto।', en: 'Trapassato remoto precedes passato remoto immediately.' }, grammarId: 'trapassato-remoto' }],
     relatedGrammarIds: ['trapassato-remoto'],
     questions: [
-      { id: 'rd-b2-08-q1', prompt: { bn: 'রাসায়নিক বিশ্লেষণের পর বিশ্ববিদ্যালয় কী প্রকাশ করল?', en: 'What did the university publish after chemical tests?' }, options: ['একটি মনোগ্রাফ', 'একটি উপন্যাস', 'একটি মানচিত্র', 'একটি পোস্টার'], answer: 0, explanation: { bn: 'pubblicò una monografia।', en: 'It published a monograph.' } },
+      { id: 'rd-b2-08-q1', prompt: { bn: 'রাসায়নিক বিশ্লেষণের পর বিশ্ববিদ্যালয় কী প্রকাশ করল?', en: 'What did the university publish after chemical tests?' }, options: ['একটি মনোগ্রাফ', 'একটি উপন্যাস', 'একটি মানচিত্র', 'একটি পোস্টার'], answer: 0, explanation: { bn: 'সঠিক উত্তর: একটি মনোগ্রাফ — পাঠ্যাংশে বলা হয়েছে: «সংস্কারকেরা রাসায়নিক বিশ্লেষণ শেষ করার পর বিশ্ববিদ্যালয়টি বহুল প্রতীক্ষিত একটি মনোগ্রাফ প্রকাশ করল।» (pubblicò una monografia)।', en: 'It published a monograph.' } },
     ],
   }),
   buildReading({
@@ -125,7 +125,7 @@ export const B2_READING_1: ReadingPassage[] = [
     grammarHighlights: [{ excerpt: 'avrà… superato / sarà già salita', note: { bn: 'অতীত ঘটনা সম্পর্কে অনুমান বোঝাতে futuro anteriore epistemico।', en: 'Epistemic future perfect expresses inference about past developments.' }, grammarId: 'futuro-epistemico-b2' }],
     relatedGrammarIds: ['futuro-epistemico-b2'],
     questions: [
-      { id: 'rd-b2-09-q1', prompt: { bn: 'উপগ্রহ পরিমাপে কী ধরা পড়েছে?', en: 'What do satellite readings show?' }, options: ['ধারাবাহিক জলবায়ু অস্বাভাবিকতা', 'তুষারপাত দ্বিগুণ হওয়া', 'নতুন হিমবাহ সৃষ্টি', 'বাতাস পুরোপুরি থেমে যাওয়া'], answer: 0, explanation: { bn: 'anomalie persistenti।', en: 'Persistent anomalies.' } },
+      { id: 'rd-b2-09-q1', prompt: { bn: 'উপগ্রহ পরিমাপে কী ধরা পড়েছে?', en: 'What do satellite readings show?' }, options: ['ধারাবাহিক জলবায়ু অস্বাভাবিকতা', 'তুষারপাত দ্বিগুণ হওয়া', 'নতুন হিমবাহ সৃষ্টি', 'বাতাস পুরোপুরি থেমে যাওয়া'], answer: 0, explanation: { bn: 'সঠিক উত্তর: ধারাবাহিক জলবায়ু অস্বাভাবিকতা — পাঠ্যাংশে বলা হয়েছে: «উপগ্রহের পরিমাপ ধারাবাহিক অস্বাভাবিকতা দেখাচ্ছে: হিমবাহ গলে যাওয়া সম্ভবত গত দশকের পূর্বাভাসকেও ছাড়িয়ে গেছে।» (anomalie persistenti)।', en: 'Persistent anomalies.' } },
     ],
   }),
   buildReading({
@@ -139,7 +139,7 @@ export const B2_READING_1: ReadingPassage[] = [
     grammarHighlights: [{ excerpt: 'sarebbe vicino / avrebbero concordato', note: { bn: 'সংবাদ প্রতিবেদনে অনিশ্চিত বা সূত্রনির্ভর তথ্যে কন্ডিশনাল।', en: 'Journalistic conditional signals unverified attributed claims.' }, grammarId: 'condizionale-giornalistico' }],
     relatedGrammarIds: ['condizionale-giornalistico'],
     questions: [
-      { id: 'rd-b2-10-q1', prompt: { bn: 'চূড়ান্ত যুদ্ধবিরতির আগে মন্ত্রীরা কী বিষয়ে একমত হয়েছেন বলে শোনা যাচ্ছে?', en: 'What have ministers reportedly agreed on before the ceasefire?' }, options: ['কারিগরি যাচাইয়ের সময়সূচি', 'বাণিজ্য মেলা', 'নির্বাচনের তারিখ', 'শুল্ক বৃদ্ধি'], answer: 0, explanation: { bn: 'un calendario di verifiche tecniche।', en: 'A timetable of technical checks.' } },
+      { id: 'rd-b2-10-q1', prompt: { bn: 'চূড়ান্ত যুদ্ধবিরতির আগে মন্ত্রীরা কী বিষয়ে একমত হয়েছেন বলে শোনা যাচ্ছে?', en: 'What have ministers reportedly agreed on before the ceasefire?' }, options: ['কারিগরি যাচাইয়ের সময়সূচি', 'বাণিজ্য মেলা', 'নির্বাচনের তারিখ', 'শুল্ক বৃদ্ধি'], answer: 0, explanation: { bn: 'সঠিক উত্তর: কারিগরি যাচাইয়ের সময়সূচি — পাঠ্যাংশে বলা হয়েছে: «চূড়ান্ত যুদ্ধবিরতি ঘোষণার আগে মন্ত্রীরা কারিগরি যাচাইয়ের একটি সময়সূচিতে একমত হয়েছেন বলে শোনা যাচ্ছে।» (un calendario di verifiche tecniche)।', en: 'A timetable of technical checks.' } },
     ],
   }),
   buildReading({
@@ -153,7 +153,7 @@ export const B2_READING_1: ReadingPassage[] = [
     grammarHighlights: [{ excerpt: 'vanno indossati / vengono controllate', note: { bn: 'বাধ্যবাধকতা (andare) ও নিয়মিত প্রক্রিয়া (venire)।', en: 'andare conveys rule; venire highlights recurring action.' }, grammarId: 'passivo-avanzato' }],
     relatedGrammarIds: ['passivo-avanzato'],
     questions: [
-      { id: 'rd-b2-11-q1', prompt: { bn: 'ভারাগুলো কে পরীক্ষা করেন?', en: 'Who inspects the scaffolding weekly?' }, options: ['সনদপ্রাপ্ত প্রকৌশলীরা', 'দর্শনার্থীরা', 'নিরাপত্তারক্ষীরা', 'চালকেরা'], answer: 0, explanation: { bn: 'da ingegneri certificati।', en: 'By certified engineers.' } },
+      { id: 'rd-b2-11-q1', prompt: { bn: 'ভারাগুলো কে পরীক্ষা করেন?', en: 'Who inspects the scaffolding weekly?' }, options: ['সনদপ্রাপ্ত প্রকৌশলীরা', 'দর্শনার্থীরা', 'নিরাপত্তারক্ষীরা', 'চালকেরা'], answer: 0, explanation: { bn: 'সঠিক উত্তর: সনদপ্রাপ্ত প্রকৌশলীরা — পাঠ্যাংশে বলা হয়েছে: «প্রতি সপ্তাহে সনদপ্রাপ্ত প্রকৌশলীদের দ্বারা ভারাগুলো পরীক্ষা করা হয় এবং প্রতিবেদনগুলো অফিসে সংরক্ষণ করা হয়।» (da ingegneri certificati)।', en: 'By certified engineers.' } },
     ],
   }),
   buildReading({
@@ -167,7 +167,7 @@ export const B2_READING_1: ReadingPassage[] = [
     grammarHighlights: [{ excerpt: 'si collegano / si riducono / si eliminano', note: { bn: 'si collegano পারস্পরিক ক্রিয়া, আর si riducono কর্মবাচ্য।', en: 'Reciprocal vs passive si constructions.' }, grammarId: 'si-passivante-riflessivo' }],
     relatedGrammarIds: ['si-passivante-riflessivo'],
     questions: [
-      { id: 'rd-b2-12-q1', prompt: { bn: 'আন্তঃকার্যকারিতার ফলে দপ্তরগুলোর মধ্যে কী ঘটে?', en: 'What happens between authorised offices via interoperability?' }, options: ['সনদ স্বয়ংক্রিয়ভাবে প্রেরিত হয়', 'দপ্তর বন্ধ হয়ে যায়', 'কাগজ বাড়ে', 'ফি দ্বিগুণ হয়'], answer: 0, explanation: { bn: 'si trasmettono automaticamente।', en: 'Certificates are transmitted automatically.' } },
+      { id: 'rd-b2-12-q1', prompt: { bn: 'আন্তঃকার্যকারিতার ফলে দপ্তরগুলোর মধ্যে কী ঘটে?', en: 'What happens between authorised offices via interoperability?' }, options: ['সনদ স্বয়ংক্রিয়ভাবে প্রেরিত হয়', 'দপ্তর বন্ধ হয়ে যায়', 'কাগজ বাড়ে', 'ফি দ্বিগুণ হয়'], answer: 0, explanation: { bn: 'সঠিক উত্তর: সনদ স্বয়ংক্রিয়ভাবে প্রেরিত হয় — পাঠ্যাংশে বলা হয়েছে: «আন্তঃকার্যকারিতার মাধ্যমে জন্ম-নিবন্ধন বা নাগরিক সনদ অনুমোদিত দপ্তরগুলোর মধ্যে স্বয়ংক্রিয়ভাবে প্রেরিত হয়।» (si trasmettono automaticamente)।', en: 'Certificates are transmitted automatically.' } },
     ],
   }),
   buildReading({
@@ -181,7 +181,7 @@ export const B2_READING_1: ReadingPassage[] = [
     grammarHighlights: [{ excerpt: 'pur avendo… inviato / Dopo aver compilato', note: { bn: 'যৌগিক জেরুন্ড ও যৌগিক ইনফিনিটিভ দিয়ে সংক্ষিপ্ত উপবাক্য।', en: 'Compound gerund and infinitive form compact subordinate clauses.' }, grammarId: 'subordinate-implicite' }],
     relatedGrammarIds: ['subordinate-implicite'],
     questions: [
-      { id: 'rd-b2-13-q1', prompt: { bn: 'ক্ষমতা অর্পণপত্র পূরণের পর কী সংযুক্ত করতে হবে?', en: 'What must be attached after filling in the proxy?' }, options: ['বৈধ পরিচয়পত্রের অনুলিপি', 'বিদ্যুৎ বিল', 'ট্রেনের টিকিট', 'পাসপোর্ট সাইজ স্ট্যাম্প'], answer: 0, explanation: { bn: 'copia di un documento valido।', en: 'Copy of a valid ID document.' } },
+      { id: 'rd-b2-13-q1', prompt: { bn: 'ক্ষমতা অর্পণপত্র পূরণের পর কী সংযুক্ত করতে হবে?', en: 'What must be attached after filling in the proxy?' }, options: ['বৈধ পরিচয়পত্রের অনুলিপি', 'বিদ্যুৎ বিল', 'ট্রেনের টিকিট', 'পাসপোর্ট সাইজ স্ট্যাম্প'], answer: 0, explanation: { bn: 'সঠিক উত্তর: বৈধ পরিচয়পত্রের অনুলিপি — পাঠ্যাংশে বলা হয়েছে: «ক্ষমতা অর্পণপত্র পূরণ করার পর আবেদন নিশ্চিত করার আগে একটি বৈধ পরিচয়পত্রের অনুলিপি সংযুক্ত করা প্রয়োজন।» (copia di un documento valido)।', en: 'Copy of a valid ID document.' } },
     ],
   }),
   buildReading({
@@ -195,7 +195,7 @@ export const B2_READING_1: ReadingPassage[] = [
     grammarHighlights: [{ excerpt: 'Investendo… / Avendo sottovalutato…', note: { bn: 'শর্তসূচক ও কারণসূচক জেরুন্ড।', en: 'Conditional and causal gerunds.' }, grammarId: 'gerundio-causale-ipotetico' }],
     relatedGrammarIds: ['gerundio-causale-ipotetico'],
     questions: [
-      { id: 'rd-b2-14-q1', prompt: { bn: 'নদী-নালা পরিষ্কারে ধারাবাহিক বিনিয়োগ কী প্রতিরোধে সাহায্য করে?', en: 'What does consistent investment in cleaning waterways help stem?' }, options: ['ভূমিধস ও জলজ অবক্ষয়', 'টেলিফোন বিল', 'আবাসিক কর', 'রেল ধর্মঘট'], answer: 0, explanation: { bn: 'il dissesto idrogeologico।', en: 'Hydrogeological instability.' } },
+      { id: 'rd-b2-14-q1', prompt: { bn: 'নদী-নালা পরিষ্কারে ধারাবাহিক বিনিয়োগ কী প্রতিরোধে সাহায্য করে?', en: 'What does consistent investment in cleaning waterways help stem?' }, options: ['ভূমিধস ও জলজ অবক্ষয়', 'টেলিফোন বিল', 'আবাসিক কর', 'রেল ধর্মঘট'], answer: 0, explanation: { bn: 'সঠিক উত্তর: ভূমিধস ও জলজ অবক্ষয় — পাঠ্যাংশে বলা হয়েছে: «নদী-নালা পরিষ্কারের কাজে ধারাবাহিকভাবে বিনিয়োগ করলে অনেক স্থানীয় প্রশাসন ভূমিধস ও জলজ অবক্ষয় প্রতিহত করতে সক্ষম হবে।» (il dissesto idrogeologico)।', en: 'Hydrogeological instability.' } },
     ],
   }),
   buildReading({
@@ -209,7 +209,7 @@ export const B2_READING_1: ReadingPassage[] = [
     grammarHighlights: [{ excerpt: 'operanti / contenente / partecipanti', note: { bn: 'বিশেষণ-স্থানীয় বর্তমান পার্টিসিপল (participio presente)।', en: 'Present participles functioning as compact adjectival clauses.' }, grammarId: 'participio-presente-b2' }],
     relatedGrammarIds: ['participio-presente-b2'],
     questions: [
-      { id: 'rd-b2-15-q1', prompt: { bn: 'প্রণোদনাগুলো কোন খাতের সমবায়গুলোর জন্য নির্ধারিত?', en: 'Which consortia benefit from the incentives?' }, options: ['পরিচ্ছন্ন ও নবায়নযোগ্য শক্তি খাত', 'প্লাস্টিক উৎপাদন', 'কয়লা আমদানি', 'তামাক শিল্প'], answer: 0, explanation: { bn: 'energia pulita e fonti rinnovabili।', en: 'Clean and renewable energy.' } },
+      { id: 'rd-b2-15-q1', prompt: { bn: 'প্রণোদনাগুলো কোন খাতের সমবায়গুলোর জন্য নির্ধারিত?', en: 'Which consortia benefit from the incentives?' }, options: ['পরিচ্ছন্ন ও নবায়নযোগ্য শক্তি খাত', 'প্লাস্টিক উৎপাদন', 'কয়লা আমদানি', 'তামাক শিল্প'], answer: 0, explanation: { bn: 'সঠিক উত্তর: পরিচ্ছন্ন ও নবায়নযোগ্য শক্তি খাত — পাঠ্যাংশে বলা হয়েছে: «পরিচ্ছন্ন শক্তি উৎপাদনে নিয়োজিত সমবায়গুলো নবায়নযোগ্য জ্বালানির জন্য নির্ধারিত প্রণোদনা লাভ করবে।» (energia pulita e fonti rinnovabili)।', en: 'Clean and renewable energy.' } },
     ],
   }),
   buildReading({
@@ -223,7 +223,7 @@ export const B2_READING_1: ReadingPassage[] = [
     grammarHighlights: [{ excerpt: 'Completata la fusione / Analizzato il fatturato', note: { bn: 'লিঙ্গ-বচন মিলিয়ে participio assoluto গঠন।', en: 'Absolute participle phrases mark completed steps.' }, grammarId: 'participio-assoluto-b2' }],
     relatedGrammarIds: ['participio-assoluto-b2'],
     questions: [
-      { id: 'rd-b2-16-q1', prompt: { bn: 'নতুন কৌশলে প্রবৃদ্ধির মূল স্তম্ভ কী?', en: 'What is the pillar of growth in the strategy?' }, options: ['রেলপথগুলোর বৈচিত্র্যায়ন', 'রুট বন্ধ করা', 'বিমান বিক্রি', 'নতুন কর'], answer: 0, explanation: { bn: 'la diversificazione delle rotte ferroviarie।', en: 'Diversification of rail routes.' } },
+      { id: 'rd-b2-16-q1', prompt: { bn: 'নতুন কৌশলে প্রবৃদ্ধির মূল স্তম্ভ কী?', en: 'What is the pillar of growth in the strategy?' }, options: ['রেলপথগুলোর বৈচিত্র্যায়ন', 'রুট বন্ধ করা', 'বিমান বিক্রি', 'নতুন কর'], answer: 0, explanation: { bn: 'সঠিক উত্তর: রেলপথগুলোর বৈচিত্র্যায়ন — পাঠ্যাংশে বলা হয়েছে: «বার্ষিক আয় বিশ্লেষণ করার পর, রেলপথগুলোর বৈচিত্র্যায়নই প্রবৃদ্ধির মূল স্তম্ভ হিসেবে বিবেচিত হয়েছে।» (la diversificazione delle rotte ferroviarie)।', en: 'Diversification of rail routes.' } },
     ],
   }),
   buildReading({
@@ -237,7 +237,7 @@ export const B2_READING_1: ReadingPassage[] = [
     grammarHighlights: [{ excerpt: 'L’indagare / l’accumulare / Il sottoporre', note: { bn: 'আর্টিকেলসহ ক্রিয়া (infinito sostantivato) প্রক্রিয়াটিকে ধারণাগত বিশেষ্য করে।', en: 'Nominalised infinitives turn processes into abstract concepts.' }, grammarId: 'infinito-sostantivato' }],
     relatedGrammarIds: ['infinito-sostantivato'],
     questions: [
-      { id: 'rd-b2-17-q1', prompt: { bn: 'পিয়ার-রিভিউ কী নিশ্চিত করে?', en: 'What does peer review ensure?' }, options: ['উন্মুক্ত আলোচনার মাধ্যমে জ্ঞানের বিকাশ', 'গবেষণা গোপন রাখা', 'বইয়ের মূল্যবৃদ্ধি', 'সময়সীমা বাতিল'], answer: 0, explanation: { bn: 'che la conoscenza cresca attraverso il confronto aperto।', en: 'That knowledge grows through open discussion.' } },
+      { id: 'rd-b2-17-q1', prompt: { bn: 'পিয়ার-রিভিউ কী নিশ্চিত করে?', en: 'What does peer review ensure?' }, options: ['উন্মুক্ত আলোচনার মাধ্যমে জ্ঞানের বিকাশ', 'গবেষণা গোপন রাখা', 'বইয়ের মূল্যবৃদ্ধি', 'সময়সীমা বাতিল'], answer: 0, explanation: { bn: 'সঠিক উত্তর: উন্মুক্ত আলোচনার মাধ্যমে জ্ঞানের বিকাশ — পাঠ্যাংশে বলা হয়েছে: «ফলাফলকে পিয়ার-রিভিউয়ের অধীনে উপস্থাপন করা নিশ্চিত করে যে উন্মুক্ত মতবিনিময়ের মধ্য দিয়ে জ্ঞান বিকশিত হয়।» (che la conoscenza cresca attraverso il confronto aperto)।', en: 'That knowledge grows through open discussion.' } },
     ],
   }),
   buildReading({
@@ -251,7 +251,7 @@ export const B2_READING_1: ReadingPassage[] = [
     grammarHighlights: [{ excerpt: 'ha precisato che… sarebbe diventato / aveva già introdotto', note: { bn: 'অতীত পরোক্ষ উক্তিতে কাল পরিবর্তন নিয়ম।', en: 'Sequence of tenses in reported past statements.' }, grammarId: 'discorso-indiretto-complesso' }],
     relatedGrammarIds: ['discorso-indiretto-complesso'],
     questions: [
-      { id: 'rd-b2-18-q1', prompt: { bn: 'প্রকৌশল বিভাগ কীভাবে উন্নত রোবোটিক্স চালু করেছিল?', en: 'How did engineering introduce advanced robotics?' }, options: ['কর্মসংস্থান না কমিয়েই', 'সব শ্রমিক ছাঁটাই করে', 'উৎপাদন বন্ধ করে', 'সরকারের অনুমতি ছাড়াই'], answer: 0, explanation: { bn: 'senza ridurre i livelli occupazionali।', en: 'Without reducing staffing levels.' } },
+      { id: 'rd-b2-18-q1', prompt: { bn: 'প্রকৌশল বিভাগ কীভাবে উন্নত রোবোটিক্স চালু করেছিল?', en: 'How did engineering introduce advanced robotics?' }, options: ['কর্মসংস্থান না কমিয়েই', 'সব শ্রমিক ছাঁটাই করে', 'উৎপাদন বন্ধ করে', 'সরকারের অনুমতি ছাড়াই'], answer: 0, explanation: { bn: 'সঠিক উত্তর: কর্মসংস্থান না কমিয়েই — পাঠ্যাংশে বলা হয়েছে: «তিনি আরও স্মরণ করিয়ে দেন যে প্রকৌশল বিভাগ কর্মসংস্থান না কমিয়েই ইতিমধ্যে উন্নত রোবোটিক্স চালু করেছিল।» (senza ridurre i livelli occupazionali)।', en: 'Without reducing staffing levels.' } },
     ],
   }),
   buildReading({
@@ -265,7 +265,7 @@ export const B2_READING_1: ReadingPassage[] = [
     grammarHighlights: [{ excerpt: 'davvero la dispersione… era aumentata?', note: { bn: 'উদ্ধৃতি চিহ্ন ছাড়াই চরিত্রের চিন্তাপ্রবাহ (discorso indiretto libero)।', en: 'Free indirect speech captures interior reflection directly.' }, grammarId: 'discorso-indiretto-libero' }],
     relatedGrammarIds: ['discorso-indiretto-libero'],
     questions: [
-      { id: 'rd-b2-19-q1', prompt: { bn: 'অপরিবর্তনীয় ব্যবধান এড়াতে প্রধান শিক্ষক কী করার সিদ্ধান্ত নিলেন?', en: 'What did the headteacher decide to do to prevent an irreversible gap?' }, options: ['অবিলম্বে পরিবারগুলোকে ডাকা', 'বিদ্যালয় বন্ধ করা', 'তালিকা মুছে ফেলা', 'নতুন ছুটি ঘোষণা'], answer: 0, explanation: { bn: 'avrebbe convocato subito le famiglie।', en: 'He would summon the families immediately.' } },
+      { id: 'rd-b2-19-q1', prompt: { bn: 'অপরিবর্তনীয় ব্যবধান এড়াতে প্রধান শিক্ষক কী করার সিদ্ধান্ত নিলেন?', en: 'What did the headteacher decide to do to prevent an irreversible gap?' }, options: ['অবিলম্বে পরিবারগুলোকে ডাকা', 'বিদ্যালয় বন্ধ করা', 'তালিকা মুছে ফেলা', 'নতুন ছুটি ঘোষণা'], answer: 0, explanation: { bn: 'সঠিক উত্তর: অবিলম্বে পরিবারগুলোকে ডাকা — পাঠ্যাংশে বলা হয়েছে: «নষ্ট করার মতো সময় ছিল না; একটি অপরিবর্তনীয় ব্যবধান এড়াতে তিনি এখনই পরিবারগুলোকে ডাকবেন।» (avrebbe convocato subito le famiglie)।', en: 'He would summon the families immediately.' } },
     ],
   }),
   buildReading({
@@ -279,7 +279,7 @@ export const B2_READING_1: ReadingPassage[] = [
     grammarHighlights: [{ excerpt: 'in base al quale / i cui contenuti', note: { bn: 'আনুষ্ঠানিক লিখিত ভাষায় il quale ও cui।', en: 'Formal relative pronouns ensure unambiguous reference.' }, grammarId: 'relativi-formali-b2' }],
     relatedGrammarIds: ['relativi-formali-b2'],
     questions: [
-      { id: 'rd-b2-20-q1', prompt: { bn: 'স্পষ্ট অনুমোদন ছাড়া অসম ধারা থাকলে চুক্তির কী অবস্থা হয়?', en: 'What happens to an agreement with an unapproved unfair clause?' }, options: ['তা অকার্যকর থাকে', 'তা দ্বিগুণ সময় চলে', 'স্বয়ংক্রিয়ভাবে বদলে যায়', 'শুধু মৌখিক হয়'], answer: 0, explanation: { bn: 'restano privi di effetto।', en: 'They remain without effect.' } },
+      { id: 'rd-b2-20-q1', prompt: { bn: 'স্পষ্ট অনুমোদন ছাড়া অসম ধারা থাকলে চুক্তির কী অবস্থা হয়?', en: 'What happens to an agreement with an unapproved unfair clause?' }, options: ['তা অকার্যকর থাকে', 'তা দ্বিগুণ সময় চলে', 'স্বয়ংক্রিয়ভাবে বদলে যায়', 'শুধু মৌখিক হয়'], answer: 0, explanation: { bn: 'সঠিক উত্তর: তা অকার্যকর থাকে — পাঠ্যাংশে বলা হয়েছে: «অধিকন্তু, যে চুক্তির বিষয়বস্তুতে স্পষ্টভাবে অনুমোদিত নয় এমন কোনো অসম ধারা থাকে, সেগুলো কার্যকর হয় না।» (restano privi di effetto)।', en: 'They remain without effect.' } },
     ],
   }),
   buildReading({
@@ -293,7 +293,7 @@ export const B2_READING_1: ReadingPassage[] = [
     grammarHighlights: [{ excerpt: 'Chiunque presenti / Quanto scaturisce', note: { bn: 'দ্বৈত সম্বন্ধবাচক সর্বনাম Chiunque ও Quanto।', en: 'Double relative pronouns chiunque and quanto.' }, grammarId: 'doppi-relativi' }],
     relatedGrammarIds: ['doppi-relativi'],
     questions: [
-      { id: 'rd-b2-21-q1', prompt: { bn: 'অন্যান্য গবেষক যাতে পরীক্ষা পুনরাবৃত্তি করতে পারেন সেজন্য কী শেয়ার করতে হবে?', en: 'What must be shared so others can replicate experiments?' }, options: ['পরীক্ষামূলক প্রোটোকল', 'ব্যক্তিগত ঠিকানা', 'ব্যাংক বিবরণ', 'স্লাইডের রঙ'], answer: 0, explanation: { bn: 'i protocolli sperimentali।', en: 'Experimental protocols.' } },
+      { id: 'rd-b2-21-q1', prompt: { bn: 'অন্যান্য গবেষক যাতে পরীক্ষা পুনরাবৃত্তি করতে পারেন সেজন্য কী শেয়ার করতে হবে?', en: 'What must be shared so others can replicate experiments?' }, options: ['পরীক্ষামূলক প্রোটোকল', 'ব্যক্তিগত ঠিকানা', 'ব্যাংক বিবরণ', 'স্লাইডের রঙ'], answer: 0, explanation: { bn: 'সঠিক উত্তর: পরীক্ষামূলক প্রোটোকল — পাঠ্যাংশে বলা হয়েছে: «যে কেউ নতুন কোনো তত্ত্ব উপস্থাপন করুক না কেন, তাকে পরীক্ষামূলক প্রোটোকল প্রকাশ করতে হবে যাতে অন্যান্য গবেষক তা পুনরাবৃত্তি করতে পারেন।» (i protocolli sperimentali)।', en: 'Experimental protocols.' } },
     ],
   }),
   buildReading({
@@ -307,7 +307,7 @@ export const B2_READING_1: ReadingPassage[] = [
     grammarHighlights: [{ excerpt: 'Il bando…, lo hanno pubblicato / la perizia…, l’ha… protocollata', note: { bn: 'বামদিকে স্থানান্তরিত কর্ম ও পুনরুল্লিখিত সর্বনাম।', en: 'Left dislocation with matching clitic pronouns.' }, grammarId: 'dislocazione-sinistra' }],
     relatedGrammarIds: ['dislocazione-sinistra'],
     questions: [
-      { id: 'rd-b2-22-q1', prompt: { bn: 'স্থপতি কারিগরি প্রতিবেদনের সাথে কী নিবন্ধন করেছেন?', en: 'What did the architect log alongside the appraisal?' }, options: ['মূল নকশাগুলো', 'বিলের রসিদ', 'ভ্রমণ টিকিট', 'অভিনন্দনপত্র'], answer: 0, explanation: { bn: 'insieme alle planimetrie originali।', en: 'Together with the original floor plans.' } },
+      { id: 'rd-b2-22-q1', prompt: { bn: 'স্থপতি কারিগরি প্রতিবেদনের সাথে কী নিবন্ধন করেছেন?', en: 'What did the architect log alongside the appraisal?' }, options: ['মূল নকশাগুলো', 'বিলের রসিদ', 'ভ্রমণ টিকিট', 'অভিনন্দনপত্র'], answer: 0, explanation: { bn: 'সঠিক উত্তর: মূল নকশাগুলো — পাঠ্যাংশে বলা হয়েছে: «অন্যদিকে কারিগরি প্রতিবেদনটি, স্থপতি ইতিমধ্যে মূল নকশাসহ নিবন্ধন করে ফেলেছেন।» (insieme alle planimetrie originali)।', en: 'Together with the original floor plans.' } },
     ],
   }),
   buildReading({
@@ -321,7 +321,7 @@ export const B2_READING_1: ReadingPassage[] = [
     grammarHighlights: [{ excerpt: 'L’abbiamo osservato… quanto / la pretendono… una seria verifica', note: { bn: 'ডানদিকে স্থানান্তরে সর্বনামের আগাম ইঙ্গিত।', en: 'Right dislocation foregrounds the verb before revealing the object.' }, grammarId: 'dislocazione-destra' }],
     relatedGrammarIds: ['dislocazione-destra'],
     questions: [
-      { id: 'rd-b2-23-q1', prompt: { bn: 'শিরোনাম শেয়ার করার আগে সচেতন পাঠকেরা কী দাবি করেন?', en: 'What do attentive readers demand before sharing a headline?' }, options: ['সূত্র যাচাই', 'বড় ছবি', 'ভিডিও বিজ্ঞাপন', 'ছোট মন্তব্য'], answer: 0, explanation: { bn: 'una seria verifica delle fonti।', en: 'Serious source verification.' } },
+      { id: 'rd-b2-23-q1', prompt: { bn: 'শিরোনাম শেয়ার করার আগে সচেতন পাঠকেরা কী দাবি করেন?', en: 'What do attentive readers demand before sharing a headline?' }, options: ['সূত্র যাচাই', 'বড় ছবি', 'ভিডিও বিজ্ঞাপন', 'ছোট মন্তব্য'], answer: 0, explanation: { bn: 'সঠিক উত্তর: সূত্র যাচাই — পাঠ্যাংশে বলা হয়েছে: «তথ্যের বুদবুদ থেকে বেরোতে সচেতন পাঠকেরা কোনো শিরোনাম শেয়ার করার আগে সর্বদা গম্ভীর সূত্র যাচাই দাবি করেন।» (una seria verifica delle fonti)।', en: 'Serious source verification.' } },
     ],
   }),
   buildReading({
@@ -335,7 +335,7 @@ export const B2_READING_1: ReadingPassage[] = [
     grammarHighlights: [{ excerpt: 'È grazie al giornalismo… che / Non è il sensazionalismo che', note: { bn: 'খণ্ডিত বাক্যে ইতিবাচক ও বিপরীত ফোকাস।', en: 'Cleft sentences contrast focus cleanly.' }, grammarId: 'frase-scissa' }],
     relatedGrammarIds: ['frase-scissa'],
     questions: [
-      { id: 'rd-b2-24-q1', prompt: { bn: 'সংবাদপত্রের স্বাধীনতাকে সত্যিকার অর্থে কী রক্ষা করে?', en: 'What truly defends press freedom?' }, options: ['দাপ্তরিক নথিপত্রের ধৈর্যশীল যাচাই', 'চাঞ্চল্যকর শিরোনাম', 'গুজব ছড়ানো', 'বিজ্ঞাপন বৃদ্ধি'], answer: 0, explanation: { bn: 'il lavoro paziente di verifica sui documenti ufficiali।', en: 'Patient verification of official documents.' } },
+      { id: 'rd-b2-24-q1', prompt: { bn: 'সংবাদপত্রের স্বাধীনতাকে সত্যিকার অর্থে কী রক্ষা করে?', en: 'What truly defends press freedom?' }, options: ['দাপ্তরিক নথিপত্রের ধৈর্যশীল যাচাই', 'চাঞ্চল্যকর শিরোনাম', 'গুজব ছড়ানো', 'বিজ্ঞাপন বৃদ্ধি'], answer: 0, explanation: { bn: 'সঠিক উত্তর: দাপ্তরিক নথিপত্রের ধৈর্যশীল যাচাই — পাঠ্যাংশে বলা হয়েছে: «চাঞ্চল্য সৃষ্টি নয়, বরং দাপ্তরিক নথিপত্রের ওপর ধৈর্যশীল যাচাইয়ের কাজই সংবাদপত্রের স্বাধীনতাকে রক্ষা করে।» (il lavoro paziente di verifica sui documenti ufficiali)।', en: 'Patient verification of official documents.' } },
     ],
   }),
   buildReading({
@@ -349,7 +349,7 @@ export const B2_READING_1: ReadingPassage[] = [
     grammarHighlights: [{ excerpt: 'nascono sfide / preoccupa… la fuga / scelgono l’estero troppi giovani', note: { bn: 'নতুন তথ্য হিসেবে কর্তাকে ক্রিয়ার পরে স্থাপন।', en: 'Subject inversion puts spotlight on the subject.' }, grammarId: 'inversione-soggetto' }],
     relatedGrammarIds: ['inversione-soggetto'],
     questions: [
-      { id: 'rd-b2-25-q1', prompt: { bn: 'পাঠ্যে বিশ্ববিদ্যালয়গুলো কী নিয়ে উদ্বিগ্ন?', en: 'What worries universities in the passage?' }, options: ['তরুণ গবেষকদের বিদেশে চলে যাওয়া (মেধা পাচার)', 'পাঠাগারের রং', 'শীতকালীন ছুটি', 'খেলাধুলার মাঠ'], answer: 0, explanation: { bn: 'la fuga dei cervelli।', en: 'Brain drain.' } },
+      { id: 'rd-b2-25-q1', prompt: { bn: 'পাঠ্যে বিশ্ববিদ্যালয়গুলো কী নিয়ে উদ্বিগ্ন?', en: 'What worries universities in the passage?' }, options: ['তরুণ গবেষকদের বিদেশে চলে যাওয়া (মেধা পাচার)', 'পাঠাগারের রং', 'শীতকালীন ছুটি', 'খেলাধুলার মাঠ'], answer: 0, explanation: { bn: 'সঠিক উত্তর: তরুণ গবেষকদের বিদেশে চলে যাওয়া (মেধা পাচার) — পাঠ্যাংশে বলা হয়েছে: «একই সময়ে বিশ্ববিদ্যালয়গুলোকে উদ্বিগ্ন করছে মেধা পাচার: অনেক তরুণ গবেষক বিদেশ বেছে নিচ্ছেন।» (la fuga dei cervelli)।', en: 'Brain drain.' } },
     ],
   }),
   buildReading({
@@ -363,7 +363,7 @@ export const B2_READING_1: ReadingPassage[] = [
     grammarHighlights: [{ excerpt: 'L’approvazione / la semplificazione / il potenziamento', note: { bn: 'ক্রিয়া থেকে গঠিত বিশেষ্যায়িত পদগুচ্ছ।', en: 'Nominalised nouns condense policies succinctly.' }, grammarId: 'nominalizzazione-b2' }],
     relatedGrammarIds: ['nominalizzazione-b2'],
     questions: [
-      { id: 'rd-b2-26-q1', prompt: { bn: 'অতিরিক্ত বিমূর্ত বিশেষ্যের ঝুঁকি কী?', en: 'What is the risk of overusing abstract nouns?' }, options: ['বাস্তবায়নকারীদের সুনির্দিষ্ট দায়িত্ব আড়াল হওয়া', 'বাক্য খুব ছোট হওয়া', 'ব্যাকরণ সহজ হওয়া', 'অনুবাদ কমে যাওয়া'], answer: 0, explanation: { bn: 'oscurare le responsabilità concrete।', en: 'Obscuring concrete responsibilities.' } },
+      { id: 'rd-b2-26-q1', prompt: { bn: 'অতিরিক্ত বিমূর্ত বিশেষ্যের ঝুঁকি কী?', en: 'What is the risk of overusing abstract nouns?' }, options: ['বাস্তবায়নকারীদের সুনির্দিষ্ট দায়িত্ব আড়াল হওয়া', 'বাক্য খুব ছোট হওয়া', 'ব্যাকরণ সহজ হওয়া', 'অনুবাদ কমে যাওয়া'], answer: 0, explanation: { bn: 'সঠিক উত্তর: বাস্তবায়নকারীদের সুনির্দিষ্ট দায়িত্ব আড়াল হওয়া — পাঠ্যাংশে বলা হয়েছে: «তবুও, অতিরিক্ত বিমূর্ত বিশেষ্যের ব্যবহার যাঁরা পদক্ষেপ বাস্তবায়ন করেন তাঁদের সুনির্দিষ্ট দায়িত্বকে আড়াল করার ঝুঁকি রাখে।» (oscurare le responsabilità concrete)।', en: 'Obscuring concrete responsibilities.' } },
     ],
   }),
 ];

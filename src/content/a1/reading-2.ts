@@ -30,7 +30,7 @@ export const A1_READING_2: ReadingPassage[] = [
     ],
     relatedGrammarIds: ['riflessivi-a1', 'ora-data', 'irregolari'],
     questions: [
-      { id: 'rd-a1-12-q1', prompt: { bn: 'সে বিশ্ববিদ্যালয়ে যায় কীভাবে?', en: 'How does the speaker go to university?' }, options: ['ট্রেনে', '২৪ নম্বর বাসে', 'সাইকেলে', 'হেঁটে'], answer: 1, explanation: { bn: 'prendo l’autobus numero ventiquattro।', en: 'Bus number 24.' } },
+      { id: 'rd-a1-12-q1', prompt: { bn: 'সে বিশ্ববিদ্যালয়ে যায় কীভাবে?', en: 'How does the speaker go to university?' }, options: ['ট্রেনে', '২৪ নম্বর বাসে', 'সাইকেলে', 'হেঁটে'], answer: 1, explanation: { bn: 'সঠিক উত্তর: ২৪ নম্বর বাসে — পাঠ্যাংশে বলা হয়েছে: «সাড়ে আটটায় আমি বিশ্ববিদ্যালয়ে যেতে ২৪ নম্বর বাসে উঠি। সন্ধ্যায় এক ঘণ্টা পড়াশোনা করি আর ১১টায় ঘুমাতে যাই।» (prendo l’autobus numero ventiquattro)।', en: 'Bus number 24.' } },
       { id: 'rd-a1-12-q2', prompt: { bn: 'সকালের নাস্তায় সে কী পান করে?', en: 'What does the speaker drink for breakfast?' }, options: ['কফি', 'দুধ', 'গরম চা', 'জুস'], answer: 2, explanation: { bn: 'tè caldo = গরম চা।', en: 'Hot tea.' } },
     ],
   }),
@@ -62,8 +62,8 @@ export const A1_READING_2: ReadingPassage[] = [
     ],
     relatedGrammarIds: ['preposizioni-luogo', 'ce', 'domande'],
     questions: [
-      { id: 'rd-a1-13-q1', prompt: { bn: 'বাস থেকে নেমে কোন দিকে ঘুরতে হবে?', en: 'Which way should Amir turn after getting off the bus?' }, options: ['ডানে', 'বামে', 'পেছনে', 'সোজা'], answer: 1, explanation: { bn: 'gira subito a sinistra।', en: 'Turn left immediately.' } },
-      { id: 'rd-a1-13-q2', prompt: { bn: 'সিনেমা শুরু হতে আর কত মিনিট বাকি?', en: 'In how many minutes does the film start?' }, options: ['৫ মিনিট', '১০ মিনিট', '২০ মিনিট', '৩০ মিনিট'], answer: 1, explanation: { bn: 'tra dieci minuti।', en: 'In ten minutes.' } },
+      { id: 'rd-a1-13-q1', prompt: { bn: 'বাস থেকে নেমে কোন দিকে ঘুরতে হবে?', en: 'Which way should Amir turn after getting off the bus?' }, options: ['ডানে', 'বামে', 'পেছনে', 'সোজা'], answer: 1, explanation: { bn: 'সঠিক উত্তর: বামে — পাঠ্যাংশে বলা হয়েছে: «তুমি যদি এখনো বাসে থাকো, ব্যাংকের পরের স্টপে নেমে সাথে সাথে বামে ঘোরো। সিনেমা দশ মিনিটের মধ্যে শুরু হবে!» (gira subito a sinistra)।', en: 'Turn left immediately.' } },
+      { id: 'rd-a1-13-q2', prompt: { bn: 'সিনেমা শুরু হতে আর কত মিনিট বাকি?', en: 'In how many minutes does the film start?' }, options: ['৫ মিনিট', '১০ মিনিট', '২০ মিনিট', '৩০ মিনিট'], answer: 1, explanation: { bn: 'সঠিক উত্তর: ১০ মিনিট — পাঠ্যাংশে বলা হয়েছে: «তুমি যদি এখনো বাসে থাকো, ব্যাংকের পরের স্টপে নেমে সাথে সাথে বামে ঘোরো। সিনেমা দশ মিনিটের মধ্যে শুরু হবে!» (tra dieci minuti)।', en: 'In ten minutes.' } },
     ],
   }),
 
@@ -126,7 +126,7 @@ export const A1_READING_2: ReadingPassage[] = [
     ],
     relatedGrammarIds: ['ce', 'possessivi-a1', 'preposizioni-luogo'],
     questions: [
-      { id: 'rd-a1-15-q1', prompt: { bn: 'অ্যাপার্টমেন্টের সামনে কী আছে?', en: 'What is in front of the building?' }, options: ['পার্ক', 'ট্রাম স্টপ', 'হাসপাতাল', 'বাজার'], answer: 1, explanation: { bn: 'una fermata del tram।', en: 'A tram stop.' } },
+      { id: 'rd-a1-15-q1', prompt: { bn: 'অ্যাপার্টমেন্টের সামনে কী আছে?', en: 'What is in front of the building?' }, options: ['পার্ক', 'ট্রাম স্টপ', 'হাসপাতাল', 'বাজার'], answer: 1, explanation: { bn: 'সঠিক উত্তর: ট্রাম স্টপ — পাঠ্যাংশে বলা হয়েছে: «এখানে একটি আধুনিক রান্নাঘর, ধূসর সোফাসহ বসার ঘর, একটি শোবার ঘর এবং একটি বাথরুম আছে। ভবনের ঠিক সামনে একটি ট্রাম স্টপ আছে।» (una fermata del tram)।', en: 'A tram stop.' } },
       { id: 'rd-a1-15-q2', prompt: { bn: 'বসার ঘরের সোফাটির রং কী?', en: 'What colour is the sofa in the living room?' }, options: ['সাদা', 'লাল', 'ধূসর', 'নীল'], answer: 2, explanation: { bn: 'un divano grigio = ধূসর।', en: 'Grey.' } },
     ],
   }),
@@ -158,8 +158,8 @@ export const A1_READING_2: ReadingPassage[] = [
     ],
     relatedGrammarIds: ['presente-are', 'genere-numero', 'ora-data'],
     questions: [
-      { id: 'rd-a1-16-q1', prompt: { bn: 'ক্লাস সপ্তাহের কোন কোন দিন হয়?', en: 'Which days of the week is the class held?' }, options: ['সোম ও মঙ্গল', 'বুধ ও শুক্র', 'শনি ও রবি', 'বৃহস্পতি ও শনি'], answer: 1, explanation: { bn: 'ogni mercoledì e venerdì।', en: 'Wednesday and Friday.' } },
-      { id: 'rd-a1-16-q2', prompt: { bn: 'উপকরণের জন্য কি আলাদা টাকা লাগে?', en: 'Do ingredients cost extra?' }, options: ['হ্যাঁ, ১০ ইউরো', 'না, দামের মধ্যেই আছে', 'নিজে আনতে হয়', 'শুধু প্রথম দিনে ফ্রি'], answer: 1, explanation: { bn: 'gli ingredienti sono inclusi nel prezzo।', en: 'Included in the price.' } },
+      { id: 'rd-a1-16-q1', prompt: { bn: 'ক্লাস সপ্তাহের কোন কোন দিন হয়?', en: 'Which days of the week is the class held?' }, options: ['সোম ও মঙ্গল', 'বুধ ও শুক্র', 'শনি ও রবি', 'বৃহস্পতি ও শনি'], answer: 1, explanation: { bn: 'সঠিক উত্তর: বুধ ও শুক্র — পাঠ্যাংশে বলা হয়েছে: «স্বাদের স্কুল — প্রতি বুধবার ও শুক্রবার সন্ধ্যা ৬:৩০ থেকে রাত ৮:৩০ পর্যন্ত সহজ ও সুস্বাদু খাবার রান্না করা শিখুন।» (ogni mercoledì e venerdì)।', en: 'Wednesday and Friday.' } },
+      { id: 'rd-a1-16-q2', prompt: { bn: 'উপকরণের জন্য কি আলাদা টাকা লাগে?', en: 'Do ingredients cost extra?' }, options: ['হ্যাঁ, ১০ ইউরো', 'না, দামের মধ্যেই আছে', 'নিজে আনতে হয়', 'শুধু প্রথম দিনে ফ্রি'], answer: 1, explanation: { bn: 'সঠিক উত্তর: না, দামের মধ্যেই আছে — পাঠ্যাংশে বলা হয়েছে: «কোর্সে আমরা তাজা পাস্তা, পিজ্জা মারগেরিতা এবং তিরামিসু তৈরি করি। কোনো অভিজ্ঞতার দরকার নেই: মাসে ৯০ ইউরো ফিতে সব উপকরণ অন্তর্ভুক্ত।» (gli ingredienti sono inclusi nel prezzo)।', en: 'Included in the price.' } },
     ],
   }),
 
@@ -190,7 +190,7 @@ export const A1_READING_2: ReadingPassage[] = [
     ],
     relatedGrammarIds: ['irregolari', 'preposizioni', 'ce'],
     questions: [
-      { id: 'rd-a1-17-q1', prompt: { bn: 'ইতালিতে গ্রীষ্মকালে অনেকে কোথায় যায়?', en: 'Where do many people go in summer?' }, options: ['লাইব্রেরিতে', 'সমুদ্রে', 'স্কুলে', 'কারখানায়'], answer: 1, explanation: { bn: 'molte persone vanno al mare।', en: 'To the sea.' } },
+      { id: 'rd-a1-17-q1', prompt: { bn: 'ইতালিতে গ্রীষ্মকালে অনেকে কোথায় যায়?', en: 'Where do many people go in summer?' }, options: ['লাইব্রেরিতে', 'সমুদ্রে', 'স্কুলে', 'কারখানায়'], answer: 1, explanation: { bn: 'সঠিক উত্তর: সমুদ্রে — পাঠ্যাংশে বলা হয়েছে: «গ্রীষ্মে খুব গরম পড়ে আর অনেক মানুষ সমুদ্রে যায়। শরতে বৃষ্টি পড়ে, আর শীতে আল্পস পর্বতমালায় তুষারপাত হয়।» (molte persone vanno al mare)।', en: 'To the sea.' } },
       { id: 'rd-a1-17-q2', prompt: { bn: 'আল্পস পর্বতে শীতকালে কী পড়ে?', en: 'What falls in the Alps in winter?' }, options: ['পাতা', 'ধুলো', 'তুষার', 'শিলা'], answer: 2, explanation: { bn: 'cade la neve = তুষার পড়ে।', en: 'Snow falls.' } },
     ],
   }),
@@ -222,7 +222,7 @@ export const A1_READING_2: ReadingPassage[] = [
     ],
     relatedGrammarIds: ['presente-ere-ire', 'domande', 'modali'],
     questions: [
-      { id: 'rd-a1-18-q1', prompt: { bn: 'ফারহান কোন লেভেলের কোর্সে ভর্তি হতে চায়?', en: 'Which level course does Farhan want?' }, options: ['A1', 'A2', 'B1', 'B2'], answer: 0, explanation: { bn: 'livello A1।', en: 'Level A1.' } },
+      { id: 'rd-a1-18-q1', prompt: { bn: 'ফারহান কোন লেভেলের কোর্সে ভর্তি হতে চায়?', en: 'Which level course does Farhan want?' }, options: ['A1', 'A2', 'B1', 'B2'], answer: 0, explanation: { bn: 'পাঠ্যাংশের তথ্যানুযায়ী: «শুভ সকাল, আমার নাম ফারহান এবং আমি দুই সপ্তাহ ধরে বোলোনিয়ায় আছি। আমি A1 লেভেলের একটি ইতালীয় ভাষা কোর্সে ভর্তি হতে চাই।» (সঠিক উত্তর: A1)।', en: 'Level A1.' } },
       { id: 'rd-a1-18-q2', prompt: { bn: 'সে কোন সময়ের ক্লাস পছন্দ করে?', en: 'Which time of day does he prefer?' }, options: ['ভোরবেলা', 'দুপুর', 'বিকেল', 'মধ্যরাত'], answer: 2, explanation: { bn: 'gli orari del pomeriggio = বিকেলের সময়।', en: 'Afternoon.' } },
     ],
   }),
@@ -256,7 +256,7 @@ export const A1_READING_2: ReadingPassage[] = [
     relatedGrammarIds: ['ora-data', 'possessivi-a1', 'aggettivi'],
     questions: [
       { id: 'rd-a1-19-q1', prompt: { bn: 'সোফিয়ার জন্মদিন কবে?', en: 'When is Sofia’s birthday?' }, options: ['১৮ই অক্টোবর', '৮ই নভেম্বর', '১৮ই মে', '১লা অক্টোবর'], answer: 0, explanation: { bn: 'il diciotto ottobre = ১৮ই অক্টোবর।', en: 'October 18th.' } },
-      { id: 'rd-a1-19-q2', prompt: { bn: 'বোনকে কী কী উপহার দেওয়া হয়?', en: 'What gifts are given to Sofia?' }, options: ['জ্যাকেট ও জুতা', 'রান্নার বই ও হলুদ ফুল', 'ঘড়ি ও কলম', 'কম্পিউটার'], answer: 1, explanation: { bn: 'un libro di cucina italiana e un fiore giallo।', en: 'An Italian cookbook and a yellow flower.' } },
+      { id: 'rd-a1-19-q2', prompt: { bn: 'বোনকে কী কী উপহার দেওয়া হয়?', en: 'What gifts are given to Sofia?' }, options: ['জ্যাকেট ও জুতা', 'রান্নার বই ও হলুদ ফুল', 'ঘড়ি ও কলম', 'কম্পিউটার'], answer: 1, explanation: { bn: 'সঠিক উত্তর: রান্নার বই ও হলুদ ফুল — পাঠ্যাংশে বলা হয়েছে: «আমি তাকে একটি ইতালিয়ান রান্নার বই এবং একটি হলুদ ফুল উপহার দিই। যখন সে কেকের মোমবাতি নেভায়, আমরা সবাই আনন্দে গান গাই।» (un libro di cucina italiana e un fiore giallo)।', en: 'An Italian cookbook and a yellow flower.' } },
     ],
   }),
 
@@ -287,8 +287,8 @@ export const A1_READING_2: ReadingPassage[] = [
     ],
     relatedGrammarIds: ['domande', 'preposizioni-luogo', 'avere'],
     questions: [
-      { id: 'rd-a1-20-q1', prompt: { bn: 'টিকিটের মোট দাম কত হয়েছে?', en: 'What is the total cost of the tickets?' }, options: ['১২ ইউরো', '১৫ ইউরো', '১৮ ইউরো', '২০ ইউরো'], answer: 2, explanation: { bn: 'Sono diciotto euro in tutto।', en: '18 euros.' } },
-      { id: 'rd-a1-20-q2', prompt: { bn: 'ছাত্র ছাড় পেতে কী দেখাতে হয়েছে?', en: 'What did the visitor need to show for the student discount?' }, options: ['পাসপোর্ট', 'বিশ্ববিদ্যালয়ের কার্ড', 'ট্রেনের টিকিট', 'রসিদ'], answer: 1, explanation: { bn: 'la tessera universitaria।', en: 'The university ID card.' } },
+      { id: 'rd-a1-20-q1', prompt: { bn: 'টিকিটের মোট দাম কত হয়েছে?', en: 'What is the total cost of the tickets?' }, options: ['১২ ইউরো', '১৫ ইউরো', '১৮ ইউরো', '২০ ইউরো'], answer: 2, explanation: { bn: 'সঠিক উত্তর: ১৮ ইউরো — পাঠ্যাংশে বলা হয়েছে: «কর্মী: আপনার বিশ্ববিদ্যালয়ের আইডি কার্ড আছে? চমৎকার। মোট আঠারো ইউরো। মূল প্রদর্শনী প্রথম তলার বাম দিকে।» (Sono diciotto euro in tutto)।', en: '18 euros.' } },
+      { id: 'rd-a1-20-q2', prompt: { bn: 'ছাত্র ছাড় পেতে কী দেখাতে হয়েছে?', en: 'What did the visitor need to show for the student discount?' }, options: ['পাসপোর্ট', 'বিশ্ববিদ্যালয়ের কার্ড', 'ট্রেনের টিকিট', 'রসিদ'], answer: 1, explanation: { bn: 'সঠিক উত্তর: বিশ্ববিদ্যালয়ের কার্ড — পাঠ্যাংশে বলা হয়েছে: «কর্মী: আপনার বিশ্ববিদ্যালয়ের আইডি কার্ড আছে? চমৎকার। মোট আঠারো ইউরো। মূল প্রদর্শনী প্রথম তলার বাম দিকে।» (la tessera universitaria)।', en: 'The university ID card.' } },
     ],
   }),
 
@@ -319,8 +319,8 @@ export const A1_READING_2: ReadingPassage[] = [
     ],
     relatedGrammarIds: ['genere-numero', 'struttura-frase', 'avere'],
     questions: [
-      { id: 'rd-a1-21-q1', prompt: { bn: 'বাসার ফ্রিজে ইতিমধ্যে কী আছে?', en: 'What is already in the fridge at home?' }, options: ['ডিম ও চাল', 'পানি ও পনির', 'মাংস ও মাছ', 'কমলার জুস'], answer: 1, explanation: { bn: 'Abbiamo ancora acqua e formaggio।', en: 'Water and cheese.' } },
-      { id: 'rd-a1-21-q2', prompt: { bn: 'কয় বোতল কমলার জুস কিনতে হবে?', en: 'How many bottles of orange juice are needed?' }, options: ['এক বোতল', 'দুই বোতল', 'তিন বোতল', 'চার বোতল'], answer: 1, explanation: { bn: 'due bottiglie di succo d’arancia।', en: 'Two bottles.' } },
+      { id: 'rd-a1-21-q1', prompt: { bn: 'বাসার ফ্রিজে ইতিমধ্যে কী আছে?', en: 'What is already in the fridge at home?' }, options: ['ডিম ও চাল', 'পানি ও পনির', 'মাংস ও মাছ', 'কমলার জুস'], answer: 1, explanation: { bn: 'সঠিক উত্তর: পানি ও পনির — পাঠ্যাংশে বলা হয়েছে: «এলেনা: আমি এক্ষুনি ফ্রিজ চেক করছি! আমাদের পানি আর পনির এখনো আছে, কিন্তু ডিম, চাল আর দুই বোতল কমলার জুস নেই।» (Abbiamo ancora acqua e formaggio)।', en: 'Water and cheese.' } },
+      { id: 'rd-a1-21-q2', prompt: { bn: 'কয় বোতল কমলার জুস কিনতে হবে?', en: 'How many bottles of orange juice are needed?' }, options: ['এক বোতল', 'দুই বোতল', 'তিন বোতল', 'চার বোতল'], answer: 1, explanation: { bn: 'সঠিক উত্তর: দুই বোতল — পাঠ্যাংশে বলা হয়েছে: «এলেনা: আমি এক্ষুনি ফ্রিজ চেক করছি! আমাদের পানি আর পনির এখনো আছে, কিন্তু ডিম, চাল আর দুই বোতল কমলার জুস নেই।» (due bottiglie di succo d’arancia)।', en: 'Two bottles.' } },
     ],
   }),
 
@@ -353,7 +353,7 @@ export const A1_READING_2: ReadingPassage[] = [
     relatedGrammarIds: ['negazione', 'pronuncia', 'presente-are'],
     questions: [
       { id: 'rd-a1-22-q1', prompt: { bn: 'বন্ধুরা কয়টার ট্রেনে সমুদ্রে যায়?', en: 'Which train do the friends take to the sea?' }, options: ['সাতটার', 'আটটার', 'নয়টার', 'দশটার'], answer: 2, explanation: { bn: 'il treno delle nove = ৯টার ট্রেন।', en: 'The 9 o’clock train.' } },
-      { id: 'rd-a1-22-q2', prompt: { bn: 'তারা কয়টায় শহরে ফিরে আসে?', en: 'What time do they return to the city?' }, options: ['বিকেল ৩টায়', 'বিকেল ৫টায়', 'রাত ৮টায়', 'দুপুর ১২টায়'], answer: 1, explanation: { bn: 'Alle cinque torniamo in città।', en: 'At five o’clock.' } },
+      { id: 'rd-a1-22-q2', prompt: { bn: 'তারা কয়টায় শহরে ফিরে আসে?', en: 'What time do they return to the city?' }, options: ['বিকেল ৩টায়', 'বিকেল ৫টায়', 'রাত ৮টায়', 'দুপুর ১২টায়'], answer: 1, explanation: { bn: 'সঠিক উত্তর: বিকেল ৫টায় — পাঠ্যাংশে বলা হয়েছে: «সৈকতে আমরা গল্প করি, হাসি আর বল খেলি। পাঁচটায় আমরা ক্লান্ত কিন্তু দিনটা নিয়ে খুব খুশি হয়ে শহরে ফিরে আসি।» (Alle cinque torniamo in città)।', en: 'At five o’clock.' } },
     ],
   }),
 ];

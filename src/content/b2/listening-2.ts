@@ -15,7 +15,7 @@ export const B2_LISTENING_2: ListeningExercise[] = [
     vocabKeys: ['w:B2:la cartella clinica', "w:B2:l'intervento chirurgico"],
     grammarIds: ['causativi-riflessivi'],
     questions: [
-      { id: 'lsb2-32-q1', prompt: { bn: 'রোগী অস্ত্রোপচারের আগে কী করিয়েছেন?', en: 'What did the patient obtain before surgery?' }, options: ['পূর্ণাঙ্গ চিকিৎসা নথি সংগ্রহ', 'বিদেশ ভ্রমণ', 'নতুন বীমা বাতিল', 'ব্যাংক ঋণ'], answer: 0, explanation: { bn: 'la cartella clinica completa।', en: 'The complete medical file.' } },
+      { id: 'lsb2-32-q1', prompt: { bn: 'রোগী অস্ত্রোপচারের আগে কী করিয়েছেন?', en: 'What did the patient obtain before surgery?' }, options: ['পূর্ণাঙ্গ চিকিৎসা নথি সংগ্রহ', 'বিদেশ ভ্রমণ', 'নতুন বীমা বাতিল', 'ব্যাংক ঋণ'], answer: 0, explanation: { bn: 'সঠিক উত্তর: পূর্ণাঙ্গ চিকিৎসা নথি সংগ্রহ — পাঠ্যাংশে বলা হয়েছে: «অস্ত্রোপচারের আগে আমি হাসপাতাল থেকে পূর্ণাঙ্গ চিকিৎসা নথি সংগ্রহ করে নিয়েছি।» (la cartella clinica completa)।', en: 'The complete medical file.' } },
     ],
   }),
   buildListening({
@@ -31,7 +31,7 @@ export const B2_LISTENING_2: ListeningExercise[] = [
     vocabKeys: ['w:B2:ratificare'],
     grammarIds: ['negazione-pleonastica'],
     questions: [
-      { id: 'lsb2-33-q1', prompt: { bn: 'পরিচালনা পর্ষদ অনুমোদন না দেওয়া পর্যন্ত কী করা হবে না?', en: 'What will not happen until management ratifies the agreement?' }, options: ['বিদেশ সফর', 'তাড়াহুড়ো করে বিবৃতি প্রদান', 'অফিস বন্ধ', 'নতুন নিয়োগ'], answer: 1, explanation: { bn: 'non rilasceremo dichiarazioni affrettate।', en: 'They will not release hasty statements.' } },
+      { id: 'lsb2-33-q1', prompt: { bn: 'পরিচালনা পর্ষদ অনুমোদন না দেওয়া পর্যন্ত কী করা হবে না?', en: 'What will not happen until management ratifies the agreement?' }, options: ['বিদেশ সফর', 'তাড়াহুড়ো করে বিবৃতি প্রদান', 'অফিস বন্ধ', 'নতুন নিয়োগ'], answer: 1, explanation: { bn: 'সঠিক উত্তর: তাড়াহুড়ো করে বিবৃতি প্রদান — পাঠ্যাংশে বলা হয়েছে: «পরিচালনা পর্ষদ চুক্তিটি অনুমোদন না করা পর্যন্ত আমরা তাড়াহুড়ো করে কোনো বিবৃতি দেব না।» (non rilasceremo dichiarazioni affrettate)।', en: 'They will not release hasty statements.' } },
     ],
   }),
   buildListening({
@@ -47,7 +47,7 @@ export const B2_LISTENING_2: ListeningExercise[] = [
     vocabKeys: ['w:B2:la voce narrante', 'w:B2:approfondire'],
     grammarIds: ['comparativi-analogici'],
     questions: [
-      { id: 'lsb2-34-q1', prompt: { bn: 'পাঠকের মতে কাহিনির গভীরে গেলে কী ফুটে ওঠে?', en: 'What emerges as one delves deeper into the plot?' }, options: ['লেখিকার মনস্তাত্ত্বিক দক্ষতা', 'মুদ্রণ ত্রুটি', 'ঐতিহাসিক তারিখ', 'বইয়ের দাম'], answer: 0, explanation: { bn: 'l’abilità psicologica dell’autrice।', en: 'The author’s psychological skill.' } },
+      { id: 'lsb2-34-q1', prompt: { bn: 'পাঠকের মতে কাহিনির গভীরে গেলে কী ফুটে ওঠে?', en: 'What emerges as one delves deeper into the plot?' }, options: ['লেখিকার মনস্তাত্ত্বিক দক্ষতা', 'মুদ্রণ ত্রুটি', 'ঐতিহাসিক তারিখ', 'বইয়ের দাম'], answer: 0, explanation: { bn: 'সঠিক উত্তর: লেখিকার মনস্তাত্ত্বিক দক্ষতা — পাঠ্যাংশে বলা হয়েছে: «সত্যি: কাহিনির গভীরে যতই যাওয়া যায়, লেখিকার মনস্তাত্ত্বিক দক্ষতা ততই ফুটে ওঠে।» (l’abilità psicologica dell’autrice)।', en: 'The author’s psychological skill.' } },
     ],
   }),
   buildListening({
@@ -63,7 +63,7 @@ export const B2_LISTENING_2: ListeningExercise[] = [
     vocabKeys: ['w:B2:la pubblicazione accademica', 'w:B2:trascurabile'],
     grammarIds: ['superlativo-sintetico'],
     questions: [
-      { id: 'lsb2-35-q1', prompt: { bn: 'বাস্তুতন্ত্রের ওপর প্রভাবকে কীভাবে বর্ণনা করা হয়েছে?', en: 'How are the ecosystem effects described?' }, options: ['তুচ্ছ', 'অত্যন্ত গুরুতর (gravissimi)', 'অজানা', 'সাময়িক'], answer: 1, explanation: { bn: 'risultano gravissimi।', en: 'They prove extremely serious.' } },
+      { id: 'lsb2-35-q1', prompt: { bn: 'বাস্তুতন্ত্রের ওপর প্রভাবকে কীভাবে বর্ণনা করা হয়েছে?', en: 'How are the ecosystem effects described?' }, options: ['তুচ্ছ', 'অত্যন্ত গুরুতর (gravissimi)', 'অজানা', 'সাময়িক'], answer: 1, explanation: { bn: 'সঠিক উত্তর: অত্যন্ত গুরুতর (gravissimi) — পাঠ্যাংশে বলা হয়েছে: «তবুও ত্রুটির পরিমাণ ন্যূনতম থাকলেও বাস্তুতন্ত্রের ওপর এর প্রভাব অত্যন্ত গুরুতর।» (risultano gravissimi)।', en: 'They prove extremely serious.' } },
     ],
   }),
   buildListening({
@@ -79,7 +79,7 @@ export const B2_LISTENING_2: ListeningExercise[] = [
     vocabKeys: ['w:B2:autorevole'],
     grammarIds: ['aggettivo-posizione-b2'],
     questions: [
-      { id: 'lsb2-36-q1', prompt: { bn: 'বাক্যে “un vecchio collega” বলতে কী বোঝানো হয়েছে?', en: 'What does “un vecchio collega” mean here?' }, options: ['বয়সে বৃদ্ধ সহকর্মী', 'বহু বছরের পরিচিত সহকর্মী', 'অবসরপ্রাপ্ত বস', 'নতুন শিক্ষানবিশ'], answer: 1, explanation: { bn: 'lavoriamo insieme da anni।', en: 'A long-standing colleague.' } },
+      { id: 'lsb2-36-q1', prompt: { bn: 'বাক্যে “un vecchio collega” বলতে কী বোঝানো হয়েছে?', en: 'What does “un vecchio collega” mean here?' }, options: ['বয়সে বৃদ্ধ সহকর্মী', 'বহু বছরের পরিচিত সহকর্মী', 'অবসরপ্রাপ্ত বস', 'নতুন শিক্ষানবিশ'], answer: 1, explanation: { bn: 'সঠিক উত্তর: বহু বছরের পরিচিত সহকর্মী — পাঠ্যাংশে বলা হয়েছে: «আমি এক দীর্ঘদিনের পুরনো সহকর্মীর সাথে দেখা করেছি: আমরা বহু বছর একসাথে কাজ করি এবং তার সবসময় উচ্চ নাগরিক বোধ আছে।» (lavoriamo insieme da anni)।', en: 'A long-standing colleague.' } },
     ],
   }),
   buildListening({
@@ -95,7 +95,7 @@ export const B2_LISTENING_2: ListeningExercise[] = [
     vocabKeys: ["w:B2:l'aspettativa di vita", 'w:B2:compensare'],
     grammarIds: ['modali-epistemici'],
     questions: [
-      { id: 'lsb2-37-q1', prompt: { bn: 'গড় আয়ু বৃদ্ধির কারণ হিসেবে কী উল্লেখ করা হয়েছে?', en: 'What is cited as the reason for higher life expectancy?' }, options: ['স্বাস্থ্য প্রতিরোধ ব্যবস্থা', 'শীতল আবহাওয়া', 'নতুন সড়ক', 'কম কর'], answer: 0, explanation: { bn: 'grazie alla prevenzione sanitaria।', en: 'Thanks to healthcare prevention.' } },
+      { id: 'lsb2-37-q1', prompt: { bn: 'গড় আয়ু বৃদ্ধির কারণ হিসেবে কী উল্লেখ করা হয়েছে?', en: 'What is cited as the reason for higher life expectancy?' }, options: ['স্বাস্থ্য প্রতিরোধ ব্যবস্থা', 'শীতল আবহাওয়া', 'নতুন সড়ক', 'কম কর'], answer: 0, explanation: { bn: 'সঠিক উত্তর: স্বাস্থ্য প্রতিরোধ ব্যবস্থা — পাঠ্যাংশে বলা হয়েছে: «স্বাস্থ্য প্রতিরোধ ব্যবস্থার কারণে এই অঞ্চলে গড় আয়ু নিশ্চয়ই বেড়েছে।» (grazie alla prevenzione sanitaria)।', en: 'Thanks to healthcare prevention.' } },
     ],
   }),
   buildListening({
@@ -111,7 +111,7 @@ export const B2_LISTENING_2: ListeningExercise[] = [
     vocabKeys: ['w:B2:attenersi', 'w:B2:il reclamo formale'],
     grammarIds: ['imperativo-formale-pronomi'],
     questions: [
-      { id: 'lsb2-38-q1', prompt: { bn: 'স্বাক্ষরিত ফর্মটি কীভাবে পাঠাতে বলা হয়েছে?', en: 'How should the signed form be sent?' }, options: ['প্রত্যয়িত ইমেইলে (PEC)', 'ফ্যাক্সে', 'ফোনে পড়ে শোনাতে', 'কুরিয়ার ছাড়াই'], answer: 0, explanation: { bn: 'via posta certificata।', en: 'Via certified email.' } },
+      { id: 'lsb2-38-q1', prompt: { bn: 'স্বাক্ষরিত ফর্মটি কীভাবে পাঠাতে বলা হয়েছে?', en: 'How should the signed form be sent?' }, options: ['প্রত্যয়িত ইমেইলে (PEC)', 'ফ্যাক্সে', 'ফোনে পড়ে শোনাতে', 'কুরিয়ার ছাড়াই'], answer: 0, explanation: { bn: 'সঠিক উত্তর: প্রত্যয়িত ইমেইলে (PEC) — পাঠ্যাংশে বলা হয়েছে: «মাননীয় মহোদয়া, উল্লিখিত সময়সীমা কঠোরভাবে মেনে চলুন এবং প্রত্যয়িত ইমেইলে স্বাক্ষরিত ফর্মটি আমাদের পাঠান।» (via posta certificata)।', en: 'Via certified email.' } },
     ],
   }),
   buildListening({
@@ -127,7 +127,7 @@ export const B2_LISTENING_2: ListeningExercise[] = [
     vocabKeys: ['w:B2:la ripartizione delle spese'],
     grammarIds: ['costrutti-impersonali-b2'],
     questions: [
-      { id: 'lsb2-39-q1', prompt: { bn: 'প্রশাসকের মতে প্রতিটি হিসাব কোথায় পরীক্ষা করা উচিত?', en: 'Where should every statement be reviewed according to the administrator?' }, options: ['সাধারণ সভায়', 'ব্যাংক শাখায়', 'ব্যক্তিগত চ্যাটে', 'শহর চত্বরে'], answer: 0, explanation: { bn: 'in assemblea।', en: 'At the general assembly.' } },
+      { id: 'lsb2-39-q1', prompt: { bn: 'প্রশাসকের মতে প্রতিটি হিসাব কোথায় পরীক্ষা করা উচিত?', en: 'Where should every statement be reviewed according to the administrator?' }, options: ['সাধারণ সভায়', 'ব্যাংক শাখায়', 'ব্যক্তিগত চ্যাটে', 'শহর চত্বরে'], answer: 0, explanation: { bn: 'সঠিক উত্তর: সাধারণ সভায় — পাঠ্যাংশে বলা হয়েছে: «মাস শেষ হওয়ার আগেই প্রতিটি হিসাব সাধারণ সভায় পরীক্ষা করা সমীচীন হবে।» (in assemblea)।', en: 'At the general assembly.' } },
     ],
   }),
   buildListening({
@@ -143,7 +143,7 @@ export const B2_LISTENING_2: ListeningExercise[] = [
     vocabKeys: ['w:B2:ottemperare', 'w:B2:la normativa'],
     grammarIds: ['reggenze-verbali-b2'],
     questions: [
-      { id: 'lsb2-40-q1', prompt: { bn: 'কোম্পানিগুলোর সময়সীমার লক্ষ্য কত বছর?', en: 'What is the target timeframe to cut impact?' }, options: ['৬ মাস', '২ বছর', '১০ বছর', '১৫ বছর'], answer: 1, explanation: { bn: 'entro due anni।', en: 'Within two years.' } },
+      { id: 'lsb2-40-q1', prompt: { bn: 'কোম্পানিগুলোর সময়সীমার লক্ষ্য কত বছর?', en: 'What is the target timeframe to cut impact?' }, options: ['৬ মাস', '২ বছর', '১০ বছর', '১৫ বছর'], answer: 1, explanation: { bn: 'সঠিক উত্তর: ২ বছর — পাঠ্যাংশে বলা হয়েছে: «অনেক প্রতিষ্ঠান ইতিমধ্যে যন্ত্রপাতি নবায়নের ব্যবস্থা করেছে এবং দুই বছরের মধ্যে প্রভাব কমানোর লক্ষ্য নিয়েছে।» (entro due anni)।', en: 'Within two years.' } },
     ],
   }),
   buildListening({
@@ -175,7 +175,7 @@ export const B2_LISTENING_2: ListeningExercise[] = [
     vocabKeys: ['w:B2:irrilevante'],
     grammarIds: ['formazione-parole-b2'],
     questions: [
-      { id: 'lsb2-42-q1', prompt: { bn: 'সভা থেকে কী বাদ দিতে বলা হয়েছে?', en: 'What must be excluded from the meeting?' }, options: ['বাজেট হিসাব', 'অপ্রাসঙ্গিক বিষয়', 'নতুন কর্মীদের নাম', 'উপস্থিতি তালিকা'], answer: 1, explanation: { bn: 'qualsiasi argomento irrilevante।', en: 'Any irrelevant topic.' } },
+      { id: 'lsb2-42-q1', prompt: { bn: 'সভা থেকে কী বাদ দিতে বলা হয়েছে?', en: 'What must be excluded from the meeting?' }, options: ['বাজেট হিসাব', 'অপ্রাসঙ্গিক বিষয়', 'নতুন কর্মীদের নাম', 'উপস্থিতি তালিকা'], answer: 1, explanation: { bn: 'সঠিক উত্তর: অপ্রাসঙ্গিক বিষয় — পাঠ্যাংশে বলা হয়েছে: «যে কোনো অপ্রাসঙ্গিক বিষয় সভা থেকে বাদ দিতে হবে, আর যেকোনো মতবিরোধ আগে থেকেই প্রতিরোধ করা অপরিহার্য।» (qualsiasi argomento irrilevante)।', en: 'Any irrelevant topic.' } },
     ],
   }),
   buildListening({
@@ -191,7 +191,7 @@ export const B2_LISTENING_2: ListeningExercise[] = [
     vocabKeys: ["w:B2:l'inadempimento", 'w:B2:la procura', 'w:B2:la sanzione amministrativa', 'w:B2:la norma vigente', "w:B2:l'illecito"],
     grammarIds: ['lessico-giuridico-burocratico'],
     questions: [
-      { id: 'lsb2-43-q1', prompt: { bn: 'নিরাপত্তা ধারা অমান্যে প্রশাসনিক জরিমানার পাশাপাশি আর কী হতে পারে?', en: 'What can happen besides an administrative fine?' }, options: ['প্রসিকিউশন দপ্তর কার্যক্রম শুরু করতে পারে', 'বিনামূল্যে পুরস্কার', 'কর মওকুফ', 'ভাড়া হ্রাস'], answer: 0, explanation: { bn: 'la procura può avviare un procedimento।', en: 'The prosecutor’s office can initiate proceedings.' } },
+      { id: 'lsb2-43-q1', prompt: { bn: 'নিরাপত্তা ধারা অমান্যে প্রশাসনিক জরিমানার পাশাপাশি আর কী হতে পারে?', en: 'What can happen besides an administrative fine?' }, options: ['প্রসিকিউশন দপ্তর কার্যক্রম শুরু করতে পারে', 'বিনামূল্যে পুরস্কার', 'কর মওকুফ', 'ভাড়া হ্রাস'], answer: 0, explanation: { bn: 'সঠিক উত্তর: প্রসিকিউশন দপ্তর কার্যক্রম শুরু করতে পারে — পাঠ্যাংশে বলা হয়েছে: «নিরাপত্তা ধারা অমান্যের ক্ষেত্রে প্রশাসনিক জরিমানার পাশাপাশি প্রসিকিউশন দপ্তর মামলা শুরু করতে পারে।» (la procura può avviare un procedimento)।', en: 'The prosecutor’s office can initiate proceedings.' } },
     ],
   }),
   buildListening({
@@ -207,7 +207,7 @@ export const B2_LISTENING_2: ListeningExercise[] = [
     vocabKeys: ["w:B2:il portafoglio d'investimento", 'w:B2:la diversificazione', 'w:B2:la ripresa economica', 'w:B2:rallentare', 'w:B2:il fatturato annuo', "w:B2:l'evasione fiscale"],
     grammarIds: ['lessico-economico-finanziario'],
     questions: [
-      { id: 'lsb2-44-q1', prompt: { bn: 'অর্থনৈতিক পুনরুদ্ধার ধীর হলে ঝুঁকি কমাতে কী সাহায্য করে?', en: 'What helps limit risk when recovery slows?' }, options: ['বিনিয়োগ পোর্টফোলিওর বৈচিত্র্যায়ন', 'সব নগদ খরচ করে ফেলা', 'ঋণ দ্বিগুণ করা', 'উৎপাদন বন্ধ রাখা'], answer: 0, explanation: { bn: 'una saggia diversificazione del portafoglio।', en: 'Wise portfolio diversification.' } },
+      { id: 'lsb2-44-q1', prompt: { bn: 'অর্থনৈতিক পুনরুদ্ধার ধীর হলে ঝুঁকি কমাতে কী সাহায্য করে?', en: 'What helps limit risk when recovery slows?' }, options: ['বিনিয়োগ পোর্টফোলিওর বৈচিত্র্যায়ন', 'সব নগদ খরচ করে ফেলা', 'ঋণ দ্বিগুণ করা', 'উৎপাদন বন্ধ রাখা'], answer: 0, explanation: { bn: 'সঠিক উত্তর: বিনিয়োগ পোর্টফোলিওর বৈচিত্র্যায়ন — পাঠ্যাংশে বলা হয়েছে: «অর্থনৈতিক পুনরুদ্ধার ধীর হয়ে গেলে বিনিয়োগ পোর্টফোলিওর বিচক্ষণ বৈচিত্র্যায়ন ঝুঁকি সীমিত রাখতে সাহায্য করে।» (una saggia diversificazione del portafoglio)।', en: 'Wise portfolio diversification.' } },
     ],
   }),
   buildListening({
@@ -223,7 +223,7 @@ export const B2_LISTENING_2: ListeningExercise[] = [
     vocabKeys: ['w:B2:il seminario interdisciplinare', "w:B2:l'ipotesi scientifica", 'w:B2:la verifica empirica', 'w:B2:il nesso causale'],
     grammarIds: ['lessico-scientifico-accademico'],
     questions: [
-      { id: 'lsb2-45-q1', prompt: { bn: 'কার্যকারণ সম্পর্ককে কী থেকে আলাদা করতে হবে?', en: 'What must a causal link be distinguished from?' }, options: ['সাধারণ পরিসংখ্যানগত সহসম্পর্ক', 'প্রাথমিক গ্রন্থপঞ্জি', 'মৌখিক পরীক্ষা', 'শ্রেণিকক্ষের তালিকা'], answer: 0, explanation: { bn: 'da una semplice correlazione statistica।', en: 'From a simple statistical correlation.' } },
+      { id: 'lsb2-45-q1', prompt: { bn: 'কার্যকারণ সম্পর্ককে কী থেকে আলাদা করতে হবে?', en: 'What must a causal link be distinguished from?' }, options: ['সাধারণ পরিসংখ্যানগত সহসম্পর্ক', 'প্রাথমিক গ্রন্থপঞ্জি', 'মৌখিক পরীক্ষা', 'শ্রেণিকক্ষের তালিকা'], answer: 0, explanation: { bn: 'সঠিক উত্তর: সাধারণ পরিসংখ্যানগত সহসম্পর্ক — পাঠ্যাংশে বলা হয়েছে: «আর দুটি চলকের মধ্যকার কার্যকারণ সম্পর্ককে সর্বদা সাধারণ পরিসংখ্যানগত সহসম্পর্ক থেকে আলাদা করতে হয়।» (da una semplice correlazione statistica)।', en: 'From a simple statistical correlation.' } },
     ],
   }),
   buildListening({
@@ -239,7 +239,7 @@ export const B2_LISTENING_2: ListeningExercise[] = [
     vocabKeys: ['w:B2:la notizia infondata', 'w:B2:la verifica delle fonti', "w:B2:il giornalismo d'inchiesta", 'w:B2:approfondito'],
     grammarIds: ['lessico-giornalistico'],
     questions: [
-      { id: 'lsb2-46-q1', prompt: { bn: 'ভিত্তিহীন খবর দ্রুত ছড়ানোর পেছনে কী কারণ বলা হয়েছে?', en: 'What causes unfounded news to spread quickly?' }, options: ['সূত্র যাচাইয়ে অবহেলা', 'মুদ্রণের অভাব', 'দৈনিক বন্ধ থাকা', 'দীর্ঘ শিরোনাম'], answer: 0, explanation: { bn: 'se la redazione trascura la verifica delle fonti।', en: 'If the newsroom neglects fact-checking.' } },
+      { id: 'lsb2-46-q1', prompt: { bn: 'ভিত্তিহীন খবর দ্রুত ছড়ানোর পেছনে কী কারণ বলা হয়েছে?', en: 'What causes unfounded news to spread quickly?' }, options: ['সূত্র যাচাইয়ে অবহেলা', 'মুদ্রণের অভাব', 'দৈনিক বন্ধ থাকা', 'দীর্ঘ শিরোনাম'], answer: 0, explanation: { bn: 'সঠিক উত্তর: সূত্র যাচাইয়ে অবহেলা — পাঠ্যাংশে বলা হয়েছে: «সংবাদকক্ষ সূত্র যাচাইয়ে অবহেলা করলে একটি ভিত্তিহীন খবর কয়েক মিনিটেই ছড়িয়ে পড়ে।» (se la redazione trascura la verifica delle fonti)।', en: 'If the newsroom neglects fact-checking.' } },
     ],
   }),
   buildListening({
@@ -255,7 +255,7 @@ export const B2_LISTENING_2: ListeningExercise[] = [
     vocabKeys: ["w:B2:il libretto d'opera", "w:B2:l'allusione velata", "w:B2:il direttore d'orchestra", "w:B2:l'opera lirica"],
     grammarIds: ['figure-retoriche-b2'],
     questions: [
-      { id: 'lsb2-47-q1', prompt: { bn: 'অপেরার পাণ্ডুলিপিতে রাজনৈতিক ক্ষমতার ইঙ্গিত কীসের মাধ্যমে প্রকাশ পেয়েছে?', en: 'Through what image is the political allusion expressed?' }, options: ['সমুদ্রের ঝড়', 'বসন্তের বাগান', 'ট্রেন স্টেশন', 'বাজারের ভিড়'], answer: 0, explanation: { bn: 'attraverso la tempesta marina।', en: 'Through the sea storm.' } },
+      { id: 'lsb2-47-q1', prompt: { bn: 'অপেরার পাণ্ডুলিপিতে রাজনৈতিক ক্ষমতার ইঙ্গিত কীসের মাধ্যমে প্রকাশ পেয়েছে?', en: 'Through what image is the political allusion expressed?' }, options: ['সমুদ্রের ঝড়', 'বসন্তের বাগান', 'ট্রেন স্টেশন', 'বাজারের ভিড়'], answer: 0, explanation: { bn: 'সঠিক উত্তর: সমুদ্রের ঝড় — পাঠ্যাংশে বলা হয়েছে: «এই অপেরার পাণ্ডুলিপিতে সমুদ্রের ঝড়ের রূপকের মাধ্যমে রাজনৈতিক ক্ষমতার প্রতি এক প্রচ্ছন্ন ইঙ্গিত রয়েছে।» (attraverso la tempesta marina)।', en: 'Through the sea storm.' } },
     ],
   }),
   buildListening({
@@ -271,7 +271,7 @@ export const B2_LISTENING_2: ListeningExercise[] = [
     vocabKeys: ['w:B2:sottolineare', 'w:B2:approfondire'],
     grammarIds: ['punteggiatura-stilistica', 'coesione-anaforica'],
     questions: [
-      { id: 'lsb2-48-q1', prompt: { bn: 'পুনরাবৃত্তি এড়াতে লেখিকা কী ব্যবহার করেছেন?', en: 'What did the author use to avoid repetition?' }, options: ['সর্বনাম ও সমার্থক শব্দ', 'শুধু বড় হাতের অক্ষর', 'বিদেশি সংখ্যা', 'পাদটীকা বাদ দেওয়া'], answer: 0, explanation: { bn: 'con pronomi e sinonimi।', en: 'With pronouns and synonyms.' } },
+      { id: 'lsb2-48-q1', prompt: { bn: 'পুনরাবৃত্তি এড়াতে লেখিকা কী ব্যবহার করেছেন?', en: 'What did the author use to avoid repetition?' }, options: ['সর্বনাম ও সমার্থক শব্দ', 'শুধু বড় হাতের অক্ষর', 'বিদেশি সংখ্যা', 'পাদটীকা বাদ দেওয়া'], answer: 0, explanation: { bn: 'সঠিক উত্তর: সর্বনাম ও সমার্থক শব্দ — পাঠ্যাংশে বলা হয়েছে: «পাঠ্যের সংহতি জোরদার করতে আমি পুনরাবৃত্তির বদলে সর্বনাম ও সমার্থক শব্দও বসিয়েছি।» (con pronomi e sinonimi)।', en: 'With pronouns and synonyms.' } },
     ],
   }),
   buildListening({
@@ -287,7 +287,7 @@ export const B2_LISTENING_2: ListeningExercise[] = [
     vocabKeys: ['w:B2:il colloquio orale'],
     grammarIds: ['varieta-italiano'],
     questions: [
-      { id: 'lsb2-49-q1', prompt: { bn: 'মৌখিক সাক্ষাৎকারে কিয়ারা কোন রীতি ব্যবহার করেন?', en: 'Which register does Chiara adopt during the oral interview?' }, options: ['আনুষ্ঠানিক ও সুনির্দিষ্ট ইতালীয়', 'আঞ্চলিক অপভাষা', 'কেবল সংক্ষিপ্ত টেক্সট ভাষা', 'কাব্যিক ছন্দ'], answer: 0, explanation: { bn: 'un italiano formale e preciso।', en: 'Formal and precise Italian.' } },
+      { id: 'lsb2-49-q1', prompt: { bn: 'মৌখিক সাক্ষাৎকারে কিয়ারা কোন রীতি ব্যবহার করেন?', en: 'Which register does Chiara adopt during the oral interview?' }, options: ['আনুষ্ঠানিক ও সুনির্দিষ্ট ইতালীয়', 'আঞ্চলিক অপভাষা', 'কেবল সংক্ষিপ্ত টেক্সট ভাষা', 'কাব্যিক ছন্দ'], answer: 0, explanation: { bn: 'সঠিক উত্তর: আনুষ্ঠানিক ও সুনির্দিষ্ট ইতালীয় — পাঠ্যাংশে বলা হয়েছে: «রাতের খাবারে বন্ধুদের সাথে আমি কথ্য রীতি ব্যবহার করি, কিন্তু মৌখিক সাক্ষাৎকারে আনুষ্ঠানিক ও সুনির্দিষ্ট ইতালীয় বলি।» (un italiano formale e preciso)।', en: 'Formal and precise Italian.' } },
     ],
   }),
   buildListening({
@@ -303,7 +303,7 @@ export const B2_LISTENING_2: ListeningExercise[] = [
     vocabKeys: ['w:B2:agevolare', 'w:B2:osteggiare'],
     grammarIds: ['pragmatica-mitigazione'],
     questions: [
-      { id: 'lsb2-50-q1', prompt: { bn: 'পরিচালিকা সংলাপ সহজ করতে কী প্রস্তাব করেছেন?', en: 'What does the director suggest to facilitate dialogue?' }, options: ['তৃতীয় দফা পুনর্লিখন করা', 'সভার কক্ষ পরিবর্তন করা', 'চুক্তি ছিঁড়ে ফেলা', 'নতুন নির্বাচন'], answer: 0, explanation: { bn: 'riformulando almeno il terzo punto।', en: 'Rewording at least the third point.' } },
+      { id: 'lsb2-50-q1', prompt: { bn: 'পরিচালিকা সংলাপ সহজ করতে কী প্রস্তাব করেছেন?', en: 'What does the director suggest to facilitate dialogue?' }, options: ['তৃতীয় দফা পুনর্লিখন করা', 'সভার কক্ষ পরিবর্তন করা', 'চুক্তি ছিঁড়ে ফেলা', 'নতুন নির্বাচন'], answer: 0, explanation: { bn: 'সঠিক উত্তর: তৃতীয় দফা পুনর্লিখন করা — পাঠ্যাংশে বলা হয়েছে: «আমি যদি ভুল না করি, পুরো প্রকল্পের বিরোধিতা না করেই অন্তত তৃতীয় দফাটি পুনর্লিখন করে সংলাপ সহজ করতে পারি।» (riformulando almeno il terzo punto)।', en: 'Rewording at least the third point.' } },
     ],
   }),
   buildListening({
@@ -319,7 +319,7 @@ export const B2_LISTENING_2: ListeningExercise[] = [
     vocabKeys: ['w:B2:la confutazione', "w:B2:l'argomentazione logica"],
     grammarIds: ['argomentazione-saggio-b2'],
     questions: [
-      { id: 'lsb2-51-q1', prompt: { bn: 'শিক্ষার্থীর মতে যুক্তিখণ্ডন কীসের ওপর ভিত্তি করে হওয়া উচিত?', en: 'What should a refutation be based on?' }, options: ['যাচাইযোগ্য তথ্য', 'স্লোগান', 'কল্পনা', 'গুজব'], answer: 0, explanation: { bn: 'su dati verificabili।', en: 'On verifiable data.' } },
+      { id: 'lsb2-51-q1', prompt: { bn: 'শিক্ষার্থীর মতে যুক্তিখণ্ডন কীসের ওপর ভিত্তি করে হওয়া উচিত?', en: 'What should a refutation be based on?' }, options: ['যাচাইযোগ্য তথ্য', 'স্লোগান', 'কল্পনা', 'গুজব'], answer: 0, explanation: { bn: 'সঠিক উত্তর: যাচাইযোগ্য তথ্য — পাঠ্যাংশে বলা হয়েছে: «একটি তত্ত্ব খণ্ডনের জন্য স্লোগানের বদলে যাচাইযোগ্য তথ্যের ওপর ভিত্তি করে যৌক্তিক যুক্তি উপস্থাপন প্রয়োজন।» (su dati verificabili)।', en: 'On verifiable data.' } },
     ],
   }),
   buildListening({
@@ -335,7 +335,7 @@ export const B2_LISTENING_2: ListeningExercise[] = [
     vocabKeys: ['w:B2:la ripercussione', 'w:B2:a lungo termine', 'w:B2:aggravare'],
     grammarIds: ['periodo-ipotetico-misto', 'lessico-scientifico-accademico'],
     questions: [
-      { id: 'lsb2-52-q1', prompt: { bn: 'দীর্ঘমেয়াদী পরিকল্পনার অভাবে কী ঘটতে পারে?', en: 'What might happen without long-term planning?' }, options: ['পানির সংকট স্থানীয় বিরোধকে আরও বাড়াতে পারে', 'উৎপাদন দ্বিগুণ হবে', 'সব কর কমে যাবে', 'বৃষ্টি বাড়বে'], answer: 0, explanation: { bn: 'rischia di aggravare i conflitti locali।', en: 'It risks worsening local disputes.' } },
+      { id: 'lsb2-52-q1', prompt: { bn: 'দীর্ঘমেয়াদী পরিকল্পনার অভাবে কী ঘটতে পারে?', en: 'What might happen without long-term planning?' }, options: ['পানির সংকট স্থানীয় বিরোধকে আরও বাড়াতে পারে', 'উৎপাদন দ্বিগুণ হবে', 'সব কর কমে যাবে', 'বৃষ্টি বাড়বে'], answer: 0, explanation: { bn: 'সঠিক উত্তর: পানির সংকট স্থানীয় বিরোধকে আরও বাড়াতে পারে — পাঠ্যাংশে বলা হয়েছে: «অধিকন্তু, দীর্ঘমেয়াদী পরিকল্পনা না থাকলে পানির সংকট স্থানীয় বিরোধকে আরও তীব্র করার ঝুঁকি রাখে।» (rischia di aggravare i conflitti locali)।', en: 'It risks worsening local disputes.' } },
     ],
   }),
   buildListening({
@@ -351,7 +351,7 @@ export const B2_LISTENING_2: ListeningExercise[] = [
     vocabKeys: ["w:B2:l'attacco informatico", 'w:B2:la violazione dei dati', 'w:B2:la cartella clinica', 'w:B2:qualora'],
     grammarIds: ['condizionale-giornalistico', 'congiuntivo-condizionale-b2'],
     questions: [
-      { id: 'lsb2-53-q1', prompt: { bn: 'ব্যক্তিগত তথ্য লঙ্ঘিত হলে কত ঘণ্টার মধ্যে জানাতে হবে?', en: 'Within how many hours must a data breach be notified?' }, options: ['১২ ঘণ্টা', '২৪ ঘণ্টা', '৭২ ঘণ্টা', '৭ দিন'], answer: 2, explanation: { bn: 'entro settantadue ore।', en: 'Within 72 hours.' } },
+      { id: 'lsb2-53-q1', prompt: { bn: 'ব্যক্তিগত তথ্য লঙ্ঘিত হলে কত ঘণ্টার মধ্যে জানাতে হবে?', en: 'Within how many hours must a data breach be notified?' }, options: ['১২ ঘণ্টা', '২৪ ঘণ্টা', '৭২ ঘণ্টা', '৭ দিন'], answer: 2, explanation: { bn: 'সঠিক উত্তর: ৭২ ঘণ্টা — পাঠ্যাংশে বলা হয়েছে: «যদি ব্যক্তিগত তথ্যের কোনো লঙ্ঘন প্রকাশ পায়, তবে প্রতিষ্ঠানটি ৭২ ঘণ্টার মধ্যে তা জানাতে বাধ্য থাকবে।» (entro settantadue ore)।', en: 'Within 72 hours.' } },
     ],
   }),
   buildListening({
@@ -367,7 +367,7 @@ export const B2_LISTENING_2: ListeningExercise[] = [
     vocabKeys: ['w:B2:esiguo', 'w:B2:digitalizzare', 'w:B2:la coesione sociale'],
     grammarIds: ['frase-scissa', 'gerundio-causale-ipotetico'],
     questions: [
-      { id: 'lsb2-54-q1', prompt: { bn: 'স্বল্প বাজেটের কারণে কোন কাজটি বাধাগ্রস্ত হয়?', en: 'What does a meagre budget prevent?' }, options: ['দুর্লভ বই ডিজিটাল রূপান্তর', 'নতুন বাস কেনা', 'ক্যাফে খোলা', 'পার্কের বাতি লাগানো'], answer: 0, explanation: { bn: 'impedisce di digitalizzare i volumi rari।', en: 'It prevents digitising rare volumes.' } },
+      { id: 'lsb2-54-q1', prompt: { bn: 'স্বল্প বাজেটের কারণে কোন কাজটি বাধাগ্রস্ত হয়?', en: 'What does a meagre budget prevent?' }, options: ['দুর্লভ বই ডিজিটাল রূপান্তর', 'নতুন বাস কেনা', 'ক্যাফে খোলা', 'পার্কের বাতি লাগানো'], answer: 0, explanation: { bn: 'সঠিক উত্তর: দুর্লভ বই ডিজিটাল রূপান্তর — পাঠ্যাংশে বলা হয়েছে: «এছাড়াও একটি স্বল্প বাজেট দুর্লভ বইগুলো ডিজিটালাইজ করতে বাধা দেয়, যা নইলে হারিয়ে যেত।» (impedisce di digitalizzare i volumi rari)।', en: 'It prevents digitising rare volumes.' } },
     ],
   }),
   buildListening({
@@ -383,7 +383,7 @@ export const B2_LISTENING_2: ListeningExercise[] = [
     vocabKeys: ['w:B2:il sindacato', 'w:B2:il licenziamento illegittimo', 'w:B2:la tutela legale', 'w:B2:il ricorso'],
     grammarIds: ['relativi-formali-b2', 'passivo-avanzato'],
     questions: [
-      { id: 'lsb2-55-q1', prompt: { bn: 'রায় কবে নথিভুক্ত করা হবে?', en: 'When will the ruling be filed?' }, options: ['এক মাস পর', 'সপ্তাহের শেষ নাগাদ', 'আগামী বছর', 'আজ রাতেই'], answer: 1, explanation: { bn: 'entro la fine della settimana।', en: 'By the end of the week.' } },
+      { id: 'lsb2-55-q1', prompt: { bn: 'রায় কবে নথিভুক্ত করা হবে?', en: 'When will the ruling be filed?' }, options: ['এক মাস পর', 'সপ্তাহের শেষ নাগাদ', 'আগামী বছর', 'আজ রাতেই'], answer: 1, explanation: { bn: 'সঠিক উত্তর: সপ্তাহের শেষ নাগাদ — পাঠ্যাংশে বলা হয়েছে: «যে রায়ের মাধ্যমে আইনি সুরক্ষা পুনর্বহাল করা হবে তা সপ্তাহের শেষ নাগাদ নথিভুক্ত করা হবে।» (entro la fine della settimana)।', en: 'By the end of the week.' } },
     ],
   }),
   buildListening({
@@ -399,7 +399,7 @@ export const B2_LISTENING_2: ListeningExercise[] = [
     vocabKeys: ['w:B2:il fraintendimento', 'w:B2:imminente'],
     grammarIds: ['discorso-indiretto-complesso', 'pragmatica-mitigazione'],
     questions: [
-      { id: 'lsb2-56-q1', prompt: { bn: 'চুক্তিতে কবে ডেলিভারির কথা উল্লেখ আছে?', en: 'By when does the contract specify delivery?' }, options: ['মাসের শেষে', 'মঙ্গলবারের মধ্যে', 'দুই মাস পর', 'শুক্রবার রাতে'], answer: 1, explanation: { bn: 'entro martedì।', en: 'By Tuesday.' } },
+      { id: 'lsb2-56-q1', prompt: { bn: 'চুক্তিতে কবে ডেলিভারির কথা উল্লেখ আছে?', en: 'By when does the contract specify delivery?' }, options: ['মাসের শেষে', 'মঙ্গলবারের মধ্যে', 'দুই মাস পর', 'শুক্রবার রাতে'], answer: 1, explanation: { bn: 'সঠিক উত্তর: মঙ্গলবারের মধ্যে — পাঠ্যাংশে বলা হয়েছে: «আমি বিভ্রান্তি বুঝতে পারছি, তবে চুক্তিতে মঙ্গলবারের মধ্যে আসন্ন ডেলিভারির কথা স্পষ্টভাবে লেখা আছে।» (entro martedì)।', en: 'By Tuesday.' } },
     ],
   }),
   buildListening({
@@ -415,7 +415,7 @@ export const B2_LISTENING_2: ListeningExercise[] = [
     vocabKeys: ['w:B2:il rettore', 'w:B2:il dottorato di ricerca', 'w:B2:la fuga dei cervelli', 'w:B2:autorevole'],
     grammarIds: ['costrutti-impersonali-b2', 'doppi-relativi'],
     questions: [
-      { id: 'lsb2-57-q1', prompt: { bn: 'উপাচার্যের মতে রাষ্ট্রের কী বাড়ানো উচিত?', en: 'What should the State increase according to the rector?' }, options: ['পিএইচডি গবেষণার ভাতা', 'পরীক্ষার ফি', 'ছুটির দিন', 'হোস্টেলের ভাড়া'], answer: 0, explanation: { bn: 'gli assegni per il dottorato di ricerca।', en: 'Doctoral research stipends.' } },
+      { id: 'lsb2-57-q1', prompt: { bn: 'উপাচার্যের মতে রাষ্ট্রের কী বাড়ানো উচিত?', en: 'What should the State increase according to the rector?' }, options: ['পিএইচডি গবেষণার ভাতা', 'পরীক্ষার ফি', 'ছুটির দিন', 'হোস্টেলের ভাড়া'], answer: 0, explanation: { bn: 'সঠিক উত্তর: পিএইচডি গবেষণার ভাতা — পাঠ্যাংশে বলা হয়েছে: «রাষ্ট্রের উচিত পিএইচডি গবেষণার ভাতা বাড়ানো এবং যাঁরা নির্ভরযোগ্য গবেষণা তৈরি করেন তাঁদের পুরস্কৃত করা।» (gli assegni per il dottorato di ricerca)।', en: 'Doctoral research stipends.' } },
     ],
   }),
   buildListening({
@@ -431,7 +431,7 @@ export const B2_LISTENING_2: ListeningExercise[] = [
     vocabKeys: ['w:B2:il referendum abrogativo', 'w:B2:abrogare'],
     grammarIds: ['passivo-avanzato', 'lessico-giuridico-burocratico'],
     questions: [
-      { id: 'lsb2-58-q1', prompt: { bn: 'ব্যালট কখন গণনা করা হবে?', en: 'When will ballots be counted?' }, options: ['পরদিন বিকেলে', 'ভোটকেন্দ্র বন্ধ হওয়ার পরপরই', 'এক সপ্তাহ পর', 'সোমবার সকালে'], answer: 1, explanation: { bn: 'subito dopo la chiusura dei seggi।', en: 'Right after polls close.' } },
+      { id: 'lsb2-58-q1', prompt: { bn: 'ব্যালট কখন গণনা করা হবে?', en: 'When will ballots be counted?' }, options: ['পরদিন বিকেলে', 'ভোটকেন্দ্র বন্ধ হওয়ার পরপরই', 'এক সপ্তাহ পর', 'সোমবার সকালে'], answer: 1, explanation: { bn: 'সঠিক উত্তর: ভোটকেন্দ্র বন্ধ হওয়ার পরপরই — পাঠ্যাংশে বলা হয়েছে: «ভোটকেন্দ্র বন্ধ হওয়ার পরপরই ব্যালট গণনা করা হবে এবং ফলাফল সরাসরি প্রচার করা হবে।» (subito dopo la chiusura dei seggi)।', en: 'Right after polls close.' } },
     ],
   }),
   buildListening({
@@ -447,7 +447,7 @@ export const B2_LISTENING_2: ListeningExercise[] = [
     vocabKeys: ['w:B2:la robotica avanzata', 'w:B2:pertanto'],
     grammarIds: ['connettivi-argomentativi', 'congiuntivo-condizionale-b2'],
     questions: [
-      { id: 'lsb2-59-q1', prompt: { bn: 'উৎপাদনশীলতা বাড়লেও কোন ঝুঁকির কথা বলা হয়েছে?', en: 'What risk is mentioned despite higher productivity?' }, options: ['অব্যাহত প্রশিক্ষণ ছাড়া বৈষম্য সৃষ্টি', 'বিদ্যুৎ সম্পূর্ণ বন্ধ হওয়া', 'যন্ত্রের ওজন বৃদ্ধি', 'বন্দর বন্ধ'], answer: 0, explanation: { bn: 'senza formazione continua rischia di creare disuguaglianze।', en: 'Creating inequalities without ongoing training.' } },
+      { id: 'lsb2-59-q1', prompt: { bn: 'উৎপাদনশীলতা বাড়লেও কোন ঝুঁকির কথা বলা হয়েছে?', en: 'What risk is mentioned despite higher productivity?' }, options: ['অব্যাহত প্রশিক্ষণ ছাড়া বৈষম্য সৃষ্টি', 'বিদ্যুৎ সম্পূর্ণ বন্ধ হওয়া', 'যন্ত্রের ওজন বৃদ্ধি', 'বন্দর বন্ধ'], answer: 0, explanation: { bn: 'সঠিক উত্তর: অব্যাহত প্রশিক্ষণ ছাড়া বৈষম্য সৃষ্টি — পাঠ্যাংশে বলা হয়েছে: «উন্নত রোবোটিক্স উৎপাদনশীলতা বাড়ায়; তবুও, অব্যাহত প্রশিক্ষণ ছাড়া তা বৈষম্য সৃষ্টির ঝুঁকি তৈরি করে।» (senza formazione continua rischia di creare disuguaglianze)।', en: 'Creating inequalities without ongoing training.' } },
     ],
   }),
   buildListening({
@@ -463,7 +463,7 @@ export const B2_LISTENING_2: ListeningExercise[] = [
     vocabKeys: ['w:B2:la monografia', 'w:B2:precisare'],
     grammarIds: ['concordanza-avanzata', 'coesione-anaforica'],
     questions: [
-      { id: 'lsb2-60-q1', prompt: { bn: 'পাঠকদের সুবিধার জন্য বইটিতে কী যোগ করা হবে?', en: 'What will be added for readers’ convenience?' }, options: ['রঙিন পোস্টার', 'একটি বিষয়ভিত্তিক সূচি', 'একটি সিডি', 'ম্যাপের তালিকা'], answer: 1, explanation: { bn: 'un indice tematico।', en: 'A thematic index.' } },
+      { id: 'lsb2-60-q1', prompt: { bn: 'পাঠকদের সুবিধার জন্য বইটিতে কী যোগ করা হবে?', en: 'What will be added for readers’ convenience?' }, options: ['রঙিন পোস্টার', 'একটি বিষয়ভিত্তিক সূচি', 'একটি সিডি', 'ম্যাপের তালিকা'], answer: 1, explanation: { bn: 'সঠিক উত্তর: একটি বিষয়ভিত্তিক সূচি — পাঠ্যাংশে বলা হয়েছে: «ভালো: আমরা একটি বিষয়ভিত্তিক সূচিও যোগ করব যাতে পাঠকেরা আরও সহজে বইটি দেখতে পারেন।» (un indice tematico)।', en: 'A thematic index.' } },
     ],
   }),
   buildListening({
@@ -479,7 +479,7 @@ export const B2_LISTENING_2: ListeningExercise[] = [
     vocabKeys: ['w:B2:il reclamo formale', 'w:B2:la tempestività', 'w:B2:in conformità con'],
     grammarIds: ['passivo-avanzato', 'locuzioni-preposizionali-b2'],
     questions: [
-      { id: 'lsb2-61-q1', prompt: { bn: 'নাগরিককে লিখিত উত্তর কত দিনের মধ্যে পাঠানো হয়?', en: 'Within how many working days is the written reply sent?' }, options: ['৩ কার্যদিবস', '৭ কার্যদিবস', '১৫ কার্যদিবস', '৩০ কার্যদিবস'], answer: 2, explanation: { bn: 'entro quindici giorni lavorativi।', en: 'Within fifteen working days.' } },
+      { id: 'lsb2-61-q1', prompt: { bn: 'নাগরিককে লিখিত উত্তর কত দিনের মধ্যে পাঠানো হয়?', en: 'Within how many working days is the written reply sent?' }, options: ['৩ কার্যদিবস', '৭ কার্যদিবস', '১৫ কার্যদিবস', '৩০ কার্যদিবস'], answer: 2, explanation: { bn: 'সঠিক উত্তর: ১৫ কার্যদিবস — পাঠ্যাংশে বলা হয়েছে: «বিধিমালার সাথে সামঞ্জস্য রেখে, ১৫ কার্যদিবসের মধ্যে নাগরিককে লিখিত উত্তর পাঠানো হয়।» (entro quindici giorni lavorativi)।', en: 'Within fifteen working days.' } },
     ],
   }),
   buildListening({
@@ -495,7 +495,7 @@ export const B2_LISTENING_2: ListeningExercise[] = [
     vocabKeys: ['w:B2:in ultima analisi', 'w:B2:qualora', 'w:B2:la coesione sociale'],
     grammarIds: ['argomentazione-saggio-b2', 'congiuntivo-condizionale-b2', 'frase-scissa'],
     questions: [
-      { id: 'lsb2-62-q1', prompt: { bn: 'বক্তার মতে নাগরিকদের পরিবর্তনের নায়ক করে তোলে কী?', en: 'What makes citizens protagonists of change according to the speaker?' }, options: ['সমালোচনামূলক শিক্ষা', 'ব্যক্তিগত গাড়ি', 'বিজ্ঞাপন প্রচার', 'দৈবচয়ন'], answer: 0, explanation: { bn: 'l’educazione critica।', en: 'Critical education.' } },
+      { id: 'lsb2-62-q1', prompt: { bn: 'বক্তার মতে নাগরিকদের পরিবর্তনের নায়ক করে তোলে কী?', en: 'What makes citizens protagonists of change according to the speaker?' }, options: ['সমালোচনামূলক শিক্ষা', 'ব্যক্তিগত গাড়ি', 'বিজ্ঞাপন প্রচার', 'দৈবচয়ন'], answer: 0, explanation: { bn: 'সঠিক উত্তর: সমালোচনামূলক শিক্ষা — পাঠ্যাংশে বলা হয়েছে: «এগুলো বিমূর্ত সিদ্ধান্ত নয়: সমালোচনামূলক শিক্ষাই তো নাগরিকদের পরিবর্তনের মূল চালিকাশক্তি করে তোলে।» (l’educazione critica)।', en: 'Critical education.' } },
     ],
   }),
 ];

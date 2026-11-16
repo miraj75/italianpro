@@ -21,7 +21,7 @@ export const A1_LISTENING_2: ListeningExercise[] = [
     vocabKeys: ['w:A1:il museo', 'w:A1:lunedì', 'w:A1:chiuso'],
     grammarIds: ['ora-data', 'presente-ere-ire'],
     questions: [
-      { id: 'ls17-q1', prompt: { bn: 'জাদুঘর কোন দিন বন্ধ থাকে?', en: 'Which day is the museum closed?' }, options: ['রবিবার', 'সোমবার', 'শনিবার', 'বুধবার'], answer: 1, explanation: { bn: 'Il lunedì è sempre chiuso।', en: 'Mondays.' } },
+      { id: 'ls17-q1', prompt: { bn: 'জাদুঘর কোন দিন বন্ধ থাকে?', en: 'Which day is the museum closed?' }, options: ['রবিবার', 'সোমবার', 'শনিবার', 'বুধবার'], answer: 1, explanation: { bn: 'সঠিক উত্তর: সোমবার — পাঠ্যাংশে বলা হয়েছে: «সুধী দর্শনার্থীবৃন্দ, জাদুঘর সন্ধ্যা সাতটায় বন্ধ হয়। সোমবার জাদুঘর সবসময় বন্ধ থাকে।» (Il lunedì è sempre chiuso)।', en: 'Mondays.' } },
     ],
   }),
 
@@ -69,7 +69,7 @@ export const A1_LISTENING_2: ListeningExercise[] = [
     vocabKeys: ['w:A1:la scuola', 'w:A1:la bicicletta', 'w:A1:il cane'],
     grammarIds: ['riflessivi-a1', 'presente-ere-ire'],
     questions: [
-      { id: 'ls19-q1', prompt: { bn: 'কিয়ারা কীভাবে স্কুলে যান?', en: 'How does Chiara go to school?' }, options: ['বাসে', 'গাড়িতে', 'সাইকেলে', 'ট্রেনে'], answer: 2, explanation: { bn: 'in bicicletta।', en: 'By bicycle.' } },
+      { id: 'ls19-q1', prompt: { bn: 'কিয়ারা কীভাবে স্কুলে যান?', en: 'How does Chiara go to school?' }, options: ['বাসে', 'গাড়িতে', 'সাইকেলে', 'ট্রেনে'], answer: 2, explanation: { bn: 'সঠিক উত্তর: সাইকেলে — পাঠ্যাংশে বলা হয়েছে: «আমি সাড়ে ছয়টায় উঠি, কফি বানাই এবং সাইকেলে করে স্কুলে যাই।» (in bicicletta)।', en: 'By bicycle.' } },
     ],
   }),
 
@@ -94,7 +94,7 @@ export const A1_LISTENING_2: ListeningExercise[] = [
     vocabKeys: ["w:A1:l'arancia", 'w:A1:la banana', 'w:A1:il mercato'],
     grammarIds: ['genere-numero', 'domande'],
     questions: [
-      { id: 'ls20-q1', prompt: { bn: 'ক্রেতা কয় কেজি কমলা কেনেন?', en: 'How many kilos of oranges does the customer buy?' }, options: ['১ কেজি', '২ কেজি', '৩ কেজি', 'আধা কেজি'], answer: 1, explanation: { bn: 'due chili di arance।', en: 'Two kilos.' } },
+      { id: 'ls20-q1', prompt: { bn: 'ক্রেতা কয় কেজি কমলা কেনেন?', en: 'How many kilos of oranges does the customer buy?' }, options: ['১ কেজি', '২ কেজি', '৩ কেজি', 'আধা কেজি'], answer: 1, explanation: { bn: 'সঠিক উত্তর: ২ কেজি — পাঠ্যাংশে বলা হয়েছে: «শুভ সকাল, আমি দুই কেজি কমলা আর এক কেজি কলা চাই।» (due chili di arance)।', en: 'Two kilos.' } },
     ],
   }),
 
@@ -120,7 +120,7 @@ export const A1_LISTENING_2: ListeningExercise[] = [
     vocabKeys: ['w:A1:il tavolo', 'w:A1:venerdì', 'w:A1:quattro'],
     grammarIds: ['ora-data', 'modali'],
     questions: [
-      { id: 'ls21-q1', prompt: { bn: 'কয়জনের জন্য টেবিল বুক করা হয়েছে?', en: 'For how many people is the table booked?' }, options: ['২ জন', '৩ জন', '৪ জন', '৬ জন'], answer: 2, explanation: { bn: 'per quattro persone।', en: 'For four people.' } },
+      { id: 'ls21-q1', prompt: { bn: 'কয়জনের জন্য টেবিল বুক করা হয়েছে?', en: 'For how many people is the table booked?' }, options: ['২ জন', '৩ জন', '৪ জন', '৬ জন'], answer: 2, explanation: { bn: 'সঠিক উত্তর: ৪ জন — পাঠ্যাংশে বলা হয়েছে: «শুভ সন্ধ্যা, আমি শুক্রবার সন্ধ্যায় চারজনের জন্য একটি টেবিল বুক করতে চাই।» (per quattro persone)।', en: 'For four people.' } },
     ],
   }),
 
@@ -144,7 +144,7 @@ export const A1_LISTENING_2: ListeningExercise[] = [
     vocabKeys: ['w:A1:il succo', 'w:A1:il formaggio', 'w:A1:freddo'],
     grammarIds: ['avere-espressioni', 'dimostrativi'],
     questions: [
-      { id: 'ls22-q1', prompt: { bn: 'তারেক কী খায়?', en: 'What does Tariq eat?' }, options: ['পিৎজা', 'পনিরের স্যান্ডউইচ', 'পাস্তা', 'বিস্কুট'], answer: 1, explanation: { bn: 'un panino al formaggio।', en: 'A cheese sandwich.' } },
+      { id: 'ls22-q1', prompt: { bn: 'তারেক কী খায়?', en: 'What does Tariq eat?' }, options: ['পিৎজা', 'পনিরের স্যান্ডউইচ', 'পাস্তা', 'বিস্কুট'], answer: 1, explanation: { bn: 'সঠিক উত্তর: পনিরের স্যান্ডউইচ — পাঠ্যাংশে বলা হয়েছে: «আমি ঠান্ডা কমলার জুস আর পনিরের স্যান্ডউইচ নিচ্ছি।» (un panino al formaggio)।', en: 'A cheese sandwich.' } },
     ],
   }),
 
@@ -191,7 +191,7 @@ export const A1_LISTENING_2: ListeningExercise[] = [
     vocabKeys: ['w:A1:rosso', 'w:A1:nero', 'w:A1:la borsa'],
     grammarIds: ['dimostrativi', 'possessivi-a1'],
     questions: [
-      { id: 'ls24-q1', prompt: { bn: 'পাওলোর ছাতার রং কী?', en: 'What colour is Paolo’s umbrella?' }, options: ['লাল', 'হলুদ', 'কালো', 'সবুজ'], answer: 2, explanation: { bn: 'il mio ombrello è nero।', en: 'Black.' } },
+      { id: 'ls24-q1', prompt: { bn: 'পাওলোর ছাতার রং কী?', en: 'What colour is Paolo’s umbrella?' }, options: ['লাল', 'হলুদ', 'কালো', 'সবুজ'], answer: 2, explanation: { bn: 'সঠিক উত্তর: কালো — পাঠ্যাংশে বলা হয়েছে: «আমার নয়, আমার ছাতাটা কালো। হয়তো সারার।» (il mio ombrello è nero)।', en: 'Black.' } },
     ],
   }),
 
@@ -216,7 +216,7 @@ export const A1_LISTENING_2: ListeningExercise[] = [
     vocabKeys: ['w:A1:il treno', 'w:A1:il minuto', 'w:A1:il biglietto'],
     grammarIds: ['modali', 'domande'],
     questions: [
-      { id: 'ls25-q1', prompt: { bn: 'যাত্রীকে কোন স্টেশনে নামতে হবে?', en: 'At which station must the passenger get off?' }, options: ['ভেনিস', 'পাদোভা', 'রোম', 'মিলান'], answer: 1, explanation: { bn: 'deve scendere a Padova।', en: 'Padua.' } },
+      { id: 'ls25-q1', prompt: { bn: 'যাত্রীকে কোন স্টেশনে নামতে হবে?', en: 'At which station must the passenger get off?' }, options: ['ভেনিস', 'পাদোভা', 'রোম', 'মিলান'], answer: 1, explanation: { bn: 'সঠিক উত্তর: পাদোভা — পাঠ্যাংশে বলা হয়েছে: «না, আপনাকে পাদোভায় নেমে বারোটার আঞ্চলিক ট্রেন ধরতে হবে।» (deve scendere a Padova)।', en: 'Padua.' } },
     ],
   }),
 
@@ -313,7 +313,7 @@ export const A1_LISTENING_2: ListeningExercise[] = [
     vocabKeys: ['w:A1:il fiore', 'w:A1:rosa', 'w:A1:il regalo'],
     grammarIds: ['piacere', 'aggettivi'],
     questions: [
-      { id: 'ls29-q1', prompt: { bn: 'মার্কো কী কিনবে?', en: 'What will Marco buy?' }, options: ['রান্নার বই', 'গোলাপি গোলাপ', 'পারফিউম', 'ব্যাগ'], answer: 1, explanation: { bn: 'delle rose rosa।', en: 'Pink roses.' } },
+      { id: 'ls29-q1', prompt: { bn: 'মার্কো কী কিনবে?', en: 'What will Marco buy?' }, options: ['রান্নার বই', 'গোলাপি গোলাপ', 'পারফিউম', 'ব্যাগ'], answer: 1, explanation: { bn: 'সঠিক উত্তর: গোলাপি গোলাপ — পাঠ্যাংশে বলা হয়েছে: «তাহলে আমি গোলাপি গোলাপ কিনছি আর তুমি সুন্দর একটা নতুন বই নাও!» (delle rose rosa)।', en: 'Pink roses.' } },
     ],
   }),
 
@@ -364,7 +364,7 @@ export const A1_LISTENING_2: ListeningExercise[] = [
     vocabKeys: ['w:A1:il mare', 'w:A1:la montagna', 'w:A1:la macchina'],
     grammarIds: ['preposizioni', 'modali'],
     questions: [
-      { id: 'ls31-q1', prompt: { bn: 'তারা শেষ পর্যন্ত কোথায় যাওয়ার সিদ্ধান্ত নেয়?', en: 'Where do they decide to go?' }, options: ['পাহাড়ে', 'সমুদ্রে', 'জাদুঘরে', 'সুপারমার্কেটে'], answer: 1, explanation: { bn: 'Preferisco il mare → D’accordo!', en: 'To the sea.' } },
+      { id: 'ls31-q1', prompt: { bn: 'তারা শেষ পর্যন্ত কোথায় যাওয়ার সিদ্ধান্ত নেয়?', en: 'Where do they decide to go?' }, options: ['পাহাড়ে', 'সমুদ্রে', 'জাদুঘরে', 'সুপারমার্কেটে'], answer: 1, explanation: { bn: 'সঠিক রূপান্তর: «Preferisco il mare» থেকে পরিবর্তিত হয়ে «D’accordo!» ব্যবহৃত হয়।', en: 'To the sea.' } },
     ],
   }),
 

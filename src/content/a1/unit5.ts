@@ -56,7 +56,7 @@ const lesson1: Lesson = {
       it: 'La posta è vicino ___ parco.',
       options: ['al', 'il', 'dal', 'sul'],
       answer: 0,
-      explanation: { bn: 'vicino + a + il = vicino al।', en: 'vicino takes a → vicino al.' },
+      explanation: { bn: 'ব্যাকরণগত সংযোজন: vicino + a + il = vicino al নিয়ম অনুসারে সঠিক রূপটি গঠিত হয়েছে।', en: 'vicino takes a → vicino al.' },
     },
     {
       id: 'q3',

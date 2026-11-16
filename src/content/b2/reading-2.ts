@@ -13,7 +13,7 @@ export const B2_READING_2: ReadingPassage[] = [
     grammarHighlights: [{ excerpt: 'In primo luogo… pertanto… in ultima analisi', note: { bn: 'প্রবন্ধের ক্রম, ফলাফল ও উপসংহার সংযোজক।', en: 'Argumentative markers organise thesis, consequence, and conclusion.' }, grammarId: 'connettivi-argomentativi' }],
     relatedGrammarIds: ['connettivi-argomentativi'],
     questions: [
-      { id: 'rd-b2-27-q1', prompt: { bn: 'পরিবেশগত রূপান্তরের জন্য প্রথমে কী প্রয়োজন?', en: 'What is needed first for the green transition?' }, options: ['বিদ্যুৎ গ্রিডে বিনিয়োগ', 'সব ট্রেন বন্ধ', 'নতুন ট্যাক্স বাতিল', 'কাগজ আমদানি'], answer: 0, explanation: { bn: 'investimenti nelle reti elettriche।', en: 'Investment in power grids.' } },
+      { id: 'rd-b2-27-q1', prompt: { bn: 'পরিবেশগত রূপান্তরের জন্য প্রথমে কী প্রয়োজন?', en: 'What is needed first for the green transition?' }, options: ['বিদ্যুৎ গ্রিডে বিনিয়োগ', 'সব ট্রেন বন্ধ', 'নতুন ট্যাক্স বাতিল', 'কাগজ আমদানি'], answer: 0, explanation: { bn: 'সঠিক উত্তর: বিদ্যুৎ গ্রিডে বিনিয়োগ — পাঠ্যাংশে বলা হয়েছে: «প্রথমত, পরিবেশগত রূপান্তরের জন্য বিদ্যুৎ গ্রিডে বিনিয়োগ প্রয়োজন; অতএব সময়ের সাথে স্থিতিশীল সরকারি পরিকল্পনা দরকার।» (investimenti nelle reti elettriche)।', en: 'Investment in power grids.' } },
     ],
   }),
   buildReading({
@@ -27,7 +27,7 @@ export const B2_READING_2: ReadingPassage[] = [
     grammarHighlights: [{ excerpt: 'vale a dire / In altri termini', note: { bn: 'পুনর্ব্যাখ্যা সংযোজক জটিল অর্থনীতি সহজ করে।', en: 'Reformulation markers unpack technical terms.' }, grammarId: 'connettivi-riformulazione' }],
     relatedGrammarIds: ['connettivi-riformulazione'],
     questions: [
-      { id: 'rd-b2-28-q1', prompt: { bn: 'করের হার সমন্বয় না করলে কী কমে যায়?', en: 'What shrinks if tax rates are not calibrated?' }, options: ['পরিবারগুলোর মাসিক সঞ্চয়', 'জনসংখ্যা', 'সূর্যালোক', 'সমুদ্রতট'], answer: 0, explanation: { bn: 'i propri risparmi mensili।', en: 'Monthly savings.' } },
+      { id: 'rd-b2-28-q1', prompt: { bn: 'করের হার সমন্বয় না করলে কী কমে যায়?', en: 'What shrinks if tax rates are not calibrated?' }, options: ['পরিবারগুলোর মাসিক সঞ্চয়', 'জনসংখ্যা', 'সূর্যালোক', 'সমুদ্রতট'], answer: 0, explanation: { bn: 'সঠিক উত্তর: পরিবারগুলোর মাসিক সঞ্চয় — পাঠ্যাংশে বলা হয়েছে: «অন্য ভাষায়, করের হার সমন্বয় না করলে পরিবারগুলোর মাসিক সঞ্চয় কমে যায়।» (i propri risparmi mensili)।', en: 'Monthly savings.' } },
     ],
   }),
   buildReading({
@@ -41,7 +41,7 @@ export const B2_READING_2: ReadingPassage[] = [
     grammarHighlights: [{ excerpt: 'Alla luce dei / in conformità con / A prescindere da / a scapito della', note: { bn: 'আইনি-নীতিগত পদান্বয়ী অব্যয়গুচ্ছ।', en: 'Formal prepositional phrases define exact scope.' }, grammarId: 'locuzioni-preposizionali-b2' }],
     relatedGrammarIds: ['locuzioni-preposizionali-b2'],
     questions: [
-      { id: 'rd-b2-29-q1', prompt: { bn: 'কোন জিনিসের বিনিময়ে ব্যয় কমানো নিষিদ্ধ?', en: 'At the expense of what may costs never be cut?' }, options: ['কর্মক্ষেত্রের নিরাপত্তা', 'বিজ্ঞাপন', 'কফির মেশিন', 'রং'], answer: 0, explanation: { bn: 'della sicurezza sul lavoro।', en: 'Workplace safety.' } },
+      { id: 'rd-b2-29-q1', prompt: { bn: 'কোন জিনিসের বিনিময়ে ব্যয় কমানো নিষিদ্ধ?', en: 'At the expense of what may costs never be cut?' }, options: ['কর্মক্ষেত্রের নিরাপত্তা', 'বিজ্ঞাপন', 'কফির মেশিন', 'রং'], answer: 0, explanation: { bn: 'সঠিক উত্তর: কর্মক্ষেত্রের নিরাপত্তা — পাঠ্যাংশে বলা হয়েছে: «কোম্পানির ধরন নির্বিশেষে, কোনো প্রতিষ্ঠানই কর্মক্ষেত্রের নিরাপত্তাকে ক্ষতিগ্রস্ত করে ব্যয় কমাতে পারে না।» (della sicurezza sul lavoro)।', en: 'Workplace safety.' } },
     ],
   }),
   buildReading({
@@ -55,7 +55,7 @@ export const B2_READING_2: ReadingPassage[] = [
     grammarHighlights: [{ excerpt: 'venirne a capo / se l’è presa / ce l’hanno messa tutta', note: { bn: 'দৈনন্দিন ও পেশাদার আলোচনায় বাগধারাগত প্রোনোমিনাল ক্রিয়া।', en: 'Idiomatic pronominal verbs convey attitude and effort.' }, grammarId: 'verbi-procomplementari' }],
     relatedGrammarIds: ['verbi-procomplementari'],
     questions: [
-      { id: 'rd-b2-30-q1', prompt: { bn: 'খোলামেলা আলোচনার ফলে কী ঘটেছিল?', en: 'What happened after managers spoke openly?' }, options: ['কেউ মনে কষ্ট নেয়নি ও সমঝোতায় পৌঁছেছে', 'চুক্তি বাতিল হয়েছে', 'সভা ভেঙে গেছে', 'মামলা হয়েছে'], answer: 0, explanation: { bn: 'nessuno se l’è presa e tutti ce l’hanno messa tutta।', en: 'Nobody took offence and they worked towards agreement.' } },
+      { id: 'rd-b2-30-q1', prompt: { bn: 'খোলামেলা আলোচনার ফলে কী ঘটেছিল?', en: 'What happened after managers spoke openly?' }, options: ['কেউ মনে কষ্ট নেয়নি ও সমঝোতায় পৌঁছেছে', 'চুক্তি বাতিল হয়েছে', 'সভা ভেঙে গেছে', 'মামলা হয়েছে'], answer: 0, explanation: { bn: 'সঠিক উত্তর: কেউ মনে কষ্ট নেয়নি ও সমঝোতায় পৌঁছেছে — পাঠ্যাংশে বলা হয়েছে: «তবে দায়িত্বপ্রাপ্ত ব্যক্তিরা খোলামেলা কথা বলার পর কেউই মনে কষ্ট নেননি এবং সবাই সমঝোতায় পৌঁছাতে সর্বাত্মক চেষ্টা করেছেন।» (nessuno se l’è presa e tutti ce l’hanno messa tutta)।', en: 'Nobody took offence and they worked towards agreement.' } },
     ],
   }),
   buildReading({
@@ -69,7 +69,7 @@ export const B2_READING_2: ReadingPassage[] = [
     grammarHighlights: [{ excerpt: 'ha salito il colle / è sceso / hanno corso', note: { bn: 'সরাসরি কর্মের উপস্থিতি অনুসারে essere ও avere নির্বাচন।', en: 'Transitive objects select avere; intransitive destination motion selects essere.' }, grammarId: 'verbi-doppio-ausiliare' }],
     relatedGrammarIds: ['verbi-doppio-ausiliare'],
     questions: [
-      { id: 'rd-b2-31-q1', prompt: { bn: 'দলটি কেন দ্রুত নিচে নেমে এসেছিল?', en: 'Why did the group descend rapidly?' }, options: ['কারণ বাতাস একটানা বইতে শুরু করেছিল', 'কারণ অন্ধকার হয়ে গিয়েছিল', 'কারণ ক্যামেরা ভেঙে গিয়েছিল', 'কারণ রাস্তা ধসে পড়েছিল'], answer: 0, explanation: { bn: 'quando il vento ha cominciato a persistere।', en: 'When the wind began to persist.' } },
+      { id: 'rd-b2-31-q1', prompt: { bn: 'দলটি কেন দ্রুত নিচে নেমে এসেছিল?', en: 'Why did the group descend rapidly?' }, options: ['কারণ বাতাস একটানা বইতে শুরু করেছিল', 'কারণ অন্ধকার হয়ে গিয়েছিল', 'কারণ ক্যামেরা ভেঙে গিয়েছিল', 'কারণ রাস্তা ধসে পড়েছিল'], answer: 0, explanation: { bn: 'সঠিক উত্তর: কারণ বাতাস একটানা বইতে শুরু করেছিল — পাঠ্যাংশে বলা হয়েছে: «উপত্যকার ছবি তুলতে দলটি ভোরবেলায় গিরিপথে উঠেছে, তারপর বাতাস বইতে থাকায় দ্রুত নিচে নেমে এসেছে।» (quando il vento ha cominciato a persistere)।', en: 'When the wind began to persist.' } },
     ],
   }),
   buildReading({
@@ -83,7 +83,7 @@ export const B2_READING_2: ReadingPassage[] = [
     grammarHighlights: [{ excerpt: 'si è fatta stampare / si è lasciata scoraggiare', note: { bn: 'farsi ও lasciarsi যুক্ত আত্মবাচক প্রযোজক বাক্যে essere বসে।', en: 'Reflexive causatives always take auxiliary essere.' }, grammarId: 'causativi-riflessivi' }],
     relatedGrammarIds: ['causativi-riflessivi'],
     questions: [
-      { id: 'rd-b2-32-q1', prompt: { bn: 'রোগী কেন সম্পূর্ণ চিকিৎসা নথি প্রিন্ট করিয়েছিলেন?', en: 'Why did the patient have the full file printed?' }, options: ['দ্বিতীয় বিশেষজ্ঞের পরামর্শ নিতে', 'ভ্রমণ বীমার জন্য', 'ব্যাংকে জমা দিতে', 'প্রেস বিজ্ঞপ্তির জন্য'], answer: 0, explanation: { bn: 'per consultare un secondo specialista।', en: 'To consult a second specialist.' } },
+      { id: 'rd-b2-32-q1', prompt: { bn: 'রোগী কেন সম্পূর্ণ চিকিৎসা নথি প্রিন্ট করিয়েছিলেন?', en: 'Why did the patient have the full file printed?' }, options: ['দ্বিতীয় বিশেষজ্ঞের পরামর্শ নিতে', 'ভ্রমণ বীমার জন্য', 'ব্যাংকে জমা দিতে', 'প্রেস বিজ্ঞপ্তির জন্য'], answer: 0, explanation: { bn: 'সঠিক উত্তর: দ্বিতীয় বিশেষজ্ঞের পরামর্শ নিতে — পাঠ্যাংশে বলা হয়েছে: «অস্ত্রোপচারের আগে রোগী দ্বিতীয় একজন বিশেষজ্ঞের পরামর্শ নিতে সম্পূর্ণ চিকিৎসা নথি প্রিন্ট করিয়ে নিয়েছেন।» (per consultare un secondo specialista)।', en: 'To consult a second specialist.' } },
     ],
   }),
   buildReading({
@@ -97,7 +97,7 @@ export const B2_READING_2: ReadingPassage[] = [
     grammarHighlights: [{ excerpt: 'più complesso di quanto non appaia / Finché… non ratifichino', note: { bn: 'তুলনা ও সময়সীমায় শৈলীগত non (pleonastica)।', en: 'Expletive non in formal comparisons and until-clauses.' }, grammarId: 'negazione-pleonastica' }],
     relatedGrammarIds: ['negazione-pleonastica'],
     questions: [
-      { id: 'rd-b2-33-q1', prompt: { bn: 'চুক্তি বাধ্যতামূলক হওয়ার শর্ত কী?', en: 'What is required for the agreement to take binding effect?' }, options: ['জাতীয় সংসদগুলোর অনুমোদন', 'সংবাদপত্রের প্রশংসা', 'একটি প্রদর্শনী', 'জরিমানা পরিশোধ'], answer: 0, explanation: { bn: 'Finché i parlamenti nazionali non ratifichino il testo।', en: 'Ratification by national parliaments.' } },
+      { id: 'rd-b2-33-q1', prompt: { bn: 'চুক্তি বাধ্যতামূলক হওয়ার শর্ত কী?', en: 'What is required for the agreement to take binding effect?' }, options: ['জাতীয় সংসদগুলোর অনুমোদন', 'সংবাদপত্রের প্রশংসা', 'একটি প্রদর্শনী', 'জরিমানা পরিশোধ'], answer: 0, explanation: { bn: 'সঠিক উত্তর: জাতীয় সংসদগুলোর অনুমোদন — পাঠ্যাংশে বলা হয়েছে: «জাতীয় সংসদগুলো চূড়ান্ত পাঠ অনুমোদন না করা পর্যন্ত সমঝোতাটি বাধ্যতামূলক প্রভাব তৈরি করতে পারবে না।» (Finché i parlamenti nazionali non ratifichino il testo)।', en: 'Ratification by national parliaments.' } },
     ],
   }),
   buildReading({
@@ -111,7 +111,7 @@ export const B2_READING_2: ReadingPassage[] = [
     grammarHighlights: [{ excerpt: 'tanto sobria… quanto incisiva / Più…, più scopre', note: { bn: 'সাদৃশ্য ও সমানুপাতিক তুলনা কাঠামো।', en: 'Analogical tanto… quanto and correlative più… più.' }, grammarId: 'comparativi-analogici' }],
     relatedGrammarIds: ['comparativi-analogici'],
     questions: [
-      { id: 'rd-b2-34-q1', prompt: { bn: 'পাঠকেরা শব্দচয়ন লক্ষ্য করলে কী খুঁজে পান?', en: 'What do readers discover by noticing lexical choices?' }, options: ['অধ্যায়গুলোর মধ্যে সূক্ষ্ম অনুরণন', 'অতিরিক্ত পাদটীকা', 'বানান ভুল', 'সংক্ষিপ্তসারের অভাব'], answer: 0, explanation: { bn: 'risonanze sottili tra i vari capitoli।', en: 'Subtle resonances between chapters.' } },
+      { id: 'rd-b2-34-q1', prompt: { bn: 'পাঠকেরা শব্দচয়ন লক্ষ্য করলে কী খুঁজে পান?', en: 'What do readers discover by noticing lexical choices?' }, options: ['অধ্যায়গুলোর মধ্যে সূক্ষ্ম অনুরণন', 'অতিরিক্ত পাদটীকা', 'বানান ভুল', 'সংক্ষিপ্তসারের অভাব'], answer: 0, explanation: { bn: 'সঠিক উত্তর: অধ্যায়গুলোর মধ্যে সূক্ষ্ম অনুরণন — পাঠ্যাংশে বলা হয়েছে: «পাঠক শব্দচয়নের ওপর যত বেশি মনোযোগ দেন, বিভিন্ন অধ্যায়ের মধ্যে সূক্ষ্ম অনুরণন ততই বেশি আবিষ্কার করেন।» (risonanze sottili tra i vari capitoli)।', en: 'Subtle resonances between chapters.' } },
     ],
   }),
   buildReading({
@@ -125,7 +125,7 @@ export const B2_READING_2: ReadingPassage[] = [
     grammarHighlights: [{ excerpt: 'celeberrima / minimo / rigorosissime', note: { bn: 'সংশ্লেষী পরম শ্রেষ্ঠ (superlativo sintetico) রূপ।', en: 'Irregular and -issimo synthetic superlatives.' }, grammarId: 'superlativo-sintetico' }],
     relatedGrammarIds: ['superlativo-sintetico'],
     questions: [
-      { id: 'rd-b2-35-q1', prompt: { bn: 'মুদ্রণের আগে সম্পাদকেরা কী প্রয়োগ করেন?', en: 'What do editors apply before printing?' }, options: ['অত্যন্ত কঠোর যাচাই-বাছাই', 'সংক্ষিপ্ত প্রচ্ছদ', 'অনুবাদ বাদ দেওয়া', 'বিজ্ঞাপন'], answer: 0, explanation: { bn: 'verifiche rigorosissime।', en: 'Very rigorous checks.' } },
+      { id: 'rd-b2-35-q1', prompt: { bn: 'মুদ্রণের আগে সম্পাদকেরা কী প্রয়োগ করেন?', en: 'What do editors apply before printing?' }, options: ['অত্যন্ত কঠোর যাচাই-বাছাই', 'সংক্ষিপ্ত প্রচ্ছদ', 'অনুবাদ বাদ দেওয়া', 'বিজ্ঞাপন'], answer: 0, explanation: { bn: 'সঠিক উত্তর: অত্যন্ত কঠোর যাচাই-বাছাই — পাঠ্যাংশে বলা হয়েছে: «তাই সম্পাদকেরা কোনো যাচাইকেই তুচ্ছ মনে করেন না এবং মুদ্রণের আগে অত্যন্ত কঠোর পরীক্ষা প্রয়োগ করেন।» (verifiche rigorosissime)।', en: 'Very rigorous checks.' } },
     ],
   }),
   buildReading({
@@ -139,7 +139,7 @@ export const B2_READING_2: ReadingPassage[] = [
     grammarHighlights: [{ excerpt: 'diverse proposte vs proposte diverse', note: { bn: 'বিশেষ্য-পূর্ব ও বিশেষ্য-পরবর্তী বিশেষণের অর্থভেদ।', en: 'Pre- vs post-nominal adjective placement shifts meaning.' }, grammarId: 'aggettivo-posizione-b2' }],
     relatedGrammarIds: ['aggettivo-posizione-b2'],
     questions: [
-      { id: 'rd-b2-36-q1', prompt: { bn: '“proposte diverse” বিশেষ্যের পরে বসলে কী বোঝায়?', en: 'What does post-nominal “proposte diverse” mean?' }, options: ['ভিন্নধর্মী ও স্বতন্ত্র প্রস্তাব', 'মাত্র দুটি প্রস্তাব', 'পুরনো প্রস্তাব', 'বাতিল প্রস্তাব'], answer: 0, explanation: { bn: 'idee davvero originali e distinte।', en: 'Different/distinct proposals.' } },
+      { id: 'rd-b2-36-q1', prompt: { bn: '“proposte diverse” বিশেষ্যের পরে বসলে কী বোঝায়?', en: 'What does post-nominal “proposte diverse” mean?' }, options: ['ভিন্নধর্মী ও স্বতন্ত্র প্রস্তাব', 'মাত্র দুটি প্রস্তাব', 'পুরনো প্রস্তাব', 'বাতিল প্রস্তাব'], answer: 0, explanation: { bn: 'সঠিক উত্তর: ভিন্নধর্মী ও স্বতন্ত্র প্রস্তাব — পাঠ্যাংশে বলা হয়েছে: «একইভাবে, “diverse proposte” মানে একাধিক প্রস্তাব, আর “proposte diverse” মানে সত্যিই ভিন্নধর্মী ও স্বতন্ত্র প্রস্তাব।» (idee davvero originali e distinte)।', en: 'Different/distinct proposals.' } },
     ],
   }),
   buildReading({
@@ -153,7 +153,7 @@ export const B2_READING_2: ReadingPassage[] = [
     grammarHighlights: [{ excerpt: 'deve dipendere / potrebbe compensare', note: { bn: 'যুক্তিগত নিশ্চয়তা (deve) ও সম্ভাবনা (potrebbe)।', en: 'Epistemic modals express deduction vs possibility.' }, grammarId: 'modali-epistemici' }],
     relatedGrammarIds: ['modali-epistemici'],
     questions: [
-      { id: 'rd-b2-37-q1', prompt: { bn: 'জন্মহারের ধীরগতি কী পুষিয়ে দিতে পারে?', en: 'What might offset the birth-rate slowdown?' }, options: ['পরিবারগুলোর প্রতি আরও জোরালো সহায়তা', 'ছুটি কমানো', 'পরিবহন বন্ধ করা', 'নতুন টोल'], answer: 0, explanation: { bn: 'un sostegno più deciso alle famiglie।', en: 'Stronger support for families.' } },
+      { id: 'rd-b2-37-q1', prompt: { bn: 'জন্মহারের ধীরগতি কী পুষিয়ে দিতে পারে?', en: 'What might offset the birth-rate slowdown?' }, options: ['পরিবারগুলোর প্রতি আরও জোরালো সহায়তা', 'ছুটি কমানো', 'পরিবহন বন্ধ করা', 'নতুন টोल'], answer: 0, explanation: { bn: 'সঠিক উত্তর: পরিবারগুলোর প্রতি আরও জোরালো সহায়তা — পাঠ্যাংশে বলা হয়েছে: «বিশ্লেষকদের মতে, পরিবারগুলোর প্রতি আরও জোরালো সহায়তা আগামী বছরগুলোতে জন্মহারের ধীরগতি পুষিয়ে দিতে পারে।» (un sostegno più deciso alle famiglie)।', en: 'Stronger support for families.' } },
     ],
   }),
   buildReading({
@@ -167,7 +167,7 @@ export const B2_READING_2: ReadingPassage[] = [
     grammarHighlights: [{ excerpt: 'si attenga / ci trasmetta / non ce lo comunichi', note: { bn: 'Lei আদেশসূচকে সর্বনাম সর্বদা ক্রিয়ার আগে থাকে।', en: 'Clitic pronouns precede formal Lei imperatives.' }, grammarId: 'imperativo-formale-pronomi' }],
     relatedGrammarIds: ['imperativo-formale-pronomi'],
     questions: [
-      { id: 'rd-b2-38-q1', prompt: { bn: 'অভিযোগ কীভাবে পাঠাতে বলা হয়েছে?', en: 'How should the complaint be sent?' }, options: ['লিখিতভাবে ও প্রত্যয়িত ইমেইলে', 'কেবল ফোনে', 'মুখে বলে', 'সংবাদপত্রে'], answer: 0, explanation: { bn: 'per iscritto e via posta elettronica certificata।', en: 'In writing and via certified email.' } },
+      { id: 'rd-b2-38-q1', prompt: { bn: 'অভিযোগ কীভাবে পাঠাতে বলা হয়েছে?', en: 'How should the complaint be sent?' }, options: ['লিখিতভাবে ও প্রত্যয়িত ইমেইলে', 'কেবল ফোনে', 'মুখে বলে', 'সংবাদপত্রে'], answer: 0, explanation: { bn: 'সঠিক উত্তর: লিখিতভাবে ও প্রত্যয়িত ইমেইলে — পাঠ্যাংশে বলা হয়েছে: «মাননীয় গ্রাহক, বিলে কোনো ভুল দেখলে সংযুক্ত নির্দেশনা মেনে চলুন এবং লিখিতভাবে আমাদের কাছে আনুষ্ঠানিক অভিযোগ পাঠান।» (per iscritto e via posta elettronica certificata)।', en: 'In writing and via certified email.' } },
     ],
   }),
   buildReading({
@@ -181,7 +181,7 @@ export const B2_READING_2: ReadingPassage[] = [
     grammarHighlights: [{ excerpt: 'Sembra opportuno che… venga / Conviene… che… riceva', note: { bn: 'নৈর্ব্যক্তিক বাক্যাংশের পরে congiuntivo।', en: 'Impersonal predicates require subjunctive.' }, grammarId: 'costrutti-impersonali-b2' }],
     relatedGrammarIds: ['costrutti-impersonali-b2'],
     questions: [
-      { id: 'rd-b2-39-q1', prompt: { bn: 'বাসিন্দাদের কাছে সভার কত দিন আগে হিসাবপত্র পৌঁছানো উচিত?', en: 'How many days before the assembly should residents get the statement?' }, options: ['অন্তত ৭ দিন আগে', 'সভার পরদিন', '১ দিন আগে', '১ মাস পর'], answer: 0, explanation: { bn: 'almeno sette giorni prima।', en: 'At least seven days before.' } },
+      { id: 'rd-b2-39-q1', prompt: { bn: 'বাসিন্দাদের কাছে সভার কত দিন আগে হিসাবপত্র পৌঁছানো উচিত?', en: 'How many days before the assembly should residents get the statement?' }, options: ['অন্তত ৭ দিন আগে', 'সভার পরদিন', '১ দিন আগে', '১ মাস পর'], answer: 0, explanation: { bn: 'সঠিক উত্তর: অন্তত ৭ দিন আগে — পাঠ্যাংশে বলা হয়েছে: «তা ছাড়া সাধারণ সভার অন্তত সাত দিন আগে প্রতিটি বাসিন্দা যেন বিস্তারিত হিসাবপত্র পান তা-ই সমীচীন।» (almeno sette giorni prima)।', en: 'At least seven days before.' } },
     ],
   }),
   buildReading({
@@ -195,7 +195,7 @@ export const B2_READING_2: ReadingPassage[] = [
     grammarHighlights: [{ excerpt: 'ottemperare a / rinunciare a / provvedere a', note: { bn: 'অব্যয়-নিয়ন্ত্রিত ক্রিয়া (reggenze verbali)।', en: 'Fixed verb-preposition pairings.' }, grammarId: 'reggenze-verbali-b2' }],
     relatedGrammarIds: ['reggenze-verbali-b2'],
     questions: [
-      { id: 'rd-b2-40-q1', prompt: { bn: 'সরকারি অর্থায়ন পেতে চাইলে প্রতিষ্ঠানকে কী ব্যবস্থা করতে হবে?', en: 'What must firms arrange to qualify for public funds?' }, options: ['যন্ত্রপাতির সনদপ্রাপ্ত পরীক্ষা', 'বিজ্ঞাপন প্রচার', 'দপ্তর স্থানান্তর', 'লটারি'], answer: 0, explanation: { bn: 'provvedere al collaudo certificato degli impianti।', en: 'Provide certified plant testing.' } },
+      { id: 'rd-b2-40-q1', prompt: { bn: 'সরকারি অর্থায়ন পেতে চাইলে প্রতিষ্ঠানকে কী ব্যবস্থা করতে হবে?', en: 'What must firms arrange to qualify for public funds?' }, options: ['যন্ত্রপাতির সনদপ্রাপ্ত পরীক্ষা', 'বিজ্ঞাপন প্রচার', 'দপ্তর স্থানান্তর', 'লটারি'], answer: 0, explanation: { bn: 'সঠিক উত্তর: যন্ত্রপাতির সনদপ্রাপ্ত পরীক্ষা — পাঠ্যাংশে বলা হয়েছে: «যাঁরা সরকারি অর্থায়ন পেতে আগ্রহী তাঁদের যন্ত্রপাতির সনদপ্রাপ্ত পরীক্ষার ব্যবস্থা করতে হবে।» (provvedere al collaudo certificato degli impianti)।', en: 'Provide certified plant testing.' } },
     ],
   }),
   buildReading({
@@ -209,7 +209,7 @@ export const B2_READING_2: ReadingPassage[] = [
     grammarHighlights: [{ excerpt: 'paesello / librona / stradine', note: { bn: 'মূল্যায়নসূচক প্রত্যয় আকার ও আবেগ প্রকাশ করে।', en: 'Evaluative suffixes add size and affective nuance.' }, grammarId: 'suffissi-alterativi-b2' }],
     relatedGrammarIds: ['suffissi-alterativi-b2'],
     questions: [
-      { id: 'rd-b2-41-q1', prompt: { bn: 'প্রাচীন গ্রামটির বড় বইটিতে কী সংরক্ষিত আছে?', en: 'What is preserved in the big old book?' }, options: ['সম্প্রদায়ের স্মৃতি', 'ট্যাক্সের ফর্ম', 'আবহাওয়ার চার্ট', 'বাসের সময়সূচি'], answer: 0, explanation: { bn: 'le memorie della comunità।', en: 'The memories of the community.' } },
+      { id: 'rd-b2-41-q1', prompt: { bn: 'প্রাচীন গ্রামটির বড় বইটিতে কী সংরক্ষিত আছে?', en: 'What is preserved in the big old book?' }, options: ['সম্প্রদায়ের স্মৃতি', 'ট্যাক্সের ফর্ম', 'আবহাওয়ার চার্ট', 'বাসের সময়সূচি'], answer: 0, explanation: { bn: 'সঠিক উত্তর: সম্প্রদায়ের স্মৃতি — পাঠ্যাংশে বলা হয়েছে: «পাহাড়ের দিকে মুখ করে থাকা এক নীরব ছোট্ট গ্রামে কাপড়ে বাঁধানো এক বিশাল বই সম্প্রদায়ের স্মৃতি ধারণ করে আছে।» (le memorie della comunità)।', en: 'The memories of the community.' } },
     ],
   }),
   buildReading({
@@ -223,7 +223,7 @@ export const B2_READING_2: ReadingPassage[] = [
     grammarHighlights: [{ excerpt: 'ir-rilevante / im-prescindibile / ri-lettura / im-precisione', note: { bn: 'না-বাচক ও পুনরাবৃত্তিমূলক উপসর্গে শব্দগঠন।', en: 'Prefixes ir-/im- negate and ri- indicates repetition.' }, grammarId: 'formazione-parole-b2' }],
     relatedGrammarIds: ['formazione-parole-b2'],
     questions: [
-      { id: 'rd-b2-42-q1', prompt: { bn: 'পাঠ্যের সমালোচনামূলক পুনর্পাঠ কী প্রতিরোধ করে?', en: 'What does critical re-reading prevent?' }, options: ['অস্পষ্টতার দীর্ঘস্থায়ী বাধা হওয়া', 'সব প্রকল্প বন্ধ হওয়া', 'শব্দভাণ্ডার কমে যাওয়া', 'বই নষ্ট হওয়া'], answer: 0, explanation: { bn: 'che una semplice imprecisione diventi un ostacolo duraturo।', en: 'An inaccuracy becoming a lasting obstacle.' } },
+      { id: 'rd-b2-42-q1', prompt: { bn: 'পাঠ্যের সমালোচনামূলক পুনর্পাঠ কী প্রতিরোধ করে?', en: 'What does critical re-reading prevent?' }, options: ['অস্পষ্টতার দীর্ঘস্থায়ী বাধা হওয়া', 'সব প্রকল্প বন্ধ হওয়া', 'শব্দভাণ্ডার কমে যাওয়া', 'বই নষ্ট হওয়া'], answer: 0, explanation: { bn: 'সঠিক উত্তর: অস্পষ্টতার দীর্ঘস্থায়ী বাধা হওয়া — পাঠ্যাংশে বলা হয়েছে: «অধিকন্তু, পাঠ্যের সমালোচনামূলক পুনর্পাঠ সামান্য অস্পষ্টতাকে দীর্ঘস্থায়ী বাধায় পরিণত হওয়া থেকে রক্ষা করে।» (che una semplice imprecisione diventi un ostacolo duraturo)।', en: 'An inaccuracy becoming a lasting obstacle.' } },
     ],
   }),
   buildReading({
@@ -237,7 +237,7 @@ export const B2_READING_2: ReadingPassage[] = [
     grammarHighlights: [{ excerpt: 'inadempimento / sanzione amministrativa / illecito / procura', note: { bn: 'প্রশাসনিক ও ফৌজদারি আইনের সুনির্দিষ্ট পরিভাষা।', en: 'Precise legal distinctions between administrative and criminal terms.' }, grammarId: 'lessico-giuridico-burocratico' }],
     relatedGrammarIds: ['lessico-giuridico-burocratico'],
     questions: [
-      { id: 'rd-b2-43-q1', prompt: { bn: 'ঘটনাগুলো ফৌজদারি অপরাধের শামিল হলে নথি কোথায় পাঠানো হয়?', en: 'Where are files sent if facts constitute a criminal offence?' }, options: ['সংশ্লিষ্ট প্রসিকিউশন দপ্তরে', 'পর্যটন বোর্ডে', 'পৌর গ্রন্থাগারে', 'ব্যাংক কাউন্টারে'], answer: 0, explanation: { bn: 'alla procura competente।', en: 'To the competent prosecutor’s office.' } },
+      { id: 'rd-b2-43-q1', prompt: { bn: 'ঘটনাগুলো ফৌজদারি অপরাধের শামিল হলে নথি কোথায় পাঠানো হয়?', en: 'Where are files sent if facts constitute a criminal offence?' }, options: ['সংশ্লিষ্ট প্রসিকিউশন দপ্তরে', 'পর্যটন বোর্ডে', 'পৌর গ্রন্থাগারে', 'ব্যাংক কাউন্টারে'], answer: 0, explanation: { bn: 'সঠিক উত্তর: সংশ্লিষ্ট প্রসিকিউশন দপ্তরে — পাঠ্যাংশে বলা হয়েছে: «ঘটনাগুলো ফৌজদারি অপরাধের শামিল হলে নথিপত্র দ্রুত সংশ্লিষ্ট প্রসিকিউশন দপ্তরে পাঠানো হয়।» (alla procura competente)।', en: 'To the competent prosecutor’s office.' } },
     ],
   }),
   buildReading({
@@ -251,7 +251,7 @@ export const B2_READING_2: ReadingPassage[] = [
     grammarHighlights: [{ excerpt: 'diversificazione / portafoglio d’investimento / fatturato annuo / evasione fiscale', note: { bn: 'অর্থনৈতিক ও রাজস্ব আলোচনার পরিভাষা।', en: 'Key economics and fiscal policy vocabulary.' }, grammarId: 'lessico-economico-finanziario' }],
     relatedGrammarIds: ['lessico-economico-finanziario'],
     questions: [
-      { id: 'rd-b2-44-q1', prompt: { bn: 'কর ফাঁকি রোধ করার প্রত্যক্ষ সুফল কী?', en: 'What is a direct benefit of fighting tax evasion?' }, options: ['সৎ করদাতাদের ওপর চাপ না বাড়িয়ে জনসেবায় অর্থায়ন', 'রপ্তানি বন্ধ হওয়া', 'টাকা ছাপানো কমানো', 'ব্যাংক বন্ধ হওয়া'], answer: 0, explanation: { bn: 'finanziare scuole e ospedali senza aumentare la pressione sui contribuenti onesti।', en: 'Funding schools and hospitals without burdening honest taxpayers.' } },
+      { id: 'rd-b2-44-q1', prompt: { bn: 'কর ফাঁকি রোধ করার প্রত্যক্ষ সুফল কী?', en: 'What is a direct benefit of fighting tax evasion?' }, options: ['সৎ করদাতাদের ওপর চাপ না বাড়িয়ে জনসেবায় অর্থায়ন', 'রপ্তানি বন্ধ হওয়া', 'টাকা ছাপানো কমানো', 'ব্যাংক বন্ধ হওয়া'], answer: 0, explanation: { bn: 'সঠিক উত্তর: সৎ করদাতাদের ওপর চাপ না বাড়িয়ে জনসেবায় অর্থায়ন — পাঠ্যাংশে বলা হয়েছে: «কর ফাঁকি প্রতিরোধ করলে সৎ করদাতাদের ওপর চাপ না বাড়িয়েই স্কুল ও হাসপাতালে অর্থায়ন করা সম্ভব হয়।» (finanziare scuole e ospedali senza aumentare la pressione sui contribuenti onesti)।', en: 'Funding schools and hospitals without burdening honest taxpayers.' } },
     ],
   }),
   buildReading({
@@ -265,7 +265,7 @@ export const B2_READING_2: ReadingPassage[] = [
     grammarHighlights: [{ excerpt: 'ipotesi scientifica / verifiche empiriche / nesso causale / attendibilità dei dati', note: { bn: 'গবেষণা ও একাডেমিক লেখার মূল শব্দগুচ্ছ।', en: 'Academic collocations for method and evidence.' }, grammarId: 'lessico-scientifico-accademico' }],
     relatedGrammarIds: ['lessico-scientifico-accademico'],
     questions: [
-      { id: 'rd-b2-45-q1', prompt: { bn: 'কার্যকারণ সম্পর্ক প্রমাণে কী প্রয়োজন?', en: 'What is needed to prove a causal link?' }, options: ['স্বাধীন নিয়ন্ত্রণ ও তথ্যের নির্ভরযোগ্যতা', 'সুন্দর প্রচ্ছদ', 'সংক্ষিপ্ত শিরোনাম', 'জনপ্রিয় মত'], answer: 0, explanation: { bn: 'controlli indipendenti e attenzione all’attendibilità dei dati।', en: 'Independent controls and reliable data.' } },
+      { id: 'rd-b2-45-q1', prompt: { bn: 'কার্যকারণ সম্পর্ক প্রমাণে কী প্রয়োজন?', en: 'What is needed to prove a causal link?' }, options: ['স্বাধীন নিয়ন্ত্রণ ও তথ্যের নির্ভরযোগ্যতা', 'সুন্দর প্রচ্ছদ', 'সংক্ষিপ্ত শিরোনাম', 'জনপ্রিয় মত'], answer: 0, explanation: { bn: 'সঠিক উত্তর: স্বাধীন নিয়ন্ত্রণ ও তথ্যের নির্ভরযোগ্যতা — পাঠ্যাংশে বলা হয়েছে: «একটি কার্যকারণ সম্পর্ক প্রমাণ করতে স্বাধীন নিয়ন্ত্রণ এবং তথ্যের নির্ভরযোগ্যতার প্রতি সূক্ষ্ম মনোযোগ প্রয়োজন।» (controlli indipendenti e attenzione all’attendibilità dei dati)।', en: 'Independent controls and reliable data.' } },
     ],
   }),
   buildReading({
@@ -279,7 +279,7 @@ export const B2_READING_2: ReadingPassage[] = [
     grammarHighlights: [{ excerpt: 'notizia infondata / autorevoli / giornalismo d’inchiesta approfondito', note: { bn: 'সংবাদ ও গণমাধ্যম বিশ্লেষণের পরিভাষা।', en: 'Media criticism and journalism collocations.' }, grammarId: 'lessico-giornalistico' }],
     relatedGrammarIds: ['lessico-giornalistico'],
     questions: [
-      { id: 'rd-b2-46-q1', prompt: { bn: 'গভীর অনুসন্ধানী সাংবাদিকতা কীসের মাধ্যমে স্বাধীনতা রক্ষা করে?', en: 'Through what does investigative journalism defend press freedom?' }, options: ['দালিলিক প্রমাণের মাধ্যমে', 'সংক্ষিপ্ত পোস্টের মাধ্যমে', 'শিরোনাম লুকিয়ে', 'গুজব ছড়িয়ে'], answer: 0, explanation: { bn: 'attraverso prove documentali।', en: 'Through documentary evidence.' } },
+      { id: 'rd-b2-46-q1', prompt: { bn: 'গভীর অনুসন্ধানী সাংবাদিকতা কীসের মাধ্যমে স্বাধীনতা রক্ষা করে?', en: 'Through what does investigative journalism defend press freedom?' }, options: ['দালিলিক প্রমাণের মাধ্যমে', 'সংক্ষিপ্ত পোস্টের মাধ্যমে', 'শিরোনাম লুকিয়ে', 'গুজব ছড়িয়ে'], answer: 0, explanation: { bn: 'সঠিক উত্তর: দালিলিক প্রমাণের মাধ্যমে — পাঠ্যাংশে বলা হয়েছে: «এ কারণেই গভীর অনুসন্ধানী সাংবাদিকতা দালিলিক প্রমাণের মাধ্যমে সংবাদপত্রের স্বাধীনতাকে বাস্তবে রক্ষা করে।» (attraverso prove documentali)।', en: 'Through documentary evidence.' } },
     ],
   }),
   buildReading({
@@ -293,7 +293,7 @@ export const B2_READING_2: ReadingPassage[] = [
     grammarHighlights: [{ excerpt: 'allusione velata / ossimoro emotivo', note: { bn: 'ইঙ্গিত ও বিরোধাভাসের মতো সাহিত্যিক অলংকার।', en: 'Literary figures amplify expressive depth.' }, grammarId: 'figure-retoriche-b2' }],
     relatedGrammarIds: ['figure-retoriche-b2'],
     questions: [
-      { id: 'rd-b2-47-q1', prompt: { bn: 'উনিশ শতকের পাণ্ডুলিপিকারেরা কেন প্রচ্ছন্ন ইঙ্গিত ব্যবহার করতেন?', en: 'Why did 19th-century librettists use veiled allusion?' }, options: ['তৎকালীন সেন্সরশিপ এড়াতে', 'গান ছোট করতে', 'শব্দ সংখ্যা বাড়াতে', 'টিকিটের দাম কমাতে'], answer: 0, explanation: { bn: 'per superare la censura dell’epoca।', en: 'To bypass censorship.' } },
+      { id: 'rd-b2-47-q1', prompt: { bn: 'উনিশ শতকের পাণ্ডুলিপিকারেরা কেন প্রচ্ছন্ন ইঙ্গিত ব্যবহার করতেন?', en: 'Why did 19th-century librettists use veiled allusion?' }, options: ['তৎকালীন সেন্সরশিপ এড়াতে', 'গান ছোট করতে', 'শব্দ সংখ্যা বাড়াতে', 'টিকিটের দাম কমাতে'], answer: 0, explanation: { bn: 'সঠিক উত্তর: তৎকালীন সেন্সরশিপ এড়াতে — পাঠ্যাংশে বলা হয়েছে: «উনিশ শতকের অপেরার পাণ্ডুলিপিতে লেখকেরা প্রায়ই তৎকালীন সেন্সরশিপ এড়াতে প্রচ্ছন্ন ইঙ্গিতের আশ্রয় নিতেন।» (per superare la censura dell’epoca)।', en: 'To bypass censorship.' } },
     ],
   }),
   buildReading({
@@ -307,7 +307,7 @@ export const B2_READING_2: ReadingPassage[] = [
     grammarHighlights: [{ excerpt: 'Questo meccanismo stilistico… esso', note: { bn: 'আনাফোরিক সর্বনাম ও কোলন-সেমিকোলনের ব্যবহার।', en: 'Anaphoric esso and purposeful punctuation unify prose.' }, grammarId: 'punteggiatura-stilistica' }],
     relatedGrammarIds: ['punteggiatura-stilistica', 'coesione-anaforica'],
     questions: [
-      { id: 'rd-b2-48-q1', prompt: { bn: 'ব্যাখ্যার আগে কোলন ব্যবহারের সুবিধা কী?', en: 'What is the benefit of placing a colon before an explanation?' }, options: ['পাঠককে তাৎক্ষণিকভাবে পথ দেখায়', 'পৃষ্ঠা কমায়', 'সর্বনাম বাদ দেয়', 'বাক্য অস্পষ্ট করে'], answer: 0, explanation: { bn: 'guida immediatamente chi legge।', en: 'It immediately guides the reader.' } },
+      { id: 'rd-b2-48-q1', prompt: { bn: 'ব্যাখ্যার আগে কোলন ব্যবহারের সুবিধা কী?', en: 'What is the benefit of placing a colon before an explanation?' }, options: ['পাঠককে তাৎক্ষণিকভাবে পথ দেখায়', 'পৃষ্ঠা কমায়', 'সর্বনাম বাদ দেয়', 'বাক্য অস্পষ্ট করে'], answer: 0, explanation: { bn: 'সঠিক উত্তর: পাঠককে তাৎক্ষণিকভাবে পথ দেখায় — পাঠ্যাংশে বলা হয়েছে: «ব্যাখ্যার আগে কোলন বসাতে জানা পাঠককে তাৎক্ষণিক নির্দেশনা দেয়; অন্যদিকে সেমিকোলন সমধর্মী স্বাধীন বাক্যাংশকে যুক্ত করে।» (guida immediatamente chi legge)।', en: 'It immediately guides the reader.' } },
     ],
   }),
   buildReading({
@@ -321,7 +321,7 @@ export const B2_READING_2: ReadingPassage[] = [
     grammarHighlights: [{ excerpt: 'registro informale / italiano istituzionale limpido', note: { bn: 'ইতালীয় ভাষার সামাজিক ও ব্যবহারিক স্তরবৈচিত্র্য।', en: 'Registers vary along formality and communicative purpose.' }, grammarId: 'varieta-italiano' }],
     relatedGrammarIds: ['varieta-italiano'],
     questions: [
-      { id: 'rd-b2-49-q1', prompt: { bn: 'জটিল আমলাতান্ত্রিক ভাষাকে স্বচ্ছ প্রাতিষ্ঠানিক ইতালীয়তে রূপান্তর করলে কী লাভ হয়?', en: 'What is gained by turning opaque bureaucratic language into clear Italian?' }, options: ['অধিকারগুলো আরও সহজলভ্য হয়', 'কাগজ বাড়ে', 'নথি গোপন থাকে', 'সাক্ষাৎকার বাতিল হয়'], answer: 0, explanation: { bn: 'rende i diritti più accessibili।', en: 'It makes rights more accessible.' } },
+      { id: 'rd-b2-49-q1', prompt: { bn: 'জটিল আমলাতান্ত্রিক ভাষাকে স্বচ্ছ প্রাতিষ্ঠানিক ইতালীয়তে রূপান্তর করলে কী লাভ হয়?', en: 'What is gained by turning opaque bureaucratic language into clear Italian?' }, options: ['অধিকারগুলো আরও সহজলভ্য হয়', 'কাগজ বাড়ে', 'নথি গোপন থাকে', 'সাক্ষাৎকার বাতিল হয়'], answer: 0, explanation: { bn: 'সঠিক উত্তর: অধিকারগুলো আরও সহজলভ্য হয় — পাঠ্যাংশে বলা হয়েছে: «একইভাবে, জটিল আমলাতান্ত্রিক ফর্মুলাগুলোকে স্বচ্ছ প্রাতিষ্ঠানিক ইতালীয়তে রূপান্তর করলে অধিকারগুলো আরও সহজলভ্য হয়।» (rende i diritti più accessibili)।', en: 'It makes rights more accessible.' } },
     ],
   }),
   buildReading({
@@ -335,7 +335,7 @@ export const B2_READING_2: ReadingPassage[] = [
     grammarHighlights: [{ excerpt: 'se non vado errato / mi permetto di osservare', note: { bn: 'ভদ্র প্রশমন (mitigazione) ও পেশাদার সৌজন্য।', en: 'Pragmatic mitigation builds cooperation in disagreement.' }, grammarId: 'pragmatica-mitigazione' }],
     relatedGrammarIds: ['pragmatica-mitigazione'],
     questions: [
-      { id: 'rd-b2-50-q1', prompt: { bn: 'প্রশমনসূচক অভিব্যক্তিগুলোর ভূমিকা কী?', en: 'What is the role of mitigating expressions?' }, options: ['মূল বক্তব্যে দৃঢ় থেকে সমালোচনাকে নমনীয় করা', 'মূল যুক্তি পরিত্যাগ করা', 'আলোচনা শেষ করা', 'সময় নষ্ট করা'], answer: 0, explanation: { bn: 'attenuano la critica pur mantenendo fermezza nel merito।', en: 'Soften criticism while keeping firm on substance.' } },
+      { id: 'rd-b2-50-q1', prompt: { bn: 'প্রশমনসূচক অভিব্যক্তিগুলোর ভূমিকা কী?', en: 'What is the role of mitigating expressions?' }, options: ['মূল বক্তব্যে দৃঢ় থেকে সমালোচনাকে নমনীয় করা', 'মূল যুক্তি পরিত্যাগ করা', 'আলোচনা শেষ করা', 'সময় নষ্ট করা'], answer: 0, explanation: { bn: 'সঠিক উত্তর: মূল বক্তব্যে দৃঢ় থেকে সমালোচনাকে নমনীয় করা — পাঠ্যাংশে বলা হয়েছে: «“আমি যদি ভুল না করি” বা “বিনীতভাবে লক্ষ্য করতে চাই”-এর মতো অভিব্যক্তিগুলো মূল অবস্থানে দৃঢ় থেকেও সমালোচনার ধার কমায়।» (attenuano la critica pur mantenendo fermezza nel merito)।', en: 'Soften criticism while keeping firm on substance.' } },
     ],
   }),
   buildReading({
@@ -349,7 +349,7 @@ export const B2_READING_2: ReadingPassage[] = [
     grammarHighlights: [{ excerpt: 'espone… prima di svilupparne una confutazione', note: { bn: 'যুক্তি-পাল্টাযুক্তি ও খণ্ডনের একাডেমিক বিন্যাস।', en: 'Academic structure balances concession with evidence-backed rebuttal.' }, grammarId: 'argomentazione-saggio-b2' }],
     relatedGrammarIds: ['argomentazione-saggio-b2'],
     questions: [
-      { id: 'rd-b2-51-q1', prompt: { bn: 'স্বচ্ছ যৌক্তিক যুক্তিবিন্যাস না থাকলে কোন ঝুঁকি থাকে?', en: 'What risk arises without transparent logical argumentation?' }, options: ['তত্ত্বটি খেয়ালখুশিমতো বক্তব্য মনে হতে পারে', 'প্রবন্ধ অনেক লম্বা হবে', 'ভাষা বেশি সহজ হবে', 'সবাই একমত হবে'], answer: 0, explanation: { bn: 'rischia di sembrare un’affermazione arbitraria।', en: 'It risks sounding like an arbitrary claim.' } },
+      { id: 'rd-b2-51-q1', prompt: { bn: 'স্বচ্ছ যৌক্তিক যুক্তিবিন্যাস না থাকলে কোন ঝুঁকি থাকে?', en: 'What risk arises without transparent logical argumentation?' }, options: ['তত্ত্বটি খেয়ালখুশিমতো বক্তব্য মনে হতে পারে', 'প্রবন্ধ অনেক লম্বা হবে', 'ভাষা বেশি সহজ হবে', 'সবাই একমত হবে'], answer: 0, explanation: { bn: 'সঠিক উত্তর: তত্ত্বটি খেয়ালখুশিমতো বক্তব্য মনে হতে পারে — পাঠ্যাংশে বলা হয়েছে: «স্বচ্ছ যৌক্তিক যুক্তিবিন্যাস ছাড়া সবচেয়ে মহৎ তত্ত্বও খেয়ালখুশিমতো বক্তব্য বলে মনে হওয়ার ঝুঁকি থাকে।» (rischia di sembrare un’affermazione arbitraria)।', en: 'It risks sounding like an arbitrary claim.' } },
     ],
   }),
   buildReading({
@@ -363,7 +363,7 @@ export const B2_READING_2: ReadingPassage[] = [
     grammarHighlights: [{ excerpt: 'Qualora un cittadino sappia articolare', note: { bn: 'সমাপনী B2 অনুচ্ছেদে কৌশলগত সংযোজক, congiuntivo এবং যুক্তিশৈলীর সমন্বয়।', en: 'Integrates subjunctive conditionals with B2 civic discourse.' }, grammarId: 'argomentazione-saggio-b2' }],
     relatedGrammarIds: ['argomentazione-saggio-b2', 'congiuntivo-condizionale-b2'],
     questions: [
-      { id: 'rd-b2-52-q1', prompt: { bn: 'লেখকের মতে জনআলোচনা কখন সম্মিলিত অগ্রগতির হাতিয়ার হয়?', en: 'When does public debate become an instrument of shared progress?' }, options: ['নাগরিক স্পষ্টতা ও সম্মানের সাথে যুক্তি তুলে ধরলে', 'কেউ কথা না বললে', 'সব আইন বাতিল হলে', 'খবর বন্ধ থাকলে'], answer: 0, explanation: { bn: 'sappia articolare le proprie ragioni con chiarezza e rispetto।', en: 'When citizens articulate reasons with clarity and respect.' } },
+      { id: 'rd-b2-52-q1', prompt: { bn: 'লেখকের মতে জনআলোচনা কখন সম্মিলিত অগ্রগতির হাতিয়ার হয়?', en: 'When does public debate become an instrument of shared progress?' }, options: ['নাগরিক স্পষ্টতা ও সম্মানের সাথে যুক্তি তুলে ধরলে', 'কেউ কথা না বললে', 'সব আইন বাতিল হলে', 'খবর বন্ধ থাকলে'], answer: 0, explanation: { bn: 'সঠিক উত্তর: নাগরিক স্পষ্টতা ও সম্মানের সাথে যুক্তি তুলে ধরলে — পাঠ্যাংশে বলা হয়েছে: «কোনো নাগরিক যদি স্পষ্টতা ও সম্মানের সাথে নিজের যুক্তি তুলে ধরতে জানেন, তবে জনআলোচনা সম্মিলিত অগ্রগতির হাতিয়ার হয়ে ওঠে।» (sappia articolare le proprie ragioni con chiarezza e rispetto)।', en: 'When citizens articulate reasons with clarity and respect.' } },
     ],
   }),
 ];

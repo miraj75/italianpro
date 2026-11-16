@@ -16,7 +16,7 @@ export const A2_LISTENING_2: ListeningExercise[] = [
     vocabKeys: ['w:A2:il traffico', 'w:A2:in ritardo', 'w:A2:la coincidenza'],
     grammarIds: ['verbi-pronominali-a2', 'connettivi'],
     questions: [
-      { id: 'ls2-22-q1', prompt: { bn: 'বিমানবন্দরে যেতে কত মিনিট লাগবে?', en: 'How many minutes will it take to the airport?' }, options: ['১৫ মিনিট', '২৫ মিনিট', '৪০ মিনিট', '১ ঘণ্টা'], answer: 1, explanation: { bn: 'circa venticinque minuti।', en: 'About 25 minutes.' } },
+      { id: 'ls2-22-q1', prompt: { bn: 'বিমানবন্দরে যেতে কত মিনিট লাগবে?', en: 'How many minutes will it take to the airport?' }, options: ['১৫ মিনিট', '২৫ মিনিট', '৪০ মিনিট', '১ ঘণ্টা'], answer: 1, explanation: { bn: 'সঠিক উত্তর: ২৫ মিনিট — পাঠ্যাংশে বলা হয়েছে: «এই সময়ে যানজট কম, তাই প্রায় পঁচিশ মিনিট লাগে।» (circa venticinque minuti)।', en: 'About 25 minutes.' } },
       { id: 'ls2-22-q2', prompt: { bn: 'যাত্রী কয়টায় ফ্লাইট ধরবে?', en: 'What time is the passenger’s connection?' }, options: ['১০টায়', '১১টায়', '১২টায়', '১টায়'], answer: 2, explanation: { bn: 'alle dodici = ১২টায়।', en: 'At twelve.' } },
     ],
   }),
@@ -34,8 +34,8 @@ export const A2_LISTENING_2: ListeningExercise[] = [
     vocabKeys: ['w:A2:il matrimonio', "w:A2:l'amicizia", 'w:A2:conoscere'],
     grammarIds: ['riflessivi', 'comparativi-irregolari'],
     questions: [
-      { id: 'ls2-23-q1', prompt: { bn: 'নাদিয়া ও জুলিয়ার পরিচয় কত বছর আগে?', en: 'How long ago did Nadia and Giulia meet?' }, options: ['২ বছর', '৪ বছর', '৬ বছর', '১০ বছর'], answer: 2, explanation: { bn: 'sei anni fa।', en: 'Six years ago.' } },
-      { id: 'ls2-23-q2', prompt: { bn: 'লুকা জুলিয়ার কে হয়?', en: 'How is Luca related to Giulia?' }, options: ['সহকর্মী', 'ছোট কাজিন', 'প্রতিবেশী', 'শিক্ষক'], answer: 1, explanation: { bn: 'suo cugino minore।', en: 'Her younger cousin.' } },
+      { id: 'ls2-23-q1', prompt: { bn: 'নাদিয়া ও জুলিয়ার পরিচয় কত বছর আগে?', en: 'How long ago did Nadia and Giulia meet?' }, options: ['২ বছর', '৪ বছর', '৬ বছর', '১০ বছর'], answer: 2, explanation: { bn: 'সঠিক উত্তর: ৬ বছর — পাঠ্যাংশে বলা হয়েছে: «হ্যাঁ, আমি আর জুলিয়া ছয় বছর আগে বিশ্ববিদ্যালয়ে পরিচিত হয়েছিলাম। আমরা বোনের মতো!» (sei anni fa)।', en: 'Six years ago.' } },
+      { id: 'ls2-23-q2', prompt: { bn: 'লুকা জুলিয়ার কে হয়?', en: 'How is Luca related to Giulia?' }, options: ['সহকর্মী', 'ছোট কাজিন', 'প্রতিবেশী', 'শিক্ষক'], answer: 1, explanation: { bn: 'সঠিক উত্তর: ছোট কাজিন — পাঠ্যাংশে বলা হয়েছে: «কী সুন্দর বন্ধুত্ব! আমি বরং ওর ছোট কাজিন।» (suo cugino minore)।', en: 'Her younger cousin.' } },
     ],
   }),
   buildListening({
@@ -52,8 +52,8 @@ export const A2_LISTENING_2: ListeningExercise[] = [
     vocabKeys: ["w:A2:l'inquilino", 'w:A2:il proprietario', 'w:A2:il riscaldamento'],
     grammarIds: ['doppia-negazione', 'tempo'],
     questions: [
-      { id: 'ls2-24-q1', prompt: { bn: 'বাসায় কী নষ্ট হয়েছে?', en: 'What stopped working in the flat?' }, options: ['লিফট', 'হিটিং', 'ফ্রিজ', 'ওয়াশিং মেশিন'], answer: 1, explanation: { bn: 'il riscaldamento non si accende più।', en: 'The heating.' } },
-      { id: 'ls2-24-q2', prompt: { bn: 'ভাড়াটে কখন টেকনিশিয়ানের জন্য অপেক্ষা করবে?', en: 'When will the tenant wait for the technician?' }, options: ['সকাল ১০টায়', 'দুপুর ২টায়', 'বিকেল ৪টার দিকে', 'রাত ৮টায়'], answer: 2, explanation: { bn: 'verso le quattro।', en: 'Around four o’clock.' } },
+      { id: 'ls2-24-q1', prompt: { bn: 'বাসায় কী নষ্ট হয়েছে?', en: 'What stopped working in the flat?' }, options: ['লিফট', 'হিটিং', 'ফ্রিজ', 'ওয়াশিং মেশিন'], answer: 1, explanation: { bn: 'সঠিক উত্তর: হিটিং — পাঠ্যাংশে বলা হয়েছে: «হ্যালো, মি. রসি? ফোন করছি কারণ আজ সকাল থেকে হিটিং আর চালু হচ্ছে না।» (il riscaldamento non si accende più)।', en: 'The heating.' } },
+      { id: 'ls2-24-q2', prompt: { bn: 'ভাড়াটে কখন টেকনিশিয়ানের জন্য অপেক্ষা করবে?', en: 'When will the tenant wait for the technician?' }, options: ['সকাল ১০টায়', 'দুপুর ২টায়', 'বিকেল ৪টার দিকে', 'রাত ৮টায়'], answer: 2, explanation: { bn: 'সঠিক উত্তর: বিকেল ৪টার দিকে — পাঠ্যাংশে বলা হয়েছে: «অসংখ্য ধন্যবাদ, চারটার দিকে অপেক্ষা করব কারণ এর আগে আমার ক্লাস আছে।» (verso le quattro)।', en: 'Around four o’clock.' } },
     ],
   }),
   buildListening({
@@ -69,8 +69,8 @@ export const A2_LISTENING_2: ListeningExercise[] = [
     vocabKeys: ["w:A2:l'offerta", 'w:A2:la cassa', "w:A2:l'ambiente"],
     grammarIds: ['indefiniti-a2', 'imperativo'],
     questions: [
-      { id: 'ls2-25-q1', prompt: { bn: 'কোন পণ্যে আজ বিশেষ ছাড় চলছে?', en: 'Which product is on special offer today?' }, options: ['চাল', 'অলিভ অয়েল', 'দুধ', 'মাংস'], answer: 1, explanation: { bn: 'tutte le bottiglie di olio extravergine।', en: 'Extra-virgin olive oil.' } },
-      { id: 'ls2-25-q2', prompt: { bn: 'পরিবেশের জন্য কী আনতে মনে করানো হয়েছে?', en: 'What should customers bring for the environment?' }, options: ['নগদ টাকা', 'পুনর্ব্যবহারযোগ্য ব্যাগ', 'রসিদ', 'আইডি'], answer: 1, explanation: { bn: 'sacchetti riutilizzabili।', en: 'Reusable bags.' } },
+      { id: 'ls2-25-q1', prompt: { bn: 'কোন পণ্যে আজ বিশেষ ছাড় চলছে?', en: 'Which product is on special offer today?' }, options: ['চাল', 'অলিভ অয়েল', 'দুধ', 'মাংস'], answer: 1, explanation: { bn: 'সঠিক উত্তর: অলিভ অয়েল — পাঠ্যাংশে বলা হয়েছে: «সম্মানিত গ্রাহকবৃন্দ, শুধুমাত্র আজকের জন্য এক্সট্রা ভার্জিন অলিভ অয়েলের সব বোতল তিন নম্বর কাউন্টারে বিশেষ ছাড়ে পাওয়া যাচ্ছে!» (tutte le bottiglie di olio extravergine)।', en: 'Extra-virgin olive oil.' } },
+      { id: 'ls2-25-q2', prompt: { bn: 'পরিবেশের জন্য কী আনতে মনে করানো হয়েছে?', en: 'What should customers bring for the environment?' }, options: ['নগদ টাকা', 'পুনর্ব্যবহারযোগ্য ব্যাগ', 'রসিদ', 'আইডি'], answer: 1, explanation: { bn: 'সঠিক উত্তর: পুনর্ব্যবহারযোগ্য ব্যাগ — পাঠ্যাংশে বলা হয়েছে: «পরিবেশ রক্ষার জন্য আপনার পুনর্ব্যবহারযোগ্য ব্যাগ আনতে মনে রাখবেন।» (sacchetti riutilizzabili)।', en: 'Reusable bags.' } },
     ],
   }),
   buildListening({
@@ -88,7 +88,7 @@ export const A2_LISTENING_2: ListeningExercise[] = [
     grammarIds: ['pronomi-relativi-a2', 'numerali-ordinali'],
     questions: [
       { id: 'ls2-26-q1', prompt: { bn: 'বইটি কত নম্বর সারিতে আছে?', en: 'In which row is the book?' }, options: ['প্রথম', 'দ্বিতীয়', 'তৃতীয়', 'চতুর্থ'], answer: 2, explanation: { bn: 'terza fila a sinistra = তৃতীয় সারি।', en: 'Third row.' } },
-      { id: 'ls2-26-q2', prompt: { bn: 'রাহিম বইটির কথা কোথায় শুনেছে?', en: 'Where did Rahim hear about the novel?' }, options: ['টিভি নিউজে', 'রেডিওতে', 'সহপাঠীর কাছে', 'ইন্টারনেটে'], answer: 1, explanation: { bn: 'ne parlava ieri la radio।', en: 'On the radio.' } },
+      { id: 'ls2-26-q2', prompt: { bn: 'রাহিম বইটির কথা কোথায় শুনেছে?', en: 'Where did Rahim hear about the novel?' }, options: ['টিভি নিউজে', 'রেডিওতে', 'সহপাঠীর কাছে', 'ইন্টারনেটে'], answer: 1, explanation: { bn: 'সঠিক উত্তর: রেডিওতে — পাঠ্যাংশে বলা হয়েছে: «মাফ করবেন, গতকাল রেডিওতে যে উপন্যাসটির কথা বলছিল সেটা খুঁজছি। জানেন কি ওটা আছে কিনা?» (ne parlava ieri la radio)।', en: 'On the radio.' } },
     ],
   }),
   buildListening({
@@ -105,8 +105,8 @@ export const A2_LISTENING_2: ListeningExercise[] = [
     vocabKeys: ['w:A2:lo straordinario', 'w:A2:il turno', 'w:A2:il capo'],
     grammarIds: ['modali-passato', 'condizionale'],
     questions: [
-      { id: 'ls2-27-q1', prompt: { bn: 'কেন সারাকে ওভারটাইম করতে হয়েছে?', en: 'Why did Sara have to do overtime?' }, options: ['নতুন প্রজেক্ট ছিল', 'দুজন সহকর্মী অসুস্থ ছিল', 'বস বাইরে ছিলেন', 'বোনাস চেয়েছিল'], answer: 1, explanation: { bn: 'due colleghi erano malati।', en: 'Two colleagues were ill.' } },
-      { id: 'ls2-27-q2', prompt: { bn: 'সহকর্মী কী পরামর্শ দিয়েছে?', en: 'What advice did the colleague give?' }, options: ['চাকরি ছাড়তে', 'একদিন বিশ্রামের ছুটি চাইতে', 'বেতন বাড়ানোর কথা বলতে', 'শিফট বদলাতে'], answer: 1, explanation: { bn: 'chiedere un giorno di riposo।', en: 'Ask for a day off.' } },
+      { id: 'ls2-27-q1', prompt: { bn: 'কেন সারাকে ওভারটাইম করতে হয়েছে?', en: 'Why did Sara have to do overtime?' }, options: ['নতুন প্রজেক্ট ছিল', 'দুজন সহকর্মী অসুস্থ ছিল', 'বস বাইরে ছিলেন', 'বোনাস চেয়েছিল'], answer: 1, explanation: { bn: 'সঠিক উত্তর: দুজন সহকর্মী অসুস্থ ছিল — পাঠ্যাংশে বলা হয়েছে: «দুর্ভাগ্যবশত হ্যাঁ, কারণ দুজন সহকর্মী অসুস্থ ছিল আর বস কোনো বদলি পাননি।» (due colleghi erano malati)।', en: 'Two colleagues were ill.' } },
+      { id: 'ls2-27-q2', prompt: { bn: 'সহকর্মী কী পরামর্শ দিয়েছে?', en: 'What advice did the colleague give?' }, options: ['চাকরি ছাড়তে', 'একদিন বিশ্রামের ছুটি চাইতে', 'বেতন বাড়ানোর কথা বলতে', 'শিফট বদলাতে'], answer: 1, explanation: { bn: 'সঠিক উত্তর: একদিন বিশ্রামের ছুটি চাইতে — পাঠ্যাংশে বলা হয়েছে: «আগামী সপ্তাহে তোমার একদিন ছুটি চাওয়া উচিত!» (chiedere un giorno di riposo)।', en: 'Ask for a day off.' } },
     ],
   }),
   buildListening({
@@ -123,8 +123,8 @@ export const A2_LISTENING_2: ListeningExercise[] = [
     vocabKeys: ['w:A2:il raffreddore', 'w:A2:la gola', 'w:A2:lo sciroppo'],
     grammarIds: ['ci-ne', 'imperativo'],
     questions: [
-      { id: 'ls2-28-q1', prompt: { bn: 'তারিকের কী উপসর্গ হয়েছে?', en: 'What symptoms does Tariq have?' }, options: ['জ্বর ও পিঠে ব্যথা', 'সর্দি ও গলা ব্যথা', 'হাঁটু ব্যথা', 'অ্যালার্জি'], answer: 1, explanation: { bn: 'raffreddore e mal di gola।', en: 'Cold and sore throat.' } },
-      { id: 'ls2-28-q2', prompt: { bn: 'সিরাপ দিনে কতবার খেতে হবে?', en: 'How many times a day should he take the syrup?' }, options: ['১ বার', '২ বার', '৩ বার', '৪ বার'], answer: 2, explanation: { bn: 'tre volte al giorno।', en: 'Three times a day.' } },
+      { id: 'ls2-28-q1', prompt: { bn: 'তারিকের কী উপসর্গ হয়েছে?', en: 'What symptoms does Tariq have?' }, options: ['জ্বর ও পিঠে ব্যথা', 'সর্দি ও গলা ব্যথা', 'হাঁটু ব্যথা', 'অ্যালার্জি'], answer: 1, explanation: { bn: 'সঠিক উত্তর: সর্দি ও গলা ব্যথা — পাঠ্যাংশে বলা হয়েছে: «না, শুধু সর্দি ও গলা ব্যথার জন্য কিছু চাই।» (raffreddore e mal di gola)।', en: 'Cold and sore throat.' } },
+      { id: 'ls2-28-q2', prompt: { bn: 'সিরাপ দিনে কতবার খেতে হবে?', en: 'How many times a day should he take the syrup?' }, options: ['১ বার', '২ বার', '৩ বার', '৪ বার'], answer: 2, explanation: { bn: 'সঠিক উত্তর: ৩ বার — পাঠ্যাংশে বলা হয়েছে: «এই প্রাকৃতিক সিরাপটা পরামর্শ দিচ্ছি: দিনে তিনবার এক চামচ করে খাবেন।» (tre volte al giorno)।', en: 'Three times a day.' } },
     ],
   }),
   buildListening({
@@ -143,7 +143,7 @@ export const A2_LISTENING_2: ListeningExercise[] = [
     grammarIds: ['si-impersonale-a2', 'verbi-servizio-a2'],
     questions: [
       { id: 'ls2-29-q1', prompt: { bn: 'প্লাস্টিকের ডাস্টবিনের রং কী?', en: 'What colour are the plastic bins?' }, options: ['নীল', 'হলুদ', 'সবুজ', 'কালো'], answer: 1, explanation: { bn: 'i bidoni gialli = হলুদ ডাস্টবিন।', en: 'Yellow bins.' } },
-      { id: 'ls2-29-q2', prompt: { bn: 'কাগজের ট্রাক সপ্তাহে কবে আসে?', en: 'When does the paper truck come?' }, options: ['সোমবার', 'মঙ্গলবার', 'বৃহস্পতিবার', 'শনিবার'], answer: 1, explanation: { bn: 'ogni martedì mattina।', en: 'Every Tuesday morning.' } },
+      { id: 'ls2-29-q2', prompt: { bn: 'কাগজের ট্রাক সপ্তাহে কবে আসে?', en: 'When does the paper truck come?' }, options: ['সোমবার', 'মঙ্গলবার', 'বৃহস্পতিবার', 'শনিবার'], answer: 1, explanation: { bn: 'সঠিক উত্তর: মঙ্গলবার — পাঠ্যাংশে বলা হয়েছে: «সাধারণত প্রতি মঙ্গলবার খুব সকালে আসে।» (ogni martedì mattina)।', en: 'Every Tuesday morning.' } },
     ],
   }),
   buildListening({
@@ -161,7 +161,7 @@ export const A2_LISTENING_2: ListeningExercise[] = [
     grammarIds: ['stare-per', 'passato-irregolari'],
     questions: [
       { id: 'ls2-30-q1', prompt: { bn: 'যাত্রীর কী সমস্যা হয়েছিল?', en: 'What problem did the passenger have?' }, options: ['টিকিট মেশিন নষ্ট', 'টিকিট হারিয়ে ফেলেছে', 'ভুল ট্রেন', 'মানিব্যাগ নেই'], answer: 1, explanation: { bn: 'l’ho perso (টিকিট হারিয়েছে)।', en: 'Lost the ticket.' } },
-      { id: 'ls2-30-q2', prompt: { bn: 'প্রমাণটি কোথায় পাওয়া গেল?', en: 'Where was proof of purchase found?' }, options: ['ইমেইলে', 'পকেটে', 'ব্যাংক অ্যাপে', 'সুপারমার্কেটে'], answer: 2, explanation: { bn: 'nell’applicazione della banca।', en: 'In the bank app.' } },
+      { id: 'ls2-30-q2', prompt: { bn: 'প্রমাণটি কোথায় পাওয়া গেল?', en: 'Where was proof of purchase found?' }, options: ['ইমেইলে', 'পকেটে', 'ব্যাংক অ্যাপে', 'সুপারমার্কেটে'], answer: 2, explanation: { bn: 'সঠিক উত্তর: ব্যাংক অ্যাপে — পাঠ্যাংশে বলা হয়েছে: «হ্যাঁ! এই যে ব্যাংক অ্যাপে আছে!» (nell’applicazione della banca)।', en: 'In the bank app.' } },
     ],
   }),
   buildListening({
@@ -179,8 +179,8 @@ export const A2_LISTENING_2: ListeningExercise[] = [
     vocabKeys: ['w:A2:il tempo libero', 'w:A2:la squadra', 'w:A2:correre'],
     grammarIds: ['avverbi-a2', 'comparativi-irregolari'],
     questions: [
-      { id: 'ls2-31-q1', prompt: { bn: 'সপ্তাহে কয়বার সে দৌড়াতে যায়?', en: 'How many times a week does she go running?' }, options: ['১ বার', '২ বার', '৩ বার', 'প্রতিদিন'], answer: 2, explanation: { bn: 'tre volte a settimana।', en: 'Three times a week.' } },
-      { id: 'ls2-31-q2', prompt: { bn: 'শনিবারে সে কী করে?', en: 'What does she do on Saturdays?' }, options: ['সাঁতার কাটে', 'ভলিবল খেলে', 'সিনেমায় যায়', 'সাইকেল চালায়'], answer: 1, explanation: { bn: 'gioco a pallavolo।', en: 'Plays volleyball.' } },
+      { id: 'ls2-31-q1', prompt: { bn: 'সপ্তাহে কয়বার সে দৌড়াতে যায়?', en: 'How many times a week does she go running?' }, options: ['১ বার', '২ বার', '৩ বার', 'প্রতিদিন'], answer: 2, explanation: { bn: 'সঠিক উত্তর: ৩ বার — পাঠ্যাংশে বলা হয়েছে: «হ্যাঁ, সপ্তাহে তিনবার পার্কে দৌড়াতে যাই এবং শনিবার দলের সাথে ভলিবল খেলি।» (tre volte a settimana)।', en: 'Three times a week.' } },
+      { id: 'ls2-31-q2', prompt: { bn: 'শনিবারে সে কী করে?', en: 'What does she do on Saturdays?' }, options: ['সাঁতার কাটে', 'ভলিবল খেলে', 'সিনেমায় যায়', 'সাইকেল চালায়'], answer: 1, explanation: { bn: 'সঠিক উত্তর: ভলিবল খেলে — পাঠ্যাংশে বলা হয়েছে: «হ্যাঁ, সপ্তাহে তিনবার পার্কে দৌড়াতে যাই এবং শনিবার দলের সাথে ভলিবল খেলি।» (gioco a pallavolo)।', en: 'Plays volleyball.' } },
     ],
   }),
   buildListening({
@@ -197,8 +197,8 @@ export const A2_LISTENING_2: ListeningExercise[] = [
     vocabKeys: ['w:A2:i ceci', "w:A2:l'aglio", 'w:A2:bollire'],
     grammarIds: ['preposizioni-verbi', 'imperativo'],
     questions: [
-      { id: 'ls2-32-q1', prompt: { bn: 'নাদিয়া কোন স্যুপ খেয়েছে?', en: 'Which soup did Nadia taste?' }, options: ['মসুর ডাল', 'ছোলার স্যুপ (zuppa di ceci)', 'টমেটো স্যুপ', 'সবজি স্যুপ'], answer: 1, explanation: { bn: 'zuppa di ceci।', en: 'Chickpea soup.' } },
-      { id: 'ls2-32-q2', prompt: { bn: 'মশলা হিসেবে কী যোগ করতে বলা হয়েছে?', en: 'Which spice is added?' }, options: ['দারুচিনি', 'গোলমরিচ (pepe nero)', 'হলুদ', 'জিরা'], answer: 1, explanation: { bn: 'un po’ di pepe nero।', en: 'Black pepper.' } },
+      { id: 'ls2-32-q1', prompt: { bn: 'নাদিয়া কোন স্যুপ খেয়েছে?', en: 'Which soup did Nadia taste?' }, options: ['মসুর ডাল', 'ছোলার স্যুপ (zuppa di ceci)', 'টমেটো স্যুপ', 'সবজি স্যুপ'], answer: 1, explanation: { bn: 'সঠিক উত্তর: ছোলার স্যুপ (zuppa di ceci) — পাঠ্যাংশে বলা হয়েছে: «এই ছোলার স্যুপটা অসাধারণ! কীভাবে বানিয়েছো?» (zuppa di ceci)।', en: 'Chickpea soup.' } },
+      { id: 'ls2-32-q2', prompt: { bn: 'মশলা হিসেবে কী যোগ করতে বলা হয়েছে?', en: 'Which spice is added?' }, options: ['দারুচিনি', 'গোলমরিচ (pepe nero)', 'হলুদ', 'জিরা'], answer: 1, explanation: { bn: 'সঠিক উত্তর: গোলমরিচ (pepe nero) — পাঠ্যাংশে বলা হয়েছে: «প্রথমে রসুন ও তেল দিয়ে ছোলা সেদ্ধ করো, তারপর একটু গোলমরিচ দিয়ে ধীরে রান্না হতে দাও।» (un po’ di pepe nero)।', en: 'Black pepper.' } },
     ],
   }),
   buildListening({
@@ -215,8 +215,8 @@ export const A2_LISTENING_2: ListeningExercise[] = [
     vocabKeys: ['w:A2:la questura', 'w:A2:il permesso di soggiorno', 'w:A2:compilare'],
     grammarIds: ['futuro', 'accordo-participio'],
     questions: [
-      { id: 'ls2-33-q1', prompt: { bn: 'রাহিম কয়টি ছবি নিয়ে এসেছে?', en: 'How many photos did Rahim bring?' }, options: ['২টি', '৩টি', '৪টি', '৬টি'], answer: 2, explanation: { bn: 'le quattro fotografie।', en: 'Four photos.' } },
-      { id: 'ls2-33-q2', prompt: { bn: 'পারমিট তৈরি হলে সে কীভাবে জানতে পারবে?', en: 'How will he know when it is ready?' }, options: ['চিঠিতে', 'মোবাইলে মেসেজে', 'ওয়েবসাইটে গিয়ে', 'পুনরায় লাইনে দাঁড়িয়ে'], answer: 1, explanation: { bn: 'riceverà un messaggio sul cellulare।', en: 'Text message on his mobile.' } },
+      { id: 'ls2-33-q1', prompt: { bn: 'রাহিম কয়টি ছবি নিয়ে এসেছে?', en: 'How many photos did Rahim bring?' }, options: ['২টি', '৩টি', '৪টি', '৬টি'], answer: 2, explanation: { bn: 'সঠিক উত্তর: ৪টি — পাঠ্যাংশে বলা হয়েছে: «শুভ সকাল, ডাকঘরের রসিদ আর চারটি ছবি কি এনেছেন?» (le quattro fotografie)।', en: 'Four photos.' } },
+      { id: 'ls2-33-q2', prompt: { bn: 'পারমিট তৈরি হলে সে কীভাবে জানতে পারবে?', en: 'How will he know when it is ready?' }, options: ['চিঠিতে', 'মোবাইলে মেসেজে', 'ওয়েবসাইটে গিয়ে', 'পুনরায় লাইনে দাঁড়িয়ে'], answer: 1, explanation: { bn: 'সঠিক উত্তর: মোবাইলে মেসেজে — পাঠ্যাংশে বলা হয়েছে: «বেশ ভালো। কাগজটা তৈরি হলে আপনার মোবাইলে মেসেজ আসবে।» (riceverà un messaggio sul cellulare)।', en: 'Text message on his mobile.' } },
     ],
   }),
   buildListening({
@@ -234,7 +234,7 @@ export const A2_LISTENING_2: ListeningExercise[] = [
     grammarIds: ['pronomi-relativi-a2', 'verbi-servizio-a2'],
     questions: [
       { id: 'ls2-34-q1', prompt: { bn: 'নতুন প্রতিবেশীরা কত তলায় উঠেছে?', en: 'Which floor did the new neighbours move to?' }, options: ['৩য়', '৪র্থ', '৫ম', '৬ষ্ঠ'], answer: 2, explanation: { bn: 'al quinto piano = ৫ম তলা।', en: 'Fifth floor.' } },
-      { id: 'ls2-34-q2', prompt: { bn: 'সারা তাদের কীভাবে সাহায্য করতে চাইল?', en: 'How did Sara offer to help?' }, options: ['বাসা পরিষ্কারে', 'এলাকার দোকানপাট চেনাতে ও দরকারে সাহায্য করতে', 'আসবাব তুলতে', 'রান্না করে দিতে'], answer: 1, explanation: { bn: 'Se avete bisogno o non conoscete i negozi…', en: 'Anything needed or local shops.' } },
+      { id: 'ls2-34-q2', prompt: { bn: 'সারা তাদের কীভাবে সাহায্য করতে চাইল?', en: 'How did Sara offer to help?' }, options: ['বাসা পরিষ্কারে', 'এলাকার দোকানপাট চেনাতে ও দরকারে সাহায্য করতে', 'আসবাব তুলতে', 'রান্না করে দিতে'], answer: 1, explanation: { bn: 'সঠিক উত্তর: এলাকার দোকানপাট চেনাতে ও দরকারে সাহায্য করতে — পাঠ্যাংশে বলা হয়েছে: «কোনো কিছুর দরকার হলে বা এলাকার দোকানপাট না চিনলে নির্দ্বিধায় আমাদের জিজ্ঞেস করবেন!» (Se avete bisogno o non conoscete i negozi…)।', en: 'Anything needed or local shops.' } },
     ],
   }),
   buildListening({
@@ -251,8 +251,8 @@ export const A2_LISTENING_2: ListeningExercise[] = [
     vocabKeys: ['w:A2:il dentista', 'w:A2:la visita', "w:A2:l'appuntamento"],
     grammarIds: ['volere-piacere-cortesia', 'pronomi-diretti'],
     questions: [
-      { id: 'ls2-35-q1', prompt: { bn: 'পুরনো অ্যাপয়েন্টমেন্ট কবে ছিল?', en: 'When was the original appointment?' }, options: ['মঙ্গলবার সকাল ১০টায়', 'শুক্রবার বিকেল ৩টায়', 'শনিবার', 'বৃহস্পতিবার'], answer: 1, explanation: { bn: 'venerdì alle tre।', en: 'Friday at 3 PM.' } },
-      { id: 'ls2-35-q2', prompt: { bn: 'নতুন তারিখ ও সময় কী ঠিক হলো?', en: 'What is the new slot?' }, options: ['সোমবার ৯টায়', 'মঙ্গলবার ১০:৩০-এ', 'বুধবার ৪টায়', 'শুক্রবার ৫টায়'], answer: 1, explanation: { bn: 'martedì prossimo alle dieci e mezza।', en: 'Next Tuesday at 10:30.' } },
+      { id: 'ls2-35-q1', prompt: { bn: 'পুরনো অ্যাপয়েন্টমেন্ট কবে ছিল?', en: 'When was the original appointment?' }, options: ['মঙ্গলবার সকাল ১০টায়', 'শুক্রবার বিকেল ৩টায়', 'শনিবার', 'বৃহস্পতিবার'], answer: 1, explanation: { bn: 'সঠিক উত্তর: শুক্রবার বিকেল ৩টায় — পাঠ্যাংশে বলা হয়েছে: «শুভ সকাল, শুক্রবার তিনটায় আমার ডাক্তার দেখানোর সময় ছিল, কিন্তু দুর্ভাগ্যবশত কাজের জন্য তা বদলাতে হবে।» (venerdì alle tre)।', en: 'Friday at 3 PM.' } },
+      { id: 'ls2-35-q2', prompt: { bn: 'নতুন তারিখ ও সময় কী ঠিক হলো?', en: 'What is the new slot?' }, options: ['সোমবার ৯টায়', 'মঙ্গলবার ১০:৩০-এ', 'বুধবার ৪টায়', 'শুক্রবার ৫টায়'], answer: 1, explanation: { bn: 'সঠিক উত্তর: মঙ্গলবার ১০:৩০-এ — পাঠ্যাংশে বলা হয়েছে: «কোনো সমস্যা নেই! আগামী মঙ্গলবার সকাল সাড়ে দশটায় আপনার কি সুবিধা হবে?» (martedì prossimo alle dieci e mezza)।', en: 'Next Tuesday at 10:30.' } },
     ],
   }),
   buildListening({
@@ -268,8 +268,8 @@ export const A2_LISTENING_2: ListeningExercise[] = [
     vocabKeys: ['w:A2:il distributore', 'w:A2:il pieno', 'w:A2:lungo'],
     grammarIds: ['pronomi-indiretti', 'modali'],
     questions: [
-      { id: 'ls2-36-q1', prompt: { bn: 'চালক কত ইউরোর তেল চেয়েছেন?', en: 'How many euros of petrol did the driver ask for?' }, options: ['২০ ইউরো', '৩০ ইউরো', '৪০ ইউরো', '৫০ ইউরো'], answer: 1, explanation: { bn: 'trenta euro di benzina।', en: '30 euros.' } },
-      { id: 'ls2-36-q2', prompt: { bn: 'কর্মী আর কী চেক করার পরামর্শ দিলেন?', en: 'What else did the attendant advise checking?' }, options: ['জানালা', 'ইঞ্জিন অয়েল', 'আয়না', 'ব্যাটারি'], answer: 1, explanation: { bn: 'controllare anche l’olio।', en: 'The oil.' } },
+      { id: 'ls2-36-q1', prompt: { bn: 'চালক কত ইউরোর তেল চেয়েছেন?', en: 'How many euros of petrol did the driver ask for?' }, options: ['২০ ইউরো', '৩০ ইউরো', '৪০ ইউরো', '৫০ ইউরো'], answer: 1, explanation: { bn: 'সঠিক উত্তর: ৩০ ইউরো — পাঠ্যাংশে বলা হয়েছে: «শুভ সকাল, ত্রিশ ইউরোর পেট্রোল দেবেন এবং চাকাগুলো একটু দেখে দেবেন?» (trenta euro di benzina)।', en: '30 euros.' } },
+      { id: 'ls2-36-q2', prompt: { bn: 'কর্মী আর কী চেক করার পরামর্শ দিলেন?', en: 'What else did the attendant advise checking?' }, options: ['জানালা', 'ইঞ্জিন অয়েল', 'আয়না', 'ব্যাটারি'], answer: 1, explanation: { bn: 'সঠিক উত্তর: ইঞ্জিন অয়েল — পাঠ্যাংশে বলা হয়েছে: «শুভ সকাল, ত্রিশ ইউরোর পেট্রোল দেবেন এবং চাকাগুলো একটু দেখে দেবেন?» (controllare anche l’olio)।', en: 'The oil.' } },
     ],
   }),
   buildListening({
@@ -286,8 +286,8 @@ export const A2_LISTENING_2: ListeningExercise[] = [
     vocabKeys: ['w:A2:il film', 'w:A2:il cinema', 'w:A2:diverso'],
     grammarIds: ['comparativi', 'comparativi-irregolari'],
     questions: [
-      { id: 'ls2-37-q1', prompt: { bn: 'গতকালের সিনেমার কোন অংশ মার্কোর কাছে ধীর লেগেছে?', en: 'Which part felt slower to Marco?' }, options: ['শুরুর অংশ', 'দ্বিতীয় অংশ', 'পুরো সিনেমা', 'গানগুলো'], answer: 1, explanation: { bn: 'la seconda parte era molto più lenta।', en: 'The second half.' } },
-      { id: 'ls2-37-q2', prompt: { bn: 'কোন দিনের সিনেমা তাদের কাছে বেশি ভালো ছিল?', en: 'Which film was better in their view?' }, options: ['গতকালের', 'গত শুক্রবারের', 'শনিবারের', 'বুধবারের'], answer: 1, explanation: { bn: 'quello di venerdì scorso era migliore।', en: 'Last Friday’s film.' } },
+      { id: 'ls2-37-q1', prompt: { bn: 'গতকালের সিনেমার কোন অংশ মার্কোর কাছে ধীর লেগেছে?', en: 'Which part felt slower to Marco?' }, options: ['শুরুর অংশ', 'দ্বিতীয় অংশ', 'পুরো সিনেমা', 'গানগুলো'], answer: 1, explanation: { bn: 'সঠিক উত্তর: দ্বিতীয় অংশ — পাঠ্যাংশে বলা হয়েছে: «মোটামুটি: গল্পটা ভালো ছিল, কিন্তু দ্বিতীয় অংশ প্রথমটার চেয়ে অনেক বেশি ধীর ছিল।» (la seconda parte era molto più lenta)।', en: 'The second half.' } },
+      { id: 'ls2-37-q2', prompt: { bn: 'কোন দিনের সিনেমা তাদের কাছে বেশি ভালো ছিল?', en: 'Which film was better in their view?' }, options: ['গতকালের', 'গত শুক্রবারের', 'শনিবারের', 'বুধবারের'], answer: 1, explanation: { bn: 'সঠিক উত্তর: গত শুক্রবারের — পাঠ্যাংশে বলা হয়েছে: «ঠিক বলেছো, গত শুক্রবার যেটা দেখেছিলাম ওটা নিশ্চিতভাবেই বেশি ভালো ছিল!» (quello di venerdì scorso era migliore)।', en: 'Last Friday’s film.' } },
     ],
   }),
   buildListening({
@@ -304,7 +304,7 @@ export const A2_LISTENING_2: ListeningExercise[] = [
     vocabKeys: ["w:A2:l'ufficio postale", 'w:A2:la scatola', 'w:A2:la busta'],
     grammarIds: ['condizionale', 'passato-prossimo'],
     questions: [
-      { id: 'ls2-38-q1', prompt: { bn: 'পার্সেলটা কোন দেশে পাঠানো হচ্ছে?', en: 'Which country is the parcel going to?' }, options: ['ফ্রান্স', 'স্পেন', 'জার্মানি', 'বাংলাদেশ'], answer: 2, explanation: { bn: 'in Germania।', en: 'To Germany.' } },
+      { id: 'ls2-38-q1', prompt: { bn: 'পার্সেলটা কোন দেশে পাঠানো হচ্ছে?', en: 'Which country is the parcel going to?' }, options: ['ফ্রান্স', 'স্পেন', 'জার্মানি', 'বাংলাদেশ'], answer: 2, explanation: { bn: 'সঠিক উত্তর: জার্মানি — পাঠ্যাংশে বলা হয়েছে: «শুভ সকাল, এই বাক্সটা জার্মানিতে পাঠাতে হবে। কত খরচ হবে?» (in Germania)।', en: 'To Germany.' } },
       { id: 'ls2-38-q2', prompt: { bn: 'খরচ কত হয়েছে?', en: 'How much does it cost?' }, options: ['১২ ইউরো', '১৫ ইউরো', '১৮ ইউরো', '২৫ ইউরো'], answer: 2, explanation: { bn: 'diciotto euro = ১৮ ইউরো।', en: '18 euros.' } },
     ],
   }),
@@ -322,8 +322,8 @@ export const A2_LISTENING_2: ListeningExercise[] = [
     vocabKeys: ['w:A2:il lago', 'w:A2:la coperta', 'w:A2:lo zaino'],
     grammarIds: ['connettivi', 'volere-piacere-cortesia'],
     questions: [
-      { id: 'ls2-39-q1', prompt: { bn: 'আবহাওয়া ভালো থাকলে তারা কোথায় যাবে?', en: 'Where will they go if it is sunny?' }, options: ['সৈকতে', 'হ্রদে', 'থিয়েটারে', 'শপিং মলে'], answer: 1, explanation: { bn: 'andare al lago।', en: 'To the lake.' } },
-      { id: 'ls2-39-q2', prompt: { bn: 'বৃষ্টি হলে বিকল্প পরিকল্পনা কী?', en: 'What is their rain backup plan?' }, options: ['সিনেমা দেখা', 'শহরের জাদুঘরে যাওয়া', 'রেস্টুরেন্ট', 'ঘরে থাকা'], answer: 1, explanation: { bn: 'andremo al museo della città।', en: 'City museum.' } },
+      { id: 'ls2-39-q1', prompt: { bn: 'আবহাওয়া ভালো থাকলে তারা কোথায় যাবে?', en: 'Where will they go if it is sunny?' }, options: ['সৈকতে', 'হ্রদে', 'থিয়েটারে', 'শপিং মলে'], answer: 1, explanation: { bn: 'সঠিক উত্তর: হ্রদে — পাঠ্যাংশে বলা হয়েছে: «রবিবারে রোদ উঠলে ট্রেনে করে হ্রদে যেতে তোমার ইচ্ছে করবে?» (andare al lago)।', en: 'To the lake.' } },
+      { id: 'ls2-39-q2', prompt: { bn: 'বৃষ্টি হলে বিকল্প পরিকল্পনা কী?', en: 'What is their rain backup plan?' }, options: ['সিনেমা দেখা', 'শহরের জাদুঘরে যাওয়া', 'রেস্টুরেন্ট', 'ঘরে থাকা'], answer: 1, explanation: { bn: 'সঠিক উত্তর: শহরের জাদুঘরে যাওয়া — পাঠ্যাংশে বলা হয়েছে: «দারুণ! আর যদি বৃষ্টি হয়, তবে শহরের জাদুঘরে যাব।» (andremo al museo della città)।', en: 'City museum.' } },
     ],
   }),
   buildListening({
@@ -341,7 +341,7 @@ export const A2_LISTENING_2: ListeningExercise[] = [
     grammarIds: ['condizionale', 'pronomi-indiretti'],
     questions: [
       { id: 'ls2-40-q1', prompt: { bn: 'দম্পতি কত বছরের গৃহঋণ নিতে চায়?', en: 'How many years is the mortgage for?' }, options: ['১০ বছর', '১৫ বছর', '২০ বছর', '৩০ বছর'], answer: 2, explanation: { bn: 'ventennale = ২০ বছরের।', en: '20 years.' } },
-      { id: 'ls2-40-q2', prompt: { bn: 'ব্যাংক কত দিনে উত্তর দিতে পারবে?', en: 'In how many days can the bank reply?' }, options: ['২ দিনে', '৫ দিনে', '১০ দিনে', '১ মাসে'], answer: 1, explanation: { bn: 'in cinque giorni।', en: 'Five days.' } },
+      { id: 'ls2-40-q2', prompt: { bn: 'ব্যাংক কত দিনে উত্তর দিতে পারবে?', en: 'In how many days can the bank reply?' }, options: ['২ দিনে', '৫ দিনে', '১০ দিনে', '১ মাসে'], answer: 1, explanation: { bn: 'সঠিক উত্তর: ৫ দিনে — পাঠ্যাংশে বলা হয়েছে: «অগ্রিম টাকার ওপর নির্ভর করে, তবে স্থায়ী চুক্তি থাকলে পাঁচ দিনের মধ্যেই জানাতে পারব।» (in cinque giorni)।', en: 'Five days.' } },
     ],
   }),
   buildListening({
@@ -358,8 +358,8 @@ export const A2_LISTENING_2: ListeningExercise[] = [
     vocabKeys: ['w:A2:la tesi', 'w:A2:il compagno di corso', 'w:A2:da solo'],
     grammarIds: ['verbi-pronominali-a2', 'imperativo'],
     questions: [
-      { id: 'ls2-41-q1', prompt: { bn: 'নাদিয়ার কোন কাজে সাহায্যের দরকার?', en: 'What does Nadia need help with?' }, options: ['অ্যাসাইনমেন্ট প্রিন্ট', 'থিসিসের একটা অধ্যায় অনুবাদ', 'বই ফেরত', 'পরীক্ষার রেজিস্ট্রেশন'], answer: 1, explanation: { bn: 'tradurre tutto questo capitolo।', en: 'Translating a chapter.' } },
-      { id: 'ls2-41-q2', prompt: { bn: 'তারা কবে একসাথে পড়বে?', en: 'When will they read it together?' }, options: ['আজ রাতে', 'কাল ক্লাসের পর', 'শনিবার', 'পরের মাসে'], answer: 1, explanation: { bn: 'domani dopo le lezioni।', en: 'Tomorrow after class.' } },
+      { id: 'ls2-41-q1', prompt: { bn: 'নাদিয়ার কোন কাজে সাহায্যের দরকার?', en: 'What does Nadia need help with?' }, options: ['অ্যাসাইনমেন্ট প্রিন্ট', 'থিসিসের একটা অধ্যায় অনুবাদ', 'বই ফেরত', 'পরীক্ষার রেজিস্ট্রেশন'], answer: 1, explanation: { bn: 'সঠিক উত্তর: থিসিসের একটা অধ্যায় অনুবাদ — পাঠ্যাংশে বলা হয়েছে: «মার্কো, আমি একা এই পুরো অধ্যায়টা অনুবাদ করতে পারছি না!» (tradurre tutto questo capitolo)।', en: 'Translating a chapter.' } },
+      { id: 'ls2-41-q2', prompt: { bn: 'তারা কবে একসাথে পড়বে?', en: 'When will they read it together?' }, options: ['আজ রাতে', 'কাল ক্লাসের পর', 'শনিবার', 'পরের মাসে'], answer: 1, explanation: { bn: 'সঠিক উত্তর: কাল ক্লাসের পর — পাঠ্যাংশে বলা হয়েছে: «চিন্তা কোরো না, আজ সন্ধ্যায় আমাকে পাঠালে কাল ক্লাসের পর একসাথে পড়ে দেখব।» (domani dopo le lezioni)।', en: 'Tomorrow after class.' } },
     ],
   }),
   buildListening({
@@ -376,8 +376,8 @@ export const A2_LISTENING_2: ListeningExercise[] = [
     vocabKeys: ["w:A2:l'isola", 'w:A2:il porto', 'w:A2:prenotare'],
     grammarIds: ['verbi-servizio-a2', 'pronomi-relativi-a2'],
     questions: [
-      { id: 'ls2-42-q1', prompt: { bn: 'সারা এবার কেমন জায়গায় যেতে চায়?', en: 'What kind of place does Sara want this year?' }, options: ['বড় মহানগর', 'শান্ত দ্বীপ', 'পাহাড়ি শহর', 'ব্যস্ত বাজার'], answer: 1, explanation: { bn: 'un’isola tranquilla।', en: 'A quiet island.' } },
-      { id: 'ls2-42-q2', prompt: { bn: 'তারা কেন দ্রুত বুক করতে চায়?', en: 'Why do they want to book soon?' }, options: ['ট্রেন বন্ধ হবে', 'দাম বাড়ার আগে', 'হোটেল মেরামত হবে', 'কাজ শুরু হবে'], answer: 1, explanation: { bn: 'prima che i prezzi salgano।', en: 'Before prices rise.' } },
+      { id: 'ls2-42-q1', prompt: { bn: 'সারা এবার কেমন জায়গায় যেতে চায়?', en: 'What kind of place does Sara want this year?' }, options: ['বড় মহানগর', 'শান্ত দ্বীপ', 'পাহাড়ি শহর', 'ব্যস্ত বাজার'], answer: 1, explanation: { bn: 'সঠিক উত্তর: শান্ত দ্বীপ — পাঠ্যাংশে বলা হয়েছে: «এ বছর চিরচেনা ভিড় শহরের বদলে আমি কোনো শান্ত দ্বীপে যেতে চাই।» (un’isola tranquilla)।', en: 'A quiet island.' } },
+      { id: 'ls2-42-q2', prompt: { bn: 'তারা কেন দ্রুত বুক করতে চায়?', en: 'Why do they want to book soon?' }, options: ['ট্রেন বন্ধ হবে', 'দাম বাড়ার আগে', 'হোটেল মেরামত হবে', 'কাজ শুরু হবে'], answer: 1, explanation: { bn: 'সঠিক উত্তর: দাম বাড়ার আগে — পাঠ্যাংশে বলা হয়েছে: «তাহলে দাম বাড়ার আগেই চলো বুক করে ফেলি!» (prima che i prezzi salgano)।', en: 'Before prices rise.' } },
     ],
   }),
 ];

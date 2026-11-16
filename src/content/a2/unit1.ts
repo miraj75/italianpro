@@ -20,7 +20,7 @@ const lesson1: Lesson = {
   grammar: [
     {
       id: 'passato-prossimo',
-      title: { bn: 'passato prossimo (avere)', en: 'Passato prossimo with avere' },
+      title: { bn: 'নিকট অতীত কাল: Passato prossimo (avere সহায়ক ক্রিয়া যোগে)', en: 'Passato prossimo with avere' },
       explanation: {
         bn: 'সম্পন্ন অতীত কাজ বোঝাতে avere (বর্তমান রূপ: ho, hai, ha, abbiamo, avete, hanno) + পাস্ট পার্টিসিপল বসে। -are → -ato, -ere → -uto, -ire → -ito। অনিয়মিত রূপ: fare→fatto, leggere→letto, scrivere→scritto, vedere→visto, prendere→preso।',
         en: 'Form passato prossimo with present avere + past participle (-ato, -uto, -ito). Common irregulars: fatto, letto, scritto, visto, preso.',
@@ -48,10 +48,10 @@ const lesson1: Lesson = {
     ],
   },
   quiz: [
-    { id: 'q1', prompt: { bn: 'leggere-এর সঠিক পাস্ট পার্টিসিপল কোনটি?', en: 'What is the past participle of leggere?' }, options: ['leggeto', 'legguto', 'letto', 'leggito'], answer: 2, explanation: { bn: 'leggere → letto।', en: 'leggere is irregular: letto.' } },
-    { id: 'q2', prompt: { bn: 'শূন্যস্থান পূরণ করুন:', en: 'Complete:' }, it: 'Ieri noi ___ un buon libro.', options: ['abbiamo letto', 'siamo letti', 'ho letto', 'avete letto'], answer: 0, explanation: { bn: 'noi + abbiamo letto।', en: 'noi uses abbiamo.' } },
-    { id: 'q3', prompt: { bn: 'scrivere-এর অতীত রূপ:', en: 'Past participle of scrivere:' }, it: 'Hai ___ il messaggio?', options: ['scrivuto', 'scritto', 'scrivito', 'scrito'], answer: 1, explanation: { bn: 'scrivere → scritto।', en: 'scrivere → scritto.' } },
-    { id: 'q4', prompt: { bn: 'fare-এর অতীত রূপ:', en: 'Past participle of fare:' }, it: 'Che cosa avete ___ ieri?', options: ['fatto', 'fato', 'facuto', 'farito'], answer: 0, explanation: { bn: 'fare → fatto।', en: 'fare → fatto.' } },
+    { id: 'q1', prompt: { bn: 'leggere-এর সঠিক পাস্ট পার্টিসিপল কোনটি?', en: 'What is the past participle of leggere?' }, options: ['leggeto', 'legguto', 'letto', 'leggito'], answer: 2, explanation: { bn: 'ব্যাকরণ সূত্র: leggere → letto — leggere একটি অনিয়মিত ক্রিয়া, যার রূপ: letto।', en: 'leggere is irregular: letto.' } },
+    { id: 'q2', prompt: { bn: 'শূন্যস্থান পূরণ করুন:', en: 'Complete:' }, it: 'Ieri noi ___ un buon libro.', options: ['abbiamo letto', 'siamo letti', 'ho letto', 'avete letto'], answer: 0, explanation: { bn: 'ব্যাকরণগত গঠন: এখানে «noi + abbiamo letto» কাঠামোটি অনুসরণ করা হয়েছে।', en: 'noi uses abbiamo.' } },
+    { id: 'q3', prompt: { bn: 'scrivere-এর অতীত রূপ:', en: 'Past participle of scrivere:' }, it: 'Hai ___ il messaggio?', options: ['scrivuto', 'scritto', 'scrivito', 'scrito'], answer: 1, explanation: { bn: 'সঠিক রূপান্তর: «scrivere» থেকে পরিবর্তিত হয়ে «scritto» ব্যবহৃত হয়।', en: 'scrivere → scritto.' } },
+    { id: 'q4', prompt: { bn: 'fare-এর অতীত রূপ:', en: 'Past participle of fare:' }, it: 'Che cosa avete ___ ieri?', options: ['fatto', 'fato', 'facuto', 'farito'], answer: 0, explanation: { bn: 'সঠিক রূপান্তর: «fare» থেকে পরিবর্তিত হয়ে «fatto» ব্যবহৃত হয়।', en: 'fare → fatto.' } },
   ],
   tip: { bn: 'già (ইতিমধ্যে), ancora (এখনো), appena (এইমাত্র) সাধারণত সহায়ক ক্রিয়া ও পার্টিসিপলের মাঝখানে বসে: Ho già mangiato।', en: 'Adverbs già, ancora, appena normally sit between avere/essere and the participle: Ho già mangiato.' },
 };
@@ -153,7 +153,7 @@ const lesson3: Lesson = {
   },
   quiz: [
     { id: 'q1', prompt: { bn: 'হঠাৎ ঘটে যাওয়া কাজের কাল:', en: 'Tense for a sudden interrupting event:' }, it: 'Mentre cenavo, ___ il mio amico.', options: ['arrivava', 'è arrivato', 'arriverà', 'arriva'], answer: 1, explanation: { bn: 'হঠাৎ আগমন সম্পন্ন ঘটনা → è arrivato।', en: 'Single interruption uses passato prossimo.' } },
-    { id: 'q2', prompt: { bn: 'noi-এর সাথে essere imperfetto:', en: 'Imperfect of essere for noi:' }, options: ['siamo stati', 'eravamo', 'eravate', 'erano'], answer: 1, explanation: { bn: 'noi eravamo।', en: 'noi eravamo.' } },
+    { id: 'q2', prompt: { bn: 'noi-এর সাথে essere imperfetto:', en: 'Imperfect of essere for noi:' }, options: ['siamo stati', 'eravamo', 'eravate', 'erano'], answer: 1, explanation: { bn: 'সঠিক উত্তর ও ব্যাকরণ সূত্র: «noi eravamo» (noi eravamo)।', en: 'noi eravamo.' } },
     { id: 'q3', prompt: { bn: 'আবহাওয়া বর্ণনায়:', en: 'Setting a weather scene in the past:' }, it: 'Ieri mattina ___ molto caldo.', options: ['ha fatto', 'faceva', 'fa', 'fece'], answer: 1, explanation: { bn: 'পটভূমি বর্ণনায় imperfetto (faceva)।', en: 'Scene description uses faceva.' } },
     { id: 'q4', prompt: { bn: 'অতীতের নিয়মিত অভ্যাস:', en: 'Habitual action in childhood:' }, it: 'Da bambino ___ sempre in giardino.', options: ['ho giocato', 'giocavo', 'giocherò', 'gioco'], answer: 1, explanation: { bn: 'অতীতের অভ্যাসে giocavo (imperfetto)।', en: 'Past habits use giocavo.' } },
   ],

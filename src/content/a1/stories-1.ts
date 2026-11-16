@@ -55,7 +55,7 @@ export const A1_STORIES_1: StoryItem[] = [
     ],
     trueFalse: [
       { id: 'st1-tf1', statementIt: 'Marco è di Dhaka.', statement: { bn: 'মার্কো ঢাকার।', en: 'Marco is from Dhaka.' }, answer: false, explanation: { bn: 'রাহিম ঢাকার; মার্কো ইতালীয়।', en: 'Rahim is from Dhaka; Marco is Italian.' } },
-      { id: 'st1-tf2', statementIt: 'Roma è una città antica.', statement: { bn: 'রোম একটি প্রাচীন শহর।', en: 'Rome is an ancient city.' }, answer: true, explanation: { bn: 'La città è grande, luminosa e molto antica।', en: 'Directly stated in paragraph 2.' } },
+      { id: 'st1-tf2', statementIt: 'Roma è una città antica.', statement: { bn: 'রোম একটি প্রাচীন শহর।', en: 'Rome is an ancient city.' }, answer: true, explanation: { bn: 'বাক্যটি সত্য — গল্পের তথ্যানুযায়ী: «শহরটি বড়, উজ্জ্বল এবং খুব প্রাচীন। আমি স্থাপত্যবিদ্যার একজন ছাত্র।» (La città è grande, luminosa e molto antica)।', en: 'Directly stated in paragraph 2.' } },
     ],
     fillBlank: [
       { id: 'st1-fb1', sentence: 'Io ___ uno studente di architettura.', options: ['sei', 'è', 'sono', 'siete'], answer: 2, explanation: { bn: 'io-এর সাথে sono।', en: 'io takes sono.' } },
@@ -118,7 +118,7 @@ export const A1_STORIES_1: StoryItem[] = [
     ],
     mcq: [
       { id: 'st2-q1', prompt: { bn: 'বাবা কোথায় পত্রিকা পড়ছেন?', en: 'Where is father reading the newspaper?' }, options: ['রান্নাঘরে', 'বসার ঘরে', 'পার্কে', 'বাগানে'], answer: 1, explanation: { bn: 'in soggiorno = বসার ঘরে।', en: 'in soggiorno = in the living room.' } },
-      { id: 'st2-q2', prompt: { bn: 'বিকেলে কারা আসে?', en: 'Who arrives in the afternoon?' }, options: ['বন্ধুরা', 'সহকর্মীরা', 'চাচা-চাচি ও কাজিনরা', 'শিক্ষকেরা'], answer: 2, explanation: { bn: 'i miei zii e i nostri cugini।', en: 'Aunts, uncles and cousins arrive.' } },
+      { id: 'st2-q2', prompt: { bn: 'বিকেলে কারা আসে?', en: 'Who arrives in the afternoon?' }, options: ['বন্ধুরা', 'সহকর্মীরা', 'চাচা-চাচি ও কাজিনরা', 'শিক্ষকেরা'], answer: 2, explanation: { bn: 'সঠিক উত্তর: চাচা-চাচি ও কাজিনরা — পাঠ্যাংশে বলা হয়েছে: «বিকেলে আমাদের চাচা-চাচি ও কাজিনরা কফির জন্য আসেন।» (i miei zii e i nostri cugini)।', en: 'Aunts, uncles and cousins arrive.' } },
     ],
     trueFalse: [
       { id: 'st2-tf1', statementIt: 'Oggi è lunedì.', statement: { bn: 'আজ সোমবার।', en: 'Today is Monday.' }, answer: false, explanation: { bn: 'গল্পে বলা হয়েছে Oggi è domenica।', en: 'It is Sunday.' } },
@@ -184,7 +184,7 @@ export const A1_STORIES_1: StoryItem[] = [
     ],
     mcq: [
       { id: 'st3-q1', prompt: { bn: 'এলেনার ক্লাস কয়টায়?', en: 'What time is Elena’s class?' }, options: ['আটটায়', 'সাড়ে আটটায়', 'নয়টায়', 'দশটায়'], answer: 1, explanation: { bn: 'alle otto e mezza = সাড়ে আটটায়।', en: 'alle otto e mezza = 8:30.' } },
-      { id: 'st3-q2', prompt: { bn: 'নাস্তার দাম কত ছিল?', en: 'How much did breakfast cost?' }, options: ['দুই ইউরো', 'তিন ইউরো', 'চার ইউরো', 'পাঁচ ইউরো'], answer: 1, explanation: { bn: 'Elena paga tre euro।', en: 'She pays three euros.' } },
+      { id: 'st3-q2', prompt: { bn: 'নাস্তার দাম কত ছিল?', en: 'How much did breakfast cost?' }, options: ['দুই ইউরো', 'তিন ইউরো', 'চার ইউরো', 'পাঁচ ইউরো'], answer: 1, explanation: { bn: 'সঠিক উত্তর: তিন ইউরো — পাঠ্যাংশে বলা হয়েছে: «বারিস্তা হাসেন ও রসিদ দেন। এলেনা তিন ইউরো পরিশোধ করে বিশ্ববিদ্যালয়ের দিকে দৌড়ায়।» (Elena paga tre euro)।', en: 'She pays three euros.' } },
     ],
     trueFalse: [
       { id: 'st3-tf1', statementIt: 'Elena ha molto tempo stamattina.', statement: { bn: 'আজ সকালে এলেনার হাতে অনেক সময় আছে।', en: 'Elena has plenty of time this morning.' }, answer: false, explanation: { bn: 'তার খুব তাড়া আছে (ha molta fretta)।', en: 'She is in a great hurry.' } },
@@ -248,7 +248,7 @@ export const A1_STORIES_1: StoryItem[] = [
       { id: 'st4-tf1', statementIt: 'Lo zaino è rosso.', statement: { bn: 'ব্যাকপ্যাকটির রং লাল।', en: 'The backpack is red.' }, answer: false, explanation: { bn: 'ব্যাকপ্যাকটি নীল (lo zaino blu)।', en: 'It is blue.' } },
     ],
     fillBlank: [
-      { id: 'st4-fb1', sentence: 'Dentro ci sono ___ chiavi di casa.', options: ['i', 'gli', 'le', 'la'], answer: 2, explanation: { bn: 'la chiave → le chiavi।', en: 'Feminine plural → le chiavi.' } },
+      { id: 'st4-fb1', sentence: 'Dentro ci sono ___ chiavi di casa.', options: ['i', 'gli', 'le', 'la'], answer: 2, explanation: { bn: 'সঠিক রূপান্তর: «la chiave» থেকে পরিবর্তিত হয়ে «le chiavi» ব্যবহৃত হয়।', en: 'Feminine plural → le chiavi.' } },
     ],
     shortAnswer: [
       { id: 'st4-sa1', question: { bn: 'পাওলো ব্যাকপ্যাকটি কোথায় দেখেছে?', en: 'Where did Paolo see the backpack?' }, sampleAnswerIt: 'Sotto la sedia vicino alla finestra.', keywords: ['sotto', 'sedia'] },
@@ -305,7 +305,7 @@ export const A1_STORIES_1: StoryItem[] = [
       { id: 'st5-tf1', statementIt: 'Le penne sono rosse.', statement: { bn: 'কলমগুলো লাল রঙের।', en: 'The pens are red.' }, answer: false, explanation: { bn: 'গল্পে বলা আছে le penne nere (কালো)।', en: 'The pens are black (nere).' } },
     ],
     fillBlank: [
-      { id: 'st5-fb1', sentence: 'Studio le ___ nuove ogni sera.', options: ['parola', 'parole', 'paroli', 'parolo'], answer: 1, explanation: { bn: 'la parola → le parole।', en: 'Feminine -a → -e: le parole.' } },
+      { id: 'st5-fb1', sentence: 'Studio le ___ nuove ogni sera.', options: ['parola', 'parole', 'paroli', 'parolo'], answer: 1, explanation: { bn: 'সঠিক রূপান্তর: «la parola» থেকে পরিবর্তিত হয়ে «le parole» ব্যবহৃত হয়।', en: 'Feminine -a → -e: le parole.' } },
     ],
     shortAnswer: [
       { id: 'st5-sa1', question: { bn: 'বক্তা প্রতিদিন সন্ধ্যায় কী লেখে?', en: 'What does the speaker write every evening?' }, sampleAnswerIt: 'Scrive cinque frasi semplici.', keywords: ['cinque', 'frasi'] },
@@ -468,13 +468,13 @@ export const A1_STORIES_1: StoryItem[] = [
       },
     ],
     mcq: [
-      { id: 'st8-q1', prompt: { bn: 'মাত্তেও কোন দুটি ভাষায় কথা বলে?', en: 'Which two languages does Matteo speak?' }, options: ['ইতালিয়ান ও ফরাসি', 'ইতালিয়ান ও ইংরেজি', 'স্প্যানিশ ও বাংলা', 'জার্মান ও ইংরেজি'], answer: 1, explanation: { bn: 'parla italiano e inglese।', en: 'Italian and English.' } },
+      { id: 'st8-q1', prompt: { bn: 'মাত্তেও কোন দুটি ভাষায় কথা বলে?', en: 'Which two languages does Matteo speak?' }, options: ['ইতালিয়ান ও ফরাসি', 'ইতালিয়ান ও ইংরেজি', 'স্প্যানিশ ও বাংলা', 'জার্মান ও ইংরেজি'], answer: 1, explanation: { bn: 'সঠিক উত্তর: ইতালিয়ান ও ইংরেজি — পাঠ্যাংশে বলা হয়েছে: «দুপুরে অনেক অতিথি আসেন। মাত্তেও পর্যটকদের সাথে ইতালিয়ান ও ইংরেজিতে কথা বলে এবং তাদের অনুরোধ শোনে।» (parla italiano e inglese)।', en: 'Italian and English.' } },
     ],
     trueFalse: [
       { id: 'st8-tf1', statementIt: 'Matteo lavora in una banca.', statement: { bn: 'মাত্তেও একটি ব্যাংকে কাজ করে।', en: 'Matteo works in a bank.' }, answer: false, explanation: { bn: 'সে রেস্টুরেন্টে কাজ করে।', en: 'He works in a restaurant.' } },
     ],
     fillBlank: [
-      { id: 'st8-fb1', sentence: 'La sera Matteo ___ a casa stanco.', options: ['torno', 'torni', 'torna', 'torniamo'], answer: 2, explanation: { bn: 'lui (Matteo) → torna।', en: 'lui takes -a: torna.' } },
+      { id: 'st8-fb1', sentence: 'La sera Matteo ___ a casa stanco.', options: ['torno', 'torni', 'torna', 'torniamo'], answer: 2, explanation: { bn: 'সঠিক রূপান্তর: «lui (Matteo)» থেকে পরিবর্তিত হয়ে «torna» ব্যবহৃত হয়।', en: 'lui takes -a: torna.' } },
     ],
     shortAnswer: [
       { id: 'st8-sa1', question: { bn: 'প্রতিদিন সকালে মাত্তেও কী করে?', en: 'What does Matteo do every morning?' }, sampleAnswerIt: 'Prepara i tavoli e controlla il menù.', keywords: ['prepara', 'tavoli'] },
@@ -530,7 +530,7 @@ export const A1_STORIES_1: StoryItem[] = [
       { id: 'st9-tf1', statementIt: 'La festa è al ristorante.', statement: { bn: 'পার্টিটা রেস্টুরেন্টে হচ্ছে।', en: 'The party is at a restaurant.' }, answer: false, explanation: { bn: 'পার্টি তার বাড়ির বাগানে (nel giardino di casa sua)।', en: 'It is in her home garden.' } },
     ],
     fillBlank: [
-      { id: 'st9-fb1', sentence: 'Noi ___ una torta grande per Sara.', options: ['porto', 'porti', 'portiamo', 'portano'], answer: 2, explanation: { bn: 'noi → portiamo।', en: 'noi takes -iamo.' } },
+      { id: 'st9-fb1', sentence: 'Noi ___ una torta grande per Sara.', options: ['porto', 'porti', 'portiamo', 'portano'], answer: 2, explanation: { bn: 'সঠিক রূপান্তর: «noi» থেকে পরিবর্তিত হয়ে «portiamo» ব্যবহৃত হয়।', en: 'noi takes -iamo.' } },
     ],
     shortAnswer: [
       { id: 'st9-sa1', question: { bn: 'বন্ধুরা পার্টিতে কী কী নিয়ে যায়?', en: 'What do the friends bring to the party?' }, sampleAnswerIt: 'Portano musica, succhi di frutta e una torta.', keywords: ['torta', 'musica'] },
@@ -581,7 +581,7 @@ export const A1_STORIES_1: StoryItem[] = [
       },
     ],
     mcq: [
-      { id: 'st10-q1', prompt: { bn: 'তারা কয়টায় পড়া শেষ করে?', en: 'What time do they finish studying?' }, options: ['চারটায়', 'পাঁচটায়', 'ছয়টায়', 'সাতটায়'], answer: 2, explanation: { bn: 'Finiamo di studiare alle sei।', en: 'At six o’clock.' } },
+      { id: 'st10-q1', prompt: { bn: 'তারা কয়টায় পড়া শেষ করে?', en: 'What time do they finish studying?' }, options: ['চারটায়', 'পাঁচটায়', 'ছয়টায়', 'সাতটায়'], answer: 2, explanation: { bn: 'সঠিক উত্তর: ছয়টায় — পাঠ্যাংশে বলা হয়েছে: «আমরা ছয়টায় পড়া শেষ করি, বই বন্ধ করি এবং একসাথে এক কাপ গরম চা খাই।» (Finiamo di studiare alle sei)।', en: 'At six o’clock.' } },
     ],
     trueFalse: [
       { id: 'st10-tf1', statementIt: 'Beatrice e il narratore vanno al cinema mercoledì.', statement: { bn: 'বিয়াত্রিচে ও বক্তা বুধবার সিনেমায় যায়।', en: 'They go to the cinema on Wednesday.' }, answer: false, explanation: { bn: 'তারা লাইব্রেরিতে যায় (in biblioteca)।', en: 'They go to the library.' } },
@@ -594,7 +594,7 @@ export const A1_STORIES_1: StoryItem[] = [
     ],
     practice: {
       retellPrompt: { bn: 'বুধবার বিকেলের লাইব্রেরি অভিজ্ঞতাটি ৩ বাক্যে বলুন।', en: 'Retell the Wednesday afternoon study session.' },
-      completeMissing: { promptIt: 'Quando non ___ una parola, ___ al mio amico.', hint: { bn: 'capire + chiedere', en: 'understand + ask' }, sampleIt: 'Quando non capisco una parola, chiedo al mio amico.' },
+      completeMissing: { promptIt: 'Quando non ___ una parola, ___ al mio amico.', hint: { bn: 'বোঝা (capire) এবং জিজ্ঞেস করা (chiedere) ক্রিয়ার সঠিক রূপ বসান', en: 'understand + ask' }, sampleIt: 'Quando non capisco una parola, chiedo al mio amico.' },
       buildSimilar: { patternIt: 'Finiamo di studiare alle sei.', prompt: { bn: 'আপনি কখন কাজ বা পড়া শেষ করেন লিখুন।', en: 'Write when you finish work or study.' }, sampleIt: 'Finisco di lavorare alle cinque.' },
       altEndingPrompt: { bn: 'চা খাওয়ার পর তারা কোথায় যায়?', en: 'Where do they go after tea?' },
     },
@@ -637,7 +637,7 @@ export const A1_STORIES_1: StoryItem[] = [
       },
     ],
     mcq: [
-      { id: 'st11-q1', prompt: { bn: 'করিম কখন মাকে ইমেইল লেখে?', en: 'When does Karim write to his mother?' }, options: ['সোমবার সকালে', 'রবিবার সন্ধ্যায়', 'শুক্রবার রাতে', 'শনিবার দুপুরে'], answer: 1, explanation: { bn: 'Ogni domenica sera।', en: 'Every Sunday evening.' } },
+      { id: 'st11-q1', prompt: { bn: 'করিম কখন মাকে ইমেইল লেখে?', en: 'When does Karim write to his mother?' }, options: ['সোমবার সকালে', 'রবিবার সন্ধ্যায়', 'শুক্রবার রাতে', 'শনিবার দুপুরে'], answer: 1, explanation: { bn: 'সঠিক উত্তর: রবিবার সন্ধ্যায় — পাঠ্যাংশে বলা হয়েছে: «প্রতি রবিবার সন্ধ্যায় সে তার মাকে একটি লম্বা ইমেইল লেখে এবং পার্ক ও শহরের ছবি পাঠায়।» (Ogni domenica sera)।', en: 'Every Sunday evening.' } },
     ],
     trueFalse: [
       { id: 'st11-tf1', statementIt: 'A Milano fa molto caldo nell’email di Karim.', statement: { bn: 'করিমের ইমেইলে মিলানে খুব গরম পড়েছে বলে লেখা।', en: 'Karim writes it is very hot in Milan.' }, answer: false, explanation: { bn: 'সে লিখেছে A Milano fa fresco (হালকা ঠান্ডা/সতেজ আবহাওয়া)।', en: 'He writes it is cool (fa fresco).' } },
@@ -650,7 +650,7 @@ export const A1_STORIES_1: StoryItem[] = [
     ],
     practice: {
       retellPrompt: { bn: 'করিমের ইমেইলের মূল কথাগুলো বলুন।', en: 'Summarise Karim’s email to his mother.' },
-      completeMissing: { promptIt: 'Caro amico, ___ bene. Qui ___ bel tempo.', hint: { bn: 'stare + fare', en: 'stare + fare' }, sampleIt: 'Caro amico, sto bene. Qui fa bel tempo.' },
+      completeMissing: { promptIt: 'Caro amico, ___ bene. Qui ___ bel tempo.', hint: { bn: 'থাকা (stare) এবং করা (fare) ক্রিয়ার বর্তমান রূপ বসান', en: 'stare + fare' }, sampleIt: 'Caro amico, sto bene. Qui fa bel tempo.' },
       buildSimilar: { patternIt: 'Ogni domenica scrivo un messaggio alla mia famiglia.', prompt: { bn: 'আপনি কবে পরিবার বা বন্ধুকে মেসেজ পাঠান লিখুন।', en: 'Write when you message family or friends.' }, sampleIt: 'Ogni sera mando un messaggio a mio fratello.' },
       altEndingPrompt: { bn: 'করিমের মা উত্তরে কী লিখবেন?', en: 'What will Karim’s mother write back?' },
     },
@@ -701,7 +701,7 @@ export const A1_STORIES_1: StoryItem[] = [
       { id: 'st12-tf1', statementIt: 'Vanno a Firenze in autobus.', statement: { bn: 'তারা বাসে করে ফ্লোরেন্সে যাচ্ছে।', en: 'They go to Florence by bus.' }, answer: false, explanation: { bn: 'তারা ট্রেনে যাচ্ছে (in treno)।', en: 'They go by train.' } },
     ],
     fillBlank: [
-      { id: 'st12-fb1', sentence: 'Io e Nadia ___ a Firenze insieme.', options: ['vado', 'vai', 'andiamo', 'vanno'], answer: 2, explanation: { bn: 'Io e Nadia = noi → andiamo।', en: 'Io e Nadia = noi → andiamo.' } },
+      { id: 'st12-fb1', sentence: 'Io e Nadia ___ a Firenze insieme.', options: ['vado', 'vai', 'andiamo', 'vanno'], answer: 2, explanation: { bn: 'সঠিক রূপান্তর: «Io e Nadia = noi» থেকে পরিবর্তিত হয়ে «andiamo» ব্যবহৃত হয়।', en: 'Io e Nadia = noi → andiamo.' } },
     ],
     shortAnswer: [
       { id: 'st12-sa1', question: { bn: 'পিসা থেকে কারা আসছে?', en: 'Who is coming from Pisa?' }, sampleAnswerIt: 'I nostri amici di Pisa.', keywords: ['amici', 'pisa'] },

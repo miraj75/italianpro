@@ -19,7 +19,7 @@ const lesson1: Lesson = {
   grammar: [
     {
       id: 'verbi-pronominali-b1',
-      title: { bn: 'Verbi pronominali (cavarsela, sentirsela, prendersela, farcela)', en: 'Idiomatic pronominal verbs & ci/ne expressions' },
+      title: { bn: 'সর্বনামযুক্ত বাগধারা ক্রিয়া: Verbi pronominali (cavarsela, sentirsela, prendersela, farcela)', en: 'Idiomatic pronominal verbs & ci/ne expressions' },
       explanation: {
         bn: 'ইতালিয়ানে কিছু ক্রিয়ার সাথে সর্বনাম (ci, la, ne, si) স্থায়ীভাবে যুক্ত হয়ে নতুন বাগধারামূলক অর্থ তৈরি করে: cavarsela (সামলে নেওয়া), sentirsela di (মানসিক/শারীরিক শক্তি পাওয়া), prendersela (মন খারাপ করা/রাগ করা), farcela (সফল হওয়া), metterci (সময় লাগানো), tenerci (গুরুত্ব দেওয়া)।',
         en: 'Pronominal verbs combine a verb with fixed clitics (si, ci, la, ne) to create idiomatic meanings: cavarsela (get by/manage), sentirsela (feel up to), prendersela (take offence), farcela (succeed), tenerci (care deeply).',
@@ -46,7 +46,7 @@ const lesson1: Lesson = {
     ],
   },
   quiz: [
-    { id: 'q1', prompt: { bn: '«দেখবে তুমি দারুণভাবে সামলে নেবে» (tu + cavarsela):', en: '«You will see you will manage very well»:' }, it: 'Vedrai che ___ caverai benissimo!', options: ['te la', 'ti lo', 'se la', 'ce la'], answer: 0, explanation: { bn: 'tu → te la caverai।', en: 'tu takes te la caverai.' } },
+    { id: 'q1', prompt: { bn: '«দেখবে তুমি দারুণভাবে সামলে নেবে» (tu + cavarsela):', en: '«You will see you will manage very well»:' }, it: 'Vedrai che ___ caverai benissimo!', options: ['te la', 'ti lo', 'se la', 'ce la'], answer: 0, explanation: { bn: 'সঠিক রূপান্তর: «tu» থেকে পরিবর্তিত হয়ে «te la caverai» ব্যবহৃত হয়।', en: 'tu takes te la caverai.' } },
     { id: 'q2', prompt: { bn: '«আজ রাতে আমার বের হতে ইচ্ছে/শক্তি হচ্ছে না»:', en: '«Tonight I don’t feel up to going out»:' }, it: 'Stasera non ___ di uscire.', options: ['me la sento', 'me ne vado', 'ce l’ho', 'me la cavo'], answer: 0, explanation: { bn: 'sentirsela di + infinito = মানসিক/শারীরিক শক্তি পাওয়া।', en: 'non me la sento di = I don’t feel up to.' } },
     { id: 'q3', prompt: { bn: '«আমরা সফল হয়েছি!» (farcela অতীতে):', en: '«We made it / succeeded!»:' }, it: 'È stato difficile, ma alla fine ___ fatta!', options: ['ce l’abbiamo', 'ci la siamo', 'se l’hanno', 'me la sono'], answer: 0, explanation: { bn: 'farcela avere সহায়ক নেয়: ce l’abbiamo fatta!।', en: 'farcela takes avere: ce l’abbiamo fatta!' } },
     { id: 'q4', prompt: { bn: '«এটা আমার কাছে খুব গুরুত্বপূর্ণ»:', en: '«I care a lot about it»:' }, it: '___ molto che tu sia presente.', options: ['Ci tengo', 'Ci metto', 'Ne posso', 'Me ne vado'], answer: 0, explanation: { bn: 'tenerci (ci tengo) = খুব গুরুত্ব দেওয়া।', en: 'tenerci means to care deeply about something.' } },
@@ -100,10 +100,10 @@ const lesson2: Lesson = {
     ],
   },
   quiz: [
-    { id: 'q1', prompt: { bn: 'ভবিষ্যতে একটি কাজ শেষ হওয়ার পর আরেকটি কাজ:', en: 'Future action completed before another future action:' }, it: 'Appena ___ compilato il modulo, potrai prenotare.', options: ['avrai', 'avresti', 'avevi', 'abbia'], answer: 0, explanation: { bn: 'Appena + futuro anteriore (avrai compilato)।', en: 'Appena takes futuro anteriore.' } },
+    { id: 'q1', prompt: { bn: 'ভবিষ্যতে একটি কাজ শেষ হওয়ার পর আরেকটি কাজ:', en: 'Future action completed before another future action:' }, it: 'Appena ___ compilato il modulo, potrai prenotare.', options: ['avrai', 'avresti', 'avevi', 'abbia'], answer: 0, explanation: { bn: 'ব্যাকরণ সূত্র: Appena + futuro anteriore (avrai compilato) — Appena ভবিষ্যতের পূর্ববর্তী কাজ বোঝাতে futuro anteriore গ্রহণ করে।', en: 'Appena takes futuro anteriore.' } },
     { id: 'q2', prompt: { bn: 'অতীত ঘটনা সম্পর্কে বর্তমান অনুমান:', en: 'Present conjecture about a past event:' }, it: 'Non trovo le chiavi; le ___ lasciate in ufficio.', options: ['avrò', 'avrei', 'avevo', 'ebbi'], answer: 0, explanation: { bn: 'হয়ত অফিসে ফেলে এসেছি = le avrò lasciate।', en: 'Future perfect expresses conjecture about the past.' } },
-    { id: 'q3', prompt: { bn: '«nascere» ক্রিয়ার ৩য় পুরুষ একবচন passato remoto:', en: '3rd-person singular passato remoto of nascere:' }, it: 'Leonardo da Vinci ___ nel 1452.', options: ['nascette', 'nacque', 'nato', 'nasceva'], answer: 1, explanation: { bn: 'nascere → nacque।', en: 'The passato remoto of nascere is nacque.' } },
-    { id: 'q4', prompt: { bn: '«essere» ক্রিয়ার ৩য় পুরুষ একবচন passato remoto:', en: '3rd-person singular passato remoto of essere:' }, it: 'Il concerto ___ un grande successo.', options: ['fu', 'fosse', 'sarà', 'sia'], answer: 0, explanation: { bn: 'essere → fu।', en: 'The passato remoto of essere is fu.' } },
+    { id: 'q3', prompt: { bn: '«nascere» ক্রিয়ার ৩য় পুরুষ একবচন passato remoto:', en: '3rd-person singular passato remoto of nascere:' }, it: 'Leonardo da Vinci ___ nel 1452.', options: ['nascette', 'nacque', 'nato', 'nasceva'], answer: 1, explanation: { bn: 'ব্যাকরণ সূত্র: nascere → nacque — ক্রিয়ার ঐতিহাসিক অতীত (passato remoto) রূপ হলো: nascere is nacque।', en: 'The passato remoto of nascere is nacque.' } },
+    { id: 'q4', prompt: { bn: '«essere» ক্রিয়ার ৩য় পুরুষ একবচন passato remoto:', en: '3rd-person singular passato remoto of essere:' }, it: 'Il concerto ___ un grande successo.', options: ['fu', 'fosse', 'sarà', 'sia'], answer: 0, explanation: { bn: 'ব্যাকরণ সূত্র: essere → fu — ক্রিয়ার ঐতিহাসিক অতীত (passato remoto) রূপ হলো: essere is fu।', en: 'The passato remoto of essere is fu.' } },
   ],
   tip: { bn: 'উত্তর ও মধ্য ইতালিতে দৈনন্দিন কথোপকথনে passato prossimo-ই বেশি চলে, কিন্তু বই, সংবাদপত্র ও দক্ষিণ ইতালিতে passato remoto খুব ঘন ঘন ব্যবহৃত হয়।', en: 'While northern/central spoken Italian favours passato prossimo, books, history, news, and southern Italian use passato remoto extensively.' },
 };

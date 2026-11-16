@@ -67,7 +67,7 @@ export const GRAMMAR_DETAILS_A2: Record<string, GrammarDetailEntry> = {
       { it: 'Sara si è preparata in dieci minuti.', tr: { bn: 'সারা দশ মিনিটে তৈরি হয়ে গেছে।', en: 'Sara got ready in ten minutes.' } },
     ],
     exercises: [
-      { id: 'ex-a2-rif-1', prompt: { bn: 'অতীতে প্রতিফলক ক্রিয়া:', en: 'Reflexive in the past:' }, it: 'Ieri Giulia ___ divertita molto.', options: ['ha', 'si ha', 'si è', 'è si'], answer: 2, explanation: { bn: 'si + è + divertita।', en: 'si + è + feminine participle.' } },
+      { id: 'ex-a2-rif-1', prompt: { bn: 'অতীতে প্রতিফলক ক্রিয়া:', en: 'Reflexive in the past:' }, it: 'Ieri Giulia ___ divertita molto.', options: ['ha', 'si ha', 'si è', 'è si'], answer: 2, explanation: { bn: 'ব্যাকরণগত গঠন: এখানে «si + è + divertita» কাঠামোটি অনুসরণ করা হয়েছে।', en: 'si + è + feminine participle.' } },
     ],
     storyIds: ['st-a2-03'],
     vocabKeys: ['w:A2:svegliarsi', 'w:A2:prepararsi', 'w:A2:divertirsi'],
@@ -143,7 +143,7 @@ export const GRAMMAR_DETAILS_A2: Record<string, GrammarDetailEntry> = {
       { it: 'Mi potresti prestare la tua penna?', tr: { bn: 'আমাকে কি তোমার কলমটা একটু ধার দেবে?', en: 'Could you lend me your pen?' } },
     ],
     exercises: [
-      { id: 'ex-a2-pi-1', prompt: { bn: 'তাকে (মেয়ে) ফোন করা:', en: 'Calling her:' }, it: 'È il compleanno di Anna: ___ mando un messaggio.', options: ['la', 'le', 'gli', 'lo'], answer: 1, explanation: { bn: 'a Anna = le।', en: 'to Anna = le.' } },
+      { id: 'ex-a2-pi-1', prompt: { bn: 'তাকে (মেয়ে) ফোন করা:', en: 'Calling her:' }, it: 'È il compleanno di Anna: ___ mando un messaggio.', options: ['la', 'le', 'gli', 'lo'], answer: 1, explanation: { bn: 'সঠিক উত্তর ও ব্যাকরণ সূত্র: «a Anna = le» (to Anna = le)।', en: 'to Anna = le.' } },
     ],
     storyIds: ['st-a2-08'],
     vocabKeys: ['w:A2:prestare', 'w:A2:il regalo', 'w:A2:il messaggio'],
@@ -160,7 +160,7 @@ export const GRAMMAR_DETAILS_A2: Record<string, GrammarDetailEntry> = {
       { it: 'È più economico viaggiare in treno che in aereo.', tr: { bn: 'বিমানের চেয়ে ট্রেনে ভ্রমণ করা বেশি সাশ্রয়ী।', en: 'It is cheaper to travel by train than by plane.' } },
     ],
     exercises: [
-      { id: 'ex-a2-cmp-1', prompt: { bn: 'তুলনা:', en: 'Comparison:' }, it: 'Il gatto è più tranquillo ___ cane.', options: ['che', 'del', 'come', 'di'], answer: 1, explanation: { bn: 'di + il = del।', en: 'di + il cane = del cane.' } },
+      { id: 'ex-a2-cmp-1', prompt: { bn: 'তুলনা:', en: 'Comparison:' }, it: 'Il gatto è più tranquillo ___ cane.', options: ['che', 'del', 'come', 'di'], answer: 1, explanation: { bn: 'ব্যাকরণগত সংযোজন: di + il = del নিয়ম অনুসারে সঠিক রূপটি গঠিত হয়েছে।', en: 'di + il cane = del cane.' } },
     ],
     storyIds: ['st-a2-10'],
     vocabKeys: ['w:A2:tranquillo', 'w:A2:rumoroso', 'w:A2:comodo'],
@@ -181,7 +181,7 @@ export const GRAMMAR_DETAILS_A2: Record<string, GrammarDetailEntry> = {
       { it: 'Che cosa state preparando per cena?', tr: { bn: 'তোমরা রাতের খাবারের জন্য কী বানাচ্ছো?', en: 'What are you making for dinner?' } },
     ],
     exercises: [
-      { id: 'ex-a2-ger-1', prompt: { bn: 'চলমান কাজ:', en: 'Action in progress:' }, it: 'I colleghi stanno ___ la riunione.', options: ['finendo', 'finito', 'finire', 'finiti'], answer: 0, explanation: { bn: 'stanno + gerundio (-endo)।', en: 'stanno + finendo.' } },
+      { id: 'ex-a2-ger-1', prompt: { bn: 'চলমান কাজ:', en: 'Action in progress:' }, it: 'I colleghi stanno ___ la riunione.', options: ['finendo', 'finito', 'finire', 'finiti'], answer: 0, explanation: { bn: 'ব্যাকরণগত গঠন: এখানে «stanno + gerundio (-endo)» কাঠামোটি অনুসরণ করা হয়েছে।', en: 'stanno + finendo.' } },
     ],
     storyIds: ['st-a2-11'],
     vocabKeys: ['w:A2:la riunione', 'w:A2:finire'],
@@ -215,7 +215,7 @@ export const GRAMMAR_DETAILS_A2: Record<string, GrammarDetailEntry> = {
       { it: 'L’appuntamento è negli uffici del secondo piano.', tr: { bn: 'অ্যাপয়েন্টমেন্টটা দোতলার অফিসগুলোতে।', en: 'The appointment is in the second-floor offices.' } },
     ],
     exercises: [
-      { id: 'ex-a2-pa-1', prompt: { bn: 'in + gli = ?', en: 'Contract in + gli:' }, it: 'Ho lasciato i soldi ___ stivali.', options: ['in gli', 'negli', 'nel', 'sull’'], answer: 1, explanation: { bn: 'in + gli = negli।', en: 'in + gli contracts to negli.' } },
+      { id: 'ex-a2-pa-1', prompt: { bn: 'প্রিপোজিশন ও আর্টিকেল যুক্ত করে সংযুক্ত রূপটি লিখুন: in + gli = ?', en: 'Contract in + gli:' }, it: 'Ho lasciato i soldi ___ stivali.', options: ['in gli', 'negli', 'nel', 'sull’'], answer: 1, explanation: { bn: 'ব্যাকরণ সূত্র: in + gli = negli — in + gli যুক্ত হয়ে সংক্ষিপ্ত রূপ হয় negli।', en: 'in + gli contracts to negli.' } },
     ],
     storyIds: ['st-a2-13'],
     vocabKeys: ['w:A2:il comune', 'w:A2:lo sportello'],
@@ -236,7 +236,7 @@ export const GRAMMAR_DETAILS_A2: Record<string, GrammarDetailEntry> = {
       { it: 'Firmi qui in basso, per favore.', tr: { bn: 'অনুগ্রহ করে নিচে এখানে স্বাক্ষর করুন।', en: 'Please sign at the bottom here.' } },
     ],
     exercises: [
-      { id: 'ex-a2-im-1', prompt: { bn: 'না-বাচক tu আদেশ:', en: 'Negative tu command:' }, it: 'Marco, non ___ tardi stasera!', options: ['torni', 'torna', 'tornare', 'tornato'], answer: 2, explanation: { bn: 'non + infinito = non tornare।', en: 'Negative tu takes the infinitive.' } },
+      { id: 'ex-a2-im-1', prompt: { bn: 'না-বাচক tu আদেশ:', en: 'Negative tu command:' }, it: 'Marco, non ___ tardi stasera!', options: ['torni', 'torna', 'tornare', 'tornato'], answer: 2, explanation: { bn: 'ব্যাকরণ সূত্র: non + infinito = non tornare — Negative tu এর পরে ক্রিয়ার মূল রূপ (infinito) বসে।', en: 'Negative tu takes the infinitive.' } },
     ],
     storyIds: ['st-a2-14'],
     vocabKeys: ['w:A2:il semaforo', "w:A2:l'incrocio", 'w:A2:firmare'],
@@ -315,13 +315,13 @@ export const GRAMMAR_DETAILS_A2: Record<string, GrammarDetailEntry> = {
       en: 'Group irregular past participles by pattern: -tto (fatto, detto, letto, scritto), -so (preso, chiuso, risposto, messo), -sto (visto, chiesto, rimasto), -rto (aperto, offerto).',
     },
     commonMistakes: [
-      { wrong: 'Ho leggeto il giornale.', right: 'Ho letto il giornale.', note: { bn: 'leggere → letto।', en: 'The participle of leggere is letto.' } },
+      { wrong: 'Ho leggeto il giornale.', right: 'Ho letto il giornale.', note: { bn: 'ব্যাকরণ সূত্র: leggere → letto — ক্রিয়ার অতীত পার্টিসিপল হলো: leggere is letto।', en: 'The participle of leggere is letto.' } },
     ],
     examples: [
       { it: 'Abbiamo aperto un conto corrente alla posta.', tr: { bn: 'আমরা ডাকঘরে একটি ব্যাংক অ্যাকাউন্ট খুলেছি।', en: 'We opened an account at the post office.' } },
     ],
     exercises: [
-      { id: 'ex-a2-ppi-1', prompt: { bn: 'scrivere-এর পাস্ট পার্টিসিপল:', en: 'Past participle of scrivere:' }, it: 'Hai ___ la mail al direttore?', options: ['scrivuto', 'scritto', 'scrivito', 'scrito'], answer: 1, explanation: { bn: 'scrivere → scritto।', en: 'scrivere → scritto.' } },
+      { id: 'ex-a2-ppi-1', prompt: { bn: 'scrivere-এর পাস্ট পার্টিসিপল:', en: 'Past participle of scrivere:' }, it: 'Hai ___ la mail al direttore?', options: ['scrivuto', 'scritto', 'scrivito', 'scrito'], answer: 1, explanation: { bn: 'সঠিক রূপান্তর: «scrivere» থেকে পরিবর্তিত হয়ে «scritto» ব্যবহৃত হয়।', en: 'scrivere → scritto.' } },
     ],
     storyIds: ['st-a2-19'],
     vocabKeys: ['w:A2:il giornale', 'w:A2:il conto corrente'],
@@ -427,7 +427,7 @@ export const GRAMMAR_DETAILS_A2: Record<string, GrammarDetailEntry> = {
       { it: 'Appena arrivo a casa, ti scrivo un messaggio.', tr: { bn: 'বাড়ি পৌঁছানো মাত্রই তোমাকে মেসেজ লিখব।', en: 'As soon as I get home, I’ll text you.' } },
     ],
     exercises: [
-      { id: 'ex-a2-av-1', prompt: { bn: 'ক্রিয়াবিশেষণ:', en: 'Form the adverb:' }, it: 'Il treno viaggia ___.', options: ['veloce', 'velocemente', 'veloci', 'velocamente'], answer: 1, explanation: { bn: 'veloce + mente = velocemente।', en: 'veloce → velocemente.' } },
+      { id: 'ex-a2-av-1', prompt: { bn: 'ক্রিয়াবিশেষণ:', en: 'Form the adverb:' }, it: 'Il treno viaggia ___.', options: ['veloce', 'velocemente', 'veloci', 'velocamente'], answer: 1, explanation: { bn: 'ব্যাকরণগত সংযোজন: veloce + mente = velocemente নিয়ম অনুসারে সঠিক রূপটি গঠিত হয়েছে।', en: 'veloce → velocemente.' } },
     ],
     storyIds: ['st-a2-25'],
     vocabKeys: ['w:A2:velocemente', 'w:A2:lentamente', 'w:A2:appena'],
@@ -444,7 +444,7 @@ export const GRAMMAR_DETAILS_A2: Record<string, GrammarDetailEntry> = {
       { it: 'Sono riuscito a prendere l’ultimo autobus.', tr: { bn: 'আমি শেষ বাসটা ধরতে পেরেছি।', en: 'I managed to catch the last bus.' } },
     ],
     exercises: [
-      { id: 'ex-a2-pv-1', prompt: { bn: 'সঠিক অব্যয়:', en: 'Right preposition:' }, it: 'Non dimenticare ___ portare la tessera sanitaria!', options: ['a', 'di', 'per', 'in'], answer: 1, explanation: { bn: 'dimenticare di + infinito।', en: 'dimenticare takes di.' } },
+      { id: 'ex-a2-pv-1', prompt: { bn: 'সঠিক অব্যয়:', en: 'Right preposition:' }, it: 'Non dimenticare ___ portare la tessera sanitaria!', options: ['a', 'di', 'per', 'in'], answer: 1, explanation: { bn: 'ব্যাকরণগত গঠন: এখানে «dimenticare di + infinito» কাঠামোটি অনুসরণ করা হয়েছে।', en: 'dimenticare takes di.' } },
     ],
     storyIds: ['st-a2-26'],
     vocabKeys: ['w:A2:decidere', 'w:A2:riuscire a', 'w:A2:dimenticare'],

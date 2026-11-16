@@ -1,4 +1,4 @@
-import { useEffect, useMemo, useState } from 'react';
+import { useEffect, useMemo, useRef, useState } from 'react';
 import { CheckCircle2, ChevronRight, Headphones, Plus, RotateCcw, Square, Volume2 } from 'lucide-react';
 import type { ListeningExercise, ListeningKind } from '../../content/academyTypes';
 import { LESSON_PASS_SCORE } from '../../content/types';
@@ -9,7 +9,7 @@ import { grammarById } from '../../content/grammar';
 import { useRouter } from '../../app/router';
 import { useI18n } from '../../lib/i18n';
 import { dayKey } from '../../lib/date';
-import { speakItalian, stopSpeaking } from '../../lib/speech';
+import { isSpeechSessionActive, speakItalian, startSpeechSession, stopSpeaking } from '../../lib/speech';
 import { useProgress, useStudyTimer } from '../../state/ProgressContext';
 import { Button, GlassCard, Pill, cx } from '../../components/ui';
 import { SpeakButton } from '../../components/SpeakButton';
@@ -47,9 +47,18 @@ export function ListeningScreen() {
   const [activeLine, setActiveLine] = useState<number | null>(null);
   const [quizKey, setQuizKey] = useState(0);
   const [quizResult, setQuizResult] = useState<QuizResult[] | null>(null);
+  const sessionRef = useRef(0);
+
+  const stopAudio = () => {
+    sessionRef.current += 1;
+    void stopSpeaking();
+    setPlaying(false);
+    setActiveLine(null);
+  };
 
   useEffect(() => {
     let mounted = true;
+    stopAudio();
     setLoading(true);
     setActive(null);
     setQuizResult(null);
@@ -60,6 +69,7 @@ export function ListeningScreen() {
     });
     return () => {
       mounted = false;
+      sessionRef.current += 1;
       void stopSpeaking();
     };
   }, [level]);
@@ -71,24 +81,24 @@ export function ListeningScreen() {
   );
 
   const playAll = async (ex: ListeningExercise, rate: number) => {
+    const sessionId = startSpeechSession();
+    sessionRef.current = sessionId;
     setPlaying(true);
     try {
       for (let i = 0; i < ex.lines.length; i++) {
+        if (sessionRef.current !== sessionId || !isSpeechSessionActive(sessionId)) break;
         setActiveLine(i);
-        await speakItalian(ex.lines[i]!.it, rate);
+        await speakItalian(ex.lines[i]!.it, rate, sessionId);
+        if (sessionRef.current !== sessionId || !isSpeechSessionActive(sessionId)) break;
       }
     } catch {
-      // handled cleanly
+      // handled cleanly on cancel or TTS unavailability
     } finally {
-      setPlaying(false);
-      setActiveLine(null);
+      if (sessionRef.current === sessionId) {
+        setPlaying(false);
+        setActiveLine(null);
+      }
     }
-  };
-
-  const stopAudio = () => {
-    void stopSpeaking();
-    setPlaying(false);
-    setActiveLine(null);
   };
 
   if (active) {

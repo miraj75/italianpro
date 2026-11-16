@@ -45,10 +45,10 @@ const lesson1: Lesson = {
     ],
   },
   quiz: [
-    { id: 'q1', prompt: { bn: 'সঠিক অব্যয় বসান:', en: 'Pick the right preposition:' }, it: 'Ho finito ___ compilare tutti i moduli.', options: ['a', 'di', 'per', 'in'], answer: 1, explanation: { bn: 'finire di + infinito।', en: 'finire takes di.' } },
+    { id: 'q1', prompt: { bn: 'সঠিক অব্যয় বসান:', en: 'Pick the right preposition:' }, it: 'Ho finito ___ compilare tutti i moduli.', options: ['a', 'di', 'per', 'in'], answer: 1, explanation: { bn: 'ব্যাকরণগত গঠন: এখানে «finire di + infinito» কাঠামোটি অনুসরণ করা হয়েছে।', en: 'finire takes di.' } },
     { id: 'q2', prompt: { bn: 'এখনো চলমান কাজ:', en: 'Action still ongoing now:' }, it: 'Lavoro in questa azienda ___ maggio.', options: ['fa', 'fra', 'da', 'per'], answer: 2, explanation: { bn: 'মে মাস থেকে এখনো কাজ করছেন → da।', en: 'Since May (still continuing) uses da.' } },
     { id: 'q3', prompt: { bn: '"দুই সপ্তাহ আগে":', en: '"Two weeks ago":' }, options: ['da due settimane', 'fra due settimane', 'due settimane fa', 'per due settimane'], answer: 2, explanation: { bn: 'অতীতের সময় আগে = … fa।', en: 'Ago = fa.' } },
-    { id: 'q4', prompt: { bn: 'riuscire-এর পর কোন অব্যয় বসে?', en: 'Which preposition follows riuscire?' }, it: 'Sono riuscito ___ superare l’esame.', options: ['di', 'a', 'da', 'in'], answer: 1, explanation: { bn: 'riuscire a + infinito।', en: 'riuscire always takes a.' } },
+    { id: 'q4', prompt: { bn: 'riuscire-এর পর কোন অব্যয় বসে?', en: 'Which preposition follows riuscire?' }, it: 'Sono riuscito ___ superare l’esame.', options: ['di', 'a', 'da', 'in'], answer: 1, explanation: { bn: 'ব্যাকরণগত গঠন: এখানে «riuscire a + infinito» কাঠামোটি অনুসরণ করা হয়েছে।', en: 'riuscire always takes a.' } },
   ],
   tip: { bn: 'অফিসে বা ইন্টারভিউতে আনুষ্ঠানিক Lei (vive, può, conosce) ও দাপ্তরিক শব্দ (contratto, colloquio, orario) ব্যবহার করুন।', en: 'Use formal Lei and accurate terms like contratto, colloquio, tirocinio in interviews.' },
 };
@@ -152,7 +152,7 @@ const lesson3: Lesson = {
   quiz: [
     { id: 'q1', prompt: { bn: 'সঠিক অনির্দিষ্ট শব্দ:', en: 'Pick the right indefinite:' }, it: 'Ho comprato ___ riviste italiane.', options: ['qualche', 'ogni', 'alcune', 'nessuna'], answer: 2, explanation: { bn: 'riviste স্ত্রীলিঙ্গ বহুবচন → alcune।', en: 'Plural feminine riviste takes alcune.' } },
     { id: 'q2', prompt: { bn: 'দ্বৈত না-বাচক:', en: 'Double negative:' }, it: 'Ieri sera ___ ho incontrato ___ per strada.', options: ['non / qualcuno', 'non / nessuno', 'mai / nessuno', 'non / niente'], answer: 1, explanation: { bn: 'মানুষ বোঝাতে non … nessuno।', en: 'Nobody = non … nessuno.' } },
-    { id: 'q3', prompt: { bn: '"চলে যাচ্ছি":', en: '"I am leaving / heading off":' }, options: ['Ce la faccio', 'Me ne vado', 'Ci vuole', 'Mi annoio'], answer: 1, explanation: { bn: 'andarsene → me ne vado।', en: 'andarsene → me ne vado.' } },
+    { id: 'q3', prompt: { bn: '"চলে যাচ্ছি":', en: '"I am leaving / heading off":' }, options: ['Ce la faccio', 'Me ne vado', 'Ci vuole', 'Mi annoio'], answer: 1, explanation: { bn: 'সঠিক রূপান্তর: «andarsene» থেকে পরিবর্তিত হয়ে «me ne vado» ব্যবহৃত হয়।', en: 'andarsene → me ne vado.' } },
     { id: 'q4', prompt: { bn: 'qualche-এর পর বিশেষ্য কেমন হয়?', en: 'Noun form after qualche:' }, it: 'Ho aspettato qualche ___.', options: ['minuti', 'minuto', 'ore', 'giorni'], answer: 1, explanation: { bn: 'qualche সবসময় একবচন বিশেষ্য নেয়।', en: 'qualche always takes a singular noun.' } },
   ],
   tip: { bn: 'nessuno যদি বাক্যের শুরুতে কর্তা হয় তবে non লাগে না: Nessuno lo sa (কেউ জানে না)।', en: 'When nessuno opens the sentence as the subject, omit non: Nessuno ha chiamato.' },

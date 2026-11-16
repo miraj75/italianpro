@@ -46,8 +46,8 @@ const lesson1: Lesson = {
   },
   quiz: [
     { id: 'q1', prompt: { bn: 'ভদ্রভাবে সাহায্য চাইতে:', en: 'Polite request to staff:' }, it: 'Scusi, ___ darmi la ricevuta?', options: ['può', 'potrebbe', 'vuole', 'deve'], answer: 1, explanation: { bn: 'potrebbe + infinito সবচেয়ে ভদ্র।', en: 'potrebbe is the most polite conditional.' } },
-    { id: 'q2', prompt: { bn: 'venire-এর ভবিষ্যৎ io রূপ:', en: 'Future io of venire:' }, options: ['venirò', 'verrò', 'vengo', 'vorrò'], answer: 1, explanation: { bn: 'venire → verrò।', en: 'venire contracts to verrò.' } },
-    { id: 'q3', prompt: { bn: '"প্রায় ছাড়তে যাচ্ছে":', en: '"About to leave":' }, it: 'L’aereo ___ decollare.', options: ['è per', 'sta per', 'va per', 'fa per'], answer: 1, explanation: { bn: 'stare per + infinito।', en: 'stare per + infinitive.' } },
+    { id: 'q2', prompt: { bn: 'venire-এর ভবিষ্যৎ io রূপ:', en: 'Future io of venire:' }, options: ['venirò', 'verrò', 'vengo', 'vorrò'], answer: 1, explanation: { bn: 'ব্যাকরণ সূত্র: venire → verrò — venire যুক্ত হয়ে সংক্ষিপ্ত রূপ হয় verrò।', en: 'venire contracts to verrò.' } },
+    { id: 'q3', prompt: { bn: '"প্রায় ছাড়তে যাচ্ছে":', en: '"About to leave":' }, it: 'L’aereo ___ decollare.', options: ['è per', 'sta per', 'va per', 'fa per'], answer: 1, explanation: { bn: 'আসন্ন কাজ প্রকাশের গঠন (stare per + infinito)', en: 'stare per + infinitive.' } },
     { id: 'q4', prompt: { bn: 'ভদ্রভাবে রুম চাওয়া:', en: 'Politely requesting a room:' }, it: '___ prenotare una camera singola.', options: ['Vorrò', 'Vorrei', 'Volevo ieri', 'Voluto'], answer: 1, explanation: { bn: 'Vorrei = আমি চাইতাম (ভদ্র অনুরোধ)।', en: 'Vorrei is the polite conditional.' } },
   ],
   tip: { bn: 'volere (ভবিষ্যৎ vorrò) ও condizionale (vorrei) গুলিয়ে ফেলবেন না — অনুরোধে সবসময় vorrei!।', en: 'Don’t confuse vorrei (I’d like) with vorrò (I will want).' },
@@ -98,7 +98,7 @@ const lesson2: Lesson = {
     ],
   },
   quiz: [
-    { id: 'q1', prompt: { bn: 'in + la = ?', en: 'Contract in + la:' }, options: ['in la', 'nella', 'alla', 'sulla'], answer: 1, explanation: { bn: 'in + la = nella।', en: 'in + la = nella.' } },
+    { id: 'q1', prompt: { bn: 'প্রিপোজিশন ও আর্টিকেল যুক্ত করে সংযুক্ত রূপটি লিখুন: in + la = ?', en: 'Contract in + la:' }, options: ['in la', 'nella', 'alla', 'sulla'], answer: 1, explanation: { bn: 'ব্যাকরণগত সংযোজন: in + la = nella নিয়ম অনুসারে সঠিক রূপটি গঠিত হয়েছে।', en: 'in + la = nella.' } },
     { id: 'q2', prompt: { bn: 'সংখ্যাসহ উত্তর:', en: 'Answer with a quantity:' }, it: 'Quanti biglietti compri? ___ compro tre.', options: ['Li', 'Ci', 'Ne', 'Le'], answer: 2, explanation: { bn: 'সংখ্যাসহ অংশে Ne।', en: 'Quantities use ne.' } },
     { id: 'q3', prompt: { bn: 'আনুষ্ঠানিক Lei আদেশ (girare):', en: 'Formal Lei imperative of girare:' }, it: '___ a destra dopo il ponte.', options: ['Gira', 'Giri', 'Girate', 'Girare'], answer: 1, explanation: { bn: '-are ক্রিয়ার Lei আদেশে -i → Giri।', en: 'Formal -are imperative ends in -i.' } },
     { id: 'q4', prompt: { bn: 'স্থান বোঝাতে কোন সর্বনাম বসে?', en: 'Which pronoun replaces a place?' }, it: 'Vai in banca? Sì, ___ vado subito.', options: ['ne', 'ci', 'la', 'lo'], answer: 1, explanation: { bn: 'স্থান (সেখানে) বোঝাতে ci বসে।', en: 'ci means "there".' } },
@@ -152,7 +152,7 @@ const lesson3: Lesson = {
   quiz: [
     { id: 'q1', prompt: { bn: 'ক্রিয়ার সাথে সঠিক শব্দ:', en: 'Adverb modifying a verb:' }, it: 'Dormo ___ in una stanza silenziosa.', options: ['migliore', 'meglio', 'ottima', 'più buono'], answer: 1, explanation: { bn: 'dormo ক্রিয়ার সাথে meglio বসে।', en: 'Modify verbs with meglio.' } },
     { id: 'q2', prompt: { bn: 'অতীতে ప్రత్యক্ষ সর্বনাম:', en: 'Direct pronoun in past tense:' }, it: 'Dove sono i moduli? Li ho ___ qui.', options: ['lasciato', 'lasciata', 'lasciati', 'lasciate'], answer: 2, explanation: { bn: 'Li (পুং বহুবচন) → lasciati।', en: 'Li agrees masculine plural.' } },
-    { id: 'q3', prompt: { bn: 'আমাকে সাহায্য করা:', en: 'Helping her:' }, it: 'Sara ha molti pacchi: ___ do una mano.', options: ['la', 'le', 'gli', 'lo'], answer: 1, explanation: { bn: 'dare una mano a Sara → le।', en: 'Indirect pronoun for Sara is le.' } },
+    { id: 'q3', prompt: { bn: 'আমাকে সাহায্য করা:', en: 'Helping her:' }, it: 'Sara ha molti pacchi: ___ do una mano.', options: ['la', 'le', 'gli', 'lo'], answer: 1, explanation: { bn: 'ব্যাকরণ সূত্র: dare una mano a Sara → le — এর জন্য পরোক্ষ সর্বনাম হলো Sara is le।', en: 'Indirect pronoun for Sara is le.' } },
     { id: 'q4', prompt: { bn: 'দুটি বিশেষ্যের তুলনা:', en: 'Comparing two nouns:' }, it: 'Il treno è più veloce ___ autobus.', options: ['che', 'dell’', 'dall’', 'all’'], answer: 1, explanation: { bn: 'বিশেষ্যের তুলনায় di + l’ = dell’।', en: 'Comparison before a noun uses di (dell’).' } },
   ],
   tip: { bn: 'gli মানে "তাকে (পুরুষ)" এবং আধুনিক ইতালিয়ানে "তাদেরকেও (a loro)" বোঝায়।', en: 'gli means both "to him" and, in modern Italian, "to them".' },

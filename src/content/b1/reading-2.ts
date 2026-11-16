@@ -13,7 +13,7 @@ export const B1_READING_2: ReadingPassage[] = [
     grammarHighlights: [{ excerpt: 'Saranno le nove / avrà trovato traffico', note: { bn: 'অনুমানের ভবিষ্যৎ (futuro di probabilità)।', en: 'Future of probability.' }, grammarId: 'futuro-probabilita' }],
     relatedGrammarIds: ['futuro-probabilita'],
     questions: [
-      { id: 'rd-b1-22-q1', prompt: { bn: 'পরীক্ষার সেশনে কতজন শিক্ষার্থী উপস্থিত আছে?', en: 'How many students are already there for the exam sitting?' }, options: ['৫ জন', '১০ জন', '২০ জন', '৫০ জন'], answer: 2, explanation: { bn: 'venti studenti।', en: 'Twenty students.' } },
+      { id: 'rd-b1-22-q1', prompt: { bn: 'পরীক্ষার সেশনে কতজন শিক্ষার্থী উপস্থিত আছে?', en: 'How many students are already there for the exam sitting?' }, options: ['৫ জন', '১০ জন', '২০ জন', '৫০ জন'], answer: 2, explanation: { bn: 'সঠিক উত্তর: ২০ জন — পাঠ্যাংশে বলা হয়েছে: «যা হোক এই সেশনে ইতিমধ্যে বিশজন নিবন্ধিত শিক্ষার্থী এসেছে; তোমার জন্য সামনের সারিতে একটা সিট রাখছি!» (venti studenti)।', en: 'Twenty students.' } },
     ],
   }),
   buildReading({
@@ -27,7 +27,7 @@ export const B1_READING_2: ReadingPassage[] = [
     grammarHighlights: [{ excerpt: 'cambiò / unirono / favorì', note: { bn: 'ঐতিহাসিক প্রবন্ধে passato remoto।', en: 'Passato remoto in historical essays.' }, grammarId: 'passato-remoto-b1' }],
     relatedGrammarIds: ['passato-remoto-b1'],
     questions: [
-      { id: 'rd-b1-23-q1', prompt: { bn: 'কোন প্রযুক্তি ইউরোপ জুড়ে বইয়ের প্রসার বাড়িয়েছিল?', en: 'What technology helped spread books across Europe?' }, options: ['চলমান অক্ষরের মুদ্রণযন্ত্র (stampa a caratteri mobili)', 'টেলিগ্রাফ', 'রেডিও', 'ফটোগ্রাফি'], answer: 0, explanation: { bn: 'la stampa a caratteri mobili।', en: 'Movable-type printing.' } },
+      { id: 'rd-b1-23-q1', prompt: { bn: 'কোন প্রযুক্তি ইউরোপ জুড়ে বইয়ের প্রসার বাড়িয়েছিল?', en: 'What technology helped spread books across Europe?' }, options: ['চলমান অক্ষরের মুদ্রণযন্ত্র (stampa a caratteri mobili)', 'টেলিগ্রাফ', 'রেডিও', 'ফটোগ্রাফি'], answer: 0, explanation: { bn: 'সঠিক উত্তর: চলমান অক্ষরের মুদ্রণযন্ত্র (stampa a caratteri mobili) — পাঠ্যাংশে বলা হয়েছে: «চলমান অক্ষরের মুদ্রণযন্ত্রও বইয়ের প্রসারকে ত্বরান্বিত করেছিল, যা প্রতিটি লেখককে সারা ইউরোপের পাঠকের কাছে পৌঁছাতে সাহায্য করেছিল।» (la stampa a caratteri mobili)।', en: 'Movable-type printing.' } },
     ],
   }),
   buildReading({
@@ -41,7 +41,7 @@ export const B1_READING_2: ReadingPassage[] = [
     grammarHighlights: [{ excerpt: 'ce li ha rilasciati / me l’ha consegnata', note: { bn: 'অতীতে যৌগিক সর্বনাম ও পার্টিসিপল মিল।', en: 'Combined pronouns with past participle agreement.' }, grammarId: 'pronomi-doppi-passato' }],
     relatedGrammarIds: ['pronomi-doppi-passato'],
     questions: [
-      { id: 'rd-b1-24-q1', prompt: { bn: 'রেজিস্টার্ড চিঠিটি কোথা থেকে এসেছে?', en: 'Where did the registered letter come from?' }, options: ['বিমা কোম্পানি থেকে (dell’assicurazione)', 'স্কুল থেকে', 'হাসপাতাল থেকে', 'বিমানবন্দর থেকে'], answer: 0, explanation: { bn: 'la raccomandata dell’assicurazione।', en: 'From the insurance company.' } },
+      { id: 'rd-b1-24-q1', prompt: { bn: 'রেজিস্টার্ড চিঠিটি কোথা থেকে এসেছে?', en: 'Where did the registered letter come from?' }, options: ['বিমা কোম্পানি থেকে (dell’assicurazione)', 'স্কুল থেকে', 'হাসপাতাল থেকে', 'বিমানবন্দর থেকে'], answer: 0, explanation: { bn: 'সঠিক উত্তর: বিমা কোম্পানি থেকে (dell’assicurazione) — পাঠ্যাংশে বলা হয়েছে: «বিমা কোম্পানির রেজিস্টার্ড চিঠিটিও এসেছে; আমার স্ত্রী কিছুক্ষণ আগে আমাকে সেটি দিয়েছেন এবং আমি আপনাকে তার কপি পাঠাচ্ছি।» (la raccomandata dell’assicurazione)।', en: 'From the insurance company.' } },
     ],
   }),
   buildReading({
@@ -55,7 +55,7 @@ export const B1_READING_2: ReadingPassage[] = [
     grammarHighlights: [{ excerpt: 'ci vogliono / ne vale davvero la pena', note: { bn: 'volerci এবং valerne la pena।', en: 'Idiomatic volerci and valerne la pena.' }, grammarId: 'ci-ne-idiomatici' }],
     relatedGrammarIds: ['ci-ne-idiomatici'],
     questions: [
-      { id: 'rd-b1-25-q1', prompt: { bn: 'উচ্চগতির ট্রেনে ফ্লোরেন্স থেকে বোলোনিয়া যেতে কত সময় লাগে?', en: 'How long does it take between Florence and Bologna by high-speed train?' }, options: ['১৫ মিনিট', '৩৫ মিনিট', '১ ঘণ্টা ৩০ মিনিট', '২ ঘণ্টা'], answer: 1, explanation: { bn: 'trentacinque minuti।', en: 'Thirty-five minutes.' } },
+      { id: 'rd-b1-25-q1', prompt: { bn: 'উচ্চগতির ট্রেনে ফ্লোরেন্স থেকে বোলোনিয়া যেতে কত সময় লাগে?', en: 'How long does it take between Florence and Bologna by high-speed train?' }, options: ['১৫ মিনিট', '৩৫ মিনিট', '১ ঘণ্টা ৩০ মিনিট', '২ ঘণ্টা'], answer: 1, explanation: { bn: 'সঠিক উত্তর: ৩৫ মিনিট — পাঠ্যাংশে বলা হয়েছে: «হাজার হাজার ইতালীয় পেশাজীবীর জন্য উচ্চগতির রেল নেটওয়ার্ক কাজের ধরনে বিপ্লব এনেছে। ফ্লোরেন্স ও বোলোনিয়ার মধ্যে মাত্র পঁয়ত্রিশ মিনিট সময় লাগে।» (trentacinque minuti)।', en: 'Thirty-five minutes.' } },
     ],
   }),
   buildReading({
@@ -69,7 +69,7 @@ export const B1_READING_2: ReadingPassage[] = [
     grammarHighlights: [{ excerpt: 'va conservata / vengono controllati', note: { bn: 'andare + participio (আবশ্যকতা) এবং venire + participio।', en: 'Passive with andare and venire.' }, grammarId: 'passivo-venire-andare' }],
     relatedGrammarIds: ['passivo-venire-andare'],
     questions: [
-      { id: 'rd-b1-26-q1', prompt: { bn: 'কর রসিদের সাথে আর কী সংরক্ষণ করতে হবে?', en: 'What must be kept together with the tax receipt?' }, options: ['ইলেকট্রনিক পেমেন্টের কপি', 'ট্রেনের টিকিট', 'পরিচয়পত্রের মূল কপি', 'চিকিৎসকের ছবি'], answer: 0, explanation: { bn: 'la copia del pagamento elettronico।', en: 'The copy of the electronic payment.' } },
+      { id: 'rd-b1-26-q1', prompt: { bn: 'কর রসিদের সাথে আর কী সংরক্ষণ করতে হবে?', en: 'What must be kept together with the tax receipt?' }, options: ['ইলেকট্রনিক পেমেন্টের কপি', 'ট্রেনের টিকিট', 'পরিচয়পত্রের মূল কপি', 'চিকিৎসকের ছবি'], answer: 0, explanation: { bn: 'সঠিক উত্তর: ইলেকট্রনিক পেমেন্টের কপি — পাঠ্যাংশে বলা হয়েছে: «করদাতাদের মনে করিয়ে দেওয়া হচ্ছে যে স্বাস্থ্য বা স্কুল খরচ সংক্রান্ত প্রতিটি কর রসিদ ইলেকট্রনিক পেমেন্টের কপির সাথে সংরক্ষণ করতে হবে।» (la copia del pagamento elettronico)।', en: 'The copy of the electronic payment.' } },
     ],
   }),
   buildReading({
@@ -83,7 +83,7 @@ export const B1_READING_2: ReadingPassage[] = [
     grammarHighlights: [{ excerpt: 'si sono esaminate / si è scelta', note: { bn: 'অতীতে si passivante।', en: 'Past passive si.' }, grammarId: 'si-passivante-tempi' }],
     relatedGrammarIds: ['si-passivante-tempi'],
     questions: [
-      { id: 'rd-b1-27-q1', prompt: { bn: 'বিতর্কটি কতক্ষণ চলেছিল?', en: 'How long did the discussion last?' }, options: ['১ ঘণ্টা', '৩ ঘণ্টা', '৫ ঘণ্টা', 'সারাদিন'], answer: 1, explanation: { bn: 'Dopo tre ore di confronto।', en: 'Three hours.' } },
+      { id: 'rd-b1-27-q1', prompt: { bn: 'বিতর্কটি কতক্ষণ চলেছিল?', en: 'How long did the discussion last?' }, options: ['১ ঘণ্টা', '৩ ঘণ্টা', '৫ ঘণ্টা', 'সারাদিন'], answer: 1, explanation: { bn: 'সঠিক উত্তর: ৩ ঘণ্টা — পাঠ্যাংশে বলা হয়েছে: «তিন ঘণ্টা গঠনমূলক আলোচনার পর একটি পরিবেশগত সমাধান বেছে নেওয়া হয়েছে যাতে নতুন বৈদ্যুতিক বাস ও রাস্তার ধারে বৃক্ষরোপণের ব্যবস্থা রয়েছে।» (Dopo tre ore di confronto)।', en: 'Three hours.' } },
     ],
   }),
   buildReading({
@@ -97,7 +97,7 @@ export const B1_READING_2: ReadingPassage[] = [
     grammarHighlights: [{ excerpt: 'cavarsela / arrangiarsi', note: { bn: 'সর্বনামযুক্ত বাগধারামূলক ক্রিয়া।', en: 'Pronominal verbs.' }, grammarId: 'verbi-pronominali-b1' }],
     relatedGrammarIds: ['verbi-pronominali-b1', 'si-impersonale'],
     questions: [
-      { id: 'rd-b1-28-q1', prompt: { bn: 'পোর্টালে কোনো সন্দেহ দেখা দিলে কী বুক করা যায়?', en: 'What can you book if a doubt arises on the portal?' }, options: ['কর্মীর সাথে বিনামূল্যে ভিডিও কল', 'ট্যাক্সি', 'হোটেল', 'ভাষা কোর্স'], answer: 0, explanation: { bn: 'una videochiamata gratuita con un operatore।', en: 'A free video call with an operator.' } },
+      { id: 'rd-b1-28-q1', prompt: { bn: 'পোর্টালে কোনো সন্দেহ দেখা দিলে কী বুক করা যায়?', en: 'What can you book if a doubt arises on the portal?' }, options: ['কর্মীর সাথে বিনামূল্যে ভিডিও কল', 'ট্যাক্সি', 'হোটেল', 'ভাষা কোর্স'], answer: 0, explanation: { bn: 'সঠিক উত্তর: কর্মীর সাথে বিনামূল্যে ভিডিও কল — পাঠ্যাংশে বলা হয়েছে: «কোনো সন্দেহ দেখা দিলে একা চেষ্টা না করে একজন কর্মীর সাথে বিনামূল্যে ভিডিও কল বুক করা যায়।» (una videochiamata gratuita con un operatore)।', en: 'A free video call with an operator.' } },
     ],
   }),
   buildReading({
@@ -111,7 +111,7 @@ export const B1_READING_2: ReadingPassage[] = [
     grammarHighlights: [{ excerpt: 'far riparare / Facendo installare', note: { bn: 'প্রেরণার্থক fare + infinito।', en: 'Causative fare + infinitive.' }, grammarId: 'causativi-fare-lasciare' }],
     relatedGrammarIds: ['causativi-fare-lasciare'],
     questions: [
-      { id: 'rd-b1-29-q1', prompt: { bn: 'ছাদ ও জানালা মেরামত করালে কী উন্নত হয়?', en: 'What improves when the roof and windows are repaired?' }, options: ['তাপীয় সুরক্ষা (isolamento termico)', 'ইন্টারনেট গতি', 'লিফটের গতি', 'বাগানের আয়তন'], answer: 0, explanation: { bn: 'migliorare l’isolamento termico।', en: 'Thermal insulation.' } },
+      { id: 'rd-b1-29-q1', prompt: { bn: 'ছাদ ও জানালা মেরামত করালে কী উন্নত হয়?', en: 'What improves when the roof and windows are repaired?' }, options: ['তাপীয় সুরক্ষা (isolamento termico)', 'ইন্টারনেট গতি', 'লিফটের গতি', 'বাগানের আয়তন'], answer: 0, explanation: { bn: 'সঠিক উত্তর: তাপীয় সুরক্ষা (isolamento termico) — পাঠ্যাংশে বলা হয়েছে: «প্রথম বাড়ির জন্য যারা গৃহঋণ নেয় এমন অনেক পরিবার তাপীয় সুরক্ষা বাড়াতে সাথে সাথেই ছাদ ও জানালা মেরামত করানোর সিদ্ধান্ত নেয়।» (migliorare l’isolamento termico)।', en: 'Thermal insulation.' } },
     ],
   }),
   buildReading({
@@ -125,7 +125,7 @@ export const B1_READING_2: ReadingPassage[] = [
     grammarHighlights: [{ excerpt: 'aveva promesso che… si sarebbe concluso', note: { bn: 'অতীতে পরোক্ষ উক্তি ও condizionale passato।', en: 'Past indirect speech and past conditional.' }, grammarId: 'discorso-indiretto-passato' }],
     relatedGrammarIds: ['discorso-indiretto-passato'],
     questions: [
-      { id: 'rd-b1-30-q1', prompt: { bn: 'সময়সীমা রক্ষা করতে শ্রমিকেরা কোন দিনেও কাজ করেছিলেন?', en: 'On which day had the workers also worked to meet the deadline?' }, options: ['শনিবারেও', 'শুধু সোমবারে', 'বছরের প্রথম দিনে', 'রাতে'], answer: 0, explanation: { bn: 'anche di sabato।', en: 'On Saturdays too.' } },
+      { id: 'rd-b1-30-q1', prompt: { bn: 'সময়সীমা রক্ষা করতে শ্রমিকেরা কোন দিনেও কাজ করেছিলেন?', en: 'On which day had the workers also worked to meet the deadline?' }, options: ['শনিবারেও', 'শুধু সোমবারে', 'বছরের প্রথম দিনে', 'রাতে'], answer: 0, explanation: { bn: 'সঠিক উত্তর: শনিবারেও — পাঠ্যাংশে বলা হয়েছে: «পৌর প্রকৌশলীরা নিশ্চিত করেছেন যে সময়সীমা রক্ষা করতে শ্রমিকেরা শনিবারেও কাজ করেছিলেন।» (anche di sabato)।', en: 'On Saturdays too.' } },
     ],
   }),
   buildReading({
@@ -139,7 +139,7 @@ export const B1_READING_2: ReadingPassage[] = [
     grammarHighlights: [{ excerpt: 'Dopo aver svolto / per avermi guidato', note: { bn: 'অতীত ইনফিনিটিভ (infinito passato)।', en: 'Past infinitive.' }, grammarId: 'infinito-passato' }],
     relatedGrammarIds: ['infinito-passato'],
     questions: [
-      { id: 'rd-b1-31-q1', prompt: { bn: 'ইন্টার্নশিপটি কত ঘণ্টার ছিল?', en: 'How many hours was the internship?' }, options: ['৫০ ঘণ্টা', '১০০ ঘণ্টা', '৩০০ ঘণ্টা', '১,০০০ ঘণ্টা'], answer: 2, explanation: { bn: 'trecento ore di tirocinio।', en: 'Three hundred hours.' } },
+      { id: 'rd-b1-31-q1', prompt: { bn: 'ইন্টার্নশিপটি কত ঘণ্টার ছিল?', en: 'How many hours was the internship?' }, options: ['৫০ ঘণ্টা', '১০০ ঘণ্টা', '৩০০ ঘণ্টা', '১,০০০ ঘণ্টা'], answer: 2, explanation: { bn: 'সঠিক উত্তর: ৩০০ ঘণ্টা — পাঠ্যাংশে বলা হয়েছে: «রাসায়নিক ল্যাবরেটরিতে তিনশ ঘণ্টা ইন্টার্নশিপ সম্পন্ন করার পর আমি উচ্চ নির্ভুলতার যন্ত্র দিয়ে পরীক্ষামূলক তথ্য বিশ্লেষণ করতে শিখেছি।» (trecento ore di tirocinio)।', en: 'Three hundred hours.' } },
     ],
   }),
   buildReading({
@@ -153,7 +153,7 @@ export const B1_READING_2: ReadingPassage[] = [
     grammarHighlights: [{ excerpt: 'Avendo effettuato il check-in', note: { bn: 'যৌগিক জেরুন্ড (gerundio composto)।', en: 'Compound gerund.' }, grammarId: 'gerundio-composto' }],
     relatedGrammarIds: ['gerundio-composto'],
     questions: [
-      { id: 'rd-b1-32-q1', prompt: { bn: 'ফ্লাইটের কত ঘণ্টা আগে অনলাইন চেক-ইন করার কথা বলা হয়েছে?', en: 'How many hours before the flight was online check-in completed?' }, options: ['২ ঘণ্টা', '১২ ঘণ্টা', '২৪ ঘণ্টা', '৭২ ঘণ্টা'], answer: 2, explanation: { bn: 'ventiquattro ore prima del volo।', en: 'Twenty-four hours before.' } },
+      { id: 'rd-b1-32-q1', prompt: { bn: 'ফ্লাইটের কত ঘণ্টা আগে অনলাইন চেক-ইন করার কথা বলা হয়েছে?', en: 'How many hours before the flight was online check-in completed?' }, options: ['২ ঘণ্টা', '১২ ঘণ্টা', '২৪ ঘণ্টা', '৭২ ঘণ্টা'], answer: 2, explanation: { bn: 'সঠিক উত্তর: ২৪ ঘণ্টা — পাঠ্যাংশে বলা হয়েছে: «ফ্লাইটের চব্বিশ ঘণ্টা আগে অনলাইন চেক-ইন সম্পন্ন করায় কেবল হাতব্যাগ থাকা যাত্রীরা সরাসরি নিরাপত্তা তল্লাশিতে যেতে পারেন।» (ventiquattro ore prima del volo)।', en: 'Twenty-four hours before.' } },
     ],
   }),
   buildReading({
@@ -164,10 +164,10 @@ export const B1_READING_2: ReadingPassage[] = [
       { it: 'Pagate puntualmente l’affitto e le spese condominiali all’inizio del mese, diventa più semplice accantonare una quota fissa per gli imprevisti.', tr: { bn: 'মাসের শুরুতে ভাড়া ও ভবনের খরচ সময়মতো পরিশোধ করার পর অপ্রত্যাশিত প্রয়োজনের জন্য নির্দিষ্ট অংশ জমিয়ে রাখা সহজ হয়।', en: 'Once rent and building charges are punctually paid at the start of the month, it becomes easier to set aside a fixed share for emergencies.' } },
     ],
     vocabHighlights: [{ it: 'entrate e uscite', tr: { bn: 'আয় ও ব্যয়', en: 'income and expenditure' } }, { it: 'accantonare', tr: { bn: 'আলাদা করে জমিয়ে রাখা', en: 'to set aside / save' } }],
-    grammarHighlights: [{ excerpt: 'Ottenuto un contratto… Pagate le spese', note: { bn: 'participio passato assoluto।', en: 'Absolute past participle.' }, grammarId: 'participio-passato-assoluto' }],
+    grammarHighlights: [{ excerpt: 'Ottenuto un contratto… Pagate le spese', note: { bn: 'সঠিক উত্তর ও ব্যাকরণ সূত্র: «participio passato assoluto» (Absolute past participle)।', en: 'Absolute past participle.' }, grammarId: 'participio-passato-assoluto' }],
     relatedGrammarIds: ['participio-passato-assoluto'],
     questions: [
-      { id: 'rd-b1-33-q1', prompt: { bn: 'মাসের শুরুতে কী পরিশোধ করার কথা বলা হয়েছে?', en: 'What is paid at the start of the month?' }, options: ['ভাড়া ও ভবনের রক্ষণাবেক্ষণ খরচ', 'ছুটির টিকিট', 'নতুন গাড়ি', 'রেস্তোরাঁর বিল'], answer: 0, explanation: { bn: 'l’affitto e le spese condominiali।', en: 'Rent and building charges.' } },
+      { id: 'rd-b1-33-q1', prompt: { bn: 'মাসের শুরুতে কী পরিশোধ করার কথা বলা হয়েছে?', en: 'What is paid at the start of the month?' }, options: ['ভাড়া ও ভবনের রক্ষণাবেক্ষণ খরচ', 'ছুটির টিকিট', 'নতুন গাড়ি', 'রেস্তোরাঁর বিল'], answer: 0, explanation: { bn: 'সঠিক উত্তর: ভাড়া ও ভবনের রক্ষণাবেক্ষণ খরচ — পাঠ্যাংশে বলা হয়েছে: «মাসের শুরুতে ভাড়া ও ভবনের খরচ সময়মতো পরিশোধ করার পর অপ্রত্যাশিত প্রয়োজনের জন্য নির্দিষ্ট অংশ জমিয়ে রাখা সহজ হয়।» (l’affitto e le spese condominiali)।', en: 'Rent and building charges.' } },
     ],
   }),
   buildReading({
@@ -181,7 +181,7 @@ export const B1_READING_2: ReadingPassage[] = [
     grammarHighlights: [{ excerpt: 'il cui scopo / con i quali', note: { bn: 'সম্বন্ধসূচক il cui এবং অব্যয় + i quali।', en: 'Possessive il cui and preposition + i quali.' }, grammarId: 'relativi-il-quale-cui' }],
     relatedGrammarIds: ['relativi-il-quale-cui'],
     questions: [
-      { id: 'rd-b1-34-q1', prompt: { bn: 'ডিজিটাল আর্কাইভটি কাদের জন্য বিনামূল্যে উন্মুক্ত?', en: 'Who is the digital archive open to for free?' }, options: ['সব স্কুলের জন্য', 'কেবল ব্যাংকের জন্য', 'বিমানবন্দরের জন্য', 'সুপারমার্কেটের জন্য'], answer: 0, explanation: { bn: 'aperto gratuitamente a tutte le scuole।', en: 'Open free of charge to all schools.' } },
+      { id: 'rd-b1-34-q1', prompt: { bn: 'ডিজিটাল আর্কাইভটি কাদের জন্য বিনামূল্যে উন্মুক্ত?', en: 'Who is the digital archive open to for free?' }, options: ['সব স্কুলের জন্য', 'কেবল ব্যাংকের জন্য', 'বিমানবন্দরের জন্য', 'সুপারমার্কেটের জন্য'], answer: 0, explanation: { bn: 'সঠিক উত্তর: সব স্কুলের জন্য — পাঠ্যাংশে বলা হয়েছে: «শিক্ষার্থীরা যে গবেষকদের সাথে কাজ করে তাঁরা সব স্কুলের জন্য বিনামূল্যে উন্মুক্ত একটি ডিজিটাল আর্কাইভ তৈরি করেছেন।» (aperto gratuitamente a tutte le scuole)।', en: 'Open free of charge to all schools.' } },
     ],
   }),
   buildReading({
@@ -195,7 +195,7 @@ export const B1_READING_2: ReadingPassage[] = [
     grammarHighlights: [{ excerpt: 'Ciò che emerge / Chi sceglie… contribuisce', note: { bn: 'Ciò che এবং Chi + ৩য় পুরুষ একবচন ক্রিয়া।', en: 'Ciò che and Chi + singular verb.' }, grammarId: 'chi-quello-che-cio-che' }],
     relatedGrammarIds: ['chi-quello-che-cio-che'],
     questions: [
-      { id: 'rd-b1-35-q1', prompt: { bn: 'জিনিসপত্র ফেলে না দিয়ে কী করার কথা বলা হয়েছে?', en: 'What should people do instead of throwing items away?' }, options: ['মেরামত করা (riparare gli oggetti)', 'লুকিয়ে রাখা', 'পুড়িয়ে ফেলা', 'রঙ করা'], answer: 0, explanation: { bn: 'ripara gli oggetti invece di buttarli।', en: 'Repair them.' } },
+      { id: 'rd-b1-35-q1', prompt: { bn: 'জিনিসপত্র ফেলে না দিয়ে কী করার কথা বলা হয়েছে?', en: 'What should people do instead of throwing items away?' }, options: ['মেরামত করা (riparare gli oggetti)', 'লুকিয়ে রাখা', 'পুড়িয়ে ফেলা', 'রঙ করা'], answer: 0, explanation: { bn: 'সঠিক উত্তর: মেরামত করা (riparare gli oggetti) — পাঠ্যাংশে বলা হয়েছে: «যারা স্থানীয় পণ্য বেছে নেয় এবং জিনিসপত্র ফেলে না দিয়ে মেরামত করে তারা পরবর্তী প্রজন্মের জন্য সম্পদ রক্ষায় বাস্তব অবদান রাখে।» (ripara gli oggetti invece di buttarli)।', en: 'Repair them.' } },
     ],
   }),
   buildReading({
@@ -209,7 +209,7 @@ export const B1_READING_2: ReadingPassage[] = [
     grammarHighlights: [{ excerpt: 'Siccome… danneggiava / Dato che… sono attive', note: { bn: 'কারণবাচক সংযোজক Siccome ও Dato che।', en: 'Causal connectors Siccome and Dato che.' }, grammarId: 'connettivi-causali-b1' }],
     relatedGrammarIds: ['connettivi-causali-b1'],
     questions: [
-      { id: 'rd-b1-36-q1', prompt: { bn: 'বাসিন্দাদের পৌর পোর্টালে কী নিবন্ধন করতে হবে?', en: 'What must residents register on the municipal portal?' }, options: ['গাড়ির নম্বরপ্লেট (la propria targa)', 'টেলিফোন নম্বর', 'বাগানের মাপ', 'কুকুরের নাম'], answer: 0, explanation: { bn: 'registrare la propria targa।', en: 'Their licence plate.' } },
+      { id: 'rd-b1-36-q1', prompt: { bn: 'বাসিন্দাদের পৌর পোর্টালে কী নিবন্ধন করতে হবে?', en: 'What must residents register on the municipal portal?' }, options: ['গাড়ির নম্বরপ্লেট (la propria targa)', 'টেলিফোন নম্বর', 'বাগানের মাপ', 'কুকুরের নাম'], answer: 0, explanation: { bn: 'সঠিক উত্তর: গাড়ির নম্বরপ্লেট (la propria targa) — পাঠ্যাংশে বলা হয়েছে: «যেহেতু প্রবেশপথের ক্যামেরাগুলো চব্বিশ ঘণ্টাই সচল থাকে, বাসিন্দাদের পৌর পোর্টালে নিজেদের গাড়ির নম্বরপ্লেট নিবন্ধন করতে হবে।» (registrare la propria targa)।', en: 'Their licence plate.' } },
     ],
   }),
   buildReading({
@@ -223,7 +223,7 @@ export const B1_READING_2: ReadingPassage[] = [
     grammarHighlights: [{ excerpt: 'Sebbene… possa / Benché… richieda', note: { bn: 'স্বীকারোক্তিমূলক সংযোজক + congiuntivo।', en: 'Concessive conjunctions + subjunctive.' }, grammarId: 'connettivi-concessivi-b1' }],
     relatedGrammarIds: ['connettivi-concessivi-b1'],
     questions: [
-      { id: 'rd-b1-37-q1', prompt: { bn: 'নতুন দক্ষতা অর্জনের জন্য আঞ্চলিক কোর্সগুলোর খরচ কেমন?', en: 'What do the regional pathways for acquiring new skills cost?' }, options: ['বিনামূল্যে (gratuiti)', 'খুব ব্যয়বহুল', 'মাসে হাজার ইউরো', 'কেবল ঋণে'], answer: 0, explanation: { bn: 'percorsi regionali gratuiti।', en: 'They are free of charge.' } },
+      { id: 'rd-b1-37-q1', prompt: { bn: 'নতুন দক্ষতা অর্জনের জন্য আঞ্চলিক কোর্সগুলোর খরচ কেমন?', en: 'What do the regional pathways for acquiring new skills cost?' }, options: ['বিনামূল্যে (gratuiti)', 'খুব ব্যয়বহুল', 'মাসে হাজার ইউরো', 'কেবল ঋণে'], answer: 0, explanation: { bn: 'সঠিক উত্তর: বিনামূল্যে (gratuiti) — পাঠ্যাংশে বলা হয়েছে: «পঁয়ত্রিশ বছর বয়সের পর কাজের খাত বদলানো ঝুঁকিপূর্ণ মনে হতে পারলেও আজ নতুন দক্ষতা অর্জনের জন্য অনেক বিনামূল্যে আঞ্চলিক কোর্স রয়েছে।» (percorsi regionali gratuiti)।', en: 'They are free of charge.' } },
     ],
   }),
   buildReading({
@@ -237,7 +237,7 @@ export const B1_READING_2: ReadingPassage[] = [
     grammarHighlights: [{ excerpt: 'affinché… possano / purché… siano compilati', note: { bn: 'affinché ও purché + congiuntivo।', en: 'affinché and purché + subjunctive.' }, grammarId: 'connettivi-finali-condizionali' }],
     relatedGrammarIds: ['connettivi-finali-condizionali'],
     questions: [
-      { id: 'rd-b1-38-q1', prompt: { bn: 'কখন সাথে সাথেই প্রটোকলযুক্ত রসিদ তৈরি হয়?', en: 'When is the logged receipt generated immediately?' }, options: ['সব বাধ্যতামূলক ঘর সঠিকভাবে পূরণ করলে', 'ডাকযোগে পাঠালে', 'তিন দিন পরে', 'ফোন করলে'], answer: 0, explanation: { bn: 'purché tutti i campi obbligatori siano compilati correttamente।', en: 'Provided all mandatory fields are filled in correctly.' } },
+      { id: 'rd-b1-38-q1', prompt: { bn: 'কখন সাথে সাথেই প্রটোকলযুক্ত রসিদ তৈরি হয়?', en: 'When is the logged receipt generated immediately?' }, options: ['সব বাধ্যতামূলক ঘর সঠিকভাবে পূরণ করলে', 'ডাকযোগে পাঠালে', 'তিন দিন পরে', 'ফোন করলে'], answer: 0, explanation: { bn: 'সঠিক উত্তর: সব বাধ্যতামূলক ঘর সঠিকভাবে পূরণ করলে — পাঠ্যাংশে বলা হয়েছে: «সব বাধ্যতামূলক ঘর সঠিকভাবে পূরণ করার শর্তে সাথে সাথেই প্রটোকলযুক্ত রসিদ তৈরি হয়।» (purché tutti i campi obbligatori siano compilati correttamente)।', en: 'Provided all mandatory fields are filled in correctly.' } },
     ],
   }),
   buildReading({
@@ -251,7 +251,7 @@ export const B1_READING_2: ReadingPassage[] = [
     grammarHighlights: [{ excerpt: 'Più persone partecipano… più i parchi diventano', note: { bn: 'আনুপাতিক তুলনা (Più… più…)।', en: 'Proportional comparison.' }, grammarId: 'comparativi-proporzionali' }],
     relatedGrammarIds: ['comparativi-proporzionali', 'indefiniti-negativi-b1'],
     questions: [
-      { id: 'rd-b1-39-q1', prompt: { bn: 'শনিবার সকালের দলে যোগ দিতে কি আগে নিবন্ধন লাগে?', en: 'Is prior registration needed to join the Saturday morning group?' }, options: ['না, নিবন্ধন ছাড়াই যোগ দেওয়া যায়', 'হ্যাঁ, এক মাস আগে', 'ফি দিতে হয়', 'কেবল সদস্যদের জন্য'], answer: 0, explanation: { bn: 'senza bisogno di iscrizione।', en: 'No registration needed.' } },
+      { id: 'rd-b1-39-q1', prompt: { bn: 'শনিবার সকালের দলে যোগ দিতে কি আগে নিবন্ধন লাগে?', en: 'Is prior registration needed to join the Saturday morning group?' }, options: ['না, নিবন্ধন ছাড়াই যোগ দেওয়া যায়', 'হ্যাঁ, এক মাস আগে', 'ফি দিতে হয়', 'কেবল সদস্যদের জন্য'], answer: 0, explanation: { bn: 'সঠিক উত্তর: না, নিবন্ধন ছাড়াই যোগ দেওয়া যায় — পাঠ্যাংশে বলা হয়েছে: «যে কেউ শরীরচর্চা শুরু করতে চাইলে নিবন্ধন ছাড়াই শনিবার সকালের দলে যোগ দিতে পারে।» (senza bisogno di iscrizione)।', en: 'No registration needed.' } },
     ],
   }),
   buildReading({
@@ -265,7 +265,7 @@ export const B1_READING_2: ReadingPassage[] = [
     grammarHighlights: [{ excerpt: 'Chiunque desideri / qualunque difficoltà si presenti', note: { bn: 'Chiunque ও qualunque + congiuntivo।', en: 'Chiunque and qualunque + subjunctive.' }, grammarId: 'indefiniti-negativi-b1' }],
     relatedGrammarIds: ['indefiniti-negativi-b1'],
     questions: [
-      { id: 'rd-b1-40-q1', prompt: { bn: 'নাগরিক স্বেচ্ছাসেবায় কারা যুক্ত হয়?', en: 'Who is involved in civic volunteering?' }, options: ['শিক্ষার্থী, কর্মজীবী ও অবসরপ্রাপ্তরা', 'কেবল চিকিৎসকেরা', 'কেবল মেয়র', 'কেবল বিদেশিরা'], answer: 0, explanation: { bn: 'studenti, lavoratori e pensionati।', en: 'Students, workers, and pensioners.' } },
+      { id: 'rd-b1-40-q1', prompt: { bn: 'নাগরিক স্বেচ্ছাসেবায় কারা যুক্ত হয়?', en: 'Who is involved in civic volunteering?' }, options: ['শিক্ষার্থী, কর্মজীবী ও অবসরপ্রাপ্তরা', 'কেবল চিকিৎসকেরা', 'কেবল মেয়র', 'কেবল বিদেশিরা'], answer: 0, explanation: { bn: 'সঠিক উত্তর: শিক্ষার্থী, কর্মজীবী ও অবসরপ্রাপ্তরা — পাঠ্যাংশে বলা হয়েছে: «আমাদের শহরে নাগরিক স্বেচ্ছাসেবা শিক্ষার্থী, কর্মজীবী ও অবসরপ্রাপ্তদের যুক্ত করে। যে কেউ নিঃসঙ্গ প্রবীণদের সহায়তা করতে বা স্কুল-পরবর্তী কোচিংয়ে সাহায্য করতে চাইলে উপযুক্ত প্রকল্প খুঁজে পায়।» (studenti, lavoratori e pensionati)।', en: 'Students, workers, and pensioners.' } },
     ],
   }),
   buildReading({
@@ -279,7 +279,7 @@ export const B1_READING_2: ReadingPassage[] = [
     grammarHighlights: [{ excerpt: 'avremmo dovuto chiedere / avrebbe dovuto avvertire', note: { bn: 'অতীত মডাল (condizionale passato di dovere)।', en: 'Past conditional of modal dovere.' }, grammarId: 'modali-condizionale-passato' }],
     relatedGrammarIds: ['modali-condizionale-passato'],
     questions: [
-      { id: 'rd-b1-41-q1', prompt: { bn: 'কাজ শুরু হওয়ার আগে গ্রাহকের কী চাওয়া উচিত?', en: 'What should a customer ask for before repair work begins?' }, options: ['একটি লিখিত প্রাক্কলন (preventivo scritto)', 'একটি উপহার', 'দোকানের চাবি', 'ব্যাংক ঋণ'], answer: 0, explanation: { bn: 'un preventivo scritto।', en: 'A written quote.' } },
+      { id: 'rd-b1-41-q1', prompt: { bn: 'কাজ শুরু হওয়ার আগে গ্রাহকের কী চাওয়া উচিত?', en: 'What should a customer ask for before repair work begins?' }, options: ['একটি লিখিত প্রাক্কলন (preventivo scritto)', 'একটি উপহার', 'দোকানের চাবি', 'ব্যাংক ঋণ'], answer: 0, explanation: { bn: 'সঠিক উত্তর: একটি লিখিত প্রাক্কলন (preventivo scritto) — পাঠ্যাংশে বলা হয়েছে: «বাসায় জরুরি মেরামতের প্রয়োজন হলে প্রায়ই তাড়াহুড়োয় প্রথম প্রস্তাবিত দামই মেনে নেওয়া হয়। আসলে কাজ শুরু হওয়ার আগে আমাদের সবসময় লিখিত প্রাক্কলন চাওয়া উচিত ছিল।» (un preventivo scritto)।', en: 'A written quote.' } },
     ],
   }),
   buildReading({
@@ -293,7 +293,7 @@ export const B1_READING_2: ReadingPassage[] = [
     grammarHighlights: [{ excerpt: 'Le scrivo / Le trasmetto / La ringrazio', note: { bn: 'আনুষ্ঠানিক সর্বনাম Le ও La।', en: 'Formal pronouns Le and La.' }, grammarId: 'registro-formale-b1' }],
     relatedGrammarIds: ['registro-formale-b1'],
     questions: [
-      { id: 'rd-b1-42-q1', prompt: { bn: 'সেমিনারটি কবে অনুষ্ঠিত হয়েছিল?', en: 'When did the technical seminar take place?' }, options: ['১৫ই অক্টোবর', '১লা জানুয়ারি', '২০শে মে', '১০ই আগস্ট'], answer: 0, explanation: { bn: 'del quindici ottobre।', en: 'October fifteenth.' } },
+      { id: 'rd-b1-42-q1', prompt: { bn: 'সেমিনারটি কবে অনুষ্ঠিত হয়েছিল?', en: 'When did the technical seminar take place?' }, options: ['১৫ই অক্টোবর', '১লা জানুয়ারি', '২০শে মে', '১০ই আগস্ট'], answer: 0, explanation: { bn: 'সঠিক উত্তর: ১৫ই অক্টোবর — পাঠ্যাংশে বলা হয়েছে: «মাননীয় পরিচালক, পনেরোই অক্টোবরের কারিগরি সেমিনারের পরিপ্রেক্ষিতে আপনাকে লিখছি। সংযুক্তিতে আপনাকে পূরণকৃত অর্থ ফেরতের ফর্ম এবং নিবন্ধন ফি-র ডিজিটাল রসিদ পাঠাচ্ছি।» (del quindici ottobre)।', en: 'October fifteenth.' } },
     ],
   }),
 ];

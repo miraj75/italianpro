@@ -15,8 +15,8 @@ export const B2_LISTENING_1: ListeningExercise[] = [
     vocabKeys: ['w:B2:la normativa', 'w:B2:il ricorso', 'w:B2:valutare'],
     grammarIds: ['concordanza-avanzata'],
     questions: [
-      { id: 'lsb2-1-q1', prompt: { bn: 'আপিল গ্রহণযোগ্য হতে কী প্রয়োজন ছিল?', en: 'What was needed for the appeal to be admissible?' }, options: ['ডাকযোগে মূল কপি', 'কারিগরি সংযুক্তিতে ডিজিটাল স্বাক্ষর', 'মৌখিক সাক্ষ্য', 'আর্থিক জরিমানা'], answer: 1, explanation: { bn: 'fossero firmati digitalmente।', en: 'They had to be digitally signed.' } },
-      { id: 'lsb2-1-q2', prompt: { bn: 'পরামর্শদাতা কী প্রত্যাশা করেছিলেন?', en: 'What had the advisor preferred?' }, options: ['শুনানি বাতিল হোক', 'পর্ষদ বিধিমালা মূল্যায়ন করুক', 'নতুন কর চালু হোক', 'ফাইল বন্ধ হোক'], answer: 1, explanation: { bn: 'avesse valutato la normativa।', en: 'That the board had evaluated the regulations.' } },
+      { id: 'lsb2-1-q1', prompt: { bn: 'আপিল গ্রহণযোগ্য হতে কী প্রয়োজন ছিল?', en: 'What was needed for the appeal to be admissible?' }, options: ['ডাকযোগে মূল কপি', 'কারিগরি সংযুক্তিতে ডিজিটাল স্বাক্ষর', 'মৌখিক সাক্ষ্য', 'আর্থিক জরিমানা'], answer: 1, explanation: { bn: 'সঠিক উত্তর: কারিগরি সংযুক্তিতে ডিজিটাল স্বাক্ষর — পাঠ্যাংশে বলা হয়েছে: «আপিলটি গ্রহণযোগ্য হওয়ার জন্য কারিগরি সংযুক্তিগুলোতে ডিজিটাল স্বাক্ষর থাকা প্রয়োজন ছিল।» (fossero firmati digitalmente)।', en: 'They had to be digitally signed.' } },
+      { id: 'lsb2-1-q2', prompt: { bn: 'পরামর্শদাতা কী প্রত্যাশা করেছিলেন?', en: 'What had the advisor preferred?' }, options: ['শুনানি বাতিল হোক', 'পর্ষদ বিধিমালা মূল্যায়ন করুক', 'নতুন কর চালু হোক', 'ফাইল বন্ধ হোক'], answer: 1, explanation: { bn: 'সঠিক উত্তর: পর্ষদ বিধিমালা মূল্যায়ন করুক — পাঠ্যাংশে বলা হয়েছে: «আমি পছন্দ করতাম যদি আবেদনটি বাতিল করার আগে পর্ষদ আমাদের খাতের বিধিমালা মূল্যায়ন করত।» (avesse valutato la normativa)।', en: 'That the board had evaluated the regulations.' } },
     ],
   }),
   buildListening({
@@ -32,7 +32,7 @@ export const B2_LISTENING_1: ListeningExercise[] = [
     vocabKeys: ['w:B2:il notaio', 'w:B2:il rogito', "w:B2:l'impianto fotovoltaico"],
     grammarIds: ['periodo-ipotetico-misto'],
     questions: [
-      { id: 'lsb2-2-q1', prompt: { bn: 'ক্রেতা কবে দলিলে সই করতে রাজি?', en: 'When will the buyer sign the deed?' }, options: ['তৎক্ষণাৎ', 'শুক্রবারের মধ্যে জ্বালানি সনদ হালনাগাদ হলে', 'আগামী মাসে', 'মূল্য অর্ধেক হলে'], answer: 1, explanation: { bn: 'solo se l’attestato energetico viene aggiornato entro venerdì।', en: 'Only if the energy certificate is updated by Friday.' } },
+      { id: 'lsb2-2-q1', prompt: { bn: 'ক্রেতা কবে দলিলে সই করতে রাজি?', en: 'When will the buyer sign the deed?' }, options: ['তৎক্ষণাৎ', 'শুক্রবারের মধ্যে জ্বালানি সনদ হালনাগাদ হলে', 'আগামী মাসে', 'মূল্য অর্ধেক হলে'], answer: 1, explanation: { bn: 'সঠিক উত্তর: শুক্রবারের মধ্যে জ্বালানি সনদ হালনাগাদ হলে — পাঠ্যাংশে বলা হয়েছে: «বুঝেছি। তাহলে শুক্রবারের মধ্যে জ্বালানি সনদ হালনাগাদ হলেই কেবল আমরা দলিলে সই করব।» (solo se l’attestato energetico viene aggiornato entro venerdì)।', en: 'Only if the energy certificate is updated by Friday.' } },
     ],
   }),
   buildListening({
@@ -48,7 +48,7 @@ export const B2_LISTENING_1: ListeningExercise[] = [
     vocabKeys: ["w:B2:l'emendamento", 'w:B2:contestare'],
     grammarIds: ['congiuntivo-indipendente'],
     questions: [
-      { id: 'lsb2-3-q1', prompt: { bn: 'বক্তার মতে দলগুলোর কী করা উচিত ছিল?', en: 'What does the speaker wish the groups did?' }, options: ['বৈঠক ত্যাগ করা', 'আপত্তির আগে পূর্ণাঙ্গ তথ্য পড়া', 'ভোট স্থগিত করা', 'নতুন কর আরোপ'], answer: 1, explanation: { bn: 'leggessero i dati completi prima di contestarli।', en: 'Read the full data before contesting it.' } },
+      { id: 'lsb2-3-q1', prompt: { bn: 'বক্তার মতে দলগুলোর কী করা উচিত ছিল?', en: 'What does the speaker wish the groups did?' }, options: ['বৈঠক ত্যাগ করা', 'আপত্তির আগে পূর্ণাঙ্গ তথ্য পড়া', 'ভোট স্থগিত করা', 'নতুন কর আরোপ'], answer: 1, explanation: { bn: 'সঠিক উত্তর: আপত্তির আগে পূর্ণাঙ্গ তথ্য পড়া — পাঠ্যাংশে বলা হয়েছে: «আহা, সব কাউন্সিলর দল যদি বিরোধিতা করার আগে পূর্ণাঙ্গ তথ্যগুলো পড়ত!» (leggessero i dati completi prima di contestarli)।', en: 'Read the full data before contesting it.' } },
     ],
   }),
   buildListening({
@@ -64,7 +64,7 @@ export const B2_LISTENING_1: ListeningExercise[] = [
     vocabKeys: ["w:B2:l'attacco informatico", 'w:B2:la violazione dei dati', 'w:B2:autorevole'],
     grammarIds: ['congiuntivo-relativo'],
     questions: [
-      { id: 'lsb2-4-q1', prompt: { bn: 'প্রতিষ্ঠানটি কী ধরনের বিশেষজ্ঞ খুঁজছে?', en: 'What kind of specialist is the company seeking?' }, options: ['যিনি তথ্য লঙ্ঘন বিশ্লেষণ করতে পারেন', 'যিনি কেবল হার্ডওয়্যার বিক্রি করেন', 'যিনি শুধু অনুবাদ করেন', 'যিনি হিসাবরক্ষণ করেন'], answer: 0, explanation: { bn: 'sappia analizzare la violazione dei dati।', en: 'Who can analyse data breaches.' } },
+      { id: 'lsb2-4-q1', prompt: { bn: 'প্রতিষ্ঠানটি কী ধরনের বিশেষজ্ঞ খুঁজছে?', en: 'What kind of specialist is the company seeking?' }, options: ['যিনি তথ্য লঙ্ঘন বিশ্লেষণ করতে পারেন', 'যিনি কেবল হার্ডওয়্যার বিক্রি করেন', 'যিনি শুধু অনুবাদ করেন', 'যিনি হিসাবরক্ষণ করেন'], answer: 0, explanation: { bn: 'সঠিক উত্তর: যিনি তথ্য লঙ্ঘন বিশ্লেষণ করতে পারেন — পাঠ্যাংশে বলা হয়েছে: «আমরা এমন একজন বিশেষজ্ঞ খুঁজছি যিনি তথ্য লঙ্ঘন বিশ্লেষণ করতে জানেন এবং যার নির্ভরযোগ্য অভিজ্ঞতা রয়েছে।» (sappia analizzare la violazione dei dati)।', en: 'Who can analyse data breaches.' } },
     ],
   }),
   buildListening({
@@ -80,7 +80,7 @@ export const B2_LISTENING_1: ListeningExercise[] = [
     vocabKeys: ['w:B2:il disavanzo', 'w:B2:ingente', 'w:B2:i fondi strutturali', 'w:B2:stanziare'],
     grammarIds: ['congiuntivo-concessivo'],
     questions: [
-      { id: 'lsb2-5-q1', prompt: { bn: 'প্রশাসন কোন খাতে অর্থ বরাদ্দ করেছে?', en: 'What has the administration allocated funds for?' }, options: ['নতুন স্টেডিয়াম', 'স্কুলের বিশেষ রক্ষণাবেক্ষণ', 'পর্যটন বিজ্ঞাপন', 'নতুন টোল রাস্তা'], answer: 1, explanation: { bn: 'per la manutenzione straordinaria delle scuole।', en: 'For extraordinary school maintenance.' } },
+      { id: 'lsb2-5-q1', prompt: { bn: 'প্রশাসন কোন খাতে অর্থ বরাদ্দ করেছে?', en: 'What has the administration allocated funds for?' }, options: ['নতুন স্টেডিয়াম', 'স্কুলের বিশেষ রক্ষণাবেক্ষণ', 'পর্যটন বিজ্ঞাপন', 'নতুন টোল রাস্তা'], answer: 1, explanation: { bn: 'সঠিক উত্তর: স্কুলের বিশেষ রক্ষণাবেক্ষণ — পাঠ্যাংশে বলা হয়েছে: «যদিও কাঠামোগত তহবিল আসতে দেরি হচ্ছে, আমরা ইতিমধ্যে স্কুলগুলোর বিশেষ রক্ষণাবেক্ষণের জন্য অর্থ বরাদ্দ করেছি।» (per la manutenzione straordinaria delle scuole)।', en: 'For extraordinary school maintenance.' } },
     ],
   }),
   buildListening({
@@ -96,7 +96,7 @@ export const B2_LISTENING_1: ListeningExercise[] = [
     vocabKeys: ['w:B2:qualora', 'w:B2:il prodotto difettoso', 'w:B2:la sostituzione gratuita', 'w:B2:il reclamo formale', 'w:B2:il diritto di recesso', 'w:B2:a meno che non'],
     grammarIds: ['congiuntivo-condizionale-b2'],
     questions: [
-      { id: 'lsb2-6-q1', prompt: { bn: 'বিনামূল্যে প্রতিস্থাপনের সময়সীমা কত দিন?', en: 'What is the deadline for free replacement?' }, options: ['৫ দিন', '১৫ দিন', '৩০ দিন', '৬০ দিন'], answer: 1, explanation: { bn: 'entro quindici giorni।', en: 'Within fifteen days.' } },
+      { id: 'lsb2-6-q1', prompt: { bn: 'বিনামূল্যে প্রতিস্থাপনের সময়সীমা কত দিন?', en: 'What is the deadline for free replacement?' }, options: ['৫ দিন', '১৫ দিন', '৩০ দিন', '৬০ দিন'], answer: 1, explanation: { bn: 'সঠিক উত্তর: ১৫ দিন — পাঠ্যাংশে বলা হয়েছে: «সরবরাহকারী যদি পনেরো দিনের মধ্যে বিনামূল্যে প্রতিস্থাপনের ব্যবস্থা না করে, তবে আমরা আনুষ্ঠানিক অভিযোগ পাঠাব।» (entro quindici giorni)।', en: 'Within fifteen days.' } },
     ],
   }),
   buildListening({
@@ -112,7 +112,7 @@ export const B2_LISTENING_1: ListeningExercise[] = [
     vocabKeys: ["w:B2:l'Assemblea Costituente", 'w:B2:la repubblica parlamentare', 'w:B2:entrare in vigore'],
     grammarIds: ['passato-remoto-irregolari'],
     questions: [
-      { id: 'lsb2-7-q1', prompt: { bn: 'সংবিধান কবে কার্যকর হয়েছিল?', en: 'When did the Constitution enter into force?' }, options: ['১৯৪৫ সালে', '১৯৪৮ সালের জানুয়ারিতে', '১৯৫০ সালে', '১৯৬০ সালে'], answer: 1, explanation: { bn: 'nel gennaio del quarantotto।', en: 'In January 1948.' } },
+      { id: 'lsb2-7-q1', prompt: { bn: 'সংবিধান কবে কার্যকর হয়েছিল?', en: 'When did the Constitution enter into force?' }, options: ['১৯৪৫ সালে', '১৯৪৮ সালের জানুয়ারিতে', '১৯৫০ সালে', '১৯৬০ সালে'], answer: 1, explanation: { bn: 'সঠিক উত্তর: ১৯৪৮ সালের জানুয়ারিতে — পাঠ্যাংশে বলা হয়েছে: «১৯৪৮ সালের জানুয়ারিতে সংবিধান কার্যকর হলে তা প্রতিটি মানুষের মৌলিক অধিকার সুনিশ্চিত করল।» (nel gennaio del quarantotto)।', en: 'In January 1948.' } },
     ],
   }),
   buildListening({
@@ -128,7 +128,7 @@ export const B2_LISTENING_1: ListeningExercise[] = [
     vocabKeys: ['w:B2:il manoscritto miniato', 'w:B2:il reperto archeologico', 'w:B2:la monografia'],
     grammarIds: ['trapassato-remoto'],
     questions: [
-      { id: 'lsb2-8-q1', prompt: { bn: 'নিদর্শনটি তালিকাভুক্ত করার পর গবেষকেরা কী করলেন?', en: 'What did the researchers do after cataloguing the find?' }, options: ['তা বিক্রি করলেন', 'একটি বিস্তারিত মনোগ্রাফ প্রকাশ করলেন', 'তা জাদুঘর থেকে সরিয়ে নিলেন', 'কাজ বন্ধ করলেন'], answer: 1, explanation: { bn: 'pubblicarono una monografia dettagliata।', en: 'They published a detailed monograph.' } },
+      { id: 'lsb2-8-q1', prompt: { bn: 'নিদর্শনটি তালিকাভুক্ত করার পর গবেষকেরা কী করলেন?', en: 'What did the researchers do after cataloguing the find?' }, options: ['তা বিক্রি করলেন', 'একটি বিস্তারিত মনোগ্রাফ প্রকাশ করলেন', 'তা জাদুঘর থেকে সরিয়ে নিলেন', 'কাজ বন্ধ করলেন'], answer: 1, explanation: { bn: 'সঠিক উত্তর: একটি বিস্তারিত মনোগ্রাফ প্রকাশ করলেন — পাঠ্যাংশে বলা হয়েছে: «গবেষকেরা প্রত্নতাত্ত্বিক নিদর্শনটি তালিকাভুক্ত করার পর একটি বিস্তারিত মনোগ্রাফ প্রকাশ করলেন।» (pubblicarono una monografia dettagliata)।', en: 'They published a detailed monograph.' } },
     ],
   }),
   buildListening({
@@ -144,7 +144,7 @@ export const B2_LISTENING_1: ListeningExercise[] = [
     vocabKeys: ['w:B2:lo scioglimento dei ghiacciai', "w:B2:l'ipotesi scientifica"],
     grammarIds: ['futuro-epistemico-b2'],
     questions: [
-      { id: 'lsb2-9-q1', prompt: { bn: 'সহকর্মীরা ল্যাবে সাড়া দিচ্ছেন না কেন বলে বক্তা মনে করছেন?', en: 'Why does the colleague think nobody is answering at the lab?' }, options: ['বিদ্যুৎ নেই', 'তাঁরা নিশ্চয়ই মাঠজরিপে বেরিয়েছেন', 'ল্যাব বন্ধ হয়েছে', 'ফোন নষ্ট'], answer: 1, explanation: { bn: 'saranno già partiti per i rilievi sul campo।', en: 'They have probably left for field surveys.' } },
+      { id: 'lsb2-9-q1', prompt: { bn: 'সহকর্মীরা ল্যাবে সাড়া দিচ্ছেন না কেন বলে বক্তা মনে করছেন?', en: 'Why does the colleague think nobody is answering at the lab?' }, options: ['বিদ্যুৎ নেই', 'তাঁরা নিশ্চয়ই মাঠজরিপে বেরিয়েছেন', 'ল্যাব বন্ধ হয়েছে', 'ফোন নষ্ট'], answer: 1, explanation: { bn: 'সঠিক উত্তর: তাঁরা নিশ্চয়ই মাঠজরিপে বেরিয়েছেন — পাঠ্যাংশে বলা হয়েছে: «ল্যাবে কেউ সাড়া দিচ্ছে না: তাঁরা নিশ্চয়ই মাঠপর্যায়ের জরিপের জন্য রওনা হয়ে গেছেন।» (saranno già partiti per i rilievi sul campo)।', en: 'They have probably left for field surveys.' } },
     ],
   }),
   buildListening({
@@ -160,7 +160,7 @@ export const B2_LISTENING_1: ListeningExercise[] = [
     vocabKeys: ['w:B2:il negoziato di pace', 'w:B2:il cessate il fuoco', 'w:B2:il vertice intergovernativo'],
     grammarIds: ['condizionale-giornalistico'],
     questions: [
-      { id: 'lsb2-10-q1', prompt: { bn: 'সংবাদ পাঠে এখনো কী অনুপস্থিত?', en: 'What is still missing according to the anchor?' }, options: ['সাংবাদিকদের প্রশ্ন', 'আনুষ্ঠানিক নিশ্চিতকরণ', 'অনুবাদক', 'সম্মেলন কক্ষ'], answer: 1, explanation: { bn: 'mancano conferme ufficiali।', en: 'Official confirmations are missing.' } },
+      { id: 'lsb2-10-q1', prompt: { bn: 'সংবাদ পাঠে এখনো কী অনুপস্থিত?', en: 'What is still missing according to the anchor?' }, options: ['সাংবাদিকদের প্রশ্ন', 'আনুষ্ঠানিক নিশ্চিতকরণ', 'অনুবাদক', 'সম্মেলন কক্ষ'], answer: 1, explanation: { bn: 'সঠিক উত্তর: আনুষ্ঠানিক নিশ্চিতকরণ — পাঠ্যাংশে বলা হয়েছে: «শোনা যাচ্ছে আন্তঃসরকারি শীর্ষ সম্মেলনটি একটি যৌথ ঘোষণাপত্রে স্বাক্ষরের মাধ্যমে শেষ হয়েছে, তবে আনুষ্ঠানিক নিশ্চিতকরণ এখনো মেলেনি।» (mancano conferme ufficiali)।', en: 'Official confirmations are missing.' } },
     ],
   }),
   buildListening({
@@ -176,7 +176,7 @@ export const B2_LISTENING_1: ListeningExercise[] = [
     vocabKeys: ['w:B2:la sicurezza sul lavoro', 'w:B2:la norma vigente'],
     grammarIds: ['passivo-avanzato'],
     questions: [
-      { id: 'lsb2-11-q1', prompt: { bn: 'যাত্রার আগে বগিগুলোর ক্ষেত্রে কী করা হয়?', en: 'What happens to all carriages before departure?' }, options: ['রঙ করা হয়', 'পরিদর্শন করা হয়', 'খালি রাখা হয়', 'তালা দেওয়া হয়'], answer: 1, explanation: { bn: 'vengono ispezionati prima della partenza।', en: 'They are inspected before departure.' } },
+      { id: 'lsb2-11-q1', prompt: { bn: 'যাত্রার আগে বগিগুলোর ক্ষেত্রে কী করা হয়?', en: 'What happens to all carriages before departure?' }, options: ['রঙ করা হয়', 'পরিদর্শন করা হয়', 'খালি রাখা হয়', 'তালা দেওয়া হয়'], answer: 1, explanation: { bn: 'সঠিক উত্তর: পরিদর্শন করা হয় — পাঠ্যাংশে বলা হয়েছে: «যাত্রা শুরুর আগে সব বগি পরিদর্শন করা হয় এবং যেকোনো ত্রুটি নিয়ন্ত্রণ কেন্দ্রে জানানো হয়।» (vengono ispezionati prima della partenza)।', en: 'They are inspected before departure.' } },
     ],
   }),
   buildListening({
@@ -192,7 +192,7 @@ export const B2_LISTENING_1: ListeningExercise[] = [
     vocabKeys: ["w:B2:l'interoperabilità", 'w:B2:digitalizzare'],
     grammarIds: ['si-passivante-riflessivo'],
     questions: [
-      { id: 'lsb2-12-q1', prompt: { bn: 'ব্যবহারকারীরা কীভাবে পোর্টালে প্রবেশ যাচাই করেন?', en: 'How do users authenticate on the portal?' }, options: ['ডাকযোগে', 'ডিজিটাল পরিচয়ের মাধ্যমে', 'ফোন কলের মাধ্যমে', 'ব্যাংক কার্ডে'], answer: 1, explanation: { bn: 'con identità digitale।', en: 'With digital identity.' } },
+      { id: 'lsb2-12-q1', prompt: { bn: 'ব্যবহারকারীরা কীভাবে পোর্টালে প্রবেশ যাচাই করেন?', en: 'How do users authenticate on the portal?' }, options: ['ডাকযোগে', 'ডিজিটাল পরিচয়ের মাধ্যমে', 'ফোন কলের মাধ্যমে', 'ব্যাংক কার্ডে'], answer: 1, explanation: { bn: 'সঠিক উত্তর: ডিজিটাল পরিচয়ের মাধ্যমে — পাঠ্যাংশে বলা হয়েছে: «ব্যবহারকারীরা ডিজিটাল পরিচয়ের মাধ্যমে নিজেদের যাচাই করেন এবং নথিগুলো কয়েক সেকেন্ডের মধ্যে ডাউনলোড করা হয়।» (con identità digitale)।', en: 'With digital identity.' } },
     ],
   }),
   buildListening({
@@ -208,7 +208,7 @@ export const B2_LISTENING_1: ListeningExercise[] = [
     vocabKeys: ["w:B2:l'autocertificazione", 'w:B2:la delega'],
     grammarIds: ['subordinate-implicite'],
     questions: [
-      { id: 'lsb2-13-q1', prompt: { bn: 'কর্মকর্তা কী সংরক্ষণ করার পরামর্শ দিয়েছেন?', en: 'What did the official advise keeping?' }, options: ['পুরনো পাসপোর্ট', 'নিবন্ধিত রসিদ', 'নগদ রসিদ', 'হস্তলিখিত চিঠি'], answer: 1, explanation: { bn: 'conservare la ricevuta protocollata।', en: 'Keep the logged receipt.' } },
+      { id: 'lsb2-13-q1', prompt: { bn: 'কর্মকর্তা কী সংরক্ষণ করার পরামর্শ দিয়েছেন?', en: 'What did the official advise keeping?' }, options: ['পুরনো পাসপোর্ট', 'নিবন্ধিত রসিদ', 'নগদ রসিদ', 'হস্তলিখিত চিঠি'], answer: 1, explanation: { bn: 'সঠিক উত্তর: নিবন্ধিত রসিদ — পাঠ্যাংশে বলা হয়েছে: «অনলাইনে স্ব-প্রত্যয়নপত্র জমা দিলেও সম্ভাব্য যাচাইয়ের জন্য নিবন্ধিত রসিদটি সংরক্ষণ করা উচিত।» (conservare la ricevuta protocollata)।', en: 'Keep the logged receipt.' } },
     ],
   }),
   buildListening({
@@ -224,7 +224,7 @@ export const B2_LISTENING_1: ListeningExercise[] = [
     vocabKeys: ['w:B2:il dissesto idrogeologico', 'w:B2:arginare', "w:B2:l'alluvione"],
     grammarIds: ['gerundio-causale-ipotetico'],
     questions: [
-      { id: 'lsb2-14-q1', prompt: { bn: 'প্রকৌশলীর মতে কখন হস্তক্ষেপ করা প্রয়োজন?', en: 'When does the engineer say action is needed?' }, options: ['শরতের বৃষ্টির আগেই', 'শীতের শেষে', 'নির্বাচনের পর', 'গ্রীষ্মের মাঝামাঝি'], answer: 0, explanation: { bn: 'prima delle piogge autunnali।', en: 'Before the autumn rains.' } },
+      { id: 'lsb2-14-q1', prompt: { bn: 'প্রকৌশলীর মতে কখন হস্তক্ষেপ করা প্রয়োজন?', en: 'When does the engineer say action is needed?' }, options: ['শরতের বৃষ্টির আগেই', 'শীতের শেষে', 'নির্বাচনের পর', 'গ্রীষ্মের মাঝামাঝি'], answer: 0, explanation: { bn: 'সঠিক উত্তর: শরতের বৃষ্টির আগেই — পাঠ্যাংশে বলা হয়েছে: «নদীর তীরে সময়মতো পদক্ষেপ নিলে শরতের বৃষ্টির আগেই আমরা জলজ ও ভূমিধস ঝুঁকি রোধ করতে পারব।» (prima delle piogge autunnali)।', en: 'Before the autumn rains.' } },
     ],
   }),
   buildListening({
@@ -240,7 +240,7 @@ export const B2_LISTENING_1: ListeningExercise[] = [
     vocabKeys: ['w:B2:le fonti rinnovabili', 'w:B2:la normativa'],
     grammarIds: ['participio-presente-b2'],
     questions: [
-      { id: 'lsb2-15-q1', prompt: { bn: 'আবেদন জমার শেষ তারিখ কবে?', en: 'What is the application deadline?' }, options: ['১৫ মে', '৩০ জুন', '১ জুলাই', '৩১ আগস্ট'], answer: 1, explanation: { bn: 'entro il trenta giugno।', en: 'By 30 June.' } },
+      { id: 'lsb2-15-q1', prompt: { bn: 'আবেদন জমার শেষ তারিখ কবে?', en: 'What is the application deadline?' }, options: ['১৫ মে', '৩০ জুন', '১ জুলাই', '৩১ আগস্ট'], answer: 1, explanation: { bn: 'সঠিক উত্তর: ৩০ জুন — পাঠ্যাংশে বলা হয়েছে: «নবায়নযোগ্য জ্বালানি খাতে কর্মরত প্রতিষ্ঠানগুলো ৩০ জুনের মধ্যে আবেদন জমা দিতে পারবে।» (entro il trenta giugno)।', en: 'By 30 June.' } },
     ],
   }),
   buildListening({
@@ -256,7 +256,7 @@ export const B2_LISTENING_1: ListeningExercise[] = [
     vocabKeys: ['w:B2:la fusione aziendale', 'w:B2:il consiglio di amministrazione', 'w:B2:il fatturato annuo', 'w:B2:la diversificazione'],
     grammarIds: ['participio-assoluto-b2'],
     questions: [
-      { id: 'lsb2-16-q1', prompt: { bn: 'একীভূতকরণ শেষে পরিচালনা পর্ষদ কী অনুমোদন করেছে?', en: 'What did the board approve after the merger?' }, options: ['নতুন শিল্প পরিকল্পনা', 'কাজের সময় বৃদ্ধি', 'নতুন ভবন বিক্রি', 'অবকাশ ভাতা বাতিল'], answer: 0, explanation: { bn: 'il nuovo piano industriale।', en: 'The new industrial/business plan.' } },
+      { id: 'lsb2-16-q1', prompt: { bn: 'একীভূতকরণ শেষে পরিচালনা পর্ষদ কী অনুমোদন করেছে?', en: 'What did the board approve after the merger?' }, options: ['নতুন শিল্প পরিকল্পনা', 'কাজের সময় বৃদ্ধি', 'নতুন ভবন বিক্রি', 'অবকাশ ভাতা বাতিল'], answer: 0, explanation: { bn: 'সঠিক উত্তর: নতুন শিল্প পরিকল্পনা — পাঠ্যাংশে বলা হয়েছে: «কর্পোরেট একীভূতকরণ সম্পন্ন হওয়ার পর পরিচালনা পর্ষদ নতুন শিল্প পরিকল্পনা অনুমোদন করেছে।» (il nuovo piano industriale)।', en: 'The new industrial/business plan.' } },
     ],
   }),
   buildListening({
@@ -272,7 +272,7 @@ export const B2_LISTENING_1: ListeningExercise[] = [
     vocabKeys: ['w:B2:il rettore', 'w:B2:il dottorato di ricerca', 'w:B2:la revisione paritaria'],
     grammarIds: ['infinito-sostantivato'],
     questions: [
-      { id: 'lsb2-17-q1', prompt: { bn: 'উপাচার্যের মতে পিএইচডি যাত্রাকে কী সমৃদ্ধ করে?', en: 'According to the rector, what enriches the PhD journey?' }, options: ['আন্তর্জাতিক গবেষকদের সাথে নিয়মিত মতবিনিময়', 'দীর্ঘ ছুটি', 'কেবল মৌখিক পরীক্ষা', 'কম পাঠ্যবই'], answer: 0, explanation: { bn: 'il confrontarsi quotidianamente con studiosi internazionali।', en: 'Daily exchange with international scholars.' } },
+      { id: 'lsb2-17-q1', prompt: { bn: 'উপাচার্যের মতে পিএইচডি যাত্রাকে কী সমৃদ্ধ করে?', en: 'According to the rector, what enriches the PhD journey?' }, options: ['আন্তর্জাতিক গবেষকদের সাথে নিয়মিত মতবিনিময়', 'দীর্ঘ ছুটি', 'কেবল মৌখিক পরীক্ষা', 'কম পাঠ্যবই'], answer: 0, explanation: { bn: 'সঠিক উত্তর: আন্তর্জাতিক গবেষকদের সাথে নিয়মিত মতবিনিময় — পাঠ্যাংশে বলা হয়েছে: «আন্তর্জাতিক গবেষকদের সাথে প্রতিদিন মতবিনিময় করা পিএইচডি গবেষণার পথকে সমৃদ্ধ করে।» (il confrontarsi quotidianamente con studiosi internazionali)।', en: 'Daily exchange with international scholars.' } },
     ],
   }),
   buildListening({
@@ -288,7 +288,7 @@ export const B2_LISTENING_1: ListeningExercise[] = [
     vocabKeys: ["w:B2:l'amministratore delegato", 'w:B2:precisare', 'w:B2:compensare', 'w:B2:la robotica avanzata'],
     grammarIds: ['discorso-indiretto-complesso'],
     questions: [
-      { id: 'lsb2-18-q1', prompt: { bn: 'কোম্পানি আগেই কোন খাতে বিনিয়োগ করেছিল?', en: 'What had the company already invested in?' }, options: ['উন্নত রোবোটিক্সে', 'জাহাজ শিল্পে', 'খনিজ তেলে', 'হোটেল ব্যবসায়'], answer: 0, explanation: { bn: 'nella robotica avanzata।', en: 'In advanced robotics.' } },
+      { id: 'lsb2-18-q1', prompt: { bn: 'কোম্পানি আগেই কোন খাতে বিনিয়োগ করেছিল?', en: 'What had the company already invested in?' }, options: ['উন্নত রোবোটিক্সে', 'জাহাজ শিল্পে', 'খনিজ তেলে', 'হোটেল ব্যবসায়'], answer: 0, explanation: { bn: 'সঠিক উত্তর: উন্নত রোবোটিক্সে — পাঠ্যাংশে বলা হয়েছে: «তিনি আরও যোগ করেন যে ততদিন পর্যন্ত গ্রুপটি ইতিমধ্যে উন্নত রোবোটিক্সে বিনিয়োগ করেছিল।» (nella robotica avanzata)।', en: 'In advanced robotics.' } },
     ],
   }),
   buildListening({
@@ -304,7 +304,7 @@ export const B2_LISTENING_1: ListeningExercise[] = [
     vocabKeys: ['w:B2:il dirigente scolastico', 'w:B2:la dispersione scolastica', 'w:B2:irreversibile'],
     grammarIds: ['discorso-indiretto-libero'],
     questions: [
-      { id: 'lsb2-19-q1', prompt: { bn: 'প্রধান শিক্ষিকা সেদিনই কী করতে বাধ্য বোধ করলেন?', en: 'What did the headteacher feel compelled to do that day?' }, options: ['পদত্যাগ করা', 'শিক্ষকদের সভা ডাকা', 'ভবন তালা দেওয়া', 'পরীক্ষা বাতিল করা'], answer: 1, explanation: { bn: 'convocare i docenti il giorno stesso।', en: 'Summon the teachers that very day.' } },
+      { id: 'lsb2-19-q1', prompt: { bn: 'প্রধান শিক্ষিকা সেদিনই কী করতে বাধ্য বোধ করলেন?', en: 'What did the headteacher feel compelled to do that day?' }, options: ['পদত্যাগ করা', 'শিক্ষকদের সভা ডাকা', 'ভবন তালা দেওয়া', 'পরীক্ষা বাতিল করা'], answer: 1, explanation: { bn: 'সঠিক উত্তর: শিক্ষকদের সভা ডাকা — পাঠ্যাংশে বলা হয়েছে: «অথচ সময় ফুরিয়ে আসছিল; সমস্যাটি অপরিবর্তনীয় হওয়ার আগেই তাঁকে সেদিনই শিক্ষকদের ডাকতে হতো।» (convocare i docenti il giorno stesso)।', en: 'Summon the teachers that very day.' } },
     ],
   }),
   buildListening({
@@ -320,7 +320,7 @@ export const B2_LISTENING_1: ListeningExercise[] = [
     vocabKeys: ['w:B2:il licenziamento illegittimo', 'w:B2:la tutela legale', 'w:B2:la clausola vessatoria'],
     grammarIds: ['relativi-formali-b2'],
     questions: [
-      { id: 'lsb2-20-q1', prompt: { bn: 'অসম শর্তাবলি আলাদাভাবে স্বাক্ষরিত না হলে চুক্তির কী হয়?', en: 'What happens to a contract if unfair clauses are not signed separately?' }, options: ['মেয়াদ দ্বিগুণ হয়', 'তা বাতিল (nullo) হয়', 'স্বয়ংক্রিয়ভাবে নবায়ন হয়', 'জরিমানা মওকুফ হয়'], answer: 1, explanation: { bn: 'il contratto… è nullo।', en: 'The contract is void.' } },
+      { id: 'lsb2-20-q1', prompt: { bn: 'অসম শর্তাবলি আলাদাভাবে স্বাক্ষরিত না হলে চুক্তির কী হয়?', en: 'What happens to a contract if unfair clauses are not signed separately?' }, options: ['মেয়াদ দ্বিগুণ হয়', 'তা বাতিল (nullo) হয়', 'স্বয়ংক্রিয়ভাবে নবায়ন হয়', 'জরিমানা মওকুফ হয়'], answer: 1, explanation: { bn: 'সঠিক উত্তর: তা বাতিল (nullo) হয় — পাঠ্যাংশে বলা হয়েছে: «অধিকন্তু, যে চুক্তির অসম শর্তাবলি আলাদাভাবে স্বাক্ষরিত হয়নি তা বাতিল বলে গণ্য।» (il contratto… è nullo)।', en: 'The contract is void.' } },
     ],
   }),
   buildListening({
@@ -336,7 +336,7 @@ export const B2_LISTENING_1: ListeningExercise[] = [
     vocabKeys: ['w:B2:la verifica empirica', "w:B2:l'attendibilità dei dati", 'w:B2:prevalere'],
     grammarIds: ['doppi-relativi'],
     questions: [
-      { id: 'lsb2-21-q1', prompt: { bn: 'অধ্যাপকের মতে ব্যক্তিগত মতামতের ওপর কী প্রাধান্য পায়?', en: 'What prevails over personal opinions?' }, options: ['অভিজ্ঞতালব্ধ যাচাইয়ের ফল', 'জনপ্রিয় গুজব', 'সামাজিক মাধ্যমের পোস্ট', 'বিজ্ঞাপন'], answer: 0, explanation: { bn: 'quanto emerge dalla verifica empirica।', en: 'What emerges from empirical verification.' } },
+      { id: 'lsb2-21-q1', prompt: { bn: 'অধ্যাপকের মতে ব্যক্তিগত মতামতের ওপর কী প্রাধান্য পায়?', en: 'What prevails over personal opinions?' }, options: ['অভিজ্ঞতালব্ধ যাচাইয়ের ফল', 'জনপ্রিয় গুজব', 'সামাজিক মাধ্যমের পোস্ট', 'বিজ্ঞাপন'], answer: 0, explanation: { bn: 'সঠিক উত্তর: অভিজ্ঞতালব্ধ যাচাইয়ের ফল — পাঠ্যাংশে বলা হয়েছে: «বস্তুত, অভিজ্ঞতালব্ধ যাচাই থেকে যা উঠে আসে, তা সবসময় ব্যক্তিগত মতামতের ওপর প্রাধান্য পায়।» (quanto emerge dalla verifica empirica)।', en: 'What emerges from empirical verification.' } },
     ],
   }),
   buildListening({
@@ -352,7 +352,7 @@ export const B2_LISTENING_1: ListeningExercise[] = [
     vocabKeys: ['w:B2:il bando di concorso', 'w:B2:la perizia tecnica'],
     grammarIds: ['dislocazione-sinistra'],
     questions: [
-      { id: 'lsb2-22-q1', prompt: { bn: 'এলেনা কারিগরি প্রতিবেদনটি কখন জমা দিয়েছেন?', en: 'When did Elena submit the technical report?' }, options: ['আজ বিকেলে', 'গতকাল সকালে', 'আগামী সপ্তাহে', 'গত মাসে'], answer: 1, explanation: { bn: 'ieri mattina।', en: 'Yesterday morning.' } },
+      { id: 'lsb2-22-q1', prompt: { bn: 'এলেনা কারিগরি প্রতিবেদনটি কখন জমা দিয়েছেন?', en: 'When did Elena submit the technical report?' }, options: ['আজ বিকেলে', 'গতকাল সকালে', 'আগামী সপ্তাহে', 'গত মাসে'], answer: 1, explanation: { bn: 'সঠিক উত্তর: গতকাল সকালে — পাঠ্যাংশে বলা হয়েছে: «হ্যাঁ, আর কারিগরি প্রতিবেদনটি আমরা গতকাল সকালে দাপ্তরিক নিবন্ধন কক্ষে জমা দিয়েছি।» (ieri mattina)।', en: 'Yesterday morning.' } },
     ],
   }),
   buildListening({
@@ -368,7 +368,7 @@ export const B2_LISTENING_1: ListeningExercise[] = [
     vocabKeys: ['w:B2:la verifica delle fonti', 'w:B2:la notizia infondata', 'w:B2:la bolla informativa'],
     grammarIds: ['dislocazione-destra'],
     questions: [
-      { id: 'lsb2-23-q1', prompt: { bn: 'সাংবাদিক প্রতিবেদনে কী ব্যাখ্যা করেছেন?', en: 'What did the reporter explain in the piece?' }, options: ['তথ্যের বুদবুদ বাস্তব তথ্যকে বিকৃত করে', 'খবরটি সম্পূর্ণ সত্য', 'কোনো সূত্র দরকার নেই', 'পত্রিকা বন্ধ হচ্ছে'], answer: 0, explanation: { bn: 'la bolla informativa distorce i fatti।', en: 'The information bubble distorts the facts.' } },
+      { id: 'lsb2-23-q1', prompt: { bn: 'সাংবাদিক প্রতিবেদনে কী ব্যাখ্যা করেছেন?', en: 'What did the reporter explain in the piece?' }, options: ['তথ্যের বুদবুদ বাস্তব তথ্যকে বিকৃত করে', 'খবরটি সম্পূর্ণ সত্য', 'কোনো সূত্র দরকার নেই', 'পত্রিকা বন্ধ হচ্ছে'], answer: 0, explanation: { bn: 'সঠিক উত্তর: তথ্যের বুদবুদ বাস্তব তথ্যকে বিকৃত করে — পাঠ্যাংশে বলা হয়েছে: «হ্যাঁ, আমরা প্রতিবেদনে স্পষ্টভাবে বুঝিয়ে দিয়েছি যে তথ্যের বুদবুদ বাস্তব তথ্যকে বিকৃত করে।» (la bolla informativa distorce i fatti)।', en: 'The information bubble distorts the facts.' } },
     ],
   }),
   buildListening({
@@ -384,7 +384,7 @@ export const B2_LISTENING_1: ListeningExercise[] = [
     vocabKeys: ["w:B2:il giornalismo d'inchiesta", 'w:B2:la libertà di stampa', "w:B2:l'illecito"],
     grammarIds: ['frase-scissa'],
     questions: [
-      { id: 'lsb2-24-q1', prompt: { bn: 'লেখকের মতে অনিয়ম উন্মোচন করে কোনটি?', en: 'According to the author, what exposes wrongdoing?' }, options: ['অনুসন্ধানী সাংবাদিকতা', 'বিনোদন অনুষ্ঠান', 'বিজ্ঞাপন সংস্থা', 'ক্রীড়া সংবাদ'], answer: 0, explanation: { bn: 'il giornalismo d’inchiesta।', en: 'Investigative journalism.' } },
+      { id: 'lsb2-24-q1', prompt: { bn: 'লেখকের মতে অনিয়ম উন্মোচন করে কোনটি?', en: 'According to the author, what exposes wrongdoing?' }, options: ['অনুসন্ধানী সাংবাদিকতা', 'বিনোদন অনুষ্ঠান', 'বিজ্ঞাপন সংস্থা', 'ক্রীড়া সংবাদ'], answer: 0, explanation: { bn: 'সঠিক উত্তর: অনুসন্ধানী সাংবাদিকতা — পাঠ্যাংশে বলা হয়েছে: «অনুসন্ধানী সাংবাদিকতাই তো সংবাদপত্রের স্বাধীনতা নিশ্চিত করে এবং প্রতিটি অনিয়ম উন্মোচন করে।» (il giornalismo d’inchiesta)।', en: 'Investigative journalism.' } },
     ],
   }),
   buildListening({
@@ -400,7 +400,7 @@ export const B2_LISTENING_1: ListeningExercise[] = [
     vocabKeys: ['w:B2:la siccità prolungata', 'w:B2:scaturire', 'w:B2:la fuga dei cervelli'],
     grammarIds: ['inversione-soggetto'],
     questions: [
-      { id: 'lsb2-25-q1', prompt: { bn: 'দীর্ঘস্থায়ী খরায় কোন খাত গুরুতর সমস্যায় পড়েছে?', en: 'Which sector faces serious difficulties from the drought?' }, options: ['বিমান পরিবহন', 'কৃষিকাজ', 'সিনেমা শিল্প', 'ব্যাংকিং'], answer: 1, explanation: { bn: 'le colture agricole।', en: 'Agricultural crops.' } },
+      { id: 'lsb2-25-q1', prompt: { bn: 'দীর্ঘস্থায়ী খরায় কোন খাত গুরুতর সমস্যায় পড়েছে?', en: 'Which sector faces serious difficulties from the drought?' }, options: ['বিমান পরিবহন', 'কৃষিকাজ', 'সিনেমা শিল্প', 'ব্যাংকিং'], answer: 1, explanation: { bn: 'সঠিক উত্তর: কৃষিকাজ — পাঠ্যাংশে বলা হয়েছে: «দীর্ঘস্থায়ী খরা থেকে দক্ষিণ ইতালির কৃষিকাজের জন্য গুরুতর সংকট সৃষ্টি হচ্ছে।» (le colture agricole)।', en: 'Agricultural crops.' } },
     ],
   }),
   buildListening({
@@ -416,7 +416,7 @@ export const B2_LISTENING_1: ListeningExercise[] = [
     vocabKeys: ['w:B2:la tempestività', "w:B2:l'efficacia", "w:B2:il potere d'acquisto", 'w:B2:a lungo termine'],
     grammarIds: ['nominalizzazione-b2'],
     questions: [
-      { id: 'lsb2-26-q1', prompt: { bn: 'কোন বিষয়টি দ্রুত দীর্ঘমেয়াদী পদক্ষেপ দাবি করছে?', en: 'What requires swift long-term measures?' }, options: ['ক্রয়ক্ষমতা হ্রাস', 'নতুন উৎসব আয়োজন', 'ছুটি বৃদ্ধি', 'ট্রেনের রঙ পরিবর্তন'], answer: 0, explanation: { bn: 'la riduzione del potere d’acquisto।', en: 'The reduction in purchasing power.' } },
+      { id: 'lsb2-26-q1', prompt: { bn: 'কোন বিষয়টি দ্রুত দীর্ঘমেয়াদী পদক্ষেপ দাবি করছে?', en: 'What requires swift long-term measures?' }, options: ['ক্রয়ক্ষমতা হ্রাস', 'নতুন উৎসব আয়োজন', 'ছুটি বৃদ্ধি', 'ট্রেনের রঙ পরিবর্তন'], answer: 0, explanation: { bn: 'সঠিক উত্তর: ক্রয়ক্ষমতা হ্রাস — পাঠ্যাংশে বলা হয়েছে: «তবে ক্রয়ক্ষমতা হ্রাস পাওয়ার কারণে দীর্ঘমেয়াদে দ্রুত পদক্ষেপ প্রয়োজন।» (la riduzione del potere d’acquisto)।', en: 'The reduction in purchasing power.' } },
     ],
   }),
   buildListening({
@@ -432,7 +432,7 @@ export const B2_LISTENING_1: ListeningExercise[] = [
     vocabKeys: ['w:B2:in primo luogo', 'w:B2:la transizione ecologica', 'w:B2:pertanto', 'w:B2:imprescindibile', "w:B2:tant'è vero che", 'w:B2:in ultima analisi', 'w:B2:la coesione sociale'],
     grammarIds: ['connettivi-argomentativi'],
     questions: [
-      { id: 'lsb2-27-q1', prompt: { bn: 'বক্তার মতে চূড়ান্ত বিচারে সামাজিক সংহতি কীসের ওপর নির্ভরশীল?', en: 'According to the speaker, what does social cohesion depend on?' }, options: ['পরিবেশগত স্থায়িত্ব', 'বিলাসবহুল পর্যটন', 'নগদ কর ছাড়', 'রাতের ট্রেন'], answer: 0, explanation: { bn: 'dalla sostenibilità ambientale।', en: 'On environmental sustainability.' } },
+      { id: 'lsb2-27-q1', prompt: { bn: 'বক্তার মতে চূড়ান্ত বিচারে সামাজিক সংহতি কীসের ওপর নির্ভরশীল?', en: 'According to the speaker, what does social cohesion depend on?' }, options: ['পরিবেশগত স্থায়িত্ব', 'বিলাসবহুল পর্যটন', 'নগদ কর ছাড়', 'রাতের ট্রেন'], answer: 0, explanation: { bn: 'সঠিক উত্তর: পরিবেশগত স্থায়িত্ব — পাঠ্যাংশে বলা হয়েছে: «বস্তুত, চূড়ান্ত বিচারে সামাজিক সংহতি পরিবেশগত স্থায়িত্বের ওপরও নির্ভর করে।» (dalla sostenibilità ambientale)।', en: 'On environmental sustainability.' } },
     ],
   }),
   buildListening({
@@ -448,7 +448,7 @@ export const B2_LISTENING_1: ListeningExercise[] = [
     vocabKeys: ["w:B2:il potere d'acquisto", "w:B2:l'aliquota", 'w:B2:diminuire'],
     grammarIds: ['connettivi-riformulazione'],
     questions: [
-      { id: 'lsb2-28-q1', prompt: { bn: 'প্রকৃত মজুরির ক্ষয় সবচেয়ে বেশি কাদের প্রভাবিত করে?', en: 'Who is hit hardest by the erosion of real wages?' }, options: ['স্থির আয়ের মানুষদের', 'বিদেশি ব্যাংকগুলোকে', 'শিল্প প্রদর্শনীকে', 'বিমান সংস্থাগুলোকে'], answer: 0, explanation: { bn: 'i redditi fissi।', en: 'Fixed-income earners.' } },
+      { id: 'lsb2-28-q1', prompt: { bn: 'প্রকৃত মজুরির ক্ষয় সবচেয়ে বেশি কাদের প্রভাবিত করে?', en: 'Who is hit hardest by the erosion of real wages?' }, options: ['স্থির আয়ের মানুষদের', 'বিদেশি ব্যাংকগুলোকে', 'শিল্প প্রদর্শনীকে', 'বিমান সংস্থাগুলোকে'], answer: 0, explanation: { bn: 'সঠিক উত্তর: স্থির আয়ের মানুষদের — পাঠ্যাংশে বলা হয়েছে: «প্রকৃত মজুরির ক্ষয়, অর্থাৎ ক্রয়ক্ষমতার হ্রাস, বিশেষভাবে স্থির আয়ের মানুষদের আঘাত করে।» (i redditi fissi)।', en: 'Fixed-income earners.' } },
     ],
   }),
   buildListening({
@@ -464,7 +464,7 @@ export const B2_LISTENING_1: ListeningExercise[] = [
     vocabKeys: ['w:B2:alla luce di', 'w:B2:il trattamento di fine rapporto', 'w:B2:in conformità con', 'w:B2:a prescindere da', 'w:B2:a scapito di'],
     grammarIds: ['locuzioni-preposizionali-b2'],
     questions: [
-      { id: 'lsb2-29-q1', prompt: { bn: 'চাকরি সমাপ্তিকালীন ভাতা কীসের সাথে সামঞ্জস্য রেখে হিসাব করতে হবে?', en: 'What must severance pay conform to?' }, options: ['জাতীয় চুক্তির সাথে', 'মাসিক ভাড়ার সাথে', 'বিজ্ঞাপন বাজেটের সাথে', 'রপ্তানি শুল্কের সাথে'], answer: 0, explanation: { bn: 'in conformità con il contratto nazionale।', en: 'With the national contract.' } },
+      { id: 'lsb2-29-q1', prompt: { bn: 'চাকরি সমাপ্তিকালীন ভাতা কীসের সাথে সামঞ্জস্য রেখে হিসাব করতে হবে?', en: 'What must severance pay conform to?' }, options: ['জাতীয় চুক্তির সাথে', 'মাসিক ভাড়ার সাথে', 'বিজ্ঞাপন বাজেটের সাথে', 'রপ্তানি শুল্কের সাথে'], answer: 0, explanation: { bn: 'সঠিক উত্তর: জাতীয় চুক্তির সাথে — পাঠ্যাংশে বলা হয়েছে: «সাম্প্রতিক চুক্তিগুলোর আলোকে, চাকরি সমাপ্তিকালীন প্রাপ্য ভাতা জাতীয় চুক্তির সাথে সামঞ্জস্য রেখে হিসাব করতে হবে।» (in conformità con il contratto nazionale)।', en: 'With the national contract.' } },
     ],
   }),
   buildListening({
@@ -480,7 +480,7 @@ export const B2_LISTENING_1: ListeningExercise[] = [
     vocabKeys: ['w:B2:il malinteso', 'w:B2:il fraintendimento'],
     grammarIds: ['verbi-procomplementari'],
     questions: [
-      { id: 'lsb2-30-q1', prompt: { bn: 'দাভিদের কী নিয়ে ভয় ছিল?', en: 'What was Davide afraid of?' }, options: ['গ্রাহক মনঃক্ষুণ্ন হয়ে কাজ ছেড়ে দেবেন', 'বিমান বাতিল হবে', 'দস্তাবেজ হারিয়ে যাবে', 'আগুন লাগবে'], answer: 0, explanation: { bn: 'temevo che il cliente se la prendesse।', en: 'That the client would take offence.' } },
+      { id: 'lsb2-30-q1', prompt: { bn: 'দাভিদের কী নিয়ে ভয় ছিল?', en: 'What was Davide afraid of?' }, options: ['গ্রাহক মনঃক্ষুণ্ন হয়ে কাজ ছেড়ে দেবেন', 'বিমান বাতিল হবে', 'দস্তাবেজ হারিয়ে যাবে', 'আগুন লাগবে'], answer: 0, explanation: { bn: 'সঠিক উত্তর: গ্রাহক মনঃক্ষুণ্ন হয়ে কাজ ছেড়ে দেবেন — পাঠ্যাংশে বলা হয়েছে: «বাঁচা গেল! ওই উত্তেজনায় আমার ভয় হচ্ছিল যে গ্রাহক মনে কষ্ট পাবেন এবং আর কোনো আগ্রহ দেখাবেন না।» (temevo che il cliente se la prendesse)।', en: 'That the client would take offence.' } },
     ],
   }),
   buildListening({
@@ -496,7 +496,7 @@ export const B2_LISTENING_1: ListeningExercise[] = [
     vocabKeys: ['w:B2:persistere'],
     grammarIds: ['verbi-doppio-ausiliare'],
     questions: [
-      { id: 'lsb2-31-q1', prompt: { bn: 'দলটি কেন দ্রুত নিচে নেমে এসেছে?', en: 'Why did the group have to come down early?' }, options: ['খারাপ আবহাওয়ার জন্য', 'পানি ফুরিয়ে যাওয়ায়', 'রাত হয়ে যাওয়ায়', 'পথ বন্ধ থাকায়'], answer: 0, explanation: { bn: 'per il maltempo।', en: 'Because of bad weather.' } },
+      { id: 'lsb2-31-q1', prompt: { bn: 'দলটি কেন দ্রুত নিচে নেমে এসেছে?', en: 'Why did the group have to come down early?' }, options: ['খারাপ আবহাওয়ার জন্য', 'পানি ফুরিয়ে যাওয়ায়', 'রাত হয়ে যাওয়ায়', 'পথ বন্ধ থাকায়'], answer: 0, explanation: { bn: 'সঠিক উত্তর: খারাপ আবহাওয়ার জন্য — পাঠ্যাংশে বলা হয়েছে: «আজ সকালে আমরা দুই ঘণ্টায় খাড়া পথ বেয়ে উঠেছি, কিন্তু পরে খারাপ আবহাওয়ার কারণে দ্রুত নেমে আসতে বাধ্য হয়েছি।» (per il maltempo)।', en: 'Because of bad weather.' } },
     ],
   }),
 ];

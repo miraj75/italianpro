@@ -34,7 +34,7 @@ export const A2_STORIES_2: StoryItem[] = [
     ],
     practice: {
       retellPrompt: { bn: 'বাজারের দোকানে কথোপকথনের ৩টি বাক্য ci ও ne দিয়ে লিখুন।', en: 'Write 3 shop sentences using ci and ne.' },
-      completeMissing: { promptIt: 'Quanti biglietti hai? ___ ho comprati due.', hint: { bn: 'Ne', en: 'partitive ne' }, sampleIt: 'Ne ho comprati due.' },
+      completeMissing: { promptIt: 'Quanti biglietti hai? ___ ho comprati due.', hint: { bn: 'আংশিক পরিমাণ নির্দেশ করতে সর্বনাম Ne ব্যবহার করুন', en: 'partitive ne' }, sampleIt: 'Ne ho comprati due.' },
       buildSimilar: { patternIt: 'Ci vado ogni settimana perché è comodo.', prompt: { bn: 'আপনি প্রায়ই যান এমন একটি জায়গার কথা লিখুন।', en: 'Write about a place you go often.' }, sampleIt: 'Vado spesso in biblioteca: ci studio bene.' },
       altEndingPrompt: { bn: 'এই ফল দিয়ে তারা কোন ডেজার্ট বানাতে পারে লিখুন।', en: 'What dessert could they make with the fruit?' },
     },
@@ -56,23 +56,23 @@ export const A2_STORIES_2: StoryItem[] = [
       { word: 'inserito', base: 'inserire', tr: { bn: 'প্রবেশ করানো / এন্ট্রি করা', en: 'entered' }, pos: 'verb' },
     ],
     grammarBreakdown: [
-      { sentenceIt: 'Davanti allo sportello / Nella cartella.', ruleTitle: { bn: 'preposizioni articolate', en: 'Contracted prepositions' }, explanation: { bn: 'a + lo = allo (s+ব্যঞ্জনে lo); in + la = nella।', en: 'a+lo=allo; in+la=nella.' }, grammarId: 'preposizioni-articolate' },
+      { sentenceIt: 'Davanti allo sportello / Nella cartella.', ruleTitle: { bn: 'আর্টিকেলযুক্ত সংযুক্ত প্রিপোজিশন (preposizioni articolate)', en: 'Contracted prepositions' }, explanation: { bn: 'a + lo = allo (s+ব্যঞ্জনে lo); in + la = nella।', en: 'a+lo=allo; in+la=nella.' }, grammarId: 'preposizioni-articolate' },
     ],
     mcq: [
-      { id: 'st2-13-q1', prompt: { bn: 'সে কেন পৌরসভায় গিয়েছিল?', en: 'Why did he go to the town hall?' }, options: ['পাসপোর্ট নবায়ন', 'ঠিকানা বদলের নিবন্ধন', 'ব্যাংক অ্যাকাউন্ট', 'ড্রাইভিং লাইসেন্স'], answer: 1, explanation: { bn: 'per chiedere il cambio di residenza।', en: 'Change of residence.' } },
+      { id: 'st2-13-q1', prompt: { bn: 'সে কেন পৌরসভায় গিয়েছিল?', en: 'Why did he go to the town hall?' }, options: ['পাসপোর্ট নবায়ন', 'ঠিকানা বদলের নিবন্ধন', 'ব্যাংক অ্যাকাউন্ট', 'ড্রাইভিং লাইসেন্স'], answer: 1, explanation: { bn: 'সঠিক উত্তর: ঠিকানা বদলের নিবন্ধন — পাঠ্যাংশে বলা হয়েছে: «আজ সকাল সাড়ে আটটায় আমি বসবাস নিবন্ধনের ঠিকানা বদলের জন্য পৌরসভায় গিয়েছিলাম। কাউন্টারের সামনে ইতিমধ্যেই ছোট একটা লাইন ছিল।» (per chiedere il cambio di residenza)।', en: 'Change of residence.' } },
     ],
     trueFalse: [
       { id: 'st2-13-tf1', statementIt: 'Aveva dimenticato il codice fiscale a casa.', statement: { bn: 'সে বাড়িতে ট্যাক্স কোড ফেলে এসেছিল।', en: 'He forgot his tax code at home.' }, answer: false, explanation: { bn: 'সব কাগজই ফাইলে ছিল।', en: 'He had all documents ready.' } },
     ],
     fillBlank: [
-      { id: 'st2-13-fb1', sentence: 'Ho consegnato il modulo ___ ufficio del primo piano.', options: ['nel', 'nell’', 'in l’', 'al'], answer: 1, explanation: { bn: 'in + l’ufficio = nell’ufficio।', en: 'in + l’ = nell’.' } },
+      { id: 'st2-13-fb1', sentence: 'Ho consegnato il modulo ___ ufficio del primo piano.', options: ['nel', 'nell’', 'in l’', 'al'], answer: 1, explanation: { bn: 'ব্যাকরণগত সংযোজন: in + l’ufficio = nell’ufficio নিয়ম অনুসারে সঠিক রূপটি গঠিত হয়েছে।', en: 'in + l’ = nell’.' } },
     ],
     shortAnswer: [
       { id: 'st2-13-sa1', question: { bn: 'কর্মকর্তা শেষে তাকে কী দিলেন?', en: 'What did the clerk give him at the end?' }, sampleAnswerIt: 'Gli ha consegnato la ricevuta ufficiale.', keywords: ['ricevuta'] },
     ],
     practice: {
       retellPrompt: { bn: 'পৌরসভা বা অফিসে কাজের অভিজ্ঞতা ৩ বাক্যে লিখুন।', en: 'Describe an errand at a public office in 3 sentences.' },
-      completeMissing: { promptIt: 'Le chiavi sono ___ zaino.', hint: { bn: 'in + lo', en: 'contract in + lo' }, sampleIt: 'Le chiavi sono nello zaino.' },
+      completeMissing: { promptIt: 'Le chiavi sono ___ zaino.', hint: { bn: 'in এবং lo যুক্ত করে সংযুক্ত প্রিপোজিশন nello বসান', en: 'contract in + lo' }, sampleIt: 'Le chiavi sono nello zaino.' },
       buildSimilar: { patternIt: 'Ho controllato i documenti nella borsa.', prompt: { bn: 'al/nel/sul ব্যবহার করে একটি বাক্য লিখুন।', en: 'Write a sentence using al, nel, or sul.' }, sampleIt: 'La ricevuta è sul tavolo della cucina.' },
       altEndingPrompt: { bn: 'কাজ শেষ করে বাসায় ফেরার সময় কী হলো লিখুন।', en: 'What happened on the way home?' },
     },
@@ -110,7 +110,7 @@ export const A2_STORIES_2: StoryItem[] = [
     ],
     practice: {
       retellPrompt: { bn: 'কাউকে স্টেশন থেকে আপনার বাসায় আসার নির্দেশ ৩ বাক্যে লিখুন।', en: 'Give 3-step directions from the station to your home.' },
-      completeMissing: { promptIt: 'Scusi, ___ dritto fino alla piazza.', hint: { bn: 'vada (Lei)', en: 'formal imperative' }, sampleIt: 'Scusi, vada dritto fino alla piazza.' },
+      completeMissing: { promptIt: 'Scusi, ___ dritto fino alla piazza.', hint: { bn: 'আনুষ্ঠানিক Lei-এর অনুজ্ঞা রূপ vada ব্যবহার করুন', en: 'formal imperative' }, sampleIt: 'Scusi, vada dritto fino alla piazza.' },
       buildSimilar: { patternIt: 'Gira alla seconda strada a sinistra.', prompt: { bn: 'একটি দিকনির্দেশনা লিখুন।', en: 'Write a direction instruction.' }, sampleIt: 'Prendi l’autobus alla terza fermata.' },
       altEndingPrompt: { bn: 'স্টেশনে পৌঁছে পর্যটকরা কী করল লিখুন।', en: 'What did the tourists do upon reaching the station?' },
     },
@@ -148,7 +148,7 @@ export const A2_STORIES_2: StoryItem[] = [
     ],
     practice: {
       retellPrompt: { bn: 'রেস্টুরেন্টে অর্ডার দেওয়ার ৩টি ভদ্র বাক্য লিখুন।', en: 'Write 3 polite restaurant sentences.' },
-      completeMissing: { promptIt: '___ avere un po’ di pane fresco, per favore?', hint: { bn: 'Potrei', en: 'polite conditional' }, sampleIt: 'Potrei avere un bicchiere d’acqua, per favore?' },
+      completeMissing: { promptIt: '___ avere un po’ di pane fresco, per favore?', hint: { bn: 'ভদ্র অনুরোধ প্রকাশে কন্ডিশনাল রূপ Potrei ব্যবহার করুন', en: 'polite conditional' }, sampleIt: 'Potrei avere un bicchiere d’acqua, per favore?' },
       buildSimilar: { patternIt: 'Vorremmo un tavolo vicino alla finestra.', prompt: { bn: 'vorrei বা vorremmo দিয়ে একটি অর্ডার লিখুন।', en: 'Write a request with vorrei/vorremmo.' }, sampleIt: 'Vorrei un antipasto di verdure.' },
       altEndingPrompt: { bn: 'জন্মদিনের কেক কেটে তারা কী করল লিখুন।', en: 'What happened when the birthday cake arrived?' },
     },
@@ -186,7 +186,7 @@ export const A2_STORIES_2: StoryItem[] = [
     ],
     practice: {
       retellPrompt: { bn: 'আপনার পরিবার সম্পর্কে ৩টি বাক্য সঠিক আর্টিকেলসহ লিখুন।', en: 'Write 3 sentences about your family applying the article rules.' },
-      completeMissing: { promptIt: '___ sorella lavora in banca, ma i ___ cugini studiano.', hint: { bn: 'Mia / miei', en: 'sg no article / pl article' }, sampleIt: 'Mia sorella lavora in banca, ma i miei cugini studiano.' },
+      completeMissing: { promptIt: '___ sorella lavora in banca, ma i ___ cugini studiano.', hint: { bn: 'একবচনে আর্টিকেল ছাড়া Mia এবং বহুবচনে আর্টিকেলসহ i miei বসান', en: 'sg no article / pl article' }, sampleIt: 'Mia sorella lavora in banca, ma i miei cugini studiano.' },
       buildSimilar: { patternIt: 'La loro casa è piena di libri.', prompt: { bn: 'il loro / la loro দিয়ে একটি বাক্য লিখুন।', en: 'Write a sentence using il/la loro.' }, sampleIt: 'Il loro giardino è molto tranquillo.' },
       altEndingPrompt: { bn: 'পারিবারিক নৈশভোজে কে কী উপহার দিল লিখুন।', en: 'What gift might they give their parents?' },
     },
@@ -224,7 +224,7 @@ export const A2_STORIES_2: StoryItem[] = [
     ],
     practice: {
       retellPrompt: { bn: 'da, fa, fra, per দিয়ে নিজের জীবন নিয়ে ৪টি বাক্য লিখুন।', en: 'Write 4 sentences about yourself using da, fa, fra, and per.' },
-      completeMissing: { promptIt: 'Sono arrivato in questa città due anni ___.', hint: { bn: 'fa', en: 'ago' }, sampleIt: 'Sono arrivato qui due anni fa.' },
+      completeMissing: { promptIt: 'Sono arrivato in questa città due anni ___.', hint: { bn: 'অতীত সময় নির্দেশ করতে fa (আগে) ব্যবহার করুন', en: 'ago' }, sampleIt: 'Sono arrivato qui due anni fa.' },
       buildSimilar: { patternIt: 'Studio italiano da otto mesi.', prompt: { bn: 'কতদিন ধরে ইতালিয়ান পড়ছেন লিখুন।', en: 'Write how long you have been learning Italian.' }, sampleIt: 'Studio italiano da un anno.' },
       altEndingPrompt: { bn: 'অ্যাপয়েন্টমেন্টের দিনে কী কাগজপত্র নিয়ে যাবে লিখুন।', en: 'Which documents will he take to the appointment?' },
     },
@@ -249,10 +249,10 @@ export const A2_STORIES_2: StoryItem[] = [
       { sentenceIt: 'Anche se eravamo delusi, non ci siamo annoiati.', ruleTitle: { bn: 'connettivi প্রবাহ', en: 'Connectors in context' }, explanation: { bn: 'anche se (যদিও), quindi (তাই), invece di (পরিবর্তে) ভাবনাগুলো স্পষ্টভাবে যুক্ত করে।', en: 'anche se, quindi, invece di structure contrast and consequence.' }, grammarId: 'connettivi' },
     ],
     mcq: [
-      { id: 'st2-18-q1', prompt: { bn: 'পিকনিক কেন বাতিল হলো?', en: 'Why was the picnic cancelled?' }, options: ['অসুস্থতা', 'ঝড়বৃষ্টি', 'দেরি হওয়া', 'বাস না পাওয়া'], answer: 1, explanation: { bn: 'è arrivato un forte temporale।', en: 'A thunderstorm arrived.' } },
+      { id: 'st2-18-q1', prompt: { bn: 'পিকনিক কেন বাতিল হলো?', en: 'Why was the picnic cancelled?' }, options: ['অসুস্থতা', 'ঝড়বৃষ্টি', 'দেরি হওয়া', 'বাস না পাওয়া'], answer: 1, explanation: { bn: 'সঠিক উত্তর: ঝড়বৃষ্টি — পাঠ্যাংশে বলা হয়েছে: «আমরা হ্রদে পিকনিকের আয়োজন করেছিলাম, কিন্তু আজ সকালে প্রবল ঝড়বৃষ্টি চলে এলো।» (è arrivato un forte temporale)।', en: 'A thunderstorm arrived.' } },
     ],
     trueFalse: [
-      { id: 'st2-18-tf1', statementIt: 'Si sono annoiati tutto il pomeriggio.', statement: { bn: 'তারা সারাবিকেল বিরক্ত হয়েছিল।', en: 'They were bored all afternoon.' }, answer: false, explanation: { bn: 'non ci siamo annoiati।', en: 'They were not bored.' } },
+      { id: 'st2-18-tf1', statementIt: 'Si sono annoiati tutto il pomeriggio.', statement: { bn: 'তারা সারাবিকেল বিরক্ত হয়েছিল।', en: 'They were bored all afternoon.' }, answer: false, explanation: { bn: 'বাক্যটি মিথ্যা — গল্পে আসলে বলা হয়েছে: «তাই আমরা ঘরেই থাকলাম। একটু হতাশ হলেও আমরা বিরক্ত হইনি: আমি যখন গরম চা বানাচ্ছিলাম, এলেনা দেখার জন্য একটা সিনেমা খুঁজছিল।» (non ci siamo annoiati)।', en: 'They were not bored.' } },
     ],
     fillBlank: [
       { id: 'st2-18-fb1', sentence: 'Pioveva forte, ___ abbiamo preso l’ombrello.', options: ['però', 'quindi', 'mentre', 'anche se'], answer: 1, explanation: { bn: 'কারণ ও ফলের মাঝে quindi।', en: 'Consequence takes quindi.' } },
@@ -262,7 +262,7 @@ export const A2_STORIES_2: StoryItem[] = [
     ],
     practice: {
       retellPrompt: { bn: 'però, quindi, mentre ব্যবহার করে আবহাওয়া ও পরিকল্পনা নিয়ে ৩ বাক্য লিখুন।', en: 'Write 3 sentences using però, quindi, and mentre.' },
-      completeMissing: { promptIt: '___ faceva freddo, siamo usciti lo stesso.', hint: { bn: 'Anche se', en: 'even though' }, sampleIt: 'Anche se faceva freddo, siamo usciti lo stesso.' },
+      completeMissing: { promptIt: '___ faceva freddo, siamo usciti lo stesso.', hint: { bn: 'যদিও অর্থে সংযোজক অব্যয় Anche se ব্যবহার করুন', en: 'even though' }, sampleIt: 'Anche se faceva freddo, siamo usciti lo stesso.' },
       buildSimilar: { patternIt: 'Invece di prendere il bus, camminiamo.', prompt: { bn: 'invece di দিয়ে একটি বাক্য লিখুন।', en: 'Write a sentence with invece di.' }, sampleIt: 'Invece di guardare la TV, leggo un libro.' },
       altEndingPrompt: { bn: 'বৃষ্টি থামার পর সন্ধ্যায় তারা কী করতে পারে লিখুন।', en: 'What might they do when the rain stops?' },
     },
@@ -284,23 +284,23 @@ export const A2_STORIES_2: StoryItem[] = [
       { word: 'splendidi', base: 'splendido', tr: { bn: 'চমৎকার / দারুণ', en: 'splendid' }, pos: 'adj' },
     ],
     grammarBreakdown: [
-      { sentenceIt: 'Ho aperto, ho letto, ho scritto, ha risposto, abbiamo visto, abbiamo detto.', ruleTitle: { bn: 'অনিয়মিত পার্টিসিপল অনুশীলন', en: 'Irregular participle cluster' }, explanation: { bn: 'aprire→aperto, leggere→letto, scrivere→scritto, rispondere→risposto, vedere→visto, dire→detto।', en: 'Notice all six irregular participles in context.' }, grammarId: 'passato-irregolari' },
+      { sentenceIt: 'Ho aperto, ho letto, ho scritto, ha risposto, abbiamo visto, abbiamo detto.', ruleTitle: { bn: 'অনিয়মিত পার্টিসিপল অনুশীলন', en: 'Irregular participle cluster' }, explanation: { bn: 'সঠিক রূপান্তর: «aprire» থেকে পরিবর্তিত হয়ে «aperto, leggere» ব্যবহৃত হয়।', en: 'Notice all six irregular participles in context.' }, grammarId: 'passato-irregolari' },
     ],
     mcq: [
-      { id: 'st2-19-q1', prompt: { bn: 'লুকা কেন সাথে সাথে উত্তর দেয়নি?', en: 'Why didn’t Luca reply straight away?' }, options: ['ফোন হারিয়েছে', 'ক্লাসে ফোন বন্ধ রেখেছিল', 'ঘুমাচ্ছিল', 'ব্যাটারি ছিল না'], answer: 1, explanation: { bn: 'aveva chiuso il telefono durante la lezione।', en: 'He had turned it off during class.' } },
+      { id: 'st2-19-q1', prompt: { bn: 'লুকা কেন সাথে সাথে উত্তর দেয়নি?', en: 'Why didn’t Luca reply straight away?' }, options: ['ফোন হারিয়েছে', 'ক্লাসে ফোন বন্ধ রেখেছিল', 'ঘুমাচ্ছিল', 'ব্যাটারি ছিল না'], answer: 1, explanation: { bn: 'সঠিক উত্তর: ক্লাসে ফোন বন্ধ রেখেছিল — পাঠ্যাংশে বলা হয়েছে: «সাথে সাথে লুকাকে লিখলাম, কিন্তু সে দুই ঘণ্টা পর উত্তর দিল কারণ ক্লাসের সময় সে ফোন বন্ধ রেখেছিল।» (aveva chiuso il telefono durante la lezione)।', en: 'He had turned it off during class.' } },
     ],
     trueFalse: [
       { id: 'st2-19-tf1', statementIt: 'La mostra chiudeva alle sei di sera.', statement: { bn: 'প্রদর্শনী সন্ধ্যা ছয়টায় বন্ধ হয়ে যাচ্ছিল।', en: 'The exhibition closed at 6 PM.' }, answer: false, explanation: { bn: 'fino a mezzanotte (মধ্যরাত পর্যন্ত খোলা)।', en: 'Open until midnight.' } },
     ],
     fillBlank: [
-      { id: 'st2-19-fb1', sentence: 'Alla fine della festa noi siamo ___ fino a tardi.', options: ['rimanuto', 'rimasti', 'abbiamo rimasti', 'riposato'], answer: 1, explanation: { bn: 'rimanere → siamo rimasti।', en: 'rimanere takes essere + rimasti.' } },
+      { id: 'st2-19-fb1', sentence: 'Alla fine della festa noi siamo ___ fino a tardi.', options: ['rimanuto', 'rimasti', 'abbiamo rimasti', 'riposato'], answer: 1, explanation: { bn: 'সঠিক রূপান্তর: «rimanere» থেকে পরিবর্তিত হয়ে «siamo rimasti» ব্যবহৃত হয়।', en: 'rimanere takes essere + rimasti.' } },
     ],
     shortAnswer: [
       { id: 'st2-19-sa1', question: { bn: 'সে প্রদর্শনীর খবর কোথা থেকে পড়েছে?', en: 'Where did he read about the exhibition?' }, sampleAnswerIt: 'L’ha letto sul giornale.', keywords: ['giornale'] },
     ],
     practice: {
       retellPrompt: { bn: 'fatto, letto, scritto, visto, detto ব্যবহার করে আজকের দিনের বর্ণনা দিন।', en: 'Describe your day using fatto, letto, scritto, visto, detto.' },
-      completeMissing: { promptIt: 'Ieri sera ho ___ una mail e ho ___ un film.', hint: { bn: 'scritto / visto', en: 'irregular participles' }, sampleIt: 'Ieri sera ho scritto una mail e ho visto un film.' },
+      completeMissing: { promptIt: 'Ieri sera ho ___ una mail e ho ___ un film.', hint: { bn: 'অনিয়মিত অতীত পার্টিসিপল scritto এবং visto বসান', en: 'irregular participles' }, sampleIt: 'Ieri sera ho scritto una mail e ho visto un film.' },
       buildSimilar: { patternIt: 'Ho aperto la finestra e ho visto il sole.', prompt: { bn: 'aperto বা chiuso দিয়ে একটি বাক্য লিখুন।', en: 'Write a sentence with aperto or chiuso.' }, sampleIt: 'Il negozio ha chiuso alle otto.' },
       altEndingPrompt: { bn: 'পরদিন বন্ধুদের তারা কী বলবে লিখুন।', en: 'What will they tell their friends tomorrow?' },
     },
@@ -322,10 +322,10 @@ export const A2_STORIES_2: StoryItem[] = [
       { word: 'tasca interna', base: 'tasca', tr: { bn: 'ভেতরের পকেট', en: 'inside pocket' }, pos: 'noun' },
     ],
     grammarBreakdown: [
-      { sentenceIt: 'Le ho trovate / L’avevo messa.', ruleTitle: { bn: 'সর্বনামের লিঙ্গ-বচন মিল', en: 'Agreement with lo/la/li/le' }, explanation: { bn: 'chiavi→le ho trovate; ricevuta→l’avevo messa।', en: 'Participle agrees with direct pronouns le and l’ (la).' }, grammarId: 'accordo-participio' },
+      { sentenceIt: 'Le ho trovate / L’avevo messa.', ruleTitle: { bn: 'সর্বনামের লিঙ্গ-বচন মিল', en: 'Agreement with lo/la/li/le' }, explanation: { bn: 'সঠিক রূপান্তর: «chiavi» থেকে পরিবর্তিত হয়ে «le ho trovate; ricevuta» ব্যবহৃত হয়।', en: 'Participle agrees with direct pronouns le and l’ (la).' }, grammarId: 'accordo-participio' },
     ],
     mcq: [
-      { id: 'st2-20-q1', prompt: { bn: 'শেষ পর্যন্ত রসিদটা কোথায় পাওয়া গেল?', en: 'Where was the receipt found in the end?' }, options: ['ব্যাকপ্যাকে', 'মানিব্যাগে', 'জ্যাকেটের ভেতরের পকেটে', 'টেবিলের নিচে'], answer: 2, explanation: { bn: 'nella tasca interna della giacca।', en: 'Inside pocket of the jacket.' } },
+      { id: 'st2-20-q1', prompt: { bn: 'শেষ পর্যন্ত রসিদটা কোথায় পাওয়া গেল?', en: 'Where was the receipt found in the end?' }, options: ['ব্যাকপ্যাকে', 'মানিব্যাগে', 'জ্যাকেটের ভেতরের পকেটে', 'টেবিলের নিচে'], answer: 2, explanation: { bn: 'সঠিক উত্তর: জ্যাকেটের ভেতরের পকেটে — পাঠ্যাংশে বলা হয়েছে: «তারপর নীল জ্যাকেট খুলে হেসে উঠলাম: এই তো! হারিয়ে না যাওয়ার জন্য ওটা ভেতরের পকেটে রেখেছিলাম।» (nella tasca interna della giacca)।', en: 'Inside pocket of the jacket.' } },
     ],
     trueFalse: [
       { id: 'st2-20-tf1', statementIt: 'Ha perso sia le chiavi sia la ricevuta.', statement: { bn: 'সে চাবি ও রসিদ দুটোই হারিয়েছে।', en: 'He lost both keys and receipt.' }, answer: false, explanation: { bn: 'চাবি পেয়েছিল ও পরে রসিদও পকেটে পেল।', en: 'He found both.' } },
@@ -338,7 +338,7 @@ export const A2_STORIES_2: StoryItem[] = [
     ],
     practice: {
       retellPrompt: { bn: 'কোনো হারিয়ে যাওয়া জিনিস খুঁজে পাওয়ার গল্প ৩ বাক্যে লিখুন।', en: 'Write 3 sentences about misplacing and finding something.' },
-      completeMissing: { promptIt: 'I biglietti? Li ho ___ sul tavolo.', hint: { bn: 'messi / lasciati', en: 'masc. plural' }, sampleIt: 'I biglietti? Li ho messi nello zaino.' },
+      completeMissing: { promptIt: 'I biglietti? Li ho ___ sul tavolo.', hint: { bn: 'পুংলিঙ্গ বহুবচন পার্টিসিপল messi / lasciati ব্যবহার করুন', en: 'masc. plural' }, sampleIt: 'I biglietti? Li ho messi nello zaino.' },
       buildSimilar: { patternIt: 'L’ho messa nella tasca interna.', prompt: { bn: 'স্ত্রীলিঙ্গ কোনো বস্তু কোথায় রেখেছেন লিখুন।', en: 'Write where you put a feminine noun using l’ho.' }, sampleIt: 'La patente? L’ho messa nel portafoglio.' },
       altEndingPrompt: { bn: 'ডাকঘরের রসিদ কেন সংরক্ষণ করা জরুরি লিখুন।', en: 'Why is keeping postal receipts useful?' },
     },
@@ -363,7 +363,7 @@ export const A2_STORIES_2: StoryItem[] = [
       { sentenceIt: 'Prendevo appunti; all’improvviso qualcuno mi ha toccato.', ruleTitle: { bn: 'চলমান কাজ বনাম হঠাৎ ঘটনা', en: 'Ongoing vs sudden interruption' }, explanation: { bn: 'হঠাৎ ঘটা ঘটনায় all’improvviso-র সাথে passato prossimo (ha toccato) বসে।', en: 'all’improvviso triggers passato prossimo.' }, grammarId: 'imperfetto-vs-passato' },
     ],
     mcq: [
-      { id: 'st2-21-q1', prompt: { bn: 'কতদিন ধরে তারিকের সাথে দেখা হয়নি?', en: 'How long hadn’t he seen Tariq?' }, options: ['৬ মাস', '১ বছর', '২ বছর', '৫ বছর'], answer: 2, explanation: { bn: 'da due anni।', en: 'For two years.' } },
+      { id: 'st2-21-q1', prompt: { bn: 'কতদিন ধরে তারিকের সাথে দেখা হয়নি?', en: 'How long hadn’t he seen Tariq?' }, options: ['৬ মাস', '১ বছর', '২ বছর', '৫ বছর'], answer: 2, explanation: { bn: 'সঠিক উত্তর: ২ বছর — পাঠ্যাংশে বলা হয়েছে: «হঠাৎ কেউ আমার কাঁধে হাত রাখল: তিনি ছিলেন তারিক, পুরনো কোর্স-সহপাঠী যাঁকে দুই বছর ধরে দেখিনি!» (da due anni)।', en: 'For two years.' } },
     ],
     trueFalse: [
       { id: 'st2-21-tf1', statementIt: 'Hanno studiato insieme tutta la sera in silenzio.', statement: { bn: 'তারা সারাসন্ধ্যা নীরবে একসাথে পড়েছে।', en: 'They studied silently together all evening.' }, answer: false, explanation: { bn: 'কফি খেতে বের হয়ে এক ঘণ্টা গল্প করেছে।', en: 'They went for coffee and talked.' } },
@@ -376,7 +376,7 @@ export const A2_STORIES_2: StoryItem[] = [
     ],
     practice: {
       retellPrompt: { bn: 'বন্ধুর সাথে হঠাৎ দেখা হওয়ার ৩ বাক্যের একটি গল্প লিখুন।', en: 'Write a 3-sentence story of bumping into an old friend.' },
-      completeMissing: { promptIt: 'Mentre ___ la musica, è arrivato un messaggio.', hint: { bn: 'ascoltavo', en: 'imperfetto' }, sampleIt: 'Mentre ascoltavo la musica, è arrivato un messaggio.' },
+      completeMissing: { promptIt: 'Mentre ___ la musica, è arrivato un messaggio.', hint: { bn: 'অতীতের চলমান অভ্যাস বোঝাতে ইমপারফেক্ট রূপ ascoltavo বসান', en: 'imperfetto' }, sampleIt: 'Mentre ascoltavo la musica, è arrivato un messaggio.' },
       buildSimilar: { patternIt: 'Pioveva e l’aula era silenziosa.', prompt: { bn: 'imperfetto দিয়ে পরিবেশের বর্ণনা দিন।', en: 'Set a scene using imperfetto.' }, sampleIt: 'Faceva fresco e la piazza era piena di luci.' },
       altEndingPrompt: { bn: 'পরের সপ্তাহে তারা আবার কী পরিকল্পনা করতে পারে লিখুন।', en: 'What might they plan for next week?' },
     },
@@ -398,7 +398,7 @@ export const A2_STORIES_2: StoryItem[] = [
       { word: 'panchina', base: 'la panchina', tr: { bn: 'বেঞ্চ', en: 'bench' }, pos: 'noun' },
     ],
     grammarBreakdown: [
-      { sentenceIt: 'Sta per partire / Stavo per dimenticare.', ruleTitle: { bn: 'stare per + infinito', en: 'About to happen' }, explanation: { bn: 'বর্তমানে sta per = ঠিক এইমাত্র হবে; অতীতে stavo per = প্রায় করেই ফেলছিলাম।', en: 'Present = about to happen; imperfect = was about to / nearly did.' }, grammarId: 'stare-per' },
+      { sentenceIt: 'Sta per partire / Stavo per dimenticare.', ruleTitle: { bn: 'আসন্ন কাজ প্রকাশের গঠন (stare per + infinito)', en: 'About to happen' }, explanation: { bn: 'বর্তমানে sta per = ঠিক এইমাত্র হবে; অতীতে stavo per = প্রায় করেই ফেলছিলাম।', en: 'Present = about to happen; imperfect = was about to / nearly did.' }, grammarId: 'stare-per' },
     ],
     mcq: [
       { id: 'st2-22-q1', prompt: { bn: 'কত নম্বর প্ল্যাটফর্ম থেকে ট্রেন ছাড়ছিল?', en: 'From which platform was the train leaving?' }, options: ['২', '৫', '৭', '৯'], answer: 3, explanation: { bn: 'dal binario nove = ৯ নম্বর।', en: 'Platform 9.' } },
@@ -407,14 +407,14 @@ export const A2_STORIES_2: StoryItem[] = [
       { id: 'st2-22-tf1', statementIt: 'Hanno perso il caricabatterie e il treno.', statement: { bn: 'তারা চার্জার ও ট্রেন দুটোই হারিয়েছে।', en: 'They lost both the charger and the train.' }, answer: false, explanation: { bn: '৩০ সেকেন্ডে চার্জার নিয়ে ঠিক সময়েই ট্রেনে উঠেছে।', en: 'They recovered it and boarded on time.' } },
     ],
     fillBlank: [
-      { id: 'st2-22-fb1', sentence: 'Prendi la giacca, noi ___ per uscire adesso.', options: ['siamo', 'stiamo', 'andiamo', 'facciamo'], answer: 1, explanation: { bn: 'noi stiamo per + infinito।', en: 'noi uses stiamo.' } },
+      { id: 'st2-22-fb1', sentence: 'Prendi la giacca, noi ___ per uscire adesso.', options: ['siamo', 'stiamo', 'andiamo', 'facciamo'], answer: 1, explanation: { bn: 'ব্যাকরণগত গঠন: এখানে «noi stiamo per + infinito» কাঠামোটি অনুসরণ করা হয়েছে।', en: 'noi uses stiamo.' } },
     ],
     shortAnswer: [
       { id: 'st2-22-sa1', question: { bn: 'সারা কী জিনিস প্রায় ফেলে যাচ্ছিল?', en: 'What did Sara nearly leave behind?' }, sampleAnswerIt: 'Stava per dimenticare il caricabatterie.', keywords: ['caricabatterie'] },
     ],
     practice: {
       retellPrompt: { bn: 'stare per ব্যবহার করে ৩টি ছোট পরিস্থিতি লিখুন।', en: 'Write 3 mini-situations using stare per + infinitive.' },
-      completeMissing: { promptIt: 'Il film ___ cominciare tra cinque minuti.', hint: { bn: 'sta per', en: 'about to' }, sampleIt: 'Il film sta per cominciare.' },
+      completeMissing: { promptIt: 'Il film ___ cominciare tra cinque minuti.', hint: { bn: 'এক্ষুনি ঘটতে যাচ্ছে বোঝাতে sta per ব্যবহার করুন', en: 'about to' }, sampleIt: 'Il film sta per cominciare.' },
       buildSimilar: { patternIt: 'Stavo per uscire quando ha piovuto.', prompt: { bn: 'stavo per দিয়ে একটি বাক্য লিখুন।', en: 'Write a sentence with stavo per.' }, sampleIt: 'Stavo per chiamarti quando hai suonato.' },
       altEndingPrompt: { bn: 'ট্রেনের ভেতরে বসে তারা কী করবে লিখুন।', en: 'What will they do on the train?' },
     },

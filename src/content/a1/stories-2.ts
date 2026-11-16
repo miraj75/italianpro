@@ -267,10 +267,10 @@ export const A1_STORIES_2: StoryItem[] = [
       },
     ],
     mcq: [
-      { id: 'st17-q1', prompt: { bn: 'লুকার কী ভালো লাগে?', en: 'What does Luca like?' }, options: ['গিটার বাজাতে', 'সকালে দৌড়াতে', 'টিভি দেখতে', 'রান্না করতে'], answer: 1, explanation: { bn: 'correre la mattina presto।', en: 'Running early in the morning.' } },
+      { id: 'st17-q1', prompt: { bn: 'লুকার কী ভালো লাগে?', en: 'What does Luca like?' }, options: ['গিটার বাজাতে', 'সকালে দৌড়াতে', 'টিভি দেখতে', 'রান্না করতে'], answer: 1, explanation: { bn: 'সঠিক উত্তর: সকালে দৌড়াতে — পাঠ্যাংশে বলা হয়েছে: «বসন্তকালে পার্ক মানুষে ভরা থাকে। সকালবেলা দৌড়াতে লুকার ভালো লাগে।» (correre la mattina presto)।', en: 'Running early in the morning.' } },
     ],
     trueFalse: [
-      { id: 'st17-tf1', statementIt: 'A Giulia piace molto lo sport.', statement: { bn: 'জুলিয়ার খেলাধুলা খুব ভালো লাগে।', en: 'Giulia really likes sport.' }, answer: false, explanation: { bn: 'non piace lo sport।', en: 'She does not like sport.' } },
+      { id: 'st17-tf1', statementIt: 'A Giulia piace molto lo sport.', statement: { bn: 'জুলিয়ার খেলাধুলা খুব ভালো লাগে।', en: 'Giulia really likes sport.' }, answer: false, explanation: { bn: 'বাক্যটি মিথ্যা — গল্পে আসলে বলা হয়েছে: «অন্যদিকে জুলিয়ার খেলাধুলা ভালো লাগে না, তবে খোলা আকাশের নিচে কনসার্ট তার খুব ভালো লাগে।» (non piace lo sport)।', en: 'She does not like sport.' } },
     ],
     fillBlank: [
       { id: 'st17-fb1', sentence: 'A Marco ___ gli sport di squadra.', options: ['piace', 'piacciono', 'piaci', 'piaciamo'], answer: 1, explanation: { bn: 'gli sport বহুবচন → piacciono।', en: 'gli sport is plural → piacciono.' } },
@@ -280,7 +280,7 @@ export const A1_STORIES_2: StoryItem[] = [
     ],
     practice: {
       retellPrompt: { bn: 'বসন্তে পার্কের এই গল্পটি ৩ বাক্যে বলুন।', en: 'Retell the spring afternoon in the park.' },
-      completeMissing: { promptIt: 'A me ___ la musica e mi ___ i libri italiani.', hint: { bn: 'piace / piacciono', en: 'singular / plural' }, sampleIt: 'A me piace la musica e mi piacciono i libri italiani.' },
+      completeMissing: { promptIt: 'A me ___ la musica e mi ___ i libri italiani.', hint: { bn: 'একবচনে piace এবং বহুবচনে piacciono ব্যবহার করুন', en: 'singular / plural' }, sampleIt: 'A me piace la musica e mi piacciono i libri italiani.' },
       buildSimilar: { patternIt: 'La domenica ci incontriamo nel parco.', prompt: { bn: 'বন্ধুদের সাথে কোথায় দেখা করেন লিখুন।', en: 'Write where you meet your friends.' }, sampleIt: 'Il sabato ci incontriamo al bar centrale.' },
       altEndingPrompt: { bn: 'কোন ফ্লেভারের জেলাটো তাদের পছন্দ?', en: 'Which gelato flavours might they choose?' },
     },
@@ -324,7 +324,7 @@ export const A1_STORIES_2: StoryItem[] = [
       },
     ],
     mcq: [
-      { id: 'st18-q1', prompt: { bn: 'ফ্লাইট কয়টায় ছাড়ে?', en: 'What time does the flight leave?' }, options: ['ছয়টায়', 'সাতটায়', 'আটটায়', 'দশটায়'], answer: 1, explanation: { bn: 'alle sette di mattina।', en: 'At 7 AM.' } },
+      { id: 'st18-q1', prompt: { bn: 'ফ্লাইট কয়টায় ছাড়ে?', en: 'What time does the flight leave?' }, options: ['ছয়টায়', 'সাতটায়', 'আটটায়', 'দশটায়'], answer: 1, explanation: { bn: 'সঠিক উত্তর: সাতটায় — পাঠ্যাংশে বলা হয়েছে: «আগামীকাল বিমানবন্দরে যাওয়ার জন্য আমাকে তাড়াতাড়ি বের হতে হবে। আমার ফ্লাইট সকাল সাতটায় ছাড়ে।» (alle sette di mattina)।', en: 'At 7 AM.' } },
     ],
     trueFalse: [
       { id: 'st18-tf1', statementIt: 'Stasera esce con gli amici.', statement: { bn: 'আজ রাতে সে বন্ধুদের সাথে বের হচ্ছে।', en: 'Tonight they are going out with friends.' }, answer: false, explanation: { bn: 'non posso uscire = বের হতে পারব না।', en: 'They cannot go out.' } },
@@ -337,7 +337,7 @@ export const A1_STORIES_2: StoryItem[] = [
     ],
     practice: {
       retellPrompt: { bn: 'ভ্রমণের আগের রাতের প্রস্তুতি বলুন।', en: 'Retell the night before the flight.' },
-      completeMissing: { promptIt: 'Domani ___ partire presto, quindi oggi non ___ uscire.', hint: { bn: 'dovere + potere', en: 'must + can' }, sampleIt: 'Domani devo partire presto, quindi oggi non posso uscire.' },
+      completeMissing: { promptIt: 'Domani ___ partire presto, quindi oggi non ___ uscire.', hint: { bn: 'মডাল ক্রিয়া dovere (বাধ্যবাধকতা) এবং potere (সামর্থ্য) ব্যবহার করুন', en: 'must + can' }, sampleIt: 'Domani devo partire presto, quindi oggi non posso uscire.' },
       buildSimilar: { patternIt: 'Stasera devo preparare la valigia.', prompt: { bn: 'আজ আপনাকে কী করতে হবে লিখুন।', en: 'Write something you must do today.' }, sampleIt: 'Oggi devo comprare un biglietto del treno.' },
       altEndingPrompt: { bn: 'বিমানবন্দরে পৌঁছে সে প্রথমে কী করবে?', en: 'What will they do upon arriving at the airport?' },
     },
@@ -380,7 +380,7 @@ export const A1_STORIES_2: StoryItem[] = [
       },
     ],
     mcq: [
-      { id: 'st19-q1', prompt: { bn: 'দাদা কী কাজ করেন?', en: 'What does Grandfather do?' }, options: ['গাড়ি চালান', 'ফুলের যত্ন নেন ও গল্প বলেন', 'পত্রিকা বিক্রি করেন', 'অফিসে যান'], answer: 1, explanation: { bn: 'cura i fiori e racconta storie।', en: 'He tends flowers and tells stories.' } },
+      { id: 'st19-q1', prompt: { bn: 'দাদা কী কাজ করেন?', en: 'What does Grandfather do?' }, options: ['গাড়ি চালান', 'ফুলের যত্ন নেন ও গল্প বলেন', 'পত্রিকা বিক্রি করেন', 'অফিসে যান'], answer: 1, explanation: { bn: 'সঠিক উত্তর: ফুলের যত্ন নেন ও গল্প বলেন — পাঠ্যাংশে বলা হয়েছে: «আমার দাদা ফুলের যত্ন নেন এবং সব নাতি-নাতনিকে মজার গল্প শোনান।» (cura i fiori e racconta storie)।', en: 'He tends flowers and tells stories.' } },
     ],
     trueFalse: [
       { id: 'st19-tf1', statementIt: 'La casa dei nonni è rossa.', statement: { bn: 'দাদা-দাদির বাড়ির রং লাল।', en: 'The grandparents’ house is red.' }, answer: false, explanation: { bn: 'বাড়িটি সাদা (una casa bianca)।', en: 'It is white.' } },
@@ -437,20 +437,20 @@ export const A1_STORIES_2: StoryItem[] = [
       },
     ],
     mcq: [
-      { id: 'st20-q1', prompt: { bn: 'আপেলের দাম কত ছিল?', en: 'How much were the apples?' }, options: ['১ ইউরো', '২ ইউরো', '৩ ইউরো', '৪ ইউরো'], answer: 1, explanation: { bn: 'Due euro al chilo।', en: 'Two euros a kilo.' } },
+      { id: 'st20-q1', prompt: { bn: 'আপেলের দাম কত ছিল?', en: 'How much were the apples?' }, options: ['১ ইউরো', '২ ইউরো', '৩ ইউরো', '৪ ইউরো'], answer: 1, explanation: { bn: 'সঠিক উত্তর: ২ ইউরো — পাঠ্যাংশে বলা হয়েছে: «আমি বিক্রেতাকে জিজ্ঞেস করি: "এই লাল আপেলগুলোর দাম কত?" — "কেজি দুই ইউরো। আর ঐ টমেটোগুলোও কি নেবেন?"» (Due euro al chilo)।', en: 'Two euros a kilo.' } },
     ],
     trueFalse: [
       { id: 'st20-tf1', statementIt: 'Il mercato è domenica sera.', statement: { bn: 'বাজারটি রবিবার সন্ধ্যায় বসে।', en: 'The market is on Sunday evening.' }, answer: false, explanation: { bn: 'এটি শনিবার সকালে (Sabato mattina)।', en: 'It is Saturday morning.' } },
     ],
     fillBlank: [
-      { id: 'st20-fb1', sentence: 'Mi dia ___ pane caldo lì dietro.', options: ['quel', 'quello', 'quei', 'quella'], answer: 0, explanation: { bn: 'il pane → quel pane।', en: 'il pane pattern → quel pane.' } },
+      { id: 'st20-fb1', sentence: 'Mi dia ___ pane caldo lì dietro.', options: ['quel', 'quello', 'quei', 'quella'], answer: 0, explanation: { bn: 'সঠিক রূপান্তর: «il pane» থেকে পরিবর্তিত হয়ে «quel pane» ব্যবহৃত হয়।', en: 'il pane pattern → quel pane.' } },
     ],
     shortAnswer: [
       { id: 'st20-sa1', question: { bn: 'বক্তা বাজার থেকে কী কী কেনেন?', en: 'What does the speaker buy at the market?' }, sampleAnswerIt: 'Mele, formaggio e pane caldo.', keywords: ['mele', 'formaggio', 'pane'] },
     ],
     practice: {
       retellPrompt: { bn: 'শনিবারের বাজারের অভিজ্ঞতা ৩ বাক্যে বলুন।', en: 'Retell the Saturday market trip.' },
-      completeMissing: { promptIt: 'Quanto costano ___ banane e ___ arance?', hint: { bn: 'queste / quelle', en: 'these / those' }, sampleIt: 'Quanto costano queste banane e quelle arance?' },
+      completeMissing: { promptIt: 'Quanto costano ___ banane e ___ arance?', hint: { bn: 'কাছের বহুবচনে queste এবং দূরের বহুবচনে quelle বসান', en: 'these / those' }, sampleIt: 'Quanto costano queste banane e quelle arance?' },
       buildSimilar: { patternIt: 'Prendo un chilo di mele rosse.', prompt: { bn: 'সবজি বা ফল কেনার একটি বাক্য লিখুন।', en: 'Write a sentence buying fruit or vegetables.' }, sampleIt: 'Prendo mezzo chilo di patate fresche.' },
       altEndingPrompt: { bn: 'বাড়ি ফিরে এই বাজার দিয়ে কী রান্না হবে?', en: 'What will they cook at home with these groceries?' },
     },
@@ -493,7 +493,7 @@ export const A1_STORIES_2: StoryItem[] = [
       },
     ],
     mcq: [
-      { id: 'st21-q1', prompt: { bn: 'অ্যাপয়েন্টমেন্ট কবে ও কয়টায়?', en: 'When is the appointment?' }, options: ['সোমবার ৩টায়', 'মঙ্গলবার সাড়ে ৩টায়', 'বুধবার ৪টায়', 'শুক্রবার ১০টায়'], answer: 1, explanation: { bn: 'martedì quattro novembre, alle tre e mezza।', en: 'Tuesday November 4 at 3:30.' } },
+      { id: 'st21-q1', prompt: { bn: 'অ্যাপয়েন্টমেন্ট কবে ও কয়টায়?', en: 'When is the appointment?' }, options: ['সোমবার ৩টায়', 'মঙ্গলবার সাড়ে ৩টায়', 'বুধবার ৪টায়', 'শুক্রবার ১০টায়'], answer: 1, explanation: { bn: 'সঠিক উত্তর: মঙ্গলবার সাড়ে ৩টায় — পাঠ্যাংশে বলা হয়েছে: «সেক্রেটারি ক্যালেন্ডার দেখে বলেন: "আপনি কি আগামীকাল মঙ্গলবার চারই নভেম্বর সাড়ে তিনটায় আসতে পারবেন?"» (martedì quattro novembre, alle tre e mezza)।', en: 'Tuesday November 4 at 3:30.' } },
     ],
     trueFalse: [
       { id: 'st21-tf1', statementIt: 'Karim ha mal di denti.', statement: { bn: 'করিমের দাঁত ব্যথা।', en: 'Karim has a toothache.' }, answer: false, explanation: { bn: 'তার গলা ব্যথা (mal di gola)।', en: 'He has a sore throat.' } },
@@ -549,7 +549,7 @@ export const A1_STORIES_2: StoryItem[] = [
       },
     ],
     mcq: [
-      { id: 'st22-q1', prompt: { bn: 'পোস্ট অফিস কোন দুটির মাঝখানে?', en: 'What is the post office between?' }, options: ['পার্ক ও স্কুল', 'ব্যাংক ও বইয়ের দোকান', 'স্টেশন ও ক্যাফে', 'গির্জা ও হাসপাতাল'], answer: 1, explanation: { bn: 'tra la banca e una libreria।', en: 'Between the bank and a bookshop.' } },
+      { id: 'st22-q1', prompt: { bn: 'পোস্ট অফিস কোন দুটির মাঝখানে?', en: 'What is the post office between?' }, options: ['পার্ক ও স্কুল', 'ব্যাংক ও বইয়ের দোকান', 'স্টেশন ও ক্যাফে', 'গির্জা ও হাসপাতাল'], answer: 1, explanation: { bn: 'সঠিক উত্তর: ব্যাংক ও বইয়ের দোকান — পাঠ্যাংশে বলা হয়েছে: «"মাফ করবেন, পোস্ট অফিস কোথায়?" সে জিজ্ঞেস করে। "এটি থিয়েটারের কাছে, ব্যাংক ও একটি বইয়ের দোকানের মাঝখানে।"» (tra la banca e una libreria)।', en: 'Between the bank and a bookshop.' } },
     ],
     trueFalse: [
       { id: 'st22-tf1', statementIt: 'Nadia deve girare a sinistra.', statement: { bn: 'নাদিয়াকে বামে ঘুরতে হবে।', en: 'Nadia has to turn left.' }, answer: false, explanation: { bn: 'তাকে ডানে ঘুরতে হবে (giri a destra)।', en: 'She must turn right.' } },
@@ -612,7 +612,7 @@ export const A1_STORIES_2: StoryItem[] = [
       { id: 'st23-tf1', statementIt: 'Giulia prende il treno delle sette e venti.', statement: { bn: 'জুলিয়া সাতটা বিশের ট্রেন ধরে।', en: 'Giulia catches the 7:20 train.' }, answer: false, explanation: { bn: 'সে বাস ধরে (l’autobus)।', en: 'She catches the bus.' } },
     ],
     fillBlank: [
-      { id: 'st23-fb1', sentence: 'La mattina io ___ alzo alle sette.', options: ['mi', 'ti', 'si', 'ci'], answer: 0, explanation: { bn: 'io → mi alzo।', en: 'io takes mi.' } },
+      { id: 'st23-fb1', sentence: 'La mattina io ___ alzo alle sette.', options: ['mi', 'ti', 'si', 'ci'], answer: 0, explanation: { bn: 'সঠিক রূপান্তর: «io» থেকে পরিবর্তিত হয়ে «mi alzo» ব্যবহৃত হয়।', en: 'io takes mi.' } },
     ],
     shortAnswer: [
       { id: 'st23-sa1', question: { bn: 'জুলিয়া কী রঙের শার্ট ও প্যান্ট পরে?', en: 'What colour shirt and trousers does Giulia wear?' }, sampleAnswerIt: 'Una camicia bianca e i pantaloni neri.', keywords: ['bianca', 'neri'] },

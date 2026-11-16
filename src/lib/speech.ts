@@ -1,39 +1,187 @@
 import { Capacitor } from '@capacitor/core';
 import { TextToSpeech } from '@capacitor-community/text-to-speech';
 
+let activeSessionId = 0;
+let activeCancelCallback: (() => void) | null = null;
+
+/**
+ * Starts a new exclusive speech playback session and cancels any previous session or utterance.
+ */
+export function startSpeechSession(): number {
+  activeSessionId += 1;
+  const sessionId = activeSessionId;
+  cancelActiveUtteranceOnly();
+  return sessionId;
+}
+
+export function getSpeechSessionId(): number {
+  return activeSessionId;
+}
+
+export function isSpeechSessionActive(sessionId: number): boolean {
+  return sessionId === activeSessionId;
+}
+
+function cancelActiveUtteranceOnly(): void {
+  if (activeCancelCallback) {
+    const cb = activeCancelCallback;
+    activeCancelCallback = null;
+    try {
+      cb();
+    } catch {
+      // ignore
+    }
+  }
+  try {
+    if (Capacitor.isNativePlatform()) {
+      void TextToSpeech.stop().catch(() => {});
+    } else if (typeof window !== 'undefined' && 'speechSynthesis' in window) {
+      window.speechSynthesis.cancel();
+    }
+  } catch {
+    // ignore speech engine cancellation errors
+  }
+}
+
 /**
  * Italian text-to-speech. On Android the native TTS engine is used (the WebView
  * has no speechSynthesis); in browsers the Web Speech API is used.
- * Resolves when speaking ends; rejects if no Italian voice is available.
+ * Resolves when speaking ends; rejects if cancelled or if no Italian voice is available.
  */
-export async function speakItalian(text: string, rate = 0.9): Promise<void> {
+export async function speakItalian(text: string, rate = 0.9, sessionId?: number): Promise<void> {
+  if (sessionId !== undefined && sessionId !== activeSessionId) {
+    throw new Error('speech-cancelled');
+  }
+
   const clean = text.replace(/\s*\((?:tu|Lei)\)\s*/g, ' ').trim();
+  if (!clean) return;
+
   if (Capacitor.isNativePlatform()) {
     const { supported } = await TextToSpeech.isLanguageSupported({ lang: 'it-IT' });
     if (!supported) throw new Error('it-IT not supported');
+    if (sessionId !== undefined && sessionId !== activeSessionId) {
+      throw new Error('speech-cancelled');
+    }
     await TextToSpeech.speak({ text: clean, lang: 'it-IT', rate, pitch: 1, volume: 1, category: 'playback' });
+    if (sessionId !== undefined && sessionId !== activeSessionId) {
+      throw new Error('speech-cancelled');
+    }
     return;
   }
-  if (!('speechSynthesis' in window)) throw new Error('speechSynthesis unavailable');
+
+  if (typeof window === 'undefined' || !('speechSynthesis' in window)) {
+    throw new Error('speechSynthesis unavailable');
+  }
+
   const synth = window.speechSynthesis;
-  synth.cancel();
+  if (activeCancelCallback) {
+    const prev = activeCancelCallback;
+    activeCancelCallback = null;
+    try {
+      prev();
+    } catch {
+      // ignore
+    }
+  }
+  try {
+    synth.cancel();
+  } catch {
+    // ignore
+  }
+
+  if (sessionId !== undefined && sessionId !== activeSessionId) {
+    throw new Error('speech-cancelled');
+  }
+
   const utterance = new SpeechSynthesisUtterance(clean);
   utterance.lang = 'it-IT';
   utterance.rate = rate;
-  const voice = synth.getVoices().find((v) => v.lang.toLowerCase().startsWith('it'));
-  if (voice) utterance.voice = voice;
+  try {
+    const voice = synth.getVoices().find((v) => v.lang.toLowerCase().startsWith('it'));
+    if (voice) utterance.voice = voice;
+  } catch {
+    // ignore if getVoices fails
+  }
+
   await new Promise<void>((resolve, reject) => {
-    utterance.onend = () => resolve();
-    utterance.onerror = (e) => (e.error === 'interrupted' || e.error === 'canceled' ? resolve() : reject(new Error(e.error)));
-    synth.speak(utterance);
+    let settled = false;
+    const cleanup = () => {
+      utterance.onend = null;
+      utterance.onerror = null;
+      if (activeCancelCallback === onCancel) {
+        activeCancelCallback = null;
+      }
+    };
+    const onCancel = () => {
+      if (settled) return;
+      settled = true;
+      cleanup();
+      if (sessionId !== undefined) {
+        reject(new Error('speech-cancelled'));
+      } else {
+        resolve();
+      }
+    };
+
+    activeCancelCallback = onCancel;
+
+    utterance.onend = () => {
+      if (settled) return;
+      settled = true;
+      cleanup();
+      if (sessionId !== undefined && sessionId !== activeSessionId) {
+        reject(new Error('speech-cancelled'));
+      } else {
+        resolve();
+      }
+    };
+
+    utterance.onerror = (e) => {
+      if (settled) return;
+      settled = true;
+      cleanup();
+      if (e.error === 'interrupted' || e.error === 'canceled') {
+        if (sessionId !== undefined) {
+          reject(new Error('speech-cancelled'));
+        } else {
+          resolve();
+        }
+      } else {
+        reject(new Error(e.error || 'speech-error'));
+      }
+    };
+
+    try {
+      synth.speak(utterance);
+    } catch (err) {
+      if (!settled) {
+        settled = true;
+        cleanup();
+        reject(err instanceof Error ? err : new Error('speech-error'));
+      }
+    }
   });
 }
 
 export async function stopSpeaking(): Promise<void> {
-  if (Capacitor.isNativePlatform()) {
-    await TextToSpeech.stop();
-  } else if ('speechSynthesis' in window) {
-    window.speechSynthesis.cancel();
+  activeSessionId += 1;
+  if (activeCancelCallback) {
+    const cb = activeCancelCallback;
+    activeCancelCallback = null;
+    try {
+      cb();
+    } catch {
+      // ignore
+    }
+  }
+  try {
+    if (Capacitor.isNativePlatform()) {
+      await TextToSpeech.stop();
+    } else if (typeof window !== 'undefined' && 'speechSynthesis' in window) {
+      window.speechSynthesis.cancel();
+    }
+  } catch {
+    // ignore
   }
 }
 
@@ -133,4 +281,3 @@ export function scoreSpokenMatch(target: string, spoken: string): {
     missed,
   };
 }
-

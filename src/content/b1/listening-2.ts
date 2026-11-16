@@ -15,7 +15,7 @@ export const B1_LISTENING_2: ListeningExercise[] = [
     vocabKeys: ['w:B1:il dibattito', 'w:B1:ambientale', 'w:B1:la soluzione'],
     grammarIds: ['si-passivante-tempi'],
     questions: [
-      { id: 'lsb1-27-q1', prompt: { bn: 'বিতর্কে কয়টি প্রস্তাব বিশ্লেষণ করা হয়েছে?', en: 'How many proposals were analysed in the debate?' }, options: ['১টি', '২টি', '৩টি', '৫টি'], answer: 2, explanation: { bn: 'tre proposte।', en: 'Three proposals.' } },
+      { id: 'lsb1-27-q1', prompt: { bn: 'বিতর্কে কয়টি প্রস্তাব বিশ্লেষণ করা হয়েছে?', en: 'How many proposals were analysed in the debate?' }, options: ['১টি', '২টি', '৩টি', '৫টি'], answer: 2, explanation: { bn: 'সঠিক উত্তর: ৩টি — পাঠ্যাংশে বলা হয়েছে: «গতকালের বিতর্কে যানজট কমানোর তিনটি প্রস্তাব বিশ্লেষণ করা হয়েছে।» (tre proposte)।', en: 'Three proposals.' } },
     ],
   }),
   buildListening({
@@ -31,7 +31,7 @@ export const B1_LISTENING_2: ListeningExercise[] = [
     vocabKeys: ['w:B1:cavarsela', 'w:B1:arrangiarsi', 'w:B1:la burocrazia'],
     grammarIds: ['verbi-pronominali-b1'],
     questions: [
-      { id: 'lsb1-28-q1', prompt: { bn: 'লুকা এখন কিসের সাহায্যে অনলাইন কাজ ভালোভাবে সামলে নেয়?', en: 'What tool helps Luca manage online procedures well now?' }, options: ['ফ্যাক্স', 'SPID', 'টেলিগ্রাম', 'ডাকঘর'], answer: 1, explanation: { bn: 'con lo SPID।', en: 'With SPID.' } },
+      { id: 'lsb1-28-q1', prompt: { bn: 'লুকা এখন কিসের সাহায্যে অনলাইন কাজ ভালোভাবে সামলে নেয়?', en: 'What tool helps Luca manage online procedures well now?' }, options: ['ফ্যাক্স', 'SPID', 'টেলিগ্রাম', 'ডাকঘর'], answer: 1, explanation: { bn: 'পাঠ্যাংশের তথ্যানুযায়ী: «শুরুতে ডিজিটাল আমলাতন্ত্র আমাকে ভয় দেখাত, কিন্তু এখন SPID দিয়ে আমি দারুণভাবে সামলে নিই।» (সঠিক উত্তর: SPID)।', en: 'With SPID.' } },
     ],
   }),
   buildListening({
@@ -47,7 +47,7 @@ export const B1_LISTENING_2: ListeningExercise[] = [
     vocabKeys: ['w:B1:riparare', 'w:B1:il mutuo'],
     grammarIds: ['causativi-fare-lasciare'],
     questions: [
-      { id: 'lsb1-29-q1', prompt: { bn: 'তারা কাকে দিয়ে গৃহঋণের চুক্তি পরীক্ষা করিয়েছে?', en: 'Who checked the mortgage contract for them?' }, options: ['প্রতিবেশী', 'একজন বিশ্বস্ত নোটারি', 'দোকানদার', 'প্রকৌশলী'], answer: 1, explanation: { bn: 'da un notaio di fiducia।', en: 'A trusted notary.' } },
+      { id: 'lsb1-29-q1', prompt: { bn: 'তারা কাকে দিয়ে গৃহঋণের চুক্তি পরীক্ষা করিয়েছে?', en: 'Who checked the mortgage contract for them?' }, options: ['প্রতিবেশী', 'একজন বিশ্বস্ত নোটারি', 'দোকানদার', 'প্রকৌশলী'], answer: 1, explanation: { bn: 'সঠিক উত্তর: একজন বিশ্বস্ত নোটারি — পাঠ্যাংশে বলা হয়েছে: «গৃহঋণে সই করার আগে আমরা একজন বিশ্বস্ত নোটারিকে দিয়ে প্রতিটি পৃষ্ঠা পরীক্ষা করিয়েছি।» (da un notaio di fiducia)।', en: 'A trusted notary.' } },
     ],
   }),
   buildListening({
@@ -63,7 +63,7 @@ export const B1_LISTENING_2: ListeningExercise[] = [
     vocabKeys: ['w:B1:il sindaco', 'w:B1:la dichiarazione', 'w:B1:il cantiere stradale'],
     grammarIds: ['discorso-indiretto-passato'],
     questions: [
-      { id: 'lsb1-30-q1', prompt: { bn: 'রাস্তার কাজ কবে নাগাদ শেষ হওয়ার কথা?', en: 'By when are the roadworks set to finish?' }, options: ['শুক্রবারের মধ্যে', 'সোমবারের মধ্যে', 'আগামী মাসে', 'পরের বছর'], answer: 0, explanation: { bn: 'entro venerdì।', en: 'By Friday.' } },
+      { id: 'lsb1-30-q1', prompt: { bn: 'রাস্তার কাজ কবে নাগাদ শেষ হওয়ার কথা?', en: 'By when are the roadworks set to finish?' }, options: ['শুক্রবারের মধ্যে', 'সোমবারের মধ্যে', 'আগামী মাসে', 'পরের বছর'], answer: 0, explanation: { bn: 'সঠিক উত্তর: শুক্রবারের মধ্যে — পাঠ্যাংশে বলা হয়েছে: «গতকালের ঘোষণায় মেয়র নিশ্চিত করেছেন যে শুক্রবারের মধ্যে রাস্তার নির্মাণস্থল বন্ধ (সম্পন্ন) করা হবে।» (entro venerdì)।', en: 'By Friday.' } },
     ],
   }),
   buildListening({
@@ -79,7 +79,7 @@ export const B1_LISTENING_2: ListeningExercise[] = [
     vocabKeys: ['w:B1:analizzare', 'w:B1:il riassunto', 'w:B1:il tirocinio'],
     grammarIds: ['infinito-passato'],
     questions: [
-      { id: 'lsb1-31-q1', prompt: { bn: 'নমুনা বিশ্লেষণের পর ছাত্রীটি কী তৈরি করেছে?', en: 'What did the student prepare after analysing the samples?' }, options: ['একটি সারাংশ (riassunto)', 'একটি ভিডিও', 'একটি পোস্টার', 'একটি চিঠি'], answer: 0, explanation: { bn: 'un riassunto per il gruppo di lavoro।', en: 'A summary for the working group.' } },
+      { id: 'lsb1-31-q1', prompt: { bn: 'নমুনা বিশ্লেষণের পর ছাত্রীটি কী তৈরি করেছে?', en: 'What did the student prepare after analysing the samples?' }, options: ['একটি সারাংশ (riassunto)', 'একটি ভিডিও', 'একটি পোস্টার', 'একটি চিঠি'], answer: 0, explanation: { bn: 'সঠিক উত্তর: একটি সারাংশ (riassunto) — পাঠ্যাংশে বলা হয়েছে: «ল্যাবরেটরিতে নমুনা বিশ্লেষণ করার পর আমি কর্মদলের জন্য একটি সারাংশ তৈরি করেছি।» (un riassunto per il gruppo di lavoro)।', en: 'A summary for the working group.' } },
     ],
   }),
   buildListening({
@@ -95,7 +95,7 @@ export const B1_LISTENING_2: ListeningExercise[] = [
     vocabKeys: ['w:B1:smarrire', "w:B1:la carta d'imbarco", 'w:B1:a lungo'],
     grammarIds: ['gerundio-composto'],
     questions: [
-      { id: 'lsb1-32-q1', prompt: { bn: 'যাত্রীটি কোথায় ডিজিটাল বোর্ডিং পাস ডাউনলোড করতে পারবেন?', en: 'Where can the passenger download the digital boarding pass?' }, options: ['ফোনের অ্যাপে', 'ট্যাক্সিতে', 'দোকানে', 'বিমানের ভেতরে'], answer: 0, explanation: { bn: 'sull’app।', en: 'On the app.' } },
+      { id: 'lsb1-32-q1', prompt: { bn: 'যাত্রীটি কোথায় ডিজিটাল বোর্ডিং পাস ডাউনলোড করতে পারবেন?', en: 'Where can the passenger download the digital boarding pass?' }, options: ['ফোনের অ্যাপে', 'ট্যাক্সিতে', 'দোকানে', 'বিমানের ভেতরে'], answer: 0, explanation: { bn: 'সঠিক উত্তর: ফোনের অ্যাপে — পাঠ্যাংশে বলা হয়েছে: «কাগুজে বোর্ডিং পাস হারিয়ে ফেলায় আপনি অ্যাপে ডিজিটাল পাসটি ডাউনলোড করতে পারেন।» (sull’app)।', en: 'On the app.' } },
     ],
   }),
   buildListening({
@@ -111,7 +111,7 @@ export const B1_LISTENING_2: ListeningExercise[] = [
     vocabKeys: ['w:B1:ottenere', 'w:B1:il permesso di lavoro', 'w:B1:le spese condominiali'],
     grammarIds: ['participio-passato-assoluto'],
     questions: [
-      { id: 'lsb1-33-q1', prompt: { bn: 'কাজের অনুমতি পাওয়ার পর রফিক কোথায় চুক্তিতে সই করেছে?', en: 'Where did Rafiq sign the contract after getting his work permit?' }, options: ['কারখানায় (in fabbrica)', 'স্কুলে', 'হোটেলে', 'হাসপাতালে'], answer: 0, explanation: { bn: 'in fabbrica।', en: 'At the factory.' } },
+      { id: 'lsb1-33-q1', prompt: { bn: 'কাজের অনুমতি পাওয়ার পর রফিক কোথায় চুক্তিতে সই করেছে?', en: 'Where did Rafiq sign the contract after getting his work permit?' }, options: ['কারখানায় (in fabbrica)', 'স্কুলে', 'হোটেলে', 'হাসপাতালে'], answer: 0, explanation: { bn: 'সঠিক উত্তর: কারখানায় (in fabbrica) — পাঠ্যাংশে বলা হয়েছে: «কাজের অনুমতি পাওয়ার পর আমি সাথে সাথে কারখানায় চুক্তিতে সই করতে পেরেছি।» (in fabbrica)।', en: 'At the factory.' } },
     ],
   }),
   buildListening({
@@ -127,7 +127,7 @@ export const B1_LISTENING_2: ListeningExercise[] = [
     vocabKeys: ["w:B1:l'associazione", 'w:B1:lo scopo', 'w:B1:la ricerca'],
     grammarIds: ['relativi-il-quale-cui'],
     questions: [
-      { id: 'lsb1-34-q1', prompt: { bn: 'সংগঠনটির মূল উদ্দেশ্য কাদের সহায়তা করা?', en: 'Who does the association aim to support?' }, options: ['তরুণ গবেষকদের', 'পর্যটকদের', 'খেলোয়াড়দের', 'গাড়িচালকদের'], answer: 0, explanation: { bn: 'sostenere i giovani ricercatori।', en: 'Young researchers.' } },
+      { id: 'lsb1-34-q1', prompt: { bn: 'সংগঠনটির মূল উদ্দেশ্য কাদের সহায়তা করা?', en: 'Who does the association aim to support?' }, options: ['তরুণ গবেষকদের', 'পর্যটকদের', 'খেলোয়াড়দের', 'গাড়িচালকদের'], answer: 0, explanation: { bn: 'সঠিক উত্তর: তরুণ গবেষকদের — পাঠ্যাংশে বলা হয়েছে: «আমাদেরটি এমন এক সংগঠন যার উদ্দেশ্য তরুণ গবেষকদের সহায়তা করা।» (sostenere i giovani ricercatori)।', en: 'Young researchers.' } },
     ],
   }),
   buildListening({
@@ -143,7 +143,7 @@ export const B1_LISTENING_2: ListeningExercise[] = [
     vocabKeys: ['w:B1:lo spreco', 'w:B1:le risorse', 'w:B1:ridurre'],
     grammarIds: ['chi-quello-che-cio-che'],
     questions: [
-      { id: 'lsb1-35-q1', prompt: { bn: 'প্রকল্পে অংশ নিলে কী পাওয়া যাবে?', en: 'What will participants in the green project receive?' }, options: ['একটি বই', 'একটি পুনর্ব্যবহারযোগ্য পানির বোতল', 'একটি ছাতা', 'বাসের টিকিট'], answer: 1, explanation: { bn: 'una borraccia riutilizzabile।', en: 'A reusable water bottle.' } },
+      { id: 'lsb1-35-q1', prompt: { bn: 'প্রকল্পে অংশ নিলে কী পাওয়া যাবে?', en: 'What will participants in the green project receive?' }, options: ['একটি বই', 'একটি পুনর্ব্যবহারযোগ্য পানির বোতল', 'একটি ছাতা', 'বাসের টিকিট'], answer: 1, explanation: { bn: 'সঠিক উত্তর: একটি পুনর্ব্যবহারযোগ্য পানির বোতল — পাঠ্যাংশে বলা হয়েছে: «যারা পরিবেশ প্রকল্পে অংশ নেবে তারা একটি পুনর্ব্যবহারযোগ্য পানির বোতল পাবে।» (una borraccia riutilizzabile)।', en: 'A reusable water bottle.' } },
     ],
   }),
   buildListening({
@@ -159,7 +159,7 @@ export const B1_LISTENING_2: ListeningExercise[] = [
     vocabKeys: ['w:B1:siccome', 'w:B1:dato che', 'w:B1:il centro storico'],
     grammarIds: ['connettivi-causali-b1'],
     questions: [
-      { id: 'lsb1-36-q1', prompt: { bn: 'কেন ঐতিহাসিক কেন্দ্রটি একটা পর্যন্ত বন্ধ থাকবে?', en: 'Why will the historic centre remain closed until 1 p.m.?' }, options: ['রাস্তা মেরামতের জন্য', 'নগর ম্যারাথনের কারণে', 'বাজারের জন্য', 'বৃষ্টির কারণে'], answer: 1, explanation: { bn: 'si svolge la maratona cittadina।', en: 'Because of the city marathon.' } },
+      { id: 'lsb1-36-q1', prompt: { bn: 'কেন ঐতিহাসিক কেন্দ্রটি একটা পর্যন্ত বন্ধ থাকবে?', en: 'Why will the historic centre remain closed until 1 p.m.?' }, options: ['রাস্তা মেরামতের জন্য', 'নগর ম্যারাথনের কারণে', 'বাজারের জন্য', 'বৃষ্টির কারণে'], answer: 1, explanation: { bn: 'সঠিক উত্তর: নগর ম্যারাথনের কারণে — পাঠ্যাংশে বলা হয়েছে: «যেহেতু আজ সকালে নগর ম্যারাথন অনুষ্ঠিত হচ্ছে, ঐতিহাসিক কেন্দ্রটি একটা পর্যন্ত বন্ধ থাকবে।» (si svolge la maratona cittadina)।', en: 'Because of the city marathon.' } },
     ],
   }),
   buildListening({
@@ -175,7 +175,7 @@ export const B1_LISTENING_2: ListeningExercise[] = [
     vocabKeys: ['w:B1:sebbene', 'w:B1:benché', 'w:B1:la competenza'],
     grammarIds: ['connettivi-concessivi-b1'],
     questions: [
-      { id: 'lsb1-37-q1', prompt: { bn: 'নাদিয়া কিসের কোর্স করেছে?', en: 'What course did Nadia take?' }, options: ['চিত্রকলা', 'প্রোগ্রামিং', 'রান্না', 'ইতিহাস'], answer: 1, explanation: { bn: 'il corso di programmazione।', en: 'A programming course.' } },
+      { id: 'lsb1-37-q1', prompt: { bn: 'নাদিয়া কিসের কোর্স করেছে?', en: 'What course did Nadia take?' }, options: ['চিত্রকলা', 'প্রোগ্রামিং', 'রান্না', 'ইতিহাস'], answer: 1, explanation: { bn: 'সঠিক উত্তর: প্রোগ্রামিং — পাঠ্যাংশে বলা হয়েছে: «প্রোগ্রামিং কোর্সটি কঠিন হওয়া সত্ত্বেও এটি আমাকে মূল্যবান দক্ষতা দিয়েছে।» (il corso di programmazione)।', en: 'A programming course.' } },
     ],
   }),
   buildListening({
@@ -191,7 +191,7 @@ export const B1_LISTENING_2: ListeningExercise[] = [
     vocabKeys: ['w:B1:affinché', 'w:B1:purché', 'w:B1:lo sportello unico'],
     grammarIds: ['connettivi-finali-condizionali'],
     questions: [
-      { id: 'lsb1-38-q1', prompt: { bn: 'আজই আবেদন জমা দিতে সাথে কী থাকতে হবে?', en: 'What must the user have with them to apply today?' }, options: ['পরিচয়পত্র', 'বিদ্যুৎ বিল', 'ট্রেনের টিকিট', 'ব্যাংক চেক'], answer: 0, explanation: { bn: 'il documento d’identità।', en: 'An identity document.' } },
+      { id: 'lsb1-38-q1', prompt: { bn: 'আজই আবেদন জমা দিতে সাথে কী থাকতে হবে?', en: 'What must the user have with them to apply today?' }, options: ['পরিচয়পত্র', 'বিদ্যুৎ বিল', 'ট্রেনের টিকিট', 'ব্যাংক চেক'], answer: 0, explanation: { bn: 'সঠিক উত্তর: পরিচয়পত্র — পাঠ্যাংশে বলা হয়েছে: «সাথে পরিচয়পত্র থাকার শর্তে আমি কি আজই আবেদন জমা দিতে পারি?» (il documento d’identità)।', en: 'An identity document.' } },
     ],
   }),
   buildListening({
@@ -207,7 +207,7 @@ export const B1_LISTENING_2: ListeningExercise[] = [
     vocabKeys: ["w:B1:l'integrazione", 'w:B1:la comunità', 'w:B1:allenarsi'],
     grammarIds: ['comparativi-proporzionali'],
     questions: [
-      { id: 'lsb1-39-q1', prompt: { bn: 'তারা কোথায় একসাথে শরীরচর্চা করে?', en: 'Where do they train together?' }, options: ['পার্কে', 'সুইমিং পুলে', 'স্টেশনে', 'অফিসে'], answer: 0, explanation: { bn: 'nel parco।', en: 'In the park.' } },
+      { id: 'lsb1-39-q1', prompt: { bn: 'তারা কোথায় একসাথে শরীরচর্চা করে?', en: 'Where do they train together?' }, options: ['পার্কে', 'সুইমিং পুলে', 'স্টেশনে', 'অফিসে'], answer: 0, explanation: { bn: 'সঠিক উত্তর: পার্কে — পাঠ্যাংশে বলা হয়েছে: «পার্কে একসাথে অনুশীলন করতে যত বেশি আমরা মিলিত হই, সম্প্রদায়ের চেতনা তত বাড়ে।» (nel parco)।', en: 'In the park.' } },
     ],
   }),
   buildListening({
@@ -223,7 +223,7 @@ export const B1_LISTENING_2: ListeningExercise[] = [
     vocabKeys: ['w:B1:il volontariato', 'w:B1:la calma', 'w:B1:sostenere'],
     grammarIds: ['indefiniti-negativi-b1'],
     questions: [
-      { id: 'lsb1-40-q1', prompt: { bn: 'স্বেচ্ছাসেবকেরা কোন গ্রন্থাগারকে সহায়তা করতে পারে?', en: 'Which library can volunteers support?' }, options: ['কিশোর গ্রন্থাগার (biblioteca dei ragazzi)', 'আইন গ্রন্থাগার', 'চিকিৎসা গ্রন্থাগার', 'সংগীত গ্রন্থাগার'], answer: 0, explanation: { bn: 'la biblioteca dei ragazzi।', en: 'The youth library.' } },
+      { id: 'lsb1-40-q1', prompt: { bn: 'স্বেচ্ছাসেবকেরা কোন গ্রন্থাগারকে সহায়তা করতে পারে?', en: 'Which library can volunteers support?' }, options: ['কিশোর গ্রন্থাগার (biblioteca dei ragazzi)', 'আইন গ্রন্থাগার', 'চিকিৎসা গ্রন্থাগার', 'সংগীত গ্রন্থাগার'], answer: 0, explanation: { bn: 'সঠিক উত্তর: কিশোর গ্রন্থাগার (biblioteca dei ragazzi) — পাঠ্যাংশে বলা হয়েছে: «যে কেউ স্বেচ্ছাসেবায় কয়েক ঘণ্টা দিতে চাইলে কিশোর গ্রন্থাগারকে সহায়তা করতে পারে।» (la biblioteca dei ragazzi)।', en: 'The youth library.' } },
     ],
   }),
   buildListening({
@@ -239,7 +239,7 @@ export const B1_LISTENING_2: ListeningExercise[] = [
     vocabKeys: ['w:B1:avvertire', 'w:B1:confrontare', 'w:B1:il preventivo'],
     grammarIds: ['modali-condizionale-passato'],
     questions: [
-      { id: 'lsb1-41-q1', prompt: { bn: 'তাদের অন্তত কয়টি প্রাক্কলন তুলনা করা উচিত ছিল?', en: 'How many quotes should they have compared?' }, options: ['অন্তত দুটি', 'পাঁচটি', 'দশটি', 'একটিও না'], answer: 0, explanation: { bn: 'almeno due preventivi।', en: 'At least two quotes.' } },
+      { id: 'lsb1-41-q1', prompt: { bn: 'তাদের অন্তত কয়টি প্রাক্কলন তুলনা করা উচিত ছিল?', en: 'How many quotes should they have compared?' }, options: ['অন্তত দুটি', 'পাঁচটি', 'দশটি', 'একটিও না'], answer: 0, explanation: { bn: 'সঠিক উত্তর: অন্তত দুটি — পাঠ্যাংশে বলা হয়েছে: «প্লাম্বারের পেছনে আমরা অতিরিক্ত খরচ করেছি: গ্রহণ করার আগে আমাদের অন্তত দুটি প্রাক্কলন তুলনা করা উচিত ছিল!» (almeno due preventivi)।', en: 'At least two quotes.' } },
     ],
   }),
   buildListening({
@@ -255,7 +255,7 @@ export const B1_LISTENING_2: ListeningExercise[] = [
     vocabKeys: ["w:B1:l'allegato", 'w:B1:la ricevuta digitale', 'w:B1:la collaborazione'],
     grammarIds: ['registro-formale-b1'],
     questions: [
-      { id: 'lsb1-42-q1', prompt: { bn: 'সংযুক্তিতে কী পাঠানো হয়েছে?', en: 'What was sent in the attachment?' }, options: ['পেমেন্টের ডিজিটাল রসিদ', 'একটি ছবি', 'মেডিকেল রিপোর্ট', 'ট্রেনের টিকিট'], answer: 0, explanation: { bn: 'la ricevuta digitale del versamento।', en: 'The digital payment receipt.' } },
+      { id: 'lsb1-42-q1', prompt: { bn: 'সংযুক্তিতে কী পাঠানো হয়েছে?', en: 'What was sent in the attachment?' }, options: ['পেমেন্টের ডিজিটাল রসিদ', 'একটি ছবি', 'মেডিকেল রিপোর্ট', 'ট্রেনের টিকিট'], answer: 0, explanation: { bn: 'সঠিক উত্তর: পেমেন্টের ডিজিটাল রসিদ — পাঠ্যাংশে বলা হয়েছে: «মাননীয় ডক্টর, আপনাকে নিশ্চিত করছি যে সংযুক্তিতে পেমেন্টের ডিজিটাল রসিদ পাঠিয়েছি।» (la ricevuta digitale del versamento)।', en: 'The digital payment receipt.' } },
     ],
   }),
   buildListening({
@@ -271,7 +271,7 @@ export const B1_LISTENING_2: ListeningExercise[] = [
     vocabKeys: ['w:B1:purché', 'w:B1:il consulente'],
     grammarIds: ['connettivi-finali-condizionali', 'periodo-ipotetico-2'],
     questions: [
-      { id: 'lsb1-43-q1', prompt: { bn: 'কোন শর্তে ব্যাংক হিসাবটি বিনা খরচে খোলা যাবে?', en: 'On what condition is the account free of charge?' }, options: ['বেতন বা বৃত্তি জমা করলে', 'নগদ টাকা দিলে', 'বাড়ি কিনলে', 'ছাত্র হলে'], answer: 0, explanation: { bn: 'purché accreditiate lo stipendio o la borsa di studio।', en: 'Provided salary or scholarship is credited.' } },
+      { id: 'lsb1-43-q1', prompt: { bn: 'কোন শর্তে ব্যাংক হিসাবটি বিনা খরচে খোলা যাবে?', en: 'On what condition is the account free of charge?' }, options: ['বেতন বা বৃত্তি জমা করলে', 'নগদ টাকা দিলে', 'বাড়ি কিনলে', 'ছাত্র হলে'], answer: 0, explanation: { bn: 'সঠিক উত্তর: বেতন বা বৃত্তি জমা করলে — পাঠ্যাংশে বলা হয়েছে: «বেতন বা বৃত্তি জমা করার শর্তে আপনারা বিনা খরচে অনলাইনে হিসাবটি খুলতে পারবেন।» (purché accreditiate lo stipendio o la borsa di studio)।', en: 'Provided salary or scholarship is credited.' } },
     ],
   }),
   buildListening({
@@ -287,7 +287,7 @@ export const B1_LISTENING_2: ListeningExercise[] = [
     vocabKeys: ['w:B1:pubblicare', 'w:B1:il cittadino'],
     grammarIds: ['passivo', 'passivo-venire-andare'],
     questions: [
-      { id: 'lsb1-44-q1', prompt: { bn: 'প্রদর্শনীর ছবিগুলো কারা তুলেছে?', en: 'Who took the photos in the exhibition?' }, options: ['পেশাদার সাংবাদিকেরা', 'উচ্চমাধ্যমিক স্কুলের শিক্ষার্থীরা', 'পর্যটকেরা', 'পৌর কর্মীরা'], answer: 1, explanation: { bn: 'dagli studenti delle scuole superiori।', en: 'High-school students.' } },
+      { id: 'lsb1-44-q1', prompt: { bn: 'প্রদর্শনীর ছবিগুলো কারা তুলেছে?', en: 'Who took the photos in the exhibition?' }, options: ['পেশাদার সাংবাদিকেরা', 'উচ্চমাধ্যমিক স্কুলের শিক্ষার্থীরা', 'পর্যটকেরা', 'পৌর কর্মীরা'], answer: 1, explanation: { bn: 'সঠিক উত্তর: উচ্চমাধ্যমিক স্কুলের শিক্ষার্থীরা — পাঠ্যাংশে বলা হয়েছে: «প্রদর্শনীর সব ছবি উচ্চমাধ্যমিক স্কুলের শিক্ষার্থীদের দ্বারা তোলা হয়েছে।» (dagli studenti delle scuole superiori)।', en: 'High-school students.' } },
     ],
   }),
   buildListening({
@@ -303,7 +303,7 @@ export const B1_LISTENING_2: ListeningExercise[] = [
     vocabKeys: ['w:B1:la pratica', 'w:B1:la ricevuta digitale'],
     grammarIds: ['registro-formale-b1'],
     questions: [
-      { id: 'lsb1-45-q1', prompt: { bn: 'নতুন অ্যাপয়েন্টমেন্টটি কবে পাওয়া গেছে?', en: 'When is the new appointment slot?' }, options: ['সোমবার সকালে', 'বৃহস্পতিবার এগারোটায়', 'শুক্রবার বিকেলে', 'বিশ তারিখে'], answer: 1, explanation: { bn: 'giovedì alle undici।', en: 'Thursday at eleven.' } },
+      { id: 'lsb1-45-q1', prompt: { bn: 'নতুন অ্যাপয়েন্টমেন্টটি কবে পাওয়া গেছে?', en: 'When is the new appointment slot?' }, options: ['সোমবার সকালে', 'বৃহস্পতিবার এগারোটায়', 'শুক্রবার বিকেলে', 'বিশ তারিখে'], answer: 1, explanation: { bn: 'সঠিক উত্তর: বৃহস্পতিবার এগারোটায় — পাঠ্যাংশে বলা হয়েছে: «বৃহস্পতিবার এগারোটায় এইমাত্র একটি জায়গা খালি হয়েছে: আমি এখনই আপনাকে এসএমএসে অনুস্মারক পাঠিয়ে দিচ্ছি।» (giovedì alle undici)।', en: 'Thursday at eleven.' } },
     ],
   }),
   buildListening({
@@ -319,7 +319,7 @@ export const B1_LISTENING_2: ListeningExercise[] = [
     vocabKeys: ['w:B1:ridurre', 'w:B1:ambientale'],
     grammarIds: ['congiuntivo', 'gerundio-b1'],
     questions: [
-      { id: 'lsb1-46-q1', prompt: { bn: 'সরাসরি কৃষকদের কাছ থেকে কিনলে কী কমে?', en: 'What is reduced by buying directly from farmers?' }, options: ['পণ্যের স্বাদ', 'পরিবহন দূষণ', 'সবজির ওজন', 'বাজারের সময়'], answer: 1, explanation: { bn: 'l’inquinamento dei trasporti।', en: 'Transport pollution.' } },
+      { id: 'lsb1-46-q1', prompt: { bn: 'সরাসরি কৃষকদের কাছ থেকে কিনলে কী কমে?', en: 'What is reduced by buying directly from farmers?' }, options: ['পণ্যের স্বাদ', 'পরিবহন দূষণ', 'সবজির ওজন', 'বাজারের সময়'], answer: 1, explanation: { bn: 'সঠিক উত্তর: পরিবহন দূষণ — পাঠ্যাংশে বলা হয়েছে: «হ্যাঁ, এবং সরাসরি কৃষকদের কাছ থেকে কিনলে পরিবহন দূষণ কমে।» (l’inquinamento dei trasporti)।', en: 'Transport pollution.' } },
     ],
   }),
   buildListening({
@@ -335,7 +335,7 @@ export const B1_LISTENING_2: ListeningExercise[] = [
     vocabKeys: ['w:B1:la ricerca', 'w:B1:collaborare'],
     grammarIds: ['verbi-pronominali-b1', 'causativi-fare-lasciare'],
     questions: [
-      { id: 'lsb1-47-q1', prompt: { bn: 'মিনা কাকে দিয়ে স্লাইডগুলো পরীক্ষা করাতে চায়?', en: 'Who does Mina want to have check the slides?' }, options: ['ল্যাবরেটরির টিউটরকে দিয়ে', 'বন্ধুকে দিয়ে', 'গ্রন্থাগারিককে দিয়ে', 'অধ্যাপককে দিয়ে'], answer: 0, explanation: { bn: 'dal tutor del laboratorio।', en: 'The lab tutor.' } },
+      { id: 'lsb1-47-q1', prompt: { bn: 'মিনা কাকে দিয়ে স্লাইডগুলো পরীক্ষা করাতে চায়?', en: 'Who does Mina want to have check the slides?' }, options: ['ল্যাবরেটরির টিউটরকে দিয়ে', 'বন্ধুকে দিয়ে', 'গ্রন্থাগারিককে দিয়ে', 'অধ্যাপককে দিয়ে'], answer: 0, explanation: { bn: 'সঠিক উত্তর: ল্যাবরেটরির টিউটরকে দিয়ে — পাঠ্যাংশে বলা হয়েছে: «সানন্দে! তবে তার আগে চলো ল্যাবরেটরির টিউটরকে দিয়ে স্লাইডগুলো পরীক্ষা করিয়ে নিই।» (dal tutor del laboratorio)।', en: 'The lab tutor.' } },
     ],
   }),
   buildListening({
@@ -351,7 +351,7 @@ export const B1_LISTENING_2: ListeningExercise[] = [
     vocabKeys: ['w:B1:il pendolare', 'w:B1:puntuale'],
     grammarIds: ['trapassato'],
     questions: [
-      { id: 'lsb1-48-q1', prompt: { bn: 'তারিক গত মাসে কিসে ভ্রমণ করেছে?', en: 'How did Tariq travel last month?' }, options: ['বিমানে', 'ট্রেনের স্লিপিং কোচে (vagone letto)', 'জাহাজে', 'বাসে'], answer: 1, explanation: { bn: 'in vagone letto।', en: 'In a sleeping car.' } },
+      { id: 'lsb1-48-q1', prompt: { bn: 'তারিক গত মাসে কিসে ভ্রমণ করেছে?', en: 'How did Tariq travel last month?' }, options: ['বিমানে', 'ট্রেনের স্লিপিং কোচে (vagone letto)', 'জাহাজে', 'বাসে'], answer: 1, explanation: { bn: 'সঠিক উত্তর: ট্রেনের স্লিপিং কোচে (vagone letto) — পাঠ্যাংশে বলা হয়েছে: «গত মাসের আগে আমি কখনো স্লিপিং কোচে ভ্রমণ করিনি: এটি অত্যন্ত আরামদায়ক অভিজ্ঞতা ছিল।» (in vagone letto)।', en: 'In a sleeping car.' } },
     ],
   }),
   buildListening({
@@ -367,7 +367,7 @@ export const B1_LISTENING_2: ListeningExercise[] = [
     vocabKeys: ["w:B1:l'impresa", 'w:B1:la competenza'],
     grammarIds: ['relativi-il-quale-cui', 'chi-quello-che-cio-che'],
     questions: [
-      { id: 'lsb1-49-q1', prompt: { bn: 'কারখানাটি আগে কার ছিল?', en: 'Who did the workshop previously belong to?' }, options: ['তার দাদার (mio nonno)', 'পৌরসভার', 'একজন বন্ধুর', 'ব্যাংকের'], answer: 0, explanation: { bn: 'apparteneva a mio nonno।', en: 'His grandfather.' } },
+      { id: 'lsb1-49-q1', prompt: { bn: 'কারখানাটি আগে কার ছিল?', en: 'Who did the workshop previously belong to?' }, options: ['তার দাদার (mio nonno)', 'পৌরসভার', 'একজন বন্ধুর', 'ব্যাংকের'], answer: 0, explanation: { bn: 'সঠিক উত্তর: তার দাদার (mio nonno) — পাঠ্যাংশে বলা হয়েছে: «যে কারখানায় আমি কাজ করি সেটি আমার দাদার ছিল, কিন্তু আজ আমরা সারা ইউরোপে বিক্রি করি।» (apparteneva a mio nonno)।', en: 'His grandfather.' } },
     ],
   }),
   buildListening({
@@ -383,7 +383,7 @@ export const B1_LISTENING_2: ListeningExercise[] = [
     vocabKeys: ['w:B1:il risparmio', 'w:B1:la pratica'],
     grammarIds: ['gerundio-composto', 'infinito-passato'],
     questions: [
-      { id: 'lsb1-50-q1', prompt: { bn: 'কত দিনের মধ্যে টাকা অ্যাকাউন্টে ফেরত আসবে?', en: 'Within how many days will the refund be credited?' }, options: ['২ দিন', '৭ দিন', '৩০ দিন', '৬০ দিন'], answer: 1, explanation: { bn: 'entro sette giorni।', en: 'Within seven days.' } },
+      { id: 'lsb1-50-q1', prompt: { bn: 'কত দিনের মধ্যে টাকা অ্যাকাউন্টে ফেরত আসবে?', en: 'Within how many days will the refund be credited?' }, options: ['২ দিন', '৭ দিন', '৩০ দিন', '৬০ দিন'], answer: 1, explanation: { bn: 'সঠিক উত্তর: ৭ দিন — পাঠ্যাংশে বলা হয়েছে: «খুব ভালো করেছেন: অনলাইনে ফর্মটি পূরণ করার পর সাত দিনের মধ্যে টাকা ফেরত পাবেন।» (entro sette giorni)।', en: 'Within seven days.' } },
     ],
   }),
   buildListening({
@@ -399,7 +399,7 @@ export const B1_LISTENING_2: ListeningExercise[] = [
     vocabKeys: ['w:B1:a meno che', 'w:B1:la formazione'],
     grammarIds: ['senza-che-prima-che', 'indefiniti-negativi-b1'],
     questions: [
-      { id: 'lsb1-51-q1', prompt: { bn: 'কোর্সটি কবে শুরু হবে?', en: 'When will the course start?' }, options: ['সোমবার', 'মঙ্গলবার', 'বৃহস্পতিবার', 'শনিবার'], answer: 1, explanation: { bn: 'inizierà martedì।', en: 'On Tuesday.' } },
+      { id: 'lsb1-51-q1', prompt: { bn: 'কোর্সটি কবে শুরু হবে?', en: 'When will the course start?' }, options: ['সোমবার', 'মঙ্গলবার', 'বৃহস্পতিবার', 'শনিবার'], answer: 1, explanation: { bn: 'সঠিক উত্তর: মঙ্গলবার — পাঠ্যাংশে বলা হয়েছে: «শিক্ষার্থীদের জানানো যাচ্ছে যে কক্ষ পরিবর্তন না হলে কর্মক্ষেত্রের ইতালিয়ান কোর্সটি মঙ্গলবার শুরু হবে।» (inizierà martedì)।', en: 'On Tuesday.' } },
     ],
   }),
   buildListening({
@@ -415,7 +415,7 @@ export const B1_LISTENING_2: ListeningExercise[] = [
     vocabKeys: ["w:B1:l'impresa", 'w:B1:il vantaggio'],
     grammarIds: ['participio-passato-assoluto', 'periodo-ipotetico-3'],
     questions: [
-      { id: 'lsb1-52-q1', prompt: { bn: 'বার্ষিক ফলাফল কেমন হয়েছে?', en: 'How were the annual results?' }, options: ['প্রত্যাশার চেয়ে কম', 'প্রত্যাশা ছাড়িয়ে গেছে', 'আগের মতোই', 'লোকসান হয়েছে'], answer: 1, explanation: { bn: 'hanno superato le aspettative।', en: 'They exceeded expectations.' } },
+      { id: 'lsb1-52-q1', prompt: { bn: 'বার্ষিক ফলাফল কেমন হয়েছে?', en: 'How were the annual results?' }, options: ['প্রত্যাশার চেয়ে কম', 'প্রত্যাশা ছাড়িয়ে গেছে', 'আগের মতোই', 'লোকসান হয়েছে'], answer: 1, explanation: { bn: 'সঠিক উত্তর: প্রত্যাশা ছাড়িয়ে গেছে — পাঠ্যাংশে বলা হয়েছে: «বার্ষিক হিসাব সমাপ্ত হওয়ার পর আমরা বলতে পারি যে জটিলতা সত্ত্বেও ফলাফল প্রত্যাশা ছাড়িয়ে গেছে।» (hanno superato le aspettative)।', en: 'They exceeded expectations.' } },
     ],
   }),
 ];

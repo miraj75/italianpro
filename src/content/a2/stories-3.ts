@@ -34,7 +34,7 @@ export const A2_STORIES_3: StoryItem[] = [
     ],
     practice: {
       retellPrompt: { bn: 'che, dove, in cui ব্যবহার করে আপনার এলাকার বর্ণনা ৩ বাক্যে লিখুন।', en: 'Describe your area in 3 sentences using che, dove, and in cui.' },
-      completeMissing: { promptIt: 'La città ___ sono nato è sul mare.', hint: { bn: 'dove / in cui', en: 'place relative' }, sampleIt: 'La città in cui sono nato è sul mare.' },
+      completeMissing: { promptIt: 'La città ___ sono nato è sul mare.', hint: { bn: 'স্থান নির্দেশক সম্বন্ধবাচক সর্বনাম dove অথবা in cui বসান', en: 'place relative' }, sampleIt: 'La città in cui sono nato è sul mare.' },
       buildSimilar: { patternIt: 'Il libro che leggo è molto interessante.', prompt: { bn: 'che দিয়ে একটি বাক্য লিখুন।', en: 'Write a relative sentence with che.' }, sampleIt: 'Il bar che preferisco è vicino alla piazza.' },
       altEndingPrompt: { bn: 'শনিবার সকালে এই পাড়ায় কী করা যায় লিখুন।', en: 'What can you do in this neighbourhood on Saturday morning?' },
     },
@@ -72,7 +72,7 @@ export const A2_STORIES_3: StoryItem[] = [
     ],
     practice: {
       retellPrompt: { bn: 'qualche, alcuni এবং non… niente দিয়ে ৩টি বাক্য লিখুন।', en: 'Write 3 sentences using qualche, alcuni, and non… niente.' },
-      completeMissing: { promptIt: 'Non voglio ___ di dolce dopo cena.', hint: { bn: 'niente', en: 'nothing' }, sampleIt: 'Non voglio niente di dolce dopo cena.' },
+      completeMissing: { promptIt: 'Non voglio ___ di dolce dopo cena.', hint: { bn: 'নেতিবাচক বাক্যে কিছু না অর্থে niente ব্যবহার করুন', en: 'nothing' }, sampleIt: 'Non voglio niente di dolce dopo cena.' },
       buildSimilar: { patternIt: 'Tutti i giorni controlliamo le mail.', prompt: { bn: 'ogni বা tutti দিয়ে প্রতিদিনের একটি অভ্যাসের কথা লিখুন।', en: 'Write a daily habit using ogni or tutti.' }, sampleIt: 'Ogni sera spengo il computer prima di dormire.' },
       altEndingPrompt: { bn: 'অফিস থেকে বের হয়ে বাসায় গিয়ে সে কী করবে লিখুন।', en: 'What will he do after leaving the office?' },
     },
@@ -103,14 +103,14 @@ export const A2_STORIES_3: StoryItem[] = [
       { id: 'st2-25-tf1', statementIt: 'Chiara lavora in azienda da cinque anni.', statement: { bn: 'কিয়ারা পাঁচ বছর ধরে এই কোম্পানিতে কাজ করে।', en: 'Chiara has worked at the company for five years.' }, answer: false, explanation: { bn: 'এইমাত্র নিয়োগ হয়েছে (appena assunto)।', en: 'She was just hired.' } },
     ],
     fillBlank: [
-      { id: 'st2-25-fb1', sentence: 'Ho trovato ___ la strada grazie alla cartina.', options: ['facile', 'facilmente', 'facilemente', 'facilità'], answer: 1, explanation: { bn: 'facile → facilmente।', en: 'Adverb of facile is facilmente.' } },
+      { id: 'st2-25-fb1', sentence: 'Ho trovato ___ la strada grazie alla cartina.', options: ['facile', 'facilmente', 'facilemente', 'facilità'], answer: 1, explanation: { bn: 'সঠিক রূপান্তর: «facile» থেকে পরিবর্তিত হয়ে «facilmente» ব্যবহৃত হয়।', en: 'Adverb of facile is facilmente.' } },
     ],
     shortAnswer: [
       { id: 'st2-25-sa1', question: { bn: 'তার কারণে সপ্তাহের কাজ কীভাবে শেষ হয়েছে?', en: 'How was the week’s work finished thanks to her?' }, sampleAnswerIt: 'L’hanno finito facilmente e senza stress.', keywords: ['facilmente', 'stress'] },
     ],
     practice: {
       retellPrompt: { bn: 'chiaramente, facilmente, velocemente ব্যবহার করে ৩ বাক্য লিখুন।', en: 'Write 3 sentences using chiaramente, facilmente, and velocemente.' },
-      completeMissing: { promptIt: 'Abbiamo ___ ricevuto il pacco dal corriere.', hint: { bn: 'appena / già', en: 'time adverb' }, sampleIt: 'Abbiamo appena ricevuto il pacco dal corriere.' },
+      completeMissing: { promptIt: 'Abbiamo ___ ricevuto il pacco dal corriere.', hint: { bn: 'সময়বাচক ক্রিয়াবিশেষণ appena (মাত্রই) বা già (ইতিমধ্যে) বসান', en: 'time adverb' }, sampleIt: 'Abbiamo appena ricevuto il pacco dal corriere.' },
       buildSimilar: { patternIt: 'Fortunatamente il treno è arrivato in orario.', prompt: { bn: 'fortunatamente বা purtroppo দিয়ে একটি বাক্য লিখুন।', en: 'Start a sentence with fortunatamente or purtroppo.' }, sampleIt: 'Purtroppo oggi fa molto vento.' },
       altEndingPrompt: { bn: 'অফিসের সবাই মিলে কিয়ারাকে কীভাবে স্বাগত জানাতে পারে লিখুন।', en: 'How might the team celebrate welcoming Chiara?' },
     },
@@ -148,7 +148,7 @@ export const A2_STORIES_3: StoryItem[] = [
     ],
     practice: {
       retellPrompt: { bn: 'decidere di, iniziare a, riuscire a দিয়ে নতুন কিছু শেখার গল্প লিখুন।', en: 'Write about learning a new skill using decidere di, iniziare a, riuscire a.' },
-      completeMissing: { promptIt: 'Spero ___ finire il corso prima dell’estate.', hint: { bn: 'di', en: 'preposition' }, sampleIt: 'Spero di finire il corso prima dell’estate.' },
+      completeMissing: { promptIt: 'Spero ___ finire il corso prima dell’estate.', hint: { bn: 'সঠিক প্রিপোজিশন di ব্যবহার করুন', en: 'preposition' }, sampleIt: 'Spero di finire il corso prima dell’estate.' },
       buildSimilar: { patternIt: 'Ho cominciato a studiare ogni sera.', prompt: { bn: 'cominciare a বা iniziare a দিয়ে একটি বাক্য লিখুন।', en: 'Write a sentence with iniziare/cominciare a.' }, sampleIt: 'Ho iniziato a correre al parco la mattina.' },
       altEndingPrompt: { bn: 'নতুন গাড়ি কিনলে সে প্রথম কোথায় ঘুরতে যাবে লিখুন।', en: 'Where might he drive first once he buys the car?' },
     },
@@ -170,10 +170,10 @@ export const A2_STORIES_3: StoryItem[] = [
       { word: 'ce la faccio', base: 'farcela', tr: { bn: 'আমি সামলে উঠতে পারছি', en: 'I can manage' }, pos: 'verb' },
     ],
     grammarBreakdown: [
-      { sentenceIt: 'Non ce la faccio / Ci vogliono due ore / Me ne sono andato.', ruleTitle: { bn: 'farcela, volerci, andarsene', en: 'Everyday clitic verbs' }, explanation: { bn: 'farcela = পারা; volerci = সময়/জিনিস লাগা (ci vuole / ci vogliono); andarsene = চলে যাওয়া।', en: 'Three essential idiomatic pronominal verbs in action.' }, grammarId: 'verbi-pronominali-a2' },
+      { sentenceIt: 'Non ce la faccio / Ci vogliono due ore / Me ne sono andato.', ruleTitle: { bn: 'প্রাত্যহিক সর্বনামযুক্ত ক্রিয়া (farcela, volerci, andarsene)', en: 'Everyday clitic verbs' }, explanation: { bn: 'farcela = পারা; volerci = সময়/জিনিস লাগা (ci vuole / ci vogliono); andarsene = চলে যাওয়া।', en: 'Three essential idiomatic pronominal verbs in action.' }, grammarId: 'verbi-pronominali-a2' },
     ],
     mcq: [
-      { id: 'st2-27-q1', prompt: { bn: 'রাজস্ব স্ট্যাম্প সে কোথা থেকে কিনেছে?', en: 'Where did he buy the revenue stamp?' }, options: ['ব্যাংকে', 'তামাক/টিকিটের দোকানে (tabaccheria)', 'লাইব্রেরিতে', 'পৌরসভায়'], answer: 1, explanation: { bn: 'alla tabaccheria per la marca da bollo।', en: 'At the tabaccheria.' } },
+      { id: 'st2-27-q1', prompt: { bn: 'রাজস্ব স্ট্যাম্প সে কোথা থেকে কিনেছে?', en: 'Where did he buy the revenue stamp?' }, options: ['ব্যাংকে', 'তামাক/টিকিটের দোকানে (tabaccheria)', 'লাইব্রেরিতে', 'পৌরসভায়'], answer: 1, explanation: { bn: 'সঠিক উত্তর: তামাক/টিকিটের দোকানে (tabaccheria) — পাঠ্যাংশে বলা হয়েছে: «আজ সকালে আমাকে একদিনেই তিনটি কাগজের কাজ করতে হতো: প্রথমে রাজস্ব স্ট্যাম্পের জন্য তামাকের দোকানে, তারপর ডাকঘরে এবং শেষে বিশ্ববিদ্যালয়ের অফিসে।» (alla tabaccheria per la marca da bollo)।', en: 'At the tabaccheria.' } },
     ],
     trueFalse: [
       { id: 'st2-27-tf1', statementIt: 'Alla posta ha aspettato tre ore.', statement: { bn: 'ডাকঘরে সে তিন ঘণ্টা অপেক্ষা করেছে।', en: 'He waited three hours at the post office.' }, answer: false, explanation: { bn: 'লাইন খুব দ্রুত ছিল (la fila è andata velocissima)।', en: 'The queue moved very quickly.' } },
@@ -186,7 +186,7 @@ export const A2_STORIES_3: StoryItem[] = [
     ],
     practice: {
       retellPrompt: { bn: 'ci vogliono ও ce l’ho fatta ব্যবহার করে ব্যস্ত দিনের গল্প লিখুন।', en: 'Write 3 sentences using ci vogliono and ce l’ho fatta.' },
-      completeMissing: { promptIt: 'Non è facile, ma con impegno ___ faremo!', hint: { bn: 'ce la', en: 'farcela' }, sampleIt: 'Con impegno ce la faremo!' },
+      completeMissing: { promptIt: 'Non è facile, ma con impegno ___ faremo!', hint: { bn: 'সফল হওয়া অর্থে farcela ক্রিয়ার সর্বনাম অংশ ce la বসান', en: 'farcela' }, sampleIt: 'Con impegno ce la faremo!' },
       buildSimilar: { patternIt: 'Ci vogliono venti minuti in bicicletta.', prompt: { bn: 'আপনার যাতায়াতে কত সময় লাগে লিখুন।', en: 'Write how long your commute takes.' }, sampleIt: 'Ci vogliono quindici minuti in metropolitana.' },
       altEndingPrompt: { bn: 'ক্যাফেতে বসে সে কী অর্ডার করবে লিখুন।', en: 'What might he order at the café?' },
     },
@@ -224,7 +224,7 @@ export const A2_STORIES_3: StoryItem[] = [
     ],
     practice: {
       retellPrompt: { bn: 'primo, secondo, terzo ব্যবহার করে একটি সাংস্কৃতিক অনুষ্ঠানের গল্প লিখুন।', en: 'Write 3 sentences using primo, secondo, and terzo.' },
-      completeMissing: { promptIt: 'È la ___ lezione della settimana.', hint: { bn: 'prima / terza / ultima', en: 'feminine ordinal' }, sampleIt: 'È la terza lezione della settimana.' },
+      completeMissing: { promptIt: 'È la ___ lezione della settimana.', hint: { bn: 'স্ত্রীলিঙ্গ ক্রমবাচক বিশেষণ prima / terza / ultima ব্যবহার করুন', en: 'feminine ordinal' }, sampleIt: 'È la terza lezione della settimana.' },
       buildSimilar: { patternIt: 'Sono andato al concerto per la prima volta.', prompt: { bn: 'প্রথমবার করা কোনো অভিজ্ঞতা লিখুন।', en: 'Write about something you did for the first time.' }, sampleIt: 'Ho visitato Venezia per la prima volta.' },
       altEndingPrompt: { bn: 'থিয়েটার শেষে বাইরে বের হয়ে তারা কী বলল লিখুন।', en: 'What might they say leaving the theatre?' },
     },
@@ -249,7 +249,7 @@ export const A2_STORIES_3: StoryItem[] = [
       { sentenceIt: 'Il migliore cappuccino / Iniziano la giornata meglio.', ruleTitle: { bn: 'migliore (বিশেষণ) বনাম meglio (ক্রিয়াবিশেষণ)', en: 'migliore vs meglio' }, explanation: { bn: 'বিশেষ্যের গুণ বোঝালে migliore; ক্রিয়ার ধরণ বোঝালে meglio।', en: 'migliore modifies nouns; meglio modifies verbs.' }, grammarId: 'comparativi-irregolari' },
     ],
     mcq: [
-      { id: 'st2-29-q1', prompt: { bn: 'প্রথম পেস্ট্রি শপের সমস্যা কী?', en: 'What is the problem with the first pastry shop?' }, options: ['কফি ঠান্ডা', 'সেবা খুব খারাপ/ধীর', 'বন্ধ থাকে', 'দূরে'], answer: 1, explanation: { bn: 'ha un servizio pessimo।', en: 'It has terrible service.' } },
+      { id: 'st2-29-q1', prompt: { bn: 'প্রথম পেস্ট্রি শপের সমস্যা কী?', en: 'What is the problem with the first pastry shop?' }, options: ['কফি ঠান্ডা', 'সেবা খুব খারাপ/ধীর', 'বন্ধ থাকে', 'দূরে'], answer: 1, explanation: { bn: 'সঠিক উত্তর: সেবা খুব খারাপ/ধীর — পাঠ্যাংশে বলা হয়েছে: «স্টেশনের কাছে দুটি পেস্ট্রি শপ আছে। প্রথমটি আধুনিক কিন্তু সেবা খুবই খারাপ: অনেকক্ষণ অপেক্ষা করতে হয়।» (ha un servizio pessimo)।', en: 'It has terrible service.' } },
     ],
     trueFalse: [
       { id: 'st2-29-tf1', statementIt: 'La seconda pasticceria fa un caffè pessimo.', statement: { bn: 'দ্বিতীয় পেস্ট্রি শপের কফি খুব খারাপ।', en: 'The second shop makes terrible coffee.' }, answer: false, explanation: { bn: 'prepara il migliore cappuccino (সেরা ক্যাপুচিনো)।', en: 'It makes the best cappuccino.' } },
@@ -262,7 +262,7 @@ export const A2_STORIES_3: StoryItem[] = [
     ],
     practice: {
       retellPrompt: { bn: 'migliore, ottimo, meglio ব্যবহার করে দুটো জায়গার তুলনা লিখুন।', en: 'Compare two cafés or shops using migliore, ottimo, and meglio.' },
-      completeMissing: { promptIt: 'Oggi mi sento ___ di ieri!', hint: { bn: 'meglio', en: 'adverb' }, sampleIt: 'Oggi mi sento meglio di ieri!' },
+      completeMissing: { promptIt: 'Oggi mi sento ___ di ieri!', hint: { bn: 'ভালো অর্থে ক্রিয়াবিশেষণ meglio ব্যবহার করুন', en: 'adverb' }, sampleIt: 'Oggi mi sento meglio di ieri!' },
       buildSimilar: { patternIt: 'I suoi cornetti sono ottimi.', prompt: { bn: 'ottimo বা pessimo দিয়ে মতামত দিন।', en: 'Write a quick review with ottimo or pessimo.' }, sampleIt: 'La zuppa di verdure era ottima!' },
       altEndingPrompt: { bn: 'এই ক্যাফেতে সকালে কার কার সাথে দেখা হয় লিখুন।', en: 'Who do locals meet at this café each morning?' },
     },
@@ -287,10 +287,10 @@ export const A2_STORIES_3: StoryItem[] = [
       { sentenceIt: 'Si comprano formaggi / Si chiede al venditore.', ruleTitle: { bn: 'si impersonale একবচন ও বহুবচন', en: 'Singular & plural impersonal si' }, explanation: { bn: 'কর্ম একবচন/অনির্দিষ্ট হলে si chiede; কর্ম বহুবচন (formaggi) হলে ক্রিয়াও বহুবচন (si comprano)।', en: 'Plural object triggers plural verb after si.' }, grammarId: 'si-impersonale-a2' },
     ],
     mcq: [
-      { id: 'st2-30-q1', prompt: { bn: 'বাজারের বোর্ডে কী নিষেধ করা হয়েছে?', en: 'What does the market sign forbid?' }, options: ['কার্ডে পেমেন্ট', 'হাত দিয়ে ফল ছোঁয়া', 'ছবি তোলা', 'ব্যাগ আনা'], answer: 1, explanation: { bn: 'Non si tocca la frutta con le mani।', en: 'Touching fruit by hand.' } },
+      { id: 'st2-30-q1', prompt: { bn: 'বাজারের বোর্ডে কী নিষেধ করা হয়েছে?', en: 'What does the market sign forbid?' }, options: ['কার্ডে পেমেন্ট', 'হাত দিয়ে ফল ছোঁয়া', 'ছবি তোলা', 'ব্যাগ আনা'], answer: 1, explanation: { bn: 'সঠিক উত্তর: হাত দিয়ে ফল ছোঁয়া — পাঠ্যাংশে বলা হয়েছে: «প্রবেশপথে একটা বোর্ড আছে: "হাত দিয়ে ফল স্পর্শ করবেন না, আগে বিক্রেতাকে বলুন!" অনেক বিদেশি ছাত্র তাড়াতাড়ি এটা জানে না।» (Non si tocca la frutta con le mani)।', en: 'Touching fruit by hand.' } },
     ],
     trueFalse: [
-      { id: 'st2-30-tf1', statementIt: 'Al mercato si può pagare solo in contanti.', statement: { bn: 'বাজারে শুধু নগদ টাকায় কেনা যায়।', en: 'You can only pay cash at the market.' }, answer: false, explanation: { bn: 'sia in contanti sia con il bancomat।', en: 'Both cash and card work.' } },
+      { id: 'st2-30-tf1', statementIt: 'Al mercato si può pagare solo in contanti.', statement: { bn: 'বাজারে শুধু নগদ টাকায় কেনা যায়।', en: 'You can only pay cash at the market.' }, answer: false, explanation: { bn: 'বাক্যটি মিথ্যা — গল্পে আসলে বলা হয়েছে: «এখন প্রায় সব স্টলেই নগদে ও ডেবিট কার্ডে টাকা দেওয়া যায়, এবং সবসময় রসিদ পাওয়া যায়।» (sia in contanti sia con il bancomat)।', en: 'Both cash and card work.' } },
     ],
     fillBlank: [
       { id: 'st2-30-fb1', sentence: 'In Italia si ___ moltissimi gelati in estate.', options: ['mangia', 'mangiano', 'mangiamo', 'mangi'], answer: 1, explanation: { bn: 'moltissimi gelati বহুবচন → mangiano।', en: 'Plural object takes mangiano.' } },
@@ -300,7 +300,7 @@ export const A2_STORIES_3: StoryItem[] = [
     ],
     practice: {
       retellPrompt: { bn: 'ইতালিতে বা বাংলাদেশে কী কী প্রচলিত নিয়ম আছে si দিয়ে ৩ বাক্যে লিখুন।', en: 'Write 3 sentences describing local habits using impersonal si.' },
-      completeMissing: { promptIt: 'Come si ___ per andare in centro?', hint: { bn: 'fa / arriva', en: 'impersonal verb' }, sampleIt: 'Come si arriva al museo?' },
+      completeMissing: { promptIt: 'Come si ___ per andare in centro?', hint: { bn: 'নৈর্ব্যক্তিক ক্রিয়ার রূপ fa অথবা arriva বসান', en: 'impersonal verb' }, sampleIt: 'Come si arriva al museo?' },
       buildSimilar: { patternIt: 'In biblioteca si studia in silenzio.', prompt: { bn: 'কোনো স্থানের নিয়ম si দিয়ে লিখুন।', en: 'State a public rule with si.' }, sampleIt: 'Sul treno si convalida sempre il biglietto.' },
       altEndingPrompt: { bn: 'বাজার থেকে কেনাকাটা শেষে তারা কী রান্না করবে লিখুন।', en: 'What might they cook from the market ingredients?' },
     },
@@ -325,10 +325,10 @@ export const A2_STORIES_3: StoryItem[] = [
       { sentenceIt: 'Ho dovuto scrivere / Non ho potuto parlare.', ruleTitle: { bn: 'অতীতে মডাল (dovere/potere)', en: 'Modals in passato prossimo' }, explanation: { bn: 'scrivere ও parlare উভয়ই avere নেয়, তাই ho dovuto ও ho potuto হয়েছে।', en: 'Both infinitives take avere → ho dovuto / ho potuto.' }, grammarId: 'modali-passato' },
     ],
     mcq: [
-      { id: 'st2-31-q1', prompt: { bn: 'গ্রাহক শেষ পর্যন্ত কী ফেরত পেল?', en: 'What refund did the customer receive?' }, options: ['পুরো জ্যাকেটের দাম', 'ডেলিভারি খরচ', 'নতুন জুতা', 'কিছুই না'], answer: 1, explanation: { bn: 'il rimborso delle spese di spedizione।', en: 'Refund of shipping costs.' } },
+      { id: 'st2-31-q1', prompt: { bn: 'গ্রাহক শেষ পর্যন্ত কী ফেরত পেল?', en: 'What refund did the customer receive?' }, options: ['পুরো জ্যাকেটের দাম', 'ডেলিভারি খরচ', 'নতুন জুতা', 'কিছুই না'], answer: 1, explanation: { bn: 'সঠিক উত্তর: ডেলিভারি খরচ — পাঠ্যাংশে বলা হয়েছে: «ফোনে কারও সাথে কথা বলতে পারিনি, তবে ইমেইলে সাথে সাথেই উত্তর দিয়েছে এবং আমি ডেলিভারি চার্জের টাকা ফেরত পেয়েছি।» (il rimborso delle spese di spedizione)।', en: 'Refund of shipping costs.' } },
     ],
     trueFalse: [
-      { id: 'st2-31-tf1', statementIt: 'Il servizio clienti ha risposto subito via mail.', statement: { bn: 'গ্রাহক সেবা ইমেইলে সাথে সাথে উত্তর দিয়েছে।', en: 'Customer service replied promptly by email.' }, answer: true, explanation: { bn: 'via mail mi hanno risposto subito।', en: 'Directly stated in paragraph 3.' } },
+      { id: 'st2-31-tf1', statementIt: 'Il servizio clienti ha risposto subito via mail.', statement: { bn: 'গ্রাহক সেবা ইমেইলে সাথে সাথে উত্তর দিয়েছে।', en: 'Customer service replied promptly by email.' }, answer: true, explanation: { bn: 'বাক্যটি সত্য — গল্পের তথ্যানুযায়ী: «ফোনে কারও সাথে কথা বলতে পারিনি, তবে ইমেইলে সাথে সাথেই উত্তর দিয়েছে এবং আমি ডেলিভারি চার্জের টাকা ফেরত পেয়েছি।» (via mail mi hanno risposto subito)।', en: 'Directly stated in paragraph 3.' } },
     ],
     fillBlank: [
       { id: 'st2-31-fb1', sentence: 'Ieri pioveva troppo e non ___ potuti uscire.', options: ['abbiamo', 'siamo', 'avete', 'fummo'], answer: 1, explanation: { bn: 'uscire essere নেয় → siamo potuti uscire।', en: 'uscire takes essere.' } },
@@ -338,7 +338,7 @@ export const A2_STORIES_3: StoryItem[] = [
     ],
     practice: {
       retellPrompt: { bn: 'অতীতে করতে হয়েছে এমন ৩টি কাজ ho dovuto / sono dovuto দিয়ে লিখুন।', en: 'Write 3 things you had to do recently using ho/sono dovuto.' },
-      completeMissing: { promptIt: 'Ieri non ho ___ finire il lavoro in tempo.', hint: { bn: 'potuto', en: 'past participle of potere' }, sampleIt: 'Ieri non ho potuto chiamarti.' },
+      completeMissing: { promptIt: 'Ieri non ho ___ finire il lavoro in tempo.', hint: { bn: 'potere ক্রিয়ার অতীত পার্টিসিপল potuto ব্যবহার করুন', en: 'past participle of potere' }, sampleIt: 'Ieri non ho potuto chiamarti.' },
       buildSimilar: { patternIt: 'Ho dovuto scrivere un reclamo al servizio.', prompt: { bn: 'ho dovuto দিয়ে একটি বাক্য লিখুন।', en: 'Write a sentence with ho dovuto.' }, sampleIt: 'Ho dovuto aspettare trenta minuti in fila.' },
       altEndingPrompt: { bn: 'জ্যাকেট হাতে পাওয়ার পর রিভিউয়ে কী লিখবেন লিখুন।', en: 'What might you write in a store review?' },
     },
@@ -376,7 +376,7 @@ export const A2_STORIES_3: StoryItem[] = [
     ],
     practice: {
       retellPrompt: { bn: 'একজন বন্ধুকে ডিনারে দাওয়াত দিয়ে ৩ বাক্যের বার্তা লিখুন।', en: 'Write a 3-sentence dinner invitation to a friend.' },
-      completeMissing: { promptIt: 'Sabato sera ___ va di andare al cinema insieme?', hint: { bn: 'ti / vi', en: 'indirect pronoun' }, sampleIt: 'Sabato sera ti va di guardare un film?' },
+      completeMissing: { promptIt: 'Sabato sera ___ va di andare al cinema insieme?', hint: { bn: 'পরোক্ষ সর্বনাম ti (তোমাকে) অথবা vi (তোমাদেরকে) বসান', en: 'indirect pronoun' }, sampleIt: 'Sabato sera ti va di guardare un film?' },
       buildSimilar: { patternIt: 'Ti dispiace se apro la finestra?', prompt: { bn: 'Ti dispiace se… ব্যবহার করে একটি প্রশ্ন লিখুন।', en: 'Ask politely with Ti/Le dispiace se…' }, sampleIt: 'Le dispiace se mi siedo qui?' },
       altEndingPrompt: { bn: 'পরের ডিনারে মাত্তেও বন্ধুদের কী ইতালীয় পদ রান্না করে খাওয়াবে লিখুন।', en: 'What Italian dish might Matteo cook next time?' },
     },

@@ -10,10 +10,10 @@ export const B1_READING_1: ReadingPassage[] = [
       { it: 'È fondamentale che ogni cittadino partecipi alle assemblee pubbliche e presenti proposte concrete per il bene comune.', tr: { bn: 'জনকল্যাণে প্রতিটি নাগরিকের উন্মুক্ত সভায় অংশ নেওয়া এবং সুনির্দিষ্ট প্রস্তাব পেশ করা অপরিহার্য।', en: 'It is fundamental that every citizen participate in public assemblies and put forward concrete proposals for the common good.' } },
     ],
     vocabHighlights: [{ it: 'rigenerazione urbana', tr: { bn: 'নগর পুনর্গঠন', en: 'urban regeneration' } }, { it: 'coesione sociale', tr: { bn: 'সামাজিক সংহতি', en: 'social cohesion' } }],
-    grammarHighlights: [{ excerpt: 'ritengono che… debba partire', note: { bn: 'ritenere che + congiuntivo presente (debba)।', en: 'ritenere che triggers present subjunctive debba.' }, grammarId: 'congiuntivo' }],
+    grammarHighlights: [{ excerpt: 'ritengono che… debba partire', note: { bn: 'ব্যাকরণগত গঠন: এখানে «ritenere che + congiuntivo presente (debba)» কাঠামোটি অনুসরণ করা হয়েছে।', en: 'ritenere che triggers present subjunctive debba.' }, grammarId: 'congiuntivo' }],
     relatedGrammarIds: ['congiuntivo', 'opinione'],
     questions: [
-      { id: 'rd-b1-01-q1', prompt: { bn: 'পরিত্যক্ত স্থানগুলোকে কিসে রূপান্তর করার কথা বলা হয়েছে?', en: 'What are disused areas turned into?' }, options: ['বাগান ও পড়ার ঘর', 'শপিং মল', 'পার্কিং লট', 'কারখানা'], answer: 0, explanation: { bn: 'in giardini e sale studio।', en: 'Into gardens and study rooms.' } },
+      { id: 'rd-b1-01-q1', prompt: { bn: 'পরিত্যক্ত স্থানগুলোকে কিসে রূপান্তর করার কথা বলা হয়েছে?', en: 'What are disused areas turned into?' }, options: ['বাগান ও পড়ার ঘর', 'শপিং মল', 'পার্কিং লট', 'কারখানা'], answer: 0, explanation: { bn: 'সঠিক উত্তর: বাগান ও পড়ার ঘর — পাঠ্যাংশে বলা হয়েছে: «ক্রমশ আরও বেশি স্থানীয় প্রশাসন মনে করে যে নগর পুনর্গঠন শুরু হওয়া উচিত পাড়ার বাসিন্দাদের প্রকৃত চাহিদা থেকে। পরিত্যক্ত স্থানগুলোকে বাগান ও পড়ার ঘরে রূপান্তর করা সামাজিক সংহতি বাড়ায়।» (in giardini e sale studio)।', en: 'Into gardens and study rooms.' } },
     ],
   }),
   buildReading({
@@ -27,7 +27,7 @@ export const B1_READING_1: ReadingPassage[] = [
     grammarHighlights: [{ excerpt: 'Se le aziende adottassero… risparmierebbero', note: { bn: '২য় প্রকার শর্তমূলক বাক্য।', en: 'Second conditional structure.' }, grammarId: 'periodo-ipotetico' }],
     relatedGrammarIds: ['periodo-ipotetico', 'periodo-ipotetico-2'],
     questions: [
-      { id: 'rd-b1-02-q1', prompt: { bn: 'সশরীরে অফিসে উপস্থিত থাকলে কী সুবিধা হয়?', en: 'What is the benefit of keeping days in the office?' }, options: ['দলগত চেতনা মজবুত হয় ও দ্রুত ধারণা বিনিময় হয়', 'যাতায়াত খরচ কমে', 'কম ঘণ্টা কাজ করতে হয়', 'ছুটি বাড়ে'], answer: 0, explanation: { bn: 'rafforzare lo spirito di squadra e scambiare idee।', en: 'Strengthening team spirit and exchanging ideas.' } },
+      { id: 'rd-b1-02-q1', prompt: { bn: 'সশরীরে অফিসে উপস্থিত থাকলে কী সুবিধা হয়?', en: 'What is the benefit of keeping days in the office?' }, options: ['দলগত চেতনা মজবুত হয় ও দ্রুত ধারণা বিনিময় হয়', 'যাতায়াত খরচ কমে', 'কম ঘণ্টা কাজ করতে হয়', 'ছুটি বাড়ে'], answer: 0, explanation: { bn: 'সঠিক উত্তর: দলগত চেতনা মজবুত হয় ও দ্রুত ধারণা বিনিময় হয় — পাঠ্যাংশে বলা হয়েছে: «একই সময়ে তিন দিন সশরীরে উপস্থিতি বজায় রাখলে দলগত চেতনা মজবুত হয় এবং দ্রুত ধারণা বিনিময় করা যায়।» (rafforzare lo spirito di squadra e scambiare idee)।', en: 'Strengthening team spirit and exchanging ideas.' } },
     ],
   }),
   buildReading({
@@ -41,7 +41,7 @@ export const B1_READING_1: ReadingPassage[] = [
     grammarHighlights: [{ excerpt: 'sarebbero stati / sarebbe volato', note: { bn: 'অতীতের সাপেক্ষে ভবিষ্যৎ বোঝাতে condizionale passato।', en: 'Past conditional for future-in-the-past.' }, grammarId: 'condizionale-passato' }],
     relatedGrammarIds: ['condizionale-passato', 'congiuntivo'],
     questions: [
-      { id: 'rd-b1-03-q1', prompt: { bn: 'লেখক গতকাল কী করেছেন?', en: 'What did the writer do yesterday?' }, options: ['ভর্তি পরীক্ষা দিয়েছেন', 'থিসিস উপস্থাপন করেছেন', 'শহর বদলেছেন', 'চাকরি শুরু করেছেন'], answer: 1, explanation: { bn: 'ho discusso la tesi।', en: 'Defended his thesis.' } },
+      { id: 'rd-b1-03-q1', prompt: { bn: 'লেখক গতকাল কী করেছেন?', en: 'What did the writer do yesterday?' }, options: ['ভর্তি পরীক্ষা দিয়েছেন', 'থিসিস উপস্থাপন করেছেন', 'শহর বদলেছেন', 'চাকরি শুরু করেছেন'], answer: 1, explanation: { bn: 'সঠিক উত্তর: থিসিস উপস্থাপন করেছেন — পাঠ্যাংশে বলা হয়েছে: «প্রিয় মাত্তেও, অবশেষে গতকাল আমি থিসিস উপস্থাপন করেছি! জানতাম পলিটেকনিকের বছরগুলো পরিশ্রমের হবে, কিন্তু ভাবিনি সময় এত দ্রুত উড়ে যাবে।» (ho discusso la tesi)।', en: 'Defended his thesis.' } },
     ],
   }),
   buildReading({
@@ -55,7 +55,7 @@ export const B1_READING_1: ReadingPassage[] = [
     grammarHighlights: [{ excerpt: 'avevo preparato / avevano donato', note: { bn: 'trapassato prossimo পূর্ববর্তী অতীত কাজ বোঝায়।', en: 'Pluperfect marks earlier past actions.' }, grammarId: 'trapassato' }],
     relatedGrammarIds: ['trapassato', 'relativi'],
     questions: [
-      { id: 'rd-b1-04-q1', prompt: { bn: 'প্রাচীন বইগুলো কারা দান করেছিলেন?', en: 'Who had donated the old volumes?' }, options: ['নাগরিকেরা (i cittadini)', 'বিদেশি পর্যটকেরা', 'বইয়ের দোকান', 'স্কুল'], answer: 0, explanation: { bn: 'che i cittadini avevano donato।', en: 'The citizens.' } },
+      { id: 'rd-b1-04-q1', prompt: { bn: 'প্রাচীন বইগুলো কারা দান করেছিলেন?', en: 'Who had donated the old volumes?' }, options: ['নাগরিকেরা (i cittadini)', 'বিদেশি পর্যটকেরা', 'বইয়ের দোকান', 'স্কুল'], answer: 0, explanation: { bn: 'সঠিক উত্তর: নাগরিকেরা (i cittadini) — পাঠ্যাংশে বলা হয়েছে: «গ্রন্থাগারিকেরা হাজার হাজার প্রাচীন বই তালিকাভুক্ত করেছিলেন যা নাগরিকেরা দশকের পর দশক ধরে দান করেছিলেন।» (che i cittadini avevano donato)।', en: 'The citizens.' } },
     ],
   }),
   buildReading({
@@ -69,7 +69,7 @@ export const B1_READING_1: ReadingPassage[] = [
     grammarHighlights: [{ excerpt: 'a cui guardano / in cui si trovano', note: { bn: 'অব্যয় + cui।', en: 'Preposition + relative cui.' }, grammarId: 'relativi' }],
     relatedGrammarIds: ['relativi'],
     questions: [
-      { id: 'rd-b1-05-q1', prompt: { bn: 'বাসা খোঁজার সময় পরিবারগুলো প্রধানত কোন মানদণ্ড দেখে?', en: 'What main criterion do families look at when house-hunting?' }, options: ['রেলস্টেশন ও মেট্রোর নৈকট্য', 'সিনেমা হলের দূরত্ব', 'বাড়িটি কত তলা', 'দেয়ালের রঙ'], answer: 0, explanation: { bn: 'la vicinanza alle stazioni e alla metropolitana।', en: 'Proximity to stations and metro lines.' } },
+      { id: 'rd-b1-05-q1', prompt: { bn: 'বাসা খোঁজার সময় পরিবারগুলো প্রধানত কোন মানদণ্ড দেখে?', en: 'What main criterion do families look at when house-hunting?' }, options: ['রেলস্টেশন ও মেট্রোর নৈকট্য', 'সিনেমা হলের দূরত্ব', 'বাড়িটি কত তলা', 'দেয়ালের রঙ'], answer: 0, explanation: { bn: 'সঠিক উত্তর: রেলস্টেশন ও মেট্রোর নৈকট্য — পাঠ্যাংশে বলা হয়েছে: «রেলস্টেশন ও মেট্রো লাইনের নৈকট্যই হলো প্রধান মানদণ্ড যার দিকে শহরে বাসা খোঁজা পরিবারগুলো তাকায়।» (la vicinanza alle stazioni e alla metropolitana)।', en: 'Proximity to stations and metro lines.' } },
     ],
   }),
   buildReading({
@@ -83,7 +83,7 @@ export const B1_READING_1: ReadingPassage[] = [
     grammarHighlights: [{ excerpt: 'glieli ho allegati / glielo invierò', note: { bn: 'যৌগিক সর্বনাম glieli ও glielo।', en: 'Combined pronouns glieli and glielo.' }, grammarId: 'pronomi-combinati' }],
     relatedGrammarIds: ['pronomi-combinati', 'registro-formale-b1'],
     questions: [
-      { id: 'rd-b1-06-q1', prompt: { bn: 'ত্রৈমাসিক বিলের বিবরণীগুলো কোন ফরম্যাটে সংযুক্ত করা হয়েছে?', en: 'In what format were the schedules attached?' }, options: ['পিডিএফ (PDF)', 'কাগুজে চিঠি', 'অডিও ফাইল', 'ছবি'], answer: 0, explanation: { bn: 'in formato PDF।', en: 'In PDF format.' } },
+      { id: 'rd-b1-06-q1', prompt: { bn: 'ত্রৈমাসিক বিলের বিবরণীগুলো কোন ফরম্যাটে সংযুক্ত করা হয়েছে?', en: 'In what format were the schedules attached?' }, options: ['পিডিএফ (PDF)', 'কাগুজে চিঠি', 'অডিও ফাইল', 'ছবি'], answer: 0, explanation: { bn: 'সঠিক উত্তর: পিডিএফ (PDF) — পাঠ্যাংশে বলা হয়েছে: «মাননীয় হিসাবরক্ষক ফেররি, ত্রৈমাসিক বিলের বিবরণীগুলো প্রস্তুত: আমি সেগুলো পিডিএফ ফরম্যাটে এই বার্তায় আপনার জন্য সংযুক্ত করেছি।» (in formato PDF)।', en: 'In PDF format.' } },
     ],
   }),
   buildReading({
@@ -97,7 +97,7 @@ export const B1_READING_1: ReadingPassage[] = [
     grammarHighlights: [{ excerpt: 'ci si sente… stressati', note: { bn: 'নৈর্ব্যক্তিক প্রতিফলক ci si + বহুবচন বিশেষণ।', en: 'Impersonal reflexive ci si + plural adjective.' }, grammarId: 'si-impersonale' }],
     relatedGrammarIds: ['si-impersonale'],
     questions: [
-      { id: 'rd-b1-07-q1', prompt: { bn: 'প্রতিদিন কতক্ষণ দ্রুত হাঁটার কথা বলা হয়েছে?', en: 'How much time per day is suggested for a brisk walk?' }, options: ['১০ মিনিট', 'আধ ঘণ্টা (mezz’ora)', '২ ঘণ্টা', '৩ ঘণ্টা'], answer: 1, explanation: { bn: 'mezz’ora al giorno।', en: 'Half an hour a day.' } },
+      { id: 'rd-b1-07-q1', prompt: { bn: 'প্রতিদিন কতক্ষণ দ্রুত হাঁটার কথা বলা হয়েছে?', en: 'How much time per day is suggested for a brisk walk?' }, options: ['১০ মিনিট', 'আধ ঘণ্টা (mezz’ora)', '২ ঘণ্টা', '৩ ঘণ্টা'], answer: 1, explanation: { bn: 'সঠিক উত্তর: আধ ঘণ্টা (mezz’ora) — পাঠ্যাংশে বলা হয়েছে: «তাছাড়া প্রতিদিন আধ ঘণ্টা দ্রুত হাঁটায় সময় দিলে ঘুম ভালো হয় এবং অপ্রত্যাশিত পরিস্থিতির সাথে আরও উদ্যমে খাপ খাওয়ানো যায়।» (mezz’ora al giorno)।', en: 'Half an hour a day.' } },
     ],
   }),
   buildReading({
@@ -111,7 +111,7 @@ export const B1_READING_1: ReadingPassage[] = [
     grammarHighlights: [{ excerpt: 'è stato approvato / saranno pubblicate', note: { bn: 'অতীত ও ভবিষ্যৎ কর্মবাচ্য।', en: 'Past and future passive voice.' }, grammarId: 'passivo' }],
     relatedGrammarIds: ['passivo'],
     questions: [
-      { id: 'rd-b1-08-q1', prompt: { bn: 'চূড়ান্ত তালিকা কবে নাগাদ প্রকাশ করা হবে?', en: 'By when will the final rankings be published?' }, options: ['নভেম্বরের শেষ নাগাদ', 'মার্চ মাসে', 'আগামী সপ্তাহে', 'জুলাই মাসে'], answer: 0, explanation: { bn: 'entro la fine di novembre।', en: 'By the end of November.' } },
+      { id: 'rd-b1-08-q1', prompt: { bn: 'চূড়ান্ত তালিকা কবে নাগাদ প্রকাশ করা হবে?', en: 'By when will the final rankings be published?' }, options: ['নভেম্বরের শেষ নাগাদ', 'মার্চ মাসে', 'আগামী সপ্তাহে', 'জুলাই মাসে'], answer: 0, explanation: { bn: 'সঠিক উত্তর: নভেম্বরের শেষ নাগাদ — পাঠ্যাংশে বলা হয়েছে: «নভেম্বরের শেষ নাগাদ চূড়ান্ত তালিকা প্রকাশ করা হবে এবং জানুয়ারির আগে তহবিল বরাদ্দ করা হবে।» (entro la fine di novembre)।', en: 'By the end of November.' } },
     ],
   }),
   buildReading({
@@ -125,7 +125,7 @@ export const B1_READING_1: ReadingPassage[] = [
     grammarHighlights: [{ excerpt: 'mi ha detto di non preoccuparmi', note: { bn: 'পরোক্ষ নেতিবাচক আদেশে di non + infinito।', en: 'Negative reported command uses di non + infinitive.' }, grammarId: 'discorso-indiretto' }],
     relatedGrammarIds: ['discorso-indiretto'],
     questions: [
-      { id: 'rd-b1-09-q1', prompt: { bn: 'কেন্দ্রীয় দপ্তর কত দিনের মধ্যে ফলাফল পাঠাবে?', en: 'Within how many days will the central office send the outcome?' }, options: ['২ কর্মদিবস', '১০ কর্মদিবস', '৩০ দিন', '৩ মাস'], answer: 1, explanation: { bn: 'entro dieci giorni lavorativi।', en: 'Within ten working days.' } },
+      { id: 'rd-b1-09-q1', prompt: { bn: 'কেন্দ্রীয় দপ্তর কত দিনের মধ্যে ফলাফল পাঠাবে?', en: 'Within how many days will the central office send the outcome?' }, options: ['২ কর্মদিবস', '১০ কর্মদিবস', '৩০ দিন', '৩ মাস'], answer: 1, explanation: { bn: 'সঠিক উত্তর: ১০ কর্মদিবস — পাঠ্যাংশে বলা হয়েছে: «তারপর তিনি আমাকে চিন্তা না করতে বললেন এবং ব্যাখ্যা করলেন যে কেন্দ্রীয় দপ্তর দশ কর্মদিবসের মধ্যে ফলাফল পাঠাবে।» (entro dieci giorni lavorativi)।', en: 'Within ten working days.' } },
     ],
   }),
   buildReading({
@@ -139,7 +139,7 @@ export const B1_READING_1: ReadingPassage[] = [
     grammarHighlights: [{ excerpt: 'Prima di lasciare / invece di lasciarlo', note: { bn: 'অব্যয় + ইনফিনিটিভ।', en: 'Preposition + infinitive.' }, grammarId: 'infinito' }],
     relatedGrammarIds: ['infinito'],
     questions: [
-      { id: 'rd-b1-10-q1', prompt: { bn: 'ডেস্ক ছাড়ার আগে কী বন্ধ করতে বলা হয়েছে?', en: 'What should staff switch off before leaving their workstation?' }, options: ['মনিটর', 'লিফট', 'ফ্রিজ', 'মূল ফটক'], answer: 0, explanation: { bn: 'spegnere il monitor।', en: 'Switch off the monitor.' } },
+      { id: 'rd-b1-10-q1', prompt: { bn: 'ডেস্ক ছাড়ার আগে কী বন্ধ করতে বলা হয়েছে?', en: 'What should staff switch off before leaving their workstation?' }, options: ['মনিটর', 'লিফট', 'ফ্রিজ', 'মূল ফটক'], answer: 0, explanation: { bn: 'সঠিক উত্তর: মনিটর — পাঠ্যাংশে বলা হয়েছে: «সকল সহকর্মীকে কয়েকটি সহজ পরিবেশবান্ধব নিয়ম মেনে চলতে আমন্ত্রণ জানানো হচ্ছে। নিজের কাজের ডেস্ক ছাড়ার আগে মনিটরটি স্ট্যান্ডবাই না রেখে বন্ধ করতে মনে রাখবেন।» (spegnere il monitor)।', en: 'Switch off the monitor.' } },
     ],
   }),
   buildReading({
@@ -153,7 +153,7 @@ export const B1_READING_1: ReadingPassage[] = [
     grammarHighlights: [{ excerpt: 'Pur avendo… Collaborando', note: { bn: 'স্বীকারোক্তিমূলক pur + জেরুন্ড এবং উপায়বাচক জেরুন্ড।', en: 'Concessive pur + gerund and gerund of means.' }, grammarId: 'gerundio-b1' }],
     relatedGrammarIds: ['gerundio-b1'],
     questions: [
-      { id: 'rd-b1-11-q1', prompt: { bn: 'কীভাবে ভবনের বাসিন্দারা বিরোধ প্রতিরোধ করতে পারেন?', en: 'How can building residents prevent conflicts?' }, options: ['কথা না বলে', 'ভদ্রভাবে একে অপরের কথা শুনে ও নিয়ম মেনে', 'দেয়াল তুলে', 'বাসা বদলে'], answer: 1, explanation: { bn: 'ascoltandosi con cortesia e collaborando।', en: 'By listening courteously and collaborating.' } },
+      { id: 'rd-b1-11-q1', prompt: { bn: 'কীভাবে ভবনের বাসিন্দারা বিরোধ প্রতিরোধ করতে পারেন?', en: 'How can building residents prevent conflicts?' }, options: ['কথা না বলে', 'ভদ্রভাবে একে অপরের কথা শুনে ও নিয়ম মেনে', 'দেয়াল তুলে', 'বাসা বদলে'], answer: 1, explanation: { bn: 'সঠিক উত্তর: ভদ্রভাবে একে অপরের কথা শুনে ও নিয়ম মেনে — পাঠ্যাংশে বলা হয়েছে: «একই ভবনে বসবাসের অর্থ স্থান ও নিয়ম ভাগ করে নেওয়া। ভিন্ন সময়সূচি ও অভ্যাস থাকা সত্ত্বেও বাসিন্দারা ভদ্রভাবে একে অপরের কথা শুনে যেকোনো বিরোধ প্রতিরোধ করতে পারেন।» (ascoltandosi con cortesia e collaborando)।', en: 'By listening courteously and collaborating.' } },
     ],
   }),
   buildReading({
@@ -164,10 +164,10 @@ export const B1_READING_1: ReadingPassage[] = [
       { it: 'Molti esperti ritengono che le imprese debbano offrire ore di formazione retribuita direttamente durante l’orario di lavoro.', tr: { bn: 'অনেক বিশেষজ্ঞ মনে করেন যে প্রতিষ্ঠানগুলোর কাজের সময়ের মধ্যেই সবেতন প্রশিক্ষণের ঘণ্টা দেওয়া উচিত।', en: 'Many experts believe businesses should offer paid training hours directly during working hours.' } },
     ],
     vocabHighlights: [{ it: 'aggiornamento', tr: { bn: 'হালনাগাদ প্রশিক্ষণ', en: 'refresher training' } }, { it: 'retribuita', tr: { bn: 'সবেতন', en: 'paid / remunerated' } }],
-    grammarHighlights: [{ excerpt: 'A mio parere… cambia / ritengono che… debbano', note: { bn: 'A mio parere + indicativo; ritengono che + congiuntivo।', en: 'Indicative vs subjunctive with opinion markers.' }, grammarId: 'opinione' }],
+    grammarHighlights: [{ excerpt: 'A mio parere… cambia / ritengono che… debbano', note: { bn: 'ব্যাকরণগত গঠন: এখানে «A mio parere + indicativo; ritengono che + congiuntivo» কাঠামোটি অনুসরণ করা হয়েছে।', en: 'Indicative vs subjunctive with opinion markers.' }, grammarId: 'opinione' }],
     relatedGrammarIds: ['opinione', 'congiuntivo'],
     questions: [
-      { id: 'rd-b1-12-q1', prompt: { bn: 'বিশেষজ্ঞদের মতে কখন প্রশিক্ষণের সুযোগ দেওয়া উচিত?', en: 'When do experts think training should be offered?' }, options: ['কাজের সময়ের মধ্যেই (durante l’orario di lavoro)', 'কেবল ছুটির দিনে', 'রাতে', 'অবসরের পর'], answer: 0, explanation: { bn: 'durante l’orario di lavoro।', en: 'During working hours.' } },
+      { id: 'rd-b1-12-q1', prompt: { bn: 'বিশেষজ্ঞদের মতে কখন প্রশিক্ষণের সুযোগ দেওয়া উচিত?', en: 'When do experts think training should be offered?' }, options: ['কাজের সময়ের মধ্যেই (durante l’orario di lavoro)', 'কেবল ছুটির দিনে', 'রাতে', 'অবসরের পর'], answer: 0, explanation: { bn: 'সঠিক উত্তর: কাজের সময়ের মধ্যেই (durante l’orario di lavoro) — পাঠ্যাংশে বলা হয়েছে: «অনেক বিশেষজ্ঞ মনে করেন যে প্রতিষ্ঠানগুলোর কাজের সময়ের মধ্যেই সবেতন প্রশিক্ষণের ঘণ্টা দেওয়া উচিত।» (durante l’orario di lavoro)।', en: 'During working hours.' } },
     ],
   }),
   buildReading({
@@ -181,7 +181,7 @@ export const B1_READING_1: ReadingPassage[] = [
     grammarHighlights: [{ excerpt: 'tuttavia… invece… inoltre', note: { bn: 'বাক্য সংযোজক অব্যয়।', en: 'Discourse connectors.' }, grammarId: 'connettivi-b1' }],
     relatedGrammarIds: ['connettivi-b1'],
     questions: [
-      { id: 'rd-b1-13-q1', prompt: { bn: 'প্রাদেশিক বা মাঝারি শহরের সুবিধা কী?', en: 'What is an advantage of provincial cities?' }, options: ['সাশ্রয়ী ভাড়া ও শান্ত জীবনযাত্রা', 'বিশাল যানজট', 'খুব উঁচু ভাড়া', 'মেট্রোপলিটন ভিড়'], answer: 0, explanation: { bn: 'gli affitti sono più accessibili… ritmo sereno।', en: 'More affordable rents and a calm pace.' } },
+      { id: 'rd-b1-13-q1', prompt: { bn: 'প্রাদেশিক বা মাঝারি শহরের সুবিধা কী?', en: 'What is an advantage of provincial cities?' }, options: ['সাশ্রয়ী ভাড়া ও শান্ত জীবনযাত্রা', 'বিশাল যানজট', 'খুব উঁচু ভাড়া', 'মেট্রোপলিটন ভিড়'], answer: 0, explanation: { bn: 'সঠিক উত্তর: সাশ্রয়ী ভাড়া ও শান্ত জীবনযাত্রা — পাঠ্যাংশে বলা হয়েছে: «অন্যদিকে প্রাদেশিক শহরগুলোতে ভাড়া বেশি সাশ্রয়ী; তাছাড়া মানুষের উপযোগী শান্ত দৈনন্দিন ছন্দ উপভোগ করা সহজ।» (gli affitti sono più accessibili… ritmo sereno)।', en: 'More affordable rents and a calm pace.' } },
     ],
   }),
   buildReading({
@@ -195,7 +195,7 @@ export const B1_READING_1: ReadingPassage[] = [
     grammarHighlights: [{ excerpt: 'temevo che… richiedesse / ci fosse', note: { bn: 'অতীত ক্রিয়ার পরে congiuntivo imperfetto।', en: 'Imperfect subjunctive after past verbs.' }, grammarId: 'congiuntivo-imperfetto' }],
     relatedGrammarIds: ['congiuntivo-imperfetto', 'trapassato'],
     questions: [
-      { id: 'rd-b1-14-q1', prompt: { bn: 'দপ্তরে যাওয়ার আগে লেখক কয়বার ফাইল পরীক্ষা করেছিলেন?', en: 'How many times had the writer checked the folder before going?' }, options: ['১ বার', '২ বার', '৩ বার', 'একবারও না'], answer: 2, explanation: { bn: 'Avevo controllato tre volte।', en: 'Three times.' } },
+      { id: 'rd-b1-14-q1', prompt: { bn: 'দপ্তরে যাওয়ার আগে লেখক কয়বার ফাইল পরীক্ষা করেছিলেন?', en: 'How many times had the writer checked the folder before going?' }, options: ['১ বার', '২ বার', '৩ বার', 'একবারও না'], answer: 2, explanation: { bn: 'সঠিক উত্তর: ৩ বার — পাঠ্যাংশে বলা হয়েছে: «অভিবাসন দপ্তরে যাওয়ার আগে আমি আশঙ্কা করছিলাম নবায়ন প্রক্রিয়ায় হয়ত সপ্তাহের পর সপ্তাহ অপেক্ষা লাগবে। ফাইলে প্রয়োজনীয় প্রতিটি যোগ্যতা-নথি আছে কি না তা আমি তিনবার পরীক্ষা করেছিলাম।» (Avevo controllato tre volte)।', en: 'Three times.' } },
     ],
   }),
   buildReading({
@@ -206,10 +206,10 @@ export const B1_READING_1: ReadingPassage[] = [
       { it: 'Credo comunque che abbia già caricato il preventivo aggiornato nella cartella condivisa.', tr: { bn: 'তবে আমার মনে হয় তিনি ইতিমধ্যে শেয়ার করা ফোল্ডারে হালনাগাদ প্রাক্কলনটি আপলোড করেছেন।', en: 'However, I think he has already uploaded the updated quote to the shared folder.' } },
     ],
     vocabHighlights: [{ it: 'cartella condivisa', tr: { bn: 'শেয়ার করা ফোল্ডার', en: 'shared folder' } }, { it: 'esterno', tr: { bn: 'বহিরাগত', en: 'external' } }],
-    grammarHighlights: [{ excerpt: 'abbia perso / abbia già caricato', note: { bn: 'congiuntivo passato।', en: 'Past subjunctive.' }, grammarId: 'congiuntivo-passato' }],
+    grammarHighlights: [{ excerpt: 'abbia perso / abbia già caricato', note: { bn: 'সঠিক উত্তর ও ব্যাকরণ সূত্র: «congiuntivo passato» (Past subjunctive)।', en: 'Past subjunctive.' }, grammarId: 'congiuntivo-passato' }],
     relatedGrammarIds: ['congiuntivo-passato'],
     questions: [
-      { id: 'rd-b1-15-q1', prompt: { bn: 'সভাটি কতক্ষণ দেরিতে শুরু হবে?', en: 'How late will the meeting start?' }, options: ['১০ মিনিট', 'আধ ঘণ্টা (mezz’ora)', '২ ঘণ্টা', 'বাতিল হয়েছে'], answer: 1, explanation: { bn: 'con mezz’ora di ritardo।', en: 'Half an hour late.' } },
+      { id: 'rd-b1-15-q1', prompt: { bn: 'সভাটি কতক্ষণ দেরিতে শুরু হবে?', en: 'How late will the meeting start?' }, options: ['১০ মিনিট', 'আধ ঘণ্টা (mezz’ora)', '২ ঘণ্টা', 'বাতিল হয়েছে'], answer: 1, explanation: { bn: 'সঠিক উত্তর: আধ ঘণ্টা (mezz’ora) — পাঠ্যাংশে বলা হয়েছে: «প্রিয় সহকর্মীবৃন্দ, আপনাদের জানাতে লিখছি যে ১৪:৩০-এর সভাটি আধ ঘণ্টা দেরিতে শুরু হবে। আমাদের আশঙ্কা আমাদের বহিরাগত পরামর্শদাতা সংযোগ ট্রেন মিস করায় উচ্চগতির ট্রেনটি ধরতে পারেননি।» (con mezz’ora di ritardo)।', en: 'Half an hour late.' } },
     ],
   }),
   buildReading({
@@ -220,10 +220,10 @@ export const B1_READING_1: ReadingPassage[] = [
       { it: 'Non mi ero accorto che l’ultima clausola del regolamento richiedeva anche il visto del coordinatore didattico.', tr: { bn: 'আমি খেয়াল করিনি যে নীতিমালার শেষ ধারায় শিক্ষা সমন্বয়কারীর অনুমোদন স্বাক্ষরও চাওয়া হয়েছিল।', en: 'I had not noticed that the final clause of the regulations also required the academic coordinator’s endorsement.' } },
     ],
     vocabHighlights: [{ it: 'ammessi', tr: { bn: 'ভর্তি বা নির্বাচিতরা', en: 'admitted candidates' } }, { it: 'regolamento', tr: { bn: 'নীতিমালা', en: 'regulations' } }],
-    grammarHighlights: [{ excerpt: 'Speravo che… avesse già pubblicato', note: { bn: 'congiuntivo trapassato।', en: 'Pluperfect subjunctive.' }, grammarId: 'congiuntivo-trapassato' }],
+    grammarHighlights: [{ excerpt: 'Speravo che… avesse già pubblicato', note: { bn: 'সঠিক উত্তর ও ব্যাকরণ সূত্র: «congiuntivo trapassato» (Pluperfect subjunctive)।', en: 'Pluperfect subjunctive.' }, grammarId: 'congiuntivo-trapassato' }],
     relatedGrammarIds: ['congiuntivo-trapassato'],
     questions: [
-      { id: 'rd-b1-16-q1', prompt: { bn: 'ফর্মে কার অনুমোদন স্বাক্ষর প্রয়োজন ছিল?', en: 'Whose endorsement was required on the form?' }, options: ['শিক্ষা সমন্বয়কারীর (coordinatore didattico)', 'মেয়রের', 'বাড়িওয়ালার', 'ব্যাংকের'], answer: 0, explanation: { bn: 'il visto del coordinatore didattico।', en: 'The academic coordinator’s.' } },
+      { id: 'rd-b1-16-q1', prompt: { bn: 'ফর্মে কার অনুমোদন স্বাক্ষর প্রয়োজন ছিল?', en: 'Whose endorsement was required on the form?' }, options: ['শিক্ষা সমন্বয়কারীর (coordinatore didattico)', 'মেয়রের', 'বাড়িওয়ালার', 'ব্যাংকের'], answer: 0, explanation: { bn: 'সঠিক উত্তর: শিক্ষা সমন্বয়কারীর (coordinatore didattico) — পাঠ্যাংশে বলা হয়েছে: «আমি খেয়াল করিনি যে নীতিমালার শেষ ধারায় শিক্ষা সমন্বয়কারীর অনুমোদন স্বাক্ষরও চাওয়া হয়েছিল।» (il visto del coordinatore didattico)।', en: 'The academic coordinator’s.' } },
     ],
   }),
   buildReading({
@@ -237,7 +237,7 @@ export const B1_READING_1: ReadingPassage[] = [
     grammarHighlights: [{ excerpt: 'è necessario che… resti / Pensavo che fosse', note: { bn: 'কালের সামঞ্জস্য (concordanza dei tempi)।', en: 'Sequence of tenses in the subjunctive.' }, grammarId: 'concordanza-congiuntivo' }],
     relatedGrammarIds: ['concordanza-congiuntivo'],
     questions: [
-      { id: 'rd-b1-17-q1', prompt: { bn: 'কবে নাগাদ ছুটির পছন্দ জানাতে বলা হয়েছে?', en: 'By when should holiday preferences be submitted?' }, options: ['বুধবারের মধ্যে', 'রবিবারের মধ্যে', 'আগামী মাসে', 'আজ রাতে'], answer: 0, explanation: { bn: 'entro mercoledì।', en: 'By Wednesday.' } },
+      { id: 'rd-b1-17-q1', prompt: { bn: 'কবে নাগাদ ছুটির পছন্দ জানাতে বলা হয়েছে?', en: 'By when should holiday preferences be submitted?' }, options: ['বুধবারের মধ্যে', 'রবিবারের মধ্যে', 'আগামী মাসে', 'আজ রাতে'], answer: 0, explanation: { bn: 'সঠিক উত্তর: বুধবারের মধ্যে — পাঠ্যাংশে বলা হয়েছে: «আমি ভেবেছিলাম বুধবারের মধ্যে সবার পছন্দ জেনে নেওয়া উপকারী হবে, যাতে আমরা প্রশান্তির সাথে যেকোনো সময়-সংঘাত মেটাতে পারি।» (entro mercoledì)।', en: 'By Wednesday.' } },
     ],
   }),
   buildReading({
@@ -251,7 +251,7 @@ export const B1_READING_1: ReadingPassage[] = [
     grammarHighlights: [{ excerpt: 'prima che… scendano / a meno che non sia', note: { bn: 'prima che ও a meno che non + congiuntivo।', en: 'prima che and a meno che non + subjunctive.' }, grammarId: 'senza-che-prima-che' }],
     relatedGrammarIds: ['senza-che-prima-che'],
     questions: [
-      { id: 'rd-b1-18-q1', prompt: { bn: 'কখন বয়লার পরীক্ষা করানোর পরামর্শ দেওয়া হয়েছে?', en: 'When is it recommended to check the boiler?' }, options: ['তাপমাত্রা শূন্যের নিচে নামার আগে', 'গ্রীষ্মের শেষে', 'বয়লার নষ্ট হওয়ার পর', 'বসন্তকালে'], answer: 0, explanation: { bn: 'prima che le temperature scendano sotto lo zero।', en: 'Before temperatures drop below zero.' } },
+      { id: 'rd-b1-18-q1', prompt: { bn: 'কখন বয়লার পরীক্ষা করানোর পরামর্শ দেওয়া হয়েছে?', en: 'When is it recommended to check the boiler?' }, options: ['তাপমাত্রা শূন্যের নিচে নামার আগে', 'গ্রীষ্মের শেষে', 'বয়লার নষ্ট হওয়ার পর', 'বসন্তকালে'], answer: 0, explanation: { bn: 'সঠিক উত্তর: তাপমাত্রা শূন্যের নিচে নামার আগে — পাঠ্যাংশে বলা হয়েছে: «তাপমাত্রা শূন্যের নিচে নামার আগেই বয়লার পরীক্ষা করানোর পরামর্শ দেওয়া হচ্ছে, যাতে হঠাৎ যান্ত্রিক ত্রুটি এড়ানো যায়।» (prima che le temperature scendano sotto lo zero)।', en: 'Before temperatures drop below zero.' } },
     ],
   }),
   buildReading({
@@ -265,7 +265,7 @@ export const B1_READING_1: ReadingPassage[] = [
     grammarHighlights: [{ excerpt: 'Se i comuni collegassero… raddoppierebbe', note: { bn: '২য় প্রকার কাল্পনিক শর্তবাক্য।', en: 'Second conditional.' }, grammarId: 'periodo-ipotetico-2' }],
     relatedGrammarIds: ['periodo-ipotetico-2'],
     questions: [
-      { id: 'rd-b1-19-q1', prompt: { bn: 'সুরক্ষিত সাইকেল লেন তৈরি করলে কী দ্বিগুণ হতো?', en: 'What would double if protected cycle lanes were built?' }, options: ['সাইকেলের ব্যবহার', 'গাড়ির সংখ্যা', 'ট্রেনের ভাড়া', 'দোকানের সংখ্যা'], answer: 0, explanation: { bn: 'l’uso della bicicletta raddoppierebbe।', en: 'Bicycle use.' } },
+      { id: 'rd-b1-19-q1', prompt: { bn: 'সুরক্ষিত সাইকেল লেন তৈরি করলে কী দ্বিগুণ হতো?', en: 'What would double if protected cycle lanes were built?' }, options: ['সাইকেলের ব্যবহার', 'গাড়ির সংখ্যা', 'ট্রেনের ভাড়া', 'দোকানের সংখ্যা'], answer: 0, explanation: { bn: 'সঠিক উত্তর: সাইকেলের ব্যবহার — পাঠ্যাংশে বলা হয়েছে: «পৌরসভাগুলো যদি সুরক্ষিত সাইকেল লেন দিয়ে রেলস্টেশনগুলোকে বিশ্ববিদ্যালয়ের সাথে যুক্ত করত, তবে কয়েক মাসের মধ্যেই সাইকেলের ব্যবহার দ্বিগুণ হয়ে যেত।» (l’uso della bicicletta raddoppierebbe)।', en: 'Bicycle use.' } },
     ],
   }),
   buildReading({
@@ -279,7 +279,7 @@ export const B1_READING_1: ReadingPassage[] = [
     grammarHighlights: [{ excerpt: 'Se non avessi copiato… avrei perso', note: { bn: '৩য় প্রকার অতীত শর্তমূলক বাক্য।', en: 'Third conditional.' }, grammarId: 'periodo-ipotetico-3' }],
     relatedGrammarIds: ['periodo-ipotetico-3'],
     questions: [
-      { id: 'rd-b1-20-q1', prompt: { bn: 'কখন লেখকের ল্যাপটপ হঠাৎ বন্ধ হয়ে গিয়েছিল?', en: 'When did the writer’s laptop suddenly die?' }, options: ['প্রকল্প জমা দেওয়ার দুই দিন আগে', 'ছুটির পরে', 'কেনার প্রথম দিনে', 'পরীক্ষার এক মাস পরে'], answer: 0, explanation: { bn: 'a due giorni dalla consegna del progetto।', en: 'Two days before the project deadline.' } },
+      { id: 'rd-b1-20-q1', prompt: { bn: 'কখন লেখকের ল্যাপটপ হঠাৎ বন্ধ হয়ে গিয়েছিল?', en: 'When did the writer’s laptop suddenly die?' }, options: ['প্রকল্প জমা দেওয়ার দুই দিন আগে', 'ছুটির পরে', 'কেনার প্রথম দিনে', 'পরীক্ষার এক মাস পরে'], answer: 0, explanation: { bn: 'সঠিক উত্তর: প্রকল্প জমা দেওয়ার দুই দিন আগে — পাঠ্যাংশে বলা হয়েছে: «গত বছর প্রকল্প জমা দেওয়ার দুই দিন আগে আমার ল্যাপটপ হঠাৎ বন্ধ হয়ে যায়। আমি যদি প্রতিটি ফাইল অনলাইন সার্ভারে কপি করে না রাখতাম, তবে মাসের পর মাসের কাজ হারাতাম।» (a due giorni dalla consegna del progetto)।', en: 'Two days before the project deadline.' } },
     ],
   }),
   buildReading({
@@ -293,7 +293,7 @@ export const B1_READING_1: ReadingPassage[] = [
     grammarHighlights: [{ excerpt: 'Non appena avremo ritirato / Quando avremo sistemato', note: { bn: 'futuro anteriore পূর্ববর্তী ভবিষ্যৎ কাজ বোঝায়।', en: 'Future perfect marks the earlier future action.' }, grammarId: 'futuro-anteriore' }],
     relatedGrammarIds: ['futuro-anteriore'],
     questions: [
-      { id: 'rd-b1-21-q1', prompt: { bn: 'কখন তারা বাসা বদলের কোম্পানিকে ফোন করবে?', en: 'When will they call the removals firm?' }, options: ['চাবি সংগ্রহ করা মাত্রই', 'এক মাস পরে', 'গতকাল', 'আসবাব কেনার আগে'], answer: 0, explanation: { bn: 'Non appena avremo ritirato le chiavi।', en: 'As soon as they have collected the keys.' } },
+      { id: 'rd-b1-21-q1', prompt: { bn: 'কখন তারা বাসা বদলের কোম্পানিকে ফোন করবে?', en: 'When will they call the removals firm?' }, options: ['চাবি সংগ্রহ করা মাত্রই', 'এক মাস পরে', 'গতকাল', 'আসবাব কেনার আগে'], answer: 0, explanation: { bn: 'সঠিক উত্তর: চাবি সংগ্রহ করা মাত্রই — পাঠ্যাংশে বলা হয়েছে: «প্রিয় এলেনা, আগামীকাল সকালে আমরা অবশেষে ভাড়ার চুক্তিতে সই করব। মালিকের কাছ থেকে চাবি সংগ্রহ করা মাত্রই আমরা বাসা বদলের কোম্পানিকে ফোন করব।» (Non appena avremo ritirato le chiavi)।', en: 'As soon as they have collected the keys.' } },
     ],
   }),
 ];

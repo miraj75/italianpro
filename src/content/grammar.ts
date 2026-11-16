@@ -635,7 +635,7 @@ export const GRAMMAR_TOPICS: GrammarTopic[] = [
   },
   {
     id: 'senza-che-prima-che', level: 'B1', title: 'Congiunzioni + congiuntivo (senza che, prima che)',
-    name: { bn: 'senza che, prima che, a meno che + congiuntivo', en: 'Conjunctions requiring the subjunctive' },
+    name: { bn: 'সাবজাংক্টিভ গ্রহণকারী সংযোজক অব্যয় (senza che, prima che, a meno che + congiuntivo)', en: 'Conjunctions requiring the subjunctive' },
     explanation: {
       bn: 'কর্তা ভিন্ন হলে prima che (আগে), senza che (ছাড়া), a meno che non (যদি না), nel caso in cui (যদি এমন হয়)-এর পরে সর্বদা congiuntivo বসে: Esco prima che piova; L’ha fatto senza che nessuno lo sapesse।',
       en: 'prima che (before), senza che (without), a meno che non (unless), and nel caso in cui (in case) always trigger the subjunctive.',

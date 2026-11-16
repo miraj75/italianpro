@@ -86,7 +86,7 @@ export const GRAMMAR_DETAILS_B1: Record<string, GrammarDetailEntry> = {
       { it: 'Il quartiere in cui ci siamo trasferiti è molto tranquillo.', tr: { bn: 'আমরা যে এলাকায় বাসা বদলেছি সেটি খুব শান্ত।', en: 'The neighbourhood we moved to is very quiet.' } },
     ],
     exercises: [
-      { id: 'ex-b1-rel-1', prompt: { bn: 'শূন্যস্থান পূরণ করুন:', en: 'Fill in the blank:' }, it: 'L’argomento ___ cui discutiamo è attuale.', options: ['che', 'di', 'chi', 'quale'], answer: 1, explanation: { bn: 'discutere di un argomento → di cui।', en: 'discutere di → di cui.' } },
+      { id: 'ex-b1-rel-1', prompt: { bn: 'শূন্যস্থান পূরণ করুন:', en: 'Fill in the blank:' }, it: 'L’argomento ___ cui discutiamo è attuale.', options: ['che', 'di', 'chi', 'quale'], answer: 1, explanation: { bn: 'সঠিক রূপান্তর: «discutere di un argomento» থেকে পরিবর্তিত হয়ে «di cui» ব্যবহৃত হয়।', en: 'discutere di → di cui.' } },
     ],
     storyIds: ['st-b1-05'],
     vocabKeys: ['w:B1:il quartiere', 'w:B1:trasferirsi', "w:B1:l'argomento"],
@@ -97,7 +97,7 @@ export const GRAMMAR_DETAILS_B1: Record<string, GrammarDetailEntry> = {
       en: 'mi/ti/ci/vi change to me/te/ce/ve before lo/la/li/le/ne; both gli and le combine into one word: glielo, gliela, glieli, gliele, gliene.',
     },
     commonMistakes: [
-      { wrong: 'Mi lo puoi spiegare?', right: 'Me lo puoi spiegare? / Puoi spiegarmelo?', note: { bn: 'mi + lo = me lo।', en: 'mi becomes me before lo.' } },
+      { wrong: 'Mi lo puoi spiegare?', right: 'Me lo puoi spiegare? / Puoi spiegarmelo?', note: { bn: 'ব্যাকরণগত সংযোজন: mi + lo = me lo নিয়ম অনুসারে সঠিক রূপটি গঠিত হয়েছে।', en: 'mi becomes me before lo.' } },
     ],
     examples: [
       { it: 'Se ti serve il file, te lo invio subito per mail.', tr: { bn: 'তোমার ফাইলটি লাগলে আমি এখনই ইমেইলে পাঠিয়ে দিচ্ছি।', en: 'If you need the file, I will send it to you right away by email.' } },
@@ -171,7 +171,7 @@ export const GRAMMAR_DETAILS_B1: Record<string, GrammarDetailEntry> = {
       { it: 'Invece di sprecare energia, spegniamo gli elettrodomestici.', tr: { bn: 'শক্তি অপচয় না করে চলো বৈদ্যুতিক যন্ত্রগুলো বন্ধ করি।', en: 'Instead of wasting energy, let’s switch off the appliances.' } },
     ],
     exercises: [
-      { id: 'ex-b1-inf-1', prompt: { bn: 'সঠিক রূপ:', en: 'Pick the right form:' }, it: 'È uscito senza ___ nessuno.', options: ['saluta', 'salutare', 'salutato', 'salutando'], answer: 1, explanation: { bn: 'senza + infinito (salutare)।', en: 'senza takes the infinitive.' } },
+      { id: 'ex-b1-inf-1', prompt: { bn: 'সঠিক রূপ:', en: 'Pick the right form:' }, it: 'È uscito senza ___ nessuno.', options: ['saluta', 'salutare', 'salutato', 'salutando'], answer: 1, explanation: { bn: 'ব্যাকরণ সূত্র: senza + infinito (salutare) — senza এর পরে ক্রিয়ার মূল রূপ (infinito) বসে।', en: 'senza takes the infinitive.' } },
     ],
     storyIds: ['st-b1-10'],
     vocabKeys: ['w:B1:sprecare', "w:B1:l'energia", "w:B1:l'elettrodomestico"],
@@ -205,7 +205,7 @@ export const GRAMMAR_DETAILS_B1: Record<string, GrammarDetailEntry> = {
       { it: 'A mio parere, la formazione continua è essenziale per la carriera.', tr: { bn: 'আমার মতে, ক্যারিয়ারের জন্য নিয়মিত প্রশিক্ষণ অপরিহার্য।', en: 'In my view, continuous training is essential for one’s career.' } },
     ],
     exercises: [
-      { id: 'ex-b1-op-1', prompt: { bn: 'সঠিক ক্রিয়া বেছে নিন:', en: 'Pick the right mood:' }, it: 'Ritengo che questo progetto ___ molti vantaggi.', options: ['ha', 'abbia', 'avrà', 'aveva'], answer: 1, explanation: { bn: 'Ritengo che + congiuntivo (abbia)।', en: 'Ritengo che requires the subjunctive abbia.' } },
+      { id: 'ex-b1-op-1', prompt: { bn: 'সঠিক ক্রিয়া বেছে নিন:', en: 'Pick the right mood:' }, it: 'Ritengo che questo progetto ___ molti vantaggi.', options: ['ha', 'abbia', 'avrà', 'aveva'], answer: 1, explanation: { bn: 'ব্যাকরণ সূত্র: Ritengo che + congiuntivo (abbia) — Ritengo che এর পরে সাবজাংক্টিভ (congiuntivo) রূপ বসে abbia।', en: 'Ritengo che requires the subjunctive abbia.' } },
     ],
     storyIds: ['st-b1-12'],
     vocabKeys: ['w:B1:il parere', 'w:B1:la formazione', 'w:B1:il vantaggio'],
@@ -318,13 +318,13 @@ export const GRAMMAR_DETAILS_B1: Record<string, GrammarDetailEntry> = {
       en: 'Second conditional: Se + imperfect subjunctive, + present conditional.',
     },
     commonMistakes: [
-      { wrong: 'Se potrei, cambierei casa.', right: 'Se potessi, cambierei casa.', note: { bn: 'Se potessi, cambierei।', en: 'Use Se potessi, never Se potrei.' } },
+      { wrong: 'Se potrei, cambierei casa.', right: 'Se potessi, cambierei casa.', note: { bn: 'সঠিক উত্তর ও ব্যাকরণ সূত্র: «Se potessi, cambierei» (Use Se potessi, never Se potrei)।', en: 'Use Se potessi, never Se potrei.' } },
     ],
     examples: [
       { it: 'Se il trasporto pubblico fosse più puntuale, meno persone userebbero l’auto.', tr: { bn: 'গণপরিবহন আরও সময়নিষ্ঠ হলে কম মানুষ গাড়ি ব্যবহার করত।', en: 'If public transport were more punctual, fewer people would use cars.' } },
     ],
     exercises: [
-      { id: 'ex-b1-pi2-1', prompt: { bn: '২য় প্রকার শর্তবাক্য:', en: '2nd conditional:' }, it: 'Se noi ___ un capitale sufficiente, apriremmo un’impresa.', options: ['abbiamo', 'avremmo', 'avessimo', 'avremo'], answer: 2, explanation: { bn: 'Se + avessimo।', en: 'Se takes imperfect subjunctive avessimo.' } },
+      { id: 'ex-b1-pi2-1', prompt: { bn: '২য় প্রকার শর্তবাক্য:', en: '2nd conditional:' }, it: 'Se noi ___ un capitale sufficiente, apriremmo un’impresa.', options: ['abbiamo', 'avremmo', 'avessimo', 'avremo'], answer: 2, explanation: { bn: 'ব্যাকরণ সূত্র: Se + avessimo — Se এর পরে ইমপারফেক্ট সাবজাংক্টিভ (congiuntivo imperfetto) বসে avessimo।', en: 'Se takes imperfect subjunctive avessimo.' } },
     ],
     storyIds: ['st-b1-19'],
     vocabKeys: ['w:B1:la pista ciclabile', 'w:B1:puntuale', "w:B1:l'impresa"],
@@ -358,7 +358,7 @@ export const GRAMMAR_DETAILS_B1: Record<string, GrammarDetailEntry> = {
       { it: 'Dopo che avremo firmato il contratto d’affitto, faremo il trasloco.', tr: { bn: 'ভাড়ার চুক্তি স্বাক্ষর করার পর আমরা বাসা বদল করব।', en: 'After we have signed the tenancy agreement, we will move house.' } },
     ],
     exercises: [
-      { id: 'ex-b1-fa-1', prompt: { bn: 'পুরাঘটিত ভবিষ্যৎ:', en: 'Future perfect:' }, it: 'Ti darò una risposta quando ___ parlato col relatore.', options: ['ho', 'avrò', 'avrei', 'avevo'], answer: 1, explanation: { bn: 'quando avrò parlato।', en: 'quando avrò parlato.' } },
+      { id: 'ex-b1-fa-1', prompt: { bn: 'পুরাঘটিত ভবিষ্যৎ:', en: 'Future perfect:' }, it: 'Ti darò una risposta quando ___ parlato col relatore.', options: ['ho', 'avrò', 'avrei', 'avevo'], answer: 1, explanation: { bn: 'সঠিক উত্তর ও ব্যাকরণ সূত্র: «quando avrò parlato» (quando avrò parlato)।', en: 'quando avrò parlato.' } },
     ],
     storyIds: ['st-b1-21'],
     vocabKeys: ["w:B1:il contratto d'affitto", 'w:B1:il trasloco', 'w:B1:il relatore'],
@@ -426,7 +426,7 @@ export const GRAMMAR_DETAILS_B1: Record<string, GrammarDetailEntry> = {
       { it: 'Con l’alta velocità ci si mette solo un’ora da Bologna a Milano.', tr: { bn: 'উচ্চগতির ট্রেনে বোলোনিয়া থেকে মিলান যেতে মাত্র এক ঘণ্টা লাগে।', en: 'By high-speed train it only takes an hour from Bologna to Milan.' } },
     ],
     exercises: [
-      { id: 'ex-b1-cni-1', prompt: { bn: 'শূন্যস্থান পূরণ করুন:', en: 'Complete:' }, it: 'Il percorso è faticoso, ma ___ davvero la pena!', options: ['ci vale', 'ne vale', 'lo vale', 'gli vale'], answer: 1, explanation: { bn: 'valerne la pena → ne vale la pena।', en: 'Fixed idiom: ne vale la pena.' } },
+      { id: 'ex-b1-cni-1', prompt: { bn: 'শূন্যস্থান পূরণ করুন:', en: 'Complete:' }, it: 'Il percorso è faticoso, ma ___ davvero la pena!', options: ['ci vale', 'ne vale', 'lo vale', 'gli vale'], answer: 1, explanation: { bn: 'ব্যাকরণ সূত্র: valerne la pena → ne vale la pena — স্থায়ী বাগধারা: ne vale la pena।', en: 'Fixed idiom: ne vale la pena.' } },
     ],
     storyIds: ['st-b1-25'],
     vocabKeys: ["w:B1:l'alta velocità", 'w:B1:il pendolare', 'w:B1:la fatica'],
@@ -477,7 +477,7 @@ export const GRAMMAR_DETAILS_B1: Record<string, GrammarDetailEntry> = {
       { it: 'All’inizio la burocrazia sembrava complessa, ma ce la siamo cavata.', tr: { bn: 'শুরুতে আমলাতন্ত্র জটিল মনে হয়েছিল, কিন্তু আমরা সামলে নিয়েছি।', en: 'At first bureaucracy seemed complex, but we managed fine.' } },
     ],
     exercises: [
-      { id: 'ex-b1-vpb-1', prompt: { bn: '"এর সাথে ওটার কোনো সম্পর্ক নেই":', en: '"That has nothing to do with it":' }, it: 'Questo discorso non ___ niente con il nostro problema!', options: ['ci va', 'c’entra', 'se la cava', 'me ne vado'], answer: 1, explanation: { bn: 'entrarci → non c’entra niente।', en: 'entrarci → non c’entra niente.' } },
+      { id: 'ex-b1-vpb-1', prompt: { bn: '"এর সাথে ওটার কোনো সম্পর্ক নেই":', en: '"That has nothing to do with it":' }, it: 'Questo discorso non ___ niente con il nostro problema!', options: ['ci va', 'c’entra', 'se la cava', 'me ne vado'], answer: 1, explanation: { bn: 'সঠিক রূপান্তর: «entrarci» থেকে পরিবর্তিত হয়ে «non c’entra niente» ব্যবহৃত হয়।', en: 'entrarci → non c’entra niente.' } },
     ],
     storyIds: ['st-b1-28'],
     vocabKeys: ['w:B1:cavarsela', 'w:B1:arrangiarsi', 'w:B1:la burocrazia'],
@@ -511,7 +511,7 @@ export const GRAMMAR_DETAILS_B1: Record<string, GrammarDetailEntry> = {
       { it: 'Il sindaco ha dichiarato che i lavori sarebbero finiti entro l’autunno.', tr: { bn: 'মেয়র ঘোষণা করেছেন যে শরতের মধ্যেই কাজ শেষ হবে।', en: 'The mayor declared that the works would finish by autumn.' } },
     ],
     exercises: [
-      { id: 'ex-b1-dip-1', prompt: { bn: 'পরোক্ষ উক্তিতে রূপান্তর:', en: 'Shift into past reported speech:' }, it: 'Marco disse: "Ho già inviato la domanda." → Marco disse che ___ già inviato la domanda.', options: ['ha', 'aveva', 'avrebbe', 'avesse'], answer: 1, explanation: { bn: 'ho inviato → aveva inviato।', en: 'Passato prossimo shifts to trapassato aveva inviato.' } },
+      { id: 'ex-b1-dip-1', prompt: { bn: 'পরোক্ষ উক্তিতে রূপান্তর:', en: 'Shift into past reported speech:' }, it: 'Marco disse: "Ho già inviato la domanda." → Marco disse che ___ già inviato la domanda.', options: ['ha', 'aveva', 'avrebbe', 'avesse'], answer: 1, explanation: { bn: 'ব্যাকরণ সূত্র: ho inviato → aveva inviato — Passato prossimo পরিবর্তিত হয়ে হয় trapassato aveva inviato।', en: 'Passato prossimo shifts to trapassato aveva inviato.' } },
     ],
     storyIds: ['st-b1-30'],
     vocabKeys: ['w:B1:il sindaco', 'w:B1:la dichiarazione', 'w:B1:il cantiere stradale'],
@@ -681,7 +681,7 @@ export const GRAMMAR_DETAILS_B1: Record<string, GrammarDetailEntry> = {
       { it: 'Chiunque voglia partecipare al volontariato può iscriversi online.', tr: { bn: 'যে কেউ স্বেচ্ছাসেবায় অংশ নিতে চাইলে অনলাইনে নাম লেখাতে পারে।', en: 'Anyone who wishes to take part in volunteering can register online.' } },
     ],
     exercises: [
-      { id: 'ex-b1-inb-1', prompt: { bn: 'সঠিক রূপ:', en: 'Pick the right form:' }, it: 'Qualunque cosa ___, mantieni sempre la calma.', options: ['succede', 'succeda', 'succederà', 'è successo'], answer: 1, explanation: { bn: 'Qualunque cosa + congiuntivo (succeda)।', en: 'Qualunque cosa triggers the subjunctive succeda.' } },
+      { id: 'ex-b1-inb-1', prompt: { bn: 'সঠিক রূপ:', en: 'Pick the right form:' }, it: 'Qualunque cosa ___, mantieni sempre la calma.', options: ['succede', 'succeda', 'succederà', 'è successo'], answer: 1, explanation: { bn: 'ব্যাকরণ সূত্র: Qualunque cosa + congiuntivo (succeda) — Qualunque cosa এর পরে সাবজাংক্টিভ রূপ ব্যবহৃত হয় succeda।', en: 'Qualunque cosa triggers the subjunctive succeda.' } },
     ],
     storyIds: ['st-b1-40'],
     vocabKeys: ['w:B1:il volontariato', 'w:B1:la calma', 'w:B1:sostenere'],
@@ -698,7 +698,7 @@ export const GRAMMAR_DETAILS_B1: Record<string, GrammarDetailEntry> = {
       { it: 'Avremmo dovuto confrontare più preventivi prima di scegliere.', tr: { bn: 'বেছে নেওয়ার আগে আমাদের আরও কয়েকটি কোটেশন তুলনা করা উচিত ছিল।', en: 'We should have compared more quotes before choosing.' } },
     ],
     exercises: [
-      { id: 'ex-b1-mcp-1', prompt: { bn: '"তোমার আগে বলা উচিত ছিল":', en: '"You should have warned me":' }, it: '___ avvertirmi prima della scadenza!', options: ['Avresti dovuto', 'Dovresti aver', 'Avevi dovuto', 'Sarai dovuto'], answer: 0, explanation: { bn: 'Avresti dovuto + infinito।', en: 'Avresti dovuto + infinitive.' } },
+      { id: 'ex-b1-mcp-1', prompt: { bn: '"তোমার আগে বলা উচিত ছিল":', en: '"You should have warned me":' }, it: '___ avvertirmi prima della scadenza!', options: ['Avresti dovuto', 'Dovresti aver', 'Avevi dovuto', 'Sarai dovuto'], answer: 0, explanation: { bn: 'ব্যাকরণগত গঠন: এখানে «Avresti dovuto + infinito» কাঠামোটি অনুসরণ করা হয়েছে।', en: 'Avresti dovuto + infinitive.' } },
     ],
     storyIds: ['st-b1-41'],
     vocabKeys: ['w:B1:avvertire', 'w:B1:confrontare', 'w:B1:il preventivo'],

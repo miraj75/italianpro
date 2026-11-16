@@ -1,4 +1,4 @@
-import { useEffect, useMemo, useState } from 'react';
+import { useEffect, useMemo, useRef, useState } from 'react';
 import {
   ArrowLeft,
   Bookmark,
@@ -16,17 +16,76 @@ import type { LevelId } from '../../content/types';
 import type { StoryItem, StoryWordGlossary } from '../../content/academyTypes';
 import { loadLevelStories, findStoryById } from '../../content/registry';
 import { grammarById } from '../../content/grammar';
-import { WORDS } from '../../content/bank';
+import { findGlossaryBankKey } from '../../content/bank';
 import { useRouter } from '../../app/router';
 import { useI18n } from '../../lib/i18n';
 import { dayKey } from '../../lib/date';
-import { speakItalian, stopSpeaking } from '../../lib/speech';
+import { isSpeechSessionActive, speakItalian, startSpeechSession, stopSpeaking } from '../../lib/speech';
 import { useProgress, useStudyTimer } from '../../state/ProgressContext';
 import { Button, GlassCard, Pill, cx } from '../../components/ui';
 import { SpeakButton } from '../../components/SpeakButton';
 import { SubHeader } from '../../components/SubHeader';
 import { LevelTabs, isBankLevel } from '../../components/LevelTabs';
 import type { BankLevel } from '../../content/bank';
+
+/**
+ * Shuffles story ordering sentences so they are never presented in already-solved order
+ * and never simply sorted alphabetically.
+ */
+export function shuffleStorySentences(sentences: readonly string[], seedId = ''): string[] {
+  const n = sentences.length;
+  if (n <= 1) return [...sentences];
+
+  // Deterministic seeded Fisher-Yates shuffle based on story ID + sentence text
+  let seed = 2166136261;
+  const seedSource = `${seedId}|${sentences.join('|')}`;
+  for (let i = 0; i < seedSource.length; i++) {
+    seed ^= seedSource.charCodeAt(i);
+    seed = Math.imul(seed, 16777619);
+  }
+  const nextRand = () => {
+    seed ^= seed << 13;
+    seed ^= seed >>> 17;
+    seed ^= seed << 5;
+    return (seed >>> 0) / 4294967296;
+  };
+
+  const out = [...sentences];
+  for (let i = n - 1; i > 0; i--) {
+    const j = Math.floor(nextRand() * (i + 1));
+    const tmp = out[i]!;
+    out[i] = out[j]!;
+    out[j] = tmp;
+  }
+
+  const isSameOrder = (arr: string[], ref: readonly string[]) => arr.every((s, idx) => s === ref[idx]);
+  const alphaSorted = [...sentences].sort((a, b) => a.localeCompare(b));
+
+  // Guarantee derangement: never equal to the solved order, and if alphabetical happens to match solved or out, rotate/swap
+  if (isSameOrder(out, sentences) || (n >= 3 && isSameOrder(out, alphaSorted))) {
+    // Rotate by 1 and swap first two if needed so it differs from both solved and alphabetical
+    const rotated = [...sentences.slice(1), sentences[0]!];
+    if (!isSameOrder(rotated, alphaSorted) || n < 3) {
+      return rotated;
+    }
+    const swapped = [...rotated];
+    const tmp = swapped[0]!;
+    swapped[0] = swapped[1]!;
+    swapped[1] = tmp;
+    if (!isSameOrder(swapped, sentences)) {
+      return swapped;
+    }
+    return [...sentences].reverse();
+  }
+
+  return out;
+}
+
+/** Checks whether the user's ordered sentences match the canonical story order (or valid identical-text permutation). */
+export function isValidStorySentenceOrder(picked: readonly string[], expected: readonly string[]): boolean {
+  if (picked.length !== expected.length) return false;
+  return picked.every((s, idx) => s.trim() === expected[idx]?.trim());
+}
 
 export function StoriesScreen() {
   const { route, navigate } = useRouter();
@@ -134,6 +193,7 @@ export function StoryReaderScreen({ storyId }: { storyId: string }) {
   const [playing, setPlaying] = useState(false);
   const [activePara, setActivePara] = useState<number | null>(null);
   const [selectedWord, setSelectedWord] = useState<StoryWordGlossary | null>(null);
+  const sessionRef = useRef<number>(0);
 
   // Comprehension states
   const [mcqChoice, setMcqChoice] = useState<Record<string, number>>({});
@@ -148,6 +208,10 @@ export function StoryReaderScreen({ storyId }: { storyId: string }) {
 
   useEffect(() => {
     let active = true;
+    sessionRef.current = 0;
+    void stopSpeaking();
+    setPlaying(false);
+    setActivePara(null);
     setLoaded(false);
     void findStoryById(storyId).then((st) => {
       if (!active) return;
@@ -156,14 +220,14 @@ export function StoryReaderScreen({ storyId }: { storyId: string }) {
     });
     return () => {
       active = false;
+      sessionRef.current = 0;
       void stopSpeaking();
     };
   }, [storyId]);
 
   const shuffledOrder = useMemo(() => {
     if (!story) return [];
-    const list = [...story.comprehension.orderSentences];
-    return list.sort((a, b) => a.localeCompare(b));
+    return shuffleStorySentences(story.comprehension.orderSentences, story.id);
   }, [story]);
 
   if (!loaded) return <GlassCard className="p-6 text-center text-ink-2">...</GlassCard>;
@@ -182,34 +246,40 @@ export function StoryReaderScreen({ storyId }: { storyId: string }) {
   const done = !!state.storiesDone[story.id];
 
   const playStory = async (rate: number) => {
+    await stopSpeaking();
+    const sessionId = startSpeechSession();
+    sessionRef.current = sessionId;
     setPlaying(true);
     try {
       for (let i = 0; i < story.paragraphs.length; i++) {
+        if (!isSpeechSessionActive(sessionId) || sessionRef.current !== sessionId) break;
         setActivePara(i);
-        await speakItalian(story.paragraphs[i]!.it, rate);
+        await speakItalian(story.paragraphs[i]!.it, rate, sessionId);
+        if (!isSpeechSessionActive(sessionId) || sessionRef.current !== sessionId) break;
       }
     } catch {
-      // handled gracefully
+      // handled safely
     } finally {
-      setPlaying(false);
-      setActivePara(null);
+      if (sessionRef.current === sessionId) {
+        setPlaying(false);
+        setActivePara(null);
+      }
     }
   };
 
   const stopAudio = () => {
+    sessionRef.current = 0;
     void stopSpeaking();
     setPlaying(false);
     setActivePara(null);
   };
 
-  const findBankKey = (word: string, level: LevelId): string | null => {
-    const clean = word.toLowerCase();
-    const hit = WORDS[level].find((w) => w.it.toLowerCase() === clean || w.it.toLowerCase().endsWith(` ${clean}`));
-    return hit?.key ?? null;
+  const findBankKey = (wordOrGlossary: string | StoryWordGlossary, level: LevelId): string | null => {
+    return findGlossaryBankKey(wordOrGlossary, level);
   };
 
   const saveGlossaryWord = (g: StoryWordGlossary) => {
-    const key = findBankKey(g.base, story.level);
+    const key = findBankKey(g, story.level);
     if (key) {
       dispatch({ type: 'addCards', keys: [key], today: dayKey() });
       if (!state.saved.includes(key)) dispatch({ type: 'toggleSaved', key });
@@ -320,7 +390,7 @@ export function StoryReaderScreen({ storyId }: { storyId: string }) {
                   {selectedWord.grammarHint && <p className="bn text-xs text-cyan">{tr(selectedWord.grammarHint)}</p>}
                 </div>
               </div>
-              {findBankKey(selectedWord.base, story.level) && (
+              {findBankKey(selectedWord, story.level) && (
                 <Button variant="ghost" className="min-h-9 px-3 text-xs" onClick={() => saveGlossaryWord(selectedWord)}>
                   <Plus size={14} /> {t('addCard')}
                 </Button>
@@ -547,7 +617,7 @@ export function StoryReaderScreen({ storyId }: { storyId: string }) {
               <Button
                 className="min-h-10 px-4 text-sm"
                 onClick={() =>
-                  setOrderChecked(orderPicked.every((s, i) => s === story.comprehension.orderSentences[i]))
+                  setOrderChecked(isValidStorySentenceOrder(orderPicked, story.comprehension.orderSentences))
                 }
               >
                 {t('check')}

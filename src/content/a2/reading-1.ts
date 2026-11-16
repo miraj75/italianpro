@@ -14,7 +14,7 @@ export const A2_READING_1: ReadingPassage[] = [
     relatedGrammarIds: ['passato-prossimo', 'preposizioni-articolate'],
     questions: [
       { id: 'rd-a2-01-q1', prompt: { bn: 'তারা কবে ফ্লোরেন্সে গিয়েছিল?', en: 'When did they visit Florence?' }, options: ['রবিবার', 'গত শনিবার', 'শুক্রবার', 'মঙ্গলবার'], answer: 1, explanation: { bn: 'Sabato scorso = গত শনিবার।', en: 'Last Saturday.' } },
-      { id: 'rd-a2-01-q2', prompt: { bn: 'টিকিট কীভাবে কেনা হয়েছিল?', en: 'How were tickets bought?' }, options: ['স্টেশনে', 'এজেন্সিতে', 'অনলাইনে', 'ফোনে'], answer: 2, explanation: { bn: 'su internet।', en: 'Online.' } },
+      { id: 'rd-a2-01-q2', prompt: { bn: 'টিকিট কীভাবে কেনা হয়েছিল?', en: 'How were tickets bought?' }, options: ['স্টেশনে', 'এজেন্সিতে', 'অনলাইনে', 'ফোনে'], answer: 2, explanation: { bn: 'সঠিক উত্তর: অনলাইনে — পাঠ্যাংশে বলা হয়েছে: «গত শনিবার আমি ও আমার ভাই ফ্লোরেন্স ভ্রমণে গিয়েছিলাম। এক সপ্তাহ আগে ইন্টারনেটে টিকিট কিনেছিলাম।» (su internet)।', en: 'Online.' } },
     ],
   }),
   buildReading({
@@ -27,8 +27,8 @@ export const A2_READING_1: ReadingPassage[] = [
     grammarHighlights: [{ excerpt: 'La preghiamo di portare', note: { bn: 'আনুষ্ঠানিক Lei অনুরোধে La + preghiamo di + inf.।', en: 'Formal polite request uses La preghiamo di.' }, grammarId: 'volere-piacere-cortesia' }],
     relatedGrammarIds: ['volere-piacere-cortesia', 'preposizioni-verbi'],
     questions: [
-      { id: 'rd-a2-02-q1', prompt: { bn: 'সাক্ষাৎকার কয়টায় হবে?', en: 'What time is the interview?' }, options: ['৯:০০', '১০:০০', '১০:৩০', '১১:৩০'], answer: 2, explanation: { bn: 'alle ore 10:30।', en: '10:30 AM.' } },
-      { id: 'rd-a2-02-q2', prompt: { bn: 'সাথে কী আনতে বলা হয়েছে?', en: 'What should be brought along?' }, options: ['ছবি ও পাসপোর্ট', 'আপডেট সিভি ও বৈধ পরিচয়পত্র', 'চুক্তিপত্র', 'রেফারেন্স'], answer: 1, explanation: { bn: 'copia aggiornata del curriculum e documento valido।', en: 'Updated CV and valid ID.' } },
+      { id: 'rd-a2-02-q1', prompt: { bn: 'সাক্ষাৎকার কয়টায় হবে?', en: 'What time is the interview?' }, options: ['৯:০০', '১০:০০', '১০:৩০', '১১:৩০'], answer: 2, explanation: { bn: 'সঠিক উত্তর: ১০:৩০ — পাঠ্যাংশে বলা হয়েছে: «জনাব বেগম, শুক্রবার সকাল ১০:৩০-এ গারিবালদি স্ট্রিট ১৮-এ আমাদের অফিসে অ্যাসিস্ট্যান্ট ডিজাইনার পদের সাক্ষাৎকার নিশ্চিত করতে পেরে আমরা আনন্দিত।» (alle ore 10:30)।', en: '10:30 AM.' } },
+      { id: 'rd-a2-02-q2', prompt: { bn: 'সাথে কী আনতে বলা হয়েছে?', en: 'What should be brought along?' }, options: ['ছবি ও পাসপোর্ট', 'আপডেট সিভি ও বৈধ পরিচয়পত্র', 'চুক্তিপত্র', 'রেফারেন্স'], answer: 1, explanation: { bn: 'সঠিক উত্তর: আপডেট সিভি ও বৈধ পরিচয়পত্র — পাঠ্যাংশে বলা হয়েছে: «অনুগ্রহ করে সিভির আপডেট কপি ও বৈধ পরিচয়পত্র সাথে আনবেন। পৌঁছাতে কোনো অসুবিধা হলে আমাদের লিখুন।» (copia aggiornata del curriculum e documento valido)।', en: 'Updated CV and valid ID.' } },
     ],
   }),
   buildReading({
@@ -42,7 +42,7 @@ export const A2_READING_1: ReadingPassage[] = [
     relatedGrammarIds: ['futuro', 'si-impersonale-a2'],
     questions: [
       { id: 'rd-a2-03-q1', prompt: { bn: 'লিফট কতক্ষণ বন্ধ থাকবে?', en: 'How long will the lift be stopped?' }, options: ['২ ঘণ্টা', '৩ ঘণ্টা', '৪ ঘণ্টা', 'সারাদিন'], answer: 2, explanation: { bn: 'সকাল ৯টা থেকে দুপুর ১টা = ৪ ঘণ্টা।', en: '9 AM to 1 PM = 4 hours.' } },
-      { id: 'rd-a2-03-q2', prompt: { bn: 'ঐ সময়ে কী ব্যবহার করতে বলা হয়েছে?', en: 'What should residents use meanwhile?' }, options: ['অন্য লিফট', 'সিঁড়ি', 'ব্যালকনি', 'গ্যারেজ'], answer: 1, explanation: { bn: 'utilizzare le scale।', en: 'The stairs.' } },
+      { id: 'rd-a2-03-q2', prompt: { bn: 'ঐ সময়ে কী ব্যবহার করতে বলা হয়েছে?', en: 'What should residents use meanwhile?' }, options: ['অন্য লিফট', 'সিঁড়ি', 'ব্যালকনি', 'গ্যারেজ'], answer: 1, explanation: { bn: 'সঠিক উত্তর: সিঁড়ি — পাঠ্যাংশে বলা হয়েছে: «এই সময়ে অনুগ্রহ করে সিঁড়ি ব্যবহার করবেন। সাময়িক অসুবিধার জন্য আমরা দুঃখিত ও সহযোগিতার জন্য ধন্যবাদ জানাই।» (utilizzare le scale)।', en: 'The stairs.' } },
     ],
   }),
   buildReading({
@@ -55,8 +55,8 @@ export const A2_READING_1: ReadingPassage[] = [
     grammarHighlights: [{ excerpt: 'più comodo dell’auto', note: { bn: 'তুলনামূলক di + l’ = dell’।', en: 'Comparative preposition contracts with article.' }, grammarId: 'comparativi' }],
     relatedGrammarIds: ['comparativi', 'preposizioni-verbi'],
     questions: [
-      { id: 'rd-a2-04-q1', prompt: { bn: 'কাগজের টিকিট থাকলে কখন পাঞ্চ করতে হয়?', en: 'When must paper regional tickets be validated?' }, options: ['নামার পর', 'ট্রেনে ওঠার আগে', 'কন্ডাক্টর এলে', 'সপ্তাহ শেষে'], answer: 1, explanation: { bn: 'Prima di salire।', en: 'Before boarding.' } },
-      { id: 'rd-a2-04-q2', prompt: { bn: 'অ্যাপের টিকিট থাকলে কী দেখাতে হয়?', en: 'What do you show with an app ticket?' }, options: ['পাসপোর্ট', 'কিউআর কোড', 'রসিদ প্রিন্ট', 'স্লিপ'], answer: 1, explanation: { bn: 'il codice QR।', en: 'The QR code.' } },
+      { id: 'rd-a2-04-q1', prompt: { bn: 'কাগজের টিকিট থাকলে কখন পাঞ্চ করতে হয়?', en: 'When must paper regional tickets be validated?' }, options: ['নামার পর', 'ট্রেনে ওঠার আগে', 'কন্ডাক্টর এলে', 'সপ্তাহ শেষে'], answer: 1, explanation: { bn: 'সঠিক উত্তর: ট্রেনে ওঠার আগে — পাঠ্যাংশে বলা হয়েছে: «ইতালিতে বড় শহরগুলোর মধ্যে গাড়ির চেয়ে ট্রেনে ভ্রমণ প্রায়ই বেশি আরামদায়ক। কাগজের টিকিট নিয়ে আঞ্চলিক ট্রেনে ওঠার আগে সবুজ বা হলুদ মেশিনে পাঞ্চ করতে মনে রাখবেন।» (Prima di salire)।', en: 'Before boarding.' } },
+      { id: 'rd-a2-04-q2', prompt: { bn: 'অ্যাপের টিকিট থাকলে কী দেখাতে হয়?', en: 'What do you show with an app ticket?' }, options: ['পাসপোর্ট', 'কিউআর কোড', 'রসিদ প্রিন্ট', 'স্লিপ'], answer: 1, explanation: { bn: 'সঠিক উত্তর: কিউআর কোড — পাঠ্যাংশে বলা হয়েছে: «আর অফিশিয়াল অ্যাপে টিকিট কিনলে কিছুই প্রিন্ট করতে হয় না: শুধু কন্ডাক্টরকে কিউআর কোড দেখালেই যথেষ্ট।» (il codice QR)।', en: 'The QR code.' } },
     ],
   }),
   buildReading({
@@ -70,7 +70,7 @@ export const A2_READING_1: ReadingPassage[] = [
     grammarHighlights: [{ excerpt: 'mentre osservavamo… abbiamo visto', note: { bn: 'চলমান কাজ imperfetto ও আকস্মিক দেখা passato prossimo।', en: 'Imperfect background vs completed sighting.' }, grammarId: 'imperfetto-vs-passato' }],
     relatedGrammarIds: ['imperfetto', 'imperfetto-vs-passato'],
     questions: [
-      { id: 'rd-a2-05-q1', prompt: { bn: 'দাদাকে সে কোথায় সাহায্য করত?', en: 'Where did he help granddad?' }, options: ['দোকানে', 'সবজি বাগানে', 'শহরে', 'রেলস্টেশনে'], answer: 1, explanation: { bn: 'nell’orto।', en: 'In the vegetable garden.' } },
+      { id: 'rd-a2-05-q1', prompt: { bn: 'দাদাকে সে কোথায় সাহায্য করত?', en: 'Where did he help granddad?' }, options: ['দোকানে', 'সবজি বাগানে', 'শহরে', 'রেলস্টেশনে'], answer: 1, explanation: { bn: 'সঠিক উত্তর: সবজি বাগানে — পাঠ্যাংশে বলা হয়েছে: «ছোটবেলায় প্রতি জুলাই মাসে আমি দাদা-দাদির কাছে গ্রামে কাটাতাম। প্রতিদিন সকালে দাদাকে সবজি বাগানে সাহায্য করতাম।» (nell’orto)।', en: 'In the vegetable garden.' } },
     ],
   }),
   buildReading({
@@ -83,7 +83,7 @@ export const A2_READING_1: ReadingPassage[] = [
     grammarHighlights: [{ excerpt: 'mandatemi', note: { bn: 'voi আদেশ + পরোক্ষ সর্বনাম mi।', en: 'Plural imperative + indirect pronoun mi.' }, grammarId: 'imperativo' }],
     relatedGrammarIds: ['imperativo', 'pronomi-indiretti'],
     questions: [
-      { id: 'rd-a2-06-q1', prompt: { bn: 'মিটিং কয়টায় সরানো হয়েছে?', en: 'To what time was the meeting moved?' }, options: ['৯:০০', '১০:০০', '১০:৩০', '১১:০০'], answer: 2, explanation: { bn: 'alle dieci e mezza।', en: '10:30.' } },
+      { id: 'rd-a2-06-q1', prompt: { bn: 'মিটিং কয়টায় সরানো হয়েছে?', en: 'To what time was the meeting moved?' }, options: ['৯:০০', '১০:০০', '১০:৩০', '১১:০০'], answer: 2, explanation: { bn: 'সঠিক উত্তর: ১০:৩০ — পাঠ্যাংশে বলা হয়েছে: «সবাইকে হ্যালো! কাল সকালের মিটিং নয়টার বদলে সাড়ে দশটায় সরানো হয়েছে কারণ পরিচালক রোম থেকে ট্রেনে আসবেন।» (alle dieci e mezza)।', en: '10:30.' } },
     ],
   }),
   buildReading({
@@ -96,7 +96,7 @@ export const A2_READING_1: ReadingPassage[] = [
     grammarHighlights: [{ excerpt: 'più caldo di quello del nord', note: { bn: 'tুলনা করতে quello + del ব্যবহার।', en: 'Pronoun quello stands for il mare in comparison.' }, grammarId: 'comparativi' }],
     relatedGrammarIds: ['comparativi', 'futuro'],
     questions: [
-      { id: 'rd-a2-07-q1', prompt: { bn: 'তারা কবে মিলানে ফিরবে?', en: 'When will they return to Milan?' }, options: ['শুক্রবার', 'শনিবার', 'রবিবার সন্ধ্যায়', 'সোমবার'], answer: 2, explanation: { bn: 'domenica sera।', en: 'Sunday evening.' } },
+      { id: 'rd-a2-07-q1', prompt: { bn: 'তারা কবে মিলানে ফিরবে?', en: 'When will they return to Milan?' }, options: ['শুক্রবার', 'শনিবার', 'রবিবার সন্ধ্যায়', 'সোমবার'], answer: 2, explanation: { bn: 'সঠিক উত্তর: রবিবার সন্ধ্যায় — পাঠ্যাংশে বলা হয়েছে: «কাল আমরা ছোট্ট একটি দ্বীপে যাওয়ার ফেরি ধরব এবং রবিবার সন্ধ্যায় মিলানে ফিরব। অনেক ভালোবাসা!» (domenica sera)।', en: 'Sunday evening.' } },
     ],
   }),
   buildReading({
@@ -109,7 +109,7 @@ export const A2_READING_1: ReadingPassage[] = [
     grammarHighlights: [{ excerpt: 'Riciclare correttamente', note: { bn: 'বিশেষণ corretto + mente = correttamente।', en: '-mente manner adverb.' }, grammarId: 'avverbi-a2' }],
     relatedGrammarIds: ['avverbi-a2', 'preposizioni-verbi'],
     questions: [
-      { id: 'rd-a2-08-q1', prompt: { bn: 'সঠিক রিসাইক্লিং-এর প্রধান সুফল কী?', en: 'What is the main benefit mentioned?' }, options: ['বিদ্যুৎ সাশ্রয়', 'দূষণ কমে ও এলাকা পরিষ্কার থাকে', 'ভাড়া কমে', 'পানি সাশ্রয়'], answer: 1, explanation: { bn: 'riduce l’inquinamento e aiuta a restare più pulito।', en: 'Cuts pollution and keeps areas clean.' } },
+      { id: 'rd-a2-08-q1', prompt: { bn: 'সঠিক রিসাইক্লিং-এর প্রধান সুফল কী?', en: 'What is the main benefit mentioned?' }, options: ['বিদ্যুৎ সাশ্রয়', 'দূষণ কমে ও এলাকা পরিষ্কার থাকে', 'ভাড়া কমে', 'পানি সাশ্রয়'], answer: 1, explanation: { bn: 'সঠিক উত্তর: দূষণ কমে ও এলাকা পরিষ্কার থাকে — পাঠ্যাংশে বলা হয়েছে: «সঠিকভাবে পুনর্ব্যবহার করলে দূষণ কমে এবং পুরো পাড়া আরও পরিষ্কার ও গোছানো থাকে।» (riduce l’inquinamento e aiuta a restare più pulito)।', en: 'Cuts pollution and keeps areas clean.' } },
     ],
   }),
   buildReading({
@@ -122,7 +122,7 @@ export const A2_READING_1: ReadingPassage[] = [
     grammarHighlights: [{ excerpt: 'abito a Torino da otto mesi', note: { bn: 'এখনো বসবাস করছে তাই presente + da।', en: 'Ongoing duration requires present + da.' }, grammarId: 'tempo' }],
     relatedGrammarIds: ['tempo', 'condizionale'],
     questions: [
-      { id: 'rd-a2-09-q1', prompt: { bn: 'নাদিয়া কতদিন ধরে তুরিনে থাকে?', en: 'How long has Nadia lived in Turin?' }, options: ['৩ মাস', '৬ মাস', '৮ মাস', '১ বছর'], answer: 2, explanation: { bn: 'da otto mesi।', en: 'Eight months.' } },
+      { id: 'rd-a2-09-q1', prompt: { bn: 'নাদিয়া কতদিন ধরে তুরিনে থাকে?', en: 'How long has Nadia lived in Turin?' }, options: ['৩ মাস', '৬ মাস', '৮ মাস', '১ বছর'], answer: 2, explanation: { bn: 'সঠিক উত্তর: ৮ মাস — পাঠ্যাংশে বলা হয়েছে: «শুভ সকাল, আমার নাম নাদিয়া এবং আট মাস ধরে আমি তুরিনে থাকি। অক্টোবরে শুরু হওয়া আপনাদের A2 সান্ধ্য কোর্সে ভর্তি হতে চাই।» (da otto mesi)।', en: 'Eight months.' } },
     ],
   }),
   buildReading({
@@ -136,7 +136,7 @@ export const A2_READING_1: ReadingPassage[] = [
     grammarHighlights: [{ excerpt: 'le ho messe nel carrello', note: { bn: 'le (zucchine) → messe স্ত্রী বহুবচন মিল।', en: 'Direct pronoun agreement: le … messe.' }, grammarId: 'accordo-participio' }],
     relatedGrammarIds: ['pronomi-diretti', 'accordo-participio'],
     questions: [
-      { id: 'rd-a2-10-q1', prompt: { bn: 'চিনি কবে কেনা হয়েছিল?', en: 'When had the sugar been bought?' }, options: ['আজ সকালে', 'গতকাল', 'গত সপ্তাহে', 'কেনাই হয়নি'], answer: 1, explanation: { bn: 'l’ho già comprato ieri।', en: 'Yesterday.' } },
+      { id: 'rd-a2-10-q1', prompt: { bn: 'চিনি কবে কেনা হয়েছিল?', en: 'When had the sugar been bought?' }, options: ['আজ সকালে', 'গতকাল', 'গত সপ্তাহে', 'কেনাই হয়নি'], answer: 1, explanation: { bn: 'সঠিক উত্তর: গতকাল — পাঠ্যাংশে বলা হয়েছে: «ক্যাশ কাউন্টারে স্ত্রীকে ফোন দিলাম চিনির কথা জানতে: "চিন্তা কোরো না, ওটা গতকালই কিনেছি!"» (l’ho già comprato ieri)।', en: 'Yesterday.' } },
     ],
   }),
   buildReading({
@@ -149,7 +149,7 @@ export const A2_READING_1: ReadingPassage[] = [
     grammarHighlights: [{ excerpt: 'si consiglia di prenotare', note: { bn: 'নৈর্ব্যক্তিক si + di + ইনফিনিটিভ।', en: 'Impersonal recommendation.' }, grammarId: 'si-impersonale-a2' }],
     relatedGrammarIds: ['si-impersonale-a2', 'ora-data'],
     questions: [
-      { id: 'rd-a2-11-q1', prompt: { bn: 'শনিবার ডাকঘর কয়টা পর্যন্ত খোলা থাকে?', en: 'Until what time is it open on Saturday?' }, options: ['১২:০০', '১২:৩৫', '১৪:০০', '১৯:০৫'], answer: 1, explanation: { bn: 'fino alle 12:35।', en: 'Until 12:35.' } },
+      { id: 'rd-a2-11-q1', prompt: { bn: 'শনিবার ডাকঘর কয়টা পর্যন্ত খোলা থাকে?', en: 'Until what time is it open on Saturday?' }, options: ['১২:০০', '১২:৩৫', '১৪:০০', '১৯:০৫'], answer: 1, explanation: { bn: 'সঠিক উত্তর: ১২:৩৫ — পাঠ্যাংশে বলা হয়েছে: «কেন্দ্রীয় ডাকঘর সোমবার থেকে শুক্রবার সকাল ৮:২০ থেকে সন্ধ্যা ১৯:০৫ পর্যন্ত এবং শনিবার ১২:৩৫ পর্যন্ত খোলা থাকে।» (fino alle 12:35)।', en: 'Until 12:35.' } },
     ],
   }),
   buildReading({
@@ -162,7 +162,7 @@ export const A2_READING_1: ReadingPassage[] = [
     grammarHighlights: [{ excerpt: 'i prodotti migliori', note: { bn: 'buono-র অনিয়মিত তুলনা বহুবচন: migliori।', en: 'Plural of migliore is migliori.' }, grammarId: 'comparativi-irregolari' }],
     relatedGrammarIds: ['comparativi-irregolari', 'si-impersonale-a2'],
     questions: [
-      { id: 'rd-a2-12-q1', prompt: { bn: 'সাপ্তাহিক বাজারে খাবারের বাইরে আর কী পাওয়া যায়?', en: 'What else besides food is sold at the market?' }, options: ['গাড়ি', 'পোশাক, ফুল ও ঘরের জিনিস', 'কম্পিউটার', 'ওষুধ'], answer: 1, explanation: { bn: 'vestiti, fiori e piccoli oggetti per la casa।', en: 'Clothes, flowers, and homeware.' } },
+      { id: 'rd-a2-12-q1', prompt: { bn: 'সাপ্তাহিক বাজারে খাবারের বাইরে আর কী পাওয়া যায়?', en: 'What else besides food is sold at the market?' }, options: ['গাড়ি', 'পোশাক, ফুল ও ঘরের জিনিস', 'কম্পিউটার', 'ওষুধ'], answer: 1, explanation: { bn: 'সঠিক উত্তর: পোশাক, ফুল ও ঘরের জিনিস — পাঠ্যাংশে বলা হয়েছে: «ইতালির প্রতিটি পাড়ায় সপ্তাহে অন্তত একদিন সকালে রাস্তা রঙিন স্টলে ভরে ওঠে। এখানে শুধু তাজা খাবার নয়, পোশাক, ফুল ও ঘরের ছোটখাটো জিনিসও পাওয়া যায়।» (vestiti, fiori e piccoli oggetti per la casa)।', en: 'Clothes, flowers, and homeware.' } },
     ],
   }),
   buildReading({
@@ -176,7 +176,7 @@ export const A2_READING_1: ReadingPassage[] = [
     grammarHighlights: [{ excerpt: 'allo sportello tre', note: { bn: 'a + lo = allo (sp-র আগে lo)।', en: 'a + lo contracts to allo.' }, grammarId: 'preposizioni-articolate' }],
     relatedGrammarIds: ['preposizioni-articolate', 'passato-essere'],
     questions: [
-      { id: 'rd-a2-13-q1', prompt: { bn: 'কত নম্বর কাউন্টারে কাজ হয়েছে?', en: 'Which counter processed the request?' }, options: ['১', '২', '৩', '৫'], answer: 2, explanation: { bn: 'allo sportello tre।', en: 'Counter 3.' } },
+      { id: 'rd-a2-13-q1', prompt: { bn: 'কত নম্বর কাউন্টারে কাজ হয়েছে?', en: 'Which counter processed the request?' }, options: ['১', '২', '৩', '৫'], answer: 2, explanation: { bn: 'সঠিক উত্তর: ৩ — পাঠ্যাংশে বলা হয়েছে: «তিন নম্বর কাউন্টারের কর্মকর্তা খুব স্পষ্ট ছিলেন এবং আনুষ্ঠানিক রসিদ দিয়েছেন।» (allo sportello tre)।', en: 'Counter 3.' } },
     ],
   }),
   buildReading({
@@ -189,7 +189,7 @@ export const A2_READING_1: ReadingPassage[] = [
     grammarHighlights: [{ excerpt: 'restituirle subito', note: { bn: 'ইনফিনিটিভ + আনুষ্ঠানিক Le = আপনাকে ফেরত দিতে।', en: 'Formal indirect pronoun Le attached to infinitive.' }, grammarId: 'volere-piacere-cortesia' }],
     relatedGrammarIds: ['volere-piacere-cortesia', 'condizionale'],
     questions: [
-      { id: 'rd-a2-14-q1', prompt: { bn: 'টাকা ফেরতের জন্য কী কী লাগবে?', en: 'What is needed for the refund?' }, options: ['পাসপোর্ট', 'আসল রসিদ ও অক্ষত বাক্স', 'ওয়ারেন্টি কার্ড', 'মেইল'], answer: 1, explanation: { bn: 'scontrino originale e scatola intatta।', en: 'Original receipt and intact box.' } },
+      { id: 'rd-a2-14-q1', prompt: { bn: 'টাকা ফেরতের জন্য কী কী লাগবে?', en: 'What is needed for the refund?' }, options: ['পাসপোর্ট', 'আসল রসিদ ও অক্ষত বাক্স', 'ওয়ারেন্টি কার্ড', 'মেইল'], answer: 1, explanation: { bn: 'সঠিক উত্তর: আসল রসিদ ও অক্ষত বাক্স — পাঠ্যাংশে বলা হয়েছে: «কর্মী: "কোনো সমস্যা নেই! আসল রসিদ ও অক্ষত বাক্স থাকলে সাথে সাথেই আপনার কার্ডে টাকা ফেরত দিয়ে দিতে পারি।"» (scontrino originale e scatola intatta)।', en: 'Original receipt and intact box.' } },
     ],
   }),
   buildReading({

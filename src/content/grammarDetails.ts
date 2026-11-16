@@ -567,7 +567,7 @@ export const GRAMMAR_DETAILS: Record<string, GrammarExtra> = {
         it: 'Abito ___ centro.',
         options: ['vicino al', 'vicino il', 'davanti il', 'lontano il'],
         answer: 0,
-        explanation: { bn: 'vicino + a + il = vicino al।', en: 'vicino takes a + il → vicino al.' },
+        explanation: { bn: 'ব্যাকরণগত সংযোজন: vicino + a + il = vicino al নিয়ম অনুসারে সঠিক রূপটি গঠিত হয়েছে।', en: 'vicino takes a + il → vicino al.' },
       },
     ],
     storyIds: ['st-a1-22'],

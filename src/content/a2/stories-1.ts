@@ -23,7 +23,7 @@ export const A2_STORIES_1: StoryItem[] = [
     ],
     mcq: [
       { id: 'st2-1-q1', prompt: { bn: 'তারা কবে টিকিট কিনেছিল?', en: 'When did they buy the tickets?' }, options: ['সেদিন সকালে', 'এক সপ্তাহ আগে', 'এক মাস আগে', 'স্টেশনে গিয়ে'], answer: 1, explanation: { bn: 'una settimana prima = এক সপ্তাহ আগে।', en: 'One week before.' } },
-      { id: 'st2-1-q2', prompt: { bn: 'ফেরার আগে তারা কী খেয়েছে?', en: 'What did they eat before returning?' }, options: ['পিৎজা', 'স্যুপ', 'আইসক্রিম', 'কেক'], answer: 2, explanation: { bn: 'un ottimo gelato artigianale।', en: 'Artisan gelato.' } },
+      { id: 'st2-1-q2', prompt: { bn: 'ফেরার আগে তারা কী খেয়েছে?', en: 'What did they eat before returning?' }, options: ['পিৎজা', 'স্যুপ', 'আইসক্রিম', 'কেক'], answer: 2, explanation: { bn: 'সঠিক উত্তর: আইসক্রিম — পাঠ্যাংশে বলা হয়েছে: «ফেরার আগে দুওমোর কাছে চমৎকার হাতে তৈরি আইসক্রিম খেয়েছি। এটি একটি অবিস্মরণীয় স্মৃতি হয়ে আছে।» (un ottimo gelato artigianale)।', en: 'Artisan gelato.' } },
     ],
     trueFalse: [
       { id: 'st2-1-tf1', statementIt: 'Sono andati a Firenze domenica scorsa.', statement: { bn: 'তারা গত রবিবার ফ্লোরেন্সে গিয়েছিল।', en: 'They went to Florence last Sunday.' }, answer: false, explanation: { bn: 'শনিবার (Sabato scorso) গিয়েছিল।', en: 'They went on Saturday.' } },
@@ -36,7 +36,7 @@ export const A2_STORIES_1: StoryItem[] = [
     ],
     practice: {
       retellPrompt: { bn: 'ফ্লোরেন্স ভ্রমণটি ৩টি অতীত কালের বাক্যে লিখুন।', en: 'Retell the trip to Florence in 3 past-tense sentences.' },
-      completeMissing: { promptIt: 'Sabato scorso ___ visitato ___ città bellissima.', hint: { bn: 'ho/abbiamo + una', en: 'auxiliary + article' }, sampleIt: 'Sabato scorso abbiamo visitato una città bellissima.' },
+      completeMissing: { promptIt: 'Sabato scorso ___ visitato ___ città bellissima.', hint: { bn: 'সহায়ক ক্রিয়া (ho/abbiamo) এবং অনির্দিষ্ট আর্টিকেল (una) বসান', en: 'auxiliary + article' }, sampleIt: 'Sabato scorso abbiamo visitato una città bellissima.' },
       buildSimilar: { patternIt: 'Abbiamo comprato i biglietti su internet.', prompt: { bn: 'আপনি অনলাইনে কী কিনেছেন তা লিখুন।', en: 'Write something you bought online.' }, sampleIt: 'Ho comprato una valigia nuova su internet.' },
       altEndingPrompt: { bn: 'ট্রেনে ফেরার সময় কী হতে পারে লিখুন।', en: 'Write 1–2 sentences about their train ride back.' },
     },
@@ -68,7 +68,7 @@ export const A2_STORIES_1: StoryItem[] = [
       { id: 'st2-2-tf1', statementIt: 'Il tempo a Bologna era soleggiato.', statement: { bn: 'বোলোনিয়ার আবহাওয়া রৌদ্রোজ্জ্বল ছিল।', en: 'The weather in Bologna was sunny.' }, answer: false, explanation: { bn: 'pioveva molto forte (জোরে বৃষ্টি হচ্ছিল)।', en: 'It was raining heavily.' } },
     ],
     fillBlank: [
-      { id: 'st2-2-fb1', sentence: 'Quando le ragazze ___ uscite, pioveva.', options: ['hanno', 'sono', 'siamo', 'è'], answer: 1, explanation: { bn: 'loro + essere = sono uscite।', en: 'loro uses sono.' } },
+      { id: 'st2-2-fb1', sentence: 'Quando le ragazze ___ uscite, pioveva.', options: ['hanno', 'sono', 'siamo', 'è'], answer: 1, explanation: { bn: 'ব্যাকরণগত সংযোজন: loro + essere = sono uscite নিয়ম অনুসারে সঠিক রূপটি গঠিত হয়েছে।', en: 'loro uses sono.' } },
     ],
     shortAnswer: [
       { id: 'st2-2-sa1', question: { bn: 'তারা বৃষ্টি থেকে বাঁচতে কোথায় ঢুকল?', en: 'Where did they shelter from the rain?' }, sampleAnswerIt: 'Sono entrate in un bar.', keywords: ['bar'] },
@@ -103,7 +103,7 @@ export const A2_STORIES_1: StoryItem[] = [
       { id: 'st2-3-q1', prompt: { bn: 'সে কয়টায় ঘুম থেকে উঠেছে?', en: 'What time did he wake up?' }, options: ['৬টায়', '৭টায়', '৮টায়', '৯টায়'], answer: 2, explanation: { bn: 'alle otto = আটটায়।', en: 'At eight.' } },
     ],
     trueFalse: [
-      { id: 'st2-3-tf1', statementIt: 'Ha perso il treno della mattina.', statement: { bn: 'সে সকালের ট্রেন মিস করেছে।', en: 'He missed the morning train.' }, answer: false, explanation: { bn: 'è riuscito a prendere il treno in orario।', en: 'He caught it on time.' } },
+      { id: 'st2-3-tf1', statementIt: 'Ha perso il treno della mattina.', statement: { bn: 'সে সকালের ট্রেন মিস করেছে।', en: 'He missed the morning train.' }, answer: false, explanation: { bn: 'বাক্যটি মিথ্যা — গল্পে আসলে বলা হয়েছে: «ভালোভাবে চুল আঁচড়ানোর সময় পাইনি, তবে ঠিক সময়েই ট্রেন ধরতে পেরেছি!» (è riuscito a prendere il treno in orario)।', en: 'He caught it on time.' } },
     ],
     fillBlank: [
       { id: 'st2-3-fb1', sentence: 'Oggi mi ___ svegliato tardissimo.', options: ['ho', 'sono', 'ero', 'sto'], answer: 1, explanation: { bn: 'svegliarsi essere নেয় → sono।', en: 'Reflexives always take essere.' } },
@@ -141,7 +141,7 @@ export const A2_STORIES_1: StoryItem[] = [
       { id: 'st2-4-q1', prompt: { bn: 'কোন মাসে সে দাদা-দাদির কাছে যেত?', en: 'Which month did he spend with his grandparents?' }, options: ['জুন', 'জুলাই', 'আগস্ট', 'সেপ্টেম্বর'], answer: 1, explanation: { bn: 'il mese di luglio = জুলাই।', en: 'July.' } },
     ],
     trueFalse: [
-      { id: 'st2-4-tf1', statementIt: 'In campagna c’era molto rumore di macchine.', statement: { bn: 'গ্রামে গাড়ির অনেক শব্দ ছিল।', en: 'There was lots of car noise in the countryside.' }, answer: false, explanation: { bn: 'Non c’era traffico।', en: 'There was no traffic.' } },
+      { id: 'st2-4-tf1', statementIt: 'In campagna c’era molto rumore di macchine.', statement: { bn: 'গ্রামে গাড়ির অনেক শব্দ ছিল।', en: 'There was lots of car noise in the countryside.' }, answer: false, explanation: { bn: 'বাক্যটি মিথ্যা — গল্পে আসলে বলা হয়েছে: «প্রতিদিন সকালে তাড়াতাড়ি উঠতাম, সবজি বাগানে দাদাকে সাহায্য করতাম আর তারপর বনের পাশে খেলতাম। কোনো যানজট ছিল না আর বাতাস ছিল খুব তাজা।» (Non c’era traffico)।', en: 'There was no traffic.' } },
     ],
     fillBlank: [
       { id: 'st2-4-fb1', sentence: 'Da bambino ___ sempre in giardino.', options: ['ho giocato', 'giocavo', 'giocherò', 'gioca'], answer: 1, explanation: { bn: 'অভ্যাসগত অতীতে giocavo।', en: 'Habitual past takes imperfetto.' } },
@@ -189,7 +189,7 @@ export const A2_STORIES_1: StoryItem[] = [
     ],
     practice: {
       retellPrompt: { bn: 'একটি চাকরির সাক্ষাৎকারের অভিজ্ঞতা ৩ বাক্যে লিখুন।', en: 'Write 3 sentences about a job interview.' },
-      completeMissing: { promptIt: 'Un anno ___ ho firmato il mio primo contratto.', hint: { bn: 'fa', en: 'ago' }, sampleIt: 'Un anno fa ho firmato il mio primo contratto.' },
+      completeMissing: { promptIt: 'Un anno ___ ho firmato il mio primo contratto.', hint: { bn: 'অতীত সময় নির্দেশ করতে fa (আগে) ব্যবহার করুন', en: 'ago' }, sampleIt: 'Un anno fa ho firmato il mio primo contratto.' },
       buildSimilar: { patternIt: 'Ho mandato il curriculum a cinque aziende.', prompt: { bn: 'আপনি কাকে ইমেইল বা সিভি পাঠিয়েছেন লিখুন।', en: 'Write about sending an email or CV.' }, sampleIt: 'Ho mandato una mail al professore.' },
       altEndingPrompt: { bn: 'প্রথম মাসের বেতন পেলে সে কী করবে লিখুন।', en: 'What might he do with his first salary?' },
     },
@@ -214,7 +214,7 @@ export const A2_STORIES_1: StoryItem[] = [
       { sentenceIt: 'Traslocherò con la mia amica.', ruleTitle: { bn: '-care ক্রিয়ার বানান (ch)', en: 'Hard c in future tense' }, explanation: { bn: 'cercare→cercherò, traslocare→traslocherò: "ক" শব্দ রাখতে h যোগ হয়।', en: 'Verbs in -care insert h before e: cercherò, traslocherò.' }, grammarId: 'futuro' },
     ],
     mcq: [
-      { id: 'st2-6-q1', prompt: { bn: 'সে কোন বিষয়ে থিসিস লিখছে?', en: 'In which subject is her thesis?' }, options: ['আইন', 'অর্থনীতি', 'প্রকৌশল', 'ইতিহাস'], answer: 1, explanation: { bn: 'tesi di laurea in economia।', en: 'Economics.' } },
+      { id: 'st2-6-q1', prompt: { bn: 'সে কোন বিষয়ে থিসিস লিখছে?', en: 'In which subject is her thesis?' }, options: ['আইন', 'অর্থনীতি', 'প্রকৌশল', 'ইতিহাস'], answer: 1, explanation: { bn: 'সঠিক উত্তর: অর্থনীতি — পাঠ্যাংশে বলা হয়েছে: «ছয় মাস পর আমি বিশ্ববিদ্যালয়ের সব পরীক্ষা শেষ করব এবং অর্থনীতিতে আমার থিসিস উপস্থাপন করব।» (tesi di laurea in economia)।', en: 'Economics.' } },
     ],
     trueFalse: [
       { id: 'st2-6-tf1', statementIt: 'Vuole vivere completamente da sola.', statement: { bn: 'সে পুরোপুরি একা থাকতে চায়।', en: 'She wants to live completely alone.' }, answer: false, explanation: { bn: 'সেরা বান্ধবীর সাথে থাকবে (con la mia migliore amica)।', en: 'She will move in with her best friend.' } },
@@ -227,7 +227,7 @@ export const A2_STORIES_1: StoryItem[] = [
     ],
     practice: {
       retellPrompt: { bn: 'আগামী বছরের জন্য আপনার ৩টি পরিকল্পনা futuro-তে লিখুন।', en: 'Write 3 personal plans for next year using futuro.' },
-      completeMissing: { promptIt: 'Il prossimo anno ___ una nuova lingua.', hint: { bn: 'imparerò / studierò', en: 'future io form' }, sampleIt: 'Il prossimo anno imparerò il francese.' },
+      completeMissing: { promptIt: 'Il prossimo anno ___ una nuova lingua.', hint: { bn: 'ভবিষৎ কালের উত্তম পুরুষ (io) রূপ imparerò / studierò বসান', en: 'future io form' }, sampleIt: 'Il prossimo anno imparerò il francese.' },
       buildSimilar: { patternIt: 'Sarà un anno pieno di novità.', prompt: { bn: 'আগামী গ্রীষ্ম কেমন হবে লিখুন।', en: 'Describe what next summer will be like.' }, sampleIt: 'Sarà un’estate caldissima e divertente.' },
       altEndingPrompt: { bn: 'নতুন ফ্ল্যাটে উঠে তারা প্রথম কী করবে লিখুন।', en: 'What will they do first in the new flat?' },
     },
@@ -252,7 +252,7 @@ export const A2_STORIES_1: StoryItem[] = [
       { sentenceIt: 'Ho visto i pomodori e li ho pesati.', ruleTitle: { bn: 'অতীতে lo/la/li/le-এর মিল', en: 'Pronoun-participle agreement' }, explanation: { bn: 'li (পুং বহুবচন pomodori) আগে আসায় pesati হয়েছে।', en: 'li matches masculine plural pomodori → pesati.' }, grammarId: 'accordo-participio' },
     ],
     mcq: [
-      { id: 'st2-7-q1', prompt: { bn: 'বাজারের তালিকা সে কোথায় ফেলে এসেছে?', en: 'Where did he leave the shopping list?' }, options: ['গাড়িতে', 'পকেটে', 'রান্নাঘরের টেবিলে', 'অফিসে'], answer: 2, explanation: { bn: 'sul tavolo della cucina।', en: 'On the kitchen table.' } },
+      { id: 'st2-7-q1', prompt: { bn: 'বাজারের তালিকা সে কোথায় ফেলে এসেছে?', en: 'Where did he leave the shopping list?' }, options: ['গাড়িতে', 'পকেটে', 'রান্নাঘরের টেবিলে', 'অফিসে'], answer: 2, explanation: { bn: 'সঠিক উত্তর: রান্নাঘরের টেবিলে — পাঠ্যাংশে বলা হয়েছে: «আজ সকালে বাজারের তালিকা লিখেছিলাম, কিন্তু পরে ওটা রান্নাঘরের টেবিলে ফেলে এসেছি!» (sul tavolo della cucina)।', en: 'On the kitchen table.' } },
     ],
     trueFalse: [
       { id: 'st2-7-tf1', statementIt: 'Dovevano ancora comprare lo zucchero.', statement: { bn: 'তাদের তখনো চিনি কেনার বাকি ছিল।', en: 'They still needed to buy sugar.' }, answer: false, explanation: { bn: 'স্ত্রী গতকালই কিনে রেখেছিল (l’ho già comprato ieri)।', en: 'His wife already bought it yesterday.' } },
@@ -265,7 +265,7 @@ export const A2_STORIES_1: StoryItem[] = [
     ],
     practice: {
       retellPrompt: { bn: 'lo/la/li/le ব্যবহার করে আপনার শেষ বাজারের ৩টি বাক্য লিখুন।', en: 'Write 3 sentences about your last grocery shop using lo/la/li/le.' },
-      completeMissing: { promptIt: 'Il pane fresco? ___ ho comprato al panificio.', hint: { bn: 'L’', en: 'Direct pronoun lo + h → L’' }, sampleIt: 'Il pane fresco? L’ho comprato al panificio.' },
+      completeMissing: { promptIt: 'Il pane fresco? ___ ho comprato al panificio.', hint: { bn: 'স্বরবর্ণ বা h-এর আগে প্রত্যক্ষ সর্বনাম lo সংক্ষিপ্ত হয়ে L’ হয়', en: 'Direct pronoun lo + h → L’' }, sampleIt: 'Il pane fresco? L’ho comprato al panificio.' },
       buildSimilar: { patternIt: 'Ho visto i pomodori e li ho comprati.', prompt: { bn: 'দুটি জিনিস কেনার একটি বাক্য লিখুন।', en: 'Write a sentence about buying items.' }, sampleIt: 'Ho trovato le scarpe nere e le ho comprate.' },
       altEndingPrompt: { bn: 'বাড়ি ফিরে রান্নার জন্য কী হবে লিখুন।', en: 'What will they cook once home?' },
     },
@@ -303,7 +303,7 @@ export const A2_STORIES_1: StoryItem[] = [
     ],
     practice: {
       retellPrompt: { bn: 'প্রতিবেশীকে সাহায্য করার ঘটনা ৩ বাক্যে লিখুন।', en: 'Retell helping the neighbour in 3 sentences.' },
-      completeMissing: { promptIt: '___ bene il mio quartiere, ma non ___ tutti gli orari.', hint: { bn: 'Conosco / so', en: 'place vs fact' }, sampleIt: 'Conosco bene il mio quartiere, ma non so tutti gli orari.' },
+      completeMissing: { promptIt: '___ bene il mio quartiere, ma non ___ tutti gli orari.', hint: { bn: 'স্থান বা ব্যক্তি চেনা বোঝাতে conosco এবং তথ্য জানা বোঝাতে so বসান', en: 'place vs fact' }, sampleIt: 'Conosco bene il mio quartiere, ma non so tutti gli orari.' },
       buildSimilar: { patternIt: 'Le abbiamo dato subito una mano.', prompt: { bn: 'কাউকে সাহায্য করার একটি বাক্য লিখুন।', en: 'Write about helping someone.' }, sampleIt: 'Gli ho prestato il mio dizionario.' },
       altEndingPrompt: { bn: 'কেক খেতে খেতে তারা কী কথা বলতে পারে লিখুন।', en: 'What might they chat about over cake?' },
     },
@@ -341,7 +341,7 @@ export const A2_STORIES_1: StoryItem[] = [
     ],
     practice: {
       retellPrompt: { bn: 'আপনার পছন্দের একটি বাসার বর্ণনা ৩ বাক্যে দিন।', en: 'Describe your ideal flat in 3 sentences.' },
-      completeMissing: { promptIt: 'Siamo ___ a trovare il nuovo quartiere.', hint: { bn: 'andati / venuti', en: 'plural participle' }, sampleIt: 'Siamo andati a trovare i nostri amici.' },
+      completeMissing: { promptIt: 'Siamo ___ a trovare il nuovo quartiere.', hint: { bn: 'বহুবচন কর্তার সাথে সঙ্গতি রেখে পার্টিসিপল andati / venuti বসান', en: 'plural participle' }, sampleIt: 'Siamo andati a trovare i nostri amici.' },
       buildSimilar: { patternIt: 'Dal balcone si vede un bel giardino.', prompt: { bn: 'আপনার জানালা বা বারান্দা থেকে কী দেখা যায় লিখুন।', en: 'Write what you see from your window.' }, sampleIt: 'Dalla finestra si vede la piazza.' },
       altEndingPrompt: { bn: 'পরদিন সকালে তারা নতুন ফ্ল্যাট কীভাবে সাজাবে লিখুন।', en: 'How might they decorate the flat the next day?' },
     },
@@ -366,7 +366,7 @@ export const A2_STORIES_1: StoryItem[] = [
       { sentenceIt: 'Dura quanto l’autobus.', ruleTitle: { bn: 'সমান তুলনা (quanto)', en: 'Equality comparison (quanto)' }, explanation: { bn: 'দুটি কাজের সময় বা পরিমাণ সমান বোঝাতে quanto বসে।', en: 'quanto compares equal degree or duration.' }, grammarId: 'comparativi' },
     ],
     mcq: [
-      { id: 'st2-10-q1', prompt: { bn: 'শেষ পর্যন্ত তারা কোন যানে যাওয়ার সিদ্ধান্ত নিল?', en: 'Which transport did they pick in the end?' }, options: ['বিমান', 'বাস', 'আঞ্চলিক ট্রেন', 'গাড়ি'], answer: 2, explanation: { bn: 'il treno regionale।', en: 'The regional train.' } },
+      { id: 'st2-10-q1', prompt: { bn: 'শেষ পর্যন্ত তারা কোন যানে যাওয়ার সিদ্ধান্ত নিল?', en: 'Which transport did they pick in the end?' }, options: ['বিমান', 'বাস', 'আঞ্চলিক ট্রেন', 'গাড়ি'], answer: 2, explanation: { bn: 'সঠিক উত্তর: আঞ্চলিক ট্রেন — পাঠ্যাংশে বলা হয়েছে: «শেষ পর্যন্ত আমরা আঞ্চলিক ট্রেন বেছে নিয়েছি: এতে বাসের সমানই সময় লাগে, কিন্তু রেললাইনে কখনো যানজট থাকে না!» (il treno regionale)।', en: 'The regional train.' } },
     ],
     trueFalse: [
       { id: 'st2-10-tf1', statementIt: 'L’autobus è più caro del treno alta velocità.', statement: { bn: 'বাস হাই-স্পিড ট্রেনের চেয়ে বেশি দামি।', en: 'The bus is more expensive than the high-speed train.' }, answer: false, explanation: { bn: 'meno caro (কম দামি)।', en: 'It is less expensive.' } },
@@ -379,7 +379,7 @@ export const A2_STORIES_1: StoryItem[] = [
     ],
     practice: {
       retellPrompt: { bn: 'ট্রেন বনাম বাসের তুলনা করে ৩ বাক্য লিখুন।', en: 'Compare train vs bus in 3 sentences.' },
-      completeMissing: { promptIt: 'Il treno è ___ veloce dell’autobus.', hint: { bn: 'più / meno', en: 'comparative' }, sampleIt: 'Il treno è più veloce dell’autobus.' },
+      completeMissing: { promptIt: 'Il treno è ___ veloce dell’autobus.', hint: { bn: 'তুলনামূলক বিশেষণে più (বেশি) অথবা meno (কম) বসান', en: 'comparative' }, sampleIt: 'Il treno è più veloce dell’autobus.' },
       buildSimilar: { patternIt: 'Questo bar è meno caro di quello in piazza.', prompt: { bn: 'দুটো দোকানের বা শহরের তুলনা করুন।', en: 'Compare two shops or cities.' }, sampleIt: 'Milano è più grande di Pisa.' },
       altEndingPrompt: { bn: 'ভেনিসে পৌঁছে তারা প্রথমে কোথায় যাবে লিখুন।', en: 'Where will they go upon reaching Venice?' },
     },
@@ -401,23 +401,23 @@ export const A2_STORIES_1: StoryItem[] = [
       { word: 'in sconto', base: 'sconto', tr: { bn: 'ছাড়ে', en: 'on discount' }, pos: 'phrase' },
     ],
     grammarBreakdown: [
-      { sentenceIt: 'Sto guardando le offerte.', ruleTitle: { bn: 'stare + gerundio', en: 'Present continuous' }, explanation: { bn: 'চলমান কাজ বোঝাতে sto + -ando / -endo বসে।', en: 'stare + -ando/-endo shows ongoing action.' }, grammarId: 'gerundio' },
+      { sentenceIt: 'Sto guardando le offerte.', ruleTitle: { bn: 'ঘটমান বর্তমান কাল (stare + gerundio)', en: 'Present continuous' }, explanation: { bn: 'চলমান কাজ বোঝাতে sto + -ando / -endo বসে।', en: 'stare + -ando/-endo shows ongoing action.' }, grammarId: 'gerundio' },
     ],
     mcq: [
-      { id: 'st2-11-q1', prompt: { bn: 'রান্নার সময় কোন উপকরণ কম ছিল?', en: 'Which ingredient was missing?' }, options: ['লবণ', 'অলিভ অয়েল', 'রসুন', 'ময়দা'], answer: 1, explanation: { bn: 'manca l’olio d’oliva।', en: 'Olive oil.' } },
+      { id: 'st2-11-q1', prompt: { bn: 'রান্নার সময় কোন উপকরণ কম ছিল?', en: 'Which ingredient was missing?' }, options: ['লবণ', 'অলিভ অয়েল', 'রসুন', 'ময়দা'], answer: 1, explanation: { bn: 'সঠিক উত্তর: অলিভ অয়েল — পাঠ্যাংশে বলা হয়েছে: «আমি যখন স্প্যাগেটি রান্না করছি, তখন খেয়াল করলাম অলিভ অয়েল নেই। সাথে সাথে ভাইকে ফোন দিলাম, যে তখন বাজার করছে।» (manca l’olio d’oliva)।', en: 'Olive oil.' } },
     ],
     trueFalse: [
       { id: 'st2-11-tf1', statementIt: 'Il fratello è già tornato a casa.', statement: { bn: 'ভাই ইতিমধ্যে বাড়িতে ফিরে এসেছে।', en: 'The brother is already back home.' }, answer: false, explanation: { bn: 'সুপারমার্কেটে বাজার করছে (sta facendo la spesa)।', en: 'He is still shopping.' } },
     ],
     fillBlank: [
-      { id: 'st2-11-fb1', sentence: 'Noi ___ aspettando la conferma dal corriere.', options: ['siamo', 'stiamo', 'abbiamo', 'facciamo'], answer: 1, explanation: { bn: 'stare + gerundio → stiamo aspettando।', en: 'stare + gerund takes stiamo.' } },
+      { id: 'st2-11-fb1', sentence: 'Noi ___ aspettando la conferma dal corriere.', options: ['siamo', 'stiamo', 'abbiamo', 'facciamo'], answer: 1, explanation: { bn: 'সঠিক রূপান্তর: «stare + gerundio» থেকে পরিবর্তিত হয়ে «stiamo aspettando» ব্যবহৃত হয়।', en: 'stare + gerund takes stiamo.' } },
     ],
     shortAnswer: [
       { id: 'st2-11-sa1', question: { bn: 'ভাইয়ের সাথে কথা বলার সময় সে কী তৈরি করছিল?', en: 'What was the caller making while phoning?' }, sampleAnswerIt: 'Stava preparando gli spaghetti e l’insalata.', keywords: ['spaghetti', 'insalata'] },
     ],
     practice: {
       retellPrompt: { bn: 'পরিবারের সবাই এখন কী করছে তা stare + gerundio দিয়ে লিখুন।', en: 'Write what your family/friends are doing right now using stare + gerundio.' },
-      completeMissing: { promptIt: 'Scusa, non posso parlare: ___ lavorando.', hint: { bn: 'sto', en: 'stare for io' }, sampleIt: 'Scusa, non posso parlare: sto guidando.' },
+      completeMissing: { promptIt: 'Scusa, non posso parlare: ___ lavorando.', hint: { bn: 'io কর্তার সাথে ঘটমান বর্তমান গঠনে sto ব্যবহার করুন', en: 'stare for io' }, sampleIt: 'Scusa, non posso parlare: sto guidando.' },
       buildSimilar: { patternIt: 'Intanto sto preparando l’insalata.', prompt: { bn: 'এই মুহূর্তে আপনি কী করছেন লিখুন।', en: 'Write what you are doing right now.' }, sampleIt: 'Adesso sto studiando italiano sul telefono.' },
       altEndingPrompt: { bn: 'ভাই বাসায় ফিরে এলে ডিনারে কী হবে লিখুন।', en: 'What happens at dinner when the brother arrives?' },
     },

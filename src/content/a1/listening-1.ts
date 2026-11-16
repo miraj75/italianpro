@@ -56,7 +56,7 @@ export const A1_LISTENING_1: ListeningExercise[] = [
     vocabKeys: ['w:A1:il treno', 'w:A1:il biglietto', 'w:A1:la stazione'],
     grammarIds: ['ora-data', 'preposizioni'],
     questions: [
-      { id: 'ls2-q1', prompt: { bn: 'ট্রেনটি কোথায় যাচ্ছে?', en: 'Where is the train going?' }, options: ['মিলান', 'রোম', 'বোলোনিয়া', 'ভেনিস'], answer: 2, explanation: { bn: 'per Bologna।', en: 'To Bologna.' } },
+      { id: 'ls2-q1', prompt: { bn: 'ট্রেনটি কোথায় যাচ্ছে?', en: 'Where is the train going?' }, options: ['মিলান', 'রোম', 'বোলোনিয়া', 'ভেনিস'], answer: 2, explanation: { bn: 'সঠিক উত্তর: বোলোনিয়া — পাঠ্যাংশে বলা হয়েছে: «দয়া করে মনোযোগ দিন! দশটা পনেরোর বোলোনিয়াগামী আঞ্চলিক ট্রেন চার নম্বর প্ল্যাটফর্মে আসছে।» (per Bologna)।', en: 'To Bologna.' } },
       { id: 'ls2-q2', prompt: { bn: 'কত নম্বর প্ল্যাটফর্মে ট্রেন আসছে?', en: 'Which platform is it arriving at?' }, options: ['২', '৪', '৬', '৮'], answer: 1, explanation: { bn: 'al binario quattro = ৪ নম্বর প্ল্যাটফর্ম।', en: 'Platform 4.' } },
     ],
   }),
@@ -117,7 +117,7 @@ export const A1_LISTENING_1: ListeningExercise[] = [
     grammarIds: ['domande', 'ora-data'],
     questions: [
       { id: 'ls4-q1', prompt: { bn: 'মাসিক ভাড়া কত?', en: 'What is the monthly rent?' }, options: ['৩০০ ইউরো', '৪০০ ইউরো', '৪৫০ ইউরো', '৫০০ ইউরো'], answer: 1, explanation: { bn: 'quattrocento euro al mese = ৪০০ ইউরো।', en: '400 euros.' } },
-      { id: 'ls4-q2', prompt: { bn: 'বাসা দেখার সময় কবে?', en: 'When is the viewing?' }, options: ['বুধবার ৪টায়', 'বৃহস্পতিবার ৫টায়', 'শুক্রবার ৬টায়', 'শনিবার ১০টায়'], answer: 1, explanation: { bn: 'giovedì alle cinque।', en: 'Thursday at five.' } },
+      { id: 'ls4-q2', prompt: { bn: 'বাসা দেখার সময় কবে?', en: 'When is the viewing?' }, options: ['বুধবার ৪টায়', 'বৃহস্পতিবার ৫টায়', 'শুক্রবার ৬টায়', 'শনিবার ১০টায়'], answer: 1, explanation: { bn: 'সঠিক উত্তর: বৃহস্পতিবার ৫টায় — পাঠ্যাংশে বলা হয়েছে: «হ্যাঁ, পানি ও বিদ্যুৎ অন্তর্ভুক্ত। আপনি কি বৃহস্পতিবার পাঁচটায় বাসা দেখতে আসতে পারবেন?» (giovedì alle cinque)।', en: 'Thursday at five.' } },
     ],
   }),
 
@@ -202,7 +202,7 @@ export const A1_LISTENING_1: ListeningExercise[] = [
     vocabKeys: ['w:A1:il carrello', 'w:A1:il burro', 'w:A1:la cassa'],
     grammarIds: ['modali', 'articoli'],
     questions: [
-      { id: 'ls7-q1', prompt: { bn: 'তারা কত নম্বর ক্যাশ কাউন্টারে যায়?', en: 'Which checkout do they go to?' }, options: ['১', '২', '৩', '৪'], answer: 2, explanation: { bn: 'La cassa numero tre।', en: 'Checkout 3.' } },
+      { id: 'ls7-q1', prompt: { bn: 'তারা কত নম্বর ক্যাশ কাউন্টারে যায়?', en: 'Which checkout do they go to?' }, options: ['১', '২', '৩', '৪'], answer: 2, explanation: { bn: 'সঠিক উত্তর: ৩ — পাঠ্যাংশে বলা হয়েছে: «দারুণ। তিন নম্বর ক্যাশ কাউন্টার খালি আছে, ওখানে যাই।» (La cassa numero tre)।', en: 'Checkout 3.' } },
     ],
   }),
 
@@ -229,7 +229,7 @@ export const A1_LISTENING_1: ListeningExercise[] = [
     vocabKeys: ['w:A1:la famiglia', 'w:A1:il padre', 'w:A1:la scuola'],
     grammarIds: ['possessivi-a1', 'presente-are'],
     questions: [
-      { id: 'ls8-q1', prompt: { bn: 'মাত্তেওর মা কী করেন?', en: 'What does Matteo’s mother do?' }, options: ['ডাক্তার', 'সংগীত শিক্ষিকা', 'ব্যাংকার', 'শেফ'], answer: 1, explanation: { bn: 'insegna musica a scuola।', en: 'She teaches music at school.' } },
+      { id: 'ls8-q1', prompt: { bn: 'মাত্তেওর মা কী করেন?', en: 'What does Matteo’s mother do?' }, options: ['ডাক্তার', 'সংগীত শিক্ষিকা', 'ব্যাংকার', 'শেফ'], answer: 1, explanation: { bn: 'সঠিক উত্তর: সংগীত শিক্ষিকা — পাঠ্যাংশে বলা হয়েছে: «আমার বাবা রাঁধুনি আর আমার মা স্কুলে সংগীত শেখান। আমার দুই বোন ও এক ছোট ভাই আছে।» (insegna musica a scuola)।', en: 'She teaches music at school.' } },
     ],
   }),
 
@@ -255,7 +255,7 @@ export const A1_LISTENING_1: ListeningExercise[] = [
     vocabKeys: ['w:A1:la fermata', 'w:A1:la metropolitana', 'w:A1:la piazza'],
     grammarIds: ['aggettivi', 'preposizioni'],
     questions: [
-      { id: 'ls9-q1', prompt: { bn: 'পরের স্টপের নাম কী?', en: 'What is the next stop?' }, options: ['Piazza Venezia', 'Piazza Garibaldi', 'Stazione Centrale', 'Via Roma'], answer: 1, explanation: { bn: 'Piazza Garibaldi।', en: 'Piazza Garibaldi.' } },
+      { id: 'ls9-q1', prompt: { bn: 'পরের স্টপের নাম কী?', en: 'What is the next stop?' }, options: ['Piazza Venezia', 'Piazza Garibaldi', 'Stazione Centrale', 'Via Roma'], answer: 1, explanation: { bn: 'পাঠ্যাংশের তথ্যানুযায়ী: «পরবর্তী স্টপ: পিয়াজ্জা গ্যারিবালদি। এখান থেকে মেট্রোর লাল লাইন ও কেন্দ্রগামী ট্রেন বদল করা যাবে।» (সঠিক উত্তর: Piazza Garibaldi)।', en: 'Piazza Garibaldi.' } },
     ],
   }),
 
@@ -339,7 +339,7 @@ export const A1_LISTENING_1: ListeningExercise[] = [
     vocabKeys: ['w:A1:la camicia', 'w:A1:lo sconto', 'w:A1:la taglia'],
     grammarIds: ['dimostrativi', 'aggettivi'],
     questions: [
-      { id: 'ls12-q1', prompt: { bn: 'শার্টের আসল দাম কত?', en: 'What is the original price of the shirt?' }, options: ['২০ ইউরো', '৩০ ইউরো', '৪০ ইউরো', '৫০ ইউরো'], answer: 1, explanation: { bn: 'Costa trenta euro।', en: '30 euros.' } },
+      { id: 'ls12-q1', prompt: { bn: 'শার্টের আসল দাম কত?', en: 'What is the original price of the shirt?' }, options: ['২০ ইউরো', '৩০ ইউরো', '৪০ ইউরো', '৫০ ইউরো'], answer: 1, explanation: { bn: 'সঠিক উত্তর: ৩০ ইউরো — পাঠ্যাংশে বলা হয়েছে: «দাম ত্রিশ ইউরো, তবে আজ দশ শতাংশ ছাড় আছে।» (Costa trenta euro)।', en: '30 euros.' } },
     ],
   }),
 
@@ -367,7 +367,7 @@ export const A1_LISTENING_1: ListeningExercise[] = [
     vocabKeys: ['w:A1:la festa', 'w:A1:aprile', 'w:A1:il succo'],
     grammarIds: ['ora-data', 'irregolari'],
     questions: [
-      { id: 'ls13-q1', prompt: { bn: 'পার্টি কয়টায় শুরু হবে?', en: 'What time does the party start?' }, options: ['৬:৩০', '৭:০০', '৭:৩০', '৮:০০'], answer: 2, explanation: { bn: 'Alle sette e mezza di sera।', en: '7:30 PM.' } },
+      { id: 'ls13-q1', prompt: { bn: 'পার্টি কয়টায় শুরু হবে?', en: 'What time does the party start?' }, options: ['৬:৩০', '৭:০০', '৭:৩০', '৮:০০'], answer: 2, explanation: { bn: 'সঠিক উত্তর: ৭:৩০ — পাঠ্যাংশে বলা হয়েছে: «সন্ধ্যা সাড়ে সাতটায়। তোমার বোনকে নিয়ে আসবে?» (Alle sette e mezza di sera)।', en: '7:30 PM.' } },
     ],
   }),
 
@@ -394,7 +394,7 @@ export const A1_LISTENING_1: ListeningExercise[] = [
     vocabKeys: ["w:A1:l'inverno", "w:A1:l'estate", 'w:A1:la neve'],
     grammarIds: ['ce', 'irregolari'],
     questions: [
-      { id: 'ls14-q1', prompt: { bn: 'কোন ঋতুতে পাহাড়ে তুষার থাকে?', en: 'In which season is there snow on the mountains?' }, options: ['বসন্তে', 'গ্রীষ্মে', 'শরতে', 'শীতে'], answer: 3, explanation: { bn: 'In inverno sulle montagne c’è la neve।', en: 'In winter.' } },
+      { id: 'ls14-q1', prompt: { bn: 'কোন ঋতুতে পাহাড়ে তুষার থাকে?', en: 'In which season is there snow on the mountains?' }, options: ['বসন্তে', 'গ্রীষ্মে', 'শরতে', 'শীতে'], answer: 3, explanation: { bn: 'সঠিক উত্তর: শীতে — পাঠ্যাংশে বলা হয়েছে: «শীতে ঠান্ডা পড়ে এবং পাহাড়ে তুষার থাকে। অন্যদিকে বসন্তে চারদিকে ফুল থাকে।» (In inverno sulle montagne c’è la neve)।', en: 'In winter.' } },
     ],
   }),
 
@@ -423,7 +423,7 @@ export const A1_LISTENING_1: ListeningExercise[] = [
     vocabKeys: ['w:A1:il ristorante', 'w:A1:il pesce', 'w:A1:la patata'],
     grammarIds: ['presente-ere-ire', 'articoli'],
     questions: [
-      { id: 'ls15-q1', prompt: { bn: 'মার্কো কী অর্ডার করে?', en: 'What does Marco order?' }, options: ['স্প্যাগেটি', 'গ্রিলড মাছ ও আলু', 'মাংস', 'স্যুপ'], answer: 1, explanation: { bn: 'il pesce alla griglia con le patate।', en: 'Grilled fish with potatoes.' } },
+      { id: 'ls15-q1', prompt: { bn: 'মার্কো কী অর্ডার করে?', en: 'What does Marco order?' }, options: ['স্প্যাগেটি', 'গ্রিলড মাছ ও আলু', 'মাংস', 'স্যুপ'], answer: 1, explanation: { bn: 'সঠিক উত্তর: গ্রিলড মাছ ও আলু — পাঠ্যাংশে বলা হয়েছে: «আমার জন্য বরং আলুসহ গ্রিলড মাছ।» (il pesce alla griglia con le patate)।', en: 'Grilled fish with potatoes.' } },
     ],
   }),
 

@@ -12,7 +12,7 @@ export const A2_READING_2: ReadingPassage[] = [
     grammarHighlights: [{ excerpt: 'costa spesso meno che seduti', note: { bn: 'দুটি অবস্থার তুলনায় meno… che।', en: 'Compare conditions with che.' }, grammarId: 'comparativi' }],
     relatedGrammarIds: ['comparativi', 'avverbi-a2'],
     questions: [
-      { id: 'rd-a2-17-q1', prompt: { bn: 'ক্যাফেতে কফির দাম কখন কম হয়?', en: 'When is coffee cheaper at an Italian café?' }, options: ['রাতে', 'কাউন্টারে দাঁড়িয়ে খেলে', 'বাইরে বসলে', 'সাপ্তাহিক ছুটিতে'], answer: 1, explanation: { bn: 'in piedi al bancone।', en: 'Standing at the counter.' } },
+      { id: 'rd-a2-17-q1', prompt: { bn: 'ক্যাফেতে কফির দাম কখন কম হয়?', en: 'When is coffee cheaper at an Italian café?' }, options: ['রাতে', 'কাউন্টারে দাঁড়িয়ে খেলে', 'বাইরে বসলে', 'সাপ্তাহিক ছুটিতে'], answer: 1, explanation: { bn: 'সঠিক উত্তর: কাউন্টারে দাঁড়িয়ে খেলে — পাঠ্যাংশে বলা হয়েছে: «একটি মজার তথ্য মনে রাখবেন: কাউন্টারে দাঁড়িয়ে খেলে কফির দাম টেবিলে বসে খাওয়ার চেয়ে প্রায়ই কম হয়!» (in piedi al bancone)।', en: 'Standing at the counter.' } },
     ],
   }),
   buildReading({
@@ -26,7 +26,7 @@ export const A2_READING_2: ReadingPassage[] = [
     grammarHighlights: [{ excerpt: 'stavo leggendo', note: { bn: 'অতীতে চলমান কাজে stare (imperfetto) + gerundio।', en: 'Past continuous uses imperfetto of stare + gerund.' }, grammarId: 'gerundio' }],
     relatedGrammarIds: ['gerundio', 'imperfetto-vs-passato'],
     questions: [
-      { id: 'rd-a2-18-q1', prompt: { bn: 'দেখার আগে সে লাইব্রেরিতে কী করছিল?', en: 'What was he doing in the library?' }, options: ['ঘুমাচ্ছিল', 'থিসিসের প্রবন্ধ পড়ছিল', 'ফোন করছিল', 'ইমেইল লিখছিল'], answer: 1, explanation: { bn: 'stavo leggendo un articolo per la mia tesi।', en: 'Reading a thesis article.' } },
+      { id: 'rd-a2-18-q1', prompt: { bn: 'দেখার আগে সে লাইব্রেরিতে কী করছিল?', en: 'What was he doing in the library?' }, options: ['ঘুমাচ্ছিল', 'থিসিসের প্রবন্ধ পড়ছিল', 'ফোন করছিল', 'ইমেইল লিখছিল'], answer: 1, explanation: { bn: 'সঠিক উত্তর: থিসিসের প্রবন্ধ পড়ছিল — পাঠ্যাংশে বলা হয়েছে: «বুধবার বিকেলে হালকা বৃষ্টি হচ্ছিল এবং আমি থিসিসের জন্য প্রবন্ধ পড়ছিলাম। হঠাৎ কেউ কাঁধে হাত রাখল: তিনি তারিক!» (stavo leggendo un articolo per la mia tesi)।', en: 'Reading a thesis article.' } },
     ],
   }),
   buildReading({
@@ -39,7 +39,7 @@ export const A2_READING_2: ReadingPassage[] = [
     grammarHighlights: [{ excerpt: 'alcune settimane', note: { bn: 'alcune + স্ত্রীলিঙ্গ বহুবচন বিশেষ্য।', en: 'alcune agrees feminine plural.' }, grammarId: 'indefiniti-a2' }],
     relatedGrammarIds: ['indefiniti-a2', 'futuro'],
     questions: [
-      { id: 'rd-a2-19-q1', prompt: { bn: 'কার্ডটি কীভাবে পৌঁছাবে?', en: 'How will the health card arrive?' }, options: ['নিজে গিয়ে আনতে হবে', 'ডাকযোগে ঠিকানায় আসবে', 'ইমেইলে আসবে', 'হাসপাতালে দেবে'], answer: 1, explanation: { bn: 'per posta al domicilio।', en: 'By post.' } },
+      { id: 'rd-a2-19-q1', prompt: { bn: 'কার্ডটি কীভাবে পৌঁছাবে?', en: 'How will the health card arrive?' }, options: ['নিজে গিয়ে আনতে হবে', 'ডাকযোগে ঠিকানায় আসবে', 'ইমেইলে আসবে', 'হাসপাতালে দেবে'], answer: 1, explanation: { bn: 'সঠিক উত্তর: ডাকযোগে ঠিকানায় আসবে — পাঠ্যাংশে বলা হয়েছে: «কয়েক সপ্তাহের মধ্যে উল্লিখিত ঠিকানায় ডাকযোগে বিনামূল্যে কার্ডটি পৌঁছে যাবে।» (per posta al domicilio)।', en: 'By post.' } },
     ],
   }),
   buildReading({
@@ -52,7 +52,7 @@ export const A2_READING_2: ReadingPassage[] = [
     grammarHighlights: [{ excerpt: 'ho dovuto cercarle', note: { bn: 'অতীত মডাল ho dovuto + ইনফিনিটিভ ও সর্বনাম le।', en: 'Past modal + infinitive with attached pronoun.' }, grammarId: 'modali-passato' }],
     relatedGrammarIds: ['stare-per', 'modali-passato'],
     questions: [
-      { id: 'rd-a2-20-q1', prompt: { bn: 'দেরি হওয়ার কারণ কী?', en: 'Why is the sender late?' }, options: ['যানজট', 'চাবি হারিয়ে গেছে', 'বৃষ্টি', 'অসুস্থতা'], answer: 1, explanation: { bn: 'ho perso le chiavi।', en: 'Lost keys.' } },
+      { id: 'rd-a2-20-q1', prompt: { bn: 'দেরি হওয়ার কারণ কী?', en: 'Why is the sender late?' }, options: ['যানজট', 'চাবি হারিয়ে গেছে', 'বৃষ্টি', 'অসুস্থতা'], answer: 1, explanation: { bn: 'সঠিক উত্তর: চাবি হারিয়ে গেছে — পাঠ্যাংশে বলা হয়েছে: «হ্যালো মার্কো! খুব দুঃখিত, ছয়টায় বাড়ি থেকে বের হতে যাচ্ছিলাম কিন্তু চাবি হারিয়ে ফেলেছি আর চারদিকে খুঁজতে হয়েছে।» (ho perso le chiavi)।', en: 'Lost keys.' } },
     ],
   }),
   buildReading({
@@ -66,7 +66,7 @@ export const A2_READING_2: ReadingPassage[] = [
     grammarHighlights: [{ excerpt: 'Ci vogliono almeno due ore', note: { bn: 'বহুবচন সময়ে ci vogliono।', en: 'Plural duration takes ci vogliono.' }, grammarId: 'verbi-pronominali-a2' }],
     relatedGrammarIds: ['verbi-pronominali-a2', 'tempo'],
     questions: [
-      { id: 'rd-a2-21-q1', prompt: { bn: 'সব কাজ কখন শেষ হয়ে গিয়েছিল?', en: 'What time was everything finished?' }, options: ['১১:৩০', '১২:০০', '১২:৩০', '১৪:০০'], answer: 2, explanation: { bn: 'alle dodici e mezza।', en: 'At 12:30.' } },
+      { id: 'rd-a2-21-q1', prompt: { bn: 'সব কাজ কখন শেষ হয়ে গিয়েছিল?', en: 'What time was everything finished?' }, options: ['১১:৩০', '১২:০০', '১২:৩০', '১৪:০০'], answer: 2, explanation: { bn: 'সঠিক উত্তর: ১২:৩০ — পাঠ্যাংশে বলা হয়েছে: «কিন্তু লাইন খুব দ্রুত এগোল এবং সাড়ে বারোটায় সব রসিদ পেয়ে গেলাম!» (alle dodici e mezza)।', en: 'At 12:30.' } },
     ],
   }),
   buildReading({
@@ -79,7 +79,7 @@ export const A2_READING_2: ReadingPassage[] = [
     grammarHighlights: [{ excerpt: 'facilmente / comodamente', note: { bn: 'দুটো ধরণসূচক ক্রিয়াবিশেষণ।', en: 'Two manner adverbs in -mente.' }, grammarId: 'avverbi-a2' }],
     relatedGrammarIds: ['avverbi-a2', 'si-impersonale-a2'],
     questions: [
-      { id: 'rd-a2-22-q1', prompt: { bn: 'তুরিনে বৃষ্টিতেও কেন সহজে হাঁটা যায়?', en: 'Why is walking comfortable in Turin even when it rains?' }, options: ['বড় ছাতা দেয়', 'দীর্ঘ আচ্ছাদিত বারান্দার (portici) জন্য', 'ভূগর্ভস্থ রাস্তা', 'বৃষ্টি কম হয়'], answer: 1, explanation: { bn: 'grazie ai suoi lunghi portici coperti।', en: 'Covered arcades.' } },
+      { id: 'rd-a2-22-q1', prompt: { bn: 'তুরিনে বৃষ্টিতেও কেন সহজে হাঁটা যায়?', en: 'Why is walking comfortable in Turin even when it rains?' }, options: ['বড় ছাতা দেয়', 'দীর্ঘ আচ্ছাদিত বারান্দার (portici) জন্য', 'ভূগর্ভস্থ রাস্তা', 'বৃষ্টি কম হয়'], answer: 1, explanation: { bn: 'সঠিক উত্তর: দীর্ঘ আচ্ছাদিত বারান্দার (portici) জন্য — পাঠ্যাংশে বলা হয়েছে: «তুরিন একটি চমৎকার শহর যা এর দীর্ঘ আচ্ছাদিত বারান্দার (portici) কারণে পায়ে হেঁটে খুব সহজে ঘোরা যায়: বৃষ্টি হলেও না ভিজেই আরামে হাঁটা যায়!» (grazie ai suoi lunghi portici coperti)।', en: 'Covered arcades.' } },
     ],
   }),
   buildReading({
@@ -92,7 +92,7 @@ export const A2_READING_2: ReadingPassage[] = [
     grammarHighlights: [{ excerpt: 'dal primo ottobre', note: { bn: 'মাসের ১ তারিখে ক্রমবাচক primo বসে।', en: '1st of the month uses ordinal primo.' }, grammarId: 'numerali-ordinali' }],
     relatedGrammarIds: ['numerali-ordinali', 'preposizioni-articolate'],
     questions: [
-      { id: 'rd-a2-23-q1', prompt: { bn: 'ভাড়াটেরা কবে ফ্ল্যাট ছাড়ছে?', en: 'When are the tenants leaving the flat?' }, options: ['১লা সেপ্টেম্বর', '১লা অক্টোবর', '১৫ই অক্টোবর', '১লা নভেম্বর'], answer: 1, explanation: { bn: 'dal primo ottobre।', en: '1 October.' } },
+      { id: 'rd-a2-23-q1', prompt: { bn: 'ভাড়াটেরা কবে ফ্ল্যাট ছাড়ছে?', en: 'When are the tenants leaving the flat?' }, options: ['১লা সেপ্টেম্বর', '১লা অক্টোবর', '১৫ই অক্টোবর', '১লা নভেম্বর'], answer: 1, explanation: { bn: 'সঠিক উত্তর: ১লা অক্টোবর — পাঠ্যাংশে বলা হয়েছে: «জনাব বিয়ানকি, চুক্তি অনুযায়ী আগামী ১লা অক্টোবর থেকে আমরা ভিয়া দান্তের অ্যাপার্টমেন্টটি ছেড়ে দিচ্ছি তা নিশ্চিত করতে লিখছি।» (dal primo ottobre)।', en: '1 October.' } },
     ],
   }),
   buildReading({
@@ -106,7 +106,7 @@ export const A2_READING_2: ReadingPassage[] = [
     grammarHighlights: [{ excerpt: 'non c’era più nessuno', note: { bn: 'ক্রিয়ার আগে non + পরে più nessuno।', en: 'Double negative frame.' }, grammarId: 'doppia-negazione' }],
     relatedGrammarIds: ['doppia-negazione', 'indefiniti-a2'],
     questions: [
-      { id: 'rd-a2-24-q1', prompt: { bn: 'কেন সে আরও কয়েক মিনিট অফিসে থাকল?', en: 'Why did he stay a few extra minutes?' }, options: ['বসের অপেক্ষায়', 'কোনো কাজ বাকি না রাখতে', 'বৃষ্টির কারণে', 'চাবি খুঁজতে'], answer: 1, explanation: { bn: 'per non lasciare niente in sospeso।', en: 'To leave nothing pending.' } },
+      { id: 'rd-a2-24-q1', prompt: { bn: 'কেন সে আরও কয়েক মিনিট অফিসে থাকল?', en: 'Why did he stay a few extra minutes?' }, options: ['বসের অপেক্ষায়', 'কোনো কাজ বাকি না রাখতে', 'বৃষ্টির কারণে', 'চাবি খুঁজতে'], answer: 1, explanation: { bn: 'সঠিক উত্তর: কোনো কাজ বাকি না রাখতে — পাঠ্যাংশে বলা হয়েছে: «শুক্রবার সন্ধ্যা সাতটায় অফিসে আর কেউ ছিল না। কোনো কাজ বাকি না রাখতে আমি কয়েক মিনিট থেকে গেলাম।» (per non lasciare niente in sospeso)।', en: 'To leave nothing pending.' } },
     ],
   }),
   buildReading({
@@ -119,7 +119,7 @@ export const A2_READING_2: ReadingPassage[] = [
     grammarHighlights: [{ excerpt: 'ascoltando dieci minuti', note: { bn: 'উপায় বা মাধ্যম বোঝাতে gerundio (ascoltando)।', en: 'Gerund expresses means ("by listening").' }, grammarId: 'gerundio' }],
     relatedGrammarIds: ['gerundio', 'avverbi-a2'],
     questions: [
-      { id: 'rd-a2-25-q1', prompt: { bn: 'শুরুতে কোন ভাষার সাবটাইটেল ব্যবহার করা ভালো?', en: 'Which subtitles are useful at the start?' }, options: ['বাংলা', 'ইতালিয়ান', 'ফরাসি', 'কোনোটিই নয়'], answer: 1, explanation: { bn: 'sottotitoli in italiano।', en: 'Italian subtitles.' } },
+      { id: 'rd-a2-25-q1', prompt: { bn: 'শুরুতে কোন ভাষার সাবটাইটেল ব্যবহার করা ভালো?', en: 'Which subtitles are useful at the start?' }, options: ['বাংলা', 'ইতালিয়ান', 'ফরাসি', 'কোনোটিই নয়'], answer: 1, explanation: { bn: 'সঠিক উত্তর: ইতালিয়ান — পাঠ্যাংশে বলা হয়েছে: «শুরুতে ইতালিয়ান সাবটাইটেল চালু রাখা উপকারী, তারপর একটু অনুশীলন করলে না পড়েও স্পষ্টভাবে বোঝা যায়।» (sottotitoli in italiano)।', en: 'Italian subtitles.' } },
     ],
   }),
   buildReading({
@@ -146,7 +146,7 @@ export const A2_READING_2: ReadingPassage[] = [
     grammarHighlights: [{ excerpt: 'servizio pessimo / migliore cappuccino / meglio', note: { bn: 'অনিয়মিত তুলনা বিশেষণ ও ক্রিয়াবিশেষণ।', en: 'Irregular superlative/comparative adjectives & adverb.' }, grammarId: 'comparativi-irregolari' }],
     relatedGrammarIds: ['comparativi-irregolari', 'connettivi'],
     questions: [
-      { id: 'rd-a2-27-q1', prompt: { bn: 'দ্বিতীয় দোকানের ক্যাপুচিনো কেমন?', en: 'How is the second shop’s cappuccino?' }, options: ['ঠান্ডা', 'এলাকার সেরা', 'খুব তেতো', 'দামি'], answer: 1, explanation: { bn: 'il migliore cappuccino della zona।', en: 'The best in the area.' } },
+      { id: 'rd-a2-27-q1', prompt: { bn: 'দ্বিতীয় দোকানের ক্যাপুচিনো কেমন?', en: 'How is the second shop’s cappuccino?' }, options: ['ঠান্ডা', 'এলাকার সেরা', 'খুব তেতো', 'দামি'], answer: 1, explanation: { bn: 'সঠিক উত্তর: এলাকার সেরা — পাঠ্যাংশে বলা হয়েছে: «স্টেশনের কাছে দুটি পেস্ট্রি শপ আছে। প্রথমটির সেবা খুব খারাপ, আর দ্বিতীয়টি এলাকার সেরা ক্যাপুচিনো বানায়।» (il migliore cappuccino della zona)।', en: 'The best in the area.' } },
     ],
   }),
   buildReading({
@@ -159,7 +159,7 @@ export const A2_READING_2: ReadingPassage[] = [
     grammarHighlights: [{ excerpt: 'verrà consegnato', note: { bn: 'ভবিষ্যতে ডেলিভারি ঘোষণা।', en: 'Future passive notification.' }, grammarId: 'futuro' }],
     relatedGrammarIds: ['futuro', 'doppia-negazione'],
     questions: [
-      { id: 'rd-a2-28-q1', prompt: { bn: 'বাসায় কেউ না থাকলে পার্সেল কোথায় রাখা হবে?', en: 'Where will the parcel go if nobody is home?' }, options: ['ফেরত পাঠাবে', 'সবচেয়ে কাছের পিকআপ পয়েন্টে', 'প্রতিবেশীর কাছে', 'দরজার বাইরে'], answer: 1, explanation: { bn: 'punto di ritiro più vicino।', en: 'Nearest pickup point.' } },
+      { id: 'rd-a2-28-q1', prompt: { bn: 'বাসায় কেউ না থাকলে পার্সেল কোথায় রাখা হবে?', en: 'Where will the parcel go if nobody is home?' }, options: ['ফেরত পাঠাবে', 'সবচেয়ে কাছের পিকআপ পয়েন্টে', 'প্রতিবেশীর কাছে', 'দরজার বাইরে'], answer: 1, explanation: { bn: 'সঠিক উত্তর: সবচেয়ে কাছের পিকআপ পয়েন্টে — পাঠ্যাংশে বলা হয়েছে: «বাড়িতে কেউ না থাকলে কুরিয়ার সবচেয়ে কাছের পিকআপ পয়েন্টে পার্সেলটি রেখে যাবে।» (punto di ritiro più vicino)।', en: 'Nearest pickup point.' } },
     ],
   }),
   buildReading({
@@ -172,7 +172,7 @@ export const A2_READING_2: ReadingPassage[] = [
     grammarHighlights: [{ excerpt: 'Ogni prima domenica', note: { bn: 'ogni + একবচন এবং স্ত্রীলিঙ্গ ক্রমবাচক prima।', en: 'ogni + singular with feminine ordinal.' }, grammarId: 'indefiniti-a2' }],
     relatedGrammarIds: ['indefiniti-a2', 'numerali-ordinali'],
     questions: [
-      { id: 'rd-a2-29-q1', prompt: { bn: 'সরকারি জাদুঘর কবে বিনামূল্যে দেখা যায়?', en: 'When are state museums free?' }, options: ['প্রতি শনিবার', 'মাসের প্রথম রবিবারে', 'মাসের শেষ দিনে', 'শুধু ছুটিতে'], answer: 1, explanation: { bn: 'Ogni prima domenica del mese।', en: 'First Sunday of the month.' } },
+      { id: 'rd-a2-29-q1', prompt: { bn: 'সরকারি জাদুঘর কবে বিনামূল্যে দেখা যায়?', en: 'When are state museums free?' }, options: ['প্রতি শনিবার', 'মাসের প্রথম রবিবারে', 'মাসের শেষ দিনে', 'শুধু ছুটিতে'], answer: 1, explanation: { bn: 'সঠিক উত্তর: মাসের প্রথম রবিবারে — পাঠ্যাংশে বলা হয়েছে: «প্রতি মাসের প্রথম রবিবারে ইতালির বহু সরকারি জাদুঘর সবার জন্য বিনামূল্যে খোলা থাকে! এক ইউরোও খরচ না করে বিখ্যাত শিল্পকর্ম দেখার এটি দারুণ সুযোগ।» (Ogni prima domenica del mese)।', en: 'First Sunday of the month.' } },
     ],
   }),
   buildReading({
@@ -186,7 +186,7 @@ export const A2_READING_2: ReadingPassage[] = [
     grammarHighlights: [{ excerpt: 'ho dovuto scrivere', note: { bn: 'অতীতে বাধ্যবাধকতা: ho dovuto + inf.।', en: 'Past necessity with dovere.' }, grammarId: 'modali-passato' }],
     relatedGrammarIds: ['modali-passato', 'doppia-negazione'],
     questions: [
-      { id: 'rd-a2-30-q1', prompt: { bn: 'কত দিন ধরে পার্সেল আসেনি?', en: 'How long did the parcel fail to arrive?' }, options: ['২ দিন', '৪ দিন', '১ সপ্তাহ', '১০ দিন'], answer: 1, explanation: { bn: 'per quattro giorni।', en: 'Four days.' } },
+      { id: 'rd-a2-30-q1', prompt: { bn: 'কত দিন ধরে পার্সেল আসেনি?', en: 'How long did the parcel fail to arrive?' }, options: ['২ দিন', '৪ দিন', '১ সপ্তাহ', '১০ দিন'], answer: 1, explanation: { bn: 'সঠিক উত্তর: ৪ দিন — পাঠ্যাংশে বলা হয়েছে: «অনলাইনে শীতের জ্যাকেট অর্ডার করেছিলাম, কিন্তু চার দিন কিছুই পাইনি। শেষে অভিযোগ লিখতে হয়েছে।» (per quattro giorni)।', en: 'Four days.' } },
     ],
   }),
   buildReading({
@@ -199,7 +199,7 @@ export const A2_READING_2: ReadingPassage[] = [
     grammarHighlights: [{ excerpt: 'conoscere persone nuove', note: { bn: 'নতুন মানুষের সাথে পরিচিত হতে conoscere।', en: 'conoscere is used for meeting/knowing people.' }, grammarId: 'verbi-servizio-a2' }],
     relatedGrammarIds: ['verbi-servizio-a2', 'si-impersonale-a2'],
     questions: [
-      { id: 'rd-a2-31-q1', prompt: { bn: 'নতুন মানুষদের চেনার ভালো উপায় কী বলা হয়েছে?', en: 'What helps meet new people in a new city?' }, options: ['টিভি দেখা', 'ল্যাঙ্গুয়েজ এক্সচেঞ্জ ও স্পোর্টস কোর্স', 'ঘরে বসে থাকা', 'বেশি কাজ করা'], answer: 1, explanation: { bn: 'scambi linguistici o corsi sportivi।', en: 'Language exchanges or sport classes.' } },
+      { id: 'rd-a2-31-q1', prompt: { bn: 'নতুন মানুষদের চেনার ভালো উপায় কী বলা হয়েছে?', en: 'What helps meet new people in a new city?' }, options: ['টিভি দেখা', 'ল্যাঙ্গুয়েজ এক্সচেঞ্জ ও স্পোর্টস কোর্স', 'ঘরে বসে থাকা', 'বেশি কাজ করা'], answer: 1, explanation: { bn: 'সঠিক উত্তর: ল্যাঙ্গুয়েজ এক্সচেঞ্জ ও স্পোর্টস কোর্স — পাঠ্যাংশে বলা হয়েছে: «বিদেশের কোনো শহরে এলে শুরুতে একটু একা লাগতে পারে। নতুন মানুষদের চেনার ভালো উপায় হলো ল্যাঙ্গুয়েজ এক্সচেঞ্জ বা সান্ধ্য স্পোর্টস কোর্সে অংশ নেওয়া।» (scambi linguistici o corsi sportivi)।', en: 'Language exchanges or sport classes.' } },
     ],
   }),
   buildReading({
@@ -213,7 +213,7 @@ export const A2_READING_2: ReadingPassage[] = [
     grammarHighlights: [{ excerpt: 'ti va di venire? / vi dispiace se…?', note: { bn: 'উষ্ণ আমন্ত্রণ ও ভদ্র প্রস্তাবনা ফ্রেম।', en: 'Polite invitation & offer frames.' }, grammarId: 'volere-piacere-cortesia' }],
     relatedGrammarIds: ['volere-piacere-cortesia', 'connettivi'],
     questions: [
-      { id: 'rd-a2-32-q1', prompt: { bn: 'তারা কখন পর্যন্ত একসাথে রান্না ও গল্প করেছে?', en: 'Until when did they cook and laugh together?' }, options: ['সন্ধ্যা ৬টা', 'রাত অবধি (fino a tardi)', 'বিকেল', 'দুপুর'], answer: 1, explanation: { bn: 'fino a tardi।', en: 'Until late.' } },
+      { id: 'rd-a2-32-q1', prompt: { bn: 'তারা কখন পর্যন্ত একসাথে রান্না ও গল্প করেছে?', en: 'Until when did they cook and laugh together?' }, options: ['সন্ধ্যা ৬টা', 'রাত অবধি (fino a tardi)', 'বিকেল', 'দুপুর'], answer: 1, explanation: { bn: 'সঠিক উত্তর: রাত অবধি (fino a tardi) — পাঠ্যাংশে বলা হয়েছে: «আমরা সবজি কাটি, কড়াইয়ে মশলা মেশাই আর রাত অবধি একসাথে হাসাহাসি করি।» (fino a tardi)।', en: 'Until late.' } },
     ],
   }),
 ];

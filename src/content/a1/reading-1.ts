@@ -31,7 +31,7 @@ export const A1_READING_1: ReadingPassage[] = [
     relatedGrammarIds: ['essere', 'aggettivi'],
     questions: [
       { id: 'rd-a1-01-q1', prompt: { bn: 'রাহিমের সাথে কার দেখা হয়?', en: 'Who does Rahim meet?' }, options: ['Luca', 'Marco', 'Paolo', 'Sara'], answer: 1, explanation: { bn: 'স্টেশনের সামনে মার্কোর সাথে দেখা হয়।', en: 'He meets Marco in front of the station.' } },
-      { id: 'rd-a1-01-q2', prompt: { bn: 'রাহিম কী পড়ে?', en: 'What does Rahim study?' }, options: ['আইন', 'স্থাপত্যবিদ্যা', 'চিকিৎসা', 'সাহিত্য'], answer: 1, explanation: { bn: 'studente di architettura।', en: 'Architecture student.' } },
+      { id: 'rd-a1-01-q2', prompt: { bn: 'রাহিম কী পড়ে?', en: 'What does Rahim study?' }, options: ['আইন', 'স্থাপত্যবিদ্যা', 'চিকিৎসা', 'সাহিত্য'], answer: 1, explanation: { bn: 'সঠিক উত্তর: স্থাপত্যবিদ্যা — পাঠ্যাংশে বলা হয়েছে: «আমি স্থাপত্যবিদ্যার ছাত্র। স্টেশনের সামনে মার্কোর সাথে দেখা হয়। সে ইতালীয় এবং আমরা সাথে সাথে বন্ধু হয়ে যাই।» (studente di architettura)।', en: 'Architecture student.' } },
     ],
   }),
 
@@ -94,8 +94,8 @@ export const A1_READING_1: ReadingPassage[] = [
     ],
     relatedGrammarIds: ['ora-data', 'aggettivi'],
     questions: [
-      { id: 'rd-a1-03-q1', prompt: { bn: 'শনিবার লাইব্রেরি কয়টায় বন্ধ হয়?', en: 'When does the library close on Saturday?' }, options: ['৯:০০', '১৩:০০', '১৯:৩০', 'সারাদিন খোলা'], answer: 1, explanation: { bn: 'chiude alle 13:00।', en: 'Closes at 13:00 (1:00 PM).' } },
-      { id: 'rd-a1-03-q2', prompt: { bn: 'কোন দিন লাইব্রেরি পুরো বন্ধ থাকে?', en: 'Which day is the library completely closed?' }, options: ['সোমবার', 'শনিবার', 'রবিবার', 'শুক্রবার'], answer: 2, explanation: { bn: 'La domenica rimane chiusa।', en: 'Closed on Sunday.' } },
+      { id: 'rd-a1-03-q1', prompt: { bn: 'শনিবার লাইব্রেরি কয়টায় বন্ধ হয়?', en: 'When does the library close on Saturday?' }, options: ['৯:০০', '১৩:০০', '১৯:৩০', 'সারাদিন খোলা'], answer: 1, explanation: { bn: 'সঠিক উত্তর: ১৩:০০ — পাঠ্যাংশে বলা হয়েছে: «শনিবার পাঠকক্ষ সকাল ৯:০০-টায় খোলে এবং দুপুর ১:০০-টায় বন্ধ হয়। রবিবার লাইব্রেরি বন্ধ থাকে।» (chiude alle 13:00)।', en: 'Closes at 13:00 (1:00 PM).' } },
+      { id: 'rd-a1-03-q2', prompt: { bn: 'কোন দিন লাইব্রেরি পুরো বন্ধ থাকে?', en: 'Which day is the library completely closed?' }, options: ['সোমবার', 'শনিবার', 'রবিবার', 'শুক্রবার'], answer: 2, explanation: { bn: 'সঠিক উত্তর: রবিবার — পাঠ্যাংশে বলা হয়েছে: «শনিবার পাঠকক্ষ সকাল ৯:০০-টায় খোলে এবং দুপুর ১:০০-টায় বন্ধ হয়। রবিবার লাইব্রেরি বন্ধ থাকে।» (La domenica rimane chiusa)।', en: 'Closed on Sunday.' } },
     ],
   }),
 
@@ -158,8 +158,8 @@ export const A1_READING_1: ReadingPassage[] = [
     ],
     relatedGrammarIds: ['domande', 'articoli', 'aggettivi'],
     questions: [
-      { id: 'rd-a1-05-q1', prompt: { bn: 'কমলার জুসের দাম কত?', en: 'How much does the orange juice cost?' }, options: ['২ ইউরো', '৩ ইউরো', '৬.৫০ ইউরো', '১.৫০ ইউরো'], answer: 1, explanation: { bn: 'Il succo costa tre euro।', en: 'Three euros.' } },
-      { id: 'rd-a1-05-q2', prompt: { bn: 'গ্রাহক কেমন কর্নেত্তো চেয়েছেন?', en: 'What kind of cornetto does the customer ask for?' }, options: ['চকলেট', 'জ্যাম', 'ক্রিম', 'সাদা'], answer: 2, explanation: { bn: 'un cornetto alla crema।', en: 'A cream cornetto.' } },
+      { id: 'rd-a1-05-q1', prompt: { bn: 'কমলার জুসের দাম কত?', en: 'How much does the orange juice cost?' }, options: ['২ ইউরো', '৩ ইউরো', '৬.৫০ ইউরো', '১.৫০ ইউরো'], answer: 1, explanation: { bn: 'সঠিক উত্তর: ৩ ইউরো — পাঠ্যাংশে বলা হয়েছে: «বারিস্তা: জুসের দাম তিন ইউরো। মোট ছয় ইউরো পঞ্চাশ সেন্ট। ক্যাশে দেবেন নাকি এখানে কার্ডে?» (Il succo costa tre euro)।', en: 'Three euros.' } },
+      { id: 'rd-a1-05-q2', prompt: { bn: 'গ্রাহক কেমন কর্নেত্তো চেয়েছেন?', en: 'What kind of cornetto does the customer ask for?' }, options: ['চকলেট', 'জ্যাম', 'ক্রিম', 'সাদা'], answer: 2, explanation: { bn: 'সঠিক উত্তর: ক্রিম — পাঠ্যাংশে বলা হয়েছে: «গ্রাহক: শুভ সকাল! অনুগ্রহ করে একটি গরম ক্যাপুচিনো ও একটি ক্রিম কর্নেত্তো দিন। কমলার জুসের দাম কত?» (un cornetto alla crema)।', en: 'A cream cornetto.' } },
     ],
   }),
 
@@ -190,8 +190,8 @@ export const A1_READING_1: ReadingPassage[] = [
     ],
     relatedGrammarIds: ['dimostrativi', 'presente-are', 'preposizioni-luogo'],
     questions: [
-      { id: 'rd-a1-06-q1', prompt: { bn: 'করিমের হোটেল কোথায় অবস্থিত?', en: 'Where is Karim’s hotel located?' }, options: ['স্টেশনের ভেতরে', 'আর্নো নদীর কাছে', 'সমুদ্রের পাশে', 'পাহাড়ের উপরে'], answer: 1, explanation: { bn: 'vicino al fiume Arno।', en: 'Near the Arno river.' } },
-      { id: 'rd-a1-06-q2', prompt: { bn: 'করিম কাকে চিঠিটি লিখেছে?', en: 'Who did Karim write to?' }, options: ['তার বন্ধুকে', 'তার মা-বাবাকে', 'তার শিক্ষককে', 'তার বোনকে'], answer: 1, explanation: { bn: 'Cara mamma, caro papà।', en: 'His mother and father.' } },
+      { id: 'rd-a1-06-q1', prompt: { bn: 'করিমের হোটেল কোথায় অবস্থিত?', en: 'Where is Karim’s hotel located?' }, options: ['স্টেশনের ভেতরে', 'আর্নো নদীর কাছে', 'সমুদ্রের পাশে', 'পাহাড়ের উপরে'], answer: 1, explanation: { bn: 'সঠিক উত্তর: আর্নো নদীর কাছে — পাঠ্যাংশে বলা হয়েছে: «প্রিয় মা, প্রিয় বাবা, আমি ফ্লোরেন্স থেকে লিখছি! এই শহরটি দারুণ সুন্দর আর হোটেলটি আর্নো নদীর একদম কাছে।» (vicino al fiume Arno)।', en: 'Near the Arno river.' } },
+      { id: 'rd-a1-06-q2', prompt: { bn: 'করিম কাকে চিঠিটি লিখেছে?', en: 'Who did Karim write to?' }, options: ['তার বন্ধুকে', 'তার মা-বাবাকে', 'তার শিক্ষককে', 'তার বোনকে'], answer: 1, explanation: { bn: 'সঠিক উত্তর: তার মা-বাবাকে — পাঠ্যাংশে বলা হয়েছে: «প্রিয় মা, প্রিয় বাবা, আমি ফ্লোরেন্স থেকে লিখছি! এই শহরটি দারুণ সুন্দর আর হোটেলটি আর্নো নদীর একদম কাছে।» (Cara mamma, caro papà)।', en: 'His mother and father.' } },
     ],
   }),
 
@@ -223,7 +223,7 @@ export const A1_READING_1: ReadingPassage[] = [
     relatedGrammarIds: ['ce', 'ora-data', 'possessivi-a1'],
     questions: [
       { id: 'rd-a1-07-q1', prompt: { bn: 'ভেনিসের ট্রেন কয়টায় ছাড়ে?', en: 'What time does the train depart?' }, options: ['৭:৪০', '৮:১০', '১০:৪০', '১২:০০'], answer: 1, explanation: { bn: 'parte alle otto e dieci (৮:১০)।', en: 'Departs at 8:10.' } },
-      { id: 'rd-a1-07-q2', prompt: { bn: 'পাওলো ট্রেনে বসে কী করে?', en: 'What does Paolo do on the train?' }, options: ['রান্না করে', 'ফোনে বই পড়ে', 'গান গায়', 'ফুটবল খেলে'], answer: 1, explanation: { bn: 'legge un libro sul suo telefono।', en: 'He reads a book on his phone.' } },
+      { id: 'rd-a1-07-q2', prompt: { bn: 'পাওলো ট্রেনে বসে কী করে?', en: 'What does Paolo do on the train?' }, options: ['রান্না করে', 'ফোনে বই পড়ে', 'গান গায়', 'ফুটবল খেলে'], answer: 1, explanation: { bn: 'সঠিক উত্তর: ফোনে বই পড়ে — পাঠ্যাংশে বলা হয়েছে: «ট্রেনে অনেক পর্যটক আছে। পাওলো ফোনে একটি বই পড়ে এবং জানালার বাইরে গ্রামাঞ্চলের সবুজ দৃশ্য দেখে।» (legge un libro sul suo telefono)।', en: 'He reads a book on his phone.' } },
     ],
   }),
 
@@ -255,8 +255,8 @@ export const A1_READING_1: ReadingPassage[] = [
     ],
     relatedGrammarIds: ['possessivi-a1', 'presente-are'],
     questions: [
-      { id: 'rd-a1-08-q1', prompt: { bn: 'বাবা রান্নাঘরে কী তৈরি করেন?', en: 'What does the father make in the kitchen?' }, options: ['চা', 'কফি', 'জুস', 'স্যুপ'], answer: 1, explanation: { bn: 'prepara il caffè।', en: 'He makes coffee.' } },
-      { id: 'rd-a1-08-q2', prompt: { bn: 'দুপুরের খাবার কখন খাওয়া হয়?', en: 'When do they have lunch?' }, options: ['সকাল ১০টায়', 'দুপুর ১২টায় (mezzogiorno)', 'বিকেল ৪টায়', 'রাত ৮টায়'], answer: 1, explanation: { bn: 'A mezzogiorno।', en: 'At noon.' } },
+      { id: 'rd-a1-08-q1', prompt: { bn: 'বাবা রান্নাঘরে কী তৈরি করেন?', en: 'What does the father make in the kitchen?' }, options: ['চা', 'কফি', 'জুস', 'স্যুপ'], answer: 1, explanation: { bn: 'সঠিক উত্তর: কফি — পাঠ্যাংশে বলা হয়েছে: «আজ রবিবার এবং পুরো রোসি পরিবার বাড়িতে আছে। আমার বাবা রান্নাঘরে কফি তৈরি করেন আর আমার মা টেবিল সাজান।» (prepara il caffè)।', en: 'He makes coffee.' } },
+      { id: 'rd-a1-08-q2', prompt: { bn: 'দুপুরের খাবার কখন খাওয়া হয়?', en: 'When do they have lunch?' }, options: ['সকাল ১০টায়', 'দুপুর ১২টায় (mezzogiorno)', 'বিকেল ৪টায়', 'রাত ৮টায়'], answer: 1, explanation: { bn: 'সঠিক উত্তর: দুপুর ১২টায় (mezzogiorno) — পাঠ্যাংশে বলা হয়েছে: «আমার ছোট ভাই বাগানে কুকুরের সাথে খেলে এবং আমার বোন গান শোনে। দুপুরে আমরা একসাথে দাদির তৈরি ওভেন পাস্তা খাই।» (A mezzogiorno)।', en: 'At noon.' } },
     ],
   }),
 
@@ -287,8 +287,8 @@ export const A1_READING_1: ReadingPassage[] = [
     ],
     relatedGrammarIds: ['genere-numero', 'negazione'],
     questions: [
-      { id: 'rd-a1-09-q1', prompt: { bn: 'টমেটোর কেজি কত?', en: 'How much are tomatoes per kilo?' }, options: ['১.৫০ ইউরো', '২.০০ ইউরো', '৫.০০ ইউরো', '৩.০০ ইউরো'], answer: 1, explanation: { bn: 'pomodori maturi a 2,00 euro al chilo।', en: '€2.00 per kilo.' } },
-      { id: 'rd-a1-09-q2', prompt: { bn: 'কার্ডে পেমেন্ট করতে কমপক্ষে কত ইউরোর কেনাকাটা করতে হবে?', en: 'What is the minimum spend to pay by card?' }, options: ['২ ইউরো', '৩ ইউরো', '৫ ইউরো', '১০ ইউরো'], answer: 2, explanation: { bn: 'Non accettiamo carte sotto i cinque euro।', en: 'Not under €5.' } },
+      { id: 'rd-a1-09-q1', prompt: { bn: 'টমেটোর কেজি কত?', en: 'How much are tomatoes per kilo?' }, options: ['১.৫০ ইউরো', '২.০০ ইউরো', '৫.০০ ইউরো', '৩.০০ ইউরো'], answer: 1, explanation: { bn: 'সঠিক উত্তর: ২.০০ ইউরো — পাঠ্যাংশে বলা হয়েছে: «কেন্দ্রীয় বাজার — শুধু এই সপ্তাহে: তাজা লাল আপেল কেজি ১.৫০ ইউরো এবং পাকা টমেটো কেজি ২.০০ ইউরো।» (pomodori maturi a 2,00 euro al chilo)।', en: '€2.00 per kilo.' } },
+      { id: 'rd-a1-09-q2', prompt: { bn: 'কার্ডে পেমেন্ট করতে কমপক্ষে কত ইউরোর কেনাকাটা করতে হবে?', en: 'What is the minimum spend to pay by card?' }, options: ['২ ইউরো', '৩ ইউরো', '৫ ইউরো', '১০ ইউরো'], answer: 2, explanation: { bn: 'সঠিক উত্তর: ৫ ইউরো — পাঠ্যাংশে বলা হয়েছে: «প্রতিদিন সকাল ৭:৩০ থেকে দুপুর ১:৩০ পর্যন্ত গরম রুটি, স্থানীয় পনির ও তাজা ডিমও পাবেন। পাঁচ ইউরোর নিচে কার্ড গ্রহণ করা হয় না।» (Non accettiamo carte sotto i cinque euro)।', en: 'Not under €5.' } },
     ],
   }),
 
@@ -320,7 +320,7 @@ export const A1_READING_1: ReadingPassage[] = [
     relatedGrammarIds: ['avere-espressioni', 'modali', 'dimostrativi'],
     questions: [
       { id: 'rd-a1-10-q1', prompt: { bn: 'ট্যাবলেটগুলো কখন খেতে বলা হয়েছে?', en: 'When should the tablets be taken?' }, options: ['সকালের আগে', 'দুপুরের আগে', 'রাতের খাবারের পর', 'ঘুমানোর ঠিক আগে নয়'], answer: 2, explanation: { bn: 'dopo cena = রাতের খাবারের পর।', en: 'After dinner.' } },
-      { id: 'rd-a1-10-q2', prompt: { bn: 'গ্রাহকের কী কী সমস্যা হয়েছে?', en: 'What symptoms does the customer have?' }, options: ['দাঁতব্যথা', 'মাথাব্যথা ও জ্বর', 'পায়ে ব্যথা', 'কাশি ও সর্দি'], answer: 1, explanation: { bn: 'mal di testa e febbre।', en: 'Headache and fever.' } },
+      { id: 'rd-a1-10-q2', prompt: { bn: 'গ্রাহকের কী কী সমস্যা হয়েছে?', en: 'What symptoms does the customer have?' }, options: ['দাঁতব্যথা', 'মাথাব্যথা ও জ্বর', 'পায়ে ব্যথা', 'কাশি ও সর্দি'], answer: 1, explanation: { bn: 'সঠিক উত্তর: মাথাব্যথা ও জ্বর — পাঠ্যাংশে বলা হয়েছে: «গ্রাহক: শুভ সন্ধ্যা, ডাক্তার। গতকাল সন্ধ্যা থেকে আমার মাথাব্যথা আর একটু জ্বর আছে। আমি কোন ওষুধ খেতে পারি?» (mal di testa e febbre)।', en: 'Headache and fever.' } },
     ],
   }),
 
@@ -352,7 +352,7 @@ export const A1_READING_1: ReadingPassage[] = [
     relatedGrammarIds: ['preposizioni', 'ora-data', 'presente-are'],
     questions: [
       { id: 'rd-a1-11-q1', prompt: { bn: 'পার্টি কার বাড়িতে হচ্ছে?', en: 'Whose house is the party at?' }, options: ['লুকার বাড়িতে', 'চিঠি লেখকের বাড়িতে', 'একটি রেস্টুরেন্টে', 'পার্কে'], answer: 1, explanation: { bn: 'a casa mia = আমার বাড়িতে।', en: 'At the writer’s house.' } },
-      { id: 'rd-a1-11-q2', prompt: { bn: 'অতিথিকে কী আনতে বলা হয়েছে?', en: 'What is the guest asked to bring?' }, options: ['দামি ঘড়ি', 'কেক', 'এক বোতল জুস', 'ফুল'], answer: 2, explanation: { bn: 'basta una bottiglia di succo।', en: 'Just a bottle of juice.' } },
+      { id: 'rd-a1-11-q2', prompt: { bn: 'অতিথিকে কী আনতে বলা হয়েছে?', en: 'What is the guest asked to bring?' }, options: ['দামি ঘড়ি', 'কেক', 'এক বোতল জুস', 'ফুল'], answer: 2, explanation: { bn: 'সঠিক উত্তর: এক বোতল জুস — পাঠ্যাংশে বলা হয়েছে: «আমরা বাড়িতে বানানো পিজ্জা রান্না করব আর একটু গান শুনব। দামি উপহার আনার দরকার নেই, এক বোতল জুস হলেই যথেষ্ট!» (basta una bottiglia di succo)।', en: 'Just a bottle of juice.' } },
     ],
   }),
 ];

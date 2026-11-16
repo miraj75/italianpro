@@ -21,7 +21,7 @@ export const B2_STORIES_2: StoryItem[] = [
       { sentenceIt: 'Come avrebbe spiegato alla famiglia che servivano ulteriori accertamenti?', ruleTitle: { bn: 'মুক্ত পরোক্ষ উক্তি (Discorso indiretto libero)', en: 'Free indirect speech' }, explanation: { bn: '«Si chiese» বা উদ্ধৃতি চিহ্ন ছাড়াই তৃতীয় পুরুষে condizionale passato ব্যবহার করে চরিত্রের অন্তর্গত ভাবনা সরাসরি ফুটিয়ে তোলা হয়েছে।', en: 'Character’s thoughts flow seamlessly into third-person narrative via past conditional and imperfect.' }, grammarId: 'discorso-indiretto-libero' },
     ],
     mcq: [
-      { id: 'stb2-19-q1', prompt: { bn: 'ডাক্তার কন্তি কোন বিভাগের চিকিৎসক?', en: 'Which hospital ward does Dr Conti work in?' }, options: ['শিশু বিভাগ', 'হৃদ্‌রোগ (কার্ডিওলজি) বিভাগ', 'অর্থোপেডিক্স', 'চক্ষু বিভাগ'], answer: 1, explanation: { bn: 'del reparto di cardiologia।', en: 'Cardiology ward.' } },
+      { id: 'stb2-19-q1', prompt: { bn: 'ডাক্তার কন্তি কোন বিভাগের চিকিৎসক?', en: 'Which hospital ward does Dr Conti work in?' }, options: ['শিশু বিভাগ', 'হৃদ্‌রোগ (কার্ডিওলজি) বিভাগ', 'অর্থোপেডিক্স', 'চক্ষু বিভাগ'], answer: 1, explanation: { bn: 'সঠিক উত্তর: হৃদ্‌রোগ (কার্ডিওলজি) বিভাগ — পাঠ্যাংশে বলা হয়েছে: «ডাক্তার কন্তি ধীরে ধীরে চিকিৎসা নথিটি বন্ধ করলেন এবং কার্ডিওলজি বিভাগের জানালার বাইরে তাকালেন। হালকা বৃষ্টির নিচে উঠানের ল্যাম্পপোস্টগুলো জ্বলে উঠছিল। কীভাবে তিনি পরিবারকে বোঝাবেন যে আরও রোগনির্ণয় পরীক্ষা প্রয়োজন?» (del reparto di cardiologia)।', en: 'Cardiology ward.' } },
     ],
     trueFalse: [
       { id: 'stb2-19-tf1', statementIt: 'Il brano usa il discorso indiretto libero senza virgolette.', statement: { bn: 'পাঠ্যাংশটি উদ্ধৃতি চিহ্ন ছাড়াই মুক্ত পরোক্ষ উক্তি ব্যবহার করেছে।', en: 'The passage uses free indirect speech without quotation marks.' }, answer: true, explanation: { bn: 'চরিত্রের প্রশ্নগুলো সরাসরি আখ্যানে মিশে আছে।', en: 'True.' } },
@@ -34,7 +34,7 @@ export const B2_STORIES_2: StoryItem[] = [
     ],
     practice: {
       retellPrompt: { bn: 'মুক্ত পরোক্ষ উক্তিতে একটি প্রশ্ন রেখে ২-৩ বাক্যে অনুচ্ছেদ লিখুন।', en: 'Write a 3-sentence literary paragraph featuring a free indirect question.' },
-      completeMissing: { promptIt: 'Elena chiuse la lettera: dove ___ trovare il coraggio?', hint: { bn: 'condizionale passato: avrebbe potuto', en: 'avrebbe potuto' }, sampleIt: 'Elena chiuse la lettera: dove avrebbe potuto trovare il coraggio?' },
+      completeMissing: { promptIt: 'Elena chiuse la lettera: dove ___ trovare il coraggio?', hint: { bn: 'অতীতের অসমাপ্ত সম্ভাবনা বোঝাতে avrebbe potuto ব্যবহার করুন', en: 'avrebbe potuto' }, sampleIt: 'Elena chiuse la lettera: dove avrebbe potuto trovare il coraggio?' },
       buildSimilar: { patternIt: 'Guardò il treno partire. E ora come sarebbe tornato?', prompt: { bn: 'মুক্ত পরোক্ষ উক্তিতে একটি চরিত্রের দ্বিধা লিখুন।', en: 'Write a character’s inner dilemma in free indirect style.' }, sampleIt: 'Marco osservò il fascicolo. Come avrebbe convinto i soci il giorno dopo?' },
       altEndingPrompt: { bn: 'পরিবারের সাথে ডাক্তার কন্তির সহমর্মী কথোপকথন লিখুন।', en: 'Write Dr Conti’s empathetic conversation with the family.' },
     },
@@ -60,7 +60,7 @@ export const B2_STORIES_2: StoryItem[] = [
       { sentenceIt: 'Una riforma le cui ripercussioni / i progetti tra i quali / ragion per cui.', ruleTitle: { bn: 'il cui, il quale ও ragion per cui', en: 'Possessive cui and formal relatives' }, explanation: { bn: 'le ripercussioni স্ত্রী বহুবচন → le cui; tra i quali পুং বহুবচনে স্পষ্টতা দেয়; ragion per cui = যার ফলে।', en: 'Gender/number agreement on article + cui and preposition + il quale.' }, grammarId: 'relativi-formali-b2' },
     ],
     mcq: [
-      { id: 'stb2-20-q1', prompt: { bn: 'বিশ্ববিদ্যালয়গুলো কেন অতিরিক্ত বরাদ্দ চেয়েছিল?', en: 'Why did universities request top-up funding?' }, options: ['নতুন ক্যান্টিন বানাতে', 'তরুণ ফেলোদের তিন বছরের অর্থায়ন নিশ্চিত করতে', 'ক্রীড়া স্টেডিয়াম গড়তে', 'যানবাহন কিনতে'], answer: 1, explanation: { bn: 'Mancava una copertura triennale certa per i giovani assegnisti।', en: 'Stable three-year funding for fellows was lacking.' } },
+      { id: 'stb2-20-q1', prompt: { bn: 'বিশ্ববিদ্যালয়গুলো কেন অতিরিক্ত বরাদ্দ চেয়েছিল?', en: 'Why did universities request top-up funding?' }, options: ['নতুন ক্যান্টিন বানাতে', 'তরুণ ফেলোদের তিন বছরের অর্থায়ন নিশ্চিত করতে', 'ক্রীড়া স্টেডিয়াম গড়তে', 'যানবাহন কিনতে'], answer: 1, explanation: { bn: 'সঠিক উত্তর: তরুণ ফেলোদের তিন বছরের অর্থায়ন নিশ্চিত করতে — পাঠ্যাংশে বলা হয়েছে: «পর্ষদ প্রকল্পগুলোর তালিকাও প্রকাশ করেছে, যেগুলোর মধ্যে পরিচ্ছন্ন শক্তি বিষয়ক তিনটি গবেষণা বিশেষভাবে নজর কাড়ে। তবে তরুণ ফেলোদের জন্য নিশ্চিত তিন বছরের অর্থায়নের অভাব ছিল, যে কারণে বিশ্ববিদ্যালয়গুলো অতিরিক্ত বরাদ্দ চেয়েছে।» (Mancava una copertura triennale certa per i giovani assegnisti)।', en: 'Stable three-year funding for fellows was lacking.' } },
     ],
     trueFalse: [
       { id: 'stb2-20-tf1', statementIt: 'L’effetto principale della riforma è previsto soltanto nel brevissimo periodo.', statement: { bn: 'সংস্কারটির মূল প্রভাব কেবল স্বল্পতম সময়ের জন্যই প্রত্যাশিত।', en: 'The reform’s main impact is expected only in the very short term.' }, answer: false, explanation: { bn: 'a lungo termine = দীর্ঘমেয়াদে।', en: 'Repercussions will be seen in the long term.' } },
@@ -73,7 +73,7 @@ export const B2_STORIES_2: StoryItem[] = [
     ],
     practice: {
       retellPrompt: { bn: 'il cui / le cui এবং ragion per cui ব্যবহার করে গল্পটি ৩ বাক্যে লিখুন।', en: 'Summarise the research reform using il cui / le cui and ragion per cui.' },
-      completeMissing: { promptIt: 'Lo studioso ___ teorie hanno convinto la giuria è stato premiato.', hint: { bn: 'le teorie (f. pl.): le cui', en: 'le cui' }, sampleIt: 'Lo studioso le cui teorie hanno convinto la giuria è stato premiato.' },
+      completeMissing: { promptIt: 'Lo studioso ___ teorie hanno convinto la giuria è stato premiato.', hint: { bn: 'স্ত্রীলিঙ্গ বহুবচন বিশেষ্যের আগে সম্বন্ধসূচক le cui বসান', en: 'le cui' }, sampleIt: 'Lo studioso le cui teorie hanno convinto la giuria è stato premiato.' },
       buildSimilar: { patternIt: 'La ditta i cui prodotti sono certificati esporta molto.', prompt: { bn: 'আর্টিকেল + cui + বিশেষ্য দিয়ে একটি বাক্য লিখুন।', en: 'Write a sentence with article + cui + noun.' }, sampleIt: 'È un decreto i cui vantaggi si vedranno a lungo termine.' },
       altEndingPrompt: { bn: 'তরুণ ফেলোদের গবেষণাগারে প্রথম কাজের দিন বর্ণনা করুন।', en: 'Describe the fellows’ first day in the upgraded lab.' },
     },
@@ -98,7 +98,7 @@ export const B2_STORIES_2: StoryItem[] = [
       { sentenceIt: 'Secondo quanto emerge / a quanti operano / Chi lavora con contratti precari.', ruleTitle: { bn: 'quanto, quanti ও chi-এর পার্থক্য', en: 'Distinguishing quanto, quanti, chi' }, explanation: { bn: 'quanto (একবচন = যা কিছু), quanti (বহুবচন = যাঁরা সবাই), chi (একবচন = যে ব্যক্তি/যারা)।', en: 'quanto = all that which (sg.); quanti = all those who (pl.); chi = whoever (+ sg. verb).' }, grammarId: 'doppi-relativi' },
     ],
     mcq: [
-      { id: 'stb2-21-q1', prompt: { bn: 'সমীক্ষা অনুযায়ী কীসের কারণে ক্রয়ক্ষমতা কমেছে?', en: 'According to the survey, what caused purchasing power to decrease?' }, options: ['জ্বালানির মূল্যবৃদ্ধি', 'রপ্তানি বন্ধ', 'পর্যটন বৃদ্ধি', 'ব্যাংক ছুটি'], answer: 0, explanation: { bn: 'l’aumento dei prezzi energetici।', en: 'Rising energy prices.' } },
+      { id: 'stb2-21-q1', prompt: { bn: 'সমীক্ষা অনুযায়ী কীসের কারণে ক্রয়ক্ষমতা কমেছে?', en: 'According to the survey, what caused purchasing power to decrease?' }, options: ['জ্বালানির মূল্যবৃদ্ধি', 'রপ্তানি বন্ধ', 'পর্যটন বৃদ্ধি', 'ব্যাংক ছুটি'], answer: 0, explanation: { bn: 'সঠিক উত্তর: জ্বালানির মূল্যবৃদ্ধি — পাঠ্যাংশে বলা হয়েছে: «পরিবারগুলোর ওপর সাম্প্রতিক বার্ষিক সমীক্ষা থেকে যা উঠে এসেছে তা অনুযায়ী, জ্বালানির মূল্যবৃদ্ধি গড় মজুরির ক্রয়ক্ষমতা উল্লেখযোগ্যভাবে কমিয়ে দিয়েছে। যাঁরা অস্থায়ী চুক্তিতে কাজ করেন তাঁরা খাদ্যপণ্যের মূল্যস্ফীতির প্রভাব আরও দ্রুত অনুভব করেন।» (l’aumento dei prezzi energetici)।', en: 'Rising energy prices.' } },
     ],
     trueFalse: [
       { id: 'stb2-21-tf1', statementIt: 'Le proposte dei sindacati comprendono solo aumenti del salario fisso.', statement: { bn: 'ইউনিয়নের প্রস্তাবে কেবল স্থায়ী বেতন বৃদ্ধির কথাই আছে।', en: 'Union proposals include only base salary increases.' }, answer: false, explanation: { bn: 'খাবারের ভাউচার, যাতায়াত ও স্বাস্থ্য অনুদান অন্তর্ভুক্ত।', en: 'They include meal vouchers, transit, and health benefits.' } },
@@ -137,10 +137,10 @@ export const B2_STORIES_2: StoryItem[] = [
       { sentenceIt: 'La perizia tecnica l’abbiamo depositata / Le clausole le abbiamo contestate.', ruleTitle: { bn: 'বামে কর্ম স্থানান্তর (Dislocazione a sinistra)', en: 'Left dislocation with clitic agreement' }, explanation: { bn: 'বাক্যের শুরুতে আসা কর্মের সাথে ক্রিয়ার আগে সর্বনাম (li, l’, le, ne) ও পাস্ট পার্টিসিপলের লিঙ্গ-বচন মেলে।', en: 'Resumptive pronouns agree in gender/number with the fronted object.' }, grammarId: 'dislocazione-sinistra' },
     ],
     mcq: [
-      { id: 'stb2-22-q1', prompt: { bn: 'নাগরিক সংস্থার আইনজীবী কোন বিষয়ে আপত্তি জানিয়েছিলেন?', en: 'What did the civic watchdog lawyer object to?' }, options: ['সেতুর রঙ', 'উপ-চুক্তির অন্যায় ধারাগুলো', 'ইউরোপীয় তহবিল', 'সচিবালয়ের সময়'], answer: 1, explanation: { bn: 'Le clausole vessatorie nei subappalti।', en: 'The unfair clauses in subcontracts.' } },
+      { id: 'stb2-22-q1', prompt: { bn: 'নাগরিক সংস্থার আইনজীবী কোন বিষয়ে আপত্তি জানিয়েছিলেন?', en: 'What did the civic watchdog lawyer object to?' }, options: ['সেতুর রঙ', 'উপ-চুক্তির অন্যায় ধারাগুলো', 'ইউরোপীয় তহবিল', 'সচিবালয়ের সময়'], answer: 1, explanation: { bn: 'সঠিক উত্তর: উপ-চুক্তির অন্যায় ধারাগুলো — পাঠ্যাংশে বলা হয়েছে: «তবে নাগরিক পর্যবেক্ষণ সংস্থার একজন আইনজীবী দরপত্রের শর্তাবলি নিয়ে হস্তক্ষেপ করলেন: «উপ-চুক্তির অন্যায় ধারাগুলোর আমরা সাথে সাথেই আপত্তি জানিয়েছি, কারণ শ্রমিকদের নিরাপত্তার কোনো ঝুঁকিই আমরা নিতে চাই না»।» (Le clausole vessatorie nei subappalti)।', en: 'The unfair clauses in subcontracts.' } },
     ],
     trueFalse: [
-      { id: 'stb2-22-tf1', statementIt: 'L’amministrazione ha rifiutato di modificare il bando prima della gara.', statement: { bn: 'নিলামের আগে প্রশাসন বিজ্ঞপ্তি সংশোধন করতে অস্বীকার করেছিল।', en: 'The administration refused to amend the tender before bidding.' }, answer: false, explanation: { bn: 'accolse il rilievo e integrò il bando।', en: 'It accepted the point and amended the tender.' } },
+      { id: 'stb2-22-tf1', statementIt: 'L’amministrazione ha rifiutato di modificare il bando prima della gara.', statement: { bn: 'নিলামের আগে প্রশাসন বিজ্ঞপ্তি সংশোধন করতে অস্বীকার করেছিল।', en: 'The administration refused to amend the tender before bidding.' }, answer: false, explanation: { bn: 'বাক্যটি মিথ্যা — গল্পে আসলে বলা হয়েছে: «প্রশাসন আপত্তিটি গ্রহণ করল এবং আনুষ্ঠানিক নিলামের আগেই বিজ্ঞপ্তিটি সংশোধন করল।» (accolse il rilievo e integrò il bando)।', en: 'It accepted the point and amended the tender.' } },
     ],
     fillBlank: [
       { id: 'stb2-22-fb1', sentence: 'I progetti esecutivi ___ già approvati la settimana scorsa.', options: ['li abbiamo', 'le abbiamo', 'ne ha', 'la abbiamo'], answer: 0, explanation: { bn: 'I progetti পুং বহুবচন হওয়ায় li abbiamo approvati।', en: 'Masculine plural i progetti takes li.' } },
@@ -150,7 +150,7 @@ export const B2_STORIES_2: StoryItem[] = [
     ],
     practice: {
       retellPrompt: { bn: 'বামে কর্ম স্থানান্তর (lo/la/li/le + পার্টিসিপল) ব্যবহার করে বারি পৌরসভার খবরটি লিখুন।', en: 'Summarise the Bari tender meeting using left dislocation.' },
-      completeMissing: { promptIt: 'La pratica urgente ___ già protocollata stamattina.', hint: { bn: 'la pratica f. sg.: l’abbiamo', en: 'l’abbiamo' }, sampleIt: 'La pratica urgente l’abbiamo già protocollata stamattina.' },
+      completeMissing: { promptIt: 'La pratica urgente ___ già protocollata stamattina.', hint: { bn: 'বাম-স্থানচ্যুত স্ত্রীলিঙ্গ একবচন কর্মের জন্য প্রত্যক্ষ সর্বনাম l’ (l’abbiamo) বসান', en: 'l’abbiamo' }, sampleIt: 'La pratica urgente l’abbiamo già protocollata stamattina.' },
       buildSimilar: { patternIt: 'Le fatture le abbiamo pagate puntualmente.', prompt: { bn: 'বামে কর্ম স্থানান্তর করে একটি বাক্য লিখুন।', en: 'Write a left-dislocated sentence with past participle agreement.' }, sampleIt: 'I fondi strutturali il ministero li ha distribuiti alle regioni.' },
       altEndingPrompt: { bn: 'এক বছর পর নতুন পথচারী সেতুর উদ্বোধনী অনুষ্ঠান লিখুন।', en: 'Describe the ribbon-cutting ceremony for the new footbridge.' },
     },
@@ -175,10 +175,10 @@ export const B2_STORIES_2: StoryItem[] = [
       { sentenceIt: 'L’hai poi letto, il consuntivo annuale? / Ne abbiamo discusso, della ripartizione.', ruleTitle: { bn: 'ডানে কর্ম স্থানান্তর (Dislocazione a destra)', en: 'Right dislocation' }, explanation: { bn: 'প্রাক-সর্বনাম (L’, Ne) ক্রিয়ার আগে বসে এবং কমা-র পরে মূল বিশেষ্য পদটি স্পষ্ট করার জন্য শেষে বসে।', en: 'Anticipatory clitic precedes the verb; the clarified noun phrase follows a comma.' }, grammarId: 'dislocazione-destra' },
     ],
     mcq: [
-      { id: 'stb2-23-q1', prompt: { bn: 'ফ্ল্যাট মালিকদের সভা প্রায় তিন ঘণ্টা চলেছিল কেন?', en: 'Why did the condominium meeting last nearly three hours?' }, options: ['পার্কিং নিয়ে', 'ভবনের সম্মুখভাগের বিশেষ সংস্কার কাজের কারণে', 'বাগান কাটা নিয়ে', 'ইন্টারনেট নিয়ে'], answer: 1, explanation: { bn: 'a causa dei lavori straordinari alla facciata।', en: 'Because of major facade works.' } },
+      { id: 'stb2-23-q1', prompt: { bn: 'ফ্ল্যাট মালিকদের সভা প্রায় তিন ঘণ্টা চলেছিল কেন?', en: 'Why did the condominium meeting last nearly three hours?' }, options: ['পার্কিং নিয়ে', 'ভবনের সম্মুখভাগের বিশেষ সংস্কার কাজের কারণে', 'বাগান কাটা নিয়ে', 'ইন্টারনেট নিয়ে'], answer: 1, explanation: { bn: 'সঠিক উত্তর: ভবনের সম্মুখভাগের বিশেষ সংস্কার কাজের কারণে — পাঠ্যাংশে বলা হয়েছে: «ভায়া মাতৎসিনির ফ্ল্যাট মালিকদের সাধারণ সভা ভবনের সামনের দিকের বিশেষ সংস্কার কাজের কারণে প্রায় তিন ঘণ্টা স্থায়ী হয়েছিল। «তুমি কি তারপর মনোযোগ দিয়ে পড়েছ, বার্ষিক চূড়ান্ত হিসাবটা?» মিসেস ব্রুনি পাশের ফ্ল্যাটের প্রতিবেশীকে জিজ্ঞাসা করলেন।» (a causa dei lavori straordinari alla facciata)।', en: 'Because of major facade works.' } },
     ],
     trueFalse: [
-      { id: 'stb2-23-tf1', statementIt: 'L’amministratore portò tre preventivi diversi per risolvere i dubbi.', statement: { bn: 'সন্দেহ মেটাতে ব্যবস্থাপক তিনটি ভিন্ন প্রাক্কলন নিয়ে এসেছিলেন।', en: 'The manager brought three comparative quotes to settle doubts.' }, answer: true, explanation: { bn: 'presentò tre preventivi comparativi।', en: 'True.' } },
+      { id: 'stb2-23-tf1', statementIt: 'L’amministratore portò tre preventivi diversi per risolvere i dubbi.', statement: { bn: 'সন্দেহ মেটাতে ব্যবস্থাপক তিনটি ভিন্ন প্রাক্কলন নিয়ে এসেছিলেন।', en: 'The manager brought three comparative quotes to settle doubts.' }, answer: true, explanation: { bn: 'বাক্যটি সত্য — গল্পের তথ্যানুযায়ী: «শেষ পর্যন্ত ব্যবস্থাপক তিনটি তুলনামূলক প্রাক্কলন পেশ করলেন এবং সভা প্রায় সর্বসম্মতিক্রমে সেগুলো অনুমোদন করল।» (presentò tre preventivi comparativi)।', en: 'True.' } },
     ],
     fillBlank: [
       { id: 'stb2-23-fb1', sentence: '___ hai già inviato tramite PEC, il reclamo formale?', options: ['La', 'L’', 'Ne', 'Gli'], answer: 1, explanation: { bn: 'il reclamo পুং একবচন হওয়ায় hai-এর আগে L’ (Lo) বসে।', en: 'Masculine singular il reclamo takes L’ before hai.' } },
@@ -188,7 +188,7 @@ export const B2_STORIES_2: StoryItem[] = [
     ],
     practice: {
       retellPrompt: { bn: 'ডানে কর্ম স্থানান্তর ব্যবহার করে সভার কথোপকথনের সারাংশ লিখুন।', en: 'Summarise the meeting using right dislocation.' },
-      completeMissing: { promptIt: '___ conosci bene, il regolamento condominiale?', hint: { bn: 'il regolamento m. sg.: Lo', en: 'Lo' }, sampleIt: 'Lo conosci bene, il regolamento condominiale?' },
+      completeMissing: { promptIt: '___ conosci bene, il regolamento condominiale?', hint: { bn: 'পুংলিঙ্গ একবচন কর্ম পুনরায় নির্দেশ করতে প্রত্যক্ষ সর্বনাম Lo বসান', en: 'Lo' }, sampleIt: 'Lo conosci bene, il regolamento condominiale?' },
       buildSimilar: { patternIt: 'Li hai già controllati, i conti?', prompt: { bn: 'ডানে কর্ম স্থানান্তর করে একটি প্রশ্ন লিখুন।', en: 'Write a question using right dislocation.' }, sampleIt: 'L’avete poi firmata, la delibera dell’assemblea?' },
       altEndingPrompt: { bn: 'ভবন সংস্কার কাজ শেষ হওয়ার পর বাসিন্দাদের সন্তুষ্টি লিখুন।', en: 'Describe residents’ satisfaction once the facade work finishes.' },
     },
@@ -214,7 +214,7 @@ export const B2_STORIES_2: StoryItem[] = [
       { sentenceIt: 'È il sommerso che sottrae risorse / Sono state le tecnologie a dimostrare… / Ciò che manca è…', ruleTitle: { bn: 'বিভক্ত ও ছদ্ম-বিভক্ত বাক্য (Frase scissa)', en: 'Cleft & pseudo-cleft sentences' }, explanation: { bn: 'নির্দিষ্ট উপাদানে জোর দিতে È... che, কর্তা জোর দিতে Sono state... a + infinito, এবং প্রচ্ছন্ন জোরে Ciò che... è... বসে।', en: 'Explicit cleft (che), implicit subject cleft (a + infinitive), and pseudo-cleft (Ciò che… è).' }, grammarId: 'frase-scissa' },
     ],
     mcq: [
-      { id: 'stb2-24-q1', prompt: { bn: 'অর্থনীতিবিদের মতে কী হাসপাতাল ও স্কুলের সম্পদ কমিয়ে দেয়?', en: 'According to the economist, what drains resources from hospitals and schools?' }, options: ['বিদেশি পর্যটন', 'অপ্রাতিষ্ঠানিক কালো অর্থনীতি ও কর ফাঁকি', 'অধিক ছুটি', 'রেলওয়ে'], answer: 1, explanation: { bn: 'È proprio il sommerso che sottrae risorse vitali।', en: 'The shadow economy / tax evasion.' } },
+      { id: 'stb2-24-q1', prompt: { bn: 'অর্থনীতিবিদের মতে কী হাসপাতাল ও স্কুলের সম্পদ কমিয়ে দেয়?', en: 'According to the economist, what drains resources from hospitals and schools?' }, options: ['বিদেশি পর্যটন', 'অপ্রাতিষ্ঠানিক কালো অর্থনীতি ও কর ফাঁকি', 'অধিক ছুটি', 'রেলওয়ে'], answer: 1, explanation: { bn: 'সঠিক উত্তর: অপ্রাতিষ্ঠানিক কালো অর্থনীতি ও কর ফাঁকি — পাঠ্যাংশে বলা হয়েছে: «সরকারি অর্থব্যবস্থা বিষয়ক সম্মেলনে বক্তারা অত্যাবশ্যক সেবার ওপর কর ফাঁকির অর্থনৈতিক প্রভাব বিশ্লেষণ করেন। গোলটেবিল বৈঠক উদ্বোধন করে অর্থনীতিবিদ বলেন, «অপ্রাতিষ্ঠানিক কালো অর্থনীতিই হাসপাতাল ও স্কুল থেকে অত্যাবশ্যক সম্পদ সরিয়ে নেয়»।» (È proprio il sommerso che sottrae risorse vitali)।', en: 'The shadow economy / tax evasion.' } },
     ],
     trueFalse: [
       { id: 'stb2-24-tf1', statementIt: 'La fatturazione elettronica non ha prodotto alcun effetto sul gettito.', statement: { bn: 'ইলেকট্রনিক চালান রাজস্ব আদায়ে কোনো প্রভাব ফেলেনি।', en: 'E-invoicing had no effect on tax revenue.' }, answer: false, explanation: { bn: 'স্বচ্ছতা ও রাজস্ব পুনরুদ্ধারের কার্যকারণ সম্পর্ক প্রমাণিত হয়েছে।', en: 'It demonstrated a clear causal link to recovered revenue.' } },
@@ -227,7 +227,7 @@ export const B2_STORIES_2: StoryItem[] = [
     ],
     practice: {
       retellPrompt: { bn: 'È... che এবং Sono stati... a... ব্যবহার করে সম্মেলনের মূল বক্তব্য লিখুন।', en: 'Summarise the public finance conference using cleft sentences.' },
-      completeMissing: { promptIt: '___ la prevenzione che riduce i costi futuri.', hint: { bn: 'È', en: 'È' }, sampleIt: 'È la prevenzione che riduce i costi futuri.' },
+      completeMissing: { promptIt: '___ la prevenzione che riduce i costi futuri.', hint: { bn: 'বিভক্ত বাক্য (frase scissa) শুরু করতে È ব্যবহার করুন', en: 'È' }, sampleIt: 'È la prevenzione che riduce i costi futuri.' },
       buildSimilar: { patternIt: 'Ciò che serve ora è un piano triennale.', prompt: { bn: 'Ciò che... è... দিয়ে একটি ছদ্ম-বিভক্ত বাক্য লিখুন।', en: 'Write a pseudo-cleft sentence with Ciò che… è…' }, sampleIt: 'Ciò che garantisce l’equità fiscale è la trasparenza dei bilanci.' },
       altEndingPrompt: { bn: 'নতুন কর সরলীকরণ চালুর পর ক্ষুদ্র ব্যবসায়ীদের প্রতিক্রিয়া লিখুন।', en: 'Describe small business owners’ reaction to simplified digital filing.' },
     },
@@ -253,10 +253,10 @@ export const B2_STORIES_2: StoryItem[] = [
       { sentenceIt: 'Alla sessione hanno preso parte il rettore e diversi ministri / Sono scaturite tre intese.', ruleTitle: { bn: 'কর্তা ক্রিয়ার পরে (Inversione del soggetto)', en: 'Post-verbal subject agreement' }, explanation: { bn: 'অকর্মক বা উপস্থাপনমূলক ক্রিয়ার (scaturire, seguire, restare, prendere parte) পরে আসা কর্তা বহুবচন হলে ক্রিয়াও বহুবচন হয়।', en: 'Verb agrees in number and gender with the post-verbal subject.' }, grammarId: 'inversione-soggetto' },
     ],
     mcq: [
-      { id: 'stb2-25-q1', prompt: { bn: 'সম্মেলনটি কোন শহরে অনুষ্ঠিত হয়েছিল?', en: 'In which city was the summit held?' }, options: ['জেনোয়া', 'ত্রিয়েস্তে', 'নাপোলি', 'ভেনিস'], answer: 1, explanation: { bn: 'a Trieste।', en: 'In Trieste.' } },
+      { id: 'stb2-25-q1', prompt: { bn: 'সম্মেলনটি কোন শহরে অনুষ্ঠিত হয়েছিল?', en: 'In which city was the summit held?' }, options: ['জেনোয়া', 'ত্রিয়েস্তে', 'নাপোলি', 'ভেনিস'], answer: 1, explanation: { bn: 'সঠিক উত্তর: ত্রিয়েস্তে — পাঠ্যাংশে বলা হয়েছে: «ভূমধ্যসাগরীয় গবেষণা ও টেকসই সামুদ্রিক করিডোর বিষয়ক আন্তঃসরকারি শীর্ষ সম্মেলন আজ সকালে ত্রিয়েস্তেতে সমাপ্ত হয়েছে। উদ্বোধনী অধিবেশনে আয়োজক বিশ্ববিদ্যালয়ের উপাচার্য, বেশ কয়েকজন মন্ত্রী এবং বহু কারিগরি প্রতিনিধিদল অংশগ্রহণ করেন।» (a Trieste)।', en: 'In Trieste.' } },
     ],
     trueFalse: [
-      { id: 'stb2-25-tf1', statementIt: 'Tutti i capitoli sui dazi doganali sono già stati chiusi definitivamente.', statement: { bn: 'শুল্ক সংক্রান্ত সব অধ্যায় ইতিমধ্যে চূড়ান্তভাবে নিষ্পত্তি হয়ে গেছে।', en: 'All customs chapters have been definitively closed.' }, answer: false, explanation: { bn: 'Restano tuttavia aperti due capitoli tecnici।', en: 'Two technical chapters remain open.' } },
+      { id: 'stb2-25-tf1', statementIt: 'Tutti i capitoli sui dazi doganali sono già stati chiusi definitivamente.', statement: { bn: 'শুল্ক সংক্রান্ত সব অধ্যায় ইতিমধ্যে চূড়ান্তভাবে নিষ্পত্তি হয়ে গেছে।', en: 'All customs chapters have been definitively closed.' }, answer: false, explanation: { bn: 'বাক্যটি মিথ্যা — গল্পে আসলে বলা হয়েছে: «তবে শুল্ক সংক্রান্ত দুটি কারিগরি অধ্যায় এখনো অমীমাংসিত রয়ে গেছে, যার ওপর আগামী মাসে একটি যৌথ দল বৈঠকে বসবে।» (Restano tuttavia aperti due capitoli tecnici)।', en: 'Two technical chapters remain open.' } },
     ],
     fillBlank: [
       { id: 'stb2-25-fb1', sentence: 'Dall’indagine ___ dati statistici molto chiari.', options: ['è emerso', 'sono emersi', 'ha emerso', 'emerse'], answer: 1, explanation: { bn: 'dati পুং বহুবচন হওয়ায় sono emersi বসে।', en: 'Post-verbal plural dati requires sono emersi.' } },
@@ -291,7 +291,7 @@ export const B2_STORIES_2: StoryItem[] = [
       { sentenceIt: 'L’introduzione dell’identità / La semplificazione delle procedure / L’abbattimento dei consumi.', ruleTitle: { bn: 'বিশেষ্যীকরণ (Nominalizzazione)', en: 'Academic/formal nominalisation' }, explanation: { bn: 'ক্রিয়াপদের বদলে introdurre → l’introduzione, semplificare → la semplificazione, ridurre → la riduzione ব্যবহার করে ঘন ও মার্জিত গদ্য তৈরি হয়েছে।', en: 'Abstract nouns compress verbose verb clauses into dense formal phrasing.' }, grammarId: 'nominalizzazione-b2' },
     ],
     mcq: [
-      { id: 'stb2-26-q1', prompt: { bn: 'একক ডিজিটাল পরিচয় চালু হওয়ায় কোন সুবিধা হয়েছে?', en: 'What benefit did the single digital ID bring?' }, options: ['লাইন ছাড়াই তাৎক্ষণিক সনদপত্র পাওয়া', 'বিনামূল্যে বাস ভ্রমণ', 'কর মওকুফ', 'নতুন পাসপোর্ট'], answer: 0, explanation: { bn: 'l’ottenimento immediato dei certificati senza code।', en: 'Immediate certificates without queues.' } },
+      { id: 'stb2-26-q1', prompt: { bn: 'একক ডিজিটাল পরিচয় চালু হওয়ায় কোন সুবিধা হয়েছে?', en: 'What benefit did the single digital ID bring?' }, options: ['লাইন ছাড়াই তাৎক্ষণিক সনদপত্র পাওয়া', 'বিনামূল্যে বাস ভ্রমণ', 'কর মওকুফ', 'নতুন পাসপোর্ট'], answer: 0, explanation: { bn: 'সঠিক উত্তর: লাইন ছাড়াই তাৎক্ষণিক সনদপত্র পাওয়া — পাঠ্যাংশে বলা হয়েছে: «গত পাঁচ বছরে নাগরিক নিবন্ধন আর্কাইভ ডিজিটাল করার সিদ্ধান্ত নাগরিক ও পৌরসভার সম্পর্ক বদলে দিয়েছে। একক ডিজিটাল পরিচয় চালু করায় কাউন্টারে লাইন না দাঁড়িয়েই তাৎক্ষণিকভাবে সনদপত্র পাওয়া সহজতর হয়েছে।» (l’ottenimento immediato dei certificati senza code)।', en: 'Immediate certificates without queues.' } },
     ],
     trueFalse: [
       { id: 'stb2-26-tf1', statementIt: 'Con i servizi online il Comune ha chiuso tutti gli sportelli fisici per gli anziani.', statement: { bn: 'অনলাইন সেবার কারণে পৌরসভা প্রবীণদের জন্য সব সরাসরি কাউন্টার বন্ধ করে দিয়েছে।', en: 'With online services the city closed all physical desks for seniors.' }, answer: false, explanation: { bn: 'কর্মীরা এখন প্রবীণদের প্রতি আরও বেশি সময় দিতে পারেন।', en: 'Staff now dedicate greater in-person support to seniors.' } },
@@ -304,7 +304,7 @@ export const B2_STORIES_2: StoryItem[] = [
     ],
     practice: {
       retellPrompt: { bn: 'l’introduzione / la riduzione / la semplificazione ব্যবহার করে নিবন্ধটি লিখুন।', en: 'Summarise the digitisation article using nominalised nouns.' },
-      completeMissing: { promptIt: '___ delle emissioni migliora la qualità dell’aria.', hint: { bn: 'ridurre → La riduzione', en: 'La riduzione' }, sampleIt: 'La riduzione delle emissioni migliora la qualità dell’aria.' },
+      completeMissing: { promptIt: '___ delle emissioni migliora la qualità dell’aria.', hint: { bn: 'ridurre ক্রিয়ার বিশেষ্যায়িত রূপ La riduzione বসান', en: 'La riduzione' }, sampleIt: 'La riduzione delle emissioni migliora la qualità dell’aria.' },
       buildSimilar: { patternIt: 'L’approvazione del bilancio ha rassicurato i soci.', prompt: { bn: 'ক্রিয়ার বদলে বিশেষ্য পদ দিয়ে একটি বাক্য রূপান্তর করুন।', en: 'Convert a verb clause into a nominalised noun phrase.' }, sampleIt: 'L’aumento dell’efficienza ha agevolato l’accesso ai servizi comunali.' },
       altEndingPrompt: { bn: 'গ্রামীণ এলাকাতেও ডিজিটাল সহায়তা কেন্দ্র খোলার পরিকল্পনা লিখুন।', en: 'Describe expanding assisted digital hubs to rural districts.' },
     },
@@ -330,7 +330,7 @@ export const B2_STORIES_2: StoryItem[] = [
       { sentenceIt: 'tant’è vero che la portata è scesa / Giacché l’agricoltura assorbe…; pertanto…; Ne consegue che…', ruleTitle: { bn: 'কারণ, প্রমাণ ও অনুসিদ্ধান্তের সংযোজক', en: 'Connectors of proof and logical deduction' }, explanation: { bn: 'tant’è vero che প্রমাণ দেয়, giacché কারণ দর্শায়, এবং pertanto / ne consegue che যৌক্তিক ফলাফল টানে।', en: 'Structures logical proof concisely across sentences.' }, grammarId: 'connettivi-argomentativi' },
     ],
     mcq: [
-      { id: 'stb2-27-q1', prompt: { bn: 'নতুন অনুদান পাওয়ার জন্য কৃষকদের কোন শর্ত মানতে হবে?', en: 'What condition did the region attach to new water grants?' }, options: ['কৃষিজমি বিক্রি করা', 'ছিদ্রযুক্ত পুরোনো পাইপ প্রতিস্থাপন করা', 'শীতকালীন ফসল বন্ধ করা', 'বিদ্যুৎ বিল দ্বিগুণ করা'], answer: 1, explanation: { bn: 'la sostituzione delle condotte colabrodo।', en: 'Replacing leaky water pipes.' } },
+      { id: 'stb2-27-q1', prompt: { bn: 'নতুন অনুদান পাওয়ার জন্য কৃষকদের কোন শর্ত মানতে হবে?', en: 'What condition did the region attach to new water grants?' }, options: ['কৃষিজমি বিক্রি করা', 'ছিদ্রযুক্ত পুরোনো পাইপ প্রতিস্থাপন করা', 'শীতকালীন ফসল বন্ধ করা', 'বিদ্যুৎ বিল দ্বিগুণ করা'], answer: 1, explanation: { bn: 'সঠিক উত্তর: ছিদ্রযুক্ত পুরোনো পাইপ প্রতিস্থাপন করা — পাঠ্যাংশে বলা হয়েছে: «যেহেতু কৃষিই লভ্য মিঠা পানির বৃহত্তম অংশ ব্যবহার করে, সেহেতু একটি সেকেলে সেচ ব্যবস্থা পুরো খাদ্য সরবরাহ শৃঙ্খলকে ঝুঁকিতে ফেলে; অতএব অঞ্চলটি নতুন অনুদানকে ছিদ্রযুক্ত পুরোনো পাইপ প্রতিস্থাপনের সাথে শর্তযুক্ত করেছে।» (la sostituzione delle condotte colabrodo)।', en: 'Replacing leaky water pipes.' } },
     ],
     trueFalse: [
       { id: 'stb2-27-tf1', statementIt: 'Le perdite delle reti idriche sono inferiori all’uno per cento ovunque.', statement: { bn: 'সর্বত্র পানি সরবরাহ নেটওয়ার্কের অপচয় এক শতাংশের নিচে।', en: 'Water network losses are below one per cent everywhere.' }, answer: false, explanation: { bn: 'কিছু অংশে ত্রিশ শতাংশেরও বেশি (superano il trenta per cento)।', en: 'They exceed thirty per cent in some sections.' } },
@@ -368,10 +368,10 @@ export const B2_STORIES_2: StoryItem[] = [
       { sentenceIt: 'In primo luogo…; in secondo luogo… vale a dire…; In altre parole…; In ultima analisi…', ruleTitle: { bn: 'ক্রম, ব্যাখ্যা ও উপসংহারের সংযোজক', en: 'Ordering, reformulation & synthesis markers' }, explanation: { bn: 'প্রবন্ধের ধাপ স্পষ্ট করতে In primo/secondo luogo, পরিভাষা বোঝাতে vale a dire, এবং সারসংক্ষেপে In ultima analisi বসেছে।', en: 'Guides the reader cleanly through thesis, explanation, and synthesis.' }, grammarId: 'connettivi-riformulazione' },
     ],
     mcq: [
-      { id: 'stb2-28-q1', prompt: { bn: '«il trattamento di fine rapporto» বলতে কী বোঝানো হয়েছে?', en: 'How does the text define trattamento di fine rapporto?' }, options: ['বাৎসরিক উৎসব ভাতা', 'চাকরি শেষে কর্মীর জন্য সঞ্চিত অর্থ', 'ব্যাংক ঋণ', 'ভ্রমণ ভাতা'], answer: 1, explanation: { bn: 'la somma accantonata al termine del servizio।', en: 'The sum accrued for the worker at end of service.' } },
+      { id: 'stb2-28-q1', prompt: { bn: '«il trattamento di fine rapporto» বলতে কী বোঝানো হয়েছে?', en: 'How does the text define trattamento di fine rapporto?' }, options: ['বাৎসরিক উৎসব ভাতা', 'চাকরি শেষে কর্মীর জন্য সঞ্চিত অর্থ', 'ব্যাংক ঋণ', 'ভ্রমণ ভাতা'], answer: 1, explanation: { bn: 'সঠিক উত্তর: চাকরি শেষে কর্মীর জন্য সঞ্চিত অর্থ — পাঠ্যাংশে বলা হয়েছে: «শিল্পাঞ্চলগুলোতে কীভাবে অর্থনৈতিক প্রতিযোগিতা সক্ষমতা এবং সামাজিক সংহতির মধ্যে সমন্বয় ঘটানো যায়? প্রথমত, যৌথ দর-কষাকষির গুরুত্ব বাড়াতে হবে যাতে মজুরি প্রকৃত উৎপাদনশীলতাকে অনুসরণ করে; দ্বিতীয়ত, কর্ম-সমাপ্তি ভাতা (টিএফআর) সুরক্ষিত রাখতে হবে, অর্থাৎ চাকরির মেয়াদ শেষে কর্মীর জন্য সঞ্চিত অর্থ রক্ষা করতে হবে।» (la somma accantonata al termine del servizio)।', en: 'The sum accrued for the worker at end of service.' } },
     ],
     trueFalse: [
-      { id: 'stb2-28-tf1', statementIt: 'Investire nella formazione continua aiuta a trattenere i giovani talenti.', statement: { bn: 'ধারাবাহিক প্রশিক্ষণে বিনিয়োগ তরুণ মেধাবীদের ধরে রাখতে সাহায্য করে।', en: 'Investing in training helps retain young talent.' }, answer: true, explanation: { bn: 'riducono il ricambio e trattengono i talenti giovani।', en: 'True.' } },
+      { id: 'stb2-28-tf1', statementIt: 'Investire nella formazione continua aiuta a trattenere i giovani talenti.', statement: { bn: 'ধারাবাহিক প্রশিক্ষণে বিনিয়োগ তরুণ মেধাবীদের ধরে রাখতে সাহায্য করে।', en: 'Investing in training helps retain young talent.' }, answer: true, explanation: { bn: 'বাক্যটি সত্য — গল্পের তথ্যানুযায়ী: «অন্য কথায়, প্রতিষ্ঠানগুলো যখন বেতন কমানোর বদলে ধারাবাহিক প্রশিক্ষণে বিনিয়োগ করে, তখন কর্মী বদলের হার কমে এবং তরুণ মেধাবীরা প্রতিষ্ঠানে থেকে যায়।» (riducono il ricambio e trattengono i talenti giovani)।', en: 'True.' } },
     ],
     fillBlank: [
       { id: 'stb2-28-fb1', sentence: 'Il bando prevede la PEC, ___ la posta elettronica certificata.', options: ['ossia', 'pertanto', 'qualora', 'malgrado'], answer: 0, explanation: { bn: 'ossia / vale a dire ব্যাখ্যা বা পূর্ণরূপ প্রবর্তন করে।', en: 'ossia introduces a definition or clarification.' } },
@@ -407,10 +407,10 @@ export const B2_STORIES_2: StoryItem[] = [
       { sentenceIt: 'Alla luce dei dati / A prescindere dai ritmi / a scapito dell’incolumità / a beneficio di tutto il settore.', ruleTitle: { bn: 'যৌগিক প্রিপোজিশনাল পদগুচ্ছ', en: 'Complex prepositional phrases' }, explanation: { bn: 'প্রতিটি পদগুচ্ছের শেষ প্রিপোজিশন (di, da, con) আর্টিকেলের সাথে যুক্ত হয়ে সূক্ষ্ম সম্পর্ক প্রকাশ করে।', en: 'Pay close attention to the exact governing preposition (alla luce di, a prescindere da).' }, grammarId: 'locuzioni-preposizionali-b2' },
     ],
     mcq: [
-      { id: 'stb2-29-q1', prompt: { bn: 'বিদেশি কর্মীদের জন্য প্রশিক্ষণ কেমন ছিল?', en: 'How were practical safety courses delivered for foreign workers?' }, options: ['শুধু অনলাইনে', 'একাধিক ভাষায় মাসিক ব্যবহারিক প্রশিক্ষণ', 'বছরে একবার লিখিত পরীক্ষা', 'কোনো প্রশিক্ষণ ছিল না'], answer: 1, explanation: { bn: 'corsi pratici mensili in più lingue।', en: 'Monthly practical courses in multiple languages.' } },
+      { id: 'stb2-29-q1', prompt: { bn: 'বিদেশি কর্মীদের জন্য প্রশিক্ষণ কেমন ছিল?', en: 'How were practical safety courses delivered for foreign workers?' }, options: ['শুধু অনলাইনে', 'একাধিক ভাষায় মাসিক ব্যবহারিক প্রশিক্ষণ', 'বছরে একবার লিখিত পরীক্ষা', 'কোনো প্রশিক্ষণ ছিল না'], answer: 1, explanation: { bn: 'সঠিক উত্তর: একাধিক ভাষায় মাসিক ব্যবহারিক প্রশিক্ষণ — পাঠ্যাংশে বলা হয়েছে: «ইউরোপীয় নির্দেশনা অনুসারে, প্রতিটি নির্মাণ সাইটে লোড সেন্সর এবং সব বিদেশি সহকর্মীর জন্য নিয়মগুলো সম্পূর্ণ বোঝা সহজ করতে একাধিক ভাষায় মাসিক ব্যবহারিক প্রশিক্ষণের ব্যবস্থা করা হয়েছে।» (corsi pratici mensili in più lingue)।', en: 'Monthly practical courses in multiple languages.' } },
     ],
     trueFalse: [
-      { id: 'stb2-29-tf1', statementIt: 'Il consorzio accelera le consegne anche riducendo le misure di sicurezza.', statement: { bn: 'দ্রুত কাজ শেষ করতে কনসোর্টিয়াম নিরাপত্তা ব্যবস্থা কমিয়ে দেয়।', en: 'The consortium speeds deliveries by cutting safety rules.' }, answer: false, explanation: { bn: 'non accetteremo scorciatoie a scapito dell’incolumità।', en: 'It never compromises safety.' } },
+      { id: 'stb2-29-tf1', statementIt: 'Il consorzio accelera le consegne anche riducendo le misure di sicurezza.', statement: { bn: 'দ্রুত কাজ শেষ করতে কনসোর্টিয়াম নিরাপত্তা ব্যবস্থা কমিয়ে দেয়।', en: 'The consortium speeds deliveries by cutting safety rules.' }, answer: false, explanation: { bn: 'বাক্যটি মিথ্যা — গল্পে আসলে বলা হয়েছে: «শ্রম পরিদর্শন দপ্তরের প্রকাশিত তথ্যের আলোকে ভেনেতোর একটি নির্মাণ কনসোর্টিয়াম কর্মক্ষেত্রের নিরাপত্তার প্রোটোকল সম্পূর্ণভাবে নবায়ন করেছে। «কাজ হস্তান্তরের দ্রুত সময়সীমা নির্বিশেষে — ব্যবস্থাপক ঘোষণা করেছেন — শ্রমিকদের নিরাপত্তার ক্ষতি করে আমরা কখনোই কোনো শর্টকাট মেনে নেব না»।» (non accetteremo scorciatoie a scapito dell’incolumità)।', en: 'It never compromises safety.' } },
     ],
     fillBlank: [
       { id: 'stb2-29-fb1', sentence: '___ difficoltà iniziali, il progetto è stato completato in sicurezza.', options: ['A prescindere dalle', 'A prescindere delle', 'Alla luce dalle', 'Ai sensi dalle'], answer: 0, explanation: { bn: 'a prescindere সর্বদা da প্রিপোজিশন নেয় → dalle।', en: 'a prescindere governs da → dalle.' } },
@@ -445,7 +445,7 @@ export const B2_STORIES_2: StoryItem[] = [
       { sentenceIt: 'Perché ce l’abbia con me / Cosa c’entra la tua battuta / Non se la prenderà.', ruleTitle: { bn: 'সর্বনামযুক্ত ক্রিয়া (Verbi procomplementari)', en: 'Procomplementary verbs' }, explanation: { bn: 'avercela con (রাগ থাকা), entrarci (প্রাসঙ্গিক হওয়া), prendersela (মনে কষ্ট নেওয়া) — সর্বনামগুলো স্থির অর্থ তৈরি করে।', en: 'Fixed clitic combinations carry idiomatic meanings.' }, grammarId: 'verbi-procomplementari' },
     ],
     mcq: [
-      { id: 'stb2-30-q1', prompt: { bn: 'ভুল বোঝাবুঝির আসল কারণ কী ছিল?', en: 'What was the real cause of the misunderstanding?' }, options: ['কফি মেশিন নষ্ট হওয়া', 'নতুন গ্রাহক বণ্টন', 'বেতন কাটা', 'অফিস বদল'], answer: 1, explanation: { bn: 'un banale malinteso sull’assegnazione del nuovo cliente।', en: 'The new client assignment.' } },
+      { id: 'stb2-30-q1', prompt: { bn: 'ভুল বোঝাবুঝির আসল কারণ কী ছিল?', en: 'What was the real cause of the misunderstanding?' }, options: ['কফি মেশিন নষ্ট হওয়া', 'নতুন গ্রাহক বণ্টন', 'বেতন কাটা', 'অফিস বদল'], answer: 1, explanation: { bn: 'সঠিক উত্তর: নতুন গ্রাহক বণ্টন — পাঠ্যাংশে বলা হয়েছে: ««আরে না, তোমার রসিকতা এখানে আসবে কেন!» সারা হেসে উত্তর দিলেন। «এটা কেবল নতুন গ্রাহক বণ্টন নিয়ে একটা সামান্য ভুল বোঝাবুঝি। ওর সাথে খোলাখুলি কথা বলো: দেখবে ও মোটেও মনে কষ্ট নেবে না»।» (un banale malinteso sull’assegnazione del nuovo cliente)।', en: 'The new client assignment.' } },
     ],
     trueFalse: [
       { id: 'stb2-30-tf1', statementIt: 'Davide e Valeria non sono riusciti a chiarirsi e hanno litigato.', statement: { bn: 'দাভিদে ও ভালেরিয়া বিষয়টি মেটাতে পারেননি এবং ঝগড়া করেছেন।', en: 'Davide and Valeria failed to clear the air.' }, answer: false, explanation: { bn: 'পাঁচ মিনিটেই সব স্পষ্ট হয়ে যায়।', en: 'They cleared it up in five minutes.' } },
@@ -484,10 +484,10 @@ export const B2_STORIES_2: StoryItem[] = [
       { sentenceIt: 'I comuni hanno diminuito le aliquote / il numero è diminuito / la qualità è migliorata.', ruleTitle: { bn: 'কর্মভেদে avere ও essere', en: 'Transitive avere vs intransitive essere' }, explanation: { bn: 'কর্ম (le aliquote, l’assistenza) থাকলে avere, আর কর্মহীন অবস্থায় কর্তার পরিবর্তন বোঝালে essere বসে।', en: 'Direct object → avere; intransitive change → essere with agreement.' }, grammarId: 'verbi-doppio-ausiliare' },
     ],
     mcq: [
-      { id: 'stb2-31-q1', prompt: { bn: 'প্রতিবেদনে আয়ুষ্কাল বৃদ্ধির কারণ কী বলা হয়েছে?', en: 'What reason is given for rising life expectancy?' }, options: ['শীতকালীন ছুটি', 'প্রতিরোধমূলক চিকিৎসার অগ্রগতি', 'কর বৃদ্ধি', 'নতুন মহাসড়ক'], answer: 1, explanation: { bn: 'grazie ai progressi della medicina preventiva।', en: 'Advances in preventive medicine.' } },
+      { id: 'stb2-31-q1', prompt: { bn: 'প্রতিবেদনে আয়ুষ্কাল বৃদ্ধির কারণ কী বলা হয়েছে?', en: 'What reason is given for rising life expectancy?' }, options: ['শীতকালীন ছুটি', 'প্রতিরোধমূলক চিকিৎসার অগ্রগতি', 'কর বৃদ্ধি', 'নতুন মহাসড়ক'], answer: 1, explanation: { bn: 'সঠিক উত্তর: প্রতিরোধমূলক চিকিৎসার অগ্রগতি — পাঠ্যাংশে বলা হয়েছে: «বার্ষিক জনসংখ্যা প্রতিবেদন এক গভীর রূপান্তরশীল দেশের চিত্র তুলে ধরে। গত ত্রিশ বছরে প্রতিরোধমূলক চিকিৎসার অগ্রগতির ফলে গড় আয়ুষ্কাল ধারাবাহিকভাবে বৃদ্ধি পেয়েছে, অন্যদিকে প্রায় সব অঞ্চলেই নতুন জন্মের সংখ্যা কমে গেছে।» (grazie ai progressi della medicina preventiva)।', en: 'Advances in preventive medicine.' } },
     ],
     trueFalse: [
-      { id: 'stb2-31-tf1', statementIt: 'Alcuni comuni hanno ridotto le aliquote locali per sostenere gli asili nido.', statement: { bn: 'শিশু দিবাযত্ন কেন্দ্রকে সহায়তা করতে কিছু পৌরসভা স্থানীয় করের হার কমিয়েছে।', en: 'Some municipalities lowered local rates to support nurseries.' }, answer: true, explanation: { bn: 'hanno diminuito le aliquote locali per gli asili nido।', en: 'True.' } },
+      { id: 'stb2-31-tf1', statementIt: 'Alcuni comuni hanno ridotto le aliquote locali per sostenere gli asili nido.', statement: { bn: 'শিশু দিবাযত্ন কেন্দ্রকে সহায়তা করতে কিছু পৌরসভা স্থানীয় করের হার কমিয়েছে।', en: 'Some municipalities lowered local rates to support nurseries.' }, answer: true, explanation: { bn: 'বাক্যটি সত্য — গল্পের তথ্যানুযায়ী: «তরুণ পরিবার ও প্রবীণদের স্বাস্থ্যসেবা সহায়তায় কিছু পৌরসভা শিশু দিবাযত্ন কেন্দ্রের স্থানীয় করের হার কমিয়েছে এবং গৃহভিত্তিক সেবা উন্নত করেছে। ফলস্বরূপ পাড়ার সেবার সামগ্রিক মান উল্লেখযোগ্যভাবে উন্নত হয়েছে।» (hanno diminuito le aliquote locali per gli asili nido)।', en: 'True.' } },
     ],
     fillBlank: [
       { id: 'stb2-31-fb1', sentence: 'La banca centrale ___ aumentato i tassi di interesse.', options: ['è', 'ha', 'sono', 'siano'], answer: 1, explanation: { bn: 'সরাসরি কর্ম i tassi থাকায় সহায়ক ha বসে।', en: 'Transitive object i tassi triggers auxiliary ha.' } },
@@ -522,10 +522,10 @@ export const B2_STORIES_2: StoryItem[] = [
       { sentenceIt: 'Decise di non lasciarsi scoraggiare / Si fece inviare / Si fece assistere.', ruleTitle: { bn: 'প্রতিফলক প্রযোজক ক্রিয়া (farsi / lasciarsi)', en: 'Reflexive causatives' }, explanation: { bn: 'নিজের জন্য করানো (farsi inviare/assistere) এবং নিজেকে প্রভাবিত হতে না দেওয়া (non lasciarsi scoraggiare) যৌগিক কালে essere নেয়।', en: 'farsi/lasciarsi + infinitive take auxiliary essere in compound tenses.' }, grammarId: 'causativi-riflessivi' },
     ],
     mcq: [
-      { id: 'stb2-32-q1', prompt: { bn: 'লুচিয়া কারিগরি তথ্যপত্র পরীক্ষা করে কী জানতে পারেন?', en: 'What did Lucia discover from the official technical sheet?' }, options: ['বিদ্যুৎ ভোল্টেজ কম ছিল', 'যন্ত্রটি একটি ত্রুটিপূর্ণ ব্যাচের অংশ ছিল', 'ওয়ারেন্টি শেষ হয়েছিল', 'ভুল কালি ব্যবহার হয়েছে'], answer: 1, explanation: { bn: 'si trattava di un lotto difettoso।', en: 'It belonged to a defective batch.' } },
+      { id: 'stb2-32-q1', prompt: { bn: 'লুচিয়া কারিগরি তথ্যপত্র পরীক্ষা করে কী জানতে পারেন?', en: 'What did Lucia discover from the official technical sheet?' }, options: ['বিদ্যুৎ ভোল্টেজ কম ছিল', 'যন্ত্রটি একটি ত্রুটিপূর্ণ ব্যাচের অংশ ছিল', 'ওয়ারেন্টি শেষ হয়েছিল', 'ভুল কালি ব্যবহার হয়েছে'], answer: 1, explanation: { bn: 'সঠিক উত্তর: যন্ত্রটি একটি ত্রুটিপূর্ণ ব্যাচের অংশ ছিল — পাঠ্যাংশে বলা হয়েছে: «ল্যাবের ইন্ডাস্ট্রিয়াল প্রিন্টারটি যখন তৃতীয়বারের মতো নষ্ট হলো, লুচিয়া বিক্রেতার এড়িয়ে যাওয়া উত্তরে নিরুৎসাহিত না হওয়ার সিদ্ধান্ত নিলেন। তিনি উৎপাদকের কাছ থেকে অফিশিয়াল কারিগরি তথ্যপত্র আনিয়ে নিলেন এবং জানতে পারলেন যে এটি একটি ত্রুটিপূর্ণ ব্যাচ ছিল।» (si trattava di un lotto difettoso)।', en: 'It belonged to a defective batch.' } },
     ],
     trueFalse: [
-      { id: 'stb2-32-tf1', statementIt: 'Lucia ha dovuto pagare l’intero importo per la nuova stampante.', statement: { bn: 'নতুন প্রিন্টারের জন্য লুচিয়াকে পুরো দাম দিতে হয়েছিল।', en: 'Lucia had to pay full price for the replacement printer.' }, answer: false, explanation: { bn: 'ottenne la sostituzione gratuita।', en: 'She obtained a free replacement.' } },
+      { id: 'stb2-32-tf1', statementIt: 'Lucia ha dovuto pagare l’intero importo per la nuova stampante.', statement: { bn: 'নতুন প্রিন্টারের জন্য লুচিয়াকে পুরো দাম দিতে হয়েছিল।', en: 'Lucia had to pay full price for the replacement printer.' }, answer: false, explanation: { bn: 'বাক্যটি মিথ্যা — গল্পে আসলে বলা হয়েছে: «সেই নথির জোরে তিনি কারিগর সমিতির আইনি দপ্তরের সহায়তা নিলেন এবং আটচল্লিশ ঘণ্টার মধ্যে ত্রুটিপূর্ণ পণ্যটির বিনামূল্যে পরিবর্তন আদায় করলেন। তিনি সহকর্মীদের বললেন, «ছোট বিবাদেও দাম্ভিকতায় নতি স্বীকার না করে নিজের মর্যাদা রক্ষা করতে জানতে হয়»।» (ottenne la sostituzione gratuita)।', en: 'She obtained a free replacement.' } },
     ],
     fillBlank: [
       { id: 'stb2-32-fb1', sentence: 'L’impresa ___ rilasciare il certificato di conformità.', options: ['ha fatto', 'si è fatta', 'si ha fatto', 'l’è fatta'], answer: 1, explanation: { bn: 'l’impresa (স্ত্রী একবচন) + farsi → si è fatta rilasciare।', en: 'Feminine subject l’impresa takes si è fatta.' } },
@@ -535,7 +535,7 @@ export const B2_STORIES_2: StoryItem[] = [
     ],
     practice: {
       retellPrompt: { bn: 'si è fatta... এবং non lasciarsi... ব্যবহার করে লুচিয়ার অভিজ্ঞতা লিখুন।', en: 'Summarise Lucia’s negotiation using farsi and lasciarsi.' },
-      completeMissing: { promptIt: 'Il cliente ___ rimborsare l’intera somma.', hint: { bn: 'farsi (m. sg.): si è fatto', en: 'si è fatto' }, sampleIt: 'Il cliente si è fatto rimborsare l’intera somma.' },
+      completeMissing: { promptIt: 'Il cliente ___ rimborsare l’intera somma.', hint: { bn: 'আত্মবাচক প্রযোজক গঠনে si è fatto ব্যবহার করুন', en: 'si è fatto' }, sampleIt: 'Il cliente si è fatto rimborsare l’intera somma.' },
       buildSimilar: { patternIt: 'Non ti lasciare ingannare dalle apparenze.', prompt: { bn: 'lasciarsi + ইনফিনিটিভ দিয়ে একটি উপদেশ লিখুন।', en: 'Write a piece of advice using lasciarsi + infinitive.' }, sampleIt: 'Non lasciarti intimidire quando difendi un diritto legittimo.' },
       altEndingPrompt: { bn: 'নতুন প্রিন্টার আসার পর কর্মশালার কাজের গতি বর্ণনা করুন।', en: 'Describe workshop operations once the new printer arrives.' },
     },
@@ -560,13 +560,13 @@ export const B2_STORIES_2: StoryItem[] = [
       { sentenceIt: 'Più complessa di quanto non appaia / a meno che non abbia richiesto / finché non viene collaudato.', ruleTitle: { bn: 'অলংকারিক non', en: 'Pleonastic negation' }, explanation: { bn: 'এখানে non নেতিবাচক অর্থ বদলায় না, বরং তুলনা (di quanto non), ব্যতিক্রম (a meno che non = যদি না) এবং সীমা (finché non = যতক্ষণ না) জোরালো করে।', en: 'Pleonastic non strengthens comparisons and marks "unless" / "until".' }, grammarId: 'negazione-pleonastica' },
     ],
     mcq: [
-      { id: 'stb2-33-q1', prompt: { bn: 'কত দিনের মধ্যে ক্রয় বাতিলের অধিকার বহাল থাকে?', en: 'Within how many days does the right of withdrawal apply?' }, options: ['৭ দিন', '১৪ দিন', '৩০ দিন', '৯০ দিন'], answer: 1, explanation: { bn: 'entro quattordici giorni।', en: 'Within fourteen days.' } },
+      { id: 'stb2-33-q1', prompt: { bn: 'কত দিনের মধ্যে ক্রয় বাতিলের অধিকার বহাল থাকে?', en: 'Within how many days does the right of withdrawal apply?' }, options: ['৭ দিন', '১৪ দিন', '৩০ দিন', '৯০ দিন'], answer: 1, explanation: { bn: 'সঠিক উত্তর: ১৪ দিন — পাঠ্যাংশে বলা হয়েছে: «চৌদ্দ দিনের মধ্যে চুক্তিটি সম্পূর্ণভাবে বাতিলযোগ্য থাকে, যদি না গ্রাহক স্পষ্টভাবে আগাম স্থাপনের অনুরোধ করে থাকেন। তাছাড়া, যন্ত্রটি প্রকৃতপক্ষে পরীক্ষিত না হওয়া পর্যন্ত সরবরাহকারী কোনো খরচ চার্জ করে না।» (entro quattordici giorni)।', en: 'Within fourteen days.' } },
     ],
     trueFalse: [
-      { id: 'stb2-33-tf1', statementIt: 'Il fornitore addebita subito l’intero prezzo prima del collaudo.', statement: { bn: 'সরবরাহকারী পরীক্ষার আগেই পুরো দাম কেটে নেয়।', en: 'The supplier charges the full price before testing.' }, answer: false, explanation: { bn: 'non addebita alcun costo finché non viene collaudato।', en: 'No charge is billed until testing.' } },
+      { id: 'stb2-33-tf1', statementIt: 'Il fornitore addebita subito l’intero prezzo prima del collaudo.', statement: { bn: 'সরবরাহকারী পরীক্ষার আগেই পুরো দাম কেটে নেয়।', en: 'The supplier charges the full price before testing.' }, answer: false, explanation: { bn: 'বাক্যটি মিথ্যা — গল্পে আসলে বলা হয়েছে: «চৌদ্দ দিনের মধ্যে চুক্তিটি সম্পূর্ণভাবে বাতিলযোগ্য থাকে, যদি না গ্রাহক স্পষ্টভাবে আগাম স্থাপনের অনুরোধ করে থাকেন। তাছাড়া, যন্ত্রটি প্রকৃতপক্ষে পরীক্ষিত না হওয়া পর্যন্ত সরবরাহকারী কোনো খরচ চার্জ করে না।» (non addebita alcun costo finché non viene collaudato)।', en: 'No charge is billed until testing.' } },
     ],
     fillBlank: [
-      { id: 'stb2-33-fb1', sentence: 'L’abbonamento si rinnova automaticamente a meno che l’utente ___ disdetta.', options: ['non invii', 'invia', 'non invierà', 'inviava'], answer: 0, explanation: { bn: 'a meno che non + congiuntivo (invii)।', en: 'a meno che non governs the subjunctive invii.' } },
+      { id: 'stb2-33-fb1', sentence: 'L’abbonamento si rinnova automaticamente a meno che l’utente ___ disdetta.', options: ['non invii', 'invia', 'non invierà', 'inviava'], answer: 0, explanation: { bn: 'ব্যাকরণ সূত্র: a meno che non + congiuntivo (invii) — a meno che non সাবজাংক্টিভ রূপ গ্রহণ করে invii।', en: 'a meno che non governs the subjunctive invii.' } },
     ],
     shortAnswer: [
       { id: 'stb2-33-sa1', question: { bn: 'কখন চৌদ্দ দিনের মধ্যেও বাতিলের অধিকার প্রযোজ্য না হতে পারে?', en: 'When might the withdrawal exception apply?' }, sampleAnswerIt: 'Se il cliente ha richiesto espressamente l’avvio anticipato dell’installazione.', keywords: ['avvio', 'anticipato'] },
@@ -599,20 +599,20 @@ export const B2_STORIES_2: StoryItem[] = [
       { sentenceIt: 'Come se non avesse mai subito / più rapido di quanto i medici avessero ipotizzato.', ruleTitle: { bn: 'come se ও di quanto + congiuntivo', en: 'Subjunctive in come se and clausal comparisons' }, explanation: { bn: 'come se সর্বদা congiuntivo imperfetto বা trapassato নেয়; di quanto-ও অতীত/অবাস্তব তুলনায় congiuntivo নেয়।', en: 'come se and clausal inequalities govern the subjunctive.' }, grammarId: 'comparativi-analogici' },
     ],
     mcq: [
-      { id: 'stb2-34-q1', prompt: { bn: 'ক্রীড়াবিদের পুনর্বাসন প্রক্রিয়া কেমন হয়েছিল?', en: 'How fast was the athlete’s recovery?' }, options: ['অনেক ধীরগতির', 'চিকিৎসকদের অনুমানের চেয়ে অনেক দ্রুত', 'এক বছর স্থগিত', 'অসফল'], answer: 1, explanation: { bn: 'molto più rapido di quanto i medici avessero ipotizzato।', en: 'Much faster than doctors had hypothesised.' } },
+      { id: 'stb2-34-q1', prompt: { bn: 'ক্রীড়াবিদের পুনর্বাসন প্রক্রিয়া কেমন হয়েছিল?', en: 'How fast was the athlete’s recovery?' }, options: ['অনেক ধীরগতির', 'চিকিৎসকদের অনুমানের চেয়ে অনেক দ্রুত', 'এক বছর স্থগিত', 'অসফল'], answer: 1, explanation: { bn: 'সঠিক উত্তর: চিকিৎসকদের অনুমানের চেয়ে অনেক দ্রুত — পাঠ্যাংশে বলা হয়েছে: «পেশির পুনর্গঠন মৌসুমের শুরুতে চিকিৎসকেরা নিজেরা যতটা অনুমান করেছিলেন তার চেয়ে অনেক দ্রুত হয়েছিল। একইভাবে, স্প্লিন্ট তৈরিকারী ছোট অর্থোপেডিক কোম্পানিটিও রপ্তানির কারণে প্রত্যাশার চেয়ে প্রাণবন্ত অর্থনৈতিক পুনরুদ্ধার অর্জন করেছে।» (molto più rapido di quanto i medici avessero ipotizzato)।', en: 'Much faster than doctors had hypothesised.' } },
     ],
     trueFalse: [
-      { id: 'stb2-34-tf1', statementIt: 'L’azienda ortopedica ha migliorato i ricavi grazie alle esportazioni.', statement: { bn: 'রপ্তানির কারণে অর্থোপেডিক কোম্পানিটির আয় বেড়েছে।', en: 'The orthopaedic company improved thanks to exports.' }, answer: true, explanation: { bn: 'grazie alle esportazioni।', en: 'True.' } },
+      { id: 'stb2-34-tf1', statementIt: 'L’azienda ortopedica ha migliorato i ricavi grazie alle esportazioni.', statement: { bn: 'রপ্তানির কারণে অর্থোপেডিক কোম্পানিটির আয় বেড়েছে।', en: 'The orthopaedic company improved thanks to exports.' }, answer: true, explanation: { bn: 'বাক্যটি সত্য — গল্পের তথ্যানুযায়ী: «পেশির পুনর্গঠন মৌসুমের শুরুতে চিকিৎসকেরা নিজেরা যতটা অনুমান করেছিলেন তার চেয়ে অনেক দ্রুত হয়েছিল। একইভাবে, স্প্লিন্ট তৈরিকারী ছোট অর্থোপেডিক কোম্পানিটিও রপ্তানির কারণে প্রত্যাশার চেয়ে প্রাণবন্ত অর্থনৈতিক পুনরুদ্ধার অর্জন করেছে।» (grazie alle esportazioni)।', en: 'True.' } },
     ],
     fillBlank: [
-      { id: 'stb2-34-fb1', sentence: 'Il paziente parlava con tranquillità, come se non ___ alcuna paura.', options: ['ha', 'avesse', 'avrà', 'abbia'], answer: 1, explanation: { bn: 'come se + congiuntivo imperfetto (avesse)।', en: 'come se requires imperfect subjunctive avesse.' } },
+      { id: 'stb2-34-fb1', sentence: 'Il paziente parlava con tranquillità, come se non ___ alcuna paura.', options: ['ha', 'avesse', 'avrà', 'abbia'], answer: 1, explanation: { bn: 'ব্যাকরণগত গঠন: এখানে «come se + congiuntivo imperfetto (avesse)» কাঠামোটি অনুসরণ করা হয়েছে।', en: 'come se requires imperfect subjunctive avesse.' } },
     ],
     shortAnswer: [
       { id: 'stb2-34-sa1', question: { bn: 'ক্রীড়াবিদ প্রতিদিন সকালে কোথায় অনুশীলন করতেন?', en: 'Where did the athlete train every morning?' }, sampleAnswerIt: 'In piscina seguendo il protocollo del fisioterapista.', keywords: ['piscina', 'fisioterapista'] },
     ],
     practice: {
       retellPrompt: { bn: 'come se ও più... di quanto... ব্যবহার করে গল্পটি লিখুন।', en: 'Retell the recovery story using come se and più… di quanto…' },
-      completeMissing: { promptIt: 'L’esito fu migliore di quanto tutti ___.', hint: { bn: 'sperare congiuntivo trapassato: avessero sperato', en: 'avessero sperato' }, sampleIt: 'L’esito fu migliore di quanto tutti avessero sperato.' },
+      completeMissing: { promptIt: 'L’esito fu migliore di quanto tutti ___.', hint: { bn: 'sperare ক্রিয়ার পুরাঘটিত সাবজাংক্টিভ রূপ avessero sperato বসান', en: 'avessero sperato' }, sampleIt: 'L’esito fu migliore di quanto tutti avessero sperato.' },
       buildSimilar: { patternIt: 'Agisce come se conoscesse già la risposta.', prompt: { bn: 'come se + congiuntivo দিয়ে একটি বাক্য লিখুন।', en: 'Write a comparison with come se + subjunctive.' }, sampleIt: 'Lavorava al prototipo come se il tempo non fosse mai un limite.' },
       altEndingPrompt: { bn: 'মৌসুমের প্রথম প্রতিযোগিতায় ক্রীড়াবিদের প্রত্যাবর্তন লিখুন।', en: 'Describe the athlete’s return to her first race.' },
     },
@@ -637,7 +637,7 @@ export const B2_STORIES_2: StoryItem[] = [
       { sentenceIt: 'Il celeberrimo teatro / l’integerrima fedeltà / acerrimi avversari / stracolma di studenti.', ruleTitle: { bn: 'তৎসম সুপারলেটিভ (-errimo) ও উপসর্গ', en: 'Learned superlatives & prefixes' }, explanation: { bn: 'celebre → celeberrimo, integro → integerrimo, acre → acerrimo এবং উপসর্গ stra- (stracolma)।', en: 'Classical -errimo superlatives and intensifying prefix stra-.' }, grammarId: 'superlativo-sintetico' },
     ],
     mcq: [
-      { id: 'stb2-35-q1', prompt: { bn: 'দর্শকসারিতে কোন শিক্ষার্থীদের ভিড় ছিল?', en: 'Who filled the stalls at the theatre?' }, options: ['প্রকৌশল শিক্ষার্থী', 'সংগীত একাডেমির (কনজারভেটরির) তরুণ শিক্ষার্থী', 'আইনজীবী', 'খেলোয়াড়'], answer: 1, explanation: { bn: 'giovani studenti provenienti dal conservatorio।', en: 'Young students from the conservatory.' } },
+      { id: 'stb2-35-q1', prompt: { bn: 'দর্শকসারিতে কোন শিক্ষার্থীদের ভিড় ছিল?', en: 'Who filled the stalls at the theatre?' }, options: ['প্রকৌশল শিক্ষার্থী', 'সংগীত একাডেমির (কনজারভেটরির) তরুণ শিক্ষার্থী', 'আইনজীবী', 'খেলোয়াড়'], answer: 1, explanation: { bn: 'সঠিক উত্তর: সংগীত একাডেমির (কনজারভেটরির) তরুণ শিক্ষার্থী — পাঠ্যাংশে বলা হয়েছে: «এমনকি সংবাদপত্রের পাতায় ঐতিহ্যগতভাবে ঘোর প্রতিদ্বন্দ্বী দুই সংগীত সমালোচকও চূড়ান্ত মহড়ার ওপর সর্বসম্মত প্রশংসাসূচক মত দেন। দর্শকসারি সংগীত একাডেমির তরুণ শিক্ষার্থীদের ভিড়ে কানায় কানায় পূর্ণ ছিল।» (giovani studenti provenienti dal conservatorio)।', en: 'Young students from the conservatory.' } },
     ],
     trueFalse: [
       { id: 'stb2-35-tf1', statementIt: 'I due critici rivali hanno bocciato lo spettacolo all’unanimità.', statement: { bn: 'প্রতিদ্বন্দ্বী দুই সমালোচক সর্বসম্মতিক্রমে পরিবেশনাটি প্রত্যাখ্যান করেছেন।', en: 'The two rival critics unanimously panned the show.' }, answer: false, explanation: { bn: 'তাঁরা সর্বসম্মত ইতিবাচক রায় দিয়েছিলেন।', en: 'They praised the dress rehearsal unanimously.' } },
@@ -650,7 +650,7 @@ export const B2_STORIES_2: StoryItem[] = [
     ],
     practice: {
       retellPrompt: { bn: 'celeberrimo, integerrimo ও stracolmo ব্যবহার করে অপেরা রাতের বিবরণ লিখুন।', en: 'Summarise the opera night using -errimo superlatives and stra- prefixes.' },
-      completeMissing: { promptIt: 'Dopo la tempesta l’aria alpina era ___.', hint: { bn: 'salubre → saluberrima', en: 'saluberrima' }, sampleIt: 'Dopo la tempesta l’aria alpina era saluberrima.' },
+      completeMissing: { promptIt: 'Dopo la tempesta l’aria alpina era ___.', hint: { bn: 'salubre বিশেষণের পরম অতিশায়ন রূপ saluberrima বসান', en: 'saluberrima' }, sampleIt: 'Dopo la tempesta l’aria alpina era saluberrima.' },
       buildSimilar: { patternIt: 'Quel museo conserva un manoscritto celeberrimo.', prompt: { bn: '-errimo বা উপসর্গ iper-/ultra- দিয়ে একটি বাক্য লিখুন।', en: 'Write a sentence with an -errimo superlative or ultra-/iper- prefix.' }, sampleIt: 'La sala era stracolma per la conferenza del celeberrimo storico.' },
       altEndingPrompt: { bn: 'পরদিন সকালের পত্রিকার সমালোচনা অংশ লিখুন।', en: 'Write an excerpt of the next morning’s newspaper review.' },
     },

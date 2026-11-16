@@ -15,8 +15,8 @@ export const B1_LISTENING_1: ListeningExercise[] = [
     vocabKeys: ['w:B1:la proposta', 'w:B1:efficace', 'w:B1:il cittadino'],
     grammarIds: ['congiuntivo'],
     questions: [
-      { id: 'lsb1-1-q1', prompt: { bn: 'প্রস্তাবটি কী সম্পর্কিত?', en: 'What is the proposal about?' }, options: ['পার্ক বন্ধ করা', 'পার্কের পথ আলোকিত করা', 'নতুন দোকান খোলা', 'বাসের ভাড়া কমানো'], answer: 1, explanation: { bn: 'illuminare i viali del parco।', en: 'Lighting the park paths.' } },
-      { id: 'lsb1-1-q2', prompt: { bn: 'তারিকের মতে কী গুরুত্বপূর্ণ?', en: 'What does Tariq say is important?' }, options: ['সন্ধ্যায় নাগরিকদের নিরাপদে হাঁটা', 'গাড়ি পার্কিং', 'টিকিট কাটা', 'গাছ কাটা'], answer: 0, explanation: { bn: 'camminare tranquillo anche di sera।', en: 'Walking safely in the evening.' } },
+      { id: 'lsb1-1-q1', prompt: { bn: 'প্রস্তাবটি কী সম্পর্কিত?', en: 'What is the proposal about?' }, options: ['পার্ক বন্ধ করা', 'পার্কের পথ আলোকিত করা', 'নতুন দোকান খোলা', 'বাসের ভাড়া কমানো'], answer: 1, explanation: { bn: 'সঠিক উত্তর: পার্কের পথ আলোকিত করা — পাঠ্যাংশে বলা হয়েছে: «আমার মনে হয় পার্কের পথগুলো আলোকিত করার প্রস্তাবটি নিরাপত্তার জন্য সত্যিই কার্যকর।» (illuminare i viali del parco)।', en: 'Lighting the park paths.' } },
+      { id: 'lsb1-1-q2', prompt: { bn: 'তারিকের মতে কী গুরুত্বপূর্ণ?', en: 'What does Tariq say is important?' }, options: ['সন্ধ্যায় নাগরিকদের নিরাপদে হাঁটা', 'গাড়ি পার্কিং', 'টিকিট কাটা', 'গাছ কাটা'], answer: 0, explanation: { bn: 'সঠিক উত্তর: সন্ধ্যায় নাগরিকদের নিরাপদে হাঁটা — পাঠ্যাংশে বলা হয়েছে: «আমি একমত। প্রতিটি নাগরিক যেন সন্ধ্যাতেও নিশ্চিন্তে হাঁটতে পারে তা গুরুত্বপূর্ণ।» (camminare tranquillo anche di sera)।', en: 'Walking safely in the evening.' } },
     ],
   }),
   buildListening({
@@ -32,8 +32,8 @@ export const B1_LISTENING_1: ListeningExercise[] = [
     vocabKeys: ['w:B1:lo smart working', 'w:B1:il risparmio', 'w:B1:accettare'],
     grammarIds: ['periodo-ipotetico'],
     questions: [
-      { id: 'lsb1-2-q1', prompt: { bn: 'সারা সপ্তাহে কত দিন স্মার্ট ওয়ার্কিংয়ের কথা বলছে?', en: 'How many days of remote work per week does Sara mention?' }, options: ['১ দিন', '২ দিন', '৪ দিন', '৫ দিন'], answer: 1, explanation: { bn: 'due giorni a settimana।', en: 'Two days a week.' } },
-      { id: 'lsb1-2-q2', prompt: { bn: 'মার্কো অফিস থেকে কত দূরে থাকে?', en: 'How far does Marco live from the office?' }, options: ['৫ কিমি', '১০ কিমি', '৩০ কিমি', '৫০ কিমি'], answer: 2, explanation: { bn: 'a trenta chilometri।', en: 'Thirty kilometres.' } },
+      { id: 'lsb1-2-q1', prompt: { bn: 'সারা সপ্তাহে কত দিন স্মার্ট ওয়ার্কিংয়ের কথা বলছে?', en: 'How many days of remote work per week does Sara mention?' }, options: ['১ দিন', '২ দিন', '৪ দিন', '৫ দিন'], answer: 1, explanation: { bn: 'সঠিক উত্তর: ২ দিন — পাঠ্যাংশে বলা হয়েছে: «কোম্পানি আমাদের সপ্তাহে দুই দিন স্মার্ট ওয়ার্কিং দিলে যাতায়াতে ভালো সাশ্রয় হতো।» (due giorni a settimana)।', en: 'Two days a week.' } },
+      { id: 'lsb1-2-q2', prompt: { bn: 'মার্কো অফিস থেকে কত দূরে থাকে?', en: 'How far does Marco live from the office?' }, options: ['৫ কিমি', '১০ কিমি', '৩০ কিমি', '৫০ কিমি'], answer: 2, explanation: { bn: 'সঠিক উত্তর: ৩০ কিমি — পাঠ্যাংশে বলা হয়েছে: «হ্যাঁ, আমি সাথে সাথে গ্রহণ করতাম, কারণ আমি অফিস থেকে ত্রিশ কিলোমিটার দূরে থাকি।» (a trenta chilometri)।', en: 'Thirty kilometres.' } },
     ],
   }),
   buildListening({
@@ -49,8 +49,8 @@ export const B1_LISTENING_1: ListeningExercise[] = [
     vocabKeys: ['w:B1:partecipare', 'w:B1:il rimpianto'],
     grammarIds: ['condizionale-passato'],
     questions: [
-      { id: 'lsb1-3-q1', prompt: { bn: 'নাদিয়া কেন কনসার্টে যেতে পারেনি?', en: 'Why couldn’t Nadia go to the concert?' }, options: ['বৃষ্টি হচ্ছিল', 'হাসপাতালে ডিউটি ছিল', 'টিকিট পায়নি', 'ট্রেন ছিল না'], answer: 1, explanation: { bn: 'avevo il turno in ospedale।', en: 'She had a shift at the hospital.' } },
-      { id: 'lsb1-3-q2', prompt: { bn: 'গায়ক কবে ফিরে আসার কথা দিয়েছেন?', en: 'When did the singer promise he would return?' }, options: ['শীতে', 'বসন্তে', 'গ্রীষ্মে', 'শরতে'], answer: 2, explanation: { bn: 'in estate।', en: 'In summer.' } },
+      { id: 'lsb1-3-q1', prompt: { bn: 'নাদিয়া কেন কনসার্টে যেতে পারেনি?', en: 'Why couldn’t Nadia go to the concert?' }, options: ['বৃষ্টি হচ্ছিল', 'হাসপাতালে ডিউটি ছিল', 'টিকিট পায়নি', 'ট্রেন ছিল না'], answer: 1, explanation: { bn: 'সঠিক উত্তর: হাসপাতালে ডিউটি ছিল — পাঠ্যাংশে বলা হয়েছে: «কাল রাতের জন্য আফসোস! আমিও চত্বরের কনসার্টে অংশ নিতে চেয়েছিলাম, কিন্তু হাসপাতালে আমার ডিউটি ছিল।» (avevo il turno in ospedale)।', en: 'She had a shift at the hospital.' } },
+      { id: 'lsb1-3-q2', prompt: { bn: 'গায়ক কবে ফিরে আসার কথা দিয়েছেন?', en: 'When did the singer promise he would return?' }, options: ['শীতে', 'বসন্তে', 'গ্রীষ্মে', 'শরতে'], answer: 2, explanation: { bn: 'সঠিক উত্তর: গ্রীষ্মে — পাঠ্যাংশে বলা হয়েছে: «আমরা জানতাম তুমি ব্যস্ত থাকবে; যা হোক গায়ক কথা দিয়েছেন যে গ্রীষ্মে আবার আসবেন।» (in estate)।', en: 'In summer.' } },
     ],
   }),
   buildListening({
@@ -67,7 +67,7 @@ export const B1_LISTENING_1: ListeningExercise[] = [
     vocabKeys: ["w:B1:l'impegno", 'w:B1:il romanzo'],
     grammarIds: ['trapassato'],
     questions: [
-      { id: 'lsb1-4-q1', prompt: { bn: 'রাহিম আগের রাতে কী দেখে নিয়েছিল?', en: 'What had Rahim checked the night before?' }, options: ['খবরের কাগজ', 'কোম্পানির অফিশিয়াল ওয়েবসাইট', 'একটি উপন্যাস', 'শহরের মানচিত্র'], answer: 1, explanation: { bn: 'il loro sito ufficiale।', en: 'Their official website.' } },
+      { id: 'lsb1-4-q1', prompt: { bn: 'রাহিম আগের রাতে কী দেখে নিয়েছিল?', en: 'What had Rahim checked the night before?' }, options: ['খবরের কাগজ', 'কোম্পানির অফিশিয়াল ওয়েবসাইট', 'একটি উপন্যাস', 'শহরের মানচিত্র'], answer: 1, explanation: { bn: 'সঠিক উত্তর: কোম্পানির অফিশিয়াল ওয়েবসাইট — পাঠ্যাংশে বলা হয়েছে: «হ্যাঁ, আগের রাতে আমি তাদের অফিশিয়াল ওয়েবসাইট দেখে নিয়েছিলাম।» (il loro sito ufficiale)।', en: 'Their official website.' } },
     ],
   }),
   buildListening({
@@ -83,7 +83,7 @@ export const B1_LISTENING_1: ListeningExercise[] = [
     vocabKeys: ['w:B1:il quartiere', 'w:B1:trasferirsi', "w:B1:l'argomento"],
     grammarIds: ['relativi'],
     questions: [
-      { id: 'lsb1-5-q1', prompt: { bn: 'মিনা কবে নতুন পাড়ায় যেতে চায়?', en: 'When does Mina want to move to the new neighbourhood?' }, options: ['জুন মাসে', 'সেপ্টেম্বরে', 'ডিসেম্বরে', 'মার্চে'], answer: 1, explanation: { bn: 'a settembre।', en: 'In September.' } },
+      { id: 'lsb1-5-q1', prompt: { bn: 'মিনা কবে নতুন পাড়ায় যেতে চায়?', en: 'When does Mina want to move to the new neighbourhood?' }, options: ['জুন মাসে', 'সেপ্টেম্বরে', 'ডিসেম্বরে', 'মার্চে'], answer: 1, explanation: { bn: 'সঠিক উত্তর: সেপ্টেম্বরে — পাঠ্যাংশে বলা হয়েছে: «সেপ্টেম্বরে আমরা যে পাড়ায় চলে যেতে চাই সেখানে তিনটি স্কুল ও একটি গ্রন্থাগার আছে।» (a settembre)।', en: 'In September.' } },
     ],
   }),
   buildListening({
@@ -99,7 +99,7 @@ export const B1_LISTENING_1: ListeningExercise[] = [
     vocabKeys: ['w:B1:il file', 'w:B1:allegare'],
     grammarIds: ['pronomi-combinati'],
     questions: [
-      { id: 'lsb1-6-q1', prompt: { bn: 'কর্মচারী কতক্ষণের মধ্যে ফাইলটি পাঠাবেন?', en: 'How soon will the clerk send the file?' }, options: ['৫ মিনিটে', '২ ঘণ্টায়', 'আগামীকাল', 'পরের সপ্তাহে'], answer: 0, explanation: { bn: 'tra cinque minuti।', en: 'In five minutes.' } },
+      { id: 'lsb1-6-q1', prompt: { bn: 'কর্মচারী কতক্ষণের মধ্যে ফাইলটি পাঠাবেন?', en: 'How soon will the clerk send the file?' }, options: ['৫ মিনিটে', '২ ঘণ্টায়', 'আগামীকাল', 'পরের সপ্তাহে'], answer: 0, explanation: { bn: 'সঠিক উত্তর: ৫ মিনিটে — পাঠ্যাংশে বলা হয়েছে: «অবশ্যই! রসিদগুলোও সংযুক্ত করে পাঁচ মিনিটের মধ্যে আপনাকে সেটি পাঠিয়ে দিচ্ছি।» (tra cinque minuti)।', en: 'In five minutes.' } },
     ],
   }),
   buildListening({
@@ -115,7 +115,7 @@ export const B1_LISTENING_1: ListeningExercise[] = [
     vocabKeys: ['w:B1:adattarsi', 'w:B1:stressato', 'w:B1:la sfida'],
     grammarIds: ['si-impersonale'],
     questions: [
-      { id: 'lsb1-7-q1', prompt: { bn: 'চিকিৎসকের মতে কতক্ষণ পরপর বিরতি নেওয়া উচিত?', en: 'How often should one take a break according to the doctor?' }, options: ['প্রতি আধ ঘণ্টায়', 'প্রতি দুই ঘণ্টায়', 'দিনে একবার', 'চার ঘণ্টা পর'], answer: 1, explanation: { bn: 'ogni due ore।', en: 'Every two hours.' } },
+      { id: 'lsb1-7-q1', prompt: { bn: 'চিকিৎসকের মতে কতক্ষণ পরপর বিরতি নেওয়া উচিত?', en: 'How often should one take a break according to the doctor?' }, options: ['প্রতি আধ ঘণ্টায়', 'প্রতি দুই ঘণ্টায়', 'দিনে একবার', 'চার ঘণ্টা পর'], answer: 1, explanation: { bn: 'সঠিক উত্তর: প্রতি দুই ঘণ্টায় — পাঠ্যাংশে বলা হয়েছে: «যখন কম্পিউটারে আট ঘণ্টা কাজ করা হয় এবং মানুষ মানসিক চাপে থাকে, তখন প্রতি দুই ঘণ্টায় বিরতি নেওয়া দরকার।» (ogni due ore)।', en: 'Every two hours.' } },
     ],
   }),
   buildListening({
@@ -131,7 +131,7 @@ export const B1_LISTENING_1: ListeningExercise[] = [
     vocabKeys: ['w:B1:la legge', 'w:B1:il parlamento', 'w:B1:pubblicare'],
     grammarIds: ['passivo'],
     questions: [
-      { id: 'lsb1-8-q1', prompt: { bn: 'বিজ্ঞপ্তিটি কবে প্রকাশ করা হবে?', en: 'When will the official notice be published?' }, options: ['আজ রাতে', 'আগামী সোমবার', 'পরের মাসে', 'রবিবারে'], answer: 1, explanation: { bn: 'lunedì prossimo।', en: 'Next Monday.' } },
+      { id: 'lsb1-8-q1', prompt: { bn: 'বিজ্ঞপ্তিটি কবে প্রকাশ করা হবে?', en: 'When will the official notice be published?' }, options: ['আজ রাতে', 'আগামী সোমবার', 'পরের মাসে', 'রবিবারে'], answer: 1, explanation: { bn: 'সঠিক উত্তর: আগামী সোমবার — পাঠ্যাংশে বলা হয়েছে: «আগামী সোমবার মন্ত্রণালয়ের ওয়েবসাইটে আনুষ্ঠানিক বিজ্ঞপ্তি প্রকাশ করা হবে।» (lunedì prossimo)।', en: 'Next Monday.' } },
     ],
   }),
   buildListening({
@@ -148,7 +148,7 @@ export const B1_LISTENING_1: ListeningExercise[] = [
     vocabKeys: ['w:B1:il codice identificativo', 'w:B1:la pratica'],
     grammarIds: ['discorso-indiretto'],
     questions: [
-      { id: 'lsb1-9-q1', prompt: { bn: 'কর্মচারী আরিফকে আগামীকাল সকালে কী পরীক্ষা করতে বলেছেন?', en: 'What did the clerk tell Arif to check tomorrow morning?' }, options: ['ডাকবাক্স', 'PEC ইমেইল ইনবক্স', 'ব্যাংক ব্যালেন্স', 'সংবাদপত্র'], answer: 1, explanation: { bn: 'la casella PEC।', en: 'The certified email inbox.' } },
+      { id: 'lsb1-9-q1', prompt: { bn: 'কর্মচারী আরিফকে আগামীকাল সকালে কী পরীক্ষা করতে বলেছেন?', en: 'What did the clerk tell Arif to check tomorrow morning?' }, options: ['ডাকবাক্স', 'PEC ইমেইল ইনবক্স', 'ব্যাংক ব্যালেন্স', 'সংবাদপত্র'], answer: 1, explanation: { bn: 'সঠিক উত্তর: PEC ইমেইল ইনবক্স — পাঠ্যাংশে বলা হয়েছে: «আমাকে আগামীকাল সকালে PEC ইনবক্স পরীক্ষা করতে বলেছেন।» (la casella PEC)।', en: 'The certified email inbox.' } },
     ],
   }),
   buildListening({
@@ -164,7 +164,7 @@ export const B1_LISTENING_1: ListeningExercise[] = [
     vocabKeys: ['w:B1:sprecare', "w:B1:l'energia", "w:B1:l'elettrodomestico"],
     grammarIds: ['infinito'],
     questions: [
-      { id: 'lsb1-10-q1', prompt: { bn: 'ঘুমাতে যাওয়ার আগে তারা কী বন্ধ করে?', en: 'What do they switch off before going to sleep?' }, options: ['পানির কল', 'বসার ঘরের বৈদ্যুতিক যন্ত্রগুলো', 'গ্যারেজের দরজা', 'রেডিও'], answer: 1, explanation: { bn: 'ogni elettrodomestico in salotto।', en: 'Every appliance in the living room.' } },
+      { id: 'lsb1-10-q1', prompt: { bn: 'ঘুমাতে যাওয়ার আগে তারা কী বন্ধ করে?', en: 'What do they switch off before going to sleep?' }, options: ['পানির কল', 'বসার ঘরের বৈদ্যুতিক যন্ত্রগুলো', 'গ্যারেজের দরজা', 'রেডিও'], answer: 1, explanation: { bn: 'সঠিক উত্তর: বসার ঘরের বৈদ্যুতিক যন্ত্রগুলো — পাঠ্যাংশে বলা হয়েছে: «ঘুমাতে যাওয়ার আগে আমরা সবসময় বসার ঘরের প্রতিটি বৈদ্যুতিক যন্ত্র বন্ধ করি।» (ogni elettrodomestico in salotto)।', en: 'Every appliance in the living room.' } },
     ],
   }),
   buildListening({
@@ -180,7 +180,7 @@ export const B1_LISTENING_1: ListeningExercise[] = [
     vocabKeys: ['w:B1:collaborare', 'w:B1:risolvere', 'w:B1:il conflitto'],
     grammarIds: ['gerundio-b1'],
     questions: [
-      { id: 'lsb1-11-q1', prompt: { bn: 'তারা কীভাবে কাজগুলো ভাগ করে নিয়েছে?', en: 'How did they divide the tasks?' }, options: ['লটারি করে', 'স্বচ্ছতার সাথে সহযোগিতা করে ন্যায্যভাবে', 'পরিচালকের আদেশে', 'অর্ধেক কাজ বাদ দিয়ে'], answer: 1, explanation: { bn: 'collaborando con trasparenza… in modo equo।', en: 'Fairly through transparent collaboration.' } },
+      { id: 'lsb1-11-q1', prompt: { bn: 'তারা কীভাবে কাজগুলো ভাগ করে নিয়েছে?', en: 'How did they divide the tasks?' }, options: ['লটারি করে', 'স্বচ্ছতার সাথে সহযোগিতা করে ন্যায্যভাবে', 'পরিচালকের আদেশে', 'অর্ধেক কাজ বাদ দিয়ে'], answer: 1, explanation: { bn: 'সঠিক উত্তর: স্বচ্ছতার সাথে সহযোগিতা করে ন্যায্যভাবে — পাঠ্যাংশে বলা হয়েছে: «হ্যাঁ, স্বচ্ছতার সাথে সহযোগিতা করে আমরা কাজগুলো ন্যায্যভাবে ভাগ করে নিয়েছি।» (collaborando con trasparenza… in modo equo)।', en: 'Fairly through transparent collaboration.' } },
     ],
   }),
   buildListening({
@@ -196,7 +196,7 @@ export const B1_LISTENING_1: ListeningExercise[] = [
     vocabKeys: ['w:B1:il parere', 'w:B1:la formazione', 'w:B1:il vantaggio'],
     grammarIds: ['opinione'],
     questions: [
-      { id: 'lsb1-12-q1', prompt: { bn: 'জুলিয়ার মতে কোন বিষয়ে হালনাগাদ থাকা অপরিহার্য?', en: 'What does Giulia think we must stay updated on?' }, options: ['নতুন প্রযুক্তি', 'খেলাধুলার খবর', 'রান্নার রেসিপি', 'সিনেমার তালিকা'], answer: 0, explanation: { bn: 'sulle nuove tecnologie।', en: 'New technologies.' } },
+      { id: 'lsb1-12-q1', prompt: { bn: 'জুলিয়ার মতে কোন বিষয়ে হালনাগাদ থাকা অপরিহার্য?', en: 'What does Giulia think we must stay updated on?' }, options: ['নতুন প্রযুক্তি', 'খেলাধুলার খবর', 'রান্নার রেসিপি', 'সিনেমার তালিকা'], answer: 0, explanation: { bn: 'সঠিক উত্তর: নতুন প্রযুক্তি — পাঠ্যাংশে বলা হয়েছে: «আমিও মনে করি নতুন প্রযুক্তির সাথে নিজেদের হালনাগাদ রাখা অপরিহার্য।» (sulle nuove tecnologie)।', en: 'New technologies.' } },
     ],
   }),
   buildListening({
@@ -212,7 +212,7 @@ export const B1_LISTENING_1: ListeningExercise[] = [
     vocabKeys: ['w:B1:tuttavia', 'w:B1:il costo della vita', 'w:B1:sereno'],
     grammarIds: ['connettivi-b1'],
     questions: [
-      { id: 'lsb1-13-q1', prompt: { bn: 'ব্যয় বাড়লেও শহরে কোন সেবাগুলো খুব ভালো কাজ করে?', en: 'Despite higher costs, which services work very well?' }, options: ['পরিবহন ও হাসপাতাল', 'সিনেমা ও থিয়েটার', 'বিমানবন্দর', 'স্টেডিয়াম'], answer: 0, explanation: { bn: 'i trasporti e gli ospedali।', en: 'Transport and hospitals.' } },
+      { id: 'lsb1-13-q1', prompt: { bn: 'ব্যয় বাড়লেও শহরে কোন সেবাগুলো খুব ভালো কাজ করে?', en: 'Despite higher costs, which services work very well?' }, options: ['পরিবহন ও হাসপাতাল', 'সিনেমা ও থিয়েটার', 'বিমানবন্দর', 'স্টেডিয়াম'], answer: 0, explanation: { bn: 'সঠিক উত্তর: পরিবহন ও হাসপাতাল — পাঠ্যাংশে বলা হয়েছে: «এই শহরে জীবনযাত্রার ব্যয় বেড়েছে; তবুও পরিবহন ও হাসপাতালগুলো দারুণ কাজ করে।» (i trasporti e gli ospedali)।', en: 'Transport and hospitals.' } },
     ],
   }),
   buildListening({
@@ -228,7 +228,7 @@ export const B1_LISTENING_1: ListeningExercise[] = [
     vocabKeys: ["w:B1:l'ufficio immigrazione", 'w:B1:il requisito'],
     grammarIds: ['congiuntivo-imperfetto'],
     questions: [
-      { id: 'lsb1-14-q1', prompt: { bn: 'আসলে কয়টি রেভিনিউ স্ট্যাম্পের প্রয়োজন ছিল?', en: 'How many revenue stamps were actually needed?' }, options: ['একটিও না', '১টি', '২টি', '৩টি'], answer: 1, explanation: { bn: 'ne bastava una।', en: 'One was enough.' } },
+      { id: 'lsb1-14-q1', prompt: { bn: 'আসলে কয়টি রেভিনিউ স্ট্যাম্পের প্রয়োজন ছিল?', en: 'How many revenue stamps were actually needed?' }, options: ['একটিও না', '১টি', '২টি', '৩টি'], answer: 1, explanation: { bn: 'সঠিক উত্তর: ১টি — পাঠ্যাংশে বলা হয়েছে: «আমি ভেবেছিলাম অভিবাসন অফিসের জন্য দুটি রেভিনিউ স্ট্যাম্প লাগবে, অথচ একটিই যথেষ্ট ছিল।» (ne bastava una)।', en: 'One was enough.' } },
     ],
   }),
   buildListening({
@@ -244,7 +244,7 @@ export const B1_LISTENING_1: ListeningExercise[] = [
     vocabKeys: ['w:B1:il consulente', 'w:B1:il preventivo', 'w:B1:la coincidenza persa'],
     grammarIds: ['congiuntivo-passato'],
     questions: [
-      { id: 'lsb1-15-q1', prompt: { bn: 'পরামর্শদাতা কোথায় সংযোগ ট্রেন মিস করেছেন বলে আশঙ্কা করা হচ্ছে?', en: 'Where is the consultant feared to have missed a connection?' }, options: ['মিলানে', 'বোলোনিয়ায়', 'রোমে', 'তুরিনে'], answer: 1, explanation: { bn: 'a Bologna।', en: 'In Bologna.' } },
+      { id: 'lsb1-15-q1', prompt: { bn: 'পরামর্শদাতা কোথায় সংযোগ ট্রেন মিস করেছেন বলে আশঙ্কা করা হচ্ছে?', en: 'Where is the consultant feared to have missed a connection?' }, options: ['মিলানে', 'বোলোনিয়ায়', 'রোমে', 'তুরিনে'], answer: 1, explanation: { bn: 'সঠিক উত্তর: বোলোনিয়ায় — পাঠ্যাংশে বলা হয়েছে: «পরামর্শদাতা এখনো মিলনায়তনে আসেননি; আমার আশঙ্কা বোলোনিয়ায় সংযোগ ট্রেন মিস করায় তিনি সমস্যায় পড়েছেন।» (a Bologna)।', en: 'In Bologna.' } },
     ],
   }),
   buildListening({
@@ -260,7 +260,7 @@ export const B1_LISTENING_1: ListeningExercise[] = [
     vocabKeys: ['w:B1:il semestre', 'w:B1:la clausola'],
     grammarIds: ['congiuntivo-trapassato'],
     questions: [
-      { id: 'lsb1-16-q1', prompt: { bn: 'নাদিয়া কেন ধারাটি লক্ষ্য করেনি?', en: 'Why hadn’t Nadia noticed the clause?' }, options: ['পৃষ্ঠাটি ছেঁড়া ছিল', 'খুব ছোট অক্ষরে লেখা ছিল', 'ইংরেজিতে লেখা ছিল', 'ফাইল খোলেনি'], answer: 1, explanation: { bn: 'era scritta in piccolo।', en: 'It was written in small print.' } },
+      { id: 'lsb1-16-q1', prompt: { bn: 'নাদিয়া কেন ধারাটি লক্ষ্য করেনি?', en: 'Why hadn’t Nadia noticed the clause?' }, options: ['পৃষ্ঠাটি ছেঁড়া ছিল', 'খুব ছোট অক্ষরে লেখা ছিল', 'ইংরেজিতে লেখা ছিল', 'ফাইল খোলেনি'], answer: 1, explanation: { bn: 'সঠিক উত্তর: খুব ছোট অক্ষরে লেখা ছিল — পাঠ্যাংশে বলা হয়েছে: «দুর্ভাগ্যবশত ছোট অক্ষরে লেখা ছিল; আশা করেছিলাম দপ্তর আমাদের তা আরও ভালোভাবে বুঝিয়ে বলবে।» (era scritta in piccolo)।', en: 'It was written in small print.' } },
     ],
   }),
   buildListening({
@@ -276,7 +276,7 @@ export const B1_LISTENING_1: ListeningExercise[] = [
     vocabKeys: ['w:B1:dubitare', 'w:B1:risolvere', 'w:B1:le ferie pagate'],
     grammarIds: ['concordanza-congiuntivo'],
     questions: [
-      { id: 'lsb1-17-q1', prompt: { bn: 'মার্কো কোন দুই মাসের মধ্যে ছুটি ভাগ করার কথা ভেবেছিল?', en: 'Between which two months did Marco think of splitting the leave?' }, options: ['মে ও জুলাই', 'জুন ও সেপ্টেম্বর', 'জুলাই ও আগস্ট', 'অক্টোবর ও ডিসেম্বর'], answer: 1, explanation: { bn: 'tra giugno e settembre।', en: 'Between June and September.' } },
+      { id: 'lsb1-17-q1', prompt: { bn: 'মার্কো কোন দুই মাসের মধ্যে ছুটি ভাগ করার কথা ভেবেছিল?', en: 'Between which two months did Marco think of splitting the leave?' }, options: ['মে ও জুলাই', 'জুন ও সেপ্টেম্বর', 'জুলাই ও আগস্ট', 'অক্টোবর ও ডিসেম্বর'], answer: 1, explanation: { bn: 'সঠিক উত্তর: জুন ও সেপ্টেম্বর — পাঠ্যাংশে বলা হয়েছে: «আমিও ভেবেছিলাম শিফটের সমস্যা মেটাতে জুন ও সেপ্টেম্বরের মধ্যে ছুটি ভাগ করে নেওয়াই ভালো।» (tra giugno e settembre)।', en: 'Between June and September.' } },
     ],
   }),
   buildListening({
@@ -292,7 +292,7 @@ export const B1_LISTENING_1: ListeningExercise[] = [
     vocabKeys: ['w:B1:a meno che', 'w:B1:il guasto tecnico', "w:B1:il tasso d'interesse"],
     grammarIds: ['senza-che-prima-che'],
     questions: [
-      { id: 'lsb1-18-q1', prompt: { bn: 'কোন ক্ষেত্রে আজ সন্ধ্যার মধ্যে কাজ শেষ না-ও হতে পারে?', en: 'In what case might the repair not finish by tonight?' }, options: ['নতুন যন্ত্রাংশ লাগলে', 'বৃষ্টি হলে', 'অফিস খোলা থাকলে', 'সকাল হলে'], answer: 0, explanation: { bn: 'a meno che non serva un pezzo nuovo।', en: 'Unless a new part is needed.' } },
+      { id: 'lsb1-18-q1', prompt: { bn: 'কোন ক্ষেত্রে আজ সন্ধ্যার মধ্যে কাজ শেষ না-ও হতে পারে?', en: 'In what case might the repair not finish by tonight?' }, options: ['নতুন যন্ত্রাংশ লাগলে', 'বৃষ্টি হলে', 'অফিস খোলা থাকলে', 'সকাল হলে'], answer: 0, explanation: { bn: 'সঠিক উত্তর: নতুন যন্ত্রাংশ লাগলে — পাঠ্যাংশে বলা হয়েছে: «চমৎকার, তাহলে নতুন যন্ত্রাংশ না লাগলে আজ সন্ধ্যার মধ্যেই সব স্বাভাবিক হয়ে যাবে?» (a meno che non serva un pezzo nuovo)।', en: 'Unless a new part is needed.' } },
     ],
   }),
   buildListening({
@@ -308,7 +308,7 @@ export const B1_LISTENING_1: ListeningExercise[] = [
     vocabKeys: ['w:B1:la pista ciclabile', 'w:B1:puntuale', "w:B1:l'impresa"],
     grammarIds: ['periodo-ipotetico-2'],
     questions: [
-      { id: 'lsb1-19-q1', prompt: { bn: 'সাইকেল লেনটি কোন এলাকা পর্যন্ত করার কথা বলা হচ্ছে?', en: 'Up to which area is the cycle lane proposed to reach?' }, options: ['সমুদ্রসৈকত', 'শিল্পাঞ্চল (zona industriale)', 'পাহাড়', 'বিমানবন্দর'], answer: 1, explanation: { bn: 'fino alla zona industriale।', en: 'Up to the industrial zone.' } },
+      { id: 'lsb1-19-q1', prompt: { bn: 'সাইকেল লেনটি কোন এলাকা পর্যন্ত করার কথা বলা হচ্ছে?', en: 'Up to which area is the cycle lane proposed to reach?' }, options: ['সমুদ্রসৈকত', 'শিল্পাঞ্চল (zona industriale)', 'পাহাড়', 'বিমানবন্দর'], answer: 1, explanation: { bn: 'সঠিক উত্তর: শিল্পাঞ্চল (zona industriale) — পাঠ্যাংশে বলা হয়েছে: «আমরা যদি শিল্পাঞ্চল পর্যন্ত এই সাইকেল লেনটি তৈরি করতাম, তবে অনেক স্থানীয় প্রতিষ্ঠান উপকৃত হতো।» (fino alla zona industriale)।', en: 'Up to the industrial zone.' } },
     ],
   }),
   buildListening({
@@ -324,7 +324,7 @@ export const B1_LISTENING_1: ListeningExercise[] = [
     vocabKeys: ["w:B1:l'ingorgo", 'w:B1:il file'],
     grammarIds: ['periodo-ipotetico-3'],
     questions: [
-      { id: 'lsb1-20-q1', prompt: { bn: 'তারা কী দেখে নিলে যানজট এড়াতে পারত?', en: 'What could they have checked to avoid the traffic jam?' }, options: ['রেডিও', 'নেভিগেটর (জিপিএস)', 'কাগুজে মানচিত্র', 'রেল সময়সূচি'], answer: 1, explanation: { bn: 'il navigatore।', en: 'The satnav.' } },
+      { id: 'lsb1-20-q1', prompt: { bn: 'তারা কী দেখে নিলে যানজট এড়াতে পারত?', en: 'What could they have checked to avoid the traffic jam?' }, options: ['রেডিও', 'নেভিগেটর (জিপিএস)', 'কাগুজে মানচিত্র', 'রেল সময়সূচি'], answer: 1, explanation: { bn: 'সঠিক উত্তর: নেভিগেটর (জিপিএস) — পাঠ্যাংশে বলা হয়েছে: «আমরা নেভিগেটর দেখে নিলে মহাসড়কের এই ভয়াবহ যানজট এড়াতে পারতাম!» (il navigatore)।', en: 'The satnav.' } },
     ],
   }),
   buildListening({
@@ -340,7 +340,7 @@ export const B1_LISTENING_1: ListeningExercise[] = [
     vocabKeys: ["w:B1:il contratto d'affitto", 'w:B1:il trasloco', 'w:B1:il relatore'],
     grammarIds: ['futuro-anteriore'],
     questions: [
-      { id: 'lsb1-21-q1', prompt: { bn: 'সামিরা কার সাথে কথা বললে স্নাতক উপস্থাপনার তারিখ জানবে?', en: 'Who will Samira speak with to learn her defence date?' }, options: ['বাড়িওয়ালা', 'থিসিস তত্ত্বাবধায়ক (relatore)', 'ব্যাংক পরিচালক', 'সহপাঠী'], answer: 1, explanation: { bn: 'con il mio relatore।', en: 'With her thesis supervisor.' } },
+      { id: 'lsb1-21-q1', prompt: { bn: 'সামিরা কার সাথে কথা বললে স্নাতক উপস্থাপনার তারিখ জানবে?', en: 'Who will Samira speak with to learn her defence date?' }, options: ['বাড়িওয়ালা', 'থিসিস তত্ত্বাবধায়ক (relatore)', 'ব্যাংক পরিচালক', 'সহপাঠী'], answer: 1, explanation: { bn: 'সঠিক উত্তর: থিসিস তত্ত্বাবধায়ক (relatore) — পাঠ্যাংশে বলা হয়েছে: «হ্যাঁ! আর আমার থিসিস তত্ত্বাবধায়কের সাথে কথা বলা মাত্রই স্নাতক উপস্থাপনার তারিখও জেনে যাব।» (con il mio relatore)।', en: 'With her thesis supervisor.' } },
     ],
   }),
   buildListening({
@@ -356,7 +356,7 @@ export const B1_LISTENING_1: ListeningExercise[] = [
     vocabKeys: ["w:B1:l'appello", 'w:B1:la deviazione'],
     grammarIds: ['futuro-probabilita'],
     questions: [
-      { id: 'lsb1-22-q1', prompt: { bn: 'শিক্ষার্থীরা কোথায় দেরিতে পৌঁছানোর আশঙ্কা করছে?', en: 'Where are the students afraid of arriving late?' }, options: ['সিনেমায়', 'পরীক্ষার সেশনে (appello d’esame)', 'স্টেশনে', 'খেলার মাঠে'], answer: 1, explanation: { bn: 'all’appello d’esame।', en: 'At the exam sitting.' } },
+      { id: 'lsb1-22-q1', prompt: { bn: 'শিক্ষার্থীরা কোথায় দেরিতে পৌঁছানোর আশঙ্কা করছে?', en: 'Where are the students afraid of arriving late?' }, options: ['সিনেমায়', 'পরীক্ষার সেশনে (appello d’esame)', 'স্টেশনে', 'খেলার মাঠে'], answer: 1, explanation: { bn: 'সঠিক উত্তর: পরীক্ষার সেশনে (appello d’esame) — পাঠ্যাংশে বলা হয়েছে: «আশা করি তাড়াতাড়ি আসবে, নইলে পরীক্ষার সেশনে দেরিতে পৌঁছানোর ঝুঁকি হবে!» (all’appello d’esame)।', en: 'At the exam sitting.' } },
     ],
   }),
   buildListening({
@@ -367,7 +367,7 @@ export const B1_LISTENING_1: ListeningExercise[] = [
       { speaker: 'Guida', it: 'Questo palazzo fu costruito nel Quattrocento, quando il Rinascimento trasformò l’architettura della città.', tr: { bn: 'এই প্রাসাদটি পঞ্চদশ শতাব্দীতে নির্মিত হয়েছিল, যখন রেনেসাঁস শহরের স্থাপত্যকে বদলে দেয়।', en: 'This palace was built in the fifteenth century, when the Renaissance transformed the city’s architecture.' } },
       { speaker: 'Guida', it: 'Qui visse anche un celebre scrittore che raccolse un’importante biblioteca storica.', tr: { bn: 'এখানে একজন বিখ্যাত লেখকও বাস করতেন যিনি একটি গুরুত্বপূর্ণ ঐতিহাসিক গ্রন্থাগার গড়ে তুলেছিলেন।', en: 'A famous writer also lived here who assembled an important historical library.' } },
     ],
-    explanation: { bn: 'fu costruito, trasformò, visse, raccolse (passato remoto)।', en: 'Historical audio guides use passato remoto.' },
+    explanation: { bn: 'সঠিক উত্তর ও ব্যাকরণ সূত্র: «fu costruito, trasformò, visse, raccolse (passato remoto)» (Historical audio guides use passato remoto)।', en: 'Historical audio guides use passato remoto.' },
     vocabList: [{ it: 'Rinascimento', tr: { bn: 'রেনেসাঁস', en: 'Renaissance' } }, { it: 'architettura', tr: { bn: 'স্থাপত্য', en: 'architecture' } }],
     vocabKeys: ['w:B1:il Rinascimento', "w:B1:l'architettura", 'w:B1:lo scrittore'],
     grammarIds: ['passato-remoto-b1'],
@@ -388,7 +388,7 @@ export const B1_LISTENING_1: ListeningExercise[] = [
     vocabKeys: ["w:B1:l'anagrafe", 'w:B1:la raccomandata', 'w:B1:il certificato'],
     grammarIds: ['pronomi-doppi-passato'],
     questions: [
-      { id: 'lsb1-24-q1', prompt: { bn: 'নিবন্ধন অফিসের সনদগুলো কীভাবে পাওয়া গেছে?', en: 'How were the registry certificates received?' }, options: ['ডাকযোগে', 'ডিজিটাল ফরম্যাটে', 'কুরিয়ারে', 'এখনো পাওয়া যায়নি'], answer: 1, explanation: { bn: 'in formato digitale।', en: 'In digital format.' } },
+      { id: 'lsb1-24-q1', prompt: { bn: 'নিবন্ধন অফিসের সনদগুলো কীভাবে পাওয়া গেছে?', en: 'How were the registry certificates received?' }, options: ['ডাকযোগে', 'ডিজিটাল ফরম্যাটে', 'কুরিয়ারে', 'এখনো পাওয়া যায়নি'], answer: 1, explanation: { bn: 'সঠিক উত্তর: ডিজিটাল ফরম্যাটে — পাঠ্যাংশে বলা হয়েছে: «আর নিবন্ধন অফিসের সনদগুলো? তারা আমাদের সেগুলো ডিজিটাল ফরম্যাটে পাঠিয়েছে!» (in formato digitale)।', en: 'In digital format.' } },
     ],
   }),
   buildListening({
@@ -404,7 +404,7 @@ export const B1_LISTENING_1: ListeningExercise[] = [
     vocabKeys: ["w:B1:l'alta velocità", 'w:B1:il pendolare', 'w:B1:la fatica'],
     grammarIds: ['ci-ne-idiomatici'],
     questions: [
-      { id: 'lsb1-25-q1', prompt: { bn: 'উচ্চগতির ট্রেনে যাতায়াতে কতটা সময় লাগে?', en: 'How much time does the commute take with high-speed rail?' }, options: ['দ্বিগুণ সময়', 'আগের অর্ধেক সময়', 'তিন ঘণ্টা', 'একই সময়'], answer: 1, explanation: { bn: 'la metà del tempo।', en: 'Half the time.' } },
+      { id: 'lsb1-25-q1', prompt: { bn: 'উচ্চগতির ট্রেনে যাতায়াতে কতটা সময় লাগে?', en: 'How much time does the commute take with high-speed rail?' }, options: ['দ্বিগুণ সময়', 'আগের অর্ধেক সময়', 'তিন ঘণ্টা', 'একই সময়'], answer: 1, explanation: { bn: 'সঠিক উত্তর: আগের অর্ধেক সময় — পাঠ্যাংশে বলা হয়েছে: «যবে থেকে উচ্চগতির ট্রেন ধরছি, আমার অর্ধেক সময় লাগে এবং ক্লান্তি অনেক কম বোধ করি।» (la metà del tempo)।', en: 'Half the time.' } },
     ],
   }),
   buildListening({
@@ -420,7 +420,7 @@ export const B1_LISTENING_1: ListeningExercise[] = [
     vocabKeys: ['w:B1:la ricevuta fiscale', 'w:B1:la scadenza fiscale', 'w:B1:conservare'],
     grammarIds: ['passivo-venire-andare'],
     questions: [
-      { id: 'lsb1-26-q1', prompt: { bn: 'চিকিৎসা খরচের কর রসিদ কীভাবে সংরক্ষণ করতে হবে?', en: 'How must medical tax receipts be kept?' }, options: ['মূল কপিতে (in originale)', 'কেবল মেসেজে', 'সংরক্ষণের দরকার নেই', 'ছিঁড়ে ফেলে'], answer: 0, explanation: { bn: 'in originale।', en: 'In original.' } },
+      { id: 'lsb1-26-q1', prompt: { bn: 'চিকিৎসা খরচের কর রসিদ কীভাবে সংরক্ষণ করতে হবে?', en: 'How must medical tax receipts be kept?' }, options: ['মূল কপিতে (in originale)', 'কেবল মেসেজে', 'সংরক্ষণের দরকার নেই', 'ছিঁড়ে ফেলে'], answer: 0, explanation: { bn: 'সঠিক উত্তর: মূল কপিতে (in originale) — পাঠ্যাংশে বলা হয়েছে: «মনে করিয়ে দিচ্ছি যে চিকিৎসা খরচের প্রতিটি কর রসিদ মূল কপিতে সংরক্ষণ করতে হবে।» (in originale)।', en: 'In original.' } },
     ],
   }),
 ];

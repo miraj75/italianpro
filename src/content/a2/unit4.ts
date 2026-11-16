@@ -98,7 +98,7 @@ const lesson2: Lesson = {
     { id: 'q1', prompt: { bn: 'regolare থেকে ক্রিয়াবিশেষণ:', en: 'Adverb from regolare:' }, options: ['regolaremente', 'regolarmente', 'regolaramente', 'regolariamente'], answer: 1, explanation: { bn: '-re থাকলে শেষের e বাদ যায়: regolarmente।', en: 'Drop -e after -r: regolarmente.' } },
     { id: 'q2', prompt: { bn: '"আমি এইমাত্র খবরের কাগজটা পড়েছি":', en: '"I just read the newspaper":' }, it: 'Ho ___ letto il giornale.', options: ['ancora', 'mai', 'appena', 'sempre'], answer: 2, explanation: { bn: 'appena = এইমাত্র।', en: 'appena = just.' } },
     { id: 'q3', prompt: { bn: 'টাকা ফেরতের শব্দ:', en: 'Word for refund:' }, options: ['il rimborso', 'il prestito', 'la rata', 'la multa'], answer: 0, explanation: { bn: 'il rimborso = টাকা ফেরত।', en: 'il rimborso = refund.' } },
-    { id: 'q4', prompt: { bn: 'facile থেকে ক্রিয়াবিশেষণ:', en: 'Adverb formed from facile:' }, options: ['facilemente', 'facilmente', 'facilamente', 'facilimente'], answer: 1, explanation: { bn: 'facile → facilmente।', en: 'Drop final -e: facilmente.' } },
+    { id: 'q4', prompt: { bn: 'facile থেকে ক্রিয়াবিশেষণ:', en: 'Adverb formed from facile:' }, options: ['facilemente', 'facilmente', 'facilamente', 'facilimente'], answer: 1, explanation: { bn: 'সঠিক রূপান্তর: «facile» থেকে পরিবর্তিত হয়ে «facilmente» ব্যবহৃত হয়।', en: 'Drop final -e: facilmente.' } },
   ],
   tip: { bn: 'ইতালীয় ইমেইল বা অভিযোগে সর্বদা প্রথমে শান্ত ও ভদ্র সম্বোধন ("Gentile Servizio Clienti") দিলে দ্রুত সাড়া পাওয়া যায়।', en: 'Polite greetings like "Gentile Servizio Clienti" are standard in Italian support emails.' },
 };
