@@ -1,0 +1,93 @@
+import type { ExplainLang, Tr } from '../content/types';
+import { useProgress } from '../state/ProgressContext';
+
+/** Interface strings. Italian learning content lives in src/content, not here. */
+const STRINGS = {
+  tagline: { bn: 'Learn Italian. Live Italian.', en: 'Learn Italian. Live Italian.' },
+  greetingSub: { bn: 'আজকের {n} মিনিটের ইতালিয়ান শেখা শুরু করি?', en: 'Ready for today’s {n} minutes of Italian?' },
+  minutes: { bn: 'মিনিট', en: 'min' },
+  dailyGoal: { bn: 'দৈনিক লক্ষ্য', en: 'Daily goal' },
+  goalReached: { bn: 'আজকের লক্ষ্য পূর্ণ!', en: 'Goal reached today!' },
+  streak: { bn: 'দিনের স্ট্রিক', en: 'day streak' },
+  badges: { bn: 'ব্যাজ', en: 'badges' },
+  continueLearning: { bn: 'শেখা চালিয়ে যান', en: 'Continue learning' },
+  todaysPlan: { bn: 'আজকের শেখার পরিকল্পনা', en: 'Today’s learning plan' },
+  dailyChallenge: { bn: 'দৈনিক চ্যালেঞ্জ', en: 'Daily challenge' },
+  challengeSub: { bn: '৮টি দ্রুত প্রশ্ন — যা শিখেছেন তা থেকে', en: '8 quick questions from what you’ve learned' },
+  home: { bn: 'হোম', en: 'Home' },
+  courses: { bn: 'কোর্স', en: 'Courses' },
+  practice: { bn: 'অনুশীলন', en: 'Practice' },
+  challenge: { bn: 'চ্যালেঞ্জ', en: 'Challenge' },
+  profile: { bn: 'প্রোফাইল', en: 'Profile' },
+  coursesSub: { bn: 'A1 থেকে B2 পর্যন্ত সম্পূর্ণ ইতালিয়ান কোর্স', en: 'Complete Italian course from A1 to B2' },
+  lessonsDone: { bn: '{d}/{t} পাঠ সম্পন্ন', en: '{d} of {t} lessons done' },
+  unlockAfter: { bn: '{level} সম্পূর্ণ করলে আনলক হবে', en: 'Unlocks after completing {level}' },
+  inPreparation: { bn: 'কনটেন্ট তৈরি হচ্ছে', en: 'Content in preparation' },
+  unit: { bn: 'ইউনিট', en: 'Unit' },
+  lesson: { bn: 'পাঠ', en: 'Lesson' },
+  locked: { bn: 'আগের পাঠ শেষ করুন', en: 'Finish the previous lesson' },
+  completed: { bn: 'সম্পন্ন', en: 'Completed' },
+  phrases: { bn: 'বাক্যাংশ', en: 'Phrases' },
+  grammar: { bn: 'ব্যাকরণ', en: 'Grammar' },
+  dialogue: { bn: 'সংলাপ', en: 'Dialogue' },
+  quiz: { bn: 'কুইজ', en: 'Quiz' },
+  objectives: { bn: 'এই পাঠে আপনি শিখবেন', en: 'In this lesson you will' },
+  keyPhrases: { bn: 'মূল বাক্যাংশ', en: 'Key phrases' },
+  pronTip: { bn: 'উচ্চারণ টিপস', en: 'Pronunciation tip' },
+  next: { bn: 'পরবর্তী ধাপে যান', en: 'Next step' },
+  playAll: { bn: 'পুরো সংলাপ শুনুন', en: 'Play whole dialogue' },
+  stop: { bn: 'থামান', en: 'Stop' },
+  showTranslation: { bn: 'অনুবাদ দেখান', en: 'Show translation' },
+  hideTranslation: { bn: 'অনুবাদ লুকান', en: 'Hide translation' },
+  check: { bn: 'যাচাই করুন', en: 'Check' },
+  continue: { bn: 'চালিয়ে যান', en: 'Continue' },
+  correct: { bn: 'সঠিক!', en: 'Correct!' },
+  incorrect: { bn: 'সঠিক নয়', en: 'Not quite' },
+  correctAnswer: { bn: 'সঠিক উত্তর', en: 'Correct answer' },
+  quizPassed: { bn: 'অভিনন্দন! পাঠ সম্পন্ন হয়েছে', en: 'Well done! Lesson completed' },
+  quizFailed: { bn: 'পাস করতে কমপক্ষে ৭০% দরকার। আবার চেষ্টা করুন।', en: 'You need at least 70% to pass. Try again.' },
+  score: { bn: 'স্কোর', en: 'Score' },
+  retry: { bn: 'আবার চেষ্টা', en: 'Try again' },
+  backToCourses: { bn: 'কোর্সে ফিরুন', en: 'Back to courses' },
+  practiceHub: { bn: 'প্র্যাকটিস হাব', en: 'Practice Hub' },
+  practiceSub: { bn: 'ভাষার দক্ষতা বাড়ানোর জন্য বিভিন্ন অনুশীলন', en: 'Exercises to build every skill' },
+  comingSoon: { bn: 'শীঘ্রই আসছে', en: 'Coming soon' },
+  myProfile: { bn: 'আমার প্রোফাইল', en: 'My Profile' },
+  learner: { bn: 'শিক্ষার্থী', en: 'Learner' },
+  explainLang: { bn: 'ব্যাখ্যার ভাষা', en: 'Explanation language' },
+  myProgress: { bn: 'আমার অগ্রগতি', en: 'My progress' },
+  saved: { bn: 'সংরক্ষিত বাক্যাংশ', en: 'Saved phrases' },
+  about: { bn: 'অ্যাপ সম্পর্কে', en: 'About the app' },
+  resetProgress: { bn: 'অগ্রগতি মুছে ফেলুন', en: 'Reset progress' },
+  resetConfirm: { bn: 'সত্যিই সব অগ্রগতি মুছে ফেলবেন? এটি ফেরানো যাবে না।', en: 'Really delete all progress? This cannot be undone.' },
+  noDue: { bn: 'এখন রিভিশনের কোনো কার্ড নেই। নতুন পাঠের বাক্যাংশ দেখলে কার্ড যোগ হবে।', en: 'No cards due. Cards are added when you study a lesson’s phrases.' },
+  remembered: { bn: 'মনে আছে', en: 'I knew it' },
+  forgot: { bn: 'ভুলে গেছি', en: 'Forgot' },
+  reveal: { bn: 'উত্তর দেখুন', en: 'Show answer' },
+  sessionDone: { bn: 'রিভিশন সেশন শেষ!', en: 'Review session finished!' },
+  noMistakes: { bn: 'কোনো ভুল জমা নেই — দারুণ!', en: 'No outstanding mistakes — great!' },
+  notEnough: { bn: 'চ্যালেঞ্জের জন্য আগে অন্তত একটি পাঠের বাক্যাংশ পড়ুন।', en: 'Study at least one lesson’s phrases before the challenge.' },
+  challengeDone: { bn: 'আজকের চ্যালেঞ্জ সম্পন্ন — কাল আবার আসুন!', en: 'Today’s challenge is done — come back tomorrow!' },
+  start: { bn: 'শুরু করুন', en: 'Start' },
+  ttsUnavailable: { bn: 'এই ডিভাইসে ইতালিয়ান ভয়েস পাওয়া যায়নি', en: 'Italian voice not available on this device' },
+  storageWarning: { bn: 'অগ্রগতি সংরক্ষণ করা যাচ্ছে না — ডিভাইসের স্টোরেজ পরীক্ষা করুন', en: 'Progress can’t be saved — check device storage' },
+} satisfies Record<string, Tr>;
+
+export type StringKey = keyof typeof STRINGS;
+
+export function translate(lang: ExplainLang, key: StringKey, vars?: Record<string, string | number>): string {
+  let text = STRINGS[key][lang];
+  if (vars) for (const [k, v] of Object.entries(vars)) text = text.replace(`{${k}}`, String(v));
+  return text;
+}
+
+/** Returns helpers bound to the learner's chosen explanation language. */
+export function useI18n() {
+  const { state } = useProgress();
+  const lang = state.settings.explainLang;
+  return {
+    lang,
+    t: (key: StringKey, vars?: Record<string, string | number>) => translate(lang, key, vars),
+    tr: (text: Tr) => text[lang],
+  };
+}
