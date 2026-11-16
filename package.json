@@ -10,7 +10,7 @@
     "lint": "tsc --noEmit",
     "typecheck": "tsc -b",
     "test": "vitest run",
-    "android:sync": "npm run build && cap sync android",
+    "android:sync": "npm run build && cap sync android && chmod 755 android/gradlew",
     "android:open": "cap open android"
   },
   "dependencies": {

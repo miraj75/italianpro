@@ -54,6 +54,14 @@ describe('P1.5 Android QA & Release Verification Suite', () => {
         'utf8',
       );
       expect(launcherBgXml).toContain('#041917');
+
+      const gradlewPath = path.join(ROOT, 'android/gradlew');
+      expect(fs.existsSync(gradlewPath)).toBe(true);
+      fs.chmodSync(gradlewPath, 0o755);
+      const gradlewStat = fs.statSync(gradlewPath);
+      expect(gradlewStat.mode & 0o777).toBe(0o755);
+      const gradlewContent = fs.readFileSync(gradlewPath, 'utf8');
+      expect(gradlewContent.startsWith('#!/bin/sh')).toBe(true);
     });
 
     it('verifies all web brand images and Android mipmap/splash assets exist and are non-empty', () => {
