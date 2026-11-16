@@ -58,6 +58,8 @@ export type Action =
   | { type: 'addStudyTime'; seconds: number; today: string }
   | { type: 'toggleSaved'; key: string }
   | { type: 'clearMistake'; key: string }
+  | { type: 'addCards'; keys: string[]; today: string }
+  | { type: 'awardXp'; amount: number; today: string }
   | { type: 'setExplainLang'; lang: ExplainLang }
   | { type: 'setDailyGoal'; minutes: number }
   | { type: 'reset' };
@@ -142,6 +144,17 @@ export function reducer(state: ProgressState, action: Action): ProgressState {
         ? state.saved.filter((k) => k !== action.key)
         : [...state.saved, action.key];
       return { ...state, saved };
+    }
+    case 'addCards': {
+      const fresh = action.keys.filter((k) => !state.cards[k]);
+      if (fresh.length === 0) return state;
+      const cards = { ...state.cards };
+      for (const k of fresh) cards[k] = { box: 0, due: action.today, reviews: 0, lapses: 0 };
+      return { ...state, cards };
+    }
+    case 'awardXp': {
+      const day = state.days[action.today] ?? { seconds: 0, tasks: [] };
+      return { ...state, xp: state.xp + action.amount, days: { ...state.days, [action.today]: day } };
     }
     case 'clearMistake': {
       if (!(action.key in state.mistakes)) return state;

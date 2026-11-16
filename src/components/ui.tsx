@@ -34,7 +34,7 @@ export function Button({
     <button
       type="button"
       className={cx(
-        'inline-flex min-h-12 items-center justify-center gap-2 rounded-full px-6 font-semibold transition active:scale-[0.98] disabled:cursor-not-allowed disabled:opacity-40 disabled:shadow-none',
+        'inline-flex min-h-12 items-center justify-center gap-2 rounded-full px-6 text-[1.05rem] font-extrabold transition active:scale-[0.98] disabled:cursor-not-allowed disabled:opacity-40 disabled:shadow-none',
         styles[variant],
         className,
       )}
@@ -120,7 +120,7 @@ export function Pill({ children, active, onClick }: { children: ReactNode; activ
       onClick={onClick}
       aria-pressed={active}
       className={cx(
-        'min-h-10 shrink-0 rounded-full border px-4 text-sm font-semibold transition',
+        'min-h-10 shrink-0 rounded-full border px-4 text-[0.95rem] font-bold transition',
         active ? 'bg-grad-primary border-transparent text-navy-950 glow-neon' : 'border-white/15 bg-white/5 text-ink-2 hover:text-ink',
       )}
     >
@@ -133,8 +133,8 @@ export function ScreenTitle({ title, subtitle, right }: { title: string; subtitl
   return (
     <header className="mb-5 flex items-start justify-between gap-4">
       <div>
-        <h1 className="text-[1.9rem] leading-tight font-bold tracking-tight">{title}</h1>
-        {subtitle && <p className="bn mt-1 text-ink-2">{subtitle}</p>}
+        <h1 className="text-[2.3rem] leading-tight">{title}</h1>
+        {subtitle && <p className="bn mt-1 text-lg font-semibold text-ink-2">{subtitle}</p>}
       </div>
       {right}
     </header>

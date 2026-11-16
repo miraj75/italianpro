@@ -15,9 +15,9 @@ export function StatsRow({ items }: { items: { icon: LucideIcon; tone: Tone; val
     <div className="grid grid-cols-3 gap-3">
       {items.map((s) => (
         <GlassCard key={s.label} className="flex flex-col items-center py-3 text-center">
-          <s.icon size={22} className={ICON_COLOR[s.tone]} aria-hidden />
-          <span className="mt-1 text-xl font-bold">{s.value}</span>
-          <span className="bn text-xs text-ink-2">{s.label}</span>
+          <s.icon size={26} className={ICON_COLOR[s.tone]} aria-hidden />
+          <span className="mt-1 text-2xl font-extrabold">{s.value}</span>
+          <span className="bn text-sm font-semibold text-ink-2">{s.label}</span>
         </GlassCard>
       ))}
     </div>

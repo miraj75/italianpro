@@ -11,6 +11,7 @@ import { isLessonUnlocked } from '../state/progress';
 import { LESSON_PASS_SCORE } from '../content/types';
 import { Button, GlassCard, Pill, ProgressBar, cx } from '../components/ui';
 import { SpeakButton } from '../components/SpeakButton';
+import { LEVEL_IMAGE } from './CoursesScreen';
 import { QuizRunner, type QuizResult } from '../components/QuizRunner';
 
 const TABS = ['phrases', 'grammar', 'dialogue', 'quiz'] as const;
@@ -73,11 +74,12 @@ export function LessonScreen({ lessonId }: { lessonId: string }) {
 
       <section
         className="relative mb-4 overflow-hidden rounded-3xl border border-white/10 p-5"
-        style={{ background: 'linear-gradient(135deg, rgba(0,201,135,0.25), rgba(39,223,255,0.12) 55%, rgba(168,85,247,0.18))' }}
+        style={{ background: `linear-gradient(0deg, rgba(7,21,34,0.97) 15%, rgba(7,21,34,0.35) 70%), url(${LEVEL_IMAGE[ref.level.id].src}) center 30% / cover no-repeat` }}
       >
-        <p className="text-xs font-semibold tracking-wider text-mint uppercase">{lesson.minutes} {t('minutes')}</p>
-        <h1 className="mt-1 text-3xl font-bold">{lesson.title}</h1>
-        <p className="bn text-ink-2">{tr(lesson.subtitle)}</p>
+        <div className="h-24" />
+        <p className="text-sm font-bold tracking-wider text-mint uppercase">{lesson.minutes} {t('minutes')}</p>
+        <h1 className="mt-1 text-[2rem] leading-tight">{lesson.title}</h1>
+        <p className="bn text-lg font-semibold text-ink-2">{tr(lesson.subtitle)}</p>
       </section>
 
       <div className="-mx-4 mb-5 flex gap-2 overflow-x-auto px-4 pb-1" role="tablist">
@@ -127,8 +129,8 @@ function PhrasesTab({ lesson }: { lesson: Lesson }) {
             <div key={p.id} className="flex items-start gap-3 p-4">
               <SpeakButton text={p.it} />
               <div className="min-w-0 flex-1">
-                <p className="text-lg font-semibold">{p.it}</p>
-                <p className="bn text-sm text-ink-2">{tr(p.tr)}</p>
+                <p className="text-xl font-extrabold">{p.it}</p>
+                <p className="bn font-semibold text-ink-2">{tr(p.tr)}</p>
                 {p.note && <p className="bn mt-1 text-xs text-ink-3">{tr(p.note)}</p>}
               </div>
               <button

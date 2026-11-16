@@ -1,5 +1,6 @@
 import { useState } from 'react';
 import { findLesson } from '../../content/courses';
+import { bankItem } from '../../content/bank';
 import type { Phrase } from '../../content/types';
 import { useI18n } from '../../lib/i18n';
 import { dayKey } from '../../lib/date';
@@ -9,7 +10,9 @@ import { Button, GlassCard, ProgressBar } from '../../components/ui';
 import { SpeakButton } from '../../components/SpeakButton';
 import { SubHeader } from '../../components/SubHeader';
 
-export function phraseByKey(key: string): Phrase | undefined {
+export function phraseByKey(key: string): Pick<Phrase, 'it' | 'tr'> | undefined {
+  const banked = bankItem(key);
+  if (banked) return banked;
   const [lessonId = '', phraseId] = key.split(':');
   return findLesson(lessonId)?.lesson.phrases.find((p) => p.id === phraseId);
 }

@@ -16,6 +16,13 @@ import { VerbsScreen } from '../screens/practice/VerbsScreen';
 import { SurvivalScreen } from '../screens/practice/SurvivalScreen';
 import { MistakesScreen } from '../screens/practice/MistakesScreen';
 import { LessonIndexScreen } from '../screens/practice/LessonIndexScreen';
+import { LevelScreen } from '../screens/CoursesScreen';
+import { WordBankScreen } from '../screens/practice/WordBankScreen';
+import { PhrasesScreen, SentencesScreen } from '../screens/practice/SentencesScreen';
+import { PuzzleScreen } from '../screens/practice/PuzzleScreen';
+import { GrammarHubScreen, GrammarTopicScreen } from '../screens/practice/GrammarScreens';
+import { LEVEL_ORDER } from '../content/courses';
+import type { LevelId } from '../content/types';
 
 function Screen() {
   const { route } = useRouter();
@@ -30,6 +37,23 @@ function Screen() {
     );
   }
 
+  const level = matchPath('/level/:id', path);
+  if (level && (LEVEL_ORDER as string[]).includes(level.id!)) {
+    return (
+      <AppShell>
+        <LevelScreen key={level.id} id={level.id as LevelId} />
+      </AppShell>
+    );
+  }
+  const grammar = matchPath('/grammar/:id', path);
+  if (grammar) {
+    return (
+      <AppShell>
+        <GrammarTopicScreen key={grammar.id} id={grammar.id!} />
+      </AppShell>
+    );
+  }
+
   const screens: Record<string, JSX.Element> = {
     '/': <HomeScreen />,
     '/courses': <CoursesScreen />,
@@ -38,7 +62,11 @@ function Screen() {
     '/practice/verbs': <VerbsScreen />,
     '/practice/survival': <SurvivalScreen />,
     '/practice/mistakes': <MistakesScreen />,
-    '/practice/grammar': <LessonIndexScreen mode="grammar" />,
+    '/practice/grammar': <GrammarHubScreen />,
+    '/practice/words': <WordBankScreen />,
+    '/practice/sentences': <SentencesScreen />,
+    '/practice/phrases': <PhrasesScreen />,
+    '/practice/puzzle': <PuzzleScreen />,
     '/practice/listening': <LessonIndexScreen mode="listening" />,
     '/challenge': <ChallengeScreen />,
     '/profile': <ProfileScreen />,

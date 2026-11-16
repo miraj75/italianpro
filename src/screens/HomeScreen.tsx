@@ -1,4 +1,4 @@
-import { BookOpen, CalendarCheck, ChevronRight, Circle, CheckCircle2, Flame, Headphones, Layers, RotateCcw, Sparkles, Star, Target, Trophy, type LucideIcon } from 'lucide-react';
+import { BookOpen, CalendarCheck, Languages, ChevronRight, Circle, CheckCircle2, Flame, Headphones, Layers, RotateCcw, Sparkles, Star, Target, Trophy, type LucideIcon } from 'lucide-react';
 import { useRouter } from '../app/router';
 import { useI18n } from '../lib/i18n';
 import { useProgress } from '../state/ProgressContext';
@@ -17,7 +17,7 @@ const PLAN_ICONS: Record<TaskKind, { icon: LucideIcon; tone: Tone }> = {
 };
 
 export function HomeScreen() {
-  const { state } = useProgress();
+  const { state, dispatch } = useProgress();
   const { navigate } = useRouter();
   const { t, tr } = useI18n();
   const goal = state.settings.dailyGoalMinutes;
@@ -28,22 +28,32 @@ export function HomeScreen() {
 
   return (
     <div className="animate-rise space-y-4">
-      <header className="flex items-center justify-between lg:hidden">
-        <div>
-          <p className="text-2xl font-bold">
-            Italian<span className="text-grad-primary">Pro</span>
-          </p>
-          <p className="text-xs text-ink-3">{t('tagline')}</p>
+      <header className="flex items-center justify-between">
+        <div className="flex items-center gap-3 lg:invisible">
+          <span className="flag-it h-8 w-11 shadow-[0_0_12px_-2px_rgba(0,245,160,0.5)]" aria-hidden />
+          <div>
+            <p className="text-[1.7rem] leading-none font-extrabold">
+              Italian<span className="text-grad-primary">Pro</span>
+            </p>
+            <p className="text-sm font-semibold text-ink-2">{t('tagline')}</p>
+          </div>
         </div>
-        <span className="rounded-full border border-white/15 px-3 py-1 text-xs font-semibold text-ink-2 uppercase">{state.settings.explainLang}</span>
+        <button
+          type="button"
+          onClick={() => dispatch({ type: 'setExplainLang', lang: state.settings.explainLang === 'bn' ? 'en' : 'bn' })}
+          aria-label={t('explainLang')}
+          className="flex min-h-10 items-center gap-1 rounded-full border border-white/15 px-4 text-sm font-extrabold uppercase"
+        >
+          <Languages size={16} className="text-neon" /> {state.settings.explainLang}
+        </button>
       </header>
 
       <section
         className="relative overflow-hidden rounded-3xl border border-white/10 p-5"
-        style={{ background: 'linear-gradient(120deg, rgba(6,47,43,0.95) 0%, rgba(11,27,42,0.75) 55%, rgba(11,27,42,0.2) 100%), url(./img/colosseum.webp) right center / cover no-repeat' }}
+        style={{ background: 'linear-gradient(120deg, rgba(6,47,43,0.95) 0%, rgba(11,27,42,0.75) 55%, rgba(11,27,42,0.2) 100%), url(./img/colosseum.webp) right center / auto 100% no-repeat' }}
       >
-        <h1 className="text-3xl font-bold">Buongiorno! 👋</h1>
-        <p className="bn mt-1 max-w-[16rem] text-ink-2">{t('greetingSub', { n: goal })}</p>
+        <h1 className="text-[2.1rem] leading-tight">Buongiorno! 👋</h1>
+        <p className="bn mt-1 max-w-[15rem] text-lg font-semibold text-ink">{t('greetingSub', { n: goal })}</p>
         {ref && (
           <span className="mt-4 inline-flex items-center gap-2 rounded-full border border-white/15 bg-navy-950/60 px-3 py-1.5 text-sm">
             <BookOpen size={16} className="text-neon" /> {ref.level.id} · {tr(ref.level.name)}
@@ -53,13 +63,13 @@ export function HomeScreen() {
 
       <GlassCard neon className="flex items-center gap-5 p-5">
         <ProgressRing value={minutes / goal}>
-          <span className="text-xl font-bold">
+          <span className="text-2xl font-extrabold">
             {Math.min(minutes, 999)} / {goal}
           </span>
           <span className="text-xs text-ink-2">{t('minutes')}</span>
         </ProgressRing>
         <div>
-          <p className="flex items-center gap-2 text-lg font-semibold">
+          <p className="flex items-center gap-2 text-xl font-extrabold">
             <Target size={20} className="text-gold" /> {t('dailyGoal')}
           </p>
           <p className="bn text-ink-2">
@@ -78,7 +88,7 @@ export function HomeScreen() {
 
       {ref && (
         <GlassCard className="p-4">
-          <h2 className="mb-3 flex items-center gap-2 font-semibold">
+          <h2 className="mb-3 flex items-center gap-2 text-xl font-extrabold">
             <CalendarCheck size={18} className="text-neon" /> {t('continueLearning')}
           </h2>
           <button type="button" onClick={() => navigate(`/lesson/${ref.lesson.id}`)} className="flex w-full items-center gap-3 text-left">
@@ -87,7 +97,7 @@ export function HomeScreen() {
               <span className="block text-xs text-ink-3">
                 {ref.level.id} · {t('unit')} {ref.unit.number} · {t('lesson')} {ref.lesson.number}
               </span>
-              <span className="block font-semibold">{ref.lesson.title}</span>
+              <span className="block text-lg font-extrabold">{ref.lesson.title}</span>
               <span className="bn block truncate text-sm text-ink-2">{tr(ref.lesson.subtitle)}</span>
             </span>
             <span className="bg-grad-primary glow-neon flex h-10 w-10 shrink-0 items-center justify-center rounded-full text-navy-950">
@@ -98,7 +108,7 @@ export function HomeScreen() {
       )}
 
       <GlassCard className="p-4">
-        <h2 className="mb-2 flex items-center gap-2 font-semibold">
+        <h2 className="mb-2 flex items-center gap-2 text-xl font-extrabold">
           <CalendarCheck size={18} className="text-neon" /> {t('todaysPlan')}
         </h2>
         <ul className="divide-y divide-white/5">
@@ -109,7 +119,7 @@ export function HomeScreen() {
                 <button type="button" onClick={() => navigate(item.route)} className="flex min-h-14 w-full items-center gap-3 py-2 text-left">
                   <IconTile icon={meta.icon} tone={meta.tone} size="sm" />
                   <span className="min-w-0 flex-1">
-                    <span className={cx('block font-medium', item.done && 'text-ink-2 line-through decoration-ink-3')}>{tr(item.title)}</span>
+                    <span className={cx('block text-[1.05rem] font-bold', item.done && 'text-ink-2 line-through decoration-ink-3')}>{tr(item.title)}</span>
                     <span className="bn block truncate text-xs text-ink-3">{tr(item.detail)}</span>
                   </span>
                   <span className="text-sm text-ink-2">
@@ -131,7 +141,7 @@ export function HomeScreen() {
       >
         <IconTile icon={Sparkles} tone="gold" size="lg" />
         <span className="flex-1">
-          <span className="block text-lg font-semibold">{t('dailyChallenge')}</span>
+          <span className="block text-xl font-extrabold">{t('dailyChallenge')}</span>
           <span className="bn block text-sm text-ink-2">{challengeDone ? t('challengeDone') : t('challengeSub')}</span>
         </span>
         <span className="bg-grad-premium rounded-full px-3 py-1 text-sm font-bold text-white">+50 XP</span>
