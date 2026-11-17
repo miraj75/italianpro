@@ -3,35 +3,28 @@ import {
   CalendarCheck,
   CheckCircle2,
   Circle,
-  Flame,
   Headphones,
   Layers,
   Play,
   RotateCcw,
-  Sparkles,
-  Star,
   Target,
-  Trophy,
   type LucideIcon,
 } from 'lucide-react';
 import type { LevelId } from '../content/types';
 import { useRouter } from '../app/router';
 import { useI18n } from '../lib/i18n';
 import { useProgress } from '../state/ProgressContext';
-import { badges, getCurrentLevel, minutesToday, streak, type TaskKind } from '../state/progress';
+import { getCurrentLevel, minutesToday, type TaskKind } from '../state/progress';
 import { dailyPlan } from '../state/plan';
 import { getCourseOverview } from '../lib/courseOverview';
 import { GlassCard, IconTile, ProgressBar, ProgressRing, cx, type Tone } from '../components/ui';
 import { ItalianRibbonWave } from '../components/BrandDecor';
-import { StatsRow } from '../components/StatsRow';
-import { dayKey } from '../lib/date';
 
 const PLAN_ICONS: Record<TaskKind, { icon: LucideIcon; tone: Tone }> = {
   lesson: { icon: BookOpen, tone: 'emerald' },
   listening: { icon: Headphones, tone: 'cyan' },
   vocab: { icon: Layers, tone: 'violet' },
   review: { icon: RotateCcw, tone: 'pink' },
-  challenge: { icon: Trophy, tone: 'gold' },
 };
 
 const LEVEL_BADGE_STYLE: Record<LevelId, string> = {
@@ -50,7 +43,6 @@ export function HomeScreen() {
   const activeLevel = getCurrentLevel(state);
   const overview = getCourseOverview(state, activeLevel);
   const plan = dailyPlan(state);
-  const challengeDone = state.days[dayKey()]?.tasks.includes('challenge') ?? false;
 
   const courseCounterText =
     overview.unitKind === 'modules'
@@ -105,15 +97,6 @@ export function HomeScreen() {
           </p>
         </div>
       </GlassCard>
-
-      {/* Streak, XP, Badges */}
-      <StatsRow
-        items={[
-          { icon: Flame, tone: 'pink', value: streak(state), label: t('streak') },
-          { icon: Star, tone: 'gold', value: state.xp.toLocaleString(), label: 'XP' },
-          { icon: Trophy, tone: 'gold', value: badges(state).filter((b) => b.earned).length, label: t('badges') },
-        ]}
-      />
 
       {/* Continue Learning — single direct card for the active CEFR course & current module */}
       <GlassCard neon className="p-4 sm:p-5 space-y-3.5">
@@ -213,26 +196,6 @@ export function HomeScreen() {
           })}
         </ul>
       </GlassCard>
-
-      {/* Daily Challenge Banner */}
-      <button
-        type="button"
-        onClick={() => navigate('/challenge')}
-        className="relative flex w-full items-center gap-4 overflow-hidden rounded-3xl border border-pink/30 p-5 text-left"
-        style={{
-          background:
-            'linear-gradient(120deg, rgba(168,85,247,0.35), rgba(255,79,216,0.25) 60%, rgba(255,209,102,0.15))',
-        }}
-      >
-        <IconTile icon={Sparkles} tone="gold" size="lg" />
-        <span className="flex-1">
-          <span className="block text-xl font-extrabold">{t('dailyChallenge')}</span>
-          <span className="bn block text-sm text-ink-2">
-            {challengeDone ? t('challengeDone') : t('challengeSub')}
-          </span>
-        </span>
-        <span className="bg-grad-premium rounded-full px-3 py-1 text-sm font-bold text-white">+50 XP</span>
-      </button>
     </div>
   );
 }

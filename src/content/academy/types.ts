@@ -3,14 +3,23 @@ import type { LevelId, Tr } from '../types';
 export type A1AcademyModuleId =
   | 'alphabet'
   | 'numbers'
+  | 'greetings-intro'
   | 'articles'
+  | 'nouns-gender-plurals'
+  | 'pronouns-possessives'
   | 'verbs'
   | 'essential-verbs'
   | 'adjectives'
   | 'adverbs'
   | 'prepositions'
   | 'conjunctions'
+  | 'sentence-structure'
+  | 'time-dates'
   | 'vocabulary'
+  | 'everyday-communication'
+  | 'culture-survival'
+  | 'listening-speaking'
+  | 'reading-writing'
   | 'final-exam';
 
 export type AcademyModuleId = A1AcademyModuleId | string;
@@ -24,12 +33,14 @@ export type AcademyModuleKind =
   | 'grammar'
   | 'verbs'
   | 'vocabulary'
+  | 'communication'
   | 'idioms'
   | 'sentences'
   | 'reading'
   | 'listening'
   | 'writing'
   | 'speaking'
+  | 'writing-speaking'
   | 'final-exam';
 
 export interface AcademyModuleMeta {
@@ -43,6 +54,8 @@ export interface AcademyModuleMeta {
   title: string;
   subtitle: Tr;
   description: Tr;
+  /** Optional A1 curriculum section header grouping on the Learning Path timeline. */
+  sectionLabel?: { id: string; title: Tr };
   /** IDs of individual learning items that must be studied before unlocking the section exam. */
   requiredItemIds: string[];
   /** Number of questions in each exam attempt. */
@@ -168,6 +181,7 @@ export interface AcademyVerbEntry {
   meaning: Tr;
   category: Tr;
   irregular: boolean;
+  pronunciation?: string;
   usageNote: Tr;
   conjugations: AcademyVerbTenseTable[];
   examples: { it: string; tr: Tr }[];
@@ -239,8 +253,23 @@ export interface AcademyDrillOption {
   secondaryLabelTr?: Tr;
 }
 
+export interface AcademyDrillMatchingPair {
+  id: string;
+  leftIt: string;
+  rightTr: Tr;
+}
+
+export type AcademyDrillKind =
+  | 'mcq'
+  | 'listening'
+  | 'fill-blank'
+  | 'matching'
+  | 'sentence-builder';
+
 export interface AcademyDrillItem {
   id: string;
+  /** Optional interactive drill interaction type (defaults to 'mcq'). */
+  drillKind?: AcademyDrillKind;
   /** Audio string spoken automatically in Italian when the question loads. */
   audioIt: string;
   /** Primary display token on the choice option card (e.g. 'T' or '21'). */
@@ -255,6 +284,12 @@ export interface AcademyDrillItem {
   promptIt?: string;
   /** Optional explicit distractor options for grammar/usage drills. */
   explicitOptions?: AcademyDrillOption[];
+  /** Optional pairs for 'matching' drill items. */
+  matchingPairs?: AcademyDrillMatchingPair[];
+  /** Optional shuffled/ordered word tokens for 'sentence-builder' drill items. */
+  sentenceTokens?: string[];
+  /** Accepted canonical Italian sentence answers for 'sentence-builder' drills. */
+  acceptedSentences?: string[];
   /** Phonetic guide in Bengali displayed as a listening cue. */
   cueBn: string;
   /** Phonetic guide / meaning in English displayed as a listening cue. */

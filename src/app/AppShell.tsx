@@ -1,5 +1,5 @@
 import type { ReactNode } from 'react';
-import { BookOpen, Home, Settings, Target, Trophy, User, type LucideIcon } from 'lucide-react';
+import { BookOpen, Home, Settings, Target, User, type LucideIcon } from 'lucide-react';
 import { useRouter } from './router';
 import { useI18n, type StringKey } from '../lib/i18n';
 import { useProgress } from '../state/ProgressContext';
@@ -10,11 +10,10 @@ const TABS: { path: string; label: StringKey; icon: LucideIcon; match: string[] 
   { path: '/', label: 'home', icon: Home, match: ['/'] },
   { path: '/courses', label: 'courses', icon: BookOpen, match: ['/courses', '/lesson', '/level', '/academy'] },
   { path: '/practice', label: 'practice', icon: Target, match: ['/practice', '/grammar'] },
-  { path: '/challenge', label: 'challenge', icon: Trophy, match: ['/challenge'] },
   { path: '/profile', label: 'profile', icon: User, match: ['/profile'] },
 ];
 
-const TOP_LEVEL_BRAND_PATHS = new Set(['/', '/courses', '/practice', '/challenge', '/profile']);
+const TOP_LEVEL_BRAND_PATHS = new Set(['/', '/courses', '/practice', '/profile']);
 
 function isActive(path: string, match: string[]): boolean {
   return match.some((m) => (m === '/' ? path === '/' : path.startsWith(m)));

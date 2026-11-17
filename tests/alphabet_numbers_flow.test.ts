@@ -358,7 +358,7 @@ describe('Alphabet & Numbers 5-Stage Interactive Learning Flow', () => {
     expect(loadProgress().settings.explainLang).toBe('en');
   });
 
-  it('builds 11 sequential Numbers groups (10 per group + final 100), enforces sequential resumption, prevents duplicate XP, and separates EN/BN study data', async () => {
+  it('builds 11 sequential Numbers groups (10 per group + final 100), enforces sequential resumption, prevents duplicate study tracking, and separates EN/BN study data', async () => {
     const { buildSequentialNumberGroups } = await import('../src/screens/academy/NumbersModuleScreen');
     const { resolveInitialSequentialGroupIndex } = await import('../src/components/academy/StudyListScreen');
     const { academyStudyStats } = await import('../src/state/academyProgress');
@@ -425,7 +425,7 @@ describe('Alphabet & Numbers 5-Stage Interactive Learning Flow', () => {
     const setAll = new Set(A1_NUMBERS.map((n) => n.id));
     expect(resolveInitialSequentialGroupIndex(groups, setAll)).toBe(10);
 
-    // 4. Alphabet 21-letter gate + Persistence + Zero duplicate XP
+    // 4. Alphabet 21-letter gate + Persistence + Zero duplicate study items
     let s = initialState();
     s = reducer(s, { type: 'completeAcademyTheory', moduleId: 'alphabet', level: 'A1' });
     for (let i = 0; i < 20; i++) {
@@ -434,11 +434,9 @@ describe('Alphabet & Numbers 5-Stage Interactive Learning Flow', () => {
     expect(academyStudyStats(s.academy, 'alphabet').readyForExam).toBe(false);
     expect(academyStudyStats(s.academy, 'alphabet').remaining).toBe(1);
 
-    const xpBeforeRepeat = s.xp;
-    // Tapping an already studied letter never duplicates itemId or XP
+    // Tapping an already studied letter never duplicates itemId
     s = reducer(s, { type: 'studyAcademyItem', moduleId: 'alphabet', itemId: A1_ALPHABET_LETTERS[0]!.id });
     expect(getAcademyModuleProgress(s.academy, 'alphabet').studiedItems).toHaveLength(20);
-    expect(s.xp).toBe(xpBeforeRepeat);
 
     // 21st letter completes Study requirement
     s = reducer(s, { type: 'studyAcademyItem', moduleId: 'alphabet', itemId: A1_ALPHABET_LETTERS[20]!.id });

@@ -7,6 +7,7 @@ import { speakItalian, startSpeechSession, stopSpeaking } from '../../lib/speech
 import { Button, GlassCard } from '../ui';
 import { AnswerFeedbackSheet } from './AnswerFeedbackSheet';
 import { AudioChoiceQuestion } from './AudioChoiceQuestion';
+import { MixedDrillQuestion } from './MixedDrillQuestion';
 
 export interface SoundDrillScreenProps {
   drillItems: AcademyDrillItem[];
@@ -21,9 +22,10 @@ export interface SoundDrillScreenProps {
 }
 
 /**
- * Reusable Stage 3 (Interactive Sound Drill) screen.
+ * Reusable Stage 3 (Interactive Drill) screen.
  * - Randomized non-repeating deck covering all configured items
  * - Auto-plays Italian audio when each question opens (cancelling prior speech cleanly)
+ * - Supports MCQ, Listening, Fill-blank, Matching, and Sentence-builder items
  * - Shows bottom-sheet AnswerFeedbackSheet ("Correct!" / "Incorrect" + GOT IT)
  * - Prevents advancing or double-submitting while feedback popup is open
  * - Unlocks Stage 4 (Section Examination) upon completing the drill round
@@ -46,6 +48,7 @@ export function SoundDrillScreen({
   const [incorrectCount, setIncorrectCount] = useState(0);
   const [drillDone, setDrillDone] = useState(alreadyCompleted);
   const [pickedOption, setPickedOption] = useState<AcademyDrillItem | null>(null);
+  const [mixedResult, setMixedResult] = useState<boolean | null>(null);
   const completedRef = useRef(false);
 
   const deck = useMemo(() => shuffleArray(drillItems), [drillItems, round]);
@@ -82,7 +85,7 @@ export function SoundDrillScreen({
   }, [drillDone, activeItem, index, round]);
 
   const handleSelectOption = (chosen: AcademyDrillItem) => {
-    if (!activeItem || pickedOption !== null) return;
+    if (!activeItem || pickedOption !== null || mixedResult !== null) return;
     setPickedOption(chosen);
     if (chosen.id === activeItem.id) {
       setCorrectCount((c) => c + 1);
@@ -91,9 +94,20 @@ export function SoundDrillScreen({
     }
   };
 
+  const handleMixedResolve = (isCorrect: boolean) => {
+    if (!activeItem || pickedOption !== null || mixedResult !== null) return;
+    setMixedResult(isCorrect);
+    if (isCorrect) {
+      setCorrectCount((c) => c + 1);
+    } else {
+      setIncorrectCount((c) => c + 1);
+    }
+  };
+
   const handleAcknowledge = () => {
-    if (!pickedOption) return;
+    if (pickedOption === null && mixedResult === null) return;
     setPickedOption(null);
+    setMixedResult(null);
 
     if (index + 1 >= deck.length) {
       setDrillDone(true);
@@ -115,6 +129,7 @@ export function SoundDrillScreen({
     setCorrectCount(0);
     setIncorrectCount(0);
     setPickedOption(null);
+    setMixedResult(null);
     setDrillDone(false);
   };
 
@@ -210,24 +225,41 @@ export function SoundDrillScreen({
 
   if (!activeItem) return null;
 
-  const isAnswerCorrect = pickedOption?.id === activeItem.id;
+  const feedbackOpen = pickedOption !== null || mixedResult !== null;
+  const isAnswerCorrect =
+    mixedResult !== null ? mixedResult : pickedOption?.id === activeItem.id;
+  const isMixedKind =
+    activeItem.drillKind === 'matching' || activeItem.drillKind === 'sentence-builder';
 
   return (
     <div className="space-y-3">
-      <AudioChoiceQuestion
-        item={activeItem}
-        options={options}
-        questionNumber={index + 1}
-        totalQuestions={deck.length}
-        correctCount={correctCount}
-        incorrectCount={incorrectCount}
-        disabled={pickedOption !== null}
-        pickedId={pickedOption?.id ?? null}
-        onSelect={handleSelectOption}
-      />
+      {isMixedKind ? (
+        <MixedDrillQuestion
+          key={`${activeItem.id}-${index}-${round}`}
+          item={activeItem}
+          questionNumber={index + 1}
+          totalQuestions={deck.length}
+          correctCount={correctCount}
+          incorrectCount={incorrectCount}
+          disabled={feedbackOpen}
+          onResolve={handleMixedResolve}
+        />
+      ) : (
+        <AudioChoiceQuestion
+          item={activeItem}
+          options={options}
+          questionNumber={index + 1}
+          totalQuestions={deck.length}
+          correctCount={correctCount}
+          incorrectCount={incorrectCount}
+          disabled={feedbackOpen}
+          pickedId={pickedOption?.id ?? null}
+          onSelect={handleSelectOption}
+        />
+      )}
 
       <AnswerFeedbackSheet
-        open={pickedOption !== null}
+        open={feedbackOpen}
         correct={isAnswerCorrect}
         correctAnswerLabel={(() => {
           const sec = activeItem.secondaryLabelTr

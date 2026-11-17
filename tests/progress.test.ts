@@ -1,8 +1,7 @@
 import { describe, expect, it } from 'vitest';
-import { initialState, reducer, isLessonUnlocked, isLevelUnlocked, streak, dueCards, type ProgressState } from '../src/state/progress';
+import { initialState, reducer, isLessonUnlocked, isLevelUnlocked, dueCards, totalStudySeconds, type ProgressState } from '../src/state/progress';
 import { reviewCard } from '../src/state/srs';
 import { dailyPlan, currentLesson } from '../src/state/plan';
-import { buildChallenge } from '../src/state/challenge';
 import { allLessons } from '../src/content/courses';
 
 const today = '2026-11-16';
@@ -21,8 +20,8 @@ describe('unlocking', () => {
     expect(isLessonUnlocked(s, 'A1', lessons[1]!.id)).toBe(true);
   });
 
-  it('does not unlock A2 by XP alone or partial lessons, unlocks A2 on full A1 completion, B1 on full A2 completion, and B2 on full B1 completion', () => {
-    let s = { ...initialState(), xp: 100000 };
+  it('does not unlock A2 on partial lessons, unlocks A2 on full A1 completion, B1 on full A2 completion, and B2 on full B1 completion', () => {
+    let s = initialState();
     expect(isLevelUnlocked(s, 'A2')).toBe(false);
     s = pass(s, lessons[0]!.id);
     expect(isLevelUnlocked(s, 'A2')).toBe(false);
@@ -48,10 +47,16 @@ describe('unlocking', () => {
     expect(Object.keys(s.mistakes).length).toBe(quiz.length - 1);
   });
 
-  it('awards lesson-completion XP only once', () => {
+  it('preserves completedAt timestamp across repeat passing attempts', () => {
     const once = pass(initialState(), lessons[0]!.id);
-    const twice = pass(once, lessons[0]!.id);
-    expect(twice.xp - once.xp).toBe(lessons[0]!.quiz.length * 5);
+    const twice = reducer(once, {
+      type: 'submitQuiz',
+      lessonId: lessons[0]!.id,
+      today: '2026-11-20',
+      results: lessons[0]!.quiz.map((q) => ({ questionId: q.id, correct: true })),
+    });
+    expect(twice.lessons[lessons[0]!.id]!.completed).toBe(true);
+    expect(twice.lessons[lessons[0]!.id]!.completedAt).toBe(today);
   });
 });
 
@@ -73,15 +78,14 @@ describe('spaced repetition', () => {
   });
 });
 
-describe('streak and plan', () => {
-  it('counts consecutive days', () => {
+describe('study time and plan', () => {
+  it('sums study seconds accurately across days', () => {
     const s = { ...initialState(), days: {
       '2026-11-14': { seconds: 300, tasks: [] },
       '2026-11-15': { seconds: 0, tasks: ['lesson' as const] },
       '2026-11-16': { seconds: 90, tasks: [] },
     } };
-    expect(streak(s, today)).toBe(3);
-    expect(streak({ ...s, days: { '2026-11-15': s.days['2026-11-15'] } }, today)).toBe(1);
+    expect(totalStudySeconds(s)).toBe(390);
   });
 
   it('plan sums to the daily goal and points at the current lesson', () => {
@@ -90,14 +94,5 @@ describe('streak and plan', () => {
     expect(plan.reduce((a, p) => a + p.minutes, 0)).toBe(25);
     expect(currentLesson(s)?.lesson.id).toBe(lessons[0]!.id);
     expect(plan[0]!.route).toBe(`/lesson/${lessons[0]!.id}`);
-  });
-
-  it('challenge needs known phrases and builds valid questions', () => {
-    expect(buildChallenge(initialState())).toEqual([]);
-    const l = lessons[0]!;
-    const s = reducer(initialState(), { type: 'viewLessonTab', lessonId: l.id, tab: 'phrases', phraseIds: l.phrases.map((p) => p.id), today });
-    const qs = buildChallenge(s);
-    expect(qs.length).toBe(8);
-    qs.forEach((q) => expect(q.options[q.answer]).toBeDefined());
   });
 });

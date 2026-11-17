@@ -1,4 +1,5 @@
 import { buildA1FinalExam } from '../content/academy/a1FinalExam';
+import { buildA2FinalExam, type A2FinalExamQuestion } from '../content/academy/a2FinalExam';
 import type { AcademyExamQuestion } from '../content/academy/types';
 import type { ExplainLang } from '../content/types';
 import { createExamAttemptId, type ExamAnswerRecord, type RandomFn } from './examEngine';
@@ -6,6 +7,9 @@ import { resolveTr } from './i18n';
 
 export const A1_FINAL_EXAM_DRAFT_KEY = 'italianpro.a1_final_exam_draft.v1';
 export const A1_FINAL_EXAM_PREVIEW_DRAFT_KEY = 'italianpro.a1_final_exam_draft_preview.v1';
+
+export const A2_FINAL_EXAM_DRAFT_KEY = 'italianpro.a2_final_exam_draft.v1';
+export const A2_FINAL_EXAM_PREVIEW_DRAFT_KEY = 'italianpro.a2_final_exam_draft_preview.v1';
 
 export interface A1FinalExamDraft {
   attemptId: string;
@@ -15,8 +19,20 @@ export interface A1FinalExamDraft {
   updatedAt: number;
 }
 
+export interface A2FinalExamDraft {
+  attemptId: string;
+  questions: A2FinalExamQuestion[];
+  selections: Record<string, number>;
+  currentIndex: number;
+  updatedAt: number;
+}
+
 function getDraftKey(previewMode = false): string {
   return previewMode ? A1_FINAL_EXAM_PREVIEW_DRAFT_KEY : A1_FINAL_EXAM_DRAFT_KEY;
+}
+
+function getA2DraftKey(previewMode = false): string {
+  return previewMode ? A2_FINAL_EXAM_PREVIEW_DRAFT_KEY : A2_FINAL_EXAM_DRAFT_KEY;
 }
 
 function isValidQuestion(q: unknown): q is AcademyExamQuestion {
@@ -40,6 +56,29 @@ function isValidQuestion(q: unknown): q is AcademyExamQuestion {
   );
 }
 
+function sanitizeSelections(
+  questions: readonly AcademyExamQuestion[],
+  rawSelections: unknown,
+): Record<string, number> {
+  const validIds = new Map(questions.map((q) => [q.id, q.options.length]));
+  const cleanSelections: Record<string, number> = {};
+  if (rawSelections && typeof rawSelections === 'object') {
+    for (const [qId, optIdx] of Object.entries(rawSelections)) {
+      const optionCount = validIds.get(qId);
+      if (
+        optionCount !== undefined &&
+        typeof optIdx === 'number' &&
+        Number.isInteger(optIdx) &&
+        optIdx >= 0 &&
+        optIdx < optionCount
+      ) {
+        cleanSelections[qId] = optIdx;
+      }
+    }
+  }
+  return cleanSelections;
+}
+
 /** Loads a validated in-progress A1 Final Exam draft from localStorage, returning null if absent or invalid. */
 export function loadA1FinalExamDraft(previewMode = false): A1FinalExamDraft | null {
   try {
@@ -57,22 +96,7 @@ export function loadA1FinalExamDraft(previewMode = false): A1FinalExamDraft | nu
       return null;
     }
     const questions = parsed.questions;
-    const validIds = new Map(questions.map((q) => [q.id, q.options.length]));
-    const cleanSelections: Record<string, number> = {};
-    if (parsed.selections && typeof parsed.selections === 'object') {
-      for (const [qId, optIdx] of Object.entries(parsed.selections)) {
-        const optionCount = validIds.get(qId);
-        if (
-          optionCount !== undefined &&
-          typeof optIdx === 'number' &&
-          Number.isInteger(optIdx) &&
-          optIdx >= 0 &&
-          optIdx < optionCount
-        ) {
-          cleanSelections[qId] = optIdx;
-        }
-      }
-    }
+    const cleanSelections = sanitizeSelections(questions, parsed.selections);
     const rawIndex = typeof parsed.currentIndex === 'number' && Number.isInteger(parsed.currentIndex) ? parsed.currentIndex : 0;
     const currentIndex = Math.min(questions.length - 1, Math.max(0, rawIndex));
     const updatedAt = typeof parsed.updatedAt === 'number' && Number.isFinite(parsed.updatedAt) ? parsed.updatedAt : Date.now();
@@ -121,6 +145,74 @@ export function createFreshA1FinalExamDraft(rng: RandomFn = Math.random, preview
 /** Loads an existing valid draft or starts a fresh 30-question attempt if none exists. */
 export function loadOrCreateA1FinalExamDraft(rng: RandomFn = Math.random, previewMode = false): A1FinalExamDraft {
   return loadA1FinalExamDraft(previewMode) ?? createFreshA1FinalExamDraft(rng, previewMode);
+}
+
+/** Loads a validated in-progress 40-question A2 Final Exam draft from localStorage, returning null if absent or invalid. */
+export function loadA2FinalExamDraft(previewMode = false): A2FinalExamDraft | null {
+  try {
+    const raw = localStorage.getItem(getA2DraftKey(previewMode));
+    if (!raw) return null;
+    const parsed = JSON.parse(raw) as Partial<A2FinalExamDraft>;
+    if (
+      !parsed ||
+      typeof parsed.attemptId !== 'string' ||
+      !parsed.attemptId ||
+      !Array.isArray(parsed.questions) ||
+      parsed.questions.length !== 40 ||
+      !parsed.questions.every(isValidQuestion)
+    ) {
+      return null;
+    }
+    const questions = parsed.questions;
+    const cleanSelections = sanitizeSelections(questions, parsed.selections);
+    const rawIndex = typeof parsed.currentIndex === 'number' && Number.isInteger(parsed.currentIndex) ? parsed.currentIndex : 0;
+    const currentIndex = Math.min(questions.length - 1, Math.max(0, rawIndex));
+    const updatedAt = typeof parsed.updatedAt === 'number' && Number.isFinite(parsed.updatedAt) ? parsed.updatedAt : Date.now();
+    return {
+      attemptId: parsed.attemptId,
+      questions,
+      selections: cleanSelections,
+      currentIndex,
+      updatedAt,
+    };
+  } catch {
+    return null;
+  }
+}
+
+export function saveA2FinalExamDraft(draft: A2FinalExamDraft, previewMode = false): boolean {
+  try {
+    localStorage.setItem(getA2DraftKey(previewMode), JSON.stringify(draft));
+    return true;
+  } catch {
+    return false;
+  }
+}
+
+export function clearA2FinalExamDraft(previewMode = false): void {
+  try {
+    localStorage.removeItem(getA2DraftKey(previewMode));
+  } catch {
+    // Ignore storage removal failures in constrained WebViews.
+  }
+}
+
+/** Creates a brand-new 40-question randomized A2 Final Exam attempt and persists it as the active draft. */
+export function createFreshA2FinalExamDraft(rng: RandomFn = Math.random, previewMode = false): A2FinalExamDraft {
+  const draft: A2FinalExamDraft = {
+    attemptId: createExamAttemptId('a2-final-exam'),
+    questions: buildA2FinalExam(rng),
+    selections: {},
+    currentIndex: 0,
+    updatedAt: Date.now(),
+  };
+  saveA2FinalExamDraft(draft, previewMode);
+  return draft;
+}
+
+/** Loads an existing valid 40-question A2 draft or starts a fresh attempt if none exists. */
+export function loadOrCreateA2FinalExamDraft(rng: RandomFn = Math.random, previewMode = false): A2FinalExamDraft {
+  return loadA2FinalExamDraft(previewMode) ?? createFreshA2FinalExamDraft(rng, previewMode);
 }
 
 /** Returns 0-based indices of questions in the current attempt that do not yet have a valid selection. */

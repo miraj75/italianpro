@@ -1,13 +1,18 @@
 import {
   Award,
   BookOpen,
+  CalendarDays,
   Clock,
+  Compass,
   FileText,
   GitMerge,
+  HandHelping,
   Hash,
   Headphones,
+  HelpCircle,
   Infinity as InfinityIcon,
   Layers,
+  MessageCircle,
   MessageSquare,
   Mic,
   Palette,
@@ -16,6 +21,7 @@ import {
   Signpost,
   Sparkles,
   Type,
+  Users,
   type LucideIcon,
 } from 'lucide-react';
 import type { A1AcademyModuleId, AcademyModuleKind, AcademyModuleMeta } from '../content/academy/types';
@@ -58,6 +64,8 @@ export interface LearningPathNode {
   route: string;
   /** Reason shown when locked */
   lockedHint?: Tr;
+  /** Optional A1 section grouping divider metadata */
+  sectionLabel?: { id: string; title: Tr };
   /** Distinguishes Phase B/C modules awaiting authoring from prerequisite locks */
   upcomingPhase?: 'B' | 'C';
 }
@@ -103,14 +111,23 @@ const LEVEL_IMAGES: Record<LevelId, string> = {
 const A1_MODULE_ICONS: Record<A1AcademyModuleId, LucideIcon> = {
   alphabet: Type,
   numbers: Hash,
+  'greetings-intro': HandHelping,
   articles: Layers,
+  'nouns-gender-plurals': BookOpen,
+  'pronouns-possessives': Users,
   verbs: InfinityIcon,
   'essential-verbs': Sparkles,
   adjectives: Palette,
   adverbs: Clock,
   prepositions: Signpost,
   conjunctions: GitMerge,
+  'sentence-structure': HelpCircle,
+  'time-dates': CalendarDays,
   vocabulary: BookOpen,
+  'everyday-communication': MessageCircle,
+  'culture-survival': Compass,
+  'listening-speaking': Headphones,
+  'reading-writing': FileText,
   'final-exam': Award,
 };
 
@@ -123,10 +140,12 @@ const KIND_ICONS: Record<AcademyModuleKind, LucideIcon> = {
   vocabulary: BookOpen,
   idioms: Quote,
   sentences: MessageSquare,
+  communication: MessageCircle,
   reading: FileText,
   listening: Headphones,
   writing: PenTool,
   speaking: Mic,
+  'writing-speaking': PenTool,
   'final-exam': Award,
 };
 
@@ -226,6 +245,7 @@ export function buildLevelLearningPathNodes(state: ProgressState, levelId: Level
       progressText,
       bestScorePct: modProg.attempts > 0 ? Math.round(modProg.bestScore * 100) : undefined,
       route: mod.route,
+      sectionLabel: mod.sectionLabel,
       upcomingPhase: !mod.implemented ? (mod.phase as 'B' | 'C') : undefined,
       lockedHint: !mod.implemented
         ? {

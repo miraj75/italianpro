@@ -1,3 +1,4 @@
+import { topicsOf } from '../content/bank';
 import {
   A1_ACADEMY_MODULES,
   findAcademyModule,
@@ -6,6 +7,7 @@ import {
   inferLevelFromModuleId,
   isFinalExamModuleId,
 } from '../content/academy/curriculum';
+import { A2_GRAMMAR_EXPANSION_IDS } from '../content/academy/curriculumA2B1B2';
 import type { A1AcademyModuleId, AcademyModuleId } from '../content/academy/types';
 import type { LevelId } from '../content/types';
 
@@ -18,7 +20,6 @@ export interface ExamAttemptRecord {
   incorrect: number;
   score: number;
   passed: boolean;
-  awardedXp: number;
 }
 
 export interface AcademyModuleProgress {
@@ -86,8 +87,124 @@ function normalizeModuleEntry(entry: unknown): AcademyModuleProgress | undefined
     completedAttemptIds: Array.isArray(e.completedAttemptIds)
       ? e.completedAttemptIds.filter((x): x is string => typeof x === 'string')
       : [],
-    history: Array.isArray(e.history) ? e.history.slice(0, 20) : [],
+    history: Array.isArray(e.history)
+      ? e.history.slice(0, 20).flatMap((rawItem) => {
+          if (!rawItem || typeof rawItem !== 'object') return [];
+          const h = rawItem as Partial<ExamAttemptRecord>;
+          if (typeof h.id !== 'string' || typeof h.moduleId !== 'string') return [];
+          return [
+            {
+              id: h.id,
+              moduleId: h.moduleId,
+              date: typeof h.date === 'string' ? h.date : '',
+              total: typeof h.total === 'number' && Number.isFinite(h.total) ? h.total : 0,
+              correct: typeof h.correct === 'number' && Number.isFinite(h.correct) ? h.correct : 0,
+              incorrect: typeof h.incorrect === 'number' && Number.isFinite(h.incorrect) ? h.incorrect : 0,
+              score: typeof h.score === 'number' && Number.isFinite(h.score) ? h.score : 0,
+              passed: Boolean(h.passed),
+            },
+          ];
+        })
+      : [],
   };
+}
+
+const CANONICAL_A2_TOPIC_MATCHERS: [RegExp, string][] = [
+  [/greet|salut|social\s*relat/i, 'topic:A2:Greetings & Social Relationships'],
+  [/famil|parent|relat/i, 'topic:A2:Family & Relationships'],
+  [/home|furnitur|house|kitchen/i, 'topic:A2:Home & Furniture'],
+  [/food|cook|restaur|eat|drink/i, 'topic:A2:Food & Cooking'],
+  [/shop|cloth|fashion|store/i, 'topic:A2:Shopping & Clothing'],
+  [/health|body|medic|doctor|hospital/i, 'topic:A2:Health & Body'],
+  [/travel|transport|airport|train/i, 'topic:A2:Travel & Transport'],
+  [/work|profession|job|office|career/i, 'topic:A2:Work & Professions'],
+  [/educat|universit|school|study/i, 'topic:A2:Education & University'],
+  [/city|public|service|bureau|post/i, 'topic:A2:City & Public Services'],
+  [/tech|communicat|phone|internet|media/i, 'topic:A2:Technology & Communication'],
+  [/weather|environ|climate|season/i, 'topic:A2:Weather & Environment'],
+  [/leisur|entertain|hobby|sport|music/i, 'topic:A2:Leisure & Entertainment'],
+  [/emot|personal|feel|character/i, 'topic:A2:Emotions & Personality'],
+  [/dail|routin|activit/i, 'topic:A2:Daily Activities'],
+  [/money|bank|financ/i, 'topic:A2:Money & Banking'],
+  [/hous|accommodat|rent|flat/i, 'topic:A2:Housing & Accommodation'],
+  [/societ|cultur|civic/i, 'topic:A2:Society & Culture'],
+  [/natur|animal|plant/i, 'topic:A2:Nature & Animals'],
+  [/time|express|calend/i, 'topic:A2:Time & Everyday Expressions'],
+];
+
+function migrateA2VocabItems(items: string[]): string[] {
+  const canonicalSet = new Set(topicsOf('A2').map((t) => `topic:A2:${t.en}`));
+  const out = new Set<string>();
+  for (const item of items) {
+    if (!item.startsWith('topic:A2:')) {
+      out.add(item);
+      continue;
+    }
+    if (canonicalSet.has(item)) {
+      out.add(item);
+      continue;
+    }
+    const label = item.slice('topic:A2:'.length);
+    const match = CANONICAL_A2_TOPIC_MATCHERS.find(([rx]) => rx.test(label));
+    out.add(match ? match[1] : item);
+  }
+  return Array.from(out);
+}
+
+function mergeWritingSpeakingEntries(
+  rawWriting: unknown,
+  rawSpeaking: unknown,
+): AcademyModuleProgress | undefined {
+  const w = normalizeModuleEntry(rawWriting);
+  const s = normalizeModuleEntry(rawSpeaking);
+  if (!w && !s) return undefined;
+  return {
+    theoryCompleted: Boolean(w?.theoryCompleted || s?.theoryCompleted),
+    studiedItems: Array.from(new Set([...(w?.studiedItems ?? []), ...(s?.studiedItems ?? [])])),
+    drillCompleted: Boolean(w?.drillCompleted && s?.drillCompleted),
+    drillBestScore: Math.max(w?.drillBestScore ?? 0, s?.drillBestScore ?? 0),
+    drillCorrect: (w?.drillCorrect ?? 0) + (s?.drillCorrect ?? 0),
+    drillIncorrect: (w?.drillIncorrect ?? 0) + (s?.drillIncorrect ?? 0),
+    completed: Boolean(w?.completed && s?.completed),
+    completedAt: w?.completedAt ?? s?.completedAt,
+    bestScore: Math.max(w?.bestScore ?? 0, s?.bestScore ?? 0),
+    attempts: (w?.attempts ?? 0) + (s?.attempts ?? 0),
+    failedAttempts: (w?.failedAttempts ?? 0) + (s?.failedAttempts ?? 0),
+    completedAttemptIds: Array.from(
+      new Set([...(w?.completedAttemptIds ?? []), ...(s?.completedAttemptIds ?? [])]),
+    ),
+    history: [...(w?.history ?? []), ...(s?.history ?? [])].slice(0, 20),
+  };
+}
+
+function applyA2Migrations(rawMap: LevelAcademyModulesMap, lvlMap: LevelAcademyModulesMap): void {
+  // 1. Merge legacy separate a2-writing + a2-speaking into unified a2-writing-speaking
+  if (!lvlMap['a2-writing-speaking'] && (rawMap['a2-writing'] || rawMap['a2-speaking'])) {
+    const merged = mergeWritingSpeakingEntries(rawMap['a2-writing'], rawMap['a2-speaking']);
+    if (merged) lvlMap['a2-writing-speaking'] = merged;
+  }
+
+  // 2. Migrate any legacy A2 vocab topic keys to canonical 20-category keys
+  if (lvlMap['a2-vocab']) {
+    lvlMap['a2-vocab'] = {
+      ...lvlMap['a2-vocab'],
+      studiedItems: migrateA2VocabItems(lvlMap['a2-vocab'].studiedItems),
+    };
+  }
+
+  // 3. Preserve moved grammar IDs now housed inside a2-grammar-expansion
+  const expansionSet = new Set(A2_GRAMMAR_EXPANSION_IDS);
+  const movedStudied = [
+    ...(lvlMap['a2-tenses']?.studiedItems ?? []),
+    ...(lvlMap['a2-pronouns-prep']?.studiedItems ?? []),
+  ].filter((id) => expansionSet.has(id));
+  if (movedStudied.length > 0) {
+    const existing = lvlMap['a2-grammar-expansion'] ?? emptyModuleProgress();
+    lvlMap['a2-grammar-expansion'] = {
+      ...existing,
+      studiedItems: Array.from(new Set([...existing.studiedItems, ...movedStudied])),
+    };
+  }
 }
 
 export function normalizeAcademyProgress(raw: unknown): AcademyProgressState {
@@ -111,6 +228,9 @@ export function normalizeAcademyProgress(raw: unknown): AcademyProgressState {
       for (const mod of getAcademyModules(lvl)) {
         const normalized = normalizeModuleEntry(rawMap[mod.id]);
         if (normalized) lvlMap[mod.id] = normalized;
+      }
+      if (lvl === 'A2') {
+        applyA2Migrations(rawMap, lvlMap);
       }
       if (Object.keys(lvlMap).length > 0) levels[lvl] = lvlMap;
     }

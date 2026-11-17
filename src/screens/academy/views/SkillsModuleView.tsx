@@ -62,6 +62,7 @@ export function SkillsModuleView({
   // Writing state
   const [drafts, setDrafts] = useState<Record<string, string>>({});
   const [showModels, setShowModels] = useState<Record<string, boolean>>({});
+  const [wsSection, setWsSection] = useState<'writing' | 'speaking'>('writing');
 
   useEffect(() => {
     if (meta.kind === 'final-exam') {
@@ -113,7 +114,7 @@ export function SkillsModuleView({
       ? FileText
       : meta.kind === 'listening'
         ? Headphones
-        : meta.kind === 'writing'
+        : meta.kind === 'writing' || meta.kind === 'writing-speaking'
           ? PenTool
           : Mic;
   const KindIcon = kindIcon;
@@ -438,8 +439,52 @@ export function SkillsModuleView({
             )
           )}
 
+          {/* COMBINED WRITING & SPEAKING SPLIT HEADER */}
+          {meta.kind === 'writing-speaking' && (
+            <div className="grid grid-cols-2 gap-1.5 rounded-2xl border border-white/10 bg-white/4 p-1">
+              <button
+                type="button"
+                onClick={() => setWsSection('writing')}
+                className={cx(
+                  'flex min-h-11 items-center justify-center gap-1.5 rounded-xl px-3 text-xs sm:text-sm font-extrabold tabular-nums transition',
+                  wsSection === 'writing'
+                    ? 'bg-neon text-bg shadow-[0_0_16px_-6px_rgba(0,245,160,0.65)]'
+                    : 'text-ink-2 hover:text-white',
+                )}
+              >
+                <PenTool size={14} className="shrink-0" />
+                <span className="bn">
+                  {tr({
+                    bn: `লেখা (${bundle.writing.filter((w) => studiedSet.has(w.id)).length}/${bundle.writing.length})`,
+                    en: `Writing (${bundle.writing.filter((w) => studiedSet.has(w.id)).length}/${bundle.writing.length})`,
+                    it: `Scrittura (${bundle.writing.filter((w) => studiedSet.has(w.id)).length}/${bundle.writing.length})`,
+                  })}
+                </span>
+              </button>
+              <button
+                type="button"
+                onClick={() => setWsSection('speaking')}
+                className={cx(
+                  'flex min-h-11 items-center justify-center gap-1.5 rounded-xl px-3 text-xs sm:text-sm font-extrabold tabular-nums transition',
+                  wsSection === 'speaking'
+                    ? 'bg-neon text-bg shadow-[0_0_16px_-6px_rgba(0,245,160,0.65)]'
+                    : 'text-ink-2 hover:text-white',
+                )}
+              >
+                <Mic size={14} className="shrink-0" />
+                <span className="bn">
+                  {tr({
+                    bn: `বলা (${bundle.speaking.filter((s) => studiedSet.has(s.id)).length}/${bundle.speaking.length})`,
+                    en: `Speaking (${bundle.speaking.filter((s) => studiedSet.has(s.id)).length}/${bundle.speaking.length})`,
+                    it: `Parlato (${bundle.speaking.filter((s) => studiedSet.has(s.id)).length}/${bundle.speaking.length})`,
+                  })}
+                </span>
+              </button>
+            </div>
+          )}
+
           {/* WRITING VIEW */}
-          {meta.kind === 'writing' && (
+          {(meta.kind === 'writing' || (meta.kind === 'writing-speaking' && wsSection === 'writing')) && (
             <div className="space-y-4">
               {bundle.writing.map((wr: WritingExercise) => {
                 const studied = studiedSet.has(wr.id);
@@ -466,7 +511,7 @@ export function SkillsModuleView({
                           <span
                             key={kw}
                             className={cx(
-                              'rounded-full border px-2.5 py-0.5 text-xs font-extrabold',
+                              'rounded-lg border px-2.5 py-0.5 text-xs font-extrabold',
                               hit ? 'border-neon/50 bg-neon/15 text-neon' : 'border-white/15 bg-white/5 text-ink-2',
                             )}
                           >
@@ -525,7 +570,7 @@ export function SkillsModuleView({
           )}
 
           {/* SPEAKING VIEW */}
-          {meta.kind === 'speaking' && (
+          {(meta.kind === 'speaking' || (meta.kind === 'writing-speaking' && wsSection === 'speaking')) && (
             <div className="space-y-4">
               {bundle.speaking.map((sp: SpeakingExercise) => {
                 const studied = studiedSet.has(sp.id);

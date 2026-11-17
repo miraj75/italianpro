@@ -14,9 +14,9 @@ import { SubHeader } from '../../components/SubHeader';
 import { Button, GlassCard, ProgressBar } from '../../components/ui';
 
 /**
- * Module 11: Comprehensive A1 Final Examination.
- * Strictly locked until all 10 prerequisite A1 modules are passed (unless Developer Testing Mode is active).
- * Draws 30 randomized questions from the 106-question cumulative A1 bank with a 70% pass threshold.
+ * Module 20: Comprehensive A1 Final Examination.
+ * Strictly locked until all 19 prerequisite A1 modules are passed (unless Developer Testing Mode is active).
+ * Draws 30 randomized questions from the 120-question cumulative A1 bank with a 70% pass threshold.
  */
 export function FinalExamModuleScreen() {
   useStudyTimer();
@@ -77,9 +77,9 @@ export function FinalExamModuleScreen() {
             </h2>
             <p className="bn text-sm font-semibold text-ink-2">
               {tr({
-                bn: 'চূড়ান্ত পরীক্ষা শুরু করতে আগের ১০টি A1 অধ্যায় সম্পূর্ণ করুন। প্রতিটি অধ্যায় শেষ করলে এই পরীক্ষা স্বয়ংক্রিয়ভাবে খুলে যাবে।',
-                en: 'Complete all 10 prerequisite A1 modules first to unlock this cumulative 30-question final examination.',
-                it: 'Completa tutti i 10 moduli precedenti di livello A1 per sbloccare l’esame finale da 30 domande.',
+                bn: 'চূড়ান্ত পরীক্ষা শুরু করতে আগের ১৯টি A1 অধ্যায় সম্পূর্ণ করুন। প্রতিটি অধ্যায় শেষ করলে এই পরীক্ষা স্বয়ংক্রিয়ভাবে খুলে যাবে।',
+                en: 'Complete all 19 prerequisite A1 modules first to unlock this cumulative 30-question final examination.',
+                it: 'Completa tutti i 19 moduli precedenti di livello A1 per sbloccare l’esame finale da 30 domande.',
               })}
             </p>
           </div>
@@ -123,9 +123,9 @@ export function FinalExamModuleScreen() {
               <GraduationCap size={15} />
               <span className="bn">
                 {tr({
-                  bn: 'সম্পূর্ণ A1 পাঠ্যক্রম · ১৪টি বিষয়',
-                  en: 'Complete A1 Curriculum · 14 Core Topics',
-                  it: 'Programma A1 completo · 14 argomenti',
+                  bn: 'সম্পূর্ণ A1 পাঠ্যক্রম · ১৯টি অধ্যায় ও ১৪টি মূল বিষয়',
+                  en: 'Complete A1 Curriculum · 19 Modules · 14 Core Topics',
+                  it: 'Programma A1 completo · 19 moduli',
                 })}
               </span>
             </span>

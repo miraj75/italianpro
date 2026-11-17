@@ -24,7 +24,7 @@ import {
 import { resolveExamOptions } from '../src/lib/i18n';
 import { getAcademyModuleProgress, isAcademyModuleCompleted } from '../src/state/academyProgress';
 import { ProgressProvider } from '../src/state/ProgressContext';
-import { initialState, isLevelUnlocked, reducer, XP, type ProgressState } from '../src/state/progress';
+import { initialState, isLevelUnlocked, reducer, type ProgressState } from '../src/state/progress';
 import { saveProgress } from '../src/state/storage';
 
 const BENGALI_REGEX = /[\u0980-\u09FF]/;
@@ -316,12 +316,11 @@ describe('A1 Final Examination: Complete Deferred Exam Flow', () => {
     expect(loadA1FinalExamDraft()).toBeNull();
   });
 
-  it('10, 11 & 12. guards XP against retakes/failures and keeps A2 locked on fail, unlocking A2 only on valid pass', () => {
+  it('10, 11 & 12. guards exam history against duplicate attemptIds and keeps A2 locked on fail, unlocking A2 only on valid pass', () => {
     let s = completeA1Modules1To10(initialState(), today);
     expect(isLevelUnlocked(s, 'A2')).toBe(false);
 
-    // Fail final exam -> 0 XP awarded, A2 MUST stay locked
-    const xpBeforeFail = s.xp;
+    // Fail final exam -> A2 MUST stay locked
     s = reducer(s, {
       type: 'submitAcademyExam',
       attemptId: 'final-fail-1',
@@ -333,11 +332,10 @@ describe('A1 Final Examination: Complete Deferred Exam Flow', () => {
       maxIncorrect: 9,
       today,
     });
-    expect(s.xp).toBe(xpBeforeFail);
     expect(isAcademyModuleCompleted(s.academy, 'final-exam', 'A1')).toBe(false);
     expect(isLevelUnlocked(s, 'A2')).toBe(false);
 
-    // Second fail attempt -> still 0 XP, A2 still locked
+    // Second fail attempt -> A2 still locked, 2 failed attempts recorded
     s = reducer(s, {
       type: 'submitAcademyExam',
       attemptId: 'final-fail-2',
@@ -349,10 +347,10 @@ describe('A1 Final Examination: Complete Deferred Exam Flow', () => {
       maxIncorrect: 9,
       today,
     });
-    expect(s.xp).toBe(xpBeforeFail);
+    expect(getAcademyModuleProgress(s.academy, 'final-exam', 'A1').failedAttempts).toBe(2);
     expect(isLevelUnlocked(s, 'A2')).toBe(false);
 
-    // Pass final exam (25/30) -> awards XP once and unlocks A2!
+    // Pass final exam (25/30) -> completes module and unlocks A2
     s = reducer(s, {
       type: 'submitAcademyExam',
       attemptId: 'final-pass-1',
@@ -364,12 +362,11 @@ describe('A1 Final Examination: Complete Deferred Exam Flow', () => {
       maxIncorrect: 9,
       today,
     });
-    const xpAfterFirstPass = s.xp;
-    expect(xpAfterFirstPass).toBe(xpBeforeFail + 25 * XP.correctAnswer + XP.academyModuleComplete);
     expect(isAcademyModuleCompleted(s.academy, 'final-exam', 'A1')).toBe(true);
     expect(isLevelUnlocked(s, 'A2')).toBe(true);
+    expect(getAcademyModuleProgress(s.academy, 'final-exam', 'A1').attempts).toBe(3);
 
-    // Retake passing attempt (30/30) or duplicate attemptId -> ZERO additional XP
+    // Duplicate attemptId -> ignored safely (attempt count and bestScore unchanged)
     s = reducer(s, {
       type: 'submitAcademyExam',
       attemptId: 'final-pass-1',
@@ -381,8 +378,10 @@ describe('A1 Final Examination: Complete Deferred Exam Flow', () => {
       maxIncorrect: 9,
       today,
     });
-    expect(s.xp).toBe(xpAfterFirstPass);
+    expect(getAcademyModuleProgress(s.academy, 'final-exam', 'A1').attempts).toBe(3);
+    expect(getAcademyModuleProgress(s.academy, 'final-exam', 'A1').bestScore).toBeCloseTo(25 / 30, 5);
 
+    // Retake passing attempt (30/30) updates bestScore & attempt history
     s = reducer(s, {
       type: 'submitAcademyExam',
       attemptId: 'final-retake-2',
@@ -394,7 +393,8 @@ describe('A1 Final Examination: Complete Deferred Exam Flow', () => {
       maxIncorrect: 9,
       today,
     });
-    expect(s.xp).toBe(xpAfterFirstPass);
+    expect(getAcademyModuleProgress(s.academy, 'final-exam', 'A1').attempts).toBe(4);
+    expect(getAcademyModuleProgress(s.academy, 'final-exam', 'A1').bestScore).toBe(1);
   });
 
   it('renders active exam question screen with zero immediate check/answers and strict EN vs BN isolation', () => {

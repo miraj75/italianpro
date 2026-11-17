@@ -294,7 +294,7 @@ export function WritingScreen() {
     const wordCount = draft.trim() ? draft.trim().split(/\s+/).filter(Boolean).length : 0;
 
     return (
-      <div className="animate-rise space-y-4">
+      <div className="animate-rise max-w-full space-y-4 overflow-x-hidden">
         <SubHeader
           title={tr(active.title)}
           subtitle={`${active.level} · ${tr(active.category)}`}
@@ -429,7 +429,7 @@ export function WritingScreen() {
   }
 
   return (
-    <div className="animate-rise">
+    <div className="animate-rise max-w-full space-y-3 overflow-x-hidden">
       <SubHeader title={t('writingAcademy')} subtitle={t('writingAcademySub')} />
       <LevelTabs value={level} onChange={setLevel} />
 
@@ -452,9 +452,9 @@ export function WritingScreen() {
                   setShowModel(false);
                   setCheckedItems({});
                 }}
-                className="text-left"
+                className="h-full w-full min-w-0 text-left"
               >
-                <GlassCard neon={done} className="flex h-full items-center gap-3 p-4 transition hover:border-cyan/40">
+                <GlassCard neon={done} className="flex h-full w-full min-w-0 items-center gap-3 p-4 transition hover:border-cyan/40">
                   <span className="flex h-11 w-11 shrink-0 items-center justify-center rounded-2xl border border-cyan/30 bg-cyan/10 text-cyan">
                     <FilePenLine size={20} />
                   </span>
@@ -462,7 +462,7 @@ export function WritingScreen() {
                     <p className="text-xs font-semibold text-ink-3 tabular-nums">
                       {tr(w.category)} · {w.minWords}+ {t('wordsLabel')}
                     </p>
-                    <p className="bn truncate text-base font-extrabold">{tr(w.title)}</p>
+                    <p className="bn mt-0.5 line-clamp-2 text-base leading-snug font-extrabold break-words">{tr(w.title)}</p>
                   </div>
                   {done ? <CheckCircle2 size={18} className="text-neon shrink-0" /> : <ChevronRight size={18} className="text-ink-3 shrink-0" />}
                 </GlassCard>

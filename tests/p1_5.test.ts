@@ -157,7 +157,6 @@ describe('P1.5 Android QA & Release Verification Suite', () => {
       s = reducer(s, { type: 'completeSpeaking', speakingId: 'sp-a1-01', today });
       s = reducer(s, { type: 'submitAssessment', assessmentId: 'assess-a1-u1', score: 0.85, passScore: 0.7, today });
       s = reducer(s, { type: 'recordPuzzleMistake', puzzleId: 'pz-a1-001', givenAnswer: 'errore' });
-      s = reducer(s, { type: 'completeChallenge', correct: 7, today });
 
       expect(saveProgress(s)).toBe(true);
       const loaded = loadProgress();
@@ -194,7 +193,7 @@ describe('P1.5 Android QA & Release Verification Suite', () => {
     it('loads all CEFR A1–B2 courses, practice banks, and dynamic academy bundles cleanly', async () => {
       expect(LEVELS.map((l) => l.id)).toEqual(['A1', 'A2', 'B1', 'B2']);
       expect(allLessons().length).toBe(54);
-      expect(GRAMMAR_TOPICS.length).toBe(148);
+      expect(GRAMMAR_TOPICS.length).toBe(190);
       expect(VERBS.length).toBeGreaterThan(0);
       expect(SURVIVAL_TOPICS.length).toBeGreaterThan(0);
       expect(PHRASES.length).toBeGreaterThan(0);
@@ -210,8 +209,8 @@ describe('P1.5 Android QA & Release Verification Suite', () => {
         expect(bundles[lvl].listening.length).toBeGreaterThan(0);
         expect(bundles[lvl].reading.length).toBeGreaterThan(0);
         expect(bundles[lvl].puzzles.length).toBeGreaterThan(0);
-        expect(bundles[lvl].writing.length).toBe(12);
-        expect(bundles[lvl].speaking.length).toBe(12);
+        expect(bundles[lvl].writing.length).toBe(lvl === 'A2' ? 20 : 12);
+        expect(bundles[lvl].speaking.length).toBe(lvl === 'A2' ? 20 : 12);
         expect(bundles[lvl].assessments.length).toBeGreaterThanOrEqual(5);
       }
     });

@@ -10,13 +10,12 @@ import { useI18n } from '../../lib/i18n';
 import { dayKey } from '../../lib/date';
 import { useProgress, useStudyTimer } from '../../state/ProgressContext';
 import { isCorrect, puzzlePool, shuffleTiles, tokenize, type Tile } from '../../state/puzzle';
-import { Button, GlassCard, Pill, ProgressBar, cx } from '../../components/ui';
+import { Button, FilterChipRow, GlassCard, Pill, ProgressBar, cx } from '../../components/ui';
 import { SpeakButton } from '../../components/SpeakButton';
 import { SubHeader } from '../../components/SubHeader';
 import { LevelTabs, isBankLevel } from '../../components/LevelTabs';
 
 const ROUND = 8;
-const XP_PER_PUZZLE = 5;
 
 const TYPE_LABELS: Record<PuzzleType, Tr> = {
   'word-order': { bn: 'শব্দ সাজানো', en: 'Word order', it: 'Ordine delle parole' },
@@ -87,7 +86,7 @@ export function PuzzleScreen() {
   const availableTypes = useMemo(() => [...new Set(explicitPuzzles.map((p) => p.type))], [explicitPuzzles]);
 
   return (
-    <div className="animate-rise">
+    <div className="animate-rise max-w-full space-y-3 overflow-x-hidden pb-2">
       <SubHeader title={t('puzzle')} subtitle={`${t('puzzleSub')} (${combinedPool.length})`} />
       <LevelTabs
         value={level}
@@ -99,7 +98,7 @@ export function PuzzleScreen() {
       />
 
       {availableTypes.length > 0 && (
-        <div className="-mx-4 mb-2 flex gap-2 overflow-x-auto px-4 pb-1">
+        <FilterChipRow label="Puzzle type">
           <Pill active={ptype === 'all'} onClick={() => setPtype('all')}>
             {t('all')}
           </Pill>
@@ -108,10 +107,10 @@ export function PuzzleScreen() {
               {tr(TYPE_LABELS[tp])}
             </Pill>
           ))}
-        </div>
+        </FilterChipRow>
       )}
 
-      <div className="-mx-4 mb-4 flex gap-2 overflow-x-auto px-4 pb-1">
+      <FilterChipRow label={t('grammar')}>
         <Pill active={grammar === null} onClick={() => setGrammar(null)}>
           {t('allGrammar')}
         </Pill>
@@ -120,7 +119,7 @@ export function PuzzleScreen() {
             {grammarById(g)?.title ?? g}
           </Pill>
         ))}
-      </div>
+      </FilterChipRow>
 
       <PuzzleRound
         key={`${level}|${grammar}|${ptype}|${seed}|${combinedPool.length}`}
@@ -165,9 +164,9 @@ function PuzzleRound({ pool, onRestart }: { pool: PuzzleChallenge[]; onRestart: 
 
   return (
     <>
-      <div className="mb-4 flex items-center gap-3">
-        <ProgressBar value={index / round.length} />
-        <span className="text-sm font-semibold text-ink-2 tabular-nums">
+      <div className="mb-3 flex items-center gap-3">
+        <ProgressBar value={index / round.length} className="min-w-0 flex-1" />
+        <span className="shrink-0 text-xs sm:text-sm font-extrabold text-ink-2 tabular-nums">
           {index + 1}/{round.length}
         </span>
       </div>
@@ -200,6 +199,11 @@ export function PuzzleCard({ item, onDone }: { item: PuzzleChallenge; onDone: (c
     setAnswer((a) => a.filter((x) => x.id !== tile.id));
     setBank((b) => [...b, tile]);
   };
+  const clearAll = () => {
+    if (result || answer.length === 0) return;
+    setBank((b) => [...b, ...answer]);
+    setAnswer([]);
+  };
 
   const checkTiles = () => {
     const built = answer.map((a) => a.text).join(' ').trim();
@@ -219,7 +223,6 @@ export function PuzzleCard({ item, onDone }: { item: PuzzleChallenge; onDone: (c
   const finishCheck = (ok: boolean, givenAnswer: string) => {
     setResult(ok ? 'right' : 'wrong');
     if (ok) {
-      dispatch({ type: 'awardXp', amount: XP_PER_PUZZLE, today: dayKey() });
       if (state.puzzleMistakes[item.id]) {
         dispatch({ type: 'clearPuzzleMistake', puzzleId: item.id, today: dayKey() });
       }
@@ -229,48 +232,72 @@ export function PuzzleCard({ item, onDone }: { item: PuzzleChallenge; onDone: (c
   };
 
   return (
-    <>
-      <GlassCard className="p-5">
-        <p className="text-xs font-bold tracking-wide text-cyan uppercase">
+    <div className="space-y-3.5">
+      <GlassCard className="p-4 sm:p-5">
+        <p className="text-[11px] font-extrabold tracking-wide text-cyan uppercase break-words">
           {tr(TYPE_LABELS[item.type])} {topic ? `· ${topic.title}` : ''}
         </p>
-        <p className="bn mt-1 text-base font-bold text-mint">{tr(item.prompt)}</p>
-        {item.stemIt && <p className="mt-2 rounded-xl bg-white/5 px-3 py-2 text-lg font-extrabold">{item.stemIt}</p>}
-        <p className="bn mt-2 text-lg font-bold">{tr(item.tr)}</p>
+        <p className="bn mt-1.5 text-sm sm:text-base font-bold text-mint break-words">{tr(item.prompt)}</p>
+        {item.stemIt && (
+          <p className="mt-2 rounded-xl bg-white/5 px-3 py-2 text-base sm:text-lg font-extrabold break-words">
+            {item.stemIt}
+          </p>
+        )}
+        <p className="bn mt-2 text-base sm:text-lg font-bold text-white break-words">{tr(item.tr)}</p>
       </GlassCard>
 
       {isTileMode ? (
         <>
-          <div
-            className={cx(
-              'mt-4 flex min-h-24 flex-wrap content-start gap-2 rounded-2xl border-2 border-dashed p-3 transition',
-              result === 'right' ? 'border-neon/70 bg-neon/8' : result === 'wrong' ? 'border-pink/60 bg-pink/8' : 'border-white/15',
-            )}
-            aria-label={t('yourAnswer')}
-          >
-            {answer.length === 0 && <span className="self-center px-2 text-ink-3">{t('tapWords')}</span>}
-            {answer.map((tile) => (
+          <div>
+            <div className="mb-1.5 flex items-center justify-between gap-2 px-1">
+              <span className="text-xs font-bold text-ink-2">{t('yourAnswer')}</span>
+              <span className="text-xs font-bold text-ink-3 tabular-nums">
+                {answer.length}/{words.length}
+              </span>
+            </div>
+            <div
+              className={cx(
+                'flex min-h-24 flex-wrap content-start gap-2 rounded-2xl border-2 border-dashed p-3.5 transition',
+                result === 'right'
+                  ? 'border-neon/70 bg-neon/8'
+                  : result === 'wrong'
+                    ? 'border-pink/60 bg-pink/8'
+                    : 'border-white/15 bg-[#041d19]/60',
+              )}
+              aria-label={t('yourAnswer')}
+            >
+              {answer.length === 0 && (
+                <span className="self-center px-1 text-sm font-medium text-ink-3">{t('tapWords')}</span>
+              )}
+              {answer.map((tile) => (
+                <button
+                  key={tile.id}
+                  type="button"
+                  disabled={result !== null}
+                  onClick={() => unpick(tile)}
+                  className="bg-grad-primary min-h-11 max-w-full rounded-xl px-3.5 py-2 text-base sm:text-lg font-extrabold text-navy-950 break-words shadow-[0_0_14px_-4px_rgba(0,245,160,0.7)] transition active:scale-95 disabled:opacity-90"
+                >
+                  {tile.text}
+                </button>
+              ))}
+            </div>
+          </div>
+
+          <div className="flex min-h-14 flex-wrap gap-2">
+            {bank.map((tile) => (
               <button
                 key={tile.id}
                 type="button"
-                onClick={() => unpick(tile)}
-                className="bg-grad-primary min-h-11 rounded-xl px-3 text-lg font-bold text-navy-950 shadow-[0_0_14px_-4px_rgba(0,245,160,0.7)]"
+                onClick={() => pick(tile)}
+                className="glass min-h-11 max-w-full rounded-xl px-3.5 py-2 text-base sm:text-lg font-bold break-words transition hover:border-neon/40 active:scale-95"
               >
-                {tile.text}
-              </button>
-            ))}
-          </div>
-
-          <div className="mt-4 flex min-h-14 flex-wrap gap-2">
-            {bank.map((tile) => (
-              <button key={tile.id} type="button" onClick={() => pick(tile)} className="glass min-h-11 rounded-xl px-3 text-lg font-bold transition active:scale-95">
                 {tile.text}
               </button>
             ))}
           </div>
         </>
       ) : (
-        <div className="mt-4 grid gap-2.5">
+        <div className="grid gap-2.5">
           {(item.options ?? []).map((opt) => {
             const isAnswer = opt === item.answerIt;
             const chosen = pickedOpt === opt;
@@ -281,7 +308,7 @@ export function PuzzleCard({ item, onDone }: { item: PuzzleChallenge; onDone: (c
                 disabled={result !== null}
                 onClick={() => checkOption(opt)}
                 className={cx(
-                  'rounded-2xl border px-4 py-3 text-left text-base font-bold transition',
+                  'min-h-12 w-full min-w-0 rounded-2xl border px-4 py-3 text-left text-base font-bold break-words transition',
                   result === null
                     ? 'border-white/15 bg-white/5 hover:border-neon/40'
                     : isAnswer
@@ -299,49 +326,68 @@ export function PuzzleCard({ item, onDone }: { item: PuzzleChallenge; onDone: (c
       )}
 
       {result && (
-        <div className={cx('mt-4 rounded-2xl border p-4', result === 'right' ? 'border-neon/40 bg-neon/10' : 'border-pink/40 bg-pink/10')} aria-live="polite">
-          <p className="flex items-center gap-2 text-lg font-bold">
-            {result === 'right' ? <CheckCircle2 className="text-neon" /> : <XCircle className="text-pink" />}
-            {result === 'right' ? `${t('correct')} +${XP_PER_PUZZLE} XP` : `${t('incorrect')} — ${t('correctAnswer')}:`}
+        <div
+          className={cx(
+            'rounded-2xl border p-4',
+            result === 'right' ? 'border-neon/40 bg-neon/10' : 'border-pink/40 bg-pink/10',
+          )}
+          aria-live="polite"
+        >
+          <p className="flex items-center gap-2 text-base sm:text-lg font-bold break-words">
+            {result === 'right' ? <CheckCircle2 className="shrink-0 text-neon" /> : <XCircle className="shrink-0 text-pink" />}
+            <span>{result === 'right' ? t('correct') : `${t('incorrect')} — ${t('correctAnswer')}:`}</span>
           </p>
-          <div className="mt-2 flex items-center gap-2">
+          <div className="mt-2 flex items-start gap-2.5">
             <SpeakButton text={item.answerIt} size={34} />
-            <p className="text-lg font-bold">{item.answerIt}</p>
+            <p className="min-w-0 flex-1 text-base sm:text-lg font-bold break-words">{item.answerIt}</p>
           </div>
-          {item.explanation.bn && <p className="bn mt-2 text-sm text-ink-2">{tr(item.explanation)}</p>}
+          {item.explanation.bn && <p className="bn mt-2 text-sm text-ink-2 break-words">{tr(item.explanation)}</p>}
         </div>
       )}
 
       {(hint || result === 'wrong') && topic && (
-        <GlassCard className="mt-4 p-4">
+        <GlassCard className="p-4">
           <p className="flex items-center gap-2 font-bold text-gold">
-            <Lightbulb size={18} /> {tr(topic.name)}
+            <Lightbulb size={18} className="shrink-0" /> <span>{tr(topic.name)}</span>
           </p>
-          <p className="bn mt-1 text-[0.95rem] text-ink-2">{tr(topic.explanation)}</p>
-          <button type="button" onClick={() => navigate(`/grammar/${topic.id}`)} className="mt-2 inline-flex items-center gap-1 text-sm font-bold text-cyan">
+          <p className="bn mt-1 text-sm sm:text-[0.95rem] text-ink-2 break-words">{tr(topic.explanation)}</p>
+          <button
+            type="button"
+            onClick={() => navigate(`/grammar/${topic.id}`)}
+            className="mt-2 inline-flex min-h-9 items-center gap-1 text-sm font-bold text-cyan hover:underline"
+          >
             <BookOpen size={16} /> {t('openGrammar')}
           </button>
         </GlassCard>
       )}
 
-      <div className="mt-6 grid grid-cols-2 gap-3">
+      <div className="pt-1">
         {result ? (
-          <Button className="col-span-2" onClick={() => onDone(result === 'right')}>
+          <Button className="w-full" onClick={() => onDone(result === 'right')}>
             {t('continue')}
           </Button>
-        ) : (
-          <>
-            <Button variant={isTileMode ? 'ghost' : 'ghost'} className={isTileMode ? '' : 'col-span-2'} onClick={() => setHint(true)} disabled={hint}>
-              <Lightbulb size={18} /> {t('hint')}
-            </Button>
-            {isTileMode && (
-              <Button onClick={checkTiles} disabled={bank.length > 0}>
-                {t('check')}
+        ) : isTileMode ? (
+          <div className="space-y-2.5">
+            <div className="grid grid-cols-2 gap-2.5">
+              <Button variant="ghost" className="min-h-11 w-full px-3 text-sm" onClick={clearAll} disabled={answer.length === 0}>
+                <RotateCcw size={16} className="shrink-0" />
+                <span>{t('clear')}</span>
               </Button>
-            )}
-          </>
+              <Button variant="ghost" className="min-h-11 w-full px-3 text-sm" onClick={() => setHint(true)} disabled={hint}>
+                <Lightbulb size={16} className="shrink-0" />
+                <span>{t('hint')}</span>
+              </Button>
+            </div>
+            <Button className="w-full" onClick={checkTiles} disabled={bank.length > 0}>
+              {t('check')}
+            </Button>
+          </div>
+        ) : (
+          <Button variant="ghost" className="w-full" onClick={() => setHint(true)} disabled={hint}>
+            <Lightbulb size={18} /> {t('hint')}
+          </Button>
         )}
       </div>
-    </>
+    </div>
   );
 }

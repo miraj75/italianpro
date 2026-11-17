@@ -12,7 +12,7 @@ import { resolveExamOptions, useI18n } from '../../lib/i18n';
 import { dayKey } from '../../lib/date';
 import { useProgress, useStudyTimer } from '../../state/ProgressContext';
 import type { ProgressState } from '../../state/progress';
-import { Button, GlassCard, Pill } from '../../components/ui';
+import { Button, FilterChipRow, GlassCard, Pill } from '../../components/ui';
 import { QuizRunner, type QuizResult } from '../../components/QuizRunner';
 import { SubHeader } from '../../components/SubHeader';
 import { PuzzleCard, sentenceToChallenge } from './PuzzleScreen';
@@ -210,7 +210,7 @@ export function MistakesScreen() {
   const showPuzzle = filter === 'all' || filter === 'puzzle';
 
   return (
-    <div className="animate-rise space-y-4">
+    <div className="animate-rise max-w-full space-y-4 overflow-x-hidden">
       <SubHeader
         title={tr({ bn: 'ভুল সংশোধন', en: 'Review Mistakes', it: 'Rivedi errori' })}
         subtitle={`${totalMistakes} ${tr({ bn: 'টি সংশোধনযোগ্য আইটেম', en: 'reviewable items', it: 'elementi da rivedere' })}`}
@@ -234,8 +234,8 @@ export function MistakesScreen() {
         <GlassCard className="bn p-6 text-center text-ink-2">{t('noMistakes')}</GlassCard>
       ) : (
         <>
-          <div className="-mx-4 flex flex-wrap items-center justify-between gap-2 px-4">
-            <div className="flex gap-2 overflow-x-auto pb-1">
+          <div className="space-y-3">
+            <FilterChipRow label="Mistakes filter">
               <Pill active={filter === 'all'} onClick={() => setFilter('all')}>
                 {t('all')} ({totalMistakes})
               </Pill>
@@ -245,38 +245,42 @@ export function MistakesScreen() {
               <Pill active={filter === 'puzzle'} onClick={() => setFilter('puzzle')}>
                 {t('puzzle')} ({puzzleMistakes.length})
               </Pill>
-            </div>
+            </FilterChipRow>
 
-            <div className="flex flex-wrap gap-2">
-              {quizMistakes.length > 0 && (
-                <Button
-                  className="min-h-9 px-3.5 text-xs"
-                  onClick={() => {
-                    setDoneSummary(null);
-                    setMode({ kind: 'quiz', questions: quizMistakes.map((m) => m.question) });
-                  }}
-                >
-                  <RotateCcw size={14} /> {t('retry')} {t('quiz')} ({quizMistakes.length})
-                </Button>
-              )}
-              {puzzleMistakes.length > 0 && (
-                <Button
-                  variant={quizMistakes.length > 0 ? 'secondary' : 'primary'}
-                  className="min-h-9 px-3.5 text-xs"
-                  onClick={() => {
-                    setDoneSummary(null);
-                    setMode({
-                      kind: 'puzzle',
-                      queue: puzzleMistakes.map((p) => p.challenge),
-                      index: 0,
-                      cleared: 0,
-                    });
-                  }}
-                >
-                  <Puzzle size={14} /> {t('retry')} {t('puzzle')} ({puzzleMistakes.length})
-                </Button>
-              )}
-            </div>
+            {(quizMistakes.length > 0 || puzzleMistakes.length > 0) && (
+              <div className="grid grid-cols-1 gap-2 min-[420px]:grid-cols-2">
+                {quizMistakes.length > 0 && (
+                  <Button
+                    className="min-h-11 w-full px-3.5 text-xs sm:text-sm"
+                    onClick={() => {
+                      setDoneSummary(null);
+                      setMode({ kind: 'quiz', questions: quizMistakes.map((m) => m.question) });
+                    }}
+                  >
+                    <RotateCcw size={15} className="shrink-0" />
+                    <span>{t('retry')} {t('quiz')} ({quizMistakes.length})</span>
+                  </Button>
+                )}
+                {puzzleMistakes.length > 0 && (
+                  <Button
+                    variant={quizMistakes.length > 0 ? 'secondary' : 'primary'}
+                    className="min-h-11 w-full px-3.5 text-xs sm:text-sm"
+                    onClick={() => {
+                      setDoneSummary(null);
+                      setMode({
+                        kind: 'puzzle',
+                        queue: puzzleMistakes.map((p) => p.challenge),
+                        index: 0,
+                        cleared: 0,
+                      });
+                    }}
+                  >
+                    <Puzzle size={15} className="shrink-0" />
+                    <span>{t('retry')} {t('puzzle')} ({puzzleMistakes.length})</span>
+                  </Button>
+                )}
+              </div>
+            )}
           </div>
 
           <div className="space-y-3">

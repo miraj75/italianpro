@@ -11,7 +11,6 @@ import { stopSpeaking } from '../lib/speech';
 import { HomeScreen } from '../screens/HomeScreen';
 import { CoursesScreen, LevelScreen } from '../screens/CoursesScreen';
 import { LessonScreen } from '../screens/LessonScreen';
-import { ChallengeScreen } from '../screens/ChallengeScreen';
 import { ProfileScreen } from '../screens/ProfileScreen';
 import { AboutScreen, SavedScreen } from '../screens/InfoScreens';
 import { PracticeHub } from '../screens/practice/PracticeHub';
@@ -35,6 +34,10 @@ import { NumbersModuleScreen } from '../screens/academy/NumbersModuleScreen';
 import { ArticlesModuleScreen } from '../screens/academy/ArticlesModuleScreen';
 import { VocabularyModuleScreen } from '../screens/academy/VocabularyModuleScreen';
 import { PhaseBModuleScreen } from '../screens/academy/PhaseBModuleScreen';
+import { A1ExpandedGrammarModuleScreen } from '../screens/academy/A1ExpandedGrammarModuleScreen';
+import { A1CommunicationModuleScreen } from '../screens/academy/A1CommunicationModuleScreen';
+import { A1ListeningSpeakingModuleScreen } from '../screens/academy/A1ListeningSpeakingModuleScreen';
+import { A1ReadingWritingModuleScreen } from '../screens/academy/A1ReadingWritingModuleScreen';
 import { FinalExamModuleScreen } from '../screens/academy/FinalExamModuleScreen';
 import { LevelAcademyHubScreen } from '../screens/academy/LevelAcademyHubScreen';
 import { LevelModuleScreen } from '../screens/academy/LevelModuleScreen';
@@ -131,21 +134,29 @@ function Screen() {
     '/practice/reading': <ReadingScreen />,
     '/practice/writing': <WritingScreen />,
     '/practice/speaking': <SpeakingScreen />,
-    '/challenge': <ChallengeScreen />,
     '/profile': <ProfileScreen />,
     '/saved': <SavedScreen />,
     '/about': <AboutScreen />,
     '/academy/a1': <A1AcademyHubScreen />,
     '/academy/a1/alphabet': <AlphabetModuleScreen />,
     '/academy/a1/numbers': <NumbersModuleScreen />,
+    '/academy/a1/greetings-intro': <A1ExpandedGrammarModuleScreen moduleId="greetings-intro" />,
     '/academy/a1/articles': <ArticlesModuleScreen />,
+    '/academy/a1/nouns-gender-plurals': <A1ExpandedGrammarModuleScreen moduleId="nouns-gender-plurals" />,
+    '/academy/a1/pronouns-possessives': <A1ExpandedGrammarModuleScreen moduleId="pronouns-possessives" />,
     '/academy/a1/verbs': <PhaseBModuleScreen moduleId="verbs" />,
     '/academy/a1/essential-verbs': <PhaseBModuleScreen moduleId="essential-verbs" />,
     '/academy/a1/adjectives': <PhaseBModuleScreen moduleId="adjectives" />,
     '/academy/a1/adverbs': <PhaseBModuleScreen moduleId="adverbs" />,
     '/academy/a1/prepositions': <PhaseBModuleScreen moduleId="prepositions" />,
     '/academy/a1/conjunctions': <PhaseBModuleScreen moduleId="conjunctions" />,
+    '/academy/a1/sentence-structure': <A1ExpandedGrammarModuleScreen moduleId="sentence-structure" />,
+    '/academy/a1/time-dates': <A1ExpandedGrammarModuleScreen moduleId="time-dates" />,
     '/academy/a1/vocabulary': <VocabularyModuleScreen />,
+    '/academy/a1/everyday-communication': <A1CommunicationModuleScreen moduleId="everyday-communication" />,
+    '/academy/a1/culture-survival': <A1CommunicationModuleScreen moduleId="culture-survival" />,
+    '/academy/a1/listening-speaking': <A1ListeningSpeakingModuleScreen />,
+    '/academy/a1/reading-writing': <A1ReadingWritingModuleScreen />,
     '/academy/a1/final-exam': <FinalExamModuleScreen />,
   };
   return (

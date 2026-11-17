@@ -2,15 +2,29 @@ import type { AcademyExamQuestion, AcademyModuleId } from '../content/academy/ty
 import { findAcademyModule, inferLevelFromModuleId } from '../content/academy/curriculum';
 import { A1_ALPHABET_EXAM_POOL } from '../content/academy/a1Alphabet';
 import { A1_NUMBERS_CORE_20_QUESTIONS, A1_NUMBERS_EXTENDED_QUESTIONS } from '../content/academy/a1Numbers';
+import { A1_GREETINGS_EXAM_POOL } from '../content/academy/a1GreetingsIntro';
 import { A1_ARTICLE_EXAM_POOL } from '../content/academy/a1Articles';
+import { A1_NOUNS_EXAM_POOL } from '../content/academy/a1NounsPlurals';
+import { A1_PRONOUNS_POSSESSIVES_EXAM_POOL } from '../content/academy/a1PronounsPossessives';
 import { A1_VERBS_EXAM_POOL } from '../content/academy/a1Verbs';
 import { A1_ESSENTIAL_VERBS_EXAM_POOL } from '../content/academy/a1EssentialVerbs';
 import { A1_ADJECTIVES_EXAM_POOL } from '../content/academy/a1Adjectives';
 import { A1_ADVERBS_EXAM_POOL } from '../content/academy/a1Adverbs';
 import { A1_PREPOSITIONS_EXAM_POOL } from '../content/academy/a1Prepositions';
 import { A1_CONJUNCTIONS_EXAM_POOL } from '../content/academy/a1Conjunctions';
+import { A1_SENTENCE_STRUCTURE_EXAM_POOL } from '../content/academy/a1SentenceStructure';
+import { A1_TIME_DATES_EXAM_POOL } from '../content/academy/a1TimeDates';
+import { A1_EVERYDAY_COMM_EXAM_POOL } from '../content/academy/a1EverydayCommunication';
+import { A1_CULTURE_SURVIVAL_EXAM_POOL } from '../content/academy/a1CultureSurvival';
+import { A1_LISTENING_SPEAKING_EXAM_POOL } from '../content/academy/a1ListeningSpeaking';
+import { A1_READING_WRITING_EXAM_POOL } from '../content/academy/a1ReadingWriting';
 import { buildA1FinalExam } from '../content/academy/a1FinalExam';
+import { buildA2FinalExam } from '../content/academy/a2FinalExam';
 import { buildVocabularyExamPool } from '../content/academy/a1Vocabulary';
+import {
+  A2_COMMUNICATION_MODULES_DATA,
+  isA2CommunicationModuleId,
+} from '../content/a2/communicationModules';
 import {
   A2_ACADEMY_VERBS,
   B1_ACADEMY_VERBS,
@@ -458,8 +472,14 @@ export function generateAcademyModuleExam(
         return buildSectionExam(A1_ALPHABET_EXAM_POOL, 10, rng);
       case 'numbers':
         return buildNumbersExam(rng);
+      case 'greetings-intro':
+        return buildSectionExam(A1_GREETINGS_EXAM_POOL, 10, rng);
       case 'articles':
         return buildSectionExam(A1_ARTICLE_EXAM_POOL, 10, rng);
+      case 'nouns-gender-plurals':
+        return buildSectionExam(A1_NOUNS_EXAM_POOL, 10, rng);
+      case 'pronouns-possessives':
+        return buildSectionExam(A1_PRONOUNS_POSSESSIVES_EXAM_POOL, 10, rng);
       case 'verbs':
         return buildSectionExam(A1_VERBS_EXAM_POOL, 10, rng);
       case 'essential-verbs':
@@ -472,13 +492,29 @@ export function generateAcademyModuleExam(
         return buildSectionExam(A1_PREPOSITIONS_EXAM_POOL, 10, rng);
       case 'conjunctions':
         return buildSectionExam(A1_CONJUNCTIONS_EXAM_POOL, 10, rng);
+      case 'sentence-structure':
+        return buildSectionExam(A1_SENTENCE_STRUCTURE_EXAM_POOL, 10, rng);
+      case 'time-dates':
+        return buildSectionExam(A1_TIME_DATES_EXAM_POOL, 10, rng);
       case 'vocabulary':
         return buildSectionExam(buildVocabularyExamPool(rng), 10, rng);
+      case 'everyday-communication':
+        return buildSectionExam(A1_EVERYDAY_COMM_EXAM_POOL, 10, rng);
+      case 'culture-survival':
+        return buildSectionExam(A1_CULTURE_SURVIVAL_EXAM_POOL, 10, rng);
+      case 'listening-speaking':
+        return buildSectionExam(A1_LISTENING_SPEAKING_EXAM_POOL, 10, rng);
+      case 'reading-writing':
+        return buildSectionExam(A1_READING_WRITING_EXAM_POOL, 10, rng);
       case 'final-exam':
         return buildA1FinalExam(rng);
       default:
         return [];
     }
+  }
+
+  if (moduleId === 'a2-final-exam') {
+    return buildA2FinalExam(rng);
   }
 
   const meta = findAcademyModule(moduleId, lvl);
@@ -492,6 +528,11 @@ export function generateAcademyModuleExam(
       return buildSectionExam(buildVerbModulePool(moduleId, lvl, rng), count, rng);
     case 'vocabulary':
       return buildSectionExam(buildLevelVocabularyExamPool(moduleId, lvl, rng), count, rng);
+    case 'communication':
+      if (isA2CommunicationModuleId(moduleId)) {
+        return buildSectionExam(A2_COMMUNICATION_MODULES_DATA[moduleId].questions, count, rng);
+      }
+      return [];
     case 'idioms':
       return buildSectionExam(buildIdiomsExamPool(moduleId, lvl as 'B1' | 'B2', rng), count, rng);
     case 'sentences':
@@ -675,7 +716,94 @@ export async function generateAcademyModuleExamAsync(
     return buildSectionExam(pool, count, rng);
   }
 
+  if (meta.kind === 'writing-speaking') {
+    const pool: AcademyExamQuestion[] = [];
+    for (const wr of bundle.writing) {
+      for (const kp of wr.keyPhrases) {
+        const otherPhrases = shuffleArray(
+          bundle.writing
+            .filter((o) => o.id !== wr.id)
+            .flatMap((o) => o.keyPhrases)
+            .filter((o) => o.tr.bn !== kp.tr.bn && o.tr.en !== kp.tr.en),
+          rng,
+        ).slice(0, 3);
+        if (otherPhrases.length === 3) {
+          const bnOpts = [kp.tr.bn, ...otherPhrases.map((o) => o.tr.bn)];
+          const enOpts = [kp.tr.en, ...otherPhrases.map((o) => o.tr.en)];
+          pool.push({
+            id: `${moduleId}-wr-${wr.id}-${kp.it}`,
+            moduleId,
+            prompt: {
+              bn: `লিখন টাস্ক «${wr.title.bn}» — এই কার্যকর বাক্যাংশটির অর্থ কী?`,
+              en: `Writing «${wr.title.en}» — What does this key expression mean?`,
+              it: `Scrittura «${wr.title.it ?? wr.title.en}» — Cosa significa questa espressione chiave?`,
+            },
+            it: kp.it,
+            audioIt: kp.it,
+            options: enOpts,
+            localizedOptions: { bn: bnOpts, en: enOpts, it: enOpts },
+            answer: 0,
+            explanation: {
+              bn: `${kp.it} → ${kp.tr.bn}`,
+              en: `${kp.it} → ${kp.tr.en}`,
+              it: `${kp.it} → ${kp.tr.en}`,
+            },
+          });
+        }
+      }
+    }
+    for (const sp of bundle.speaking) {
+      const distractors = shuffleArray(
+        bundle.speaking.filter((o) => o.id !== sp.id && o.targetTr.bn !== sp.targetTr.bn && o.targetTr.en !== sp.targetTr.en),
+        rng,
+      ).slice(0, 3);
+      if (distractors.length === 3) {
+        const bnOpts = [sp.targetTr.bn, ...distractors.map((d) => d.targetTr.bn)];
+        const enOpts = [sp.targetTr.en, ...distractors.map((d) => d.targetTr.en)];
+        pool.push({
+          id: `${moduleId}-sp-${sp.id}-meaning`,
+          moduleId,
+          prompt: {
+            bn: `কথন পরিস্থিতি «${sp.title.bn}» — এই ইতালীয় সংলাপটির অর্থ কোনটি?`,
+            en: `Speaking «${sp.title.en}» — Pick the meaning of this spoken response:`,
+            it: `Parlato «${sp.title.it ?? sp.title.en}» — Scegli il significato della risposta:`,
+          },
+          it: sp.targetIt,
+          audioIt: sp.targetIt,
+          options: enOpts,
+          localizedOptions: { bn: bnOpts, en: enOpts, it: enOpts },
+          answer: 0,
+          explanation: {
+            bn: `${sp.targetIt} → ${sp.targetTr.bn}`,
+            en: `${sp.targetIt} → ${sp.targetTr.en}`,
+            it: `${sp.targetIt} → ${sp.targetTr.en}`,
+          },
+        });
+        pool.push({
+          id: `${moduleId}-sp-${sp.id}-reply`,
+          moduleId,
+          prompt: {
+            bn: `পরিস্থিতি: ${sp.prompt.bn} — এর জন্য সবচেয়ে উপযুক্ত ইতালীয় উক্তি কোনটি?`,
+            en: `Situation: ${sp.prompt.en} — Choose the best Italian response:`,
+            it: `Situazione: ${sp.prompt.it ?? sp.prompt.en} — Scegli la risposta italiana migliore:`,
+          },
+          options: [sp.targetIt, ...distractors.map((d) => d.targetIt)],
+          answer: 0,
+          explanation: {
+            bn: `সঠিক সংলাপ: ${sp.targetIt} (${sp.targetTr.bn})`,
+            en: `Best response: ${sp.targetIt}`,
+            it: `Risposta migliore: ${sp.targetIt}`,
+          },
+        });
+      }
+    }
+    return buildSectionExam(pool, count, rng);
+  }
+
   if (meta.kind === 'final-exam') {
+    if (moduleId === 'a2-final-exam') {
+      return buildA2FinalExam(rng);
+    }
     const assessmentQs: AcademyExamQuestion[] = bundle.assessments.flatMap((a) =>
       a.questions.map((q) => ({
         id: `${moduleId}-assess-${a.id}-${q.id}`,

@@ -1,4 +1,4 @@
-import { useEffect, useMemo, useState } from 'react';
+import { useEffect, useMemo, useState, type ReactNode } from 'react';
 import { createPortal } from 'react-dom';
 import { ArrowRight, ChevronLeft } from 'lucide-react';
 import type { Tr } from '../../content/types';
@@ -25,6 +25,8 @@ export interface StudyListScreenProps {
   studiedSet: Set<string>;
   sequentialGroups?: StudySequentialGroup[];
   groupedSections?: StudyGroupedSection[];
+  extraRequiredIds?: string[];
+  extraBottomSlot?: ReactNode;
   onStudyItem: (item: StudyListItem) => void;
   onContinue: () => void;
 }
@@ -51,6 +53,8 @@ export function StudyListScreen({
   studiedSet,
   sequentialGroups,
   groupedSections,
+  extraRequiredIds,
+  extraBottomSlot,
   onStudyItem,
   onContinue,
 }: StudyListScreenProps) {
@@ -77,13 +81,17 @@ export function StudyListScreen({
   const { studiedInView, remainingInView, canContinue } = useMemo(() => {
     const total = visibleItems.length;
     const studied = visibleItems.filter((item) => studiedSet.has(item.id)).length;
-    const remaining = Math.max(0, total - studied);
+    const extraRemaining =
+      !activeGroup && extraRequiredIds
+        ? extraRequiredIds.filter((id) => !studiedSet.has(id)).length
+        : 0;
+    const remaining = Math.max(0, total - studied) + extraRemaining;
     return {
       studiedInView: studied,
       remainingInView: remaining,
       canContinue: total > 0 && remaining === 0,
     };
-  }, [visibleItems, studiedSet]);
+  }, [visibleItems, studiedSet, activeGroup, extraRequiredIds]);
 
   const hasRichCards = useMemo(
     () => visibleItems.some((item) => item.detailLayout === 'rich'),
@@ -253,6 +261,8 @@ export function StudyListScreen({
           ))}
         </div>
       )}
+
+      {extraBottomSlot}
 
       {fixedContinueDock}
     </div>

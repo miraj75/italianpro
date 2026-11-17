@@ -1,9 +1,5 @@
 import { describe, expect, it } from 'vitest';
 import { A1_ACADEMY_MODULES } from '../src/content/academy/curriculum';
-import { A1_ALPHABET_REQUIRED_IDS } from '../src/content/academy/a1Alphabet';
-import { A1_NUMBERS_REQUIRED_IDS } from '../src/content/academy/a1Numbers';
-import { A1_ARTICLES_REQUIRED_IDS } from '../src/content/academy/a1Articles';
-import { A1_VOCAB_REQUIRED_IDS } from '../src/content/academy/a1Vocabulary';
 import {
   A1_VERBS_DRILL_ITEMS,
   A1_VERBS_EXAM_POOL,
@@ -129,9 +125,9 @@ function assertCleanTheory(cfg: AcademyTheoryConfig) {
 }
 
 describe('Phase B & C: Complete A1 Curriculum Modules & A1 Final Exam', () => {
-  describe('1. Complete 11-Module Implementation & Inventory', () => {
-    it('marks all 11 A1 modules as implemented with non-empty required items for modules 1–10', () => {
-      expect(A1_ACADEMY_MODULES).toHaveLength(11);
+  describe('1. Complete 20-Module Implementation & Inventory', () => {
+    it('marks all 20 A1 modules as implemented with non-empty required items for modules 1–19', () => {
+      expect(A1_ACADEMY_MODULES).toHaveLength(20);
       for (const mod of A1_ACADEMY_MODULES) {
         expect(mod.implemented).toBe(true);
         if (mod.id !== 'final-exam') {
@@ -195,7 +191,7 @@ describe('Phase B & C: Complete A1 Curriculum Modules & A1 Final Exam', () => {
       ]) {
         expect(adjWords).toContain(req);
       }
-      expect(A1_ADJECTIVES_REQUIRED_IDS).toHaveLength(18);
+      expect(A1_ADJECTIVES_REQUIRED_IDS).toHaveLength(22);
 
       const advWords = A1_ADVERBS_LIST.map((a) => a.word);
       for (const req of [
@@ -349,23 +345,17 @@ describe('Phase B & C: Complete A1 Curriculum Modules & A1 Final Exam', () => {
   });
 
   describe('4. Stage Persistence, Sequential Gating & Final Exam Unlocking', () => {
-    it('tracks Theory -> Study -> Drill -> Exam stages, preserves progress, avoids duplicate XP, and unlocks Final Exam only after all 10 prior modules', () => {
+    it('tracks Theory -> Study -> Drill -> Exam stages, preserves progress, prevents duplicate study entries, and unlocks Final Exam only after all 19 prior modules', () => {
       const today = '2026-11-16';
       let s: ProgressState = initialState();
 
-      // Sequential prerequisite completion for modules 1..10
-      const priorModules: { id: string; req: string[]; totalQ: number; maxIncorrect: number }[] = [
-        { id: 'alphabet', req: A1_ALPHABET_REQUIRED_IDS, totalQ: 10, maxIncorrect: 3 },
-        { id: 'numbers', req: A1_NUMBERS_REQUIRED_IDS, totalQ: 30, maxIncorrect: 3 },
-        { id: 'articles', req: A1_ARTICLES_REQUIRED_IDS, totalQ: 10, maxIncorrect: 3 },
-        { id: 'verbs', req: A1_VERBS_REQUIRED_IDS, totalQ: 10, maxIncorrect: 3 },
-        { id: 'essential-verbs', req: A1_ESSENTIAL_VERBS_REQUIRED_IDS, totalQ: 10, maxIncorrect: 3 },
-        { id: 'adjectives', req: A1_ADJECTIVES_REQUIRED_IDS, totalQ: 10, maxIncorrect: 3 },
-        { id: 'adverbs', req: A1_ADVERBS_REQUIRED_IDS, totalQ: 10, maxIncorrect: 3 },
-        { id: 'prepositions', req: A1_PREPOSITIONS_REQUIRED_IDS, totalQ: 10, maxIncorrect: 3 },
-        { id: 'conjunctions', req: A1_CONJUNCTIONS_REQUIRED_IDS, totalQ: 10, maxIncorrect: 3 },
-        { id: 'vocabulary', req: A1_VOCAB_REQUIRED_IDS, totalQ: 10, maxIncorrect: 3 },
-      ];
+      // Sequential prerequisite completion for modules 1..19
+      const priorModules = A1_ACADEMY_MODULES.filter((m) => m.id !== 'final-exam').map((m) => ({
+        id: m.id,
+        req: m.requiredItemIds,
+        totalQ: m.examQuestionCount,
+        maxIncorrect: m.maxIncorrect,
+      }));
 
       priorModules.forEach((mod, idx) => {
         expect(isAcademyModuleUnlocked(s.academy, mod.id, 'A1')).toBe(true);
@@ -384,10 +374,10 @@ describe('Phase B & C: Complete A1 Curriculum Modules & A1 Final Exam', () => {
           today,
         });
 
-        // Duplicate drill/study dispatch does not change XP
-        const xpBeforeDup = s.xp;
+        // Duplicate study dispatch does not duplicate studiedItems
+        const studiedCountBeforeDup = getAcademyModuleProgress(s.academy, mod.id, 'A1').studiedItems.length;
         s = reducer(s, { type: 'studyAcademyItem', moduleId: mod.id, itemId: mod.req[0]!, level: 'A1' });
-        expect(s.xp).toBe(xpBeforeDup);
+        expect(getAcademyModuleProgress(s.academy, mod.id, 'A1').studiedItems).toHaveLength(studiedCountBeforeDup);
 
         s = reducer(s, {
           type: 'submitAcademyExam',

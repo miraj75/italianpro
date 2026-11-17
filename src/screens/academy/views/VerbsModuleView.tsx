@@ -123,6 +123,9 @@ export function VerbsModuleView({
                     </div>
                     <h2 className="mt-1.5 text-xl sm:text-2xl font-extrabold text-white">{verb.infinitive}</h2>
                     <p className="bn text-sm font-bold text-mint">{tr(verb.meaning)}</p>
+                    {verb.pronunciation && (
+                      <p className="bn mt-0.5 text-xs font-semibold text-ink-3">{verb.pronunciation}</p>
+                    )}
                   </div>
                   <div className="flex items-center gap-2 shrink-0">
                     <SpeakButton text={verb.infinitive} size={38} onSpeak={() => onMarkStudied(verb.id)} />

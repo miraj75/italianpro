@@ -11,7 +11,7 @@ import { LearningPathTimeline } from '../../components/LearningPathTimeline';
 
 /**
  * Main A1 Learning Hub opened from Courses -> A1 — Beginner.
- * Displays all 11 CEFR A1 modules as a single-column connected vertical learning path.
+ * Displays all 20 CEFR A1 modules as a single-column connected vertical learning path.
  */
 export function A1AcademyHubScreen() {
   const { state } = useProgress();
@@ -56,7 +56,7 @@ export function A1AcademyHubScreen() {
         <ProgressBar value={summary.completedCount / Math.max(1, summary.totalModules)} className="h-2" />
       </div>
 
-      {/* Connected Vertical Learning Path (1..11) */}
+      {/* Connected Vertical Learning Path (1..20) */}
       <LearningPathTimeline
         nodes={nodes}
         allowLockedAccess={testingMode}

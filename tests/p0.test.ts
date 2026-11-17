@@ -1,6 +1,5 @@
 import { describe, expect, it } from 'vitest';
 import {
-  XP,
   initialState,
   isLevelUnlocked,
   reducer,
@@ -22,42 +21,37 @@ import {
 
 const today = '2026-11-16';
 
-describe('P0-1: Listening Quiz completion & XP rules', () => {
-  it('awards listening completion XP only once and updates best score on retry without duplicate XP', () => {
+describe('P0-1: Listening Quiz completion rules', () => {
+  it('records listening score, marks daily listening task, and keeps highest score on retries', () => {
     let s = initialState();
     s = reducer(s, { type: 'recordListening', exerciseId: 'ls-a1-01', score: 0.5, today });
     expect(s.listeningScores['ls-a1-01']).toBe(0.5);
-    expect(s.xp).toBe(XP.listeningComplete);
+    expect(s.days[today]?.tasks).toContain('listening');
 
-    // Retry with higher score updates best score but does not award duplicate XP
+    // Retry with higher score updates best score
     const s2 = reducer(s, { type: 'recordListening', exerciseId: 'ls-a1-01', score: 1.0, today });
     expect(s2.listeningScores['ls-a1-01']).toBe(1.0);
-    expect(s2.xp).toBe(XP.listeningComplete);
 
-    // Repeated call with lower score keeps best score and does not award duplicate XP
+    // Repeated call with lower score keeps best score
     const s3 = reducer(s2, { type: 'recordListening', exerciseId: 'ls-a1-01', score: 0.75, today });
     expect(s3.listeningScores['ls-a1-01']).toBe(1.0);
-    expect(s3.xp).toBe(XP.listeningComplete);
   });
 });
 
 describe('P0-2: Reading Quiz completion & zero-score guard', () => {
-  it('does not mark reading completed or award XP on a zero-score attempt', () => {
+  it('does not mark reading completed on a zero-score attempt', () => {
     const s0 = initialState();
     const afterZero = reducer(s0, { type: 'completeReading', readingId: 'rd-a1-01', score: 0, today });
     expect(afterZero.readingDone['rd-a1-01']).toBeUndefined();
-    expect(afterZero.xp).toBe(0);
   });
 
-  it('awards reading XP once on positive score and prevents duplicate XP on repeat completion', () => {
+  it('marks reading completed on positive score and keeps completion on repeat completion', () => {
     let s = initialState();
     s = reducer(s, { type: 'completeReading', readingId: 'rd-a1-01', score: 0.75, today });
     expect(s.readingDone['rd-a1-01']).toBe(true);
-    expect(s.xp).toBe(XP.readingComplete);
 
     const sRepeat = reducer(s, { type: 'completeReading', readingId: 'rd-a1-01', score: 1.0, today });
     expect(sRepeat.readingDone['rd-a1-01']).toBe(true);
-    expect(sRepeat.xp).toBe(XP.readingComplete);
   });
 });
 
@@ -106,18 +100,16 @@ describe('P0-3: Review Mistakes integration (state.mistakes + state.puzzleMistak
     expect(puzzleItems[1]!.previousAnswer).toBe('ordine errato');
     expect(puzzleItems[1]!.correctAnswer).toBe(SENTENCES.A1[0]!.it);
 
-    // Practice Hub badge count matches reviewable mistakes
+    // Practice Hub count matches reviewable mistakes
     expect(countReviewableMistakes(s)).toBe(3);
 
-    // Clearing a puzzle mistake removes it and awards XP only after successful review
-    const xpBefore = s.xp;
+    // Clearing a puzzle mistake removes it cleanly
     s = reducer(s, { type: 'clearPuzzleMistake', puzzleId: 'pz-a1-001', today });
     expect(s.puzzleMistakes['pz-a1-001']).toBeUndefined();
     expect(s.puzzleMistakeAnswers?.['pz-a1-001']).toBeUndefined();
-    expect(s.xp).toBe(xpBefore + XP.correctAnswer);
     expect(countReviewableMistakes(s)).toBe(2);
 
-    // Clearing a quiz mistake removes it and awards XP
+    // Clearing a quiz mistake removes it cleanly
     s = reducer(s, { type: 'clearMistake', key: `${firstLesson.id}:${firstQ.id}` });
     expect(s.mistakes[`${firstLesson.id}:${firstQ.id}`]).toBeUndefined();
     expect(countReviewableMistakes(s)).toBe(1);
@@ -139,7 +131,7 @@ describe('P0-4: Writing Rubric model responses and inflection-aware keyword matc
     expect(matchesItalianKeyword('Abbiamo risolto il problema con calma.', 'risolvere')).toBe(true);
   });
 
-  it('all 48 writing modelResponses (including the 12 previously failing tasks and 18 keyword sets) pass word count, punctuation, and 100% requiredKeywords', async () => {
+  it('all 56 writing modelResponses (including the 12 previously failing tasks and 18 keyword sets) pass word count, punctuation, and 100% requiredKeywords', async () => {
     const bundles = await loadAllBundles();
     const allWriting = [
       ...bundles.A1.writing,
@@ -147,7 +139,7 @@ describe('P0-4: Writing Rubric model responses and inflection-aware keyword matc
       ...bundles.B1.writing,
       ...bundles.B2.writing,
     ];
-    expect(allWriting.length).toBe(48);
+    expect(allWriting.length).toBe(56);
 
     const previouslyFailingIds = [
       'wr-b1-05',

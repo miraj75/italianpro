@@ -1,40 +1,45 @@
 import { useState } from 'react';
 import {
-  Award,
   Bookmark,
   BookOpen,
-  CalendarCheck,
   ChevronRight,
-  Flame,
+  Clock,
   FlaskConical,
+  GraduationCap,
   Info,
   Languages,
-  Layers,
   Minus,
   Pencil,
   Plus,
-  Star,
   Target,
   Trash2,
-  Trophy,
-  type LucideIcon,
 } from 'lucide-react';
-import { LEVEL_ORDER } from '../content/courses';
 import { useRouter } from '../app/router';
 import { useI18n } from '../lib/i18n';
+import { getCourseOverview } from '../lib/courseOverview';
 import { useProgress } from '../state/ProgressContext';
-import { badges, isLevelUnlocked, isShowAllLockedModulesEnabled, levelProgress, streak } from '../state/progress';
+import {
+  getCurrentLevel,
+  isShowAllLockedModulesEnabled,
+  totalCompletedModules,
+  totalStudySeconds,
+} from '../state/progress';
+import type { ExplainLang } from '../content/types';
 import { GlassCard, ProgressBar, cx } from '../components/ui';
 import { ItalianRibbonWave } from '../components/BrandDecor';
 import { StatsRow } from '../components/StatsRow';
 
-const BADGE_META: Record<string, { bn: string; en: string; it: string; icon: LucideIcon; tone: string }> = {
-  'first-lesson': { bn: 'প্রথম পাঠ', en: 'First lesson', it: 'Prima lezione', icon: BookOpen, tone: 'text-neon' },
-  'perfect-quiz': { bn: '১০০% কুইজ', en: 'Perfect quiz', it: 'Quiz perfetto', icon: Layers, tone: 'text-neon' },
-  'streak-3': { bn: '৩ দিনের স্ট্রিক', en: '3-day streak', it: 'Serie di 3 giorni', icon: Flame, tone: 'text-pink' },
-  'xp-500': { bn: '৫০০ XP', en: '500 XP', it: '500 XP', icon: Star, tone: 'text-gold' },
-  'unit-1': { bn: 'ইউনিট ১ সম্পন্ন', en: 'Unit 1 complete', it: 'Unità 1 completata', icon: CalendarCheck, tone: 'text-neon' },
-};
+const PROFILE_LEVELS = ['A1', 'A2', 'B1'] as const;
+
+function formatStudyDuration(seconds: number, lang: ExplainLang): string {
+  const totalMinutes = Math.max(0, Math.floor(seconds / 60));
+  const hours = Math.floor(totalMinutes / 60);
+  const mins = totalMinutes % 60;
+  if (lang === 'bn') {
+    return hours > 0 ? `${hours}ঘ ${mins}মি` : `${totalMinutes} মি.`;
+  }
+  return hours > 0 ? `${hours}h ${mins}m` : `${totalMinutes}m`;
+}
 
 export function ProfileScreen() {
   const { state, dispatch } = useProgress();
@@ -42,8 +47,9 @@ export function ProfileScreen() {
   const { t, tr, lang } = useI18n();
   const [confirming, setConfirming] = useState(false);
   const [editingGoal, setEditingGoal] = useState(false);
-  const current = [...LEVEL_ORDER].reverse().find((id) => isLevelUnlocked(state, id)) ?? 'A1';
-  const earned = badges(state);
+  const activeLevel = getCurrentLevel(state);
+  const completedModules = totalCompletedModules(state);
+  const studySeconds = totalStudySeconds(state);
   const goal = state.settings.dailyGoalMinutes;
   const showAllLocked = isShowAllLockedModulesEnabled(state);
 
@@ -76,16 +82,16 @@ export function ProfileScreen() {
           </div>
           <h1 className="bn mt-3 text-2xl leading-tight font-extrabold text-white">{t('learner')}</h1>
           <p className="mt-0.5 text-sm font-semibold text-ink-2">
-            {current} · {tr({ bn: 'ইতালিয়ান শিক্ষার্থী', en: 'Italian Learner', it: 'Studente di italiano' })}
+            {activeLevel} · {tr({ bn: 'ইতালিয়ান শিক্ষার্থী', en: 'Italian Learner', it: 'Studente di italiano' })}
           </p>
         </div>
       </section>
 
       <StatsRow
         items={[
-          { icon: Flame, tone: 'pink', value: streak(state), label: t('streak') },
-          { icon: Star, tone: 'gold', value: state.xp.toLocaleString(), label: 'XP' },
-          { icon: Trophy, tone: 'gold', value: earned.filter((b) => b.earned).length, label: t('badges') },
+          { icon: GraduationCap, tone: 'emerald', value: activeLevel, label: t('statsActiveLevel') },
+          { icon: BookOpen, tone: 'cyan', value: completedModules, label: t('statsCompletedModules') },
+          { icon: Clock, tone: 'violet', value: formatStudyDuration(studySeconds, lang), label: t('statsStudyTime') },
         ]}
       />
 
@@ -232,43 +238,25 @@ export function ProfileScreen() {
         </div>
       </GlassCard>
 
-      {/* My Progress & Achievement Badges */}
+      {/* My Learning Progress (A1, A2, B1) */}
       <GlassCard className="border-neon/30 p-4 sm:p-5">
         <h2 className="bn mb-3.5 flex items-center gap-2 text-lg font-extrabold text-white">
-          <Award size={20} className="text-neon" /> {t('myProgress')}
+          <GraduationCap size={20} className="text-neon" /> {t('myProgress')}
         </h2>
         <div className="space-y-3">
-          {LEVEL_ORDER.map((id) => {
-            const { done, total } = levelProgress(state, id);
+          {PROFILE_LEVELS.map((id) => {
+            const overview = getCourseOverview(state, id);
             return (
               <div key={id} className="flex items-center gap-3">
                 <span className="w-8 text-base font-extrabold text-neon">{id}</span>
-                <ProgressBar value={total ? done / total : 0} className="h-2.5 flex-1" />
-                <span className="w-12 text-right text-sm font-bold text-ink-2 tabular-nums">
-                  {done}/{total}
+                <ProgressBar
+                  value={overview.totalModules ? overview.completedModules / overview.totalModules : 0}
+                  className="h-2.5 flex-1"
+                />
+                <span className="w-14 text-right text-sm font-bold text-ink-2 tabular-nums">
+                  {overview.completedModules}/{overview.totalModules}
                 </span>
               </div>
-            );
-          })}
-        </div>
-
-        <div className="mt-4 flex flex-wrap gap-2">
-          {earned.map((b) => {
-            const meta = BADGE_META[b.id];
-            const Icon = meta?.icon ?? Award;
-            return (
-              <span
-                key={b.id}
-                className={cx(
-                  'bn inline-flex items-center gap-1.5 rounded-full border px-3 py-1 text-xs sm:text-[0.82rem] font-bold',
-                  b.earned
-                    ? 'border-neon/50 bg-neon/12 text-white shadow-[0_0_12px_-4px_rgba(0,245,160,0.45)]'
-                    : 'border-white/15 bg-white/5 text-ink-2',
-                )}
-              >
-                <Icon size={14} className={meta?.tone ?? 'text-neon'} aria-hidden="true" />
-                <span>{tr(meta ?? { bn: b.id, en: b.id })}</span>
-              </span>
             );
           })}
         </div>

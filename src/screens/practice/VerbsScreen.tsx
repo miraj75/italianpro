@@ -2,7 +2,7 @@ import { useState } from 'react';
 import { PRONOUNS, VERBS } from '../../content/verbs';
 import { useI18n } from '../../lib/i18n';
 import { useStudyTimer } from '../../state/ProgressContext';
-import { GlassCard, Pill } from '../../components/ui';
+import { FilterChipRow, GlassCard, Pill } from '../../components/ui';
 import { SpeakButton } from '../../components/SpeakButton';
 import { SubHeader } from '../../components/SubHeader';
 
@@ -13,16 +13,16 @@ export function VerbsScreen() {
   useStudyTimer();
 
   return (
-    <div className="animate-rise">
+    <div className="animate-rise max-w-full space-y-3 overflow-x-hidden">
       <SubHeader title="Important Verbs" subtitle="A1 · presente" />
-      <div className="-mx-4 mb-4 flex gap-2 overflow-x-auto px-4 pb-1">
+      <FilterChipRow label="Verbs">
         {VERBS.map((v) => (
           <Pill key={v.id} active={v.id === id} onClick={() => setId(v.id)}>
             {v.infinitive}
           </Pill>
         ))}
-      </div>
-      <GlassCard neon className="p-5">
+      </FilterChipRow>
+      <GlassCard neon className="p-4 sm:p-5">
         <div className="flex items-center gap-3">
           <SpeakButton text={verb.infinitive} />
           <div>

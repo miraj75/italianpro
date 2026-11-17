@@ -9,7 +9,7 @@ import { useRouter } from '../../app/router';
 import { useI18n } from '../../lib/i18n';
 import { dayKey } from '../../lib/date';
 import { useProgress, useStudyTimer } from '../../state/ProgressContext';
-import { Button, GlassCard, Pill, cx } from '../../components/ui';
+import { Button, FilterChipRow, GlassCard, Pill, cx } from '../../components/ui';
 import { SpeakButton } from '../../components/SpeakButton';
 import { SubHeader } from '../../components/SubHeader';
 import { LevelTabs, isBankLevel } from '../../components/LevelTabs';
@@ -69,7 +69,7 @@ export function ReadingScreen() {
   if (active) {
     const done = !!state.readingDone[active.id];
     return (
-      <div className="animate-rise space-y-4">
+      <div className="animate-rise max-w-full space-y-4 overflow-x-hidden">
         <SubHeader
           title={active.titleIt}
           subtitle={`${active.level} · ${tr(READING_KINDS[active.kind])} · ${tr(active.title)}`}
@@ -205,11 +205,11 @@ export function ReadingScreen() {
   }
 
   return (
-    <div className="animate-rise">
+    <div className="animate-rise max-w-full space-y-3 overflow-x-hidden">
       <SubHeader title={t('readingAcademy')} subtitle={t('readingAcademySub')} />
       <LevelTabs value={level} onChange={(l) => { setLevel(l); setKind('all'); }} />
 
-      <div className="-mx-4 mb-4 flex gap-2 overflow-x-auto px-4 pb-1">
+      <FilterChipRow label={t('readingAcademy')}>
         <Pill active={kind === 'all'} onClick={() => setKind('all')}>
           {t('all')} ({passages.length})
         </Pill>
@@ -218,7 +218,7 @@ export function ReadingScreen() {
             {tr(READING_KINDS[k])}
           </Pill>
         ))}
-      </div>
+      </FilterChipRow>
 
       {loading ? (
         <GlassCard className="p-6 text-center text-ink-2">...</GlassCard>
@@ -237,9 +237,9 @@ export function ReadingScreen() {
                   setQuizKey(0);
                   setQuizResult(null);
                 }}
-                className="text-left"
+                className="h-full w-full min-w-0 text-left"
               >
-                <GlassCard neon={done} className="flex h-full items-center gap-3 p-4 transition hover:border-neon/40">
+                <GlassCard neon={done} className="flex h-full w-full min-w-0 items-center gap-3 p-4 transition hover:border-neon/40">
                   <span className="flex h-11 w-11 shrink-0 items-center justify-center rounded-2xl border border-neon/30 bg-neon/10 text-neon">
                     <FileText size={20} />
                   </span>
@@ -247,8 +247,8 @@ export function ReadingScreen() {
                     <p className="text-xs font-semibold text-ink-3 tabular-nums">
                       {tr(READING_KINDS[p.kind])} · {p.readingMinutes} {t('minutes')}
                     </p>
-                    <p className="truncate text-base font-extrabold">{p.titleIt}</p>
-                    <p className="bn truncate text-sm text-ink-2">{tr(p.title)}</p>
+                    <p className="mt-0.5 line-clamp-2 text-base leading-snug font-extrabold break-words">{p.titleIt}</p>
+                    <p className="bn mt-0.5 line-clamp-2 text-sm text-ink-2 break-words">{tr(p.title)}</p>
                   </div>
                   {done ? <CheckCircle2 size={18} className="text-neon shrink-0" /> : <ChevronRight size={18} className="text-ink-3 shrink-0" />}
                 </GlassCard>

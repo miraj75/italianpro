@@ -1,4 +1,4 @@
-import { ArrowRight, Award, BookOpen, CheckCircle2, History, RotateCcw, Sparkles, XCircle } from 'lucide-react';
+import { ArrowRight, Award, BookOpen, CheckCircle2, History, RotateCcw, XCircle } from 'lucide-react';
 import type { AcademyModuleMeta } from '../../content/academy/types';
 import type { EvaluatedExamResult } from '../../lib/examEngine';
 import { resolveExamOptions, useI18n } from '../../lib/i18n';
@@ -19,7 +19,7 @@ export interface ModuleCompletionScreenProps {
 
 /**
  * Reusable Stage 5 (Completion Result) screen displaying score %, correct/mistakes summary,
- * XP reward badge, optional localized question breakdown & attempt history, and Continue to next module.
+ * optional localized question breakdown & attempt history, and Continue to next module.
  */
 export function ModuleCompletionScreen({
   meta,
@@ -42,7 +42,6 @@ export function ModuleCompletionScreen({
   const displayCorrect = latestResult?.correct ?? latestAttempt?.correct ?? meta.examQuestionCount;
   const displayTotal = latestResult?.total ?? latestAttempt?.total ?? meta.examQuestionCount;
   const displayMistakes = latestResult?.incorrect ?? latestAttempt?.incorrect ?? Math.max(0, displayTotal - displayCorrect);
-  const displayXp = latestAttempt?.awardedXp ?? (latestResult ? latestResult.correct * 5 + 50 : 0);
   const bestPct = Math.round(Math.max(modProgress.bestScore * 100, displayPercentage));
 
   const localizedMetaTitle = tr({ bn: meta.subtitle.bn, en: meta.title, it: meta.title });
@@ -83,14 +82,6 @@ export function ModuleCompletionScreen({
                 })}
           </h2>
         </div>
-
-        {/* XP Badge */}
-        {!previewMode && displayXp > 0 && (
-          <div className="inline-flex items-center gap-2 rounded-2xl border border-neon/45 bg-neon/12 px-4 py-2 text-sm font-extrabold text-neon">
-            <Sparkles size={16} />
-            <span>+{displayXp} XP</span>
-          </div>
-        )}
 
         {/* Score Breakdown Grid */}
         <div className="grid grid-cols-3 gap-2.5 text-center">

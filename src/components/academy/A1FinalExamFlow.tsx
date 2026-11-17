@@ -6,11 +6,11 @@ import {
   Award,
   CheckCircle2,
   ClipboardCheck,
+  GraduationCap,
   History,
   MinusCircle,
   RotateCcw,
   Sparkles,
-  Trophy,
   XCircle,
 } from 'lucide-react';
 import { findAcademyModule } from '../../content/academy/curriculum';
@@ -207,7 +207,7 @@ export function A1FinalExamFlow({ previewMode = false }: A1FinalExamFlowProps) {
 
           <div className="relative z-10 space-y-5">
             <div className="animate-celebration-pop mx-auto flex h-20 w-20 items-center justify-center rounded-3xl border border-neon/60 bg-neon/15 text-neon shadow-[0_0_30px_-4px_rgba(0,245,160,0.65)]">
-              <Trophy size={42} strokeWidth={2} />
+              <GraduationCap size={42} strokeWidth={2} />
             </div>
 
             <div className="space-y-2">
@@ -446,7 +446,7 @@ export function A1FinalExamFlow({ previewMode = false }: A1FinalExamFlowProps) {
             )}
             {result.passed && (
               <Button variant="ghost" onClick={() => setView('congrats')} className="flex-1">
-                <Trophy size={18} />
+                <GraduationCap size={18} />
                 <span className="bn">
                   {tr({
                     bn: 'অভিনন্দন পাতায় ফিরুন',

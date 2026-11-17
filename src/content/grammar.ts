@@ -1,4 +1,5 @@
 import type { LevelId, Tr } from './types';
+import { A2_EXTRA_GRAMMAR_TOPICS } from './a2/grammarExpansion';
 
 export interface GrammarTopic {
   id: string;
@@ -490,6 +491,7 @@ export const GRAMMAR_TOPICS: GrammarTopic[] = [
     },
     table: [['non + verb + niente', 'কিছুই না'], ['non + verb + nessuno', 'কেউ না'], ['non + verb + più', 'আর না'], ['né … né …', 'এটাও না ওটাও না']],
   },
+  ...A2_EXTRA_GRAMMAR_TOPICS,
   // ---------- B1 ----------
   {
     id: 'congiuntivo', level: 'B1', title: 'Il congiuntivo presente',

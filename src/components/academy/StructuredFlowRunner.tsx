@@ -1,4 +1,4 @@
-import { useEffect, useMemo, useState } from 'react';
+import { useEffect, useMemo, useState, type ReactNode } from 'react';
 import { FlaskConical, Lock } from 'lucide-react';
 import type {
   AcademyDrillItem,
@@ -33,6 +33,13 @@ import { type StudyListItem } from './StudyItemCard';
 import { StudyListScreen, type StudyGroupedSection, type StudySequentialGroup } from './StudyListScreen';
 import { TheoryLessonScreen } from './TheoryLessonScreen';
 
+export interface StructuredStudyRenderContext {
+  studiedSet: Set<string>;
+  markItemStudied: (itemId: string) => void;
+  studyCompleted: boolean;
+  onContinueToDrill: () => void;
+}
+
 export interface StructuredFlowRunnerProps {
   moduleId: AcademyModuleId;
   backTo?: string;
@@ -41,8 +48,13 @@ export interface StructuredFlowRunnerProps {
   studyItems: StudyListItem[];
   studySequentialGroups?: StudySequentialGroup[];
   studyGroupedSections?: StudyGroupedSection[];
+  studyExtraRequiredIds?: string[];
   drillItems: AcademyDrillItem[];
   drillDistractorPool?: AcademyDrillItem[];
+  /** Optional interactive content rendered below the study cards inside Stage 2 Study. */
+  studyBottomSlot?: (ctx: StructuredStudyRenderContext) => ReactNode;
+  /** Optional custom Stage 2 Study view replacing StudyListScreen (e.g. Listening+Speaking / Reading+Writing tabs). */
+  renderCustomStudy?: (ctx: StructuredStudyRenderContext) => ReactNode;
 }
 
 /**
@@ -51,7 +63,7 @@ export interface StructuredFlowRunnerProps {
  * Stage 2: Study List (tap-to-study required items, sticky Continue gate)
  * Stage 3: Interactive Sound Drill (auto-play, replay, feedback popup, non-repeating round)
  * Stage 4: Section Examination (randomized, max 3 mistakes allowed, fail restart without unlock)
- * Stage 5: Completion Result (score %, mistakes, XP badge, history, Continue to next module)
+ * Stage 5: Completion Result (score %, mistakes, breakdown, history, Continue to next module)
  */
 export function StructuredFlowRunner({
   moduleId,
@@ -60,8 +72,11 @@ export function StructuredFlowRunner({
   studyItems,
   studySequentialGroups,
   studyGroupedSections,
+  studyExtraRequiredIds,
   drillItems,
   drillDistractorPool,
+  studyBottomSlot,
+  renderCustomStudy,
 }: StructuredFlowRunnerProps) {
   useStudyTimer();
   const { state, dispatch } = useProgress();
@@ -89,7 +104,9 @@ export function StructuredFlowRunner({
     [testingOverride, previewStudiedIds, modProg.studiedItems],
   );
   const studyCompleted = testingOverride
-    ? studyItems.length > 0 && studyItems.every((i) => studiedSet.has(i.id))
+    ? studyItems.length > 0 &&
+      studyItems.every((i) => studiedSet.has(i.id)) &&
+      (!studyExtraRequiredIds || studyExtraRequiredIds.every((id) => studiedSet.has(id)))
     : stats.readyForExam;
   const drillCompleted = testingOverride ? previewDrillDone : Boolean(modProg.drillCompleted);
   const examPassed = testingOverride ? previewPassedResult !== null : modProg.completed;
@@ -162,12 +179,23 @@ export function StructuredFlowRunner({
     }
   };
 
-  const handleStudyItem = (item: StudyListItem) => {
+  const markItemStudied = (itemId: string) => {
     if (testingOverride) {
-      setPreviewStudiedIds((prev) => (prev.includes(item.id) ? prev : [...prev, item.id]));
+      setPreviewStudiedIds((prev) => (prev.includes(itemId) ? prev : [...prev, itemId]));
     } else {
-      dispatch({ type: 'studyAcademyItem', moduleId, itemId: item.id, level: 'A1' });
+      dispatch({ type: 'studyAcademyItem', moduleId, itemId, level: 'A1' });
     }
+  };
+
+  const handleStudyItem = (item: StudyListItem) => {
+    markItemStudied(item.id);
+  };
+
+  const studyCtx: StructuredStudyRenderContext = {
+    studiedSet,
+    markItemStudied,
+    studyCompleted,
+    onContinueToDrill: () => setStage('drill'),
   };
 
   const handleDrillComplete = ({ correct, total }: { correct: number; total: number }) => {
@@ -264,16 +292,21 @@ export function StructuredFlowRunner({
         />
       )}
 
-      {stage === 'study' && (
-        <StudyListScreen
-          items={studyItems}
-          studiedSet={studiedSet}
-          sequentialGroups={studySequentialGroups}
-          groupedSections={studyGroupedSections}
-          onStudyItem={handleStudyItem}
-          onContinue={() => setStage('drill')}
-        />
-      )}
+      {stage === 'study' &&
+        (renderCustomStudy ? (
+          renderCustomStudy(studyCtx)
+        ) : (
+          <StudyListScreen
+            items={studyItems}
+            studiedSet={studiedSet}
+            sequentialGroups={studySequentialGroups}
+            groupedSections={studyGroupedSections}
+            extraRequiredIds={studyExtraRequiredIds}
+            extraBottomSlot={studyBottomSlot ? studyBottomSlot(studyCtx) : undefined}
+            onStudyItem={handleStudyItem}
+            onContinue={() => setStage('drill')}
+          />
+        ))}
 
       {stage === 'drill' && (
         <SoundDrillScreen

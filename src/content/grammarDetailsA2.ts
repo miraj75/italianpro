@@ -1,5 +1,6 @@
 import type { GrammarMistake } from './academyTypes';
 import type { QuizQuestion, Tr } from './types';
+import { A2_EXISTING_DETAILS_BOOST, A2_NEW_GRAMMAR_DETAILS } from './a2/grammarExpansion';
 
 export interface GrammarDetailEntry {
   rule: Tr;
@@ -11,7 +12,7 @@ export interface GrammarDetailEntry {
   vocabKeys: string[];
 }
 
-export const GRAMMAR_DETAILS_A2: Record<string, GrammarDetailEntry> = {
+const GRAMMAR_DETAILS_A2_BASE: Record<string, GrammarDetailEntry> = {
   'passato-prossimo': {
     rule: {
       bn: 'অতীতের নির্দিষ্ট সমাপ্ত কাজ বোঝাতে avere (বর্তমান রূপ: ho, hai, ha, abbiamo, avete, hanno) + পাস্ট পার্টিসিপল (-are→-ato, -ere→-uto, -ire→-ito) বসে।',
@@ -585,4 +586,24 @@ export const GRAMMAR_DETAILS_A2: Record<string, GrammarDetailEntry> = {
     storyIds: ['st-a2-24', 'st-a2-31'],
     vocabKeys: ['w:A2:il pacco', 'w:A2:ricevere'],
   },
+};
+
+const GRAMMAR_DETAILS_A2_ENRICHED: Record<string, GrammarDetailEntry> = Object.fromEntries(
+  Object.entries(GRAMMAR_DETAILS_A2_BASE).map(([id, entry]) => {
+    const boost = A2_EXISTING_DETAILS_BOOST[id];
+    if (!boost) return [id, entry];
+    return [
+      id,
+      {
+        ...entry,
+        examples: [...entry.examples, ...boost.extraExamples],
+        exercises: [...entry.exercises, ...boost.extraExercises],
+      },
+    ];
+  }),
+);
+
+export const GRAMMAR_DETAILS_A2: Record<string, GrammarDetailEntry> = {
+  ...GRAMMAR_DETAILS_A2_ENRICHED,
+  ...A2_NEW_GRAMMAR_DETAILS,
 };

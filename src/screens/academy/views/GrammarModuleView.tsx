@@ -15,7 +15,6 @@ import { GRAMMAR_DETAILS_B2 } from '../../../content/grammarDetailsB2';
 import { SENTENCES } from '../../../content/bank';
 import { generateAcademyModuleExam, shuffleArray } from '../../../lib/examEngine';
 import { resolveExamOptions, useI18n } from '../../../lib/i18n';
-import { useProgress } from '../../../state/ProgressContext';
 import { Button, GlassCard, cx } from '../../../components/ui';
 import { SpeakButton } from '../../../components/SpeakButton';
 import { AcademyExamRunner } from '../../../components/AcademyExamRunner';
@@ -46,8 +45,8 @@ export function GrammarModuleView({
   onNavigateModule,
 }: GrammarModuleViewProps) {
   const { lang, t, tr } = useI18n();
-  const { state } = useProgress();
   const [tab, setTab] = useState<Tab>('theory');
+  const [topicFilter, setTopicFilter] = useState<'all' | 'remaining'>('all');
   const [practiceRound, setPracticeRound] = useState(1);
   const [practiceIdx, setPracticeIdx] = useState(0);
   const [practicePick, setPracticePick] = useState<number | null>(null);
@@ -58,8 +57,12 @@ export function GrammarModuleView({
     return GRAMMAR_TOPICS.filter((g) => g.level === levelId && allowed.has(g.id));
   }, [meta.grammarIds, levelId]);
 
+  const visibleTopics = useMemo(() => {
+    if (topicFilter === 'all') return topics;
+    return topics.filter((topic) => !studiedSet.has(topic.id));
+  }, [topics, topicFilter, studiedSet]);
+
   const practicePool = useMemo(() => {
-    void state.xp;
     const qs = generateAcademyModuleExam(meta.id, Math.random, levelId as LevelId);
     return shuffleArray(qs);
   }, [meta.id, levelId, practiceRound]);
@@ -110,13 +113,74 @@ export function GrammarModuleView({
 
       {tab === 'theory' && (
         <div className="space-y-4">
-          {topics.map((topic, idx) => {
+          {topics.length > 10 && (
+            <div className="glass rounded-2xl p-3 space-y-2.5">
+              <div className="flex flex-wrap items-center justify-between gap-2">
+                <p className="text-xs font-bold text-ink-2 tabular-nums">
+                  {studiedSet.size} / {topics.length} {tr({ bn: 'বিষয় সম্পন্ন', en: 'topics studied', it: 'argomenti studiati' })}
+                </p>
+                <div className="inline-flex rounded-xl border border-white/12 bg-white/5 p-0.5">
+                  <button
+                    type="button"
+                    onClick={() => setTopicFilter('all')}
+                    className={cx(
+                      'min-h-8 rounded-lg px-2.5 text-xs font-bold transition',
+                      topicFilter === 'all' ? 'bg-neon text-bg' : 'text-ink-2 hover:text-white',
+                    )}
+                  >
+                    {tr({ bn: `সব (${topics.length})`, en: `All (${topics.length})`, it: `Tutti (${topics.length})` })}
+                  </button>
+                  <button
+                    type="button"
+                    onClick={() => setTopicFilter('remaining')}
+                    className={cx(
+                      'min-h-8 rounded-lg px-2.5 text-xs font-bold transition',
+                      topicFilter === 'remaining' ? 'bg-neon text-bg' : 'text-ink-2 hover:text-white',
+                    )}
+                  >
+                    {tr({
+                      bn: `বাকি (${Math.max(0, topics.length - studiedSet.size)})`,
+                      en: `Remaining (${Math.max(0, topics.length - studiedSet.size)})`,
+                      it: `Restanti (${Math.max(0, topics.length - studiedSet.size)})`,
+                    })}
+                  </button>
+                </div>
+              </div>
+              <div className="flex items-center gap-1.5 overflow-x-auto pb-1">
+                {visibleTopics.map((tp, i) => {
+                  const done = studiedSet.has(tp.id);
+                  return (
+                    <button
+                      key={tp.id}
+                      type="button"
+                      title={tp.title}
+                      onClick={() => {
+                        const el = document.getElementById(`grammar-topic-${tp.id}`);
+                        el?.scrollIntoView({ behavior: 'smooth', block: 'start' });
+                      }}
+                      className={cx(
+                        'shrink-0 min-h-8 min-w-8 rounded-lg border px-2 text-xs font-extrabold tabular-nums transition',
+                        done
+                          ? 'border-neon/40 bg-neon/15 text-neon'
+                          : 'border-white/10 bg-white/5 text-ink-2 hover:border-white/25 hover:text-white',
+                      )}
+                    >
+                      #{i + 1}
+                    </button>
+                  );
+                })}
+              </div>
+            </div>
+          )}
+
+          {visibleTopics.map((topic, idx) => {
             const studied = studiedSet.has(topic.id);
             const det = detailsMap[topic.id];
             const relatedSentences = SENTENCES[levelId].filter((s) => s.grammar === topic.id).slice(0, 2);
 
             return (
-              <GlassCard key={topic.id} neon={studied} className="p-4 sm:p-5 space-y-3.5">
+              <div key={topic.id} id={`grammar-topic-${topic.id}`} className="scroll-mt-4">
+              <GlassCard neon={studied} className="p-4 sm:p-5 space-y-3.5">
                 <div className="flex items-start justify-between gap-3">
                   <div className="min-w-0 flex-1">
                     <p className="text-xs font-extrabold uppercase tracking-wide text-cyan">
@@ -205,6 +269,7 @@ export function GrammarModuleView({
                   </Button>
                 </div>
               </GlassCard>
+              </div>
             );
           })}
 

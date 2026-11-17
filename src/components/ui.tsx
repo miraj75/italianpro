@@ -34,7 +34,7 @@ export function Button({
     <button
       type="button"
       className={cx(
-        'inline-flex min-h-12 items-center justify-center gap-2 rounded-full px-6 text-[1.05rem] font-extrabold transition active:scale-[0.98] disabled:cursor-not-allowed disabled:opacity-40 disabled:shadow-none',
+        'inline-flex min-h-11 sm:min-h-12 min-w-0 max-w-full items-center justify-center gap-2 rounded-full px-5 text-[0.95rem] sm:text-[1.02rem] font-extrabold transition active:scale-[0.98] disabled:cursor-not-allowed disabled:opacity-40 disabled:shadow-none',
         styles[variant],
         className,
       )}
@@ -113,19 +113,51 @@ export function IconTile({ icon: Icon, tone = 'emerald', size = 'md' }: { icon: 
   );
 }
 
-export function Pill({ children, active, onClick }: { children: ReactNode; active?: boolean; onClick?: () => void }) {
+export function Pill({
+  children,
+  active,
+  onClick,
+  className,
+}: {
+  children: ReactNode;
+  active?: boolean;
+  onClick?: () => void;
+  className?: string;
+}) {
   return (
     <button
       type="button"
       onClick={onClick}
       aria-pressed={active}
       className={cx(
-        'min-h-10 shrink-0 rounded-full border px-4 text-[0.95rem] font-bold transition',
+        'inline-flex min-h-10 shrink-0 items-center justify-center gap-1.5 whitespace-nowrap rounded-full border px-3.5 text-[0.875rem] font-bold transition active:scale-[0.98]',
         active ? 'bg-grad-primary border-transparent text-navy-950 glow-neon' : 'border-white/15 bg-white/5 text-ink-2 hover:text-ink',
+        className,
       )}
     >
       {children}
     </button>
+  );
+}
+
+/** Smooth horizontal chip scroller safely constrained inside its parent with subtle edge fade and trailing room. */
+export function FilterChipRow({
+  children,
+  className,
+  label,
+}: {
+  children: ReactNode;
+  className?: string;
+  label?: string;
+}) {
+  return (
+    <div className={cx('relative min-w-0 max-w-full', className)} aria-label={label}>
+      <div className="no-scrollbar flex items-center gap-2 overflow-x-auto pb-1 pr-6">{children}</div>
+      <div
+        aria-hidden
+        className="pointer-events-none absolute inset-y-0 right-0 w-7 bg-gradient-to-l from-[#041917] to-transparent"
+      />
+    </div>
   );
 }
 

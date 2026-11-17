@@ -15,22 +15,22 @@ export function SubHeader({
 }) {
   const { back, navigate } = useRouter();
   return (
-    <header className="mb-5 flex items-start justify-between gap-3">
-      <div className="flex items-start gap-3">
+    <header className="mb-4 flex flex-wrap items-start justify-between gap-2.5 sm:gap-3">
+      <div className="flex min-w-0 flex-1 items-start gap-2.5 sm:gap-3">
         <button
           type="button"
           onClick={() => (backTo ? navigate(backTo) : back())}
           aria-label="Back"
-          className="flex h-10 w-10 shrink-0 items-center justify-center rounded-full hover:bg-white/5"
+          className="flex h-11 w-11 shrink-0 items-center justify-center rounded-full hover:bg-white/5"
         >
-          <ArrowLeft size={22} />
+          <ArrowLeft size={21} />
         </button>
-        <div>
-          <h1 className="text-2xl font-bold">{title}</h1>
-          {subtitle && <p className="bn text-sm text-ink-2">{subtitle}</p>}
+        <div className="min-w-0 flex-1 pt-0.5">
+          <h1 className="text-xl sm:text-2xl leading-snug font-extrabold break-words">{title}</h1>
+          {subtitle && <p className="bn mt-0.5 text-xs sm:text-sm leading-snug text-ink-2 break-words">{subtitle}</p>}
         </div>
       </div>
-      {right}
+      {right && <div className="shrink-0">{right}</div>}
     </header>
   );
 }

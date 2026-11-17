@@ -1,7 +1,7 @@
 import type { ExplainLang, LevelId } from '../content/types';
 import { LESSON_PASS_SCORE } from '../content/types';
 import { LEVEL_ORDER, isLevelContentComplete, levelLessons } from '../content/courses';
-import { addDays, dayKey } from '../lib/date';
+import { dayKey } from '../lib/date';
 import type { AcademyModuleId } from '../content/academy/types';
 import {
   findAcademyModule,
@@ -16,6 +16,7 @@ import {
   getAcademyModuleProgress,
   isAcademyModuleCompleted,
   isAcademyModuleUnlocked,
+  overallAcademyProgress,
   type AcademyModuleProgress,
   type AcademyProgressState,
   type ExamAttemptRecord,
@@ -23,7 +24,7 @@ import {
 import { reviewCard, type CardState } from './srs';
 
 /** Daily-plan task kinds; each is recorded once per day when actually done. */
-export type TaskKind = 'lesson' | 'listening' | 'vocab' | 'review' | 'challenge';
+export type TaskKind = 'lesson' | 'listening' | 'vocab' | 'review';
 
 export interface LessonProgress {
   bestScore: number;
@@ -41,7 +42,6 @@ export interface ProgressState {
     currentLevel?: LevelId;
     showAllLockedModules?: boolean;
   };
-  xp: number;
   lessons: Record<string, LessonProgress>;
   /** Spaced-repetition cards keyed by `${lessonId}:${phraseId}` or `w:<level>:<it>`. */
   cards: Record<string, CardState>;
@@ -66,25 +66,10 @@ export interface ProgressState {
   academy?: AcademyProgressState;
 }
 
-export const XP = {
-  lessonComplete: 50,
-  correctAnswer: 5,
-  cardReview: 2,
-  challenge: 50,
-  storyComplete: 25,
-  listeningComplete: 20,
-  readingComplete: 20,
-  writingComplete: 25,
-  speakingComplete: 20,
-  assessmentPass: 60,
-  academyModuleComplete: 50,
-} as const;
-
 export function initialState(): ProgressState {
   return {
     version: 1,
     settings: { explainLang: 'bn', dailyGoalMinutes: 25, currentLevel: 'A1', showAllLockedModules: false },
-    xp: 0,
     lessons: {},
     cards: {},
     mistakes: {},
@@ -109,12 +94,10 @@ export type Action =
   | { type: 'submitQuiz'; lessonId: string; results: { questionId: string; correct: boolean; chosen?: string }[]; today: string }
   | { type: 'reviewCard'; key: string; remembered: boolean; today: string }
   | { type: 'completeTask'; task: TaskKind; today: string }
-  | { type: 'completeChallenge'; correct: number; today: string }
   | { type: 'addStudyTime'; seconds: number; today: string }
   | { type: 'toggleSaved'; key: string }
   | { type: 'clearMistake'; key: string }
   | { type: 'addCards'; keys: string[]; today: string }
-  | { type: 'awardXp'; amount: number; today: string }
   | { type: 'completeStory'; storyId: string; today: string }
   | { type: 'toggleBookmarkStory'; storyId: string }
   | { type: 'recordListening'; exerciseId: string; score: number; today: string }
@@ -179,7 +162,6 @@ export function reducer(state: ProgressState, action: Action): ProgressState {
       const score = correct / total;
       const prev = state.lessons[action.lessonId] ?? { bestScore: 0, completed: false, viewed: [] };
       const passed = score >= LESSON_PASS_SCORE;
-      const newlyCompleted = passed && !prev.completed;
       const mistakes = { ...state.mistakes };
       const mistakeAnswers = { ...(state.mistakeAnswers ?? {}) };
       for (const r of action.results) {
@@ -196,7 +178,6 @@ export function reducer(state: ProgressState, action: Action): ProgressState {
         ...state,
         mistakes,
         mistakeAnswers,
-        xp: state.xp + correct * XP.correctAnswer + (newlyCompleted ? XP.lessonComplete : 0),
         lessons: {
           ...state.lessons,
           [action.lessonId]: {
@@ -216,18 +197,12 @@ export function reducer(state: ProgressState, action: Action): ProgressState {
       if (!card) return state;
       const next: ProgressState = {
         ...state,
-        xp: state.xp + XP.cardReview,
         cards: { ...state.cards, [action.key]: reviewCard(card, action.remembered, action.today) },
       };
       return next;
     }
     case 'completeTask':
       return withTask(state, action.today, action.task);
-    case 'completeChallenge': {
-      const already = state.days[action.today]?.tasks.includes('challenge') ?? false;
-      const next = withTask(state, action.today, 'challenge');
-      return already ? next : { ...next, xp: next.xp + XP.challenge + action.correct * XP.correctAnswer };
-    }
     case 'addStudyTime': {
       if (action.seconds <= 0) return state;
       const day = state.days[action.today] ?? { seconds: 0, tasks: [] };
@@ -246,22 +221,15 @@ export function reducer(state: ProgressState, action: Action): ProgressState {
       for (const k of fresh) cards[k] = { box: 0, due: action.today, reviews: 0, lapses: 0 };
       return { ...state, cards };
     }
-    case 'awardXp': {
-      const day = state.days[action.today] ?? { seconds: 0, tasks: [] };
-      return { ...state, xp: state.xp + action.amount, days: { ...state.days, [action.today]: day } };
-    }
     case 'completeStory': {
-      const first = !state.storiesDone[action.storyId];
-      const next = withTask(
+      return withTask(
         {
           ...state,
-          xp: state.xp + (first ? XP.storyComplete : 0),
           storiesDone: { ...state.storiesDone, [action.storyId]: true },
         },
         action.today,
         'review',
       );
-      return next;
     }
     case 'toggleBookmarkStory': {
       const has = state.bookmarkedStories.includes(action.storyId);
@@ -272,11 +240,9 @@ export function reducer(state: ProgressState, action: Action): ProgressState {
     }
     case 'recordListening': {
       const prev = state.listeningScores[action.exerciseId];
-      const first = prev === undefined;
       return withTask(
         {
           ...state,
-          xp: state.xp + (first ? XP.listeningComplete : 0),
           listeningScores: {
             ...state.listeningScores,
             [action.exerciseId]: Math.max(prev ?? 0, action.score),
@@ -290,11 +256,9 @@ export function reducer(state: ProgressState, action: Action): ProgressState {
       if (action.score !== undefined && action.score <= 0) {
         return state;
       }
-      const first = !state.readingDone[action.readingId];
       return withTask(
         {
           ...state,
-          xp: state.xp + (first ? XP.readingComplete : 0),
           readingDone: { ...state.readingDone, [action.readingId]: true },
         },
         action.today,
@@ -306,7 +270,6 @@ export function reducer(state: ProgressState, action: Action): ProgressState {
       return withTask(
         {
           ...state,
-          xp: state.xp + (has ? 0 : XP.writingComplete),
           writingDone: has ? state.writingDone : [...state.writingDone, action.writingId],
         },
         action.today,
@@ -318,7 +281,6 @@ export function reducer(state: ProgressState, action: Action): ProgressState {
       return withTask(
         {
           ...state,
-          xp: state.xp + (has ? 0 : XP.speakingComplete),
           speakingDone: has ? state.speakingDone : [...state.speakingDone, action.speakingId],
         },
         action.today,
@@ -328,11 +290,9 @@ export function reducer(state: ProgressState, action: Action): ProgressState {
     case 'submitAssessment': {
       const prev = state.assessments[action.assessmentId];
       const passed = action.score >= action.passScore;
-      const newlyPassed = passed && !prev?.passed;
       return withTask(
         {
           ...state,
-          xp: state.xp + (newlyPassed ? XP.assessmentPass : 0),
           assessments: {
             ...state.assessments,
             [action.assessmentId]: {
@@ -363,7 +323,7 @@ export function reducer(state: ProgressState, action: Action): ProgressState {
       const puzzleMistakeAnswers = { ...(state.puzzleMistakeAnswers ?? {}) };
       delete puzzleMistakes[action.puzzleId];
       delete puzzleMistakeAnswers[action.puzzleId];
-      return { ...state, puzzleMistakes, puzzleMistakeAnswers, xp: state.xp + XP.correctAnswer };
+      return { ...state, puzzleMistakes, puzzleMistakeAnswers };
     }
     case 'clearMistake': {
       if (!(action.key in state.mistakes)) return state;
@@ -371,7 +331,7 @@ export function reducer(state: ProgressState, action: Action): ProgressState {
       const mistakeAnswers = { ...(state.mistakeAnswers ?? {}) };
       delete mistakes[action.key];
       delete mistakeAnswers[action.key];
-      return { ...state, mistakes, mistakeAnswers, xp: state.xp + XP.correctAnswer };
+      return { ...state, mistakes, mistakeAnswers };
     }
     case 'completeAcademyTheory': {
       const academy = state.academy ?? defaultAcademyProgress();
@@ -476,10 +436,10 @@ export function reducer(state: ProgressState, action: Action): ProgressState {
       if (action.total <= 0) return state;
       const academy = state.academy ?? defaultAcademyProgress();
       const lvl = action.level ?? inferLevelFromModuleId(action.moduleId);
-      // Testing Mode access override must never record completion, exam history, or XP on locked modules
+      // Testing Mode access override must never record completion or exam history on locked modules
       if (!isAcademyModuleUnlocked(academy, action.moduleId, lvl)) return state;
       const prevMod = getAcademyModuleProgress(academy, action.moduleId, lvl);
-      // Idempotency guard: never award XP or record completion twice for the same attemptId
+      // Idempotency guard: never record completion twice for the same attemptId
       if (prevMod.completedAttemptIds.includes(action.attemptId)) return state;
 
       const meta = findAcademyModule(action.moduleId, lvl);
@@ -488,13 +448,6 @@ export function reducer(state: ProgressState, action: Action): ProgressState {
       // Do not allow completing a module unless all required items have been studied
       const canComplete = passedByScore && (meta?.requiredItemIds.length ? studyStats.readyForExam : true);
       const score = action.correct / action.total;
-      const newlyCompleted = canComplete && !prevMod.completed;
-      const alreadyPassedBefore = prevMod.completed;
-      // Grant XP only on first valid passing completion; prevent XP farming on failed runs or retakes.
-      const awardedXp =
-        !alreadyPassedBefore && canComplete
-          ? action.correct * XP.correctAnswer + (newlyCompleted ? XP.academyModuleComplete : 0)
-          : 0;
 
       const record: ExamAttemptRecord = {
         id: action.attemptId,
@@ -505,7 +458,6 @@ export function reducer(state: ProgressState, action: Action): ProgressState {
         incorrect: action.incorrect,
         score,
         passed: passedByScore,
-        awardedXp,
       };
 
       const updatedMod: AcademyModuleProgress = {
@@ -546,7 +498,6 @@ export function reducer(state: ProgressState, action: Action): ProgressState {
 
       let next: ProgressState = {
         ...state,
-        xp: state.xp + awardedXp,
         academy: nextAcademy,
       };
       next = withTask(next, action.today, 'review');
@@ -579,24 +530,19 @@ export function isShowAllLockedModulesEnabled(state: ProgressState): boolean {
   return Boolean(state.settings.showAllLockedModules);
 }
 
-function studiedOn(state: ProgressState, key: string): boolean {
-  const day = state.days[key];
-  return !!day && (day.seconds >= 60 || day.tasks.length > 0);
-}
-
-/** Consecutive study days ending today (or yesterday, so the streak survives until tonight). */
-export function streak(state: ProgressState, today: string = dayKey()): number {
-  let cursor = studiedOn(state, today) ? today : addDays(today, -1);
-  let count = 0;
-  while (studiedOn(state, cursor)) {
-    count += 1;
-    cursor = addDays(cursor, -1);
-  }
-  return count;
-}
-
 export function minutesToday(state: ProgressState, today: string = dayKey()): number {
   return Math.floor((state.days[today]?.seconds ?? 0) / 60);
+}
+
+export function totalStudySeconds(state: ProgressState): number {
+  return Object.values(state.days).reduce(
+    (sum, day) => sum + (day && typeof day.seconds === 'number' && Number.isFinite(day.seconds) && day.seconds > 0 ? day.seconds : 0),
+    0,
+  );
+}
+
+export function totalCompletedModules(state: ProgressState): number {
+  return LEVEL_ORDER.reduce((sum, lvl) => sum + overallAcademyProgress(state.academy, lvl).completedCount, 0);
 }
 
 export function isLessonCompleted(state: ProgressState, lessonId: string): boolean {
@@ -638,20 +584,4 @@ export function dueCards(state: ProgressState, today: string = dayKey()): string
   return Object.entries(state.cards)
     .filter(([, c]) => c.due <= today)
     .map(([k]) => k);
-}
-
-export interface Badge {
-  id: string;
-  earned: boolean;
-}
-
-export function badges(state: ProgressState, today: string = dayKey()): Badge[] {
-  const completed = Object.values(state.lessons).filter((l) => l.completed).length;
-  return [
-    { id: 'first-lesson', earned: completed >= 1 },
-    { id: 'perfect-quiz', earned: Object.values(state.lessons).some((l) => l.bestScore === 1) },
-    { id: 'streak-3', earned: streak(state, today) >= 3 },
-    { id: 'xp-500', earned: state.xp >= 500 },
-    { id: 'unit-1', earned: completed >= 3 },
-  ];
 }

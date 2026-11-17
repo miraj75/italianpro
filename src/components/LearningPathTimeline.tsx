@@ -32,13 +32,30 @@ export function LearningPathTimeline({
         const canOpen = !isLocked || allowLockedAccess;
         const hasNext = index < nodes.length - 1;
         const isNextActive = hasNext && (isCompleted || nodes[index + 1]?.status !== 'locked');
+        const prevSectionId = index > 0 ? nodes[index - 1]?.sectionLabel?.id : undefined;
+        const showSectionHeader = Boolean(node.sectionLabel && node.sectionLabel.id !== prevSectionId);
 
         return (
-          <li key={node.id} className="relative flex items-stretch gap-3.5">
+          <li key={node.id} className="space-y-2.5">
+            {showSectionHeader && node.sectionLabel && (
+              <div
+                className={cx(
+                  'flex items-center gap-2.5 pl-1',
+                  index > 0 && 'pt-2',
+                )}
+              >
+                <span className="bn text-[11px] font-extrabold uppercase tracking-wider text-neon/90">
+                  {tr(node.sectionLabel.title)}
+                </span>
+                <span className="h-px flex-1 bg-white/12" aria-hidden="true" />
+              </div>
+            )}
+
+            <div className="relative flex items-stretch gap-3.5">
             {/* Left vertical timeline track + node marker */}
             <div className="relative flex w-12 shrink-0 flex-col items-center">
               {/* Top connector segment */}
-              {index > 0 && (
+              {index > 0 && !showSectionHeader && (
                 <span
                   aria-hidden="true"
                   className={cx(
@@ -190,6 +207,7 @@ export function LearningPathTimeline({
                 </span>
               </div>
             </button>
+            </div>
           </li>
         );
       })}

@@ -11,7 +11,7 @@ import { useI18n } from '../../lib/i18n';
 import { dayKey } from '../../lib/date';
 import { isSpeechSessionActive, speakItalian, startSpeechSession, stopSpeaking } from '../../lib/speech';
 import { useProgress, useStudyTimer } from '../../state/ProgressContext';
-import { Button, GlassCard, Pill, cx } from '../../components/ui';
+import { Button, FilterChipRow, GlassCard, Pill, cx } from '../../components/ui';
 import { SpeakButton } from '../../components/SpeakButton';
 import { SubHeader } from '../../components/SubHeader';
 import { LevelTabs, isBankLevel } from '../../components/LevelTabs';
@@ -103,40 +103,43 @@ export function ListeningScreen() {
 
   if (active) {
     return (
-      <div className="animate-rise space-y-4">
+      <div className="animate-rise max-w-full space-y-4 overflow-x-hidden">
         <SubHeader
           title={active.titleIt}
           subtitle={`${active.level} · ${tr(active.title)}`}
           right={
-            <Button variant="ghost" className="min-h-10 px-4 text-sm" onClick={() => { stopAudio(); setQuizResult(null); setActive(null); }}>
+            <Button variant="ghost" className="min-h-10 px-3.5 text-sm" onClick={() => { stopAudio(); setQuizResult(null); setActive(null); }}>
               {t('all')}
             </Button>
           }
         />
 
-        <GlassCard neon className="p-4">
+        <GlassCard neon className="space-y-3 p-4">
           <p className="text-xs font-semibold text-ink-3">{t('ttsNotice')}</p>
-          <div className="mt-3 flex flex-wrap gap-2">
+          <div className="grid grid-cols-1 gap-2 min-[380px]:grid-cols-2">
             {playing ? (
-              <Button variant="secondary" className="min-h-10 px-4 text-sm" onClick={stopAudio}>
-                <Square size={16} /> {t('stop')}
+              <Button variant="secondary" className="min-h-11 w-full px-3.5 text-sm min-[380px]:col-span-2" onClick={stopAudio}>
+                <Square size={16} className="shrink-0" />
+                <span>{t('stop')}</span>
               </Button>
             ) : (
               <>
-                <Button className="min-h-10 px-4 text-sm" onClick={() => void playAll(active, 0.92)}>
-                  <Volume2 size={17} /> {t('normalSpeed')}
+                <Button className="min-h-11 w-full px-3.5 text-sm" onClick={() => void playAll(active, 0.92)}>
+                  <Volume2 size={17} className="shrink-0" />
+                  <span>{t('normalSpeed')}</span>
                 </Button>
-                <Button variant="ghost" className="min-h-10 px-4 text-sm" onClick={() => void playAll(active, 0.68)}>
-                  <Volume2 size={17} /> {t('slowSpeed')}
+                <Button variant="ghost" className="min-h-11 w-full px-3.5 text-sm" onClick={() => void playAll(active, 0.68)}>
+                  <Volume2 size={17} className="shrink-0" />
+                  <span>{t('slowSpeed')}</span>
                 </Button>
               </>
             )}
-            <Button variant="ghost" className="min-h-10 px-4 text-sm" onClick={() => setShowTranscript((s) => !s)}>
-              {showTranscript ? t('hideTranscript') : t('showTranscript')}
-            </Button>
           </div>
+          <Button variant="ghost" className="min-h-11 w-full px-3.5 text-sm" onClick={() => setShowTranscript((s) => !s)}>
+            {showTranscript ? t('hideTranscript') : t('showTranscript')}
+          </Button>
           {activeLine !== null && (
-            <p className="mt-2 text-xs font-bold text-neon tabular-nums">
+            <p className="text-xs font-bold text-neon tabular-nums">
               Line {activeLine + 1} / {active.lines.length} — {active.lines[activeLine]?.speaker}
             </p>
           )}
@@ -267,11 +270,14 @@ export function ListeningScreen() {
   }
 
   return (
-    <div className="animate-rise">
+    <div className="animate-rise max-w-full space-y-3 overflow-x-hidden">
       <SubHeader title={t('listeningLab')} subtitle={t('listeningLabSub')} />
+      <p className="rounded-xl border border-cyan/20 bg-cyan/8 px-3 py-2 text-xs font-semibold text-ink-2">
+        {t('ttsNotice')}
+      </p>
       <LevelTabs value={level} onChange={(l) => { setLevel(l); setKind('all'); }} />
 
-      <div className="-mx-4 mb-4 flex gap-2 overflow-x-auto px-4 pb-1">
+      <FilterChipRow label={t('listeningLab')}>
         <Pill active={kind === 'all'} onClick={() => setKind('all')}>
           {t('all')} ({exercises.length})
         </Pill>
@@ -280,7 +286,7 @@ export function ListeningScreen() {
             {tr(KIND_LABELS[k])}
           </Pill>
         ))}
-      </div>
+      </FilterChipRow>
 
       {loading ? (
         <GlassCard className="p-6 text-center text-ink-2">...</GlassCard>
@@ -300,26 +306,34 @@ export function ListeningScreen() {
                   setQuizKey(0);
                   setQuizResult(null);
                 }}
-                className="text-left"
+                className="h-full w-full min-w-0 text-left"
               >
-                <GlassCard neon={best !== undefined} className="flex h-full items-center gap-3 p-4 transition hover:border-cyan/40">
+                <GlassCard
+                  neon={best !== undefined}
+                  className="flex h-full w-full min-w-0 items-center gap-3 p-4 transition hover:border-cyan/40"
+                >
                   <span className="flex h-11 w-11 shrink-0 items-center justify-center rounded-2xl border border-cyan/30 bg-cyan/10 text-cyan">
-                    <Headphones size={20} />
+                    <Headphones size={20} aria-hidden />
                   </span>
                   <div className="min-w-0 flex-1">
-                    <p className="text-xs font-semibold text-ink-3">
+                    <p className="text-xs font-bold text-cyan/90 tabular-nums">
                       {tr(KIND_LABELS[ex.kind])} · {ex.lines.length} {tr({ bn: 'লাইন', en: 'lines', it: 'righe' })} · {ex.questions.length} Q
                     </p>
-                    <p className="truncate text-base font-extrabold">{ex.titleIt}</p>
-                    <p className="bn truncate text-sm text-ink-2">{tr(ex.title)}</p>
+                    <p className="mt-0.5 line-clamp-2 text-base leading-snug font-extrabold text-white break-words">
+                      {ex.titleIt}
+                    </p>
+                    <p className="bn mt-0.5 line-clamp-2 text-xs sm:text-sm text-ink-2 break-words">{tr(ex.title)}</p>
                   </div>
-                  {best !== undefined ? (
-                    <span className="flex items-center gap-1 text-xs font-bold text-neon tabular-nums">
-                      <CheckCircle2 size={15} /> {Math.round(best * 100)}%
-                    </span>
-                  ) : (
-                    <ChevronRight size={18} className="text-ink-3" />
-                  )}
+                  <div className="flex shrink-0 flex-col items-end gap-1">
+                    <Volume2 size={15} className="text-cyan/75" aria-hidden />
+                    {best !== undefined ? (
+                      <span className="flex items-center gap-1 text-xs font-bold text-neon tabular-nums">
+                        <CheckCircle2 size={14} /> {Math.round(best * 100)}%
+                      </span>
+                    ) : (
+                      <ChevronRight size={18} className="text-ink-3" />
+                    )}
+                  </div>
                 </GlassCard>
               </button>
             );

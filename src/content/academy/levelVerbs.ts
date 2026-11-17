@@ -1,4 +1,5 @@
 import type { AcademyCollocationItem, AcademyVerbEntry } from './types';
+import { A2_EXTRA_VERBS } from '../a2/verbsExpansion';
 
 export const A2_ACADEMY_VERBS: AcademyVerbEntry[] = [
   {
@@ -8,6 +9,7 @@ export const A2_ACADEMY_VERBS: AcademyVerbEntry[] = [
     meaning: { bn: 'হওয়া / থাকা', en: 'to be' },
     category: { bn: 'সহায়ক ও মৌলিক ক্রিয়া', en: 'Auxiliary & core' },
     irregular: true,
+    pronunciation: 'এস-সে-রে /ES-seh-reh/',
     usageNote: {
       bn: 'অতীতে নিজেই নিজের সহায়ক (sono stato/a); অসম্পূর্ণ অতীতে ero, ভবিষ্যতে sarò, ভদ্র অনুরোধ বা ইচ্ছায় sarei।',
       en: 'Takes essere as its own auxiliary (sono stato/a); irregular across imperfect, future, and conditional.',
@@ -30,6 +32,7 @@ export const A2_ACADEMY_VERBS: AcademyVerbEntry[] = [
     meaning: { bn: 'থাকা / পাওয়া', en: 'to have' },
     category: { bn: 'সহায়ক ও মৌলিক ক্রিয়া', en: 'Auxiliary & core' },
     irregular: true,
+    pronunciation: 'আ-ভে-রে /ah-VEH-reh/',
     usageNote: {
       bn: 'অতীতে ho avuto; অসম্পূর্ণ অতীতে নিয়মিত (avevo); ভবিষ্যতে ও কন্ডিশনালে মূলের স্বর উঠে যায় (avrò, avrei)।',
       en: 'Passato prossimo uses avere (ho avuto); drops the thematic vowel in future (avrò) and conditional (avrei).',
@@ -52,6 +55,7 @@ export const A2_ACADEMY_VERBS: AcademyVerbEntry[] = [
     meaning: { bn: 'যাওয়া', en: 'to go' },
     category: { bn: 'গতির ক্রিয়া (essere)', en: 'Motion verb (essere)' },
     irregular: true,
+    pronunciation: 'আন-দা-রে /ahn-DAH-reh/',
     usageNote: {
       bn: 'গতির ক্রিয়া হওয়ায় অতীতে essere নেয় (sono andato/a)। ভবিষ্যতে ও কন্ডিশনালে andrò, andrei হয়।',
       en: 'Takes essere in compound tenses with gender/number agreement; irregular future stem andr-.',
@@ -74,6 +78,7 @@ export const A2_ACADEMY_VERBS: AcademyVerbEntry[] = [
     meaning: { bn: 'আসা', en: 'to come' },
     category: { bn: 'গতির ক্রিয়া (essere)', en: 'Motion verb (essere)' },
     irregular: true,
+    pronunciation: 'ভে-নি-রে /veh-NEE-reh/',
     usageNote: {
       bn: 'পাস্ট পার্টিসিপল venuto ও সহায়ক essere; ভবিষ্যৎ ও কন্ডিশনালে দ্বিত্ব r আসে: verrò, verrei।',
       en: 'Past participle venuto with essere; doubled rr in future (verrò) and conditional (verrei).',
@@ -96,6 +101,7 @@ export const A2_ACADEMY_VERBS: AcademyVerbEntry[] = [
     meaning: { bn: 'করা / বানানো', en: 'to do / to make' },
     category: { bn: 'অনিয়মিত কর্মবাচ্য ক্রিয়া', en: 'Irregular transitive' },
     irregular: true,
+    pronunciation: 'ফা-রে /FAH-reh/',
     usageNote: {
       bn: 'লাতিন facere থেকে আসায় imperfetto-তে facevo এবং পাস্ট পার্টিসিপল fatto হয়। ভবিষ্যতে farò।',
       en: 'Imperfect uses the historical stem face- (facevo); irregular past participle fatto.',
@@ -118,6 +124,7 @@ export const A2_ACADEMY_VERBS: AcademyVerbEntry[] = [
     meaning: { bn: 'বলা', en: 'to say / to tell' },
     category: { bn: 'অনিয়মিত ক্রিয়া', en: 'Irregular verb' },
     irregular: true,
+    pronunciation: 'দি-রে /DEE-reh/',
     usageNote: {
       bn: 'পাস্ট পার্টিসিপল detto; imperfetto-তে dicevo; tu অনুজ্ঞা-রূপ হলো di’!',
       en: 'Past participle detto, imperfect stem dice-, irregular tu imperative di’.',
@@ -139,6 +146,7 @@ export const A2_ACADEMY_VERBS: AcademyVerbEntry[] = [
     meaning: { bn: 'নেওয়া / ধরা', en: 'to take / to catch' },
     category: { bn: 'অনিয়মিত পার্টিসিপল', en: 'Irregular participle' },
     irregular: true,
+    pronunciation: 'প্রেন-দে-রে /PREN-deh-reh/',
     usageNote: {
       bn: 'অনিয়মিত পার্টিসিপল preso (ho preso); ভ্রমণ, খাবার ও সিদ্ধান্ত নেওয়ায় প্রচুর ব্যবহৃত হয়।',
       en: 'Irregular past participle preso; essential for transport, ordering food, and decisions.',
@@ -150,6 +158,7 @@ export const A2_ACADEMY_VERBS: AcademyVerbEntry[] = [
     ],
     examples: [
       { it: 'Ho preso il treno regionale delle sette.', tr: { bn: 'আমি সাতটার লোকাল ট্রেন ধরেছি।', en: 'I caught the seven o’clock regional train.' } },
+      { it: 'Ogni mattina prendevo un caffè al bar vicino all’ufficio.', tr: { bn: 'প্রতিদিন সকালে আমি অফিসের পাশের ক্যাফেতে এক কাপ কফি খেতাম।', en: 'Every morning I used to have a coffee at the café near the office.' } },
     ],
   },
   {
@@ -159,6 +168,7 @@ export const A2_ACADEMY_VERBS: AcademyVerbEntry[] = [
     meaning: { bn: 'পড়া', en: 'to read' },
     category: { bn: 'অনিয়মিত পার্টিসিপল', en: 'Irregular participle' },
     irregular: true,
+    pronunciation: 'লে-জ্জে-রে /LEH-jeh-reh/',
     usageNote: {
       bn: 'পাস্ট পার্টিসিপল letto (অনেকে ভুল করে legguto লেখেন না)। পরের রূপগুলো নিয়মিত।',
       en: 'Irregular past participle letto; imperfect and future stems follow regular -ere patterns.',
@@ -170,6 +180,7 @@ export const A2_ACADEMY_VERBS: AcademyVerbEntry[] = [
     ],
     examples: [
       { it: 'Ho letto tutto il contratto prima di firmare.', tr: { bn: 'সই করার আগে আমি পুরো চুক্তিটি পড়েছি।', en: 'I read the whole contract before signing.' } },
+      { it: 'Da bambino leggevo molti fumetti la sera.', tr: { bn: 'ছোটবেলায় আমি সন্ধ্যায় অনেক কমিক্স পড়তাম।', en: 'As a child I used to read many comics in the evening.' } },
     ],
   },
   {
@@ -179,6 +190,7 @@ export const A2_ACADEMY_VERBS: AcademyVerbEntry[] = [
     meaning: { bn: 'দেখা', en: 'to see' },
     category: { bn: 'অনিয়মিত পার্টিসিপল ও ভবিষ্যৎ', en: 'Irregular participle & future' },
     irregular: true,
+    pronunciation: 'ভে-দে-রে /veh-DEH-reh/',
     usageNote: {
       bn: 'পার্টিসিপল visto (কদাচিৎ veduto); ভবিষ্যৎ ও কন্ডিশনালে সংক্ষিপ্ত মূল vedrò / vedrei।',
       en: 'Common participle visto; contracted future/conditional stem vedr-.',
@@ -190,6 +202,7 @@ export const A2_ACADEMY_VERBS: AcademyVerbEntry[] = [
     ],
     examples: [
       { it: 'Ci vedremo domani davanti alla biblioteca.', tr: { bn: 'আগামীকাল লাইব্রেরির সামনে আমাদের দেখা হবে।', en: 'We will see each other tomorrow in front of the library.' } },
+      { it: 'Ieri sera ho visto un film italiano molto interessante.', tr: { bn: 'গতকাল সন্ধ্যায় আমি খুব আকর্ষণীয় একটি ইতালিয়ান সিনেমা দেখেছি।', en: 'Yesterday evening I saw a very interesting Italian film.' } },
     ],
   },
   {
@@ -199,16 +212,19 @@ export const A2_ACADEMY_VERBS: AcademyVerbEntry[] = [
     meaning: { bn: 'খোলা', en: 'to open' },
     category: { bn: 'অনিয়মিত পার্টিসিপল (-to)', en: 'Irregular -to participle' },
     irregular: true,
+    pronunciation: 'আ-প্রি-রে /ah-PREE-reh/',
     usageNote: {
       bn: 'বর্তমান কাল নিয়মিত (apro), কিন্তু পার্টিসিপল aperto (chiudere → chiuso)।',
       en: 'Regular present tense (apro), irregular past participle aperto.',
     },
     conjugations: [
       { id: 'pp', tense: { bn: 'নিকট অতীত (Passato prossimo)', en: 'Passato prossimo' }, forms: ['ho aperto', 'hai aperto', 'ha aperto', 'abbiamo aperto', 'avete aperto', 'hanno aperto'] },
+      { id: 'imp', tense: { bn: 'অসম্পূর্ণ অতীত (Imperfetto)', en: 'Imperfetto' }, forms: ['aprivo', 'aprivi', 'apriva', 'aprivamo', 'aprivate', 'aprivano'] },
       { id: 'fut', tense: { bn: 'ভবিষ্যৎ (Futuro semplice)', en: 'Futuro semplice' }, forms: ['aprirò', 'aprirai', 'aprirà', 'apriremo', 'aprirete', 'apriranno'] },
     ],
     examples: [
       { it: 'Hanno appena aperto un nuovo ambulatorio.', tr: { bn: 'তারা এইমাত্র একটি নতুন ক্লিনিক খুলেছে।', en: 'They have just opened a new clinic.' } },
+      { it: 'Il panificio apriva sempre alle sei del mattino.', tr: { bn: 'বেকারিটি সবসময় সকাল ছয়টায় খুলত।', en: 'The bakery always opened at six in the morning.' } },
     ],
   },
   {
@@ -218,6 +234,7 @@ export const A2_ACADEMY_VERBS: AcademyVerbEntry[] = [
     meaning: { bn: 'পারা (অনুমতি / সামর্থ্য)', en: 'to be able to / can' },
     category: { bn: 'মডাল ক্রিয়া', en: 'Modal verb' },
     irregular: true,
+    pronunciation: 'পো-তে-রে /po-TEH-reh/',
     usageNote: {
       bn: 'ভদ্র অনুরোধে কন্ডিশনাল potrei / potrebbe খুব ব্যবহৃত হয়। অতীতে মূল ক্রিয়ার সহায়ক নিতে পারে।',
       en: 'Conditional forms (potrei, potrebbe) are key for polite requests.',
@@ -229,6 +246,7 @@ export const A2_ACADEMY_VERBS: AcademyVerbEntry[] = [
     ],
     examples: [
       { it: 'Potrebbe indicarmi lo sportello per i certificati?', tr: { bn: 'আপনি কি আমাকে সনদপত্রের কাউন্টারটি দেখিয়ে দিতে পারবেন?', en: 'Could you point me to the counter for certificates?' } },
+      { it: 'Ieri non ho potuto telefonarti perché ero in riunione.', tr: { bn: 'গতকাল আমি মিটিংয়ে থাকায় তোমাকে ফোন করতে পারিনি।', en: 'Yesterday I could not call you because I was in a meeting.' } },
     ],
   },
   {
@@ -238,6 +256,7 @@ export const A2_ACADEMY_VERBS: AcademyVerbEntry[] = [
     meaning: { bn: 'চাওয়া', en: 'to want' },
     category: { bn: 'মডাল ক্রিয়া', en: 'Modal verb' },
     irregular: true,
+    pronunciation: 'ভো-লে-রে /vo-LEH-reh/',
     usageNote: {
       bn: 'ভবিষ্যতে vorrò ও ভদ্র অনুরোধে vorrei হয়। "আমি চাই" বলার চেয়ে "vorrei" বলা অনেক ভদ্র।',
       en: 'Future/conditional double the r (vorrò, vorrei); vorrei is the polite way to order or request.',
@@ -249,6 +268,7 @@ export const A2_ACADEMY_VERBS: AcademyVerbEntry[] = [
     ],
     examples: [
       { it: 'Vorrei cambiare questo maglione con una taglia più grande.', tr: { bn: 'আমি এই সোয়েটারটি বড় সাইজের সাথে বদলাতে চাই।', en: 'I would like to exchange this sweater for a larger size.' } },
+      { it: 'Abbiamo voluto visitare anche il museo civico.', tr: { bn: 'আমরা শহরের জাদুঘরটিও দেখতে চেয়েছিলাম।', en: 'We wanted to visit the civic museum as well.' } },
     ],
   },
   {
@@ -258,6 +278,7 @@ export const A2_ACADEMY_VERBS: AcademyVerbEntry[] = [
     meaning: { bn: 'বাধ্য থাকা / উচিত হওয়া', en: 'to have to / must / should' },
     category: { bn: 'মডাল ক্রিয়া', en: 'Modal verb' },
     irregular: true,
+    pronunciation: 'দো-ভে-রে /do-VEH-reh/',
     usageNote: {
       bn: 'কন্ডিশনালে dovrei / dovresti দিয়ে "করা উচিত" বা ভদ্র পরামর্শ বোঝানো হয়।',
       en: 'Conditional dovrei / dovresti gives advice meaning "should / ought to".',
@@ -269,6 +290,7 @@ export const A2_ACADEMY_VERBS: AcademyVerbEntry[] = [
     ],
     examples: [
       { it: 'Dovresti riposarti e bere molta acqua calda.', tr: { bn: 'তোমার বিশ্রাম নেওয়া এবং প্রচুর গরম পানি পান করা উচিত।', en: 'You should rest and drink plenty of warm water.' } },
+      { it: 'Domani dovrò svegliarmi presto per il treno delle sei.', tr: { bn: 'ছয়টার ট্রেনের জন্য আগামীকাল আমাকে ভোরে উঠতে হবে।', en: 'Tomorrow I will have to wake up early for the six o’clock train.' } },
     ],
   },
   {
@@ -278,6 +300,7 @@ export const A2_ACADEMY_VERBS: AcademyVerbEntry[] = [
     meaning: { bn: 'ঘুম থেকে ওঠা', en: 'to wake up' },
     category: { bn: 'প্রতিফলক ক্রিয়া (Reflexive)', en: 'Reflexive verb' },
     irregular: false,
+    pronunciation: 'স্ভে-লিয়ার-সি /zveh-LYAR-see/',
     usageNote: {
       bn: 'সব প্রতিফলক ক্রিয়া অতীতে সর্বদা essere নেয় এবং পার্টিসিপল কর্তার সাথে মেলে (mi sono svegliato/a)।',
       en: 'Every reflexive verb requires essere in compound tenses and agrees in gender and number.',
@@ -289,6 +312,7 @@ export const A2_ACADEMY_VERBS: AcademyVerbEntry[] = [
     ],
     examples: [
       { it: 'Stamattina ci siamo svegliati prima dell’alba.', tr: { bn: 'আজ সকালে আমরা ভোরের আগেই ঘুম থেকে উঠেছি।', en: 'This morning we woke up before dawn.' } },
+      { it: 'Durante le vacanze mi svegliavo sempre con calma.', tr: { bn: 'ছুটির সময় আমি সবসময় ধীরেসুস্থে ঘুম থেকে উঠতাম।', en: 'During the holidays I always used to wake up without rushing.' } },
     ],
   },
   {
@@ -298,6 +322,7 @@ export const A2_ACADEMY_VERBS: AcademyVerbEntry[] = [
     meaning: { bn: 'জানা (তথ্য বা দক্ষতা)', en: 'to know (fact / skill)' },
     category: { bn: 'জ্ঞান ও দক্ষতা', en: 'Knowledge verb' },
     irregular: true,
+    pronunciation: 'সা-পে-রে /sah-PEH-reh/',
     usageNote: {
       bn: 'অতীতে ho saputo মানে সাধারণত "খবরটা জেনেছি / শুনেছি"। ভবিষ্যৎ মূলের -a বাদ যায়: saprò।',
       en: 'In passato prossimo (ho saputo) it often means "I found out". Future drops thematic vowel: saprò.',
@@ -309,6 +334,7 @@ export const A2_ACADEMY_VERBS: AcademyVerbEntry[] = [
     ],
     examples: [
       { it: 'Ieri ho saputo che l’ufficio sarà chiuso venerdì.', tr: { bn: 'গতকাল জেনেছি যে শুক্রবার অফিস বন্ধ থাকবে।', en: 'Yesterday I found out the office will be closed on Friday.' } },
+      { it: 'Sai già a che ora parte il prossimo treno per Bologna?', tr: { bn: 'তুমি কি ইতিমধ্যে জানো বোলোনিয়ার পরের ট্রেন কয়টায় ছাড়বে?', en: 'Do you already know what time the next train to Bologna leaves?' } },
     ],
   },
   {
@@ -318,6 +344,7 @@ export const A2_ACADEMY_VERBS: AcademyVerbEntry[] = [
     meaning: { bn: 'চেনা / পরিচিত হওয়া', en: 'to know / meet (person, place)' },
     category: { bn: 'পরিচিতি ও সম্পর্ক', en: 'Acquaintance verb' },
     irregular: false,
+    pronunciation: 'কো-নো-শে-রে /ko-NO-sheh-reh/',
     usageNote: {
       bn: 'মানুষ বা স্থানের জন্য conoscere। অতীতে ho conosciuto মানে "প্রথমবার দেখা/পরিচিত হওয়া"।',
       en: 'Used with people, cities, or works; ho conosciuto means "I met / got to know for the first time".',
@@ -329,8 +356,10 @@ export const A2_ACADEMY_VERBS: AcademyVerbEntry[] = [
     ],
     examples: [
       { it: 'Ho conosciuto molti colleghi gentili al corso.', tr: { bn: 'কোর্সে অনেক ভদ্র সহকর্মীর সাথে আমার পরিচয় হয়েছে।', en: 'I met many kind colleagues at the course.' } },
+      { it: 'Conosci già un buon ristorante vicino alla stazione?', tr: { bn: 'তুমি কি স্টেশনের কাছে কোনো ভালো রেস্তোরাঁ চেনো?', en: 'Do you already know a good restaurant near the station?' } },
     ],
   },
+  ...A2_EXTRA_VERBS,
 ];
 
 export const B1_ACADEMY_VERBS: AcademyVerbEntry[] = [

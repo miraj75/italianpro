@@ -34,7 +34,6 @@ import { buildLevelLearningPathNodes, getCourseOverview } from '../src/lib/cours
 import {
   initialState,
   reducer,
-  XP,
   type ProgressState,
 } from '../src/state/progress';
 import { loadProgress, saveProgress } from '../src/state/storage';
@@ -74,8 +73,8 @@ describe('A2, B1 & B2 Structured Learning Academies', () => {
   });
 
   describe('1. Architecture, Scope Separation & Verified Content Alignment', () => {
-    it('defines 11 A2, 11 B1, and 12 B2 implemented modules with sequential ordering and final exams', () => {
-      expect(A2_ACADEMY_MODULES).toHaveLength(11);
+    it('defines 16 A2, 11 B1, and 12 B2 implemented modules with sequential ordering and final exams', () => {
+      expect(A2_ACADEMY_MODULES).toHaveLength(16);
       expect(B1_ACADEMY_MODULES).toHaveLength(11);
       expect(B2_ACADEMY_MODULES).toHaveLength(12);
 
@@ -94,7 +93,7 @@ describe('A2, B1 & B2 Structured Learning Academies', () => {
     });
 
     it('provides substantial level-appropriate verb and collocation expansions', () => {
-      expect(A2_ACADEMY_VERBS).toHaveLength(16);
+      expect(A2_ACADEMY_VERBS.length).toBeGreaterThanOrEqual(50);
       expect(B1_ACADEMY_VERBS).toHaveLength(14);
       expect(B2_ACADEMY_VERBS).toHaveLength(14);
       expect(B2_COLLOCATIONS).toHaveLength(16);
@@ -150,10 +149,13 @@ describe('A2, B1 & B2 Structured Learning Academies', () => {
           if (mod.kind === 'speaking') {
             expect(mod.requiredItemIds.every((id) => speakIds.has(id))).toBe(true);
           }
+          if (mod.kind === 'writing-speaking') {
+            expect(mod.requiredItemIds.every((id) => writeIds.has(id) || speakIds.has(id))).toBe(true);
+          }
         }
       }
 
-      expect(WORDS.A2.length).toBeGreaterThanOrEqual(500);
+      expect(WORDS.A2.length).toBeGreaterThanOrEqual(750);
       expect(WORDS.B1.length).toBeGreaterThanOrEqual(700);
       expect(WORDS.B2.length).toBeGreaterThanOrEqual(1000);
       expect(SENTENCES.A2.length).toBeGreaterThanOrEqual(350);
@@ -223,10 +225,10 @@ describe('A2, B1 & B2 Structured Learning Academies', () => {
       expect(isAcademyModuleCompleted(s.academy, B1_ACADEMY_MODULES[0]!.id, 'B1')).toBe(false);
       expect(isAcademyModuleCompleted(s.academy, B2_ACADEMY_MODULES[0]!.id, 'B2')).toBe(false);
 
-      // Overview for A2 reflects 1/11 and targets A2 Module 2
+      // Overview for A2 reflects 1/16 and targets A2 Module 2
       const a2Overview = getCourseOverview(s, 'A2');
       expect(a2Overview.completedModules).toBe(1);
-      expect(a2Overview.totalModules).toBe(11);
+      expect(a2Overview.totalModules).toBe(16);
       expect(a2Overview.nextTitle).toBe(`2. ${a2Mod2.title}`);
       expect(a2Overview.continueRoute).toBe(a2Mod2.route);
 
@@ -235,7 +237,7 @@ describe('A2, B1 & B2 Structured Learning Academies', () => {
       expect(a2Nodes[0]?.status).toBe('completed');
       expect(a2Nodes[1]?.status).toBe('current');
       expect(a2Nodes[2]?.status).toBe('locked');
-      expect(a2Nodes[10]?.status).toBe('locked');
+      expect(a2Nodes[15]?.status).toBe('locked');
 
       // Save & reload round-trip preserves nested academy.levels state
       expect(saveProgress(s)).toBe(true);
@@ -244,9 +246,8 @@ describe('A2, B1 & B2 Structured Learning Academies', () => {
       expect(isAcademyModuleUnlocked(reloaded.academy, a2Mod2.id, 'A2')).toBe(true);
     });
 
-    it('blocks study, completion, and XP mutation on locked B1/B2 modules even in Developer Testing Mode', () => {
+    it('blocks study, completion, and progress mutation on locked B1/B2 modules even in Developer Testing Mode', () => {
       let s = reducer(initialState(), { type: 'setShowAllLockedModules', enabled: true });
-      const xpBefore = s.xp;
 
       // Locked module b1-verbs should ignore study & exam mutations
       s = reducer(s, { type: 'studyAcademyItem', moduleId: 'b1-verbs', level: 'B1', itemId: 'verb-b1-dovere' });
@@ -264,9 +265,9 @@ describe('A2, B1 & B2 Structured Learning Academies', () => {
         today,
       });
       expect(isAcademyModuleCompleted(s.academy, 'b1-verbs', 'B1')).toBe(false);
-      expect(s.xp).toBe(xpBefore);
+      expect(getAcademyModuleProgress(s.academy, 'b1-verbs', 'B1').attempts).toBe(0);
 
-      // Studying all required items + passing B2 module 1 completes it and grants XP while keeping B2 Final Exam locked until modules 1..11 pass
+      // Studying all required items + passing B2 module 1 completes it while keeping B2 Final Exam locked until modules 1..11 pass
       const b2First = B2_ACADEMY_MODULES[0]!;
       for (const itemId of b2First.requiredItemIds) {
         s = reducer(s, { type: 'studyAcademyItem', moduleId: b2First.id, level: 'B2', itemId });
@@ -283,7 +284,7 @@ describe('A2, B1 & B2 Structured Learning Academies', () => {
         today,
       });
       expect(isAcademyModuleCompleted(s.academy, b2First.id, 'B2')).toBe(true);
-      expect(s.xp).toBe(xpBefore + 9 * XP.correctAnswer + XP.academyModuleComplete);
+      expect(getAcademyModuleProgress(s.academy, b2First.id, 'B2').bestScore).toBe(0.9);
       expect(isAcademyModuleUnlocked(s.academy, 'b2-final-exam', 'B2')).toBe(false);
     });
   });

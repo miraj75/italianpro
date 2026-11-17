@@ -43,6 +43,12 @@
   --safe-bottom: env(safe-area-inset-bottom, 0px);
 }
 
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
 html {
   /* Responsive root scaling: fits 320px–360px compact Android screens and scales cleanly up to 390px+ */
   font-size: clamp(15px, 4.1vw, 17px);
@@ -59,7 +65,16 @@ body {
   background: #041917;
   color: var(--color-ink);
   -webkit-tap-highlight-color: transparent;
+  max-width: 100%;
   overflow-x: hidden;
+}
+
+@utility no-scrollbar {
+  scrollbar-width: none;
+  -ms-overflow-style: none;
+  &::-webkit-scrollbar {
+    display: none;
+  }
 }
 
 body {

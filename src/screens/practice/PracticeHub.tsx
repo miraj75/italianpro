@@ -189,12 +189,12 @@ export function PracticeHub() {
   const mistakes = countReviewableMistakes(state);
 
   return (
-    <div className="animate-rise">
+    <div className="animate-rise max-w-full overflow-x-hidden">
       <header className="mb-4">
-        <h1 className="bn text-[2.1rem] sm:text-[2.3rem] leading-tight font-extrabold text-white">
+        <h1 className="bn text-[1.9rem] sm:text-[2.25rem] leading-tight font-extrabold text-white break-words">
           {t('practiceHub')}
         </h1>
-        <p className="bn mt-1 text-base sm:text-lg font-semibold text-ink-2">{t('practiceSub')}</p>
+        <p className="bn mt-1 text-sm sm:text-base font-semibold text-ink-2 break-words">{t('practiceSub')}</p>
       </header>
 
       <div className="grid grid-cols-2 gap-3 sm:grid-cols-3">
@@ -208,30 +208,30 @@ export function PracticeHub() {
               type="button"
               onClick={() => navigate(m.route)}
               className={cx(
-                'relative flex min-h-34 sm:min-h-36 flex-col items-center justify-center rounded-[1.35rem] border bg-gradient-to-br p-3.5 sm:p-4 text-center backdrop-blur-md transition hover:brightness-110 active:scale-[0.98]',
+                'relative flex h-full min-h-[9.25rem] sm:min-h-[9.75rem] w-full min-w-0 flex-col items-center justify-center rounded-[1.35rem] border bg-gradient-to-br px-3 pt-7 pb-3.5 sm:px-4 sm:pt-7 sm:pb-4 text-center backdrop-blur-md transition hover:brightness-110 active:scale-[0.98]',
                 hue.tile,
               )}
             >
               {countBadge !== null ? (
-                <span className="bg-grad-primary glow-neon absolute top-2.5 right-2.5 rounded-full px-2.5 py-0.5 text-xs font-extrabold text-navy-950 tabular-nums">
+                <span className="bg-grad-primary glow-neon absolute top-2.5 right-2.5 rounded-full px-2.5 py-0.5 text-[0.7rem] font-extrabold text-navy-950 tabular-nums">
                   {countBadge}
                 </span>
               ) : m.proTag ? (
-                <span className="bg-grad-primary glow-neon absolute top-2.5 right-2.5 rounded-full px-2.5 py-0.5 text-[0.7rem] font-extrabold tracking-wide text-navy-950 uppercase">
+                <span className="bg-grad-primary glow-neon absolute top-2.5 right-2.5 rounded-full px-2.5 py-0.5 text-[0.65rem] font-extrabold tracking-wide text-navy-950 uppercase">
                   PRO
                 </span>
               ) : null}
 
               <m.icon
-                size={36}
+                size={30}
                 strokeWidth={1.85}
-                className={cx(hue.icon, 'drop-shadow-[0_0_12px_currentColor]')}
+                className={cx(hue.icon, 'shrink-0 drop-shadow-[0_0_12px_currentColor]')}
                 aria-hidden
               />
-              <span className="mt-2.5 text-[1.05rem] sm:text-[1.12rem] leading-tight font-extrabold text-white">
+              <span className="mt-2.5 w-full text-[0.98rem] sm:text-[1.08rem] leading-tight font-extrabold text-white break-words">
                 {m.title}
               </span>
-              <span className="bn mt-1 text-[0.8rem] sm:text-[0.85rem] leading-snug font-semibold text-ink-2">
+              <span className="bn mt-1 line-clamp-2 w-full text-[0.76rem] sm:text-[0.84rem] leading-snug font-semibold text-ink-2 break-words">
                 {tr(m.sub)}
               </span>
             </button>

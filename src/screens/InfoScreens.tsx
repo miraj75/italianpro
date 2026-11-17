@@ -62,7 +62,7 @@ export function AboutScreen() {
     `${totalGrammar}টি গ্রামার একাডেমি টপিক, টেবিল, সাধারণ ভুল ও কুইজ`,
     '১৪৫+ ইন্টারঅ্যাক্টিভ গল্প (শব্দ গ্লোসারি, গ্রামার বিশ্লেষণ, অডিও ও ৫ ধরনের অনুধাবন অনুশীলন)',
     'লিসেনিং ল্যাব, রিডিং একাডেমি, ১২-মোড পাজল একাডেমি, গাইডেড রাইটিং (রুব্রিক যাচাইসহ) এবং স্পিকিং ও উচ্চারণ অনুশীলন',
-    'গুরুত্বপূর্ণ ক্রিয়াপদ, Survival Italian, ভুল সংশোধন (Review Mistakes) ও দৈনিক চ্যালেঞ্জ',
+    'গুরুত্বপূর্ণ ক্রিয়াপদ, Survival Italian এবং ভুল সংশোধন (Review Mistakes)',
   ];
 
   const featuresEn = [
@@ -72,7 +72,7 @@ export function AboutScreen() {
     `${totalGrammar} Grammar Academy topics with rule tables, common mistakes, and interactive quizzes`,
     '145+ original interactive stories with clickable word glossaries, grammar breakdowns, audio playback, and 5-mode comprehension checks',
     'Listening Lab, Reading Academy, 12-mode Puzzle Academy, Guided Writing with rubric evaluation, and Speaking & Pronunciation practice',
-    'Important Verbs, Survival Italian, Review Mistakes, and Daily Challenges',
+    'Important Verbs, Survival Italian, and Review Mistakes',
   ];
 
   return (
@@ -120,8 +120,8 @@ export function AboutScreen() {
         <ShieldCheck size={20} className="mt-0.5 shrink-0 text-gold" />
         <p>
           {lang === 'bn'
-            ? 'আপনার সমস্ত শেখার অগ্রগতি, ফ্ল্যাশকার্ড, সংরক্ষিত বাক্যাংশ এবং স্ট্রিক সম্পূর্ণ অফলাইনে আপনার ডিভাইসেই সুরক্ষিতভাবে সংরক্ষিত থাকে।'
-            : 'All of your learning progress, flashcards, saved phrases, and streaks are stored locally on your device for full offline reliability.'}
+            ? 'আপনার সমস্ত শেখার অগ্রগতি, ফ্ল্যাশকার্ড এবং সংরক্ষিত বাক্যাংশ সম্পূর্ণ অফলাইনে আপনার ডিভাইসেই সুরক্ষিতভাবে সংরক্ষিত থাকে।'
+            : 'All of your learning progress, flashcards, and saved phrases are stored locally on your device for full offline reliability.'}
         </p>
       </GlassCard>
 

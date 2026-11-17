@@ -182,7 +182,7 @@ function buildPhaseBConfig(moduleId: PhaseBModuleId): PhaseBModuleConfig {
 
       return {
         theoryConfig: ADJECTIVES_THEORY_CONFIG,
-        studyTitle: { bn: '১৮টি প্রয়োজনীয় A1 বিশেষণ ও রূপান্তর', en: '18 Essential A1 Adjectives' },
+        studyTitle: { bn: '২২টি প্রয়োজনীয় A1 বিশেষণ ও নির্দেশক রূপ', en: '22 Essential A1 Adjectives & Demonstratives' },
         studyItems: items,
         studyGroupedSections: A1_ADJECTIVE_CATEGORIES.map((cat) => ({
           id: `adj-cat-${cat.id}`,

@@ -120,20 +120,20 @@ export function StoriesScreen() {
   const doneCount = stories.filter((s) => state.storiesDone[s.id]).length;
 
   return (
-    <div className="animate-rise">
+    <div className="animate-rise max-w-full space-y-3 overflow-x-hidden">
       <SubHeader title={t('stories')} subtitle={t('storiesSub')} />
       <LevelTabs value={level} onChange={(l) => setLevel(l)} />
 
-      <div className="mb-4 flex flex-wrap items-center justify-between gap-2">
+      <div className="flex flex-wrap items-center justify-between gap-2">
         <p className="text-sm font-semibold tabular-nums text-ink-2">
           {level}: {doneCount}/{stories.length} {t('completed')}
         </p>
-        <div className="flex gap-2">
+        <div className="flex flex-wrap gap-2">
           <Pill active={!onlyBookmarked} onClick={() => setOnlyBookmarked(false)}>
             {t('all')} ({stories.length})
           </Pill>
           <Pill active={onlyBookmarked} onClick={() => setOnlyBookmarked(true)}>
-            <Bookmark size={14} className="mr-1 inline" /> {t('bookmarked')}
+            <Bookmark size={14} className="shrink-0" /> {t('bookmarked')}
           </Pill>
         </div>
       </div>
@@ -150,8 +150,8 @@ export function StoriesScreen() {
             const done = !!state.storiesDone[s.id];
             const saved = state.bookmarkedStories.includes(s.id);
             return (
-              <button key={s.id} type="button" onClick={() => navigate(`/practice/stories/${s.id}`)} className="text-left">
-                <GlassCard neon={done} className="flex h-full flex-col justify-between p-4 transition hover:border-neon/40">
+              <button key={s.id} type="button" onClick={() => navigate(`/practice/stories/${s.id}`)} className="h-full w-full min-w-0 text-left">
+                <GlassCard neon={done} className="flex h-full w-full min-w-0 flex-col justify-between p-4 transition hover:border-neon/40">
                   <div>
                     <div className="flex items-start justify-between gap-2">
                       <p className="text-xs font-semibold text-ink-3 tabular-nums">
@@ -310,7 +310,7 @@ export function StoryReaderScreen({ storyId }: { storyId: string }) {
   };
 
   return (
-    <div className="animate-rise space-y-5">
+    <div className="animate-rise max-w-full space-y-5 overflow-x-hidden">
       <SubHeader
         title={story.titleIt}
         subtitle={`${story.level} · ${tr(story.title)}`}
@@ -715,7 +715,7 @@ export function StoryReaderScreen({ storyId }: { storyId: string }) {
         className="w-full"
         onClick={() => dispatch({ type: 'completeStory', storyId: story.id, today: dayKey() })}
       >
-        <CheckCircle2 size={20} /> {done ? `${t('completed')} ✓` : `${t('markDone')} (+25 XP)`}
+        <CheckCircle2 size={20} /> {done ? `${t('completed')} ✓` : t('markDone')}
       </Button>
     </div>
   );

@@ -15,7 +15,6 @@ import {
   initialState,
   isShowAllLockedModulesEnabled,
   reducer,
-  XP,
   type ProgressState,
 } from '../src/state/progress';
 import { loadProgress, saveProgress } from '../src/state/storage';
@@ -40,22 +39,31 @@ function makeSeededRng(seed: number): () => number {
 }
 
 describe('Phase A: A1 Complete Learning Academy', () => {
-  describe('1. 11-Module A1 Curriculum Architecture', () => {
-    it('defines all 11 ordered A1 Academy modules with Phase A modules enabled', () => {
+  describe('1. 20-Module A1 Curriculum Architecture', () => {
+    it('defines all 20 ordered A1 Academy modules with all modules enabled', () => {
       expect(A1_ACADEMY_MODULES.map((m) => m.id)).toEqual([
         'alphabet',
         'numbers',
+        'greetings-intro',
         'articles',
+        'nouns-gender-plurals',
+        'pronouns-possessives',
         'verbs',
         'essential-verbs',
         'adjectives',
         'adverbs',
         'prepositions',
         'conjunctions',
+        'sentence-structure',
+        'time-dates',
         'vocabulary',
+        'everyday-communication',
+        'culture-survival',
+        'listening-speaking',
+        'reading-writing',
         'final-exam',
       ]);
-      expect(A1_ACADEMY_MODULES.filter((m) => m.implemented)).toHaveLength(11);
+      expect(A1_ACADEMY_MODULES.filter((m) => m.implemented)).toHaveLength(20);
       expect(A1_ACADEMY_MODULES.filter((m) => !m.implemented)).toHaveLength(0);
     });
   });
@@ -161,7 +169,7 @@ describe('Phase A: A1 Complete Learning Academy', () => {
     });
 
     it('organizes existing canonical A1 words into topic groups without duplication and locks A1 Final Exam until all categories complete', () => {
-      expect(A1_VOCAB_TOPICS.length).toBe(20);
+      expect(A1_VOCAB_TOPICS.length).toBe(21);
       expect(A1_VOCAB_REQUIRED_IDS.length).toBe(WORDS.A1.length);
       expect(new Set(A1_VOCAB_REQUIRED_IDS).size).toBe(WORDS.A1.length);
 
@@ -271,7 +279,6 @@ describe('Phase A: A1 Complete Learning Academy', () => {
       expect(passEval.incorrect).toBe(3);
       expect(passEval.passed).toBe(true);
 
-      const xpBeforePass = s.xp;
       s = reducer(s, {
         type: 'submitAcademyExam',
         attemptId: passEval.attemptId,
@@ -285,10 +292,8 @@ describe('Phase A: A1 Complete Learning Academy', () => {
 
       expect(isAcademyModuleCompleted(s.academy, 'alphabet')).toBe(true);
       expect(isAcademyModuleUnlocked(s.academy, 'numbers')).toBe(true);
-      expect(s.xp).toBe(xpBeforePass + 7 * XP.correctAnswer + XP.academyModuleComplete);
 
-      // Re-submitting the SAME attemptId never awards XP or changes attempt counts
-      const afterFirstSubmitXp = s.xp;
+      // Re-submitting the SAME attemptId never changes attempt counts or duplicates history
       const attemptsBeforeDup = getAcademyModuleProgress(s.academy, 'alphabet').attempts;
       s = reducer(s, {
         type: 'submitAcademyExam',
@@ -300,11 +305,10 @@ describe('Phase A: A1 Complete Learning Academy', () => {
         maxIncorrect: passEval.maxIncorrect,
         today,
       });
-      expect(s.xp).toBe(afterFirstSubmitXp);
       expect(getAcademyModuleProgress(s.academy, 'alphabet').attempts).toBe(attemptsBeforeDup);
     });
 
-    it('preserves pre-Academy localStorage progress data seamlessly without loss', () => {
+    it('preserves pre-Academy localStorage progress data seamlessly without loss while stripping legacy xp/challenge fields', () => {
       const legacyPayload = {
         version: 1,
         settings: { explainLang: 'en', dailyGoalMinutes: 30 },
@@ -314,7 +318,7 @@ describe('Phase A: A1 Complete Learning Academy', () => {
         },
         cards: {},
         mistakes: {},
-        days: { '2026-11-10': { seconds: 300, tasks: ['lesson'] } },
+        days: { '2026-11-10': { seconds: 300, tasks: ['lesson', 'challenge'] } },
         saved: ['a1-u1-l1:ciao'],
         storiesDone: {},
         bookmarkedStories: [],
@@ -328,7 +332,8 @@ describe('Phase A: A1 Complete Learning Academy', () => {
       store.set('italianpro.progress.v1', JSON.stringify(legacyPayload));
 
       let loaded = loadProgress();
-      expect(loaded.xp).toBe(250);
+      expect('xp' in loaded).toBe(false);
+      expect(loaded.days['2026-11-10']).toEqual({ seconds: 300, tasks: ['lesson'] });
       expect(loaded.settings.explainLang).toBe('en');
       expect(loaded.saved).toContain('a1-u1-l1:ciao');
       expect(loaded.lessons['a1-u1-l1']?.completed).toBe(true);
@@ -337,7 +342,7 @@ describe('Phase A: A1 Complete Learning Academy', () => {
       loaded = reducer(loaded, { type: 'studyAcademyItem', moduleId: 'alphabet', itemId: 'alpha-a' });
       expect(saveProgress(loaded)).toBe(true);
       const reloaded = loadProgress();
-      expect(reloaded.xp).toBe(250);
+      expect('xp' in reloaded).toBe(false);
       expect(reloaded.academy?.modules.alphabet?.studiedItems).toContain('alpha-a');
       expect(getCurrentLevel(reloaded)).toBe('A1');
     });
@@ -353,7 +358,7 @@ describe('Phase A: A1 Complete Learning Academy', () => {
       const a1 = getCourseOverview(s, 'A1');
       expect(a1.levelId).toBe('A1');
       expect(a1.completedModules).toBe(0);
-      expect(a1.totalModules).toBe(11);
+      expect(a1.totalModules).toBe(20);
       expect(a1.percentage).toBe(0);
       expect(a1.started).toBe(false);
       expect(a1.nextTitle).toBe('1. Alphabet');
@@ -385,21 +390,30 @@ describe('Phase A: A1 Complete Learning Academy', () => {
       expect(getCurrentLevel(reloaded)).toBe('B2');
     });
 
-    it('enforces exact 11-module A1 sequence, strict sequential unlock, fail non-unlock, and revision access', () => {
+    it('enforces exact 20-module A1 sequence, strict sequential unlock, fail non-unlock, and revision access', () => {
       let s = initialState();
       const nodes0 = buildA1LearningPathNodes(s);
       expect(nodes0.map((n) => `${n.order}. ${n.title}`)).toEqual([
         '1. Alphabet',
         '2. Numbers (0–100)',
-        '3. Articles',
-        '4. Verbs & Conjugation',
-        '5. Essential Verbs',
-        '6. Adjectives',
-        '7. Adverbs',
-        '8. Prepositions',
-        '9. Conjunctions',
-        '10. Topic-wise Vocabulary',
-        '11. A1 Final Examination',
+        '3. Greetings & Self Introduction',
+        '4. Articles',
+        '5. Nouns, Gender & Plurals',
+        '6. Personal & Possessive Pronouns',
+        '7. Verbs & Conjugation',
+        '8. Essential Verbs',
+        '9. Adjectives',
+        '10. Adverbs',
+        '11. Prepositions',
+        '12. Conjunctions',
+        '13. Sentence Structure & Questions',
+        '14. Time, Days, Months & Dates',
+        '15. Topic-wise Vocabulary',
+        '16. Everyday Communication',
+        '17. Italian Culture & Everyday Survival',
+        '18. Listening & Speaking Practice',
+        '19. Reading & Guided Writing',
+        '20. A1 Final Examination',
       ]);
 
       expect(nodes0[0]?.status).toBe('current');
@@ -425,7 +439,7 @@ describe('Phase A: A1 Complete Learning Academy', () => {
       expect(nodesAfterFail[0]?.status).toBe('current');
       expect(nodesAfterFail[1]?.status).toBe('locked');
 
-      // Pass Alphabet quiz -> Alphabet becomes completed (still accessible), Numbers becomes current, Articles stays locked
+      // Pass Alphabet quiz -> Alphabet becomes completed (still accessible), Numbers becomes current, Module 3 stays locked
       s = reducer(s, {
         type: 'submitAcademyExam',
         attemptId: 'alpha-pass',
@@ -440,12 +454,12 @@ describe('Phase A: A1 Complete Learning Academy', () => {
       expect(nodesAfterPass[0]?.status).toBe('completed');
       expect(nodesAfterPass[1]?.status).toBe('current');
       expect(nodesAfterPass[2]?.status).toBe('locked');
-      expect(nodesAfterPass[10]?.status).toBe('locked');
+      expect(nodesAfterPass[19]?.status).toBe('locked');
 
       // Home A1 overview now targets 2. Numbers (0–100)
       const a1Next = getCourseOverview(s, 'A1');
       expect(a1Next.completedModules).toBe(1);
-      expect(a1Next.percentage).toBe(9);
+      expect(a1Next.percentage).toBe(5);
       expect(a1Next.started).toBe(true);
       expect(a1Next.nextTitle).toBe('2. Numbers (0–100)');
       expect(a1Next.continueRoute).toBe('/academy/a1/numbers');
@@ -457,7 +471,7 @@ describe('Phase A: A1 Complete Learning Academy', () => {
       expect(a2Nodes[0]?.title).toBe(a2Mods[0]!.title);
     });
 
-    it('supports Developer Testing Toggle persistence without modifying actual unlock status, completion, or XP', () => {
+    it('supports Developer Testing Toggle persistence without modifying actual unlock status or completion', () => {
       let s = initialState();
       expect(isShowAllLockedModulesEnabled(s)).toBe(false);
 
@@ -471,8 +485,7 @@ describe('Phase A: A1 Complete Learning Academy', () => {
       expect(isAcademyModuleUnlocked(s.academy, 'articles')).toBe(false);
       expect(isAcademyModuleUnlocked(s.academy, 'vocabulary')).toBe(false);
 
-      // Interacting with or submitting an exam on a locked module during testing mode never alters XP or completion
-      const xpBefore = s.xp;
+      // Interacting with or submitting an exam on a locked module during testing mode never alters completion
       s = reducer(s, { type: 'studyAcademyItem', moduleId: 'numbers', itemId: 'num-0' });
       expect(getAcademyModuleProgress(s.academy, 'numbers').studiedItems).toEqual([]);
 
@@ -486,7 +499,6 @@ describe('Phase A: A1 Complete Learning Academy', () => {
         maxIncorrect: 9,
         today,
       });
-      expect(s.xp).toBe(xpBefore);
       expect(isAcademyModuleCompleted(s.academy, 'numbers')).toBe(false);
       expect(isAcademyModuleUnlocked(s.academy, 'articles')).toBe(false);
 

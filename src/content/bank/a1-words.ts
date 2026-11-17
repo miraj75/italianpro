@@ -395,4 +395,11 @@ settembre|সেপ্টেম্বর|September
 ottobre|অক্টোবর|October
 novembre|নভেম্বর|November
 dicembre|ডিসেম্বর|December
+# পরিমাণ ও অনির্দিষ্ট / Quantity & indefinites
+ogni|প্রতিটি|every / each
+qualche|কিছু / কয়েক|some / a few
+alcuni|কয়েকজন / কিছু (পুং)|some / a few (m.pl.)
+alcune|কিছু (স্ত্রী)|some / a few (f.pl.)
+tutto|সব / সমস্ত|all / everything
+ciascuno|প্রত্যেকে|each / everyone
 `;

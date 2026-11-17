@@ -17,11 +17,13 @@ import {
   isAcademyModuleUnlocked,
 } from '../../state/academyProgress';
 import { Button, GlassCard, ProgressBar } from '../../components/ui';
+import { A2FinalExamFlow } from '../../components/academy/A2FinalExamFlow';
 import { GrammarModuleView } from './views/GrammarModuleView';
 import { VerbsModuleView } from './views/VerbsModuleView';
 import { LevelVocabularyView } from './views/LevelVocabularyView';
 import { SentencesModuleView } from './views/SentencesModuleView';
 import { SkillsModuleView } from './views/SkillsModuleView';
+import { A2CommunicationView } from './views/A2CommunicationView';
 
 /**
  * Unified module screen router for CEFR A2, B1, and B2 Academy modules.
@@ -191,11 +193,24 @@ export function LevelModuleScreen({ levelId, moduleId }: { levelId: LevelId; mod
         />
       )}
 
+      {resolvedLevel === 'A2' && meta.kind === 'communication' && (
+        <A2CommunicationView
+          meta={meta}
+          studiedSet={studiedSet}
+          readyForExam={stats.readyForExam}
+          onMarkStudied={markStudied}
+          onNavigateModule={(r) => navigate(r)}
+        />
+      )}
+
+      {meta.id === 'a2-final-exam' && <A2FinalExamFlow previewMode={testingOverride} />}
+
       {(meta.kind === 'reading' ||
         meta.kind === 'listening' ||
         meta.kind === 'writing' ||
         meta.kind === 'speaking' ||
-        meta.kind === 'final-exam') && (
+        meta.kind === 'writing-speaking' ||
+        (meta.kind === 'final-exam' && meta.id !== 'a2-final-exam')) && (
         <SkillsModuleView
           meta={meta}
           levelId={resolvedLevel}

@@ -9,7 +9,8 @@ export type AdjectiveCategoryId =
   | 'appearance-size'
   | 'age-value'
   | 'food-temperature'
-  | 'feelings-difficulty';
+  | 'feelings-difficulty'
+  | 'demonstratives';
 
 export interface A1AdjectiveItem {
   id: string;
@@ -46,6 +47,11 @@ export const A1_ADJECTIVE_CATEGORIES: { id: AdjectiveCategoryId; title: Tr; subt
     id: 'feelings-difficulty',
     title: { bn: '৪. অনুভূতি ও কাজ (Feelings & Difficulty)', en: '4. Feelings & Difficulty' },
     subtitle: { bn: 'অনুভূতি ও কাজের মান: felice, stanco, facile, difficile', en: 'Expressing mood, energy, and study tasks' },
+  },
+  {
+    id: 'demonstratives',
+    title: { bn: '৫. নির্দেশক বিশেষণ (Demonstratives)', en: '5. Demonstrative Adjectives (this / that)' },
+    subtitle: { bn: 'questo/questa ও quello/quella/quei — কাছে ও দূরের বস্তু নির্দেশ', en: 'Pointing to near and far nouns with article-like agreement' },
   },
 ];
 
@@ -315,6 +321,67 @@ export const A1_ADJECTIVES_LIST: A1AdjectiveItem[] = [
     exampleIt: 'La prima lezione non è difficile.',
     exampleTr: { bn: 'প্রথম পাঠটি কঠিন নয়।', en: 'The first lesson is not difficult.' },
   },
+  // Demonstratives (4)
+  {
+    id: 'adj-questo',
+    base: 'questo',
+    formsDisplay: 'questo / questa / questi / queste (quest’)',
+    category: 'demonstratives',
+    categoryLabel: { bn: 'নির্দেশক (কাছে)', en: 'Demonstrative (Near)' },
+    pattern: '4-form (-o/-a/-i/-e)',
+    meaning: { bn: 'এই / এগুলো (বক্তার কাছে)', en: 'this / these (near the speaker)' },
+    phoneticBn: 'কুয়েস-তো',
+    phoneticEn: 'KWEHS-toh',
+    exampleIt: 'Questo libro è molto interessante, mentre queste scarpe sono comode.',
+    exampleTr: { bn: 'এই বইটি খুব আকর্ষণীয়, আর এই জুতাগুলো আরামদায়ক।', en: 'This book is very interesting, while these shoes are comfortable.' },
+    usageNote: {
+      bn: 'স্বরবর্ণের আগে একবচনে সংক্ষিপ্ত হতে পারে: quest’anno, quest’amica। বহুবচনে কখনো সংক্ষিপ্ত হয় না।',
+      en: 'Before a singular vowel, questo/questa may contract to quest’ (quest’anno). Plurals never contract.',
+    },
+  },
+  {
+    id: 'adj-quello',
+    base: 'quello',
+    formsDisplay: 'quel / quello / quell’ / quella / quei / quegli / quelle',
+    category: 'demonstratives',
+    categoryLabel: { bn: 'নির্দেশক (দূরে)', en: 'Demonstrative (Far)' },
+    pattern: 'irregular pre-noun',
+    meaning: { bn: 'ওই / সেগুলো (দূরে)', en: 'that / those (far from speaker)' },
+    phoneticBn: 'কুয়েল-লো',
+    phoneticEn: 'KWEHL-loh',
+    exampleIt: 'Quel treno parte subito, mentre quei ragazzi aspettano il bus.',
+    exampleTr: { bn: 'ওই ট্রেনটি এখনই ছাড়ছে, আর ওই ছেলেরা বাসের জন্য অপেক্ষা করছে।', en: 'That train is leaving right away, while those boys wait for the bus.' },
+    usageNote: {
+      bn: 'বিশেষ্যের আগে বসলে quello ঠিক নির্দিষ্ট আর্টিকেলের (il→quel, lo→quello, l’→quell’, la→quella, i→quei, gli→quegli, le→quelle) নিয়ম মেনে চলে!',
+      en: 'Before a noun, quello follows definite article endings: quel libro, quello zaino, quell’uomo, quei libri, quegli amici, quelle case.',
+    },
+  },
+  {
+    id: 'adj-stesso',
+    base: 'stesso',
+    formsDisplay: 'stesso / stessa / stessi / stesse',
+    category: 'demonstratives',
+    categoryLabel: { bn: 'নির্দেশক / তুলনা', en: 'Same / Identical' },
+    pattern: '4-form (-o/-a/-i/-e)',
+    meaning: { bn: 'একই / সমান', en: 'same / identical' },
+    phoneticBn: 'স্তেস-সো',
+    phoneticEn: 'STEHS-soh',
+    exampleIt: 'Prendiamo lo stesso autobus ogni mattina.',
+    exampleTr: { bn: 'আমরা প্রতিদিন সকালে একই বাস ধরি।', en: 'We take the same bus every morning.' },
+  },
+  {
+    id: 'adj-altro',
+    base: 'altro',
+    formsDisplay: 'altro / altra / altri / altre',
+    category: 'demonstratives',
+    categoryLabel: { bn: 'নির্দেশক / অন্য', en: 'Other / Another' },
+    pattern: '4-form (-o/-a/-i/-e)',
+    meaning: { bn: 'অন্য / আরেকটি', en: 'other / another' },
+    phoneticBn: 'আল-ত্রো',
+    phoneticEn: 'AHL-troh',
+    exampleIt: 'Avete questo maglione in un altro colore?',
+    exampleTr: { bn: 'আপনাদের কাছে এই সোয়েটারটি কি অন্য রঙে আছে?', en: 'Do you have this sweater in another color?' },
+  },
 ];
 
 export const A1_ADJECTIVES_REQUIRED_IDS: string[] = A1_ADJECTIVES_LIST.map((a) => a.id);
@@ -396,6 +463,18 @@ export const ADJECTIVES_THEORY_CONFIG: AcademyTheoryConfig = {
           examples: [
             { it: 'Leggo un bel libro nuovo.', phoneticBn: 'উন বেল লিব-রো নু-ও-ভো', phoneticEn: 'oon behl LEE-broh NWOH-voh', tr: { bn: 'আমি একটা সুন্দর নতুন বই পড়ছি।', en: 'I am reading a nice new book.' } },
             { it: 'È un buon ristorante economico.', phoneticBn: 'উন বু-অন রিস-তো-রান-তে', phoneticEn: 'oon bwohn rees-toh-RAHN-teh', tr: { bn: 'এটি একটি ভালো সাশ্রয়ী রেস্তোরাঁ।', en: 'It is a good affordable restaurant.' } },
+          ],
+        },
+        {
+          id: 'adj-rule-demonstratives',
+          title: { bn: 'নির্দেশক বিশেষণ: questo (এই) ও quello (ওই)', en: 'Demonstratives: questo (this) & quello (that)' },
+          badge: { bn: 'নির্দেশক', en: 'Demonstratives' },
+          body: {
+            bn: 'কাছের জিনিসে questo/questa/questi/queste বসে। দূরের জিনিসে quello ঠিক আর্টিকেলের মতো রূপ নেয়: quel (il), quello (lo), quell’ (l’), quella (la), quei (i), quegli (gli), quelle (le)।',
+            en: 'For near items use regular questo/-a/-i/-e. Before nouns, "quello" mirrors definite articles: quel libro, quello zaino, quell’amico, quella casa, quei libri, quegli studenti, quelle case.',
+          },
+          examples: [
+            { it: 'Questo caffè è caldo; quel bar è chiuso.', phoneticBn: 'কুয়েস-তো কাফ-ফে / কুয়েল বার', phoneticEn: 'KWEHS-toh kahf-FEH / kwehl bahr', tr: { bn: 'এই কফিটা গরম; ওই ক্যাফেটা বন্ধ।', en: 'This coffee is hot; that café is closed.' } },
           ],
         },
       ],
@@ -902,5 +981,25 @@ export const A1_ADJECTIVES_EXAM_POOL: AcademyExamQuestion[] = [
     ],
     answer: 0,
     explanation: { bn: 'i ragazzi পুং বহুবচন, তাই italiani, sono এবং simpatici।', en: 'i ragazzi is masculine plural, requiring italiani, sono, and simpatici.' },
+  },
+  {
+    id: 'exam-adj-23',
+    moduleId: 'adjectives',
+    prompt: { bn: '"quello"-এর সঠিক রূপ কোনটি? — «___ treno»', en: 'Pick the right form of "that" before «treno»:' },
+    it: '___ treno parte alle dieci.',
+    audioIt: 'Quel treno parte alle dieci.',
+    options: ['Quel', 'Quello', 'Quei', 'Quella'],
+    answer: 0,
+    explanation: { bn: 'il treno → quel treno (সাধারণ ব্যঞ্জনের আগে)।', en: 'Since treno takes "il", "that train" is "quel treno".' },
+  },
+  {
+    id: 'exam-adj-24',
+    moduleId: 'adjectives',
+    prompt: { bn: 'কাছের স্ত্রীলিঙ্গ বহুবচন নির্দেশ করতে কোনটি সঠিক?', en: 'Choose the right demonstrative for «queste scarpe» (these shoes):' },
+    it: 'Quanto costano ___ scarpe nere?',
+    audioIt: 'Quanto costano queste scarpe nere?',
+    options: ['queste', 'questi', 'questa', 'questo'],
+    answer: 0,
+    explanation: { bn: 'le scarpe স্ত্রীলিঙ্গ বহুবচন → তাই queste।', en: 'scarpe is feminine plural, so "these" is queste.' },
   },
 ];
