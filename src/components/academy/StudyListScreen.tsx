@@ -1,371 +1,260 @@
-import { useMemo, useState } from 'react';
-import { ArrowRight, CheckCircle2, ChevronLeft, ChevronRight, Search } from 'lucide-react';
+import { useEffect, useMemo, useState } from 'react';
+import { createPortal } from 'react-dom';
+import { ArrowRight, ChevronLeft } from 'lucide-react';
 import type { Tr } from '../../content/types';
 import { useI18n } from '../../lib/i18n';
 import { speakItalian, startSpeechSession } from '../../lib/speech';
-import { SpeakButton } from '../SpeakButton';
-import { Button, GlassCard, ProgressBar, cx } from '../ui';
+import { Button, cx } from '../ui';
 import { StudyItemCard, type StudyListItem } from './StudyItemCard';
 
-export interface StudyGroupOption {
+export interface StudySequentialGroup {
   id: string;
   label: string;
+  items: StudyListItem[];
+}
+
+export interface StudyGroupedSection {
+  id: string;
+  title: Tr;
+  subtitle?: Tr;
+  items: StudyListItem[];
 }
 
 export interface StudyListScreenProps {
-  title?: Tr;
   items: StudyListItem[];
   studiedSet: Set<string>;
-  groups?: StudyGroupOption[];
-  searchPlaceholder?: string;
-  enableStepper?: boolean;
+  sequentialGroups?: StudySequentialGroup[];
+  groupedSections?: StudyGroupedSection[];
   onStudyItem: (item: StudyListItem) => void;
   onContinue: () => void;
 }
 
+export function resolveInitialSequentialGroupIndex(
+  groups: readonly { items: readonly { id: string }[] }[],
+  studiedSet: ReadonlySet<string>,
+): number {
+  if (groups.length === 0) return 0;
+  const firstIncomplete = groups.findIndex((g) =>
+    g.items.some((item) => !studiedSet.has(item.id)),
+  );
+  return firstIncomplete === -1 ? groups.length - 1 : firstIncomplete;
+}
+
 /**
  * Reusable Stage 2 (Study List) screen.
- * Items are NEVER auto-marked as studied on render—only when the learner taps/opens an item.
- * Displays compact Studied / Remaining progress directly inside the spotlight card,
- * strictly separates bn / en / it strings, and gates Continue until every required item is studied.
+ * - Renders study cards directly below StageFlowHeader with zero clutter or duplicate summaries.
+ * - Supports a flat list (Alphabet), sequential groups (Numbers: 10 per group + 100), or thematic sections (Phase B modules).
+ * - Fixed bottom Continue button stays disabled until all items in the active view/group are studied.
  */
 export function StudyListScreen({
   items,
   studiedSet,
-  groups,
-  searchPlaceholder,
-  enableStepper = false,
+  sequentialGroups,
+  groupedSections,
   onStudyItem,
   onContinue,
 }: StudyListScreenProps) {
-  const { lang, tr } = useI18n();
-  const [selectedId, setSelectedId] = useState<string>(items[0]?.id ?? '');
-  const [group, setGroup] = useState<string>(groups?.[0]?.id ?? 'all');
-  const [query, setQuery] = useState('');
+  const { tr } = useI18n();
 
-  const total = items.length;
-  const studiedCount = useMemo(
-    () => items.filter((item) => studiedSet.has(item.id)).length,
-    [items, studiedSet],
+  const hasSequentialGroups = Boolean(sequentialGroups && sequentialGroups.length > 0);
+  const [groupIndex, setGroupIndex] = useState<number>(() =>
+    sequentialGroups && sequentialGroups.length > 0
+      ? resolveInitialSequentialGroupIndex(sequentialGroups, studiedSet)
+      : 0,
   );
-  const remainingCount = Math.max(0, total - studiedCount);
-  const pct = total > 0 ? Math.round((studiedCount / total) * 100) : 0;
-  const allStudied = total > 0 && remainingCount === 0;
 
-  const activeIdx = Math.max(
-    0,
-    items.findIndex((i) => i.id === selectedId),
+  useEffect(() => {
+    if (!sequentialGroups || sequentialGroups.length === 0) return;
+    setGroupIndex((prev) => Math.min(prev, sequentialGroups.length - 1));
+  }, [sequentialGroups]);
+
+  const activeGroup = hasSequentialGroups ? sequentialGroups![groupIndex] : undefined;
+  const visibleItems = activeGroup ? activeGroup.items : items;
+  const isFinalGroup = !activeGroup || groupIndex >= sequentialGroups!.length - 1;
+  const nextGroup =
+    activeGroup && !isFinalGroup ? sequentialGroups![groupIndex + 1] : undefined;
+
+  const { studiedInView, remainingInView, canContinue } = useMemo(() => {
+    const total = visibleItems.length;
+    const studied = visibleItems.filter((item) => studiedSet.has(item.id)).length;
+    const remaining = Math.max(0, total - studied);
+    return {
+      studiedInView: studied,
+      remainingInView: remaining,
+      canContinue: total > 0 && remaining === 0,
+    };
+  }, [visibleItems, studiedSet]);
+
+  const hasRichCards = useMemo(
+    () => visibleItems.some((item) => item.detailLayout === 'rich'),
+    [visibleItems],
   );
-  const activeItem = items[activeIdx] ?? items[0];
 
-  const filteredItems = useMemo(() => {
-    const q = query.trim().toLowerCase();
-    return items.filter((item) => {
-      if (!q && groups && group !== 'all' && item.group !== group) return false;
-      if (!q) return true;
-      return (
-        item.primary.toLowerCase().includes(q) ||
-        item.italianLabel.toLowerCase().includes(q) ||
-        item.phoneticEn.toLowerCase().includes(q) ||
-        item.phoneticBn.includes(q) ||
-        item.exampleIt.toLowerCase().includes(q) ||
-        (item.meaningEn?.toLowerCase().includes(q) ?? false) ||
-        (item.meaningBn?.includes(q) ?? false)
-      );
-    });
-  }, [items, groups, group, query]);
-
-  const handleOpenItem = (item: StudyListItem, playAudio = true) => {
-    setSelectedId(item.id);
+  const handleSelectCard = (item: StudyListItem) => {
     onStudyItem(item);
-    if (playAudio) {
-      void speakItalian(item.audioText, 0.88, startSpeechSession()).catch(() => {});
-    }
+    void speakItalian(item.audioText, 0.88, startSpeechSession()).catch(() => {});
   };
 
-  const renderPrimaryCue = (item: StudyListItem) => {
-    if (lang === 'bn') {
-      return (
-        <>
-          <p className="bn mt-0.5 text-sm sm:text-base font-extrabold text-white">
-            বাংলা উচ্চারণ: {item.phoneticBn}
-          </p>
-          {item.meaningBn && (
-            <p className="bn text-xs font-semibold text-ink-2">{item.meaningBn}</p>
-          )}
-        </>
-      );
+  const handleContinueClick = () => {
+    if (!canContinue) return;
+    if (activeGroup && !isFinalGroup) {
+      setGroupIndex((idx) => Math.min(idx + 1, sequentialGroups!.length - 1));
+      if (typeof window !== 'undefined') {
+        window.scrollTo({ top: 0, behavior: 'smooth' });
+      }
+      return;
     }
-    if (lang === 'it') {
-      return (
-        <>
-          <p className="mt-0.5 text-sm sm:text-base font-extrabold text-white">
-            {item.phoneticIt ?? item.phoneticEn}
-          </p>
-          {item.meaningIt && <p className="text-xs font-semibold text-ink-2">{item.meaningIt}</p>}
-        </>
-      );
-    }
-    return (
-      <>
-        <p className="mt-0.5 text-sm sm:text-base font-extrabold text-white">
-          Pronunciation: {item.phoneticEn}
-        </p>
-        {item.meaningEn && <p className="text-xs font-semibold text-ink-2">{item.meaningEn}</p>}
-      </>
-    );
+    onContinue();
   };
 
-  const activeGuide = activeItem
-    ? lang === 'bn'
-      ? (activeItem.guideBn ?? activeItem.guideEn)
-      : lang === 'it'
-        ? (activeItem.guideIt ?? activeItem.guideEn)
-        : activeItem.guideEn
-    : undefined;
+  const continueLabel = canContinue
+    ? nextGroup
+      ? tr({
+          bn: `পরবর্তী ধাপ: ${nextGroup.label}`,
+          en: `Continue to ${nextGroup.label}`,
+          it: `Continua a ${nextGroup.label}`,
+        })
+      : tr({
+          bn: 'ড্রিলে যান',
+          en: 'Continue to Drill',
+          it: 'Vai all’esercizio',
+        })
+    : tr({
+        bn: `এগিয়ে যেতে আরও ${remainingInView}টি অধ্যয়ন করুন`,
+        en: `Continue (${remainingInView} remaining)`,
+        it: `Continua (${remainingInView} rimanenti)`,
+      });
 
-  const activeExamplePhonetic = activeItem
-    ? lang === 'bn'
-      ? activeItem.examplePhoneticBn
-      : activeItem.examplePhoneticEn
-    : undefined;
+  const continueButton = (
+    <Button
+      className="w-full min-h-12"
+      disabled={!canContinue}
+      data-testid="study-continue-btn"
+      onClick={handleContinueClick}
+    >
+      <span className="bn">{continueLabel}</span>
+      {canContinue && <ArrowRight size={17} />}
+    </Button>
+  );
+
+  const fixedContinueDock =
+    typeof document !== 'undefined'
+      ? createPortal(
+          <div
+            className="fixed inset-x-0 bottom-[calc(4.5rem+var(--safe-bottom,0px))] lg:bottom-4 z-30 pointer-events-none"
+            data-testid="study-fixed-dock"
+          >
+            <div className="mx-auto flex w-full max-w-6xl px-3.5 sm:px-6 lg:pl-[18.5rem] lg:pr-10">
+              <div className="mx-auto w-full max-w-3xl pointer-events-auto">
+                <div className="rounded-2xl border border-neon/25 bg-[#031917]/95 p-2.5 shadow-[0_-8px_28px_rgba(0,0,0,0.75)] backdrop-blur-xl">
+                  {continueButton}
+                </div>
+              </div>
+            </div>
+          </div>,
+          document.body,
+        )
+      : continueButton;
 
   return (
-    <div className="space-y-3">
-      {/* Active Item Inspector with slim integrated Study Progress Strip */}
-      {activeItem && (
-        <GlassCard neon={allStudied} className="p-3.5 sm:p-4 space-y-2.5">
-          <div className="space-y-1.5">
-            <div className="flex items-center justify-between gap-2 text-[11px] sm:text-xs font-bold tabular-nums">
-              <span className="bn text-mint">
-                {tr({
-                  bn: `অধ্যয়ন: ${studiedCount}/${total} · বাকি: ${remainingCount}`,
-                  en: `Studied: ${studiedCount}/${total} · Remaining: ${remainingCount}`,
-                  it: `Studiati: ${studiedCount}/${total} · Rimanenti: ${remainingCount}`,
-                })}
-              </span>
-              <span className="text-neon">{pct}%</span>
-            </div>
-            <ProgressBar value={studiedCount / Math.max(1, total)} className="h-1.5" />
-          </div>
-
-          <div className="flex items-start justify-between gap-3 pt-0.5">
-            <div className="flex items-center gap-3 min-w-0">
-              <div className="flex h-14 w-14 shrink-0 items-center justify-center rounded-2xl border border-neon/45 bg-gradient-to-br from-neon/20 to-emerald/10 shadow-[0_0_20px_-6px_rgba(0,245,160,0.45)] tabular-nums">
-                <span className="text-2xl font-extrabold text-white leading-none">
-                  {activeItem.primary}
-                  {activeItem.secondary && (
-                    <span className="ml-0.5 text-lg font-bold text-mint">{activeItem.secondary}</span>
-                  )}
-                </span>
-              </div>
-              <div className="min-w-0">
-                <p className="text-[11px] font-extrabold uppercase tracking-wide text-cyan truncate">
-                  {activeItem.categoryLabel ? `${activeItem.categoryLabel} · ` : ''}
-                  {tr({ bn: 'ইতালীয়:', en: 'Italian:', it: 'Italiano:' })} &ldquo;{activeItem.italianLabel}&rdquo;
-                </p>
-                {renderPrimaryCue(activeItem)}
-              </div>
-            </div>
-            <SpeakButton text={activeItem.audioText} size={42} />
-          </div>
-
-          {activeGuide && (
-            <p className="bn text-xs sm:text-sm leading-relaxed text-ink">{activeGuide}</p>
-          )}
-
-          <div className="flex items-center justify-between gap-3 rounded-xl border border-white/10 bg-white/5 px-3 py-2">
-            <div className="min-w-0 flex-1">
-              <p className="text-[10px] font-bold uppercase tracking-wide text-ink-3">
-                {tr({ bn: 'উদাহরণ', en: 'Example', it: 'Esempio' })}
-              </p>
-              <p className="text-sm sm:text-base font-extrabold text-white">
-                {activeItem.exampleIt}{' '}
-                {activeExamplePhonetic && (
-                  <span className="bn text-xs font-semibold text-mint">
-                    ({activeExamplePhonetic})
-                  </span>
-                )}
-              </p>
-              <p className="bn text-xs font-medium text-ink-2">
-                {tr({
-                  bn: activeItem.exampleTrBn,
-                  en: activeItem.exampleTrEn,
-                  it: activeItem.exampleTrIt ?? activeItem.exampleTrEn,
-                })}
-              </p>
-            </div>
-            <SpeakButton text={activeItem.exampleIt} size={34} />
-          </div>
-
-          <div className="flex flex-wrap items-center justify-between gap-2">
-            {enableStepper ? (
+    <div className="space-y-3 pb-24">
+      {activeGroup && (
+        <div
+          className="flex items-center justify-between gap-2 px-0.5"
+          data-testid="study-group-bar"
+        >
+          <div className="flex items-center gap-2">
+            {groupIndex > 0 && (
               <button
                 type="button"
-                disabled={activeIdx <= 0}
-                onClick={() => {
-                  const prev = items[activeIdx - 1];
-                  if (prev) handleOpenItem(prev, true);
-                }}
-                className="inline-flex min-h-9 items-center gap-1 rounded-xl border border-white/15 bg-white/5 px-2.5 text-xs font-bold text-ink hover:border-neon/50 disabled:opacity-40"
-              >
-                <ChevronLeft size={15} /> {tr({ bn: 'পূর্ববর্তী', en: 'Prev', it: 'Prec.' })}
-              </button>
-            ) : (
-              <span />
-            )}
-
-            {studiedSet.has(activeItem.id) ? (
-              <span className="bn inline-flex items-center gap-1.5 text-xs font-bold text-neon">
-                <CheckCircle2 size={15} />
-                {tr({
-                  bn: 'অধ্যয়ন সম্পন্ন হয়েছে',
-                  en: 'Marked as studied',
-                  it: 'Segnato come studiato',
+                onClick={() => setGroupIndex((idx) => Math.max(0, idx - 1))}
+                aria-label={tr({
+                  bn: 'আগের গ্রুপ',
+                  en: 'Previous group',
+                  it: 'Gruppo precedente',
                 })}
-              </span>
-            ) : (
-              <Button
-                className="min-h-9 px-3.5 text-xs"
-                onClick={() => handleOpenItem(activeItem, true)}
+                className="inline-flex h-7 w-7 items-center justify-center rounded-full border border-white/15 bg-white/5 text-ink-2 hover:border-neon/45 hover:text-white transition"
               >
-                <span className="bn">
-                  {tr({
-                    bn: 'শুনে অধ্যয়ন সম্পন্ন করুন',
-                    en: 'Study & Play Sound',
-                    it: 'Studia e ascolta',
-                  })}
-                </span>
-              </Button>
-            )}
-
-            {enableStepper && (
-              <button
-                type="button"
-                disabled={activeIdx >= items.length - 1}
-                onClick={() => {
-                  const next = items[activeIdx + 1];
-                  if (next) handleOpenItem(next, true);
-                }}
-                className="inline-flex min-h-9 items-center gap-1 rounded-xl border border-neon/40 bg-neon/10 px-2.5 text-xs font-bold text-neon hover:bg-neon/20 disabled:opacity-40"
-              >
-                {tr({ bn: 'পরবর্তী', en: 'Next', it: 'Succ.' })} <ChevronRight size={15} />
+                <ChevronLeft size={15} />
               </button>
             )}
+            <span className="text-sm font-extrabold text-white tabular-nums">
+              {activeGroup.label}
+            </span>
+            <span className="text-xs font-bold text-ink-3 tabular-nums">
+              ({groupIndex + 1}/{sequentialGroups!.length})
+            </span>
           </div>
-        </GlassCard>
+
+          <span className="text-xs font-extrabold text-neon tabular-nums">
+            {studiedInView}/{visibleItems.length}
+          </span>
+        </div>
       )}
 
-      {/* Optional Group Filter Tabs & Search */}
-      {(groups || searchPlaceholder) && (
-        <div className="space-y-2">
-          {searchPlaceholder && (
-            <div className="relative">
-              <Search
-                size={15}
-                className="pointer-events-none absolute top-1/2 left-3.5 -translate-y-1/2 text-ink-3"
-              />
-              <input
-                type="search"
-                value={query}
-                onChange={(e) => setQuery(e.target.value)}
-                placeholder={searchPlaceholder}
-                className="min-h-10 w-full rounded-2xl border border-neon/25 bg-[#041d19]/90 pr-4 pl-9 text-sm font-semibold text-white placeholder:text-ink-3 focus:border-neon focus:outline-none"
-              />
-            </div>
-          )}
-
-          {groups && (
-            <div className="flex flex-wrap gap-1.5">
-              {groups.map((g) => {
-                const inGroup =
-                  g.id === 'all' ? items : items.filter((item) => item.group === g.id);
-                const doneInGroup = inGroup.filter((item) => studiedSet.has(item.id)).length;
-                const active = group === g.id && !query.trim();
-                return (
-                  <button
-                    key={g.id}
-                    type="button"
-                    onClick={() => {
-                      setQuery('');
-                      setGroup(g.id);
-                    }}
-                    className={cx(
-                      'min-h-9 rounded-xl border px-2.5 text-xs font-extrabold tabular-nums transition',
-                      active
-                        ? 'bg-grad-primary border-transparent text-navy-950 glow-neon'
-                        : 'border-white/15 bg-white/5 text-ink-2 hover:text-white',
+      {!activeGroup && groupedSections && groupedSections.length > 0 ? (
+        <div className="space-y-5">
+          {groupedSections.map((sec) => {
+            const secStudied = sec.items.filter((i) => studiedSet.has(i.id)).length;
+            return (
+              <section key={sec.id} className="space-y-2.5">
+                <div className="flex items-baseline justify-between gap-2 border-b border-white/10 pb-1.5">
+                  <div>
+                    <h3 className="bn text-sm sm:text-base font-extrabold text-white">
+                      {tr(sec.title)}
+                    </h3>
+                    {sec.subtitle && (
+                      <p className="bn text-xs text-ink-2">{tr(sec.subtitle)}</p>
                     )}
-                  >
-                    {g.label} ({doneInGroup}/{inGroup.length})
-                  </button>
-                );
-              })}
-            </div>
+                  </div>
+                  <span className="text-xs font-extrabold text-neon tabular-nums shrink-0">
+                    {secStudied}/{sec.items.length}
+                  </span>
+                </div>
+                <div
+                  className={cx(
+                    'grid gap-2.5',
+                    hasRichCards
+                      ? 'grid-cols-1 sm:grid-cols-2'
+                      : 'grid-cols-2 sm:grid-cols-3 md:grid-cols-4',
+                  )}
+                >
+                  {sec.items.map((item) => (
+                    <StudyItemCard
+                      key={item.id}
+                      item={item}
+                      studied={studiedSet.has(item.id)}
+                      onSelect={handleSelectCard}
+                    />
+                  ))}
+                </div>
+              </section>
+            );
+          })}
+        </div>
+      ) : (
+        <div
+          className={cx(
+            'grid gap-2 sm:gap-2.5',
+            visibleItems.length === 1
+              ? 'mx-auto max-w-xs grid-cols-1'
+              : hasRichCards
+                ? 'grid-cols-1 sm:grid-cols-2'
+                : 'grid-cols-2 sm:grid-cols-3 md:grid-cols-4',
           )}
-        </div>
-      )}
-
-      {/* Interactive Study Grid (3 columns on mobile, 4-5 on wider screens) */}
-      <GlassCard className="p-3 sm:p-3.5 space-y-2">
-        <div className="flex items-center justify-between gap-2 text-xs font-bold text-ink-2">
-          <span className="bn">
-            {tr({
-              bn: 'প্রতিটি কার্ডে ট্যাপ করে অডিও শুনুন ও অধ্যয়ন চিহ্নিত করুন',
-              en: 'Tap each card to hear pronunciation and mark it studied',
-              it: 'Tocca ogni scheda per ascoltare e completare lo studio',
-            })}
-          </span>
-          <span className="tabular-nums text-mint shrink-0">
-            {studiedCount}/{total}
-          </span>
-        </div>
-
-        <div className="grid grid-cols-3 sm:grid-cols-4 md:grid-cols-5 gap-2">
-          {filteredItems.map((item) => (
+        >
+          {visibleItems.map((item) => (
             <StudyItemCard
               key={item.id}
               item={item}
               studied={studiedSet.has(item.id)}
-              selected={item.id === activeItem?.id}
-              onSelect={(picked) => handleOpenItem(picked, true)}
+              onSelect={handleSelectCard}
             />
           ))}
         </div>
-      </GlassCard>
+      )}
 
-      {/* Bottom Thumb-Zone Continue CTA */}
-      <div className="sticky bottom-20 lg:bottom-4 z-10 pt-0.5">
-        <GlassCard neon={allStudied} className="p-2.5 shadow-[0_10px_28px_rgba(0,0,0,0.65)]">
-          <Button
-            className="w-full min-h-11"
-            disabled={!allStudied}
-            data-testid="study-continue-btn"
-            onClick={onContinue}
-          >
-            {allStudied ? (
-              <>
-                <span className="bn">
-                  {tr({
-                    bn: 'সাউন্ড ড্রিলে যান',
-                    en: 'Continue to Sound Drill',
-                    it: 'Vai all’esercizio audio',
-                  })}
-                </span>
-                <ArrowRight size={17} />
-              </>
-            ) : (
-              <span className="bn text-sm">
-                {tr({
-                  bn: `এগিয়ে যেতে আরও ${remainingCount}টি আইটেম অধ্যয়ন করুন`,
-                  en: `Continue (${remainingCount} remaining to study)`,
-                  it: `Continua (${remainingCount} rimanenti da studiare)`,
-                })}
-              </span>
-            )}
-          </Button>
-        </GlassCard>
-      </div>
+      {fixedContinueDock}
     </div>
   );
 }

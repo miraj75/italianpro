@@ -232,6 +232,13 @@ export interface AcademyTheoryConfig {
   sections: TheorySectionBlock[];
 }
 
+export interface AcademyDrillOption {
+  id: string;
+  primaryLabel: string;
+  secondaryLabel?: string;
+  secondaryLabelTr?: Tr;
+}
+
 export interface AcademyDrillItem {
   id: string;
   /** Audio string spoken automatically in Italian when the question loads. */
@@ -240,6 +247,14 @@ export interface AcademyDrillItem {
   primaryLabel: string;
   /** Secondary subtitle on the choice option card (e.g. 'ti' or 'ventuno'). */
   secondaryLabel: string;
+  /** Optional localized subtitle for the correct option when language separation is needed. */
+  secondaryLabelTr?: Tr;
+  /** Optional custom drill prompt replacing the default listening-only prompt. */
+  promptOverride?: Tr;
+  /** Optional Italian sentence/stem rendered prominently in the question card. */
+  promptIt?: string;
+  /** Optional explicit distractor options for grammar/usage drills. */
+  explicitOptions?: AcademyDrillOption[];
   /** Phonetic guide in Bengali displayed as a listening cue. */
   cueBn: string;
   /** Phonetic guide / meaning in English displayed as a listening cue. */

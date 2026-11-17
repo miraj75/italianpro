@@ -191,6 +191,7 @@ export function ModuleCompletionScreen({
                       </>
                     )}
                   </p>
+                  <p className="bn text-xs text-ink-3 leading-relaxed">{tr(entry.question.explanation)}</p>
                 </div>
               );
             })}

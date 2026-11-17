@@ -3,6 +3,13 @@ import { findAcademyModule, inferLevelFromModuleId } from '../content/academy/cu
 import { A1_ALPHABET_EXAM_POOL } from '../content/academy/a1Alphabet';
 import { A1_NUMBERS_CORE_20_QUESTIONS, A1_NUMBERS_EXTENDED_QUESTIONS } from '../content/academy/a1Numbers';
 import { A1_ARTICLE_EXAM_POOL } from '../content/academy/a1Articles';
+import { A1_VERBS_EXAM_POOL } from '../content/academy/a1Verbs';
+import { A1_ESSENTIAL_VERBS_EXAM_POOL } from '../content/academy/a1EssentialVerbs';
+import { A1_ADJECTIVES_EXAM_POOL } from '../content/academy/a1Adjectives';
+import { A1_ADVERBS_EXAM_POOL } from '../content/academy/a1Adverbs';
+import { A1_PREPOSITIONS_EXAM_POOL } from '../content/academy/a1Prepositions';
+import { A1_CONJUNCTIONS_EXAM_POOL } from '../content/academy/a1Conjunctions';
+import { buildA1FinalExam } from '../content/academy/a1FinalExam';
 import { buildVocabularyExamPool } from '../content/academy/a1Vocabulary';
 import {
   A2_ACADEMY_VERBS,
@@ -23,6 +30,7 @@ export interface ExamAnswerRecord {
   selectedIndex: number;
   selectedText: string;
   correctText: string;
+  answered: boolean;
   correct: boolean;
 }
 
@@ -31,12 +39,24 @@ export interface EvaluatedExamResult {
   moduleId: AcademyModuleId;
   total: number;
   correct: number;
+  /** Total non-correct count (wrongly answered + unanswered), used for pass threshold validation. */
   incorrect: number;
+  /** Count of questions where the learner picked an option that was wrong. */
+  wrongCount: number;
+  /** Count of questions left unanswered. */
+  unanswered: number;
   score: number;
   percentage: number;
+  /** Percentage rounded to 1 decimal place (e.g. 25/30 -> 83.3). */
+  exactPercentage: number;
   maxIncorrect: number;
   passed: boolean;
   breakdown: ExamAnswerRecord[];
+}
+
+export function formatExamPercentage(exactPercentage: number): string {
+  const rounded = Math.round(exactPercentage * 10) / 10;
+  return Number.isInteger(rounded) ? String(rounded) : rounded.toFixed(1);
 }
 
 export type RandomFn = () => number;
@@ -440,8 +460,22 @@ export function generateAcademyModuleExam(
         return buildNumbersExam(rng);
       case 'articles':
         return buildSectionExam(A1_ARTICLE_EXAM_POOL, 10, rng);
+      case 'verbs':
+        return buildSectionExam(A1_VERBS_EXAM_POOL, 10, rng);
+      case 'essential-verbs':
+        return buildSectionExam(A1_ESSENTIAL_VERBS_EXAM_POOL, 10, rng);
+      case 'adjectives':
+        return buildSectionExam(A1_ADJECTIVES_EXAM_POOL, 10, rng);
+      case 'adverbs':
+        return buildSectionExam(A1_ADVERBS_EXAM_POOL, 10, rng);
+      case 'prepositions':
+        return buildSectionExam(A1_PREPOSITIONS_EXAM_POOL, 10, rng);
+      case 'conjunctions':
+        return buildSectionExam(A1_CONJUNCTIONS_EXAM_POOL, 10, rng);
       case 'vocabulary':
         return buildSectionExam(buildVocabularyExamPool(rng), 10, rng);
+      case 'final-exam':
+        return buildA1FinalExam(rng);
       default:
         return [];
     }
@@ -717,23 +751,30 @@ export function evaluateExamAttempt(params: {
   const total = params.questions.length;
   const maxIncorrect = params.maxIncorrect ?? (total === 10 ? 3 : Math.floor(total * 0.3));
   const breakdown: ExamAnswerRecord[] = params.questions.map((question) => {
-    const selectedIndex = params.selections[question.id] ?? -1;
-    const selectedText = selectedIndex >= 0 ? (question.options[selectedIndex] ?? '') : '';
+    const rawSelected = params.selections[question.id];
+    const answered =
+      typeof rawSelected === 'number' && Number.isInteger(rawSelected) && rawSelected >= 0 && rawSelected < question.options.length;
+    const selectedIndex = answered ? rawSelected : -1;
+    const selectedText = answered ? (question.options[selectedIndex] ?? '') : '';
     const correctText = question.options[question.answer] ?? '';
-    const correct = selectedIndex === question.answer;
+    const correct = answered && selectedIndex === question.answer;
     return {
       question,
       selectedIndex,
       selectedText,
       correctText,
+      answered,
       correct,
     };
   });
 
   const correct = breakdown.filter((r) => r.correct).length;
+  const wrongCount = breakdown.filter((r) => r.answered && !r.correct).length;
+  const unanswered = breakdown.filter((r) => !r.answered).length;
   const incorrect = total - correct;
   const score = total > 0 ? correct / total : 0;
   const percentage = total > 0 ? Math.round(score * 100) : 0;
+  const exactPercentage = total > 0 ? Math.round(score * 1000) / 10 : 0;
   const passed = total > 0 && incorrect <= maxIncorrect;
 
   return {
@@ -742,8 +783,11 @@ export function evaluateExamAttempt(params: {
     total,
     correct,
     incorrect,
+    wrongCount,
+    unanswered,
     score,
     percentage,
+    exactPercentage,
     maxIncorrect,
     passed,
     breakdown,

@@ -55,13 +55,8 @@ describe('Phase A: A1 Complete Learning Academy', () => {
         'vocabulary',
         'final-exam',
       ]);
-      expect(A1_ACADEMY_MODULES.filter((m) => m.implemented).map((m) => m.id)).toEqual([
-        'alphabet',
-        'numbers',
-        'articles',
-        'vocabulary',
-      ]);
-      expect(A1_ACADEMY_MODULES.filter((m) => !m.implemented).length).toBe(7);
+      expect(A1_ACADEMY_MODULES.filter((m) => m.implemented)).toHaveLength(11);
+      expect(A1_ACADEMY_MODULES.filter((m) => !m.implemented)).toHaveLength(0);
     });
   });
 

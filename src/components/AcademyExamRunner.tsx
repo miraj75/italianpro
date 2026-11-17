@@ -35,6 +35,7 @@ import { SpeakButton } from './SpeakButton';
 interface AcademyExamRunnerProps {
   moduleId: AcademyModuleId;
   level?: LevelId;
+  previewMode?: boolean;
   onReviewContent: () => void;
   onNavigateModule: (route: string) => void;
 }
@@ -46,6 +47,7 @@ interface AcademyExamRunnerProps {
 export function AcademyExamRunner({
   moduleId,
   level,
+  previewMode = false,
   onReviewContent,
   onNavigateModule,
 }: AcademyExamRunnerProps) {
@@ -61,14 +63,15 @@ export function AcademyExamRunner({
   const attemptId = useMemo(() => createExamAttemptId(moduleId), [moduleId, attemptSeed]);
 
   const unlocked = isAcademyModuleUnlocked(state.academy, moduleId, lvl);
+  const canRunExam = (unlocked && studyStats.readyForExam) || previewMode;
 
   const [questions, setQuestions] = useState<AcademyExamQuestion[]>(() =>
-    unlocked && studyStats.readyForExam ? generateAcademyModuleExam(moduleId, Math.random, lvl) : [],
+    canRunExam ? generateAcademyModuleExam(moduleId, Math.random, lvl) : [],
   );
   const [loadingExam, setLoadingExam] = useState(false);
 
   useEffect(() => {
-    if (!unlocked || !studyStats.readyForExam) {
+    if (!canRunExam) {
       setQuestions([]);
       return;
     }
@@ -93,18 +96,19 @@ export function AcademyExamRunner({
     return () => {
       mounted = false;
     };
-  }, [moduleId, lvl, attemptSeed, unlocked, studyStats.readyForExam]);
+  }, [moduleId, lvl, attemptSeed, canRunExam]);
 
   const [index, setIndex] = useState(0);
   const [selected, setSelected] = useState<number | null>(null);
   const [checked, setChecked] = useState(false);
   const [selections, setSelections] = useState<Record<string, number>>({});
   const [result, setResult] = useState<EvaluatedExamResult | null>(null);
+  const [breakdownFilter, setBreakdownFilter] = useState<'all' | 'mistakes'>('all');
   const submittedRef = useRef<string | null>(null);
 
   if (!meta) return null;
 
-  if (!unlocked) {
+  if (!unlocked && !previewMode) {
     return (
       <GlassCard className="p-6 text-center space-y-4">
         <span className="mx-auto flex h-14 w-14 items-center justify-center rounded-2xl border border-gold/40 bg-gold/10 text-gold">
@@ -125,7 +129,7 @@ export function AcademyExamRunner({
     );
   }
 
-  if (!studyStats.readyForExam) {
+  if (!studyStats.readyForExam && !previewMode) {
     return (
       <GlassCard className="p-6 text-center space-y-4">
         <span className="mx-auto flex h-14 w-14 items-center justify-center rounded-2xl border border-gold/40 bg-gold/10 text-gold">
@@ -177,6 +181,7 @@ export function AcademyExamRunner({
     setChecked(false);
     setSelections({});
     setResult(null);
+    setBreakdownFilter('all');
     submittedRef.current = null;
   };
 
@@ -251,55 +256,87 @@ export function AcademyExamRunner({
 
         {/* Detailed Question & Explanation Review */}
         <GlassCard className="p-4 sm:p-5 space-y-3">
-          <h3 className="bn text-base font-extrabold text-white">
-            {tr({
-              bn: `উত্তর ও ব্যাখ্যা পর্যালোচনা (${result.correct}/${result.total})`,
-              en: `Answer Breakdown & Explanations (${result.correct}/${result.total})`,
-              it: `Riepilogo risposte e spiegazioni (${result.correct}/${result.total})`,
-            })}
-          </h3>
+          <div className="flex flex-wrap items-center justify-between gap-2">
+            <h3 className="bn text-base font-extrabold text-white">
+              {tr({
+                bn: `উত্তর ও ব্যাখ্যা পর্যালোচনা (${result.correct}/${result.total})`,
+                en: `Answer Breakdown & Explanations (${result.correct}/${result.total})`,
+                it: `Riepilogo risposte e spiegazioni (${result.correct}/${result.total})`,
+              })}
+            </h3>
+            {result.incorrect > 0 && (
+              <div className="flex items-center gap-1.5">
+                <button
+                  type="button"
+                  onClick={() => setBreakdownFilter('all')}
+                  className={cx(
+                    'rounded-lg border px-2.5 py-1 text-xs font-bold transition',
+                    breakdownFilter === 'all'
+                      ? 'border-neon/60 bg-neon/15 text-neon'
+                      : 'border-white/15 bg-white/5 text-ink-2 hover:text-white',
+                  )}
+                >
+                  {tr({ bn: 'সব', en: 'All', it: 'Tutte' })} ({result.total})
+                </button>
+                <button
+                  type="button"
+                  onClick={() => setBreakdownFilter('mistakes')}
+                  className={cx(
+                    'rounded-lg border px-2.5 py-1 text-xs font-bold transition',
+                    breakdownFilter === 'mistakes'
+                      ? 'border-pink/60 bg-pink/15 text-pink'
+                      : 'border-white/15 bg-white/5 text-ink-2 hover:text-white',
+                  )}
+                >
+                  {tr({ bn: 'শুধু ভুল', en: 'Mistakes', it: 'Errori' })} ({result.incorrect})
+                </button>
+              </div>
+            )}
+          </div>
           <div className="divide-y divide-white/10">
-            {result.breakdown.map((entry, idx) => {
-              const localizedOpts = resolveExamOptions(entry.question, lang);
-              const selectedOptText =
-                entry.selectedIndex >= 0 ? (localizedOpts[entry.selectedIndex] ?? entry.selectedText) : '';
-              const correctOptText = localizedOpts[entry.question.answer] ?? entry.correctText;
-              const qPrefix = tr({ bn: `প্রশ্ন ${idx + 1}`, en: `Q${idx + 1}`, it: `D${idx + 1}` });
-              return (
-                <div key={entry.question.id} className="py-3 first:pt-1 last:pb-1 space-y-1.5">
-                  <div className="flex items-start justify-between gap-2">
-                    <div className="min-w-0 flex-1">
-                      <p className="bn text-xs font-bold text-ink-2">
-                        {qPrefix} · {tr(entry.question.prompt)}
-                      </p>
-                      {entry.question.it && <p className="mt-0.5 text-base font-extrabold text-white">{entry.question.it}</p>}
+            {result.breakdown
+              .filter((entry) => (breakdownFilter === 'mistakes' ? !entry.correct : true))
+              .map((entry, idx) => {
+                const localizedOpts = resolveExamOptions(entry.question, lang);
+                const selectedOptText =
+                  entry.selectedIndex >= 0 ? (localizedOpts[entry.selectedIndex] ?? entry.selectedText) : '';
+                const correctOptText = localizedOpts[entry.question.answer] ?? entry.correctText;
+                const qPrefix = tr({ bn: `প্রশ্ন ${idx + 1}`, en: `Q${idx + 1}`, it: `D${idx + 1}` });
+                return (
+                  <div key={entry.question.id} className="py-3 first:pt-1 last:pb-1 space-y-1.5">
+                    <div className="flex items-start justify-between gap-2">
+                      <div className="min-w-0 flex-1">
+                        <p className="bn text-xs font-bold text-ink-2">
+                          {qPrefix} · {tr(entry.question.prompt)}
+                        </p>
+                        {entry.question.it && <p className="mt-0.5 text-base font-extrabold text-white">{entry.question.it}</p>}
+                      </div>
+                      <div className="flex items-center gap-2 shrink-0">
+                        {entry.question.audioIt && <SpeakButton text={entry.question.audioIt} size={34} />}
+                        {entry.correct ? (
+                          <CheckCircle2 size={20} className="text-neon" aria-label="correct" />
+                        ) : (
+                          <XCircle size={20} className="text-pink" aria-label="incorrect" />
+                        )}
+                      </div>
                     </div>
-                    <div className="flex items-center gap-2 shrink-0">
-                      {entry.question.audioIt && <SpeakButton text={entry.question.audioIt} size={34} />}
-                      {entry.correct ? (
-                        <CheckCircle2 size={20} className="text-neon" aria-label="correct" />
-                      ) : (
-                        <XCircle size={20} className="text-pink" aria-label="incorrect" />
+                    <p className="bn text-xs font-semibold text-ink-2">
+                      {tr({ bn: 'আপনার উত্তর:', en: 'Your answer:', it: 'Tua risposta:' })}{' '}
+                      <span className={entry.correct ? 'text-neon font-bold' : 'text-pink font-bold'}>
+                        {selectedOptText || '—'}
+                      </span>
+                      {!entry.correct && (
+                        <>
+                          {' · '}
+                          {tr({ bn: 'সঠিক:', en: 'Correct:', it: 'Corretta:' })}{' '}
+                          <span className="text-neon font-bold">{correctOptText}</span>
+                        </>
                       )}
-                    </div>
+                    </p>
+                    <p className="bn text-xs leading-relaxed text-ink-2">{tr(entry.question.explanation)}</p>
                   </div>
-                  <p className="bn text-xs font-semibold text-ink-2">
-                    {tr({ bn: 'আপনার উত্তর:', en: 'Your answer:', it: 'Tua risposta:' })}{' '}
-                    <span className={entry.correct ? 'text-neon font-bold' : 'text-pink font-bold'}>
-                      {selectedOptText || '—'}
-                    </span>
-                    {!entry.correct && (
-                      <>
-                        {' · '}
-                        {tr({ bn: 'সঠিক:', en: 'Correct:', it: 'Corretta:' })}{' '}
-                        <span className="text-neon font-bold">{correctOptText}</span>
-                      </>
-                    )}
-                  </p>
-                  <p className="bn text-xs leading-relaxed text-ink-2">{tr(entry.question.explanation)}</p>
-                </div>
-              );
-            })}
+                );
+              })}
           </div>
         </GlassCard>
 
@@ -363,17 +400,19 @@ export function AcademyExamRunner({
         maxIncorrect: meta.maxIncorrect,
       });
       setResult(evaluated);
-      dispatch({
-        type: 'submitAcademyExam',
-        attemptId,
-        moduleId,
-        level: lvl,
-        total: evaluated.total,
-        correct: evaluated.correct,
-        incorrect: evaluated.incorrect,
-        maxIncorrect: evaluated.maxIncorrect,
-        today: dayKey(),
-      });
+      if (!previewMode) {
+        dispatch({
+          type: 'submitAcademyExam',
+          attemptId,
+          moduleId,
+          level: lvl,
+          total: evaluated.total,
+          correct: evaluated.correct,
+          incorrect: evaluated.incorrect,
+          maxIncorrect: evaluated.maxIncorrect,
+          today: dayKey(),
+        });
+      }
       return;
     }
     setIndex(index + 1);

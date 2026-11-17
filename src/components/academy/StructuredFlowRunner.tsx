@@ -30,7 +30,7 @@ import { SectionExamScreen } from './SectionExamScreen';
 import { SoundDrillScreen } from './SoundDrillScreen';
 import { StageFlowHeader } from './StageFlowHeader';
 import { type StudyListItem } from './StudyItemCard';
-import { StudyListScreen, type StudyGroupOption } from './StudyListScreen';
+import { StudyListScreen, type StudyGroupedSection, type StudySequentialGroup } from './StudyListScreen';
 import { TheoryLessonScreen } from './TheoryLessonScreen';
 
 export interface StructuredFlowRunnerProps {
@@ -39,9 +39,8 @@ export interface StructuredFlowRunnerProps {
   theoryConfig: AcademyTheoryConfig;
   studyTitle: Tr;
   studyItems: StudyListItem[];
-  studyGroups?: StudyGroupOption[];
-  studySearchPlaceholder?: string;
-  enableStudyStepper?: boolean;
+  studySequentialGroups?: StudySequentialGroup[];
+  studyGroupedSections?: StudyGroupedSection[];
   drillItems: AcademyDrillItem[];
   drillDistractorPool?: AcademyDrillItem[];
 }
@@ -58,11 +57,9 @@ export function StructuredFlowRunner({
   moduleId,
   backTo = '/level/A1',
   theoryConfig,
-  studyTitle,
   studyItems,
-  studyGroups,
-  studySearchPlaceholder,
-  enableStudyStepper = false,
+  studySequentialGroups,
+  studyGroupedSections,
   drillItems,
   drillDistractorPool,
 }: StructuredFlowRunnerProps) {
@@ -269,12 +266,10 @@ export function StructuredFlowRunner({
 
       {stage === 'study' && (
         <StudyListScreen
-          title={studyTitle}
           items={studyItems}
           studiedSet={studiedSet}
-          groups={studyGroups}
-          searchPlaceholder={studySearchPlaceholder}
-          enableStepper={enableStudyStepper}
+          sequentialGroups={studySequentialGroups}
+          groupedSections={studyGroupedSections}
           onStudyItem={handleStudyItem}
           onContinue={() => setStage('drill')}
         />

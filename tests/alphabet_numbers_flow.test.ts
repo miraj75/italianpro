@@ -357,6 +357,96 @@ describe('Alphabet & Numbers 5-Stage Interactive Learning Flow', () => {
     expect(saveProgress(s)).toBe(true);
     expect(loadProgress().settings.explainLang).toBe('en');
   });
+
+  it('builds 11 sequential Numbers groups (10 per group + final 100), enforces sequential resumption, prevents duplicate XP, and separates EN/BN study data', async () => {
+    const { buildSequentialNumberGroups } = await import('../src/screens/academy/NumbersModuleScreen');
+    const { resolveInitialSequentialGroupIndex } = await import('../src/components/academy/StudyListScreen');
+    const { academyStudyStats } = await import('../src/state/academyProgress');
+    const bengaliRegex = /[\u0980-\u09FF]/;
+
+    // 1. Exact 11 sequential groups
+    const groups = buildSequentialNumberGroups(A1_NUMBERS);
+    expect(groups.map((g) => g.label)).toEqual([
+      '0–9',
+      '10–19',
+      '20–29',
+      '30–39',
+      '40–49',
+      '50–59',
+      '60–69',
+      '70–79',
+      '80–89',
+      '90–99',
+      '100',
+    ]);
+    for (let i = 0; i < 10; i++) {
+      expect(groups[i]!.items).toHaveLength(10);
+      expect(groups[i]!.items[0]!.primary).toBe(String(i * 10));
+      expect(groups[i]!.items[9]!.primary).toBe(String(i * 10 + 9));
+    }
+    expect(groups[10]!.items).toHaveLength(1);
+    expect(groups[10]!.items[0]!.primary).toBe('100');
+    expect(groups[10]!.items[0]!.italianLabel).toBe('cento');
+
+    // 2. Strict language separation in Numbers study items (zero Bengali in EN)
+    for (const g of groups) {
+      for (const item of g.items) {
+        expect(item.phoneticEn).not.toMatch(bengaliRegex);
+        expect(item.meaningEn ?? '').not.toMatch(bengaliRegex);
+        expect(item.exampleTrEn).not.toMatch(bengaliRegex);
+        expect(item.phoneticBn).toMatch(bengaliRegex);
+        expect(item.meaningBn ?? '').toMatch(bengaliRegex);
+      }
+    }
+
+    // Strict language separation in Alphabet study items
+    for (const l of A1_ALPHABET_LETTERS) {
+      expect(l.phoneticEn).not.toMatch(bengaliRegex);
+      expect(l.exampleTr.en).not.toMatch(bengaliRegex);
+      expect(l.phoneticBn).toMatch(bengaliRegex);
+      expect(l.exampleTr.bn).toMatch(bengaliRegex);
+    }
+
+    // 3. Sequential group resumption & non-skipping
+    expect(resolveInitialSequentialGroupIndex(groups, new Set())).toBe(0);
+    // Completing 0-9 advances initial index to 1 (10-19)
+    const set0to9 = new Set(groups[0]!.items.map((x) => x.id));
+    expect(resolveInitialSequentialGroupIndex(groups, set0to9)).toBe(1);
+    // Partial 10-19 still stays at 1 (10-19)
+    set0to9.add('num-10');
+    set0to9.add('num-11');
+    expect(resolveInitialSequentialGroupIndex(groups, set0to9)).toBe(1);
+    // Even if an item in 20-29 were present while 0-9 is incomplete, never skips 0-9
+    expect(resolveInitialSequentialGroupIndex(groups, new Set(['num-20']))).toBe(0);
+    // Completing 0-99 lands on final single-item group 100 (index 10)
+    const set0to99 = new Set(A1_NUMBERS.slice(0, 100).map((n) => n.id));
+    expect(resolveInitialSequentialGroupIndex(groups, set0to99)).toBe(10);
+    // Completing all 101 lands on index 10 (100)
+    const setAll = new Set(A1_NUMBERS.map((n) => n.id));
+    expect(resolveInitialSequentialGroupIndex(groups, setAll)).toBe(10);
+
+    // 4. Alphabet 21-letter gate + Persistence + Zero duplicate XP
+    let s = initialState();
+    s = reducer(s, { type: 'completeAcademyTheory', moduleId: 'alphabet', level: 'A1' });
+    for (let i = 0; i < 20; i++) {
+      s = reducer(s, { type: 'studyAcademyItem', moduleId: 'alphabet', itemId: A1_ALPHABET_LETTERS[i]!.id });
+    }
+    expect(academyStudyStats(s.academy, 'alphabet').readyForExam).toBe(false);
+    expect(academyStudyStats(s.academy, 'alphabet').remaining).toBe(1);
+
+    const xpBeforeRepeat = s.xp;
+    // Tapping an already studied letter never duplicates itemId or XP
+    s = reducer(s, { type: 'studyAcademyItem', moduleId: 'alphabet', itemId: A1_ALPHABET_LETTERS[0]!.id });
+    expect(getAcademyModuleProgress(s.academy, 'alphabet').studiedItems).toHaveLength(20);
+    expect(s.xp).toBe(xpBeforeRepeat);
+
+    // 21st letter completes Study requirement
+    s = reducer(s, { type: 'studyAcademyItem', moduleId: 'alphabet', itemId: A1_ALPHABET_LETTERS[20]!.id });
+    expect(academyStudyStats(s.academy, 'alphabet').readyForExam).toBe(true);
+    expect(saveProgress(s)).toBe(true);
+
+    const reloaded = loadProgress();
+    expect(getAcademyModuleProgress(reloaded.academy, 'alphabet').studiedItems).toHaveLength(21);
+    expect(academyStudyStats(reloaded.academy, 'alphabet').readyForExam).toBe(true);
+  });
 });
-
-

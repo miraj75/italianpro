@@ -54,13 +54,26 @@ export function SoundDrillScreen({
 
   const options = useMemo(() => {
     if (!activeItem) return [];
+    if (activeItem.explicitOptions && activeItem.explicitOptions.length > 0) {
+      const mappedOthers: AcademyDrillItem[] = activeItem.explicitOptions.slice(0, 3).map((opt) => ({
+        id: opt.id,
+        audioIt: activeItem.audioIt,
+        primaryLabel: opt.primaryLabel,
+        secondaryLabel: opt.secondaryLabel ?? '',
+        secondaryLabelTr: opt.secondaryLabelTr,
+        cueBn: activeItem.cueBn,
+        cueEn: activeItem.cueEn,
+        feedbackDetail: activeItem.feedbackDetail,
+      }));
+      return shuffleArray([activeItem, ...mappedOthers]);
+    }
     const others = shuffleArray(pool.filter((x) => x.id !== activeItem.id)).slice(0, 3);
     return shuffleArray([activeItem, ...others]);
   }, [activeItem, pool]);
 
-  // Auto-play Italian audio cleanly when a question loads, and stop speech on leave/unmount
+  // Auto-play Italian audio cleanly when a question loads and stop speech on leave/unmount
   useEffect(() => {
-    if (drillDone || !activeItem) return;
+    if (drillDone || !activeItem || !activeItem.audioIt) return;
     const sid = startSpeechSession();
     void speakItalian(activeItem.audioIt, 0.82, sid).catch(() => {});
     return () => {
@@ -216,7 +229,12 @@ export function SoundDrillScreen({
       <AnswerFeedbackSheet
         open={pickedOption !== null}
         correct={isAnswerCorrect}
-        correctAnswerLabel={`${activeItem.primaryLabel} (${activeItem.secondaryLabel})`}
+        correctAnswerLabel={(() => {
+          const sec = activeItem.secondaryLabelTr
+            ? tr(activeItem.secondaryLabelTr)
+            : activeItem.secondaryLabel;
+          return sec ? `${activeItem.primaryLabel} (${sec})` : activeItem.primaryLabel;
+        })()}
         detail={activeItem.feedbackDetail}
         onAcknowledge={handleAcknowledge}
       />

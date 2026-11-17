@@ -34,7 +34,8 @@ import { AlphabetModuleScreen } from '../screens/academy/AlphabetModuleScreen';
 import { NumbersModuleScreen } from '../screens/academy/NumbersModuleScreen';
 import { ArticlesModuleScreen } from '../screens/academy/ArticlesModuleScreen';
 import { VocabularyModuleScreen } from '../screens/academy/VocabularyModuleScreen';
-import { AcademyPreviewScreen } from '../screens/academy/AcademyPreviewScreen';
+import { PhaseBModuleScreen } from '../screens/academy/PhaseBModuleScreen';
+import { FinalExamModuleScreen } from '../screens/academy/FinalExamModuleScreen';
 import { LevelAcademyHubScreen } from '../screens/academy/LevelAcademyHubScreen';
 import { LevelModuleScreen } from '../screens/academy/LevelModuleScreen';
 import { LEVEL_ORDER } from '../content/courses';
@@ -138,14 +139,14 @@ function Screen() {
     '/academy/a1/alphabet': <AlphabetModuleScreen />,
     '/academy/a1/numbers': <NumbersModuleScreen />,
     '/academy/a1/articles': <ArticlesModuleScreen />,
-    '/academy/a1/verbs': <AcademyPreviewScreen moduleId="verbs" />,
-    '/academy/a1/essential-verbs': <AcademyPreviewScreen moduleId="essential-verbs" />,
-    '/academy/a1/adjectives': <AcademyPreviewScreen moduleId="adjectives" />,
-    '/academy/a1/adverbs': <AcademyPreviewScreen moduleId="adverbs" />,
-    '/academy/a1/prepositions': <AcademyPreviewScreen moduleId="prepositions" />,
-    '/academy/a1/conjunctions': <AcademyPreviewScreen moduleId="conjunctions" />,
+    '/academy/a1/verbs': <PhaseBModuleScreen moduleId="verbs" />,
+    '/academy/a1/essential-verbs': <PhaseBModuleScreen moduleId="essential-verbs" />,
+    '/academy/a1/adjectives': <PhaseBModuleScreen moduleId="adjectives" />,
+    '/academy/a1/adverbs': <PhaseBModuleScreen moduleId="adverbs" />,
+    '/academy/a1/prepositions': <PhaseBModuleScreen moduleId="prepositions" />,
+    '/academy/a1/conjunctions': <PhaseBModuleScreen moduleId="conjunctions" />,
     '/academy/a1/vocabulary': <VocabularyModuleScreen />,
-    '/academy/a1/final-exam': <AcademyPreviewScreen moduleId="final-exam" />,
+    '/academy/a1/final-exam': <FinalExamModuleScreen />,
   };
   return (
     <AppShell>

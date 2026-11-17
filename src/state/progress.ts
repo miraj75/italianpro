@@ -3,12 +3,18 @@ import { LESSON_PASS_SCORE } from '../content/types';
 import { LEVEL_ORDER, isLevelContentComplete, levelLessons } from '../content/courses';
 import { addDays, dayKey } from '../lib/date';
 import type { AcademyModuleId } from '../content/academy/types';
-import { findAcademyModule, inferLevelFromModuleId } from '../content/academy/curriculum';
+import {
+  findAcademyModule,
+  getAcademyModules,
+  inferLevelFromModuleId,
+  isFinalExamModuleId,
+} from '../content/academy/curriculum';
 import {
   academyStudyStats,
   defaultAcademyProgress,
   emptyModuleProgress,
   getAcademyModuleProgress,
+  isAcademyModuleCompleted,
   isAcademyModuleUnlocked,
   type AcademyModuleProgress,
   type AcademyProgressState,
@@ -484,8 +490,11 @@ export function reducer(state: ProgressState, action: Action): ProgressState {
       const score = action.correct / action.total;
       const newlyCompleted = canComplete && !prevMod.completed;
       const alreadyPassedBefore = prevMod.completed;
+      // Grant XP only on first valid passing completion; prevent XP farming on failed runs or retakes.
       const awardedXp =
-        (alreadyPassedBefore ? 0 : action.correct * XP.correctAnswer) + (newlyCompleted ? XP.academyModuleComplete : 0);
+        !alreadyPassedBefore && canComplete
+          ? action.correct * XP.correctAnswer + (newlyCompleted ? XP.academyModuleComplete : 0)
+          : 0;
 
       const record: ExamAttemptRecord = {
         id: action.attemptId,
@@ -594,7 +603,7 @@ export function isLessonCompleted(state: ProgressState, lessonId: string): boole
   return state.lessons[lessonId]?.completed ?? false;
 }
 
-/** A level opens only when the previous level is fully completed — never by XP. */
+/** A level opens only when the previous level is fully completed — either legacy lessons or its Academy Final Exam. */
 export function isLevelUnlocked(state: ProgressState, id: LevelId): boolean {
   const index = LEVEL_ORDER.indexOf(id);
   if (index <= 0) return true;
@@ -602,7 +611,12 @@ export function isLevelUnlocked(state: ProgressState, id: LevelId): boolean {
   if (!isLevelUnlocked(state, prev)) return false;
   // A level whose content is still being authored cannot be completed yet.
   if (!isLevelContentComplete(prev)) return false;
-  return levelLessons(prev).every((l) => isLessonCompleted(state, l.id));
+  const legacyComplete = levelLessons(prev).every((l) => isLessonCompleted(state, l.id));
+  const finalExamMod = getAcademyModules(prev).find((m) => isFinalExamModuleId(m.id));
+  const academyComplete = Boolean(
+    finalExamMod && isAcademyModuleCompleted(state.academy, finalExamMod.id, prev),
+  );
+  return legacyComplete || academyComplete;
 }
 
 /** Lessons open sequentially within a level. */

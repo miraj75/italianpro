@@ -18,8 +18,8 @@ export interface AudioChoiceQuestionProps {
 }
 
 /**
- * Reusable interactive listening multiple-choice question card.
- * Displays strictly language-appropriate phonetic cue, slim progress bar, Replay Sound trigger,
+ * Reusable interactive drill multiple-choice question card.
+ * Displays strictly language-appropriate cue/prompt, slim progress bar, Replay Sound trigger,
  * graceful fallback notice on TTS failure, and a 2x2 choice grid.
  */
 export function AudioChoiceQuestion({
@@ -37,6 +37,7 @@ export function AudioChoiceQuestion({
   const [audioWarning, setAudioWarning] = useState(false);
 
   const handleReplay = () => {
+    if (!item.audioIt) return;
     setAudioWarning(false);
     const sid = startSpeechSession();
     void speakItalian(item.audioIt, 0.82, sid).catch((err) => {
@@ -51,6 +52,14 @@ export function AudioChoiceQuestion({
       : lang === 'it'
         ? (item.cueIt ?? item.cueEn)
         : item.cueEn;
+
+  const headingText = item.promptOverride
+    ? tr(item.promptOverride)
+    : tr({
+        bn: 'ইতালীয় অডিও শুনে সঠিক উত্তরটি বাছুন',
+        en: 'Listen to the Italian audio and choose the matching answer',
+        it: 'Ascolta l’audio in italiano e scegli la risposta corretta',
+      });
 
   return (
     <GlassCard neon className="p-3.5 sm:p-4 space-y-3">
@@ -75,41 +84,54 @@ export function AudioChoiceQuestion({
       </div>
 
       <h2 className="bn text-sm sm:text-base font-extrabold text-white">
-        {tr({
-          bn: 'ইতালীয় অডিও শুনে সঠিক উত্তরটি বাছুন',
-          en: 'Listen to the Italian audio and choose the matching answer',
-          it: 'Ascolta l’audio in italiano e scegli la risposta corretta',
-        })}
+        {headingText}
       </h2>
 
-      {/* Audio Player + Single-Language Phonetic Cue Strip */}
+      {/* Audio Player + Single-Language Cue / Stem Strip */}
       <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-2.5 rounded-2xl border border-neon/25 bg-white/5 p-3">
         <div className="min-w-0 space-y-0.5">
-          <p className="text-[10px] font-extrabold uppercase tracking-wide text-ink-3">
-            {tr({ bn: 'উচ্চারণ সংকেত', en: 'Phonetic Cue', it: 'Suggerimento audio' })}
-          </p>
-          <p className="bn text-base sm:text-lg font-extrabold text-mint break-words">
-            {cueText}
-          </p>
+          {item.promptIt ? (
+            <>
+              <p className="text-lg sm:text-xl font-extrabold text-white leading-snug break-words">
+                {item.promptIt}
+              </p>
+              {cueText && (
+                <p className="bn text-xs sm:text-sm font-semibold text-mint break-words">
+                  {cueText}
+                </p>
+              )}
+            </>
+          ) : (
+            <>
+              <p className="text-[10px] font-extrabold uppercase tracking-wide text-ink-3">
+                {tr({ bn: 'উচ্চারণ সংকেত', en: 'Phonetic Cue', it: 'Suggerimento audio' })}
+              </p>
+              <p className="bn text-base sm:text-lg font-extrabold text-mint break-words">
+                {cueText}
+              </p>
+            </>
+          )}
         </div>
 
-        <Button
-          type="button"
-          variant="ghost"
-          data-testid="drill-replay-btn"
-          onClick={handleReplay}
-          className="min-h-10 shrink-0 border-neon/40 bg-neon/10 px-3.5 text-xs sm:text-sm text-neon hover:bg-neon/20"
-        >
-          <Volume2 size={16} />
-          <span>{tr({ bn: 'আবার শুনুন', en: 'Replay Sound', it: 'Riascolta' })}</span>
-        </Button>
+        {item.audioIt && (
+          <Button
+            type="button"
+            variant="ghost"
+            data-testid="drill-replay-btn"
+            onClick={handleReplay}
+            className="min-h-10 shrink-0 border-neon/40 bg-neon/10 px-3.5 text-xs sm:text-sm text-neon hover:bg-neon/20"
+          >
+            <Volume2 size={16} />
+            <span>{tr({ bn: 'আবার শুনুন', en: 'Replay Sound', it: 'Riascolta' })}</span>
+          </Button>
+        )}
       </div>
 
       {audioWarning && (
         <p className="bn rounded-xl border border-gold/35 bg-gold/10 px-3 py-2 text-xs font-semibold text-gold">
           {tr({
-            bn: 'এই ডিভাইসে সরাসরি ভয়েস প্লেব্যাক পাওয়া যাচ্ছে না; উপরের উচ্চারণ সংকেত দেখে উত্তর দিন।',
-            en: 'Device voice playback is unavailable here—use the phonetic cue above to answer.',
+            bn: 'এই ডিভাইসে সরাসরি ভয়েস প্লেব্যাক পাওয়া যাচ্ছে না; উপরের সংকেত দেখে উত্তর দিন।',
+            en: 'Device voice playback is unavailable here—use the cue above to answer.',
             it: 'Sintesi vocale non disponibile: usa il suggerimento sopra per rispondere.',
           })}
         </p>
@@ -121,6 +143,8 @@ export function AudioChoiceQuestion({
           const isPicked = pickedId === opt.id;
           const showResult = pickedId !== null;
           const isRight = opt.id === item.id;
+          const subLabel = opt.secondaryLabelTr ? tr(opt.secondaryLabelTr) : opt.secondaryLabel;
+          const labelLen = opt.primaryLabel.length;
           return (
             <button
               key={opt.id}
@@ -137,12 +161,23 @@ export function AudioChoiceQuestion({
                 showResult && !isPicked && !isRight && 'opacity-55',
               )}
             >
-              <span className="text-2xl sm:text-3xl font-extrabold text-white leading-tight tabular-nums">
+              <span
+                className={cx(
+                  'font-extrabold text-white leading-tight tabular-nums break-words max-w-full',
+                  labelLen > 12
+                    ? 'text-sm sm:text-base'
+                    : labelLen > 6
+                      ? 'text-lg sm:text-xl'
+                      : 'text-2xl sm:text-3xl',
+                )}
+              >
                 {opt.primaryLabel}
               </span>
-              <span className="mt-0.5 text-xs sm:text-sm font-bold text-mint truncate max-w-full">
-                {opt.secondaryLabel}
-              </span>
+              {subLabel && (
+                <span className="bn mt-0.5 text-xs sm:text-sm font-bold text-mint truncate max-w-full">
+                  {subLabel}
+                </span>
+              )}
             </button>
           );
         })}
