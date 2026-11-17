@@ -6,6 +6,7 @@ import {
   CalendarCheck,
   ChevronRight,
   Flame,
+  FlaskConical,
   Info,
   Languages,
   Layers,
@@ -22,17 +23,17 @@ import { LEVEL_ORDER } from '../content/courses';
 import { useRouter } from '../app/router';
 import { useI18n } from '../lib/i18n';
 import { useProgress } from '../state/ProgressContext';
-import { badges, isLevelUnlocked, levelProgress, streak } from '../state/progress';
+import { badges, isLevelUnlocked, isShowAllLockedModulesEnabled, levelProgress, streak } from '../state/progress';
 import { GlassCard, ProgressBar, cx } from '../components/ui';
 import { ItalianRibbonWave } from '../components/BrandDecor';
 import { StatsRow } from '../components/StatsRow';
 
-const BADGE_META: Record<string, { bn: string; en: string; icon: LucideIcon; tone: string }> = {
-  'first-lesson': { bn: 'প্রথম পাঠ', en: 'First lesson', icon: BookOpen, tone: 'text-neon' },
-  'perfect-quiz': { bn: '১০০% কুইজ', en: 'Perfect quiz', icon: Layers, tone: 'text-neon' },
-  'streak-3': { bn: '৩ দিনের স্ট্রিক', en: '3-day streak', icon: Flame, tone: 'text-pink' },
-  'xp-500': { bn: '৫০০ XP', en: '500 XP', icon: Star, tone: 'text-gold' },
-  'unit-1': { bn: 'ইউনিট ১ সম্পন্ন', en: 'Unit 1 complete', icon: CalendarCheck, tone: 'text-neon' },
+const BADGE_META: Record<string, { bn: string; en: string; it: string; icon: LucideIcon; tone: string }> = {
+  'first-lesson': { bn: 'প্রথম পাঠ', en: 'First lesson', it: 'Prima lezione', icon: BookOpen, tone: 'text-neon' },
+  'perfect-quiz': { bn: '১০০% কুইজ', en: 'Perfect quiz', it: 'Quiz perfetto', icon: Layers, tone: 'text-neon' },
+  'streak-3': { bn: '৩ দিনের স্ট্রিক', en: '3-day streak', it: 'Serie di 3 giorni', icon: Flame, tone: 'text-pink' },
+  'xp-500': { bn: '৫০০ XP', en: '500 XP', it: '500 XP', icon: Star, tone: 'text-gold' },
+  'unit-1': { bn: 'ইউনিট ১ সম্পন্ন', en: 'Unit 1 complete', it: 'Unità 1 completata', icon: CalendarCheck, tone: 'text-neon' },
 };
 
 export function ProfileScreen() {
@@ -44,6 +45,7 @@ export function ProfileScreen() {
   const current = [...LEVEL_ORDER].reverse().find((id) => isLevelUnlocked(state, id)) ?? 'A1';
   const earned = badges(state);
   const goal = state.settings.dailyGoalMinutes;
+  const showAllLocked = isShowAllLockedModulesEnabled(state);
 
   return (
     <div className="animate-rise space-y-4">
@@ -73,7 +75,9 @@ export function ProfileScreen() {
             </span>
           </div>
           <h1 className="bn mt-3 text-2xl leading-tight font-extrabold text-white">{t('learner')}</h1>
-          <p className="mt-0.5 text-sm font-semibold text-ink-2">{current} · Italian Learner</p>
+          <p className="mt-0.5 text-sm font-semibold text-ink-2">
+            {current} · {tr({ bn: 'ইতালিয়ান শিক্ষার্থী', en: 'Italian Learner', it: 'Studente di italiano' })}
+          </p>
         </div>
       </section>
 
@@ -159,7 +163,7 @@ export function ProfileScreen() {
             role="radiogroup"
             aria-label={t('explainLang')}
           >
-            {(['bn', 'en'] as const).map((l) => (
+            {(['bn', 'en', 'it'] as const).map((l) => (
               <button
                 key={l}
                 type="button"
@@ -167,14 +171,64 @@ export function ProfileScreen() {
                 aria-checked={lang === l}
                 onClick={() => dispatch({ type: 'setExplainLang', lang: l })}
                 className={cx(
-                  'min-h-8 rounded-full px-4 text-sm font-extrabold transition',
+                  'min-h-8 rounded-full px-3 text-xs sm:text-sm font-extrabold transition',
                   lang === l ? 'bg-grad-primary text-navy-950 glow-neon' : 'text-ink-2 hover:text-white',
                 )}
               >
-                {l === 'bn' ? 'বাংলা' : 'English'}
+                {l === 'bn' ? 'বাংলা' : l === 'en' ? 'English' : 'Italiano'}
               </button>
             ))}
           </div>
+        </div>
+
+        {/* Developer Testing Toggle: Show All Locked Modules */}
+        <div className="px-4 py-3.5 space-y-2.5">
+          <div className="flex items-center gap-3">
+            <span
+              className={cx(
+                'inline-flex h-10 w-10 shrink-0 items-center justify-center rounded-full border',
+                showAllLocked
+                  ? 'border-gold/60 bg-gold/15 text-gold'
+                  : 'border-white/20 bg-white/5 text-ink-2',
+              )}
+            >
+              <FlaskConical size={20} />
+            </span>
+            <div className="min-w-0 flex-1">
+              <p className="bn text-base font-extrabold text-white">{t('showAllLockedModules')}</p>
+              <p className="bn text-xs font-semibold text-ink-2">{t('showAllLockedSub')}</p>
+            </div>
+            <button
+              type="button"
+              role="switch"
+              aria-checked={showAllLocked}
+              aria-label={t('showAllLockedModules')}
+              onClick={() => dispatch({ type: 'setShowAllLockedModules', enabled: !showAllLocked })}
+              className={cx(
+                'relative inline-flex h-8 w-14 shrink-0 items-center rounded-full border p-1 transition',
+                showAllLocked
+                  ? 'border-gold bg-gold/25 shadow-[0_0_16px_-4px_rgba(255,209,102,0.65)]'
+                  : 'border-white/20 bg-[#041d19]',
+              )}
+            >
+              <span
+                className={cx(
+                  'h-5.5 w-5.5 rounded-full transition-transform',
+                  showAllLocked ? 'translate-x-6 bg-gold' : 'translate-x-0 bg-ink-3',
+                )}
+              />
+            </button>
+          </div>
+
+          {showAllLocked && (
+            <div
+              role="status"
+              className="flex items-center gap-2 rounded-xl border border-gold/45 bg-gold/10 px-3 py-2 text-xs font-extrabold text-gold"
+            >
+              <FlaskConical size={14} className="shrink-0" />
+              <span>{t('testingModeOn')}</span>
+            </div>
+          )}
         </div>
       </GlassCard>
 

@@ -3,7 +3,7 @@ import { AlertTriangle, BookOpen, CheckCircle2, ChevronRight, Plus, Puzzle } fro
 import { GRAMMAR_TOPICS, richGrammarById } from '../../content/grammar';
 import { richWordByKey, sentencesFor, type BankLevel } from '../../content/bank';
 import { useRouter } from '../../app/router';
-import { useI18n } from '../../lib/i18n';
+import { resolveExamOptions, useI18n } from '../../lib/i18n';
 import { dayKey } from '../../lib/date';
 import { useProgress, useStudyTimer } from '../../state/ProgressContext';
 import { Button, GlassCard, cx } from '../../components/ui';
@@ -44,7 +44,7 @@ export function GrammarHubScreen() {
 export function GrammarTopicScreen({ id }: { id: string }) {
   const { navigate } = useRouter();
   const { dispatch } = useProgress();
-  const { t, tr } = useI18n();
+  const { lang, t, tr } = useI18n();
   useStudyTimer();
 
   const [picked, setPicked] = useState<Record<string, number>>({});
@@ -96,8 +96,8 @@ export function GrammarTopicScreen({ id }: { id: string }) {
           </h2>
           {topic.commonMistakes.map((m, idx) => (
             <div key={idx} className="rounded-xl border border-white/10 bg-white/[0.03] p-3 text-sm">
-              <p className="font-bold text-pink line-through">✗ {m.wrong}</p>
-              <p className="mt-0.5 font-extrabold text-neon">✓ {m.right}</p>
+              <p className="font-bold text-pink line-through">✗ {tr(m.wrong)}</p>
+              <p className="mt-0.5 font-extrabold text-neon">✓ {tr(m.right)}</p>
               <p className="bn mt-1 text-xs text-ink-2">{tr(m.note)}</p>
             </div>
           ))}
@@ -109,12 +109,13 @@ export function GrammarTopicScreen({ id }: { id: string }) {
           <h2 className="text-lg font-extrabold">{t('quickPractice')}</h2>
           {topic.exercises.map((q) => {
             const ans = picked[q.id];
+            const opts = resolveExamOptions(q, lang);
             return (
               <div key={q.id} className="space-y-2 border-t border-white/10 pt-3 first:border-t-0 first:pt-0">
                 <p className="bn text-sm font-bold text-ink-2">{tr(q.prompt)}</p>
                 {q.it && <p className="text-base font-extrabold">{q.it}</p>}
                 <div className="flex flex-wrap gap-2">
-                  {q.options.map((opt, idx) => (
+                  {opts.map((opt, idx) => (
                     <button
                       key={opt}
                       type="button"

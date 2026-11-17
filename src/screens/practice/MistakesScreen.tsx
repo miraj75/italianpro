@@ -2,13 +2,13 @@ import { useMemo, useState } from 'react';
 import { CheckCircle2, HelpCircle, Puzzle, RotateCcw, XCircle } from 'lucide-react';
 import { findLesson } from '../../content/courses';
 import type { PuzzleChallenge } from '../../content/academyTypes';
-import type { QuizQuestion } from '../../content/types';
+import type { ExplainLang, QuizQuestion } from '../../content/types';
 import { SENTENCES } from '../../content/bank';
 import { A1_PUZZLES } from '../../content/a1/puzzles';
 import { A2_PUZZLES } from '../../content/a2/puzzles';
 import { B1_PUZZLES } from '../../content/b1/puzzles';
 import { B2_PUZZLES } from '../../content/b2/puzzles';
-import { useI18n } from '../../lib/i18n';
+import { resolveExamOptions, useI18n } from '../../lib/i18n';
 import { dayKey } from '../../lib/date';
 import { useProgress, useStudyTimer } from '../../state/ProgressContext';
 import type { ProgressState } from '../../state/progress';
@@ -56,15 +56,16 @@ export interface PuzzleMistakeItem {
   correctAnswer: string;
 }
 
-export function collectQuizMistakes(state: ProgressState): QuizMistakeItem[] {
+export function collectQuizMistakes(state: ProgressState, lang: ExplainLang = 'bn'): QuizMistakeItem[] {
   return Object.entries(state.mistakes).flatMap(([key, count]) => {
     const [lessonId = '', qid = ''] = key.split(':');
     const found = findLesson(lessonId);
     const question = found?.lesson.quiz.find((q) => q.id === qid);
     if (!found || !question) return [];
-    const correctAnswer = question.options[question.answer] ?? '';
+    const opts = resolveExamOptions(question, lang);
+    const correctAnswer = opts[question.answer] ?? '';
     const recorded = state.mistakeAnswers?.[key];
-    const fallbackWrong = question.options.find((_, i) => i !== question.answer) ?? '—';
+    const fallbackWrong = opts.find((_, i) => i !== question.answer) ?? '—';
     return [
       {
         key,
@@ -112,10 +113,10 @@ type ReviewMode =
 /** Integrates both lesson quiz mistakes and puzzle mistakes with question/answer inspection and retry clearing. */
 export function MistakesScreen() {
   const { state, dispatch } = useProgress();
-  const { t, tr } = useI18n();
+  const { lang, t, tr } = useI18n();
   useStudyTimer();
 
-  const quizMistakes = useMemo(() => collectQuizMistakes(state), [state]);
+  const quizMistakes = useMemo(() => collectQuizMistakes(state, lang), [state, lang]);
   const puzzleMistakes = useMemo(() => collectPuzzleMistakes(state), [state]);
   const totalMistakes = quizMistakes.length + puzzleMistakes.length;
 
@@ -141,7 +142,7 @@ export function MistakesScreen() {
     return (
       <div className="animate-rise space-y-4">
         <SubHeader
-          title="Review Quiz Mistakes"
+          title={tr({ bn: 'কুইজের ভুল অনুশীলন', en: 'Review Quiz Mistakes', it: 'Rivedi errori quiz' })}
           right={
             <Button variant="ghost" className="min-h-10 px-4 text-sm" onClick={() => setMode({ kind: 'overview' })}>
               {t('all')}
@@ -158,7 +159,7 @@ export function MistakesScreen() {
     if (!current) {
       return (
         <div className="animate-rise space-y-4">
-          <SubHeader title="Review Puzzle Mistakes" />
+          <SubHeader title={tr({ bn: 'পাজলের ভুল অনুশীলন', en: 'Review Puzzle Mistakes', it: 'Rivedi errori puzzle' })} />
           <GlassCard neon className="p-6 text-center">
             <p className="text-4xl font-bold text-grad-primary tabular-nums">
               {mode.cleared}/{mode.queue.length}
@@ -175,7 +176,7 @@ export function MistakesScreen() {
     return (
       <div className="animate-rise space-y-4">
         <SubHeader
-          title={`Retry Puzzle (${mode.index + 1}/${mode.queue.length})`}
+          title={`${tr({ bn: 'পাজল পুনরায় চেষ্টা', en: 'Retry Puzzle', it: 'Riprova puzzle' })} (${mode.index + 1}/${mode.queue.length})`}
           right={
             <Button variant="ghost" className="min-h-10 px-4 text-sm" onClick={() => setMode({ kind: 'overview' })}>
               {t('all')}
@@ -210,7 +211,10 @@ export function MistakesScreen() {
 
   return (
     <div className="animate-rise space-y-4">
-      <SubHeader title="Review Mistakes" subtitle={`${totalMistakes} reviewable items`} />
+      <SubHeader
+        title={tr({ bn: 'ভুল সংশোধন', en: 'Review Mistakes', it: 'Rivedi errori' })}
+        subtitle={`${totalMistakes} ${tr({ bn: 'টি সংশোধনযোগ্য আইটেম', en: 'reviewable items', it: 'elementi da rivedere' })}`}
+      />
 
       {doneSummary && (
         <GlassCard neon className="flex flex-wrap items-center justify-between gap-3 p-4">

@@ -281,7 +281,7 @@ export const GRAMMAR_DETAILS_A2: Record<string, GrammarDetailEntry> = {
       en: 'Ongoing duration: present + da; ago: fa; in (future time): fra/tra; completed span: per.',
     },
     commonMistakes: [
-      { wrong: 'Studio italiano per due anni (এখনো পড়ছি)।', right: 'Studio italiano da due anni.', note: { bn: 'এখনো চলছে বোঝাতে da, per নয়।', en: 'Ongoing duration requires da, not per.' } },
+      { wrong: 'Studio italiano per due anni (ongoing).', right: 'Studio italiano da due anni.', note: { bn: 'এখনো চলছে বোঝাতে da, per নয়।', en: 'Ongoing duration requires da, not per.' } },
     ],
     examples: [
       { it: 'Il contratto scade fra due settimane.', tr: { bn: 'চুক্তির মেয়াদ দুই সপ্তাহ পর শেষ হবে।', en: 'The contract expires in two weeks.' } },
@@ -489,7 +489,7 @@ export const GRAMMAR_DETAILS_A2: Record<string, GrammarDetailEntry> = {
       en: 'Adjectives: buono→migliore/ottimo, cattivo→peggiore/pessimo. Adverbs: bene→meglio, male→peggio.',
     },
     commonMistakes: [
-      { wrong: 'Questo è un migliore lavoro (কিন্তু: আমি ভালো কাজ করি → lavoro migliore vs lavoro meglio)।', right: 'Questo è un lavoro migliore / Oggi lavoro meglio.', note: { bn: 'বিশেষ্যের সাথে migliore, ক্রিয়ার সাথে meglio।', en: 'Use migliore with nouns and meglio with verbs.' } },
+      { wrong: 'Oggi lavoro migliore.', right: 'Questo è un lavoro migliore / Oggi lavoro meglio.', note: { bn: 'বিশেষ্যের সাথে migliore, ক্রিয়ার সাথে meglio।', en: 'Use migliore with nouns and meglio with verbs.' } },
     ],
     examples: [
       { it: 'Senza traffico arriviamo molto meglio.', tr: { bn: 'যানজট না থাকলে আমরা অনেক সহজে পৌঁছাতে পারি।', en: 'Without traffic we get there much better.' } },

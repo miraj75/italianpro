@@ -132,7 +132,12 @@ const lesson2: Lesson = {
     {
       id: 'q2',
       prompt: { bn: '"il binario" অর্থ কী?', en: 'What does "il binario" mean?' },
-      options: ['টিকিট', 'প্ল্যাটফর্ম / রেললাইন', 'যাত্রী', 'স্টেশন'],
+      options: ['Ticket', 'Platform / track', 'Passenger', 'Station'],
+      localizedOptions: {
+        bn: ['টিকিট', 'প্ল্যাটফর্ম / রেললাইন', 'যাত্রী', 'স্টেশন'],
+        en: ['Ticket', 'Platform / track', 'Passenger', 'Station'],
+        it: ['Biglietto', 'Binario', 'Passeggero', 'Stazione'],
+      },
       answer: 1,
       explanation: { bn: 'il binario = ট্রেনের প্ল্যাটফর্ম।', en: 'il binario means train platform.' },
     },
@@ -225,7 +230,12 @@ const lesson3: Lesson = {
     {
       id: 'q4',
       prompt: { bn: '"la febbre" অর্থ কী?', en: 'What does "la febbre" mean?' },
-      options: ['কাশি', 'জ্বর', 'ওষুধ', 'ডাক্তার'],
+      options: ['Cough', 'Fever', 'Medicine', 'Doctor'],
+      localizedOptions: {
+        bn: ['কাশি', 'জ্বর', 'ওষুধ', 'ডাক্তার'],
+        en: ['Cough', 'Fever', 'Medicine', 'Doctor'],
+        it: ['Tosse', 'Febbre', 'Medicina', 'Medico'],
+      },
       answer: 1,
       explanation: { bn: 'la febbre = জ্বর।', en: 'la febbre = fever.' },
     },

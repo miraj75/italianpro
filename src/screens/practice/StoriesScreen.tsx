@@ -18,7 +18,7 @@ import { loadLevelStories, findStoryById } from '../../content/registry';
 import { grammarById } from '../../content/grammar';
 import { findGlossaryBankKey } from '../../content/bank';
 import { useRouter } from '../../app/router';
-import { useI18n } from '../../lib/i18n';
+import { resolveExamOptions, useI18n } from '../../lib/i18n';
 import { dayKey } from '../../lib/date';
 import { isSpeechSessionActive, speakItalian, startSpeechSession, stopSpeaking } from '../../lib/speech';
 import { useProgress, useStudyTimer } from '../../state/ProgressContext';
@@ -90,7 +90,7 @@ export function isValidStorySentenceOrder(picked: readonly string[], expected: r
 export function StoriesScreen() {
   const { route, navigate } = useRouter();
   const { state } = useProgress();
-  const { t, tr, lang } = useI18n();
+  const { t, tr } = useI18n();
   useStudyTimer();
 
   const initial = route.params.get('level');
@@ -155,7 +155,7 @@ export function StoriesScreen() {
                   <div>
                     <div className="flex items-start justify-between gap-2">
                       <p className="text-xs font-semibold text-ink-3 tabular-nums">
-                        {s.level} · {s.readingMinutes} {t('minutes')} · {s.topic[lang]}
+                        {s.level} · {s.readingMinutes} {t('minutes')} · {tr(s.topic)}
                       </p>
                       <div className="flex items-center gap-1.5 shrink-0">
                         {saved && <Bookmark size={15} className="text-gold fill-gold" aria-label="bookmarked" />}
@@ -184,7 +184,7 @@ export function StoriesScreen() {
 export function StoryReaderScreen({ storyId }: { storyId: string }) {
   const { navigate } = useRouter();
   const { state, dispatch } = useProgress();
-  const { t, tr } = useI18n();
+  const { lang, t, tr } = useI18n();
   useStudyTimer();
 
   const [story, setStory] = useState<StoryItem | null>(null);
@@ -234,7 +234,7 @@ export function StoryReaderScreen({ storyId }: { storyId: string }) {
   if (!story) {
     return (
       <div className="py-10 text-center">
-        <p className="text-ink-2">Story not found</p>
+        <p className="text-ink-2">{tr({ bn: 'গল্প খুঁজে পাওয়া যায়নি', en: 'Story not found', it: 'Storia non trovata' })}</p>
         <Button variant="ghost" className="mt-4" onClick={() => navigate('/practice/stories')}>
           <ArrowLeft size={18} /> {t('stories')}
         </Button>
@@ -458,11 +458,12 @@ export function StoryReaderScreen({ storyId }: { storyId: string }) {
         {/* 1. MCQ */}
         {story.comprehension.mcq.map((q) => {
           const picked = mcqChoice[q.id];
+          const opts = resolveExamOptions(q, lang);
           return (
             <div key={q.id} className="space-y-2 border-t border-white/10 pt-3 first:border-t-0 first:pt-0">
               <p className="bn font-bold">{tr(q.prompt)}</p>
               <div className="grid gap-2 sm:grid-cols-2">
-                {q.options.map((opt, idx) => {
+                {opts.map((opt, idx) => {
                   const isRight = idx === q.answer;
                   const chosen = picked === idx;
                   return (
@@ -520,7 +521,9 @@ export function StoryReaderScreen({ storyId }: { storyId: string }) {
                               : 'border-white/10 opacity-60',
                       )}
                     >
-                      {val ? 'Vero / সত্য' : 'Falso / মিথ্যা'}
+                      {val
+                        ? tr({ bn: 'সত্য (Vero)', en: 'True (Vero)', it: 'Vero' })
+                        : tr({ bn: 'মিথ্যা (Falso)', en: 'False (Falso)', it: 'Falso' })}
                     </button>
                   );
                 })}
@@ -580,7 +583,7 @@ export function StoryReaderScreen({ storyId }: { storyId: string }) {
                 }}
                 className="inline-flex items-center gap-1 text-xs font-bold text-ink-3 hover:text-ink"
               >
-                <RotateCcw size={13} /> Reset
+                <RotateCcw size={13} /> {tr({ bn: 'রিসেট', en: 'Reset', it: 'Ripristina' })}
               </button>
             </div>
             <div className="space-y-1.5 rounded-2xl border border-dashed border-white/15 p-3">
@@ -654,9 +657,11 @@ export function StoryReaderScreen({ storyId }: { storyId: string }) {
               {checked && (
                 <div className="rounded-xl bg-white/5 p-3 text-sm">
                   <p className="font-bold text-cyan">
-                    Keywords matched: {matchedCount}/{sa.keywords.length}
+                    {tr({ bn: 'মিলিত মূল শব্দ:', en: 'Keywords matched:', it: 'Parole chiave trovate:' })} {matchedCount}/{sa.keywords.length}
                   </p>
-                  <p className="mt-1 font-semibold text-mint">Model: {sa.sampleAnswerIt}</p>
+                  <p className="mt-1 font-semibold text-mint">
+                    {tr({ bn: 'নমুনা:', en: 'Model:', it: 'Modello:' })} {sa.sampleAnswerIt}
+                  </p>
                 </div>
               )}
             </div>

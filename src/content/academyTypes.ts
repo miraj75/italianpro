@@ -52,8 +52,8 @@ export interface RichSentenceItem {
 }
 
 export interface GrammarMistake {
-  wrong: string;
-  right: string;
+  wrong: string | Tr;
+  right: string | Tr;
   note: Tr;
 }
 

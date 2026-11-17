@@ -14,11 +14,13 @@ import {
   Trophy,
   type LucideIcon,
 } from 'lucide-react';
+import type { LevelId } from '../content/types';
 import { useRouter } from '../app/router';
 import { useI18n } from '../lib/i18n';
 import { useProgress } from '../state/ProgressContext';
-import { badges, levelProgress, minutesToday, streak, type TaskKind } from '../state/progress';
-import { currentLesson, dailyPlan } from '../state/plan';
+import { badges, getCurrentLevel, minutesToday, streak, type TaskKind } from '../state/progress';
+import { dailyPlan } from '../state/plan';
+import { getCourseOverview } from '../lib/courseOverview';
 import { GlassCard, IconTile, ProgressBar, ProgressRing, cx, type Tone } from '../components/ui';
 import { ItalianRibbonWave } from '../components/BrandDecor';
 import { StatsRow } from '../components/StatsRow';
@@ -32,28 +34,32 @@ const PLAN_ICONS: Record<TaskKind, { icon: LucideIcon; tone: Tone }> = {
   challenge: { icon: Trophy, tone: 'gold' },
 };
 
+const LEVEL_BADGE_STYLE: Record<LevelId, string> = {
+  A1: 'border-neon/60 bg-neon/15 text-neon shadow-[0_0_16px_-4px_rgba(0,245,160,0.55)]',
+  A2: 'border-cyan/60 bg-cyan/15 text-cyan shadow-[0_0_16px_-4px_rgba(39,223,255,0.55)]',
+  B1: 'border-violet/60 bg-violet/15 text-violet shadow-[0_0_16px_-4px_rgba(168,85,247,0.55)]',
+  B2: 'border-gold/60 bg-gold/15 text-gold shadow-[0_0_16px_-4px_rgba(255,209,102,0.55)]',
+};
+
 export function HomeScreen() {
   const { state } = useProgress();
   const { navigate } = useRouter();
   const { t, tr } = useI18n();
   const goal = state.settings.dailyGoalMinutes;
   const minutes = minutesToday(state);
-  const ref = currentLesson(state);
+  const activeLevel = getCurrentLevel(state);
+  const overview = getCourseOverview(state, activeLevel);
   const plan = dailyPlan(state);
   const challengeDone = state.days[dayKey()]?.tasks.includes('challenge') ?? false;
 
-  const currentLvlProgress = ref ? levelProgress(state, ref.level.id) : { done: 0, total: 1 };
-  const lessonScore = ref ? state.lessons[ref.lesson.id]?.bestScore : undefined;
-  const continuePct =
-    lessonScore !== undefined
-      ? Math.round(lessonScore * 100)
-      : currentLvlProgress.total > 0
-        ? Math.max(15, Math.round((currentLvlProgress.done / currentLvlProgress.total) * 100))
-        : 20;
+  const courseCounterText =
+    overview.unitKind === 'modules'
+      ? t('modulesProgress', { done: overview.completedModules, total: overview.totalModules })
+      : t('lessonsProgress', { done: overview.completedModules, total: overview.totalModules });
 
   return (
     <div className="animate-rise space-y-4">
-      {/* Hero Greeting Card */}
+      {/* Hero Greeting Card — reflects only the learner's active CEFR course */}
       <section
         className="relative overflow-hidden rounded-3xl border border-neon/35 p-5 sm:p-6 shadow-[0_12px_32px_-12px_rgba(0,0,0,0.7)]"
         style={{
@@ -65,17 +71,15 @@ export function HomeScreen() {
           <h1 className="text-[2.1rem] sm:text-[2.3rem] leading-tight font-extrabold text-white">
             Buongiorno! 👋
           </h1>
-          <p className="bn mt-1.5 max-w-[15rem] text-base sm:text-lg leading-snug font-semibold text-ink/95">
+          <p className="bn mt-1.5 max-w-[15.5rem] text-base sm:text-lg leading-snug font-semibold text-ink/95">
             {t('greetingSub', { n: goal })}
           </p>
-          {ref && (
-            <span className="mt-4 inline-flex items-center gap-2 rounded-full border border-neon/45 bg-[#04241f]/85 px-3.5 py-1.5 text-sm font-bold text-ink shadow-[0_0_16px_-4px_rgba(0,245,160,0.45)]">
-              <BookOpen size={16} className="text-neon" />
-              <span>
-                {ref.level.id} · {tr(ref.level.name)}
-              </span>
+          <span className="mt-4 inline-flex items-center gap-2 rounded-full border border-neon/45 bg-[#04241f]/85 px-3.5 py-1.5 text-sm font-bold text-ink shadow-[0_0_16px_-4px_rgba(0,245,160,0.45)]">
+            <BookOpen size={16} className="text-neon" />
+            <span>
+              {overview.levelId} · {tr(overview.levelName)}
             </span>
-          )}
+          </span>
         </div>
         <ItalianRibbonWave className="absolute right-0 bottom-0 h-14 w-[78%]" />
       </section>
@@ -111,41 +115,62 @@ export function HomeScreen() {
         ]}
       />
 
-      {/* Continue Learning Card */}
-      {ref && (
-        <GlassCard className="border-neon/30 p-4 sm:p-5">
-          <h2 className="bn mb-3.5 flex items-center gap-2 text-xl font-extrabold text-white">
+      {/* Continue Learning — single direct card for the active CEFR course & current module */}
+      <GlassCard neon className="p-4 sm:p-5 space-y-3.5">
+        <div className="flex items-center justify-between gap-2">
+          <h2 className="bn flex items-center gap-2 text-xl font-extrabold text-white">
             <CalendarCheck size={20} className="text-neon" />
             <span>{t('continueLearning')}</span>
           </h2>
-          <button
-            type="button"
-            onClick={() => navigate(`/lesson/${ref.lesson.id}`)}
-            className="flex w-full items-center gap-3.5 text-left group"
-          >
-            <img
-              src="./img/colosseum.webp"
-              alt=""
-              className="h-20 w-20 shrink-0 rounded-2xl border border-white/15 object-cover shadow-md"
-            />
-            <span className="min-w-0 flex-1">
-              <span className="bn block text-xs sm:text-sm font-semibold text-ink-2">
-                {ref.level.id} · {t('unit')} {ref.unit.number} · {t('lesson')} {ref.lesson.number}
-              </span>
-              <span className="mt-0.5 block text-lg sm:text-xl leading-snug font-extrabold text-white">
-                {ref.lesson.title}
-              </span>
-              <span className="mt-2 flex items-center gap-2.5">
-                <ProgressBar value={continuePct / 100} className="h-2.5 flex-1" />
-                <span className="text-xs font-extrabold text-ink-2 tabular-nums">{continuePct}%</span>
-              </span>
+          <span className="text-xs font-extrabold text-neon tabular-nums">{overview.percentage}%</span>
+        </div>
+
+        <button
+          type="button"
+          onClick={() => navigate(overview.continueRoute)}
+          className="group block w-full rounded-2xl border border-neon/25 bg-[#04211c]/85 p-4 text-left transition hover:border-neon/65 active:scale-[0.99]"
+        >
+          {/* Active CEFR Course + Overall Progress */}
+          <div className="flex items-center gap-3.5">
+            <span
+              className={cx(
+                'flex h-12 w-12 shrink-0 flex-col items-center justify-center rounded-2xl border text-center',
+                LEVEL_BADGE_STYLE[overview.levelId],
+              )}
+            >
+              <span className="text-lg leading-none font-extrabold tracking-tight">{overview.levelId}</span>
             </span>
-            <span className="bg-grad-primary glow-neon flex h-11 w-11 shrink-0 items-center justify-center rounded-full text-navy-950 transition group-hover:scale-105">
-              <Play size={18} fill="currentColor" className="translate-x-[1px]" />
+
+            <div className="min-w-0 flex-1">
+              <p className="truncate text-base sm:text-lg font-extrabold text-white">
+                {overview.levelId} — <span className="bn">{tr(overview.levelName)}</span>
+              </p>
+              <p className="bn text-xs font-semibold text-ink-2 tabular-nums">{courseCounterText}</p>
+            </div>
+          </div>
+
+          <ProgressBar value={overview.percentage / 100} className="mt-3 h-1.5" />
+
+          {/* Current Active Module + Direct Continue Action */}
+          <div className="mt-3.5 flex items-center justify-between gap-3 border-t border-white/10 pt-3.5">
+            <div className="min-w-0 flex-1">
+              <p className="bn text-xs font-bold text-cyan">
+                {t('currentModuleLabel')}:{' '}
+                <span className="text-white font-extrabold">{overview.nextTitle}</span>
+              </p>
+              <p className="mt-1 text-xs font-bold text-ink-2 tabular-nums">
+                {t('progressLabel')}: {overview.nextProgressText}
+              </p>
+              <ProgressBar value={overview.nextProgressRatio} className="mt-1.5 h-1.5" />
+            </div>
+
+            <span className="bg-grad-primary glow-neon inline-flex min-h-11 shrink-0 items-center gap-1.5 rounded-full px-4 py-2 text-sm font-extrabold text-navy-950 transition group-hover:brightness-105">
+              <Play size={15} fill="currentColor" />
+              <span className="bn">{t('continue')}</span>
             </span>
-          </button>
-        </GlassCard>
-      )}
+          </div>
+        </button>
+      </GlassCard>
 
       {/* Today's Learning Plan */}
       <GlassCard className="p-4 sm:p-5">

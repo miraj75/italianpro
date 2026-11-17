@@ -369,7 +369,7 @@ export const GRAMMAR_DETAILS_B1: Record<string, GrammarDetailEntry> = {
       en: 'Use simple future for present supposition and future perfect for past supposition.',
     },
     commonMistakes: [
-      { wrong: 'Deve essere uscito (ইংরেজি ধাঁচ).', right: 'Sarà uscito.', note: { bn: 'ইতালিয়ানে অনুমানে futuro anteriore (Sarà uscito) সবচেয়ে স্বাভাবিক।', en: 'Italian naturally prefers Sarà uscito for "He must have gone out".' } },
+      { wrong: 'Deve essere uscito.', right: 'Sarà uscito.', note: { bn: 'ইতালিয়ানে অনুমানে futuro anteriore (Sarà uscito) সবচেয়ে স্বাভাবিক।', en: 'Italian naturally prefers Sarà uscito for "He must have gone out".' } },
     ],
     examples: [
       { it: 'Nadia è molto sorridente oggi: avrà superato l’appello d’esame!', tr: { bn: 'নাদিয়াকে আজ খুব হাসিখুশি দেখাচ্ছে: নিশ্চয়ই পরীক্ষায় পাস করেছে!', en: 'Nadia is smiling a lot today: she must have passed her exam session!' } },
@@ -522,7 +522,7 @@ export const GRAMMAR_DETAILS_B1: Record<string, GrammarDetailEntry> = {
       en: 'Use aver / essere + past participle after dopo, per, di, senza to express a completed prior action by the same subject.',
     },
     commonMistakes: [
-      { wrong: 'Dopo mangiato... / Dopo avere mangiato (কথ্য) vs Dopo che ho...', right: 'Dopo aver letto il bando, ho presentato la domanda.', note: { bn: 'আনুষ্ঠানিক ও প্রমিত লেখায় dopo aver / essere + পার্টিসিপল সবচেয়ে সুন্দর।', en: 'dopo aver/essere + participle is the standard written construction.' } },
+      { wrong: 'Dopo che ho letto il bando...', right: 'Dopo aver letto il bando, ho presentato la domanda.', note: { bn: 'আনুষ্ঠানিক ও প্রমিত লেখায় dopo aver / essere + পার্টিসিপল সবচেয়ে সুন্দর।', en: 'dopo aver/essere + participle is the standard written construction.' } },
     ],
     examples: [
       { it: 'La ringrazio per aver risposto così rapidamente alla mia richiesta.', tr: { bn: 'আমার অনুরোধে এত দ্রুত সাড়া দেওয়ার জন্য আপনাকে ধন্যবাদ জানাই।', en: 'Thank you for replying so quickly to my request.' } },

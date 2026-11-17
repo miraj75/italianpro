@@ -1,7 +1,7 @@
 import { useEffect, useMemo, useRef, useState } from 'react';
 import { CheckCircle2, ChevronRight, Headphones, Plus, RotateCcw, Square, Volume2 } from 'lucide-react';
 import type { ListeningExercise, ListeningKind } from '../../content/academyTypes';
-import { LESSON_PASS_SCORE } from '../../content/types';
+import { LESSON_PASS_SCORE, type Tr } from '../../content/types';
 import type { BankLevel } from '../../content/bank';
 import { WORDS } from '../../content/bank';
 import { loadLevelListening } from '../../content/registry';
@@ -17,22 +17,22 @@ import { SubHeader } from '../../components/SubHeader';
 import { LevelTabs, isBankLevel } from '../../components/LevelTabs';
 import { QuizRunner, type QuizResult } from '../../components/QuizRunner';
 
-const KIND_LABELS: Record<ListeningKind, { bn: string; en: string }> = {
-  dialogue: { bn: 'সংলাপ', en: 'Dialogue' },
-  conversation: { bn: 'কথোপকথন', en: 'Conversation' },
-  announcement: { bn: 'ঘোষণা', en: 'Announcement' },
-  phone: { bn: 'ফোন কল', en: 'Phone call' },
-  interview: { bn: 'সাক্ষাৎকার', en: 'Interview' },
-  story: { bn: 'গল্প', en: 'Story' },
-  news: { bn: 'সংবাদ', en: 'News' },
-  discussion: { bn: 'আলোচনা', en: 'Discussion' },
-  formal: { bn: 'আনুষ্ঠানিক', en: 'Formal' },
+const KIND_LABELS: Record<ListeningKind, Tr> = {
+  dialogue: { bn: 'সংলাপ', en: 'Dialogue', it: 'Dialogo' },
+  conversation: { bn: 'কথোপকথন', en: 'Conversation', it: 'Conversazione' },
+  announcement: { bn: 'ঘোষণা', en: 'Announcement', it: 'Annuncio' },
+  phone: { bn: 'ফোন কল', en: 'Phone call', it: 'Telefonata' },
+  interview: { bn: 'সাক্ষাৎকার', en: 'Interview', it: 'Intervista' },
+  story: { bn: 'গল্প', en: 'Story', it: 'Storia' },
+  news: { bn: 'সংবাদ', en: 'News', it: 'Notizie' },
+  discussion: { bn: 'আলোচনা', en: 'Discussion', it: 'Discussione' },
+  formal: { bn: 'আনুষ্ঠানিক', en: 'Formal', it: 'Formale' },
 };
 
 export function ListeningScreen() {
   const { route, navigate } = useRouter();
   const { state, dispatch } = useProgress();
-  const { t, tr, lang } = useI18n();
+  const { t, tr } = useI18n();
   useStudyTimer();
 
   const initial = route.params.get('level');
@@ -277,7 +277,7 @@ export function ListeningScreen() {
         </Pill>
         {kinds.map((k) => (
           <Pill key={k} active={kind === k} onClick={() => setKind(k)}>
-            {KIND_LABELS[k][lang]}
+            {tr(KIND_LABELS[k])}
           </Pill>
         ))}
       </div>
@@ -308,7 +308,7 @@ export function ListeningScreen() {
                   </span>
                   <div className="min-w-0 flex-1">
                     <p className="text-xs font-semibold text-ink-3">
-                      {KIND_LABELS[ex.kind][lang]} · {ex.lines.length} lines · {ex.questions.length} Q
+                      {tr(KIND_LABELS[ex.kind])} · {ex.lines.length} {tr({ bn: 'লাইন', en: 'lines', it: 'righe' })} · {ex.questions.length} Q
                     </p>
                     <p className="truncate text-base font-extrabold">{ex.titleIt}</p>
                     <p className="bn truncate text-sm text-ink-2">{tr(ex.title)}</p>

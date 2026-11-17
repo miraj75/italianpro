@@ -1,6 +1,7 @@
 import { useEffect, useRef, useState } from 'react';
 import { CheckCircle2, ChevronRight, Mic, Square, Volume2 } from 'lucide-react';
 import type { SpeakingExercise, SpeakingKind } from '../../content/academyTypes';
+import type { Tr } from '../../content/types';
 import type { BankLevel } from '../../content/bank';
 import { loadLevelSpeaking } from '../../content/registry';
 import { useI18n } from '../../lib/i18n';
@@ -13,21 +14,21 @@ import { SubHeader } from '../../components/SubHeader';
 import { LevelTabs, isBankLevel } from '../../components/LevelTabs';
 import { useRouter } from '../../app/router';
 
-const SPEAKING_KINDS: Record<SpeakingKind, { bn: string; en: string }> = {
-  'read-aloud': { bn: 'পড়ে শোনানো', en: 'Read aloud' },
-  repeat: { bn: 'শুনে পুনরাবৃত্তি', en: 'Listen & repeat' },
-  'self-intro': { bn: 'নিজের পরিচয়', en: 'Self-intro' },
-  roleplay: { bn: 'রোলপ্লে', en: 'Role-play' },
-  qa: { bn: 'প্রশ্নোত্তর', en: 'Q&A' },
-  picture: { bn: 'ছবি বর্ণনা', en: 'Picture prompt' },
-  retell: { bn: 'গল্প বলা', en: 'Story retell' },
-  discussion: { bn: 'আলোচনা', en: 'Discussion' },
+const SPEAKING_KINDS: Record<SpeakingKind, Tr> = {
+  'read-aloud': { bn: 'পড়ে শোনানো', en: 'Read aloud', it: 'Lettura ad alta voce' },
+  repeat: { bn: 'শুনে পুনরাবৃত্তি', en: 'Listen & repeat', it: 'Ascolta e ripeti' },
+  'self-intro': { bn: 'নিজের পরিচয়', en: 'Self-intro', it: 'Presentazione' },
+  roleplay: { bn: 'রোলপ্লে', en: 'Role-play', it: 'Gioco di ruolo' },
+  qa: { bn: 'প্রশ্নোত্তর', en: 'Q&A', it: 'Domande e risposte' },
+  picture: { bn: 'ছবি বর্ণনা', en: 'Picture prompt', it: 'Descrizione immagine' },
+  retell: { bn: 'গল্প বলা', en: 'Story retell', it: 'Racconta la storia' },
+  discussion: { bn: 'আলোচনা', en: 'Discussion', it: 'Discussione' },
 };
 
 export function SpeakingScreen() {
   const { route } = useRouter();
   const { state, dispatch } = useProgress();
-  const { t, tr, lang } = useI18n();
+  const { t, tr } = useI18n();
   useStudyTimer();
 
   const initial = route.params.get('level');
@@ -90,7 +91,7 @@ export function SpeakingScreen() {
       <div className="animate-rise space-y-4">
         <SubHeader
           title={tr(active.title)}
-          subtitle={`${active.level} · ${SPEAKING_KINDS[active.kind][lang]}`}
+          subtitle={`${active.level} · ${tr(SPEAKING_KINDS[active.kind])}`}
           right={
             <Button variant="ghost" className="min-h-10 px-4 text-sm" onClick={() => { stopRef.current?.(); setListening(false); setActive(null); }}>
               {t('all')}
@@ -210,7 +211,7 @@ export function SpeakingScreen() {
         </Pill>
         {[...new Set(items.map((i) => i.kind))].map((k) => (
           <Pill key={k} active={kind === k} onClick={() => setKind(k)}>
-            {SPEAKING_KINDS[k][lang]}
+            {tr(SPEAKING_KINDS[k])}
           </Pill>
         ))}
       </div>
@@ -239,7 +240,7 @@ export function SpeakingScreen() {
                     <Mic size={20} />
                   </span>
                   <div className="min-w-0 flex-1">
-                    <p className="text-xs font-semibold text-ink-3">{SPEAKING_KINDS[sp.kind][lang]}</p>
+                    <p className="text-xs font-semibold text-ink-3">{tr(SPEAKING_KINDS[sp.kind])}</p>
                     <p className="bn truncate text-base font-extrabold">{tr(sp.title)}</p>
                     <p className="truncate text-xs text-ink-2">{sp.targetIt}</p>
                   </div>

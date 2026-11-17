@@ -29,6 +29,14 @@ import { ReadingScreen } from '../screens/practice/ReadingScreen';
 import { WritingScreen } from '../screens/practice/WritingScreen';
 import { SpeakingScreen } from '../screens/practice/SpeakingScreen';
 import { AssessmentScreen } from '../screens/AssessmentScreen';
+import { A1AcademyHubScreen } from '../screens/academy/A1AcademyHubScreen';
+import { AlphabetModuleScreen } from '../screens/academy/AlphabetModuleScreen';
+import { NumbersModuleScreen } from '../screens/academy/NumbersModuleScreen';
+import { ArticlesModuleScreen } from '../screens/academy/ArticlesModuleScreen';
+import { VocabularyModuleScreen } from '../screens/academy/VocabularyModuleScreen';
+import { AcademyPreviewScreen } from '../screens/academy/AcademyPreviewScreen';
+import { LevelAcademyHubScreen } from '../screens/academy/LevelAcademyHubScreen';
+import { LevelModuleScreen } from '../screens/academy/LevelModuleScreen';
 import { LEVEL_ORDER } from '../content/courses';
 import type { LevelId } from '../content/types';
 
@@ -81,6 +89,28 @@ function Screen() {
       </AppShell>
     );
   }
+  const academyModule = matchPath('/academy/:level/:moduleId', path);
+  if (academyModule && ['a2', 'b1', 'b2'].includes(academyModule.level!.toLowerCase())) {
+    const levelId = academyModule.level!.toUpperCase() as 'A2' | 'B1' | 'B2';
+    return (
+      <AppShell>
+        <LevelModuleScreen
+          key={`${levelId}-${academyModule.moduleId}`}
+          levelId={levelId}
+          moduleId={academyModule.moduleId!}
+        />
+      </AppShell>
+    );
+  }
+  const academyHub = matchPath('/academy/:level', path);
+  if (academyHub && ['a2', 'b1', 'b2'].includes(academyHub.level!.toLowerCase())) {
+    const levelId = academyHub.level!.toUpperCase() as 'A2' | 'B1' | 'B2';
+    return (
+      <AppShell>
+        <LevelAcademyHubScreen key={levelId} levelId={levelId} />
+      </AppShell>
+    );
+  }
 
   const screens: Record<string, JSX.Element> = {
     '/': <HomeScreen />,
@@ -104,8 +134,24 @@ function Screen() {
     '/profile': <ProfileScreen />,
     '/saved': <SavedScreen />,
     '/about': <AboutScreen />,
+    '/academy/a1': <A1AcademyHubScreen />,
+    '/academy/a1/alphabet': <AlphabetModuleScreen />,
+    '/academy/a1/numbers': <NumbersModuleScreen />,
+    '/academy/a1/articles': <ArticlesModuleScreen />,
+    '/academy/a1/verbs': <AcademyPreviewScreen moduleId="verbs" />,
+    '/academy/a1/essential-verbs': <AcademyPreviewScreen moduleId="essential-verbs" />,
+    '/academy/a1/adjectives': <AcademyPreviewScreen moduleId="adjectives" />,
+    '/academy/a1/adverbs': <AcademyPreviewScreen moduleId="adverbs" />,
+    '/academy/a1/prepositions': <AcademyPreviewScreen moduleId="prepositions" />,
+    '/academy/a1/conjunctions': <AcademyPreviewScreen moduleId="conjunctions" />,
+    '/academy/a1/vocabulary': <VocabularyModuleScreen />,
+    '/academy/a1/final-exam': <AcademyPreviewScreen moduleId="final-exam" />,
   };
-  return <AppShell>{screens[path] ?? <HomeScreen />}</AppShell>;
+  return (
+    <AppShell>
+      {screens[path] ?? (path.startsWith('/academy/a1/') ? <A1AcademyHubScreen /> : <HomeScreen />)}
+    </AppShell>
+  );
 }
 
 /** Android native lifecycle: hardware back navigation, status bar theming, and speech cleanup on background. */

@@ -79,7 +79,7 @@ const lesson2: Lesson = {
       table: [
         { label: 'Neg. pleonastica', it: 'finché non esce / più duro di quanto non creda', tr: { bn: 'বের হওয়া পর্যন্ত / ধারণার চেয়ে কঠিন', en: 'until it comes out / harder than one thinks' } },
         { label: 'Superlativi colti', it: 'celeberrimo, integerrimo, acerrimo, saluberrimo', tr: { bn: 'অতি বিখ্যাত, নিষ্কলুষ, ঘোর, স্বাস্থ্যকর', en: 'most famous, upright, bitter, healthy' } },
-        { label: 'Posizione agg.', it: 'certe voci (কিছু কথা) vs notizie certe (নিশ্চিত খবর)', tr: { bn: 'অবস্থানভেদে অর্থ বদলায়', en: 'meaning shifts with position' } },
+        { label: 'Posizione agg.', it: 'certe voci vs notizie certe', tr: { bn: 'certe voci (কিছু কথা) vs notizie certe (নিশ্চিত খবর) — অবস্থানভেদে অর্থ বদলায়', en: 'certe voci (some rumours) vs notizie certe (certain news) — meaning shifts with position' } },
       ],
       examples: [
         { id: 'b2u3l2-e1', it: 'Il contratto resta valido a meno che una delle parti non eserciti il recesso.', tr: { bn: 'কোনো পক্ষ বাতিলের অধিকার প্রয়োগ না করা পর্যন্ত চুক্তিটি বৈধ থাকে।', en: 'The contract remains valid unless one of the parties exercises withdrawal.' } },

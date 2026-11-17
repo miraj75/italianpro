@@ -2,6 +2,18 @@ import type { ExplainLang, LevelId } from '../content/types';
 import { LESSON_PASS_SCORE } from '../content/types';
 import { LEVEL_ORDER, isLevelContentComplete, levelLessons } from '../content/courses';
 import { addDays, dayKey } from '../lib/date';
+import type { AcademyModuleId } from '../content/academy/types';
+import { findAcademyModule, inferLevelFromModuleId } from '../content/academy/curriculum';
+import {
+  academyStudyStats,
+  defaultAcademyProgress,
+  emptyModuleProgress,
+  getAcademyModuleProgress,
+  isAcademyModuleUnlocked,
+  type AcademyModuleProgress,
+  type AcademyProgressState,
+  type ExamAttemptRecord,
+} from './academyProgress';
 import { reviewCard, type CardState } from './srs';
 
 /** Daily-plan task kinds; each is recorded once per day when actually done. */
@@ -17,7 +29,12 @@ export interface LessonProgress {
 
 export interface ProgressState {
   version: 1;
-  settings: { explainLang: ExplainLang; dailyGoalMinutes: number };
+  settings: {
+    explainLang: ExplainLang;
+    dailyGoalMinutes: number;
+    currentLevel?: LevelId;
+    showAllLockedModules?: boolean;
+  };
   xp: number;
   lessons: Record<string, LessonProgress>;
   /** Spaced-repetition cards keyed by `${lessonId}:${phraseId}` or `w:<level>:<it>`. */
@@ -39,6 +56,8 @@ export interface ProgressState {
   puzzleMistakes: Record<string, number>;
   /** Optional recorded wrong answer text for puzzle mistakes. */
   puzzleMistakeAnswers?: Record<string, string>;
+  /** CEFR A1 Learning Academy structured module progress & exam history. */
+  academy?: AcademyProgressState;
 }
 
 export const XP = {
@@ -52,12 +71,13 @@ export const XP = {
   writingComplete: 25,
   speakingComplete: 20,
   assessmentPass: 60,
+  academyModuleComplete: 50,
 } as const;
 
 export function initialState(): ProgressState {
   return {
     version: 1,
-    settings: { explainLang: 'bn', dailyGoalMinutes: 25 },
+    settings: { explainLang: 'bn', dailyGoalMinutes: 25, currentLevel: 'A1', showAllLockedModules: false },
     xp: 0,
     lessons: {},
     cards: {},
@@ -74,6 +94,7 @@ export function initialState(): ProgressState {
     assessments: {},
     puzzleMistakes: {},
     puzzleMistakeAnswers: {},
+    academy: defaultAcademyProgress(),
   };
 }
 
@@ -97,8 +118,31 @@ export type Action =
   | { type: 'submitAssessment'; assessmentId: string; score: number; passScore: number; today: string }
   | { type: 'recordPuzzleMistake'; puzzleId: string; givenAnswer?: string }
   | { type: 'clearPuzzleMistake'; puzzleId: string; today: string }
+  | { type: 'completeAcademyTheory'; moduleId: AcademyModuleId; level?: LevelId }
+  | { type: 'studyAcademyItem'; moduleId: AcademyModuleId; itemId: string; level?: LevelId }
+  | {
+      type: 'completeAcademyDrill';
+      moduleId: AcademyModuleId;
+      level?: LevelId;
+      correct: number;
+      total: number;
+      today: string;
+    }
+  | {
+      type: 'submitAcademyExam';
+      attemptId: string;
+      moduleId: AcademyModuleId;
+      level?: LevelId;
+      total: number;
+      correct: number;
+      incorrect: number;
+      maxIncorrect: number;
+      today: string;
+    }
   | { type: 'setExplainLang'; lang: ExplainLang }
   | { type: 'setDailyGoal'; minutes: number }
+  | { type: 'setCurrentLevel'; level: LevelId }
+  | { type: 'setShowAllLockedModules'; enabled: boolean }
   | { type: 'reset' };
 
 function withTask(state: ProgressState, today: string, task: TaskKind): ProgressState {
@@ -323,16 +367,208 @@ export function reducer(state: ProgressState, action: Action): ProgressState {
       delete mistakeAnswers[action.key];
       return { ...state, mistakes, mistakeAnswers, xp: state.xp + XP.correctAnswer };
     }
+    case 'completeAcademyTheory': {
+      const academy = state.academy ?? defaultAcademyProgress();
+      const lvl = action.level ?? inferLevelFromModuleId(action.moduleId);
+      if (!isAcademyModuleUnlocked(academy, action.moduleId, lvl)) return state;
+      const prevMod = getAcademyModuleProgress(academy, action.moduleId, lvl);
+      if (prevMod.theoryCompleted) return state;
+      const updatedMod: AcademyModuleProgress = {
+        ...prevMod,
+        theoryCompleted: true,
+      };
+      if (lvl === 'A1') {
+        return {
+          ...state,
+          academy: {
+            ...academy,
+            modules: { ...academy.modules, [action.moduleId]: updatedMod },
+          },
+        };
+      }
+      const prevLevels = academy.levels ?? {};
+      const prevLvlMap = prevLevels[lvl] ?? {};
+      return {
+        ...state,
+        academy: {
+          ...academy,
+          levels: { ...prevLevels, [lvl]: { ...prevLvlMap, [action.moduleId]: updatedMod } },
+        },
+      };
+    }
+    case 'studyAcademyItem': {
+      const academy = state.academy ?? defaultAcademyProgress();
+      const lvl = action.level ?? inferLevelFromModuleId(action.moduleId);
+      // Testing Mode access override must never record progress on actually locked modules
+      if (!isAcademyModuleUnlocked(academy, action.moduleId, lvl)) return state;
+      const prevMod = getAcademyModuleProgress(academy, action.moduleId, lvl);
+      if (prevMod.studiedItems.includes(action.itemId)) return state;
+      const updatedMod: AcademyModuleProgress = {
+        ...prevMod,
+        studiedItems: [...prevMod.studiedItems, action.itemId],
+      };
+      if (lvl === 'A1') {
+        return {
+          ...state,
+          academy: {
+            ...academy,
+            modules: {
+              ...academy.modules,
+              [action.moduleId]: updatedMod,
+            },
+          },
+        };
+      }
+      const prevLevels = academy.levels ?? {};
+      const prevLvlMap = prevLevels[lvl] ?? {};
+      return {
+        ...state,
+        academy: {
+          ...academy,
+          levels: {
+            ...prevLevels,
+            [lvl]: {
+              ...prevLvlMap,
+              [action.moduleId]: updatedMod,
+            },
+          },
+        },
+      };
+    }
+    case 'completeAcademyDrill': {
+      if (action.total <= 0) return state;
+      const academy = state.academy ?? defaultAcademyProgress();
+      const lvl = action.level ?? inferLevelFromModuleId(action.moduleId);
+      if (!isAcademyModuleUnlocked(academy, action.moduleId, lvl)) return state;
+      const prevMod = getAcademyModuleProgress(academy, action.moduleId, lvl);
+      const score = action.correct / action.total;
+      const incorrect = Math.max(0, action.total - action.correct);
+      const updatedMod: AcademyModuleProgress = {
+        ...prevMod,
+        drillCompleted: true,
+        drillCorrect: action.correct,
+        drillIncorrect: incorrect,
+        drillBestScore: Math.max(prevMod.drillBestScore ?? 0, score),
+      };
+      let nextAcademy: AcademyProgressState;
+      if (lvl === 'A1') {
+        nextAcademy = {
+          ...academy,
+          modules: { ...academy.modules, [action.moduleId]: updatedMod },
+        };
+      } else {
+        const prevLevels = academy.levels ?? {};
+        const prevLvlMap = prevLevels[lvl] ?? {};
+        nextAcademy = {
+          ...academy,
+          levels: { ...prevLevels, [lvl]: { ...prevLvlMap, [action.moduleId]: updatedMod } },
+        };
+      }
+      return withTask({ ...state, academy: nextAcademy }, action.today, 'listening');
+    }
+    case 'submitAcademyExam': {
+      if (action.total <= 0) return state;
+      const academy = state.academy ?? defaultAcademyProgress();
+      const lvl = action.level ?? inferLevelFromModuleId(action.moduleId);
+      // Testing Mode access override must never record completion, exam history, or XP on locked modules
+      if (!isAcademyModuleUnlocked(academy, action.moduleId, lvl)) return state;
+      const prevMod = getAcademyModuleProgress(academy, action.moduleId, lvl);
+      // Idempotency guard: never award XP or record completion twice for the same attemptId
+      if (prevMod.completedAttemptIds.includes(action.attemptId)) return state;
+
+      const meta = findAcademyModule(action.moduleId, lvl);
+      const studyStats = academyStudyStats(academy, action.moduleId, lvl);
+      const passedByScore = action.incorrect <= action.maxIncorrect;
+      // Do not allow completing a module unless all required items have been studied
+      const canComplete = passedByScore && (meta?.requiredItemIds.length ? studyStats.readyForExam : true);
+      const score = action.correct / action.total;
+      const newlyCompleted = canComplete && !prevMod.completed;
+      const alreadyPassedBefore = prevMod.completed;
+      const awardedXp =
+        (alreadyPassedBefore ? 0 : action.correct * XP.correctAnswer) + (newlyCompleted ? XP.academyModuleComplete : 0);
+
+      const record: ExamAttemptRecord = {
+        id: action.attemptId,
+        moduleId: action.moduleId,
+        date: action.today,
+        total: action.total,
+        correct: action.correct,
+        incorrect: action.incorrect,
+        score,
+        passed: passedByScore,
+        awardedXp,
+      };
+
+      const updatedMod: AcademyModuleProgress = {
+        ...emptyModuleProgress(),
+        ...prevMod,
+        completed: prevMod.completed || canComplete,
+        completedAt: prevMod.completedAt ?? (canComplete ? action.today : undefined),
+        bestScore: Math.max(prevMod.bestScore, score),
+        attempts: prevMod.attempts + 1,
+        failedAttempts: prevMod.failedAttempts + (passedByScore ? 0 : 1),
+        completedAttemptIds: [...prevMod.completedAttemptIds.slice(-49), action.attemptId],
+        history: [record, ...prevMod.history].slice(0, 20),
+      };
+
+      let nextAcademy: AcademyProgressState;
+      if (lvl === 'A1') {
+        nextAcademy = {
+          ...academy,
+          modules: {
+            ...academy.modules,
+            [action.moduleId]: updatedMod,
+          },
+        };
+      } else {
+        const prevLevels = academy.levels ?? {};
+        const prevLvlMap = prevLevels[lvl] ?? {};
+        nextAcademy = {
+          ...academy,
+          levels: {
+            ...prevLevels,
+            [lvl]: {
+              ...prevLvlMap,
+              [action.moduleId]: updatedMod,
+            },
+          },
+        };
+      }
+
+      let next: ProgressState = {
+        ...state,
+        xp: state.xp + awardedXp,
+        academy: nextAcademy,
+      };
+      next = withTask(next, action.today, 'review');
+      if (canComplete) next = withTask(next, action.today, 'lesson');
+      return next;
+    }
     case 'setExplainLang':
       return { ...state, settings: { ...state.settings, explainLang: action.lang } };
     case 'setDailyGoal':
       return { ...state, settings: { ...state.settings, dailyGoalMinutes: Math.min(120, Math.max(5, action.minutes)) } };
+    case 'setCurrentLevel':
+      return (LEVEL_ORDER as string[]).includes(action.level)
+        ? { ...state, settings: { ...state.settings, currentLevel: action.level } }
+        : state;
+    case 'setShowAllLockedModules':
+      return { ...state, settings: { ...state.settings, showAllLockedModules: action.enabled } };
     case 'reset':
       return initialState();
   }
 }
 
 /* ---------- selectors ---------- */
+
+export function getCurrentLevel(state: ProgressState): LevelId {
+  const candidate = state.settings.currentLevel;
+  return candidate && (LEVEL_ORDER as string[]).includes(candidate) ? candidate : 'A1';
+}
+
+export function isShowAllLockedModulesEnabled(state: ProgressState): boolean {
+  return Boolean(state.settings.showAllLockedModules);
+}
 
 function studiedOn(state: ProgressState, key: string): boolean {
   const day = state.days[key];

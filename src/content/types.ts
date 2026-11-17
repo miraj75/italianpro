@@ -1,10 +1,11 @@
 /** Explanation languages the learner can choose. Italian content is never translated away. */
-export type ExplainLang = 'bn' | 'en';
+export type ExplainLang = 'bn' | 'en' | 'it';
 
-/** A text available in both explanation languages. */
+/** A text available in explanation languages. */
 export interface Tr {
   bn: string;
   en: string;
+  it?: string;
 }
 
 export type LevelId = 'A1' | 'A2' | 'B1' | 'B2';
@@ -51,6 +52,12 @@ export interface QuizQuestion {
   /** Optional Italian stem shown in large type. */
   it?: string;
   options: string[];
+  /** Optional per-language answer choices when options are translated. */
+  localizedOptions?: {
+    bn: string[];
+    en: string[];
+    it?: string[];
+  };
   answer: number;
   explanation: Tr;
 }

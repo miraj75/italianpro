@@ -5,7 +5,17 @@ import { useI18n } from '../lib/i18n';
 import { cx } from './ui';
 
 /** Plays Italian text via TTS; shows an honest error if no Italian voice exists. */
-export function SpeakButton({ text, size = 40, className }: { text: string; size?: number; className?: string }) {
+export function SpeakButton({
+  text,
+  size = 40,
+  className,
+  onSpeak,
+}: {
+  text: string;
+  size?: number;
+  className?: string;
+  onSpeak?: () => void;
+}) {
   const { t } = useI18n();
   const [state, setState] = useState<'idle' | 'playing' | 'error'>('idle');
   const mountedRef = useRef(true);
@@ -18,6 +28,7 @@ export function SpeakButton({ text, size = 40, className }: { text: string; size
   }, []);
 
   const play = async () => {
+    onSpeak?.();
     const sessionId = startSpeechSession();
     setState('playing');
     try {

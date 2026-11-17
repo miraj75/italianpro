@@ -555,7 +555,7 @@ export const GRAMMAR_DETAILS_B2: Record<string, GrammarExtra> = {
       en: 'Pleonastic non in finché non ("until"), a meno che non ("unless"), and comparatives (più… di quanto non si pensi) reinforces the clause without negating it.',
     },
     commonMistakes: [
-      { wrong: 'Rimarrò qui finché non parli (ইংরেজি while-এর সাথে গুলিয়ে ফেলা).', right: 'Rimarrò qui finché non avrai finito di parlare (= until you finish).', note: { bn: 'finché + ক্রিয়া = যতক্ষণ; finché non + ক্রিয়া = যতক্ষণ না (until)।', en: 'finché = as long as; finché non = until.' } },
+      { wrong: 'Rimarrò qui finché parli (= until).', right: 'Rimarrò qui finché non avrai finito di parlare (= until you finish).', note: { bn: 'finché + ক্রিয়া = যতক্ষণ; finché non + ক্রিয়া = যতক্ষণ না (until)।', en: 'finché = as long as; finché non = until.' } },
     ],
     examples: [
       { it: 'La transizione ecologica è più urgente di quanto non si creda comunemente.', tr: { bn: 'পরিবেশগত রূপান্তর সাধারণ মানুষ যতটা ভাবে তার চেয়েও বেশি জরুরি।', en: 'The ecological transition is more urgent than is commonly believed.' } },

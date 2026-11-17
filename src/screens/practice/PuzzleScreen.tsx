@@ -1,6 +1,7 @@
 import { useEffect, useMemo, useState } from 'react';
 import { BookOpen, CheckCircle2, Lightbulb, RotateCcw, XCircle } from 'lucide-react';
 import type { PuzzleChallenge, PuzzleType } from '../../content/academyTypes';
+import type { Tr } from '../../content/types';
 import type { BankLevel } from '../../content/bank';
 import { loadLevelPuzzles } from '../../content/registry';
 import { grammarById } from '../../content/grammar';
@@ -17,19 +18,19 @@ import { LevelTabs, isBankLevel } from '../../components/LevelTabs';
 const ROUND = 8;
 const XP_PER_PUZZLE = 5;
 
-const TYPE_LABELS: Record<PuzzleType, { bn: string; en: string }> = {
-  'word-order': { bn: 'শব্দ সাজানো', en: 'Word order' },
-  'sentence-build': { bn: 'বাক্য গঠন', en: 'Sentence build' },
-  'missing-word': { bn: 'শূন্যস্থান', en: 'Missing word' },
-  translation: { bn: 'অনুবাদ', en: 'Translation' },
-  'verb-conjugation': { bn: 'ক্রিয়া রূপান্তর', en: 'Verb form' },
-  'article-select': { bn: 'আর্টিকেল', en: 'Articles' },
-  'preposition-select': { bn: 'অব্যয়', en: 'Prepositions' },
-  'pronoun-place': { bn: 'সর্বনাম', en: 'Pronouns' },
-  'grammar-fix': { bn: 'ভুল সংশোধন', en: 'Grammar fix' },
-  'dialogue-complete': { bn: 'সংলাপ পূরণ', en: 'Dialogue' },
-  'sentence-transform': { bn: 'বাক্য রূপান্তর', en: 'Transform' },
-  'story-reconstruct': { bn: 'গল্পের ক্রম', en: 'Story order' },
+const TYPE_LABELS: Record<PuzzleType, Tr> = {
+  'word-order': { bn: 'শব্দ সাজানো', en: 'Word order', it: 'Ordine delle parole' },
+  'sentence-build': { bn: 'বাক্য গঠন', en: 'Sentence build', it: 'Costruzione frase' },
+  'missing-word': { bn: 'শূন্যস্থান', en: 'Missing word', it: 'Parola mancante' },
+  translation: { bn: 'অনুবাদ', en: 'Translation', it: 'Traduzione' },
+  'verb-conjugation': { bn: 'ক্রিয়া রূপান্তর', en: 'Verb form', it: 'Forma verbale' },
+  'article-select': { bn: 'আর্টিকেল', en: 'Articles', it: 'Articoli' },
+  'preposition-select': { bn: 'অব্যয়', en: 'Prepositions', it: 'Preposizioni' },
+  'pronoun-place': { bn: 'সর্বনাম', en: 'Pronouns', it: 'Pronomi' },
+  'grammar-fix': { bn: 'ভুল সংশোধন', en: 'Grammar fix', it: 'Correzione grammaticale' },
+  'dialogue-complete': { bn: 'সংলাপ পূরণ', en: 'Dialogue', it: 'Dialogo' },
+  'sentence-transform': { bn: 'বাক্য রূপান্তর', en: 'Transform', it: 'Trasformazione' },
+  'story-reconstruct': { bn: 'গল্পের ক্রম', en: 'Story order', it: 'Ordine della storia' },
 };
 
 export function sentenceToChallenge(s: ReturnType<typeof puzzlePool>[number]): PuzzleChallenge {
@@ -37,19 +38,19 @@ export function sentenceToChallenge(s: ReturnType<typeof puzzlePool>[number]): P
     id: s.key,
     level: s.level,
     type: 'sentence-build',
-    prompt: { bn: 'ইতালিয়ানে বাক্যটি গঠন করুন', en: 'Build this sentence in Italian' },
+    prompt: { bn: 'ইতালিয়ানে বাক্যটি গঠন করুন', en: 'Build this sentence in Italian', it: 'Costruisci questa frase in italiano' },
     answerIt: s.it,
     tiles: tokenize(s.it),
     tr: s.tr,
     grammarId: s.grammar,
     vocabKeys: [],
-    explanation: grammarById(s.grammar)?.explanation ?? { bn: '', en: '' },
+    explanation: grammarById(s.grammar)?.explanation ?? { bn: '', en: '', it: '' },
   };
 }
 
 export function PuzzleScreen() {
   const { route } = useRouter();
-  const { t, lang } = useI18n();
+  const { t, tr } = useI18n();
   useStudyTimer();
 
   const initialLevel = route.params.get('level');
@@ -104,7 +105,7 @@ export function PuzzleScreen() {
           </Pill>
           {availableTypes.map((tp) => (
             <Pill key={tp} active={ptype === tp} onClick={() => setPtype(tp)}>
-              {TYPE_LABELS[tp][lang]}
+              {tr(TYPE_LABELS[tp])}
             </Pill>
           ))}
         </div>
@@ -178,7 +179,7 @@ function PuzzleRound({ pool, onRestart }: { pool: PuzzleChallenge[]; onRestart: 
 export function PuzzleCard({ item, onDone }: { item: PuzzleChallenge; onDone: (correct: boolean) => void }) {
   const { state, dispatch } = useProgress();
   const { navigate } = useRouter();
-  const { t, tr, lang } = useI18n();
+  const { t, tr } = useI18n();
   const topic = grammarById(item.grammarId);
 
   const isTileMode = !!item.tiles && item.tiles.length > 0 && !item.options;
@@ -231,7 +232,7 @@ export function PuzzleCard({ item, onDone }: { item: PuzzleChallenge; onDone: (c
     <>
       <GlassCard className="p-5">
         <p className="text-xs font-bold tracking-wide text-cyan uppercase">
-          {TYPE_LABELS[item.type][lang]} {topic ? `· ${topic.title}` : ''}
+          {tr(TYPE_LABELS[item.type])} {topic ? `· ${topic.title}` : ''}
         </p>
         <p className="bn mt-1 text-base font-bold text-mint">{tr(item.prompt)}</p>
         {item.stemIt && <p className="mt-2 rounded-xl bg-white/5 px-3 py-2 text-lg font-extrabold">{item.stemIt}</p>}

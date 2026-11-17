@@ -67,7 +67,12 @@ const lesson1: Lesson = {
     {
       id: 'q3',
       prompt: { bn: '"il marito" অর্থ কী?', en: 'What does "il marito" mean?' },
-      options: ['ভাই', 'স্বামী', 'চাচা', 'ছেলে'],
+      options: ['Brother', 'Husband', 'Uncle', 'Son'],
+      localizedOptions: {
+        bn: ['ভাই', 'স্বামী', 'চাচা', 'ছেলে'],
+        en: ['Brother', 'Husband', 'Uncle', 'Son'],
+        it: ['Fratello', 'Marito', 'Zio', 'Figlio'],
+      },
       answer: 1,
       explanation: { bn: 'il marito = স্বামী, la moglie = স্ত্রী।', en: 'il marito = husband.' },
     },

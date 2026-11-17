@@ -60,14 +60,24 @@ const lesson1: Lesson = {
     {
       id: 'q3',
       prompt: { bn: '"Quant’è in tutto?" অর্থ কী?', en: 'What does "Quant’è in tutto?" mean?' },
-      options: ['কয়টা বাজে?', 'সব মিলিয়ে কত হলো?', 'কোনটা ভালো?', 'কোথায় বসবো?'],
+      options: ['What time is it?', 'How much is it in total?', 'Which one is better?', 'Where should we sit?'],
+      localizedOptions: {
+        bn: ['কয়টা বাজে?', 'সব মিলিয়ে কত হলো?', 'কোনটা ভালো?', 'কোথায় বসবো?'],
+        en: ['What time is it?', 'How much is it in total?', 'Which one is better?', 'Where should we sit?'],
+        it: ['Che ore sono?', 'Quanto costa in totale?', 'Qual è migliore?', 'Dove ci sediamo?'],
+      },
       answer: 1,
       explanation: { bn: 'দাম জিজ্ঞেস করতে Quant’è in tutto? ব্যবহৃত হয়।', en: 'It asks for the total price.' },
     },
     {
       id: 'q4',
       prompt: { bn: 'ইতালিতে "un caffè" বলতে সাধারণত কী বোঝায়?', en: 'What does "un caffè" normally refer to in Italy?' },
-      options: ['এক মগ বড় কফি', 'একটি এস্প্রেসো', 'ঠান্ডা কফি', 'দুধ চা'],
+      options: ['A large mug of coffee', 'One shot of espresso', 'Iced coffee', 'Milk tea'],
+      localizedOptions: {
+        bn: ['এক মগ বড় কফি', 'একটি এস্প্রেসো', 'ঠান্ডা কফি', 'দুধ চা'],
+        en: ['A large mug of coffee', 'One shot of espresso', 'Iced coffee', 'Milk tea'],
+        it: ['Una tazza grande di caffè', 'Un espresso', 'Un caffè freddo', 'Un tè al latte'],
+      },
       answer: 1,
       explanation: { bn: 'ইতালিতে un caffè মানে এক শট এস্প্রেসো।', en: 'In Italy, un caffè means an espresso.' },
     },
@@ -221,7 +231,12 @@ const lesson3: Lesson = {
     {
       id: 'q3',
       prompt: { bn: '"il piatto" অর্থ কী?', en: 'What does "il piatto" mean?' },
-      options: ['চামচ', 'প্লেট / পদ', 'গ্লাস', 'বিল'],
+      options: ['Spoon', 'Plate / dish', 'Glass', 'Bill'],
+      localizedOptions: {
+        bn: ['চামচ', 'প্লেট / পদ', 'গ্লাস', 'বিল'],
+        en: ['Spoon', 'Plate / dish', 'Glass', 'Bill'],
+        it: ['Cucchiaio', 'Piatto / pietanza', 'Bicchiere', 'Conto'],
+      },
       answer: 1,
       explanation: { bn: 'il piatto মানে প্লেট বা খাবারের পদ।', en: 'il piatto means plate or dish.' },
     },

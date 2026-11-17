@@ -1,7 +1,7 @@
 import type { Tr } from '../content/types';
 import { LEVEL_ORDER, levelLessons, type LessonRef, findLesson } from '../content/courses';
 import { dayKey } from '../lib/date';
-import { dueCards, isLessonCompleted, isLevelUnlocked, type ProgressState, type TaskKind } from './progress';
+import { dueCards, getCurrentLevel, isLessonCompleted, isLevelUnlocked, type ProgressState, type TaskKind } from './progress';
 
 export interface PlanItem {
   task: TaskKind;
@@ -13,8 +13,13 @@ export interface PlanItem {
   done: boolean;
 }
 
-/** The lesson the learner should work on next: first unlocked, uncompleted lesson. */
+/** The lesson the learner should work on next: prefers active currentLevel when unlocked, then first unlocked incomplete lesson. */
 export function currentLesson(state: ProgressState): LessonRef | undefined {
+  const active = getCurrentLevel(state);
+  if (isLevelUnlocked(state, active)) {
+    const activeNext = levelLessons(active).find((l) => !isLessonCompleted(state, l.id));
+    if (activeNext) return findLesson(activeNext.id);
+  }
   for (const levelId of LEVEL_ORDER) {
     if (!isLevelUnlocked(state, levelId)) break;
     const next = levelLessons(levelId).find((l) => !isLessonCompleted(state, l.id));

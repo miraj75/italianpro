@@ -68,7 +68,12 @@ const lesson1: Lesson = {
     {
       id: 'q4',
       prompt: { bn: '"il carrello" কী?', en: 'What is "il carrello"?' },
-      options: ['রসিদ', 'শপিং কার্ট / ট্রলি', 'ছাড়', 'প্যাকেট'],
+      options: ['Receipt', 'Shopping cart / trolley', 'Discount', 'Packet'],
+      localizedOptions: {
+        bn: ['রসিদ', 'শপিং কার্ট / ট্রলি', 'ছাড়', 'প্যাকেট'],
+        en: ['Receipt', 'Shopping cart / trolley', 'Discount', 'Packet'],
+        it: ['Scontrino', 'Carrello della spesa', 'Sconto', 'Sacchetto'],
+      },
       answer: 1,
       explanation: { bn: 'il carrello = সুপারমার্কেটের ট্রলি।', en: 'il carrello = shopping trolley.' },
     },
@@ -139,7 +144,12 @@ const lesson2: Lesson = {
     {
       id: 'q3',
       prompt: { bn: '"la taglia" অর্থ কী?', en: 'What does "la taglia" mean?' },
-      options: ['দাম', 'সাইজ', 'রং', 'রসিদ'],
+      options: ['Price', 'Size', 'Colour', 'Receipt'],
+      localizedOptions: {
+        bn: ['দাম', 'সাইজ', 'রং', 'রসিদ'],
+        en: ['Price', 'Size', 'Colour', 'Receipt'],
+        it: ['Prezzo', 'Taglia', 'Colore', 'Scontrino'],
+      },
       answer: 1,
       explanation: { bn: 'la taglia = পোশাকের সাইজ।', en: 'la taglia = clothing size.' },
     },
@@ -223,7 +233,12 @@ const lesson3: Lesson = {
     {
       id: 'q4',
       prompt: { bn: '"lo scontrino" অর্থ কী?', en: 'What does "lo scontrino" mean?' },
-      options: ['দাম', 'রসিদ', 'ব্যাগ', 'ছাড়'],
+      options: ['Price', 'Receipt', 'Bag', 'Discount'],
+      localizedOptions: {
+        bn: ['দাম', 'রসিদ', 'ব্যাগ', 'ছাড়'],
+        en: ['Price', 'Receipt', 'Bag', 'Discount'],
+        it: ['Prezzo', 'Scontrino', 'Borsa', 'Sconto'],
+      },
       answer: 1,
       explanation: { bn: 'lo scontrino = দোকানের রসিদ।', en: 'lo scontrino = shop receipt.' },
     },

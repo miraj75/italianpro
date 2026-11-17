@@ -90,7 +90,8 @@ export function BrandHeader({
 }) {
   const { state, dispatch } = useProgress();
   const { t } = useI18n();
-  const nextLang = state.settings.explainLang === 'bn' ? 'en' : 'bn';
+  const curLang = state.settings.explainLang;
+  const nextLang = curLang === 'bn' ? 'en' : curLang === 'en' ? 'it' : 'bn';
 
   return (
     <header className={cx('mb-4 flex items-center justify-between gap-3', className)}>

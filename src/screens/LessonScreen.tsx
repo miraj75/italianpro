@@ -1,5 +1,5 @@
 import { useEffect, useRef, useState } from 'react';
-import { ArrowLeft, ArrowRight, Heart, Lightbulb, Lock, Square, Volume2, CheckCircle2 } from 'lucide-react';
+import { ArrowLeft, ArrowRight, FlaskConical, Heart, Lightbulb, Lock, Square, Volume2, CheckCircle2 } from 'lucide-react';
 import { findLesson } from '../content/courses';
 import type { Lesson } from '../content/types';
 import { useRouter } from '../app/router';
@@ -7,7 +7,7 @@ import { useI18n } from '../lib/i18n';
 import { dayKey } from '../lib/date';
 import { isSpeechSessionActive, speakItalian, startSpeechSession, stopSpeaking } from '../lib/speech';
 import { useProgress, useStudyTimer } from '../state/ProgressContext';
-import { isLessonUnlocked } from '../state/progress';
+import { isLessonUnlocked, isShowAllLockedModulesEnabled } from '../state/progress';
 import { LESSON_PASS_SCORE } from '../content/types';
 import { Button, GlassCard, Pill, ProgressBar, cx } from '../components/ui';
 import { SpeakButton } from '../components/SpeakButton';
@@ -31,15 +31,18 @@ export function LessonScreen({ lessonId }: { lessonId: string }) {
   useStudyTimer();
 
   const lesson = ref?.lesson;
+  const unlocked = ref && lesson ? isLessonUnlocked(state, ref.level.id, lesson.id) : false;
+  const testingOverride = !unlocked && isShowAllLockedModulesEnabled(state);
+
   useEffect(() => {
-    if (!lesson) return;
+    if (!lesson || !unlocked) return;
     dispatch({ type: 'viewLessonTab', lessonId: lesson.id, tab, phraseIds: lesson.phrases.map((p) => p.id), today: dayKey() });
-  }, [lesson, tab, dispatch]);
+  }, [lesson, unlocked, tab, dispatch]);
 
   if (!ref || !lesson) {
     return <p className="py-10 text-center text-ink-2">404</p>;
   }
-  if (!isLessonUnlocked(state, ref.level.id, lesson.id)) {
+  if (!unlocked && !testingOverride) {
     return (
       <div className="py-16 text-center">
         <Lock className="mx-auto text-ink-3" size={40} />
@@ -57,6 +60,15 @@ export function LessonScreen({ lessonId }: { lessonId: string }) {
 
   return (
     <div className="animate-rise">
+      {testingOverride && (
+        <div
+          role="status"
+          className="mb-3 flex items-start gap-2.5 rounded-2xl border border-gold/50 bg-gold/10 px-4 py-3 text-xs font-extrabold text-gold"
+        >
+          <FlaskConical size={16} className="mt-0.5 shrink-0" />
+          <span className="bn">{t('testingModePreviewBanner')}</span>
+        </div>
+      )}
       <div className="mb-3 flex items-center gap-3">
         <button type="button" onClick={back} aria-label="Back" className="flex h-10 w-10 items-center justify-center rounded-full hover:bg-white/5">
           <ArrowLeft size={22} />
@@ -96,7 +108,7 @@ export function LessonScreen({ lessonId }: { lessonId: string }) {
       {tab === 'phrases' && <PhrasesTab lesson={lesson} />}
       {tab === 'grammar' && <GrammarTab lesson={lesson} />}
       {tab === 'dialogue' && <DialogueTab lesson={lesson} />}
-      {tab === 'quiz' && <QuizTab lesson={lesson} />}
+      {tab === 'quiz' && <QuizTab lesson={lesson} testingPreviewOnly={testingOverride} />}
 
       {tab !== 'quiz' && (
         <Button className="mt-6 w-full" onClick={goNext}>
@@ -293,7 +305,7 @@ function DialogueTab({ lesson }: { lesson: Lesson }) {
   );
 }
 
-function QuizTab({ lesson }: { lesson: Lesson }) {
+function QuizTab({ lesson, testingPreviewOnly = false }: { lesson: Lesson; testingPreviewOnly?: boolean }) {
   const { state, dispatch } = useProgress();
   const { navigate } = useRouter();
   const { t } = useI18n();
@@ -301,7 +313,9 @@ function QuizTab({ lesson }: { lesson: Lesson }) {
   const [result, setResult] = useState<QuizResult[] | null>(null);
 
   const finish = (results: QuizResult[]) => {
-    dispatch({ type: 'submitQuiz', lessonId: lesson.id, results, today: dayKey() });
+    if (!testingPreviewOnly) {
+      dispatch({ type: 'submitQuiz', lessonId: lesson.id, results, today: dayKey() });
+    }
     setResult(results);
   };
 

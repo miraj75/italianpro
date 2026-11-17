@@ -1,7 +1,7 @@
 import { useEffect, useMemo, useState } from 'react';
 import { BookOpen, CheckCircle2, ChevronRight, FileText, RotateCcw } from 'lucide-react';
 import type { ReadingKind, ReadingPassage } from '../../content/academyTypes';
-import { LESSON_PASS_SCORE } from '../../content/types';
+import { LESSON_PASS_SCORE, type Tr } from '../../content/types';
 import type { BankLevel } from '../../content/bank';
 import { loadLevelReading } from '../../content/registry';
 import { grammarById } from '../../content/grammar';
@@ -15,24 +15,24 @@ import { SubHeader } from '../../components/SubHeader';
 import { LevelTabs, isBankLevel } from '../../components/LevelTabs';
 import { QuizRunner, type QuizResult } from '../../components/QuizRunner';
 
-const READING_KINDS: Record<ReadingKind, { bn: string; en: string }> = {
-  story: { bn: 'গল্প', en: 'Story' },
-  dialogue: { bn: 'সংলাপ', en: 'Dialogue' },
-  letter: { bn: 'চিঠি', en: 'Letter' },
-  email: { bn: 'ইমেইল', en: 'Email' },
-  message: { bn: 'মেসেজ', en: 'Message' },
-  notice: { bn: 'বিজ্ঞপ্তি', en: 'Notice' },
-  article: { bn: 'প্রবন্ধ', en: 'Article' },
-  travel: { bn: 'ভ্রমণ', en: 'Travel' },
-  news: { bn: 'সংবাদ', en: 'News' },
-  opinion: { bn: 'মতামত', en: 'Opinion' },
-  essay: { bn: 'রচনা', en: 'Essay' },
+const READING_KINDS: Record<ReadingKind, Tr> = {
+  story: { bn: 'গল্প', en: 'Story', it: 'Storia' },
+  dialogue: { bn: 'সংলাপ', en: 'Dialogue', it: 'Dialogo' },
+  letter: { bn: 'চিঠি', en: 'Letter', it: 'Lettera' },
+  email: { bn: 'ইমেইল', en: 'Email', it: 'Email' },
+  message: { bn: 'মেসেজ', en: 'Message', it: 'Messaggio' },
+  notice: { bn: 'বিজ্ঞপ্তি', en: 'Notice', it: 'Avviso' },
+  article: { bn: 'প্রবন্ধ', en: 'Article', it: 'Articolo' },
+  travel: { bn: 'ভ্রমণ', en: 'Travel', it: 'Viaggio' },
+  news: { bn: 'সংবাদ', en: 'News', it: 'Notizie' },
+  opinion: { bn: 'মতামত', en: 'Opinion', it: 'Opinione' },
+  essay: { bn: 'রচনা', en: 'Essay', it: 'Saggio' },
 };
 
 export function ReadingScreen() {
   const { route, navigate } = useRouter();
   const { state, dispatch } = useProgress();
-  const { t, tr, lang } = useI18n();
+  const { t, tr } = useI18n();
   useStudyTimer();
 
   const initial = route.params.get('level');
@@ -72,7 +72,7 @@ export function ReadingScreen() {
       <div className="animate-rise space-y-4">
         <SubHeader
           title={active.titleIt}
-          subtitle={`${active.level} · ${READING_KINDS[active.kind][lang]} · ${tr(active.title)}`}
+          subtitle={`${active.level} · ${tr(READING_KINDS[active.kind])} · ${tr(active.title)}`}
           right={
             <Button variant="ghost" className="min-h-10 px-4 text-sm" onClick={() => { setQuizResult(null); setActive(null); }}>
               {t('all')}
@@ -215,7 +215,7 @@ export function ReadingScreen() {
         </Pill>
         {kinds.map((k) => (
           <Pill key={k} active={kind === k} onClick={() => setKind(k)}>
-            {READING_KINDS[k][lang]}
+            {tr(READING_KINDS[k])}
           </Pill>
         ))}
       </div>
@@ -245,7 +245,7 @@ export function ReadingScreen() {
                   </span>
                   <div className="min-w-0 flex-1">
                     <p className="text-xs font-semibold text-ink-3 tabular-nums">
-                      {READING_KINDS[p.kind][lang]} · {p.readingMinutes} {t('minutes')}
+                      {tr(READING_KINDS[p.kind])} · {p.readingMinutes} {t('minutes')}
                     </p>
                     <p className="truncate text-base font-extrabold">{p.titleIt}</p>
                     <p className="bn truncate text-sm text-ink-2">{tr(p.title)}</p>

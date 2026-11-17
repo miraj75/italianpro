@@ -1,7 +1,7 @@
 import { useState } from 'react';
 import { CheckCircle2, XCircle } from 'lucide-react';
 import type { QuizQuestion } from '../content/types';
-import { useI18n } from '../lib/i18n';
+import { resolveExamOptions, useI18n } from '../lib/i18n';
 import { Button, GlassCard, ProgressBar, cx } from './ui';
 
 export interface QuizResult {
@@ -18,7 +18,7 @@ export function QuizRunner({
   questions: QuizQuestion[];
   onFinish: (results: QuizResult[]) => void;
 }) {
-  const { t, tr } = useI18n();
+  const { lang, t, tr } = useI18n();
   const [index, setIndex] = useState(0);
   const [selected, setSelected] = useState<number | null>(null);
   const [checked, setChecked] = useState(false);
@@ -27,12 +27,13 @@ export function QuizRunner({
 
   const q = questions[index];
   if (!q) return null;
+  const opts = resolveExamOptions(q, lang);
   const isCorrect = selected === q.answer;
 
   const check = () => {
     if (selected === null || checked) return;
     setChecked(true);
-    setResults((r) => [...r, { questionId: q.id, correct: selected === q.answer, chosen: q.options[selected] }]);
+    setResults((r) => [...r, { questionId: q.id, correct: selected === q.answer, chosen: opts[selected] }]);
   };
 
   const next = () => {
@@ -60,7 +61,7 @@ export function QuizRunner({
         {q.it && <p className="mt-2 text-2xl font-semibold">{q.it}</p>}
       </GlassCard>
       <div className="mt-4 grid gap-3" role="radiogroup">
-        {q.options.map((opt, i) => {
+        {opts.map((opt, i) => {
           const state = !checked ? (selected === i ? 'selected' : 'idle') : i === q.answer ? 'right' : selected === i ? 'wrong' : 'idle';
           return (
             <button
@@ -89,7 +90,7 @@ export function QuizRunner({
           className={cx('mt-4 rounded-2xl border p-4', isCorrect ? 'border-neon/40 bg-neon/10' : 'border-pink/40 bg-pink/10')}
           aria-live="polite"
         >
-          <p className="font-semibold">{isCorrect ? t('correct') : `${t('incorrect')} — ${t('correctAnswer')}: ${q.options[q.answer]}`}</p>
+          <p className="font-semibold">{isCorrect ? t('correct') : `${t('incorrect')} — ${t('correctAnswer')}: ${opts[q.answer] ?? ''}`}</p>
           <p className="bn mt-1 text-sm text-ink-2">{tr(q.explanation)}</p>
         </div>
       )}

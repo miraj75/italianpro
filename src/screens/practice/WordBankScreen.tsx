@@ -18,7 +18,7 @@ type VocabMode = 'browse' | 'listen' | 'match' | 'recall';
 export function WordBankScreen() {
   const { route, navigate } = useRouter();
   const { state, dispatch } = useProgress();
-  const { t, tr, lang } = useI18n();
+  const { t, tr } = useI18n();
   useStudyTimer();
 
   const initial = route.params.get('level');
@@ -86,7 +86,7 @@ export function WordBankScreen() {
             </Pill>
             {topics.map((tp) => (
               <Pill key={tp.en} active={topic === tp.en} onClick={() => setTopic(tp.en)}>
-                {tp[lang]}
+                {tr(tp)}
               </Pill>
             ))}
           </div>

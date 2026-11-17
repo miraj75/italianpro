@@ -96,7 +96,7 @@ export function SentencesScreen() {
 }
 
 export function PhrasesScreen() {
-  const { t } = useI18n();
+  const { t, tr } = useI18n();
   useStudyTimer();
   return (
     <div className="animate-rise">
@@ -107,8 +107,7 @@ export function PhrasesScreen() {
             <SpeakButton text={p.it} size={38} />
             <div>
               <p className="text-lg font-bold text-mint">{p.it}</p>
-              <p className="bn mt-0.5 font-semibold">{p.tr.bn}</p>
-              <p className="text-sm text-ink-2">{p.tr.en}</p>
+              <p className="bn mt-0.5 font-semibold text-ink-2">{tr(p.tr)}</p>
             </div>
           </GlassCard>
         ))}

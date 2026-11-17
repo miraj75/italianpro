@@ -413,7 +413,11 @@ export const GRAMMAR_DETAILS: Record<string, GrammarExtra> = {
       en: 'Letters j, k, w, x, y appear mainly in loanwords.',
     },
     commonMistakes: [
-      { wrong: 'ciao কে কিয়াও বলা', right: 'চাও (chow)', note: { bn: 'ci + a-তে i উচ্চারিত হয় না, শুধু c-কে নরম করে।', en: 'In ciao, i only softens c into "ch".' } },
+      {
+        wrong: { bn: 'ciao কে কিয়াও বলা', en: 'Saying "ciao" as "kee-ow"', it: 'Dire "ciao" come "chiao"' },
+        right: { bn: 'চাও (chow)', en: '"chow" (ciao)', it: '"ciao" (c dolce)' },
+        note: { bn: 'ci + a-তে i উচ্চারিত হয় না, শুধু c-কে নরম করে।', en: 'In ciao, i only softens c into "ch".' },
+      },
     ],
     examples: [
       { it: 'Prendo gli spaghetti e il gelato.', tr: { bn: 'আমি স্প্যাগেটি আর জেলাটো নিচ্ছি।', en: 'I am having spaghetti and gelato.' } },
@@ -423,7 +427,12 @@ export const GRAMMAR_DETAILS: Record<string, GrammarExtra> = {
       {
         id: 'ex-pron-1',
         prompt: { bn: '"chiave" শব্দে "ch" কীভাবে উচ্চারিত হয়?', en: 'How is "ch" pronounced in "chiave"?' },
-        options: ['"চ" এর মতো', '"ক" এর মতো', '"শ" এর মতো', '"হ" এর মতো'],
+        options: ['Like "ch" (church)', 'Like hard "k" (key)', 'Like "sh" (shoe)', 'Silent "h"'],
+        localizedOptions: {
+          bn: ['"চ" এর মতো', '"ক" এর মতো', '"শ" এর মতো', '"হ" এর মতো'],
+          en: ['Like "ch" (church)', 'Like hard "k" (key)', 'Like "sh" (shoe)', 'Silent "h"'],
+          it: ['Come "c" dolce (ciao)', 'Come "k" dura (chiave)', 'Come "sc" (pesce)', 'Muta ("h")'],
+        },
         answer: 1,
         explanation: { bn: 'ch+i শক্ত "ক" ধ্বনি দেয়।', en: 'ch before i always makes a hard "k" sound.' },
       },
