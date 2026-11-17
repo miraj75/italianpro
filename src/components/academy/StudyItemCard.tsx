@@ -60,7 +60,7 @@ export function StudyItemCard({ item, studied, onSelect }: StudyItemCardProps) {
     lang === 'bn'
       ? item.phoneticBn
       : lang === 'it'
-        ? (item.phoneticIt ?? item.phoneticEn)
+        ? (item.phoneticIt ?? '')
         : item.phoneticEn;
 
   if (item.detailLayout === 'rich') {
@@ -68,19 +68,19 @@ export function StudyItemCard({ item, studied, onSelect }: StudyItemCardProps) {
       lang === 'bn'
         ? (item.meaningBn ?? '')
         : lang === 'it'
-          ? (item.meaningIt ?? item.meaningEn ?? '')
+          ? (item.meaningIt ?? '')
           : (item.meaningEn ?? '');
     const exampleTr =
       lang === 'bn'
         ? item.exampleTrBn
         : lang === 'it'
-          ? (item.exampleTrIt ?? item.exampleTrEn)
+          ? (item.exampleTrIt ?? '')
           : item.exampleTrEn;
     const secondaryExampleTr =
       lang === 'bn'
         ? (item.secondaryExampleTrBn ?? '')
         : lang === 'it'
-          ? (item.secondaryExampleTrIt ?? item.secondaryExampleTrEn ?? '')
+          ? (item.secondaryExampleTrIt ?? '')
           : (item.secondaryExampleTrEn ?? '');
 
     return (
@@ -103,7 +103,7 @@ export function StudyItemCard({ item, studied, onSelect }: StudyItemCardProps) {
             >
               {studied ? (
                 <>
-                  <CheckCircle2 size={14} className="shrink-0 text-neon" aria-label="studied" />
+                  <CheckCircle2 size={14} className="shrink-0 text-neon" aria-label={tr({ bn: 'সম্পন্ন', en: 'studied', it: 'studiato' })} />
                   <span className="bn">{tr({ bn: 'সম্পন্ন', en: 'Studied', it: 'Studiato' })}</span>
                 </>
               ) : (
@@ -198,12 +198,10 @@ export function StudyItemCard({ item, studied, onSelect }: StudyItemCardProps) {
   const isAlphabet = Boolean(item.secondary);
 
   const subText = isAlphabet
-    ? `${item.exampleIt} · ${
-        lang === 'bn'
-          ? item.exampleTrBn
-          : lang === 'it'
-            ? (item.exampleTrIt ?? item.exampleTrEn)
-            : item.exampleTrEn
+    ? `${item.exampleIt}${
+        (lang === 'bn' ? item.exampleTrBn : lang === 'it' ? (item.exampleTrIt ?? '') : item.exampleTrEn)
+          ? ` · ${lang === 'bn' ? item.exampleTrBn : lang === 'it' ? (item.exampleTrIt ?? '') : item.exampleTrEn}`
+          : ''
       }`
     : lang === 'bn'
       ? (item.meaningBn?.replace(/^সংখ্যা\s+/, '') ?? item.exampleIt)
@@ -231,7 +229,7 @@ export function StudyItemCard({ item, studied, onSelect }: StudyItemCardProps) {
         >
           {studied ? (
             <>
-              <CheckCircle2 size={14} className="shrink-0 text-neon" aria-label="studied" />
+              <CheckCircle2 size={14} className="shrink-0 text-neon" aria-label={tr({ bn: 'সম্পন্ন', en: 'studied', it: 'studiato' })} />
               <span className="bn">{tr({ bn: 'সম্পন্ন', en: 'Studied', it: 'Studiato' })}</span>
             </>
           ) : (

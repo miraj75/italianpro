@@ -27,7 +27,7 @@ export function toNumberStudyItem(n: NumberItem): StudyListItem {
     italianLabel: n.it,
     phoneticBn: n.phoneticBn,
     phoneticEn: n.phoneticEn,
-    phoneticIt: n.phoneticEn,
+    phoneticIt: n.it,
     meaningBn: n.bn,
     meaningEn: n.en,
     meaningIt: n.exampleIt,
@@ -35,7 +35,7 @@ export function toNumberStudyItem(n: NumberItem): StudyListItem {
     exampleIt: n.exampleIt,
     exampleTrBn: n.exampleTr.bn,
     exampleTrEn: n.exampleTr.en,
-    exampleTrIt: n.exampleTr.it ?? n.exampleTr.en,
+    exampleTrIt: n.exampleTr.it ?? '',
     group: n.group,
   };
 }
@@ -70,11 +70,11 @@ function toDrillItem(n: NumberItem): AcademyDrillItem {
     secondaryLabel: n.it,
     cueBn: `${n.phoneticBn} · ${n.bn}`,
     cueEn: `${n.phoneticEn} · ${n.en}`,
-    cueIt: `${n.phoneticEn} · ${n.exampleIt}`,
+    cueIt: n.exampleIt,
     feedbackDetail: {
       bn: `${n.value} = "${n.it}" (${n.phoneticBn}) · ${n.exampleIt} (${n.exampleTr.bn})`,
       en: `${n.value} = "${n.it}" (${n.phoneticEn}) · ${n.exampleIt} (${n.exampleTr.en})`,
-      it: `${n.value} = «${n.it}» (${n.phoneticEn}) · ${n.exampleIt}`,
+      it: `${n.value} = «${n.it}» · ${n.exampleIt}`,
     },
   };
 }

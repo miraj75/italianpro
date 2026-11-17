@@ -15,7 +15,7 @@ import { loadModulePosition, saveModulePosition } from '../../../lib/modulePosit
 import type { ExplainLang } from '../../../content/types';
 
 function formatVerbPronunciation(raw: string | undefined, lang: ExplainLang): string {
-  if (!raw) return '';
+  if (!raw || lang === 'it') return '';
   if (lang === 'bn') return raw;
   const latinMatch = raw.match(/\/([A-Za-z][^]*)\/$/);
   if (latinMatch?.[1]) return `/${latinMatch[1]}/`;
@@ -153,7 +153,13 @@ export function VerbsModuleView({
                   </div>
                   <div className="flex items-center gap-2 shrink-0">
                     <SpeakButton text={verb.infinitive} size={38} onSpeak={() => onMarkStudied(verb.id)} />
-                    {studied && <CheckCircle2 size={22} className="text-neon" aria-label="studied" />}
+                    {studied && (
+                      <CheckCircle2
+                        size={22}
+                        className="text-neon"
+                        aria-label={tr({ bn: 'সম্পন্ন', en: 'studied', it: 'studiato' })}
+                      />
+                    )}
                   </div>
                 </div>
 

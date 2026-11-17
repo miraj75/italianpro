@@ -41,7 +41,14 @@ export function VocabularyScreen() {
 
   return (
     <div className="animate-rise">
-      <SubHeader title="Vocabulary" subtitle={`${Object.keys(state.cards).length} cards`} />
+      <SubHeader
+        title={t('flashcards')}
+        subtitle={tr({
+          bn: `${Object.keys(state.cards).length}টি কার্ড`,
+          en: `${Object.keys(state.cards).length} cards`,
+          it: `${Object.keys(state.cards).length} schede`,
+        })}
+      />
       {queue.length === 0 && <GlassCard className="bn p-6 text-center text-ink-2">{t('noDue')}</GlassCard>}
       {queue.length > 0 && !phrase && <GlassCard className="p-6 text-center text-lg font-semibold">{t('sessionDone')} ✓</GlassCard>}
       {phrase && (

@@ -163,7 +163,7 @@ export function ListeningScreen() {
           </Button>
           {activeLine !== null && (
             <p className="text-xs font-bold text-neon tabular-nums">
-              Line {activeLine + 1} / {active.lines.length} — {active.lines[activeLine]?.speaker}
+              {tr({ bn: 'লাইন', en: 'Line', it: 'Riga' })} {activeLine + 1} / {active.lines.length} — {active.lines[activeLine]?.speaker}
             </p>
           )}
         </GlassCard>
@@ -351,7 +351,7 @@ export function ListeningScreen() {
                   </span>
                   <div className="min-w-0 flex-1">
                     <p className="text-xs font-bold text-cyan/90 tabular-nums">
-                      {tr(KIND_LABELS[ex.kind])} · {ex.lines.length} {tr({ bn: 'লাইন', en: 'lines', it: 'righe' })} · {ex.questions.length} Q
+                      {tr(KIND_LABELS[ex.kind])} · {ex.lines.length} {tr({ bn: 'লাইন', en: 'lines', it: 'righe' })} · {ex.questions.length} {tr({ bn: 'প্রশ্ন', en: 'Q', it: 'D' })}
                     </p>
                     <p className="mt-0.5 line-clamp-2 text-base leading-snug font-extrabold text-white break-words">
                       {ex.titleIt}

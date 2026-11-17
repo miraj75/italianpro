@@ -279,7 +279,7 @@ export interface SpeakingExercise {
   prompt: Tr;
   targetIt: string;
   targetTr: Tr;
-  pronunciationHint: string;
+  pronunciationHint: Tr;
   imageAsset?: string;
   dialogueCue?: { speaker: string; it: string; tr: Tr };
   followUps?: { it: string; tr: Tr }[];

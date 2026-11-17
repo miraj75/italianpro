@@ -27,8 +27,49 @@ import { loadModulePosition, saveModulePosition } from '../../../lib/modulePosit
 import { Button, GlassCard, cx } from '../../../components/ui';
 import { SpeakButton } from '../../../components/SpeakButton';
 import { AcademyExamRunner } from '../../../components/AcademyExamRunner';
+import type { Tr } from '../../../content/types';
 
 type Tab = 'study' | 'exam';
+
+const SKILL_KIND_LABELS: Record<string, Tr> = {
+  story: { bn: 'গল্প', en: 'Story', it: 'Racconto' },
+  dialogue: { bn: 'সংলাপ', en: 'Dialogue', it: 'Dialogo' },
+  letter: { bn: 'চিঠি', en: 'Letter', it: 'Lettera' },
+  email: { bn: 'ইমেইল', en: 'Email', it: 'Email' },
+  message: { bn: 'বার্তা', en: 'Message', it: 'Messaggio' },
+  notice: { bn: 'বিজ্ঞপ্তি', en: 'Notice', it: 'Avviso' },
+  article: { bn: 'প্রবন্ধ', en: 'Article', it: 'Articolo' },
+  travel: { bn: 'ভ্রমণ', en: 'Travel', it: 'Viaggio' },
+  news: { bn: 'সংবাদ', en: 'News', it: 'Notizie' },
+  opinion: { bn: 'মতামত', en: 'Opinion', it: 'Opinione' },
+  essay: { bn: 'রচনা', en: 'Essay', it: 'Saggio' },
+  announcement: { bn: 'ঘোষণা', en: 'Announcement', it: 'Annuncio' },
+  voicemail: { bn: 'ভয়েসমেইল', en: 'Voicemail', it: 'Segreteria' },
+  tour: { bn: 'ভ্রমণ গাইড', en: 'Guided Tour', it: 'Visita guidata' },
+  station: { bn: 'স্টেশন', en: 'Station', it: 'Stazione' },
+  interview: { bn: 'সাক্ষাৎকার', en: 'Interview', it: 'Intervista' },
+  podcast: { bn: 'পডকাস্ট', en: 'Podcast', it: 'Podcast' },
+  cafe: { bn: 'ক্যাফে', en: 'Café', it: 'Bar / Caffè' },
+  workplace: { bn: 'কর্মক্ষেত্র', en: 'Workplace', it: 'Lavoro' },
+  academic: { bn: 'একাডেমিক', en: 'Academic', it: 'Accademico' },
+  debate: { bn: 'বিতর্ক', en: 'Debate', it: 'Dibattito' },
+  radio: { bn: 'রেডিও', en: 'Radio', it: 'Radio' },
+  greeting: { bn: 'শুভেচ্ছা', en: 'Greeting', it: 'Saluto' },
+  restaurant: { bn: 'রেস্তোরাঁ', en: 'Restaurant', it: 'Ristorante' },
+  directions: { bn: 'দিকনির্দেশনা', en: 'Directions', it: 'Indicazioni' },
+  emergency: { bn: 'জরুরি অবস্থা', en: 'Emergency', it: 'Emergenza' },
+  hotel: { bn: 'হোটেল', en: 'Hotel', it: 'Albergo' },
+  shopping: { bn: 'কেনাকাটা', en: 'Shopping', it: 'Acquisti' },
+  doctor: { bn: 'ডাক্তার', en: 'Doctor', it: 'Medico' },
+  work: { bn: 'কর্মক্ষেত্র', en: 'Work', it: 'Lavoro' },
+  daily: { bn: 'দৈনন্দিন', en: 'Daily Life', it: 'Vita quotidiana' },
+  argument: { bn: 'যুক্তিতর্ক', en: 'Argument', it: 'Argomentazione' },
+  negotiation: { bn: 'আলোচনা', en: 'Negotiation', it: 'Negoziazione' },
+};
+
+function labelForKind(kind: string, tr: (t: Tr) => string): string {
+  return tr(SKILL_KIND_LABELS[kind] ?? { bn: kind, en: kind, it: kind });
+}
 
 interface SkillsModuleViewProps {
   meta: AcademyModuleMeta;
@@ -217,7 +258,7 @@ export function SkillsModuleView({
                 <GlassCard neon={studiedSet.has(selectedReading.id)} className="p-4 sm:p-5 space-y-4">
                   <div>
                     <p className="text-xs font-extrabold uppercase text-cyan">
-                      {selectedReading.kind} · {selectedReading.readingMinutes} {t('minutes')}
+                      {labelForKind(selectedReading.kind, tr)} · {selectedReading.readingMinutes} {t('minutes')}
                     </p>
                     <h2 className="mt-1 text-xl font-extrabold text-white">{selectedReading.titleIt}</h2>
                     <p className="bn text-sm font-bold text-mint">{tr(selectedReading.title)}</p>
@@ -294,7 +335,7 @@ export function SkillsModuleView({
                       <GlassCard neon={studied} className="p-4 flex items-center justify-between gap-3 hover:border-neon/50 transition">
                         <div className="min-w-0 flex-1">
                           <div className="flex items-center gap-2 text-[11px] font-extrabold uppercase">
-                            <span className="text-cyan">{passage.kind}</span>
+                            <span className="text-cyan">{labelForKind(passage.kind, tr)}</span>
                             {isCore && (
                               <>
                                 <span className="text-ink-3" aria-hidden="true">·</span>
@@ -340,7 +381,9 @@ export function SkillsModuleView({
                 <GlassCard neon={studiedSet.has(selectedListening.id)} className="p-4 sm:p-5 space-y-4">
                   <div className="flex items-start justify-between gap-3">
                     <div className="min-w-0 flex-1">
-                      <p className="text-xs font-extrabold uppercase text-cyan">{selectedListening.kind}</p>
+                      <p className="text-xs font-extrabold uppercase text-cyan">
+                        {labelForKind(selectedListening.kind, tr)}
+                      </p>
                       <h2 className="mt-0.5 text-xl font-extrabold text-white">{selectedListening.titleIt}</h2>
                       <p className="bn text-sm font-bold text-mint">{tr(selectedListening.title)}</p>
                     </div>
@@ -432,7 +475,7 @@ export function SkillsModuleView({
                       <GlassCard neon={studied} className="p-4 flex items-center justify-between gap-3 hover:border-neon/50 transition">
                         <div className="min-w-0 flex-1">
                           <div className="flex items-center gap-2 text-[11px] font-extrabold uppercase">
-                            <span className="text-cyan">{ex.kind}</span>
+                            <span className="text-cyan">{labelForKind(ex.kind, tr)}</span>
                             {isCore && (
                               <>
                                 <span className="text-ink-3" aria-hidden="true">·</span>
@@ -591,7 +634,7 @@ export function SkillsModuleView({
                   <GlassCard key={sp.id} neon={studied} className="p-4 sm:p-5 space-y-3">
                     <div className="flex items-start justify-between gap-2">
                       <div>
-                        <p className="text-xs font-extrabold uppercase text-cyan">{sp.kind}</p>
+                        <p className="text-xs font-extrabold uppercase text-cyan">{labelForKind(sp.kind, tr)}</p>
                         <h3 className="bn text-lg font-extrabold text-white">{tr(sp.title)}</h3>
                       </div>
                       {studied && <CheckCircle2 size={20} className="shrink-0 text-neon" />}
@@ -603,8 +646,8 @@ export function SkillsModuleView({
                       <div className="min-w-0 flex-1 space-y-1">
                         <p className="text-base font-extrabold text-white leading-snug">{sp.targetIt}</p>
                         <p className="bn text-xs font-semibold text-mint">{tr(sp.targetTr)}</p>
-                        {sp.pronunciationHint && (lang === 'bn' || !/[\u0980-\u09FF]/.test(sp.pronunciationHint)) && (
-                          <p className="text-[11px] font-semibold text-ink-3">/{sp.pronunciationHint}/</p>
+                        {sp.pronunciationHint && tr(sp.pronunciationHint) && (
+                          <p className="bn text-[11px] font-semibold text-ink-3">/{tr(sp.pronunciationHint)}/</p>
                         )}
                       </div>
                       <SpeakButton text={sp.targetIt} size={40} onSpeak={() => onMarkStudied(sp.id)} />

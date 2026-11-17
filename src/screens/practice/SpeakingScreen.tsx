@@ -157,7 +157,7 @@ export function SpeakingScreen() {
           <p className="text-xl leading-snug font-extrabold text-mint break-words">{active.targetIt}</p>
           <p className="bn text-sm font-semibold break-words">{tr(active.targetTr)}</p>
           <p className="bn rounded-xl bg-white/5 px-3 py-2 text-sm text-cyan break-words">
-            {t('pronTip')}: {active.pronunciationHint}
+            {t('pronTip')}: {tr(active.pronunciationHint)}
           </p>
 
           <div className="grid grid-cols-1 gap-2 pt-1 min-[380px]:grid-cols-2">
@@ -201,13 +201,17 @@ export function SpeakingScreen() {
 
           {trimmedTranscript && match && (
             <div className="rounded-2xl border border-white/15 bg-white/5 p-3.5">
-              <p className="text-xs font-bold text-ink-3">Recognized (it-IT):</p>
+              <p className="text-xs font-bold text-ink-3">
+                {tr({ bn: 'শনাক্তকৃত উক্তি (it-IT):', en: 'Recognized (it-IT):', it: 'Riconosciuto (it-IT):' })}
+              </p>
               <p className="mt-0.5 text-base font-bold break-words">“{trimmedTranscript}”</p>
               <p className={cx('mt-2 text-sm font-extrabold tabular-nums', match.percent >= 65 ? 'text-neon' : 'text-gold')}>
-                Word match: {match.percent}% ({match.matched.length}/{match.matched.length + match.missed.length})
+                {tr({ bn: 'শব্দ মিল:', en: 'Word match:', it: 'Parole corrispondenti:' })} {match.percent}% ({match.matched.length}/{match.matched.length + match.missed.length})
               </p>
               {match.missed.length > 0 && (
-                <p className="mt-1 text-xs text-ink-2 break-words">Practise again: {match.missed.join(', ')}</p>
+                <p className="mt-1 text-xs text-ink-2 break-words">
+                  {tr({ bn: 'আবার অনুশীলন করুন:', en: 'Practise again:', it: 'Ripeti:' })} {match.missed.join(', ')}
+                </p>
               )}
             </div>
           )}
@@ -224,7 +228,9 @@ export function SpeakingScreen() {
 
         {active.followUps && active.followUps.length > 0 && (
           <GlassCard className="p-4">
-            <p className="mb-2 text-xs font-bold text-ink-3">Follow-up reply</p>
+            <p className="mb-2 text-xs font-bold text-ink-3">
+              {tr({ bn: 'পরবর্তী উত্তর', en: 'Follow-up reply', it: 'Risposta di seguito' })}
+            </p>
             <div className="space-y-2.5">
               {active.followUps.map((f, idx) => (
                 <div key={idx} className="flex items-start gap-2.5">

@@ -29,6 +29,7 @@ export function A1AcademyHubScreen() {
         subtitle={tr({
           bn: 'লার্নিং পাথ: ধাপে ধাপে সম্পূর্ণ A1 পাঠ্যক্রম',
           en: 'Learning Path: Complete step-by-step A1 curriculum',
+          it: 'Percorso di apprendimento: programma completo A1',
         })}
         backTo="/courses"
       />

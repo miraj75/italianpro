@@ -251,15 +251,18 @@ export function buildLevelLearningPathNodes(state: ProgressState, levelId: Level
         ? {
             bn: `পরবর্তী ধাপে যুক্ত হবে (Phase ${mod.phase})`,
             en: `Coming in Phase ${mod.phase}`,
+            it: `In arrivo nella Fase ${mod.phase}`,
           }
         : isFinalExamModuleId(mod.id)
           ? {
               bn: 'আগের সব অধ্যায় সম্পন্ন করলে চূড়ান্ত পরীক্ষা খুলবে',
               en: 'Complete all prior modules to unlock Final Exam',
+              it: 'Completa tutti i moduli precedenti per sbloccare l’Esame Finale',
             }
           : {
               bn: 'আগের মডিউল সম্পন্ন করলে খুলবে',
               en: 'Complete the previous module to unlock',
+              it: 'Completa il modulo precedente per sbloccare',
             },
     };
   });

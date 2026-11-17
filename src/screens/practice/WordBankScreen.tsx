@@ -21,8 +21,9 @@ import {
 } from 'lucide-react';
 import { RICH_WORDS, WORDS, topicsOf, type BankLevel } from '../../content/bank';
 import type { RichVocabItem } from '../../content/academyTypes';
+import type { ExplainLang } from '../../content/types';
 import { useRouter } from '../../app/router';
-import { useI18n, type StringKey } from '../../lib/i18n';
+import { matchesLocalizedSearch, useI18n, type StringKey } from '../../lib/i18n';
 import { dayKey } from '../../lib/date';
 import { speakItalian } from '../../lib/speech';
 import { buildPrioritizedRoundWords, getVocabRevisionSummary } from '../../lib/vocabRevision';
@@ -86,20 +87,17 @@ export function filterVocabularyWords(
     query: string;
     bookmarkedOnly: boolean;
     savedKeys: ReadonlySet<string>;
+    lang?: ExplainLang;
   },
 ): RichVocabItem[] {
-  const q = opts.query.trim().toLowerCase();
+  const activeLang = opts.lang ?? 'en';
   return items.filter((w) => {
     if (opts.bookmarkedOnly && !opts.savedKeys.has(w.key)) return false;
     if (opts.topic && w.topic.en !== opts.topic) return false;
-    if (!q) return true;
-    return (
-      w.it.toLowerCase().includes(q) ||
-      w.baseWord.toLowerCase().includes(q) ||
-      w.tr.en.toLowerCase().includes(q) ||
-      w.tr.bn.includes(q) ||
-      w.pronunciation.toLowerCase().includes(q)
-    );
+    return matchesLocalizedSearch(opts.query, activeLang, w.it, w.tr, [
+      w.baseWord,
+      w.pronunciation,
+    ]);
   });
 }
 
@@ -118,12 +116,15 @@ export function buildRoundWords(pool: RichVocabItem[], count = PRACTICE_ROUND_SI
   const uniqueByMeaning: RichVocabItem[] = [];
   const seenEn = new Set<string>();
   const seenBn = new Set<string>();
+  const seenIt = new Set<string>();
   for (const item of shuffleWithRng(pool, rng)) {
     const en = item.tr.en.trim().toLowerCase();
     const bn = item.tr.bn.trim();
-    if (seenEn.has(en) || seenBn.has(bn)) continue;
+    const it = (item.tr.it ?? '').trim().toLowerCase();
+    if (seenEn.has(en) || seenBn.has(bn) || (it && seenIt.has(it))) continue;
     seenEn.add(en);
     seenBn.add(bn);
+    if (it) seenIt.add(it);
     uniqueByMeaning.push(item);
     if (uniqueByMeaning.length >= count) break;
   }
@@ -137,14 +138,18 @@ export function buildListenOptions(
 ): RichVocabItem[] {
   const seenEn = new Set<string>([target.tr.en.trim().toLowerCase()]);
   const seenBn = new Set<string>([target.tr.bn.trim()]);
+  const targetIt = (target.tr.it ?? '').trim().toLowerCase();
+  const seenIt = new Set<string>(targetIt ? [targetIt] : []);
   const distractors: RichVocabItem[] = [];
   for (const candidate of shuffleWithRng(pool, rng)) {
     if (candidate.key === target.key) continue;
     const en = candidate.tr.en.trim().toLowerCase();
     const bn = candidate.tr.bn.trim();
-    if (seenEn.has(en) || seenBn.has(bn)) continue;
+    const it = (candidate.tr.it ?? '').trim().toLowerCase();
+    if (seenEn.has(en) || seenBn.has(bn) || (it && seenIt.has(it))) continue;
     seenEn.add(en);
     seenBn.add(bn);
+    if (it) seenIt.add(it);
     distractors.push(candidate);
     if (distractors.length === 3) break;
   }
@@ -326,8 +331,9 @@ export function WordBankScreen() {
         query,
         bookmarkedOnly,
         savedKeys: savedSet,
+        lang,
       }),
-    [levelWords, topic, query, bookmarkedOnly, savedSet],
+    [levelWords, topic, query, bookmarkedOnly, savedSet, lang],
   );
 
   const notInDeck = useMemo(
@@ -429,7 +435,7 @@ export function WordBankScreen() {
       <div
         className="grid grid-cols-4 gap-1.5 rounded-2xl border border-white/12 bg-[#041d19]/90 p-1"
         role="tablist"
-        aria-label="CEFR level"
+        aria-label={tr({ bn: 'CEFR স্তর', en: 'CEFR level', it: 'Livello QCER' })}
       >
         {(['A1', 'A2', 'B1', 'B2'] as const).map((l) => {
           const active = level === l;
@@ -488,7 +494,11 @@ export function WordBankScreen() {
       </div>
 
       {/* 2x2 Mobile-First Practice Mode Selector */}
-      <div className="grid grid-cols-2 gap-2.5 lg:grid-cols-4" role="group" aria-label="Practice mode">
+      <div
+        className="grid grid-cols-2 gap-2.5 lg:grid-cols-4"
+        role="group"
+        aria-label={tr({ bn: 'অনুশীলন মোড', en: 'Practice mode', it: 'Modalità di pratica' })}
+      >
         {MODE_CARDS.map((m) => {
           const active = mode === m.id;
           return (
@@ -617,7 +627,6 @@ export function WordBankScreen() {
               const isSaved = savedSet.has(w.key);
               const open = expandedKey === w.key;
               const primaryMeaning = tr(w.tr);
-              const secondaryMeaning = lang === 'bn' ? w.tr.en : w.tr.bn;
 
               return (
                 <div key={w.key} className="px-3.5 py-3.5 sm:px-4">
@@ -638,14 +647,13 @@ export function WordBankScreen() {
                         </span>
                       </div>
                       <p className="bn mt-1 text-sm font-semibold text-ink break-words">{primaryMeaning}</p>
-                      <p className="bn text-xs text-ink-2 break-words">{secondaryMeaning}</p>
                     </button>
 
                     <button
                       type="button"
                       onClick={() => setExpandedKey(open ? null : w.key)}
                       aria-expanded={open}
-                      aria-label={`Details: ${w.it}`}
+                      aria-label={`${tr({ bn: 'বিস্তারিত:', en: 'Details:', it: 'Dettagli:' })} ${w.it}`}
                       className="flex h-11 w-10 shrink-0 items-center justify-center rounded-xl text-ink-3 hover:text-white"
                     >
                       {open ? <ChevronUp size={18} /> : <ChevronDown size={18} />}
@@ -695,7 +703,9 @@ export function WordBankScreen() {
                         {w.plural && (
                           <>
                             <span aria-hidden>·</span>
-                            <span className="text-mint">Plural: {w.plural}</span>
+                            <span className="text-mint">
+                              {tr({ bn: 'বহুবচন:', en: 'Plural:', it: 'Plurale:' })} {w.plural}
+                            </span>
                           </>
                         )}
                       </div>
@@ -703,8 +713,7 @@ export function WordBankScreen() {
                         <SpeakButton text={w.example.it} size={32} />
                         <div className="min-w-0 flex-1 space-y-0.5">
                           <p className="font-bold text-mint">{w.example.it}</p>
-                          <p className="text-xs text-ink">{w.example.tr.en}</p>
-                          <p className="bn text-xs text-ink-2">{w.example.tr.bn}</p>
+                          <p className="bn text-xs text-ink-2">{tr(w.example.tr)}</p>
                         </div>
                       </div>
                     </div>
@@ -848,7 +857,7 @@ function ListenChoosePanel({
   onBookmark: (key: string) => void;
   onCompleteRound: () => void;
 }) {
-  const { t, tr, lang } = useI18n();
+  const { t, tr } = useI18n();
   const current = state.round[state.idx];
 
   const options = useMemo(() => {
@@ -946,7 +955,6 @@ function ListenChoosePanel({
           const optIsCorrect = opt.key === current.key;
           const optWasChosen = state.pickedKey === opt.key;
           const primaryOptMeaning = tr(opt.tr);
-          const secondaryOptMeaning = lang === 'bn' ? opt.tr.en : opt.tr.bn;
 
           return (
             <button
@@ -966,7 +974,6 @@ function ListenChoosePanel({
               )}
             >
               <span className="bn text-sm font-extrabold text-white break-words">{primaryOptMeaning}</span>
-              <span className="bn text-xs text-ink-2 break-words">{secondaryOptMeaning}</span>
               {answered && (
                 <span className="mt-1 text-xs font-bold text-cyan break-words">
                   {opt.it} · /{opt.pronunciation}/
@@ -999,9 +1006,7 @@ function ListenChoosePanel({
                 {current.it}{' '}
                 <span className="text-xs font-semibold text-cyan">/{current.pronunciation}/</span>
               </p>
-              <p className="bn text-xs text-ink-2 break-words">
-                {current.tr.en} · {current.tr.bn}
-              </p>
+              <p className="bn text-xs text-ink-2 break-words">{tr(current.tr)}</p>
             </div>
           </div>
 
@@ -1036,7 +1041,7 @@ function MatchPairsPanel({
   onUpdate: (updater: (prev: MatchSessionState) => MatchSessionState) => void;
   onCompleteRound: () => void;
 }) {
-  const { t, tr, lang } = useI18n();
+  const { t, tr } = useI18n();
   const allMatched = state.pairs.length > 0 && state.matchedKeys.length === state.pairs.length;
 
   const evaluatePair = (itKey: string, trKey: string) => {
@@ -1163,7 +1168,6 @@ function MatchPairsPanel({
             const isSelected = state.selectedTr === w.key;
             const isWrong = state.wrongPair?.trKey === w.key;
             const primary = tr(w.tr);
-            const secondary = lang === 'bn' ? w.tr.en : w.tr.bn;
             return (
               <button
                 key={w.key}
@@ -1182,7 +1186,6 @@ function MatchPairsPanel({
                 )}
               >
                 <span className="block text-sm font-bold text-white break-words">{primary}</span>
-                <span className="block text-[11px] text-ink-2 break-words">{secondary}</span>
               </button>
             );
           })}
@@ -1234,7 +1237,7 @@ function WordRecallPanel({
   onMarkWord: (word: RichVocabItem, known: boolean) => void;
   onCompleteRound: () => void;
 }) {
-  const { t, tr, lang } = useI18n();
+  const { t, tr } = useI18n();
   const current = state.round[state.idx];
 
   if (!current) {
@@ -1270,7 +1273,6 @@ function WordRecallPanel({
   }
 
   const primaryPrompt = tr(current.tr);
-  const secondaryPrompt = lang === 'bn' ? current.tr.en : current.tr.bn;
   const inDeck = Boolean(cards[current.key]);
 
   const markAndAdvance = (known: boolean) => {
@@ -1313,7 +1315,6 @@ function WordRecallPanel({
           {inDeck ? ` · ${t('inDeck')}` : ''}
         </p>
         <p className="bn text-xl sm:text-2xl font-extrabold text-white">{primaryPrompt}</p>
-        <p className="bn text-sm font-medium text-ink-2">{secondaryPrompt}</p>
 
         {!state.revealed && (
           <div className="pt-2">

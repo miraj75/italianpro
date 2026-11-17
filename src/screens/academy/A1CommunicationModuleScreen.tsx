@@ -56,6 +56,7 @@ function FixedStudyContinueBar({
     : tr({
         bn: `ড্রিলে যেতে আরও ${remaining}টি সম্পন্ন করুন (${studiedCount}/${totalCount})`,
         en: `Continue (${remaining} remaining · ${studiedCount}/${totalCount})`,
+        it: `Continua (altri ${remaining} · ${studiedCount}/${totalCount})`,
       });
 
   const btn = (
@@ -126,6 +127,7 @@ function EverydayCommunicationStudy({ ctx }: { ctx: StructuredStudyRenderContext
             {tr({
               bn: '১৪টি বাস্তব পরিস্থিতির অভিব্যক্তি ও সংলাপ',
               en: '14 Real-Life Topics: Expressions & Dialogues',
+              it: '14 situazioni reali: espressioni e dialoghi',
             })}
           </span>
         </div>
@@ -183,7 +185,7 @@ function EverydayCommunicationStudy({ ctx }: { ctx: StructuredStudyRenderContext
       <div className="grid grid-cols-1 sm:grid-cols-2 gap-2.5">
         {topicExpressions.map((exp) => {
           const isStudied = ctx.studiedSet.has(exp.id);
-          const phonetic = lang === 'bn' ? exp.phoneticBn : exp.phoneticEn;
+          const phonetic = lang === 'bn' ? exp.phoneticBn : lang === 'it' ? '' : exp.phoneticEn;
           return (
             <div
               key={exp.id}
@@ -206,7 +208,7 @@ function EverydayCommunicationStudy({ ctx }: { ctx: StructuredStudyRenderContext
                   {isStudied ? (
                     <>
                       <CheckCircle2 size={14} className="text-neon" />
-                      <span className="bn">{tr({ bn: 'সম্পন্ন', en: 'Studied' })}</span>
+                      <span className="bn">{tr({ bn: 'সম্পন্ন', en: 'Studied', it: 'Studiato' })}</span>
                     </>
                   ) : (
                     <span className="inline-block h-3.5 w-3.5 rounded-full border border-white/25" />
@@ -218,7 +220,7 @@ function EverydayCommunicationStudy({ ctx }: { ctx: StructuredStudyRenderContext
                     e.stopPropagation();
                     playText(`${exp.it} ${exp.exampleIt}`, exp.id);
                   }}
-                  aria-label={`Play ${exp.it}`}
+                  aria-label={tr({ bn: `${exp.it} শুনুন`, en: `Play ${exp.it}`, it: `Ascolta ${exp.it}` })}
                   className="inline-flex h-8 w-8 items-center justify-center rounded-full bg-grad-primary text-navy-950"
                 >
                   <Volume2 size={14} />
@@ -227,7 +229,7 @@ function EverydayCommunicationStudy({ ctx }: { ctx: StructuredStudyRenderContext
               <div>
                 <p className="text-base font-extrabold text-white leading-snug">{exp.it}</p>
                 <p className="bn mt-0.5 text-sm font-bold text-mint">{tr(exp.meaning)}</p>
-                <p className="bn mt-0.5 text-xs text-ink-3">/{phonetic}/</p>
+                {phonetic && <p className="bn mt-0.5 text-xs text-ink-3">/{phonetic}/</p>}
               </div>
               <div className="rounded-xl border border-white/10 bg-white/4 px-2.5 py-2 space-y-0.5">
                 <p className="text-xs font-bold text-white">{exp.exampleIt}</p>
@@ -244,6 +246,7 @@ function EverydayCommunicationStudy({ ctx }: { ctx: StructuredStudyRenderContext
           {tr({
             bn: 'পরিস্থিতিভিত্তিক সংলাপ ও বোঝাপড়া যাচাই (২টি সংলাপ)',
             en: 'Situational Dialogues & Quick Checks (2 Dialogues)',
+            it: 'Dialoghi situazionali e verifiche rapide (2 dialoghi)',
           })}
         </h4>
         <div className="grid grid-cols-1 md:grid-cols-2 gap-3">
@@ -272,7 +275,7 @@ function EverydayCommunicationStudy({ ctx }: { ctx: StructuredStudyRenderContext
                         {isStudied ? (
                           <>
                             <CheckCircle2 size={14} className="text-neon" />
-                            <span className="bn">{tr({ bn: 'সম্পন্ন', en: 'Studied' })}</span>
+                            <span className="bn">{tr({ bn: 'সম্পন্ন', en: 'Studied', it: 'Studiato' })}</span>
                           </>
                         ) : (
                           <span className="inline-block h-3.5 w-3.5 rounded-full border border-white/25" />
@@ -285,7 +288,7 @@ function EverydayCommunicationStudy({ ctx }: { ctx: StructuredStudyRenderContext
                   <button
                     type="button"
                     onClick={() => playText(dlg.lines.map((l) => l.it).join('. '), dlg.id)}
-                    aria-label={tr({ bn: 'পুরো সংলাপ শুনুন', en: 'Play full dialogue' })}
+                    aria-label={tr({ bn: 'পুরো সংলাপ শুনুন', en: 'Play full dialogue', it: 'Riproduci dialogo completo' })}
                     className="inline-flex h-8 w-8 shrink-0 items-center justify-center rounded-full bg-grad-primary text-navy-950"
                   >
                     <Volume2 size={15} />
@@ -347,10 +350,11 @@ function EverydayCommunicationStudy({ ctx }: { ctx: StructuredStudyRenderContext
                   {answered && (
                     <p className={cx('bn text-[11px] font-bold', correct ? 'text-neon' : 'text-gold')}>
                       {correct
-                        ? tr({ bn: 'চমৎকার! সঠিক উত্তর।', en: 'Correct comprehension!' })
+                        ? tr({ bn: 'চমৎকার! সঠিক উত্তর।', en: 'Correct comprehension!', it: 'Comprensione corretta!' })
                         : tr({
                             bn: `সঠিক উত্তর: ${tr(dlg.checkOptions[dlg.checkAnswer]!)}`,
                             en: `Correct answer: ${tr(dlg.checkOptions[dlg.checkAnswer]!)}`,
+                            it: `Risposta corretta: ${tr(dlg.checkOptions[dlg.checkAnswer]!)}`,
                           })}
                     </p>
                   )}
@@ -409,7 +413,7 @@ function CultureSurvivalStudy({ ctx }: { ctx: StructuredStudyRenderContext }) {
           )}
         >
           <span className="bn block">
-            {tr({ bn: 'বাক্যাংশ', en: 'Phrases' })} ({phrasesDone}/{A1_CULTURE_PHRASES.length})
+            {tr({ bn: 'বাক্যাংশ', en: 'Phrases', it: 'Espressioni' })} ({phrasesDone}/{A1_CULTURE_PHRASES.length})
           </span>
         </button>
         <button
@@ -423,7 +427,7 @@ function CultureSurvivalStudy({ ctx }: { ctx: StructuredStudyRenderContext }) {
           )}
         >
           <span className="bn block">
-            {tr({ bn: 'পরিস্থিতি গাইড', en: 'Situations' })} ({guidesDone}/{A1_CULTURE_GUIDES.length})
+            {tr({ bn: 'পরিস্থিতি গাইড', en: 'Situations', it: 'Situazioni' })} ({guidesDone}/{A1_CULTURE_GUIDES.length})
           </span>
         </button>
         <button
@@ -437,7 +441,7 @@ function CultureSurvivalStudy({ ctx }: { ctx: StructuredStudyRenderContext }) {
           )}
         >
           <span className="bn block">
-            {tr({ bn: 'অনুশীলনী', en: 'Exercises' })} ({exDone}/{A1_CULTURE_EXERCISES.length})
+            {tr({ bn: 'অনুশীলনী', en: 'Exercises', it: 'Esercizi' })} ({exDone}/{A1_CULTURE_EXERCISES.length})
           </span>
         </button>
       </div>
@@ -491,7 +495,7 @@ function CultureSurvivalStudy({ ctx }: { ctx: StructuredStudyRenderContext }) {
                       {isStudied ? (
                         <>
                           <CheckCircle2 size={14} className="text-neon" />
-                          <span className="bn">{tr({ bn: 'সম্পন্ন', en: 'Studied' })}</span>
+                          <span className="bn">{tr({ bn: 'সম্পন্ন', en: 'Studied', it: 'Studiato' })}</span>
                         </>
                       ) : (
                         <span className="inline-block h-3.5 w-3.5 rounded-full border border-white/25" />
@@ -503,7 +507,7 @@ function CultureSurvivalStudy({ ctx }: { ctx: StructuredStudyRenderContext }) {
                         e.stopPropagation();
                         playPhrase(p.it, p.id);
                       }}
-                      aria-label={`Play ${p.it}`}
+                      aria-label={tr({ bn: `${p.it} শুনুন`, en: `Play ${p.it}`, it: `Ascolta ${p.it}` })}
                       className="inline-flex h-8 w-8 items-center justify-center rounded-full bg-grad-primary text-navy-950"
                     >
                       <Volume2 size={14} />
@@ -511,7 +515,9 @@ function CultureSurvivalStudy({ ctx }: { ctx: StructuredStudyRenderContext }) {
                   </div>
                   <p className="text-base font-extrabold text-white">{p.it}</p>
                   <p className="bn text-sm font-bold text-mint">{tr(p.meaning)}</p>
-                  <p className="bn text-xs text-ink-3">/{lang === 'bn' ? p.phoneticBn : p.phoneticEn}/</p>
+                  {(lang === 'bn' ? p.phoneticBn : lang === 'it' ? '' : p.phoneticEn) && (
+                    <p className="bn text-xs text-ink-3">/{lang === 'bn' ? p.phoneticBn : p.phoneticEn}/</p>
+                  )}
                   <p className="bn text-xs text-ink-2 rounded-xl border border-white/10 bg-white/4 px-2.5 py-2">
                     {tr(p.contextNote)}
                   </p>
@@ -530,6 +536,7 @@ function CultureSurvivalStudy({ ctx }: { ctx: StructuredStudyRenderContext }) {
               {tr({
                 bn: 'সাধারণ দিকনির্দেশনা: শহর ও অঞ্চলভেদে সময়, টিকিট বা স্থানীয় নিয়ম সামান্য ভিন্ন হতে পারে। প্রতিটি গাইড পড়ে ট্যাপ করে সম্পন্ন করুন।',
                 en: 'General orientation: hours, ticket rules, and customs can vary across Italian cities and regions. Tap each guide after reading to mark it studied.',
+                it: 'Orientamento generale: orari, biglietti e abitudini possono variare tra città e regioni italiane. Tocca ogni scheda dopo la lettura per segnarla come studiata.',
               })}
             </span>
           </div>
@@ -563,8 +570,8 @@ function CultureSurvivalStudy({ ctx }: { ctx: StructuredStudyRenderContext }) {
                       </span>
                       <span className={cx('bn text-xs font-bold', isStudied ? 'text-neon' : 'text-ink-3')}>
                         {isStudied
-                          ? tr({ bn: 'পড়া সম্পন্ন', en: 'Studied' })
-                          : tr({ bn: 'ট্যাপ করে সম্পন্ন করুন', en: 'Tap to mark studied' })}
+                          ? tr({ bn: 'পড়া সম্পন্ন', en: 'Studied', it: 'Studiato' })
+                          : tr({ bn: 'ট্যাপ করে সম্পন্ন করুন', en: 'Tap to mark studied', it: 'Tocca per completare' })}
                       </span>
                     </div>
                     <h4 className="bn text-base font-extrabold text-white">{tr(g.title)}</h4>
@@ -614,7 +621,7 @@ function CultureSurvivalStudy({ ctx }: { ctx: StructuredStudyRenderContext }) {
                       type="button"
                       onClick={() => void speakItalian(ex.itCue!, 0.88, startSpeechSession()).catch(() => {})}
                       className="inline-flex h-7 w-7 items-center justify-center rounded-full bg-grad-primary text-navy-950"
-                      aria-label={`Play ${ex.itCue}`}
+                      aria-label={tr({ bn: `${ex.itCue} শুনুন`, en: `Play ${ex.itCue}`, it: `Ascolta ${ex.itCue}` })}
                     >
                       <Volume2 size={13} />
                     </button>
@@ -685,9 +692,13 @@ export function A1CommunicationModuleScreen({
           italianLabel: e.it,
           phoneticBn: e.phoneticBn,
           phoneticEn: e.phoneticEn,
+          meaningBn: e.meaning.bn,
+          meaningEn: e.meaning.en,
+          meaningIt: e.meaning.it ?? '',
           exampleIt: e.exampleIt,
           exampleTrBn: e.exampleTr.bn,
           exampleTrEn: e.exampleTr.en,
+          exampleTrIt: e.exampleTr.it ?? '',
           audioText: e.it,
         })),
         ...EVERYDAY_COMM_DIALOGUES.map((d) => ({
@@ -696,9 +707,13 @@ export function A1CommunicationModuleScreen({
           italianLabel: d.title.en,
           phoneticBn: '',
           phoneticEn: '',
+          meaningBn: d.title.bn,
+          meaningEn: d.title.en,
+          meaningIt: d.title.it ?? '',
           exampleIt: d.lines[0]?.it ?? '',
-          exampleTrBn: '',
-          exampleTrEn: '',
+          exampleTrBn: d.lines[0]?.tr.bn ?? '',
+          exampleTrEn: d.lines[0]?.tr.en ?? '',
+          exampleTrIt: d.lines[0]?.tr.it ?? '',
           audioText: d.lines.map((l) => l.it).join('. '),
         })),
       ];
@@ -710,9 +725,13 @@ export function A1CommunicationModuleScreen({
         italianLabel: p.it,
         phoneticBn: p.phoneticBn,
         phoneticEn: p.phoneticEn,
+        meaningBn: p.meaning.bn,
+        meaningEn: p.meaning.en,
+        meaningIt: p.meaning.it ?? '',
         exampleIt: p.it,
         exampleTrBn: p.meaning.bn,
         exampleTrEn: p.meaning.en,
+        exampleTrIt: p.meaning.it ?? '',
         audioText: p.it,
       })),
       ...A1_CULTURE_GUIDES.map((g) => ({
@@ -721,9 +740,13 @@ export function A1CommunicationModuleScreen({
         italianLabel: g.title.en,
         phoneticBn: '',
         phoneticEn: '',
+        meaningBn: g.title.bn,
+        meaningEn: g.title.en,
+        meaningIt: g.title.it ?? '',
         exampleIt: '',
         exampleTrBn: '',
         exampleTrEn: '',
+        exampleTrIt: '',
         audioText: '',
       })),
       ...A1_CULTURE_EXERCISES.map((ex) => ({
@@ -732,9 +755,13 @@ export function A1CommunicationModuleScreen({
         italianLabel: ex.itCue ?? '',
         phoneticBn: '',
         phoneticEn: '',
+        meaningBn: ex.situationTitle.bn,
+        meaningEn: ex.situationTitle.en,
+        meaningIt: ex.situationTitle.it ?? '',
         exampleIt: ex.itCue ?? '',
         exampleTrBn: '',
         exampleTrEn: '',
+        exampleTrIt: '',
         audioText: ex.itCue ?? '',
       })),
     ];
@@ -748,8 +775,16 @@ export function A1CommunicationModuleScreen({
       theoryConfig={isEveryday ? EVERYDAY_COMM_THEORY_CONFIG : CULTURE_SURVIVAL_THEORY_CONFIG}
       studyTitle={
         isEveryday
-          ? { bn: 'দৈনন্দিন যোগাযোগ অনুশীলন', en: 'Everyday Communication Practice' }
-          : { bn: 'ইতালীয় সংস্কৃতি ও জীবনযাত্রা', en: 'Italian Culture & Everyday Survival' }
+          ? {
+              bn: 'দৈনন্দিন যোগাযোগ অনুশীলন',
+              en: 'Everyday Communication Practice',
+              it: 'Pratica di comunicazione quotidiana',
+            }
+          : {
+              bn: 'ইতালীয় সংস্কৃতি ও জীবনযাত্রা',
+              en: 'Italian Culture & Everyday Survival',
+              it: 'Cultura italiana e vita quotidiana',
+            }
       }
       studyItems={stubItems}
       drillItems={isEveryday ? A1_EVERYDAY_COMM_DRILL_ITEMS : A1_CULTURE_SURVIVAL_DRILL_ITEMS}

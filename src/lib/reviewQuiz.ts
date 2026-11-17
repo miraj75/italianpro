@@ -10,6 +10,7 @@ import { generateAcademyModuleExamAsync, randomizeQuestionOptions, shuffleArray 
 import { getVocabPriorityInfo } from './vocabRevision';
 import { getAcademyModuleProgress, isAcademyModuleCompleted } from '../state/academyProgress';
 import { isLessonCompleted, type ProgressState } from '../state/progress';
+import { resolveTr } from './i18n';
 
 const ALL_EXPLICIT_PUZZLES = new Map(
   [...A1_PUZZLES, ...A2_PUZZLES, ...B1_PUZZLES, ...B2_PUZZLES].map((p) => [p.id, p]),
@@ -83,12 +84,18 @@ function buildVocabReviewQuestions(
 
   for (const word of candidates) {
     if (out.length >= limit) break;
+    const wordIt = resolveTr('it', word.tr);
     const distractors = shuffleArray(
       pool.filter(
-        (other) =>
-          other.key !== word.key &&
-          other.tr.en.trim().toLowerCase() !== word.tr.en.trim().toLowerCase() &&
-          other.tr.bn.trim() !== word.tr.bn.trim(),
+        (other) => {
+          const otherIt = resolveTr('it', other.tr);
+          return (
+            other.key !== word.key &&
+            other.tr.en.trim().toLowerCase() !== word.tr.en.trim().toLowerCase() &&
+            other.tr.bn.trim() !== word.tr.bn.trim() &&
+            otherIt.trim().toLowerCase() !== wordIt.trim().toLowerCase()
+          );
+        },
       ),
       rng,
     ).slice(0, 3);
@@ -96,6 +103,7 @@ function buildVocabReviewQuestions(
 
     const bnOpts = [word.tr.bn, ...distractors.map((d) => d.tr.bn)];
     const enOpts = [word.tr.en, ...distractors.map((d) => d.tr.en)];
+    const itOpts = [wordIt, ...distractors.map((d) => resolveTr('it', d.tr))];
     const q: QuizQuestion = {
       id: `rev-vocab-${level}-${word.key}`,
       prompt: {
@@ -105,12 +113,12 @@ function buildVocabReviewQuestions(
       },
       it: word.it,
       options: enOpts,
-      localizedOptions: { bn: bnOpts, en: enOpts, it: enOpts },
+      localizedOptions: { bn: bnOpts, en: enOpts, it: itOpts },
       answer: 0,
       explanation: {
         bn: `${word.it} (/${word.pronunciation}/) = ${word.tr.bn} · ${word.example.it}`,
         en: `${word.it} (/${word.pronunciation}/) = ${word.tr.en} · ${word.example.it}`,
-        it: `${word.it} (/${word.pronunciation}/) = ${word.tr.en} · ${word.example.it}`,
+        it: `${word.it} (/${word.pronunciation}/) = ${wordIt} · ${word.example.it}`,
       },
     };
     const randomized = randomizeQuestionOptions({ ...q, moduleId: `${level.toLowerCase()}-vocab` }, rng);

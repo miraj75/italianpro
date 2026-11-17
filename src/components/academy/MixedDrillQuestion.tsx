@@ -72,7 +72,7 @@ export function MixedDrillQuestion({
   const [hadMismatch, setHadMismatch] = useState(false);
 
   const cueText =
-    lang === 'bn' ? item.cueBn : lang === 'it' ? (item.cueIt ?? item.cueEn) : item.cueEn;
+    lang === 'bn' ? item.cueBn : lang === 'it' ? (item.cueIt ?? '') : item.cueEn;
 
   const headingText = item.promptOverride
     ? tr(item.promptOverride)

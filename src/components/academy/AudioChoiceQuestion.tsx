@@ -50,7 +50,7 @@ export function AudioChoiceQuestion({
     lang === 'bn'
       ? item.cueBn
       : lang === 'it'
-        ? (item.cueIt ?? item.cueEn)
+        ? (item.cueIt ?? '')
         : item.cueEn;
 
   const headingText = item.promptOverride
@@ -143,8 +143,9 @@ export function AudioChoiceQuestion({
           const isPicked = pickedId === opt.id;
           const showResult = pickedId !== null;
           const isRight = opt.id === item.id;
+          const mainLabel = opt.primaryLabelTr ? tr(opt.primaryLabelTr) : opt.primaryLabel;
           const subLabel = opt.secondaryLabelTr ? tr(opt.secondaryLabelTr) : opt.secondaryLabel;
-          const labelLen = opt.primaryLabel.length;
+          const labelLen = mainLabel.length;
           return (
             <button
               key={opt.id}
@@ -171,7 +172,7 @@ export function AudioChoiceQuestion({
                       : 'text-2xl sm:text-3xl',
                 )}
               >
-                {opt.primaryLabel}
+                {mainLabel}
               </span>
               {subLabel && (
                 <span className="bn mt-0.5 text-xs sm:text-sm font-bold text-mint truncate max-w-full">

@@ -347,7 +347,9 @@ export function WritingScreen() {
         {/* Editor */}
         <GlassCard className="p-4">
           <div className="mb-2 flex items-center justify-between text-xs font-semibold tabular-nums text-ink-3">
-            <span>Target: {active.minWords}+ {t('wordsLabel')}</span>
+            <span>
+              {tr({ bn: 'লক্ষ্য:', en: 'Target:', it: 'Obiettivo:' })} {active.minWords}+ {t('wordsLabel')}
+            </span>
             <span className={wordCount >= active.minWords ? 'text-neon' : 'text-gold'}>
               {wordCount} {t('wordsLabel')}
             </span>
@@ -391,19 +393,36 @@ export function WritingScreen() {
           <GlassCard className="space-y-2 p-4">
             <p className={cx('flex items-center gap-2 text-sm font-bold', report.minOk ? 'text-neon' : 'text-gold')}>
               {report.minOk ? <CheckCircle2 size={16} /> : <XCircle size={16} />}
-              Word count: {report.words} / {active.minWords} min
+              {tr({
+                bn: `শব্দ সংখ্যা: ${report.words} / ন্যূনতম ${active.minWords}`,
+                en: `Word count: ${report.words} / ${active.minWords} min`,
+                it: `Numero di parole: ${report.words} / min ${active.minWords}`,
+              })}
             </p>
             <p className={cx('flex items-center gap-2 text-sm font-bold', report.punctuationOk ? 'text-neon' : 'text-gold')}>
               {report.punctuationOk ? <CheckCircle2 size={16} /> : <XCircle size={16} />}
-              Ending punctuation check
+              {tr({
+                bn: 'বাক্যের শেষে যতিচিহ্ন যাচাই',
+                en: 'Ending punctuation check',
+                it: 'Controllo punteggiatura finale',
+              })}
             </p>
             <p className="text-sm font-semibold text-ink-2">
-              Keywords matched ({report.matchedKeywords.length}/{active.requiredKeywords.length}):{' '}
+              {tr({
+                bn: `মিলিত মূল শব্দ (${report.matchedKeywords.length}/${active.requiredKeywords.length}):`,
+                en: `Keywords matched (${report.matchedKeywords.length}/${active.requiredKeywords.length}):`,
+                it: `Parole chiave trovate (${report.matchedKeywords.length}/${active.requiredKeywords.length}):`,
+              })}{' '}
               <span className="text-mint">{report.matchedKeywords.join(', ') || '—'}</span>
             </p>
             {report.missingKeywords.length > 0 && (
               <p className="text-xs font-semibold text-gold">
-                Suggested terms to include: {report.missingKeywords.join(', ')}
+                {tr({
+                  bn: 'ব্যবহারের জন্য প্রস্তাবিত শব্দ:',
+                  en: 'Suggested terms to include:',
+                  it: 'Termini consigliati da includere:',
+                })}{' '}
+                {report.missingKeywords.join(', ')}
               </p>
             )}
             {done && (

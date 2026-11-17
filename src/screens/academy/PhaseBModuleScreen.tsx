@@ -63,12 +63,12 @@ function buildPhaseBConfig(moduleId: PhaseBModuleId): PhaseBModuleConfig {
       const items: StudyListItem[] = A1_VERBS_LIST.map((v) => {
         const badge: Tr =
           v.group === 'regular-are'
-            ? { bn: 'নিয়মিত -are', en: 'Regular -are' }
+            ? { bn: 'নিয়মিত -are', en: 'Regular -are', it: 'Regolare -are' }
             : v.group === 'regular-ere'
-              ? { bn: 'নিয়মিত -ere', en: 'Regular -ere' }
+              ? { bn: 'নিয়মিত -ere', en: 'Regular -ere', it: 'Regolare -ere' }
               : v.group === 'regular-ire'
-                ? { bn: 'নিয়মিত -ire', en: 'Regular -ire' }
-                : { bn: 'অনিয়মিত A1', en: 'Irregular' };
+                ? { bn: 'নিয়মিত -ire', en: 'Regular -ire', it: 'Regolare -ire' }
+                : { bn: 'অনিয়মিত A1', en: 'Irregular', it: 'Irregolare' };
 
         const firstEx = v.examples[0]!;
         const secondEx = v.examples[1];
@@ -80,13 +80,15 @@ function buildPhaseBConfig(moduleId: PhaseBModuleId): PhaseBModuleConfig {
           phoneticEn: v.phoneticEn,
           meaningBn: v.meaning.bn,
           meaningEn: v.meaning.en,
-          meaningIt: v.meaning.it,
+          meaningIt: v.meaning.it ?? '',
           exampleIt: firstEx.it,
           exampleTrBn: firstEx.tr.bn,
           exampleTrEn: firstEx.tr.en,
+          exampleTrIt: firstEx.tr.it ?? '',
           secondaryExampleIt: secondEx?.it,
           secondaryExampleTrBn: secondEx?.tr.bn,
           secondaryExampleTrEn: secondEx?.tr.en,
+          secondaryExampleTrIt: secondEx?.tr.it ?? '',
           group: v.group === 'irregular' ? 'irregular' : 'regular',
           badge,
           conjugationRows: A1_VERB_PRONOUNS.map((pronoun, idx) => ({
@@ -101,24 +103,38 @@ function buildPhaseBConfig(moduleId: PhaseBModuleId): PhaseBModuleConfig {
 
       return {
         theoryConfig: VERBS_THEORY_CONFIG,
-        studyTitle: { bn: '১৯টি নিয়মিত ও অনিয়মিত A1 ক্রিয়া', en: '19 Regular & Irregular A1 Verbs' },
+        studyTitle: {
+          bn: '১৯টি নিয়মিত ও অনিয়মিত A1 ক্রিয়া',
+          en: '19 Regular & Irregular A1 Verbs',
+          it: '19 verbi regolari e irregolari A1',
+        },
         studyItems: items,
         studyGroupedSections: [
           {
             id: 'verbs-regular',
-            title: { bn: '১. নিয়মিত ক্রিয়া (-are, -ere, -ire)', en: '1. Regular Verbs (-are, -ere, -ire)' },
+            title: {
+              bn: '১. নিয়মিত ক্রিয়া (-are, -ere, -ire)',
+              en: '1. Regular Verbs (-are, -ere, -ire)',
+              it: '1. Verbi regolari (-are, -ere, -ire)',
+            },
             subtitle: {
               bn: 'parlare, mangiare, abitare, prendere, vedere, dormire, partire',
               en: '7 core regular conjugation models across all 3 verb groups',
+              it: '7 modelli regolari nei tre gruppi di coniugazione',
             },
             items: items.filter((i) => i.group === 'regular'),
           },
           {
             id: 'verbs-irregular',
-            title: { bn: '২. অপরিহার্য অনিয়মিত ক্রিয়া (Irregular A1)', en: '2. Essential Irregular Verbs' },
+            title: {
+              bn: '২. অপরিহার্য অনিয়মিত ক্রিয়া (Irregular A1)',
+              en: '2. Essential Irregular Verbs',
+              it: '2. Verbi irregolari essenziali',
+            },
             subtitle: {
               bn: 'essere, avere, fare, andare, stare, dare, potere, volere, dovere, sapere, venire, uscire',
               en: '12 must-know irregular verbs in the present tense',
+              it: '12 verbi irregolari fondamentali al presente indicativo',
             },
             items: items.filter((i) => i.group === 'irregular'),
           },
@@ -137,9 +153,11 @@ function buildPhaseBConfig(moduleId: PhaseBModuleId): PhaseBModuleConfig {
         phoneticEn: v.phoneticEn,
         meaningBn: v.meaning.bn,
         meaningEn: v.meaning.en,
+        meaningIt: v.meaning.it ?? '',
         exampleIt: v.exampleIt,
         exampleTrBn: v.exampleTr.bn,
         exampleTrEn: v.exampleTr.en,
+        exampleTrIt: v.exampleTr.it ?? '',
         group: v.category,
         badge: catMap.get(v.category)?.title,
         crossLinkNote: v.crossLinkNote,
@@ -149,7 +167,11 @@ function buildPhaseBConfig(moduleId: PhaseBModuleId): PhaseBModuleConfig {
 
       return {
         theoryConfig: ESSENTIAL_VERBS_THEORY_CONFIG,
-        studyTitle: { bn: '৭টি দৈনন্দিন বিষয়ের ২৮টি ক্রিয়া', en: '28 Everyday Verbs by Theme' },
+        studyTitle: {
+          bn: '৭টি দৈনন্দিন বিষয়ের ২৮টি ক্রিয়া',
+          en: '28 Everyday Verbs by Theme',
+          it: '28 verbi quotidiani per tema',
+        },
         studyItems: items,
         studyGroupedSections: A1_ESSENTIAL_VERB_CATEGORIES.map((cat) => ({
           id: `ev-cat-${cat.id}`,
@@ -170,9 +192,11 @@ function buildPhaseBConfig(moduleId: PhaseBModuleId): PhaseBModuleConfig {
         phoneticEn: adj.phoneticEn,
         meaningBn: adj.meaning.bn,
         meaningEn: adj.meaning.en,
+        meaningIt: adj.meaning.it ?? '',
         exampleIt: adj.exampleIt,
         exampleTrBn: adj.exampleTr.bn,
         exampleTrEn: adj.exampleTr.en,
+        exampleTrIt: adj.exampleTr.it ?? '',
         group: adj.category,
         badge: adj.categoryLabel,
         crossLinkNote: adj.usageNote,
@@ -182,7 +206,11 @@ function buildPhaseBConfig(moduleId: PhaseBModuleId): PhaseBModuleConfig {
 
       return {
         theoryConfig: ADJECTIVES_THEORY_CONFIG,
-        studyTitle: { bn: '২২টি প্রয়োজনীয় A1 বিশেষণ ও নির্দেশক রূপ', en: '22 Essential A1 Adjectives & Demonstratives' },
+        studyTitle: {
+          bn: '২২টি প্রয়োজনীয় A1 বিশেষণ ও নির্দেশক রূপ',
+          en: '22 Essential A1 Adjectives & Demonstratives',
+          it: '22 aggettivi e dimostrativi essenziali A1',
+        },
         studyItems: items,
         studyGroupedSections: A1_ADJECTIVE_CATEGORIES.map((cat) => ({
           id: `adj-cat-${cat.id}`,
@@ -203,9 +231,11 @@ function buildPhaseBConfig(moduleId: PhaseBModuleId): PhaseBModuleConfig {
         phoneticEn: adv.phoneticEn,
         meaningBn: adv.meaning.bn,
         meaningEn: adv.meaning.en,
+        meaningIt: adv.meaning.it ?? '',
         exampleIt: adv.exampleIt,
         exampleTrBn: adv.exampleTr.bn,
         exampleTrEn: adv.exampleTr.en,
+        exampleTrIt: adv.exampleTr.it ?? '',
         group: adv.category,
         badge: adv.categoryLabel,
         crossLinkNote: adv.placementHint,
@@ -215,7 +245,11 @@ function buildPhaseBConfig(moduleId: PhaseBModuleId): PhaseBModuleConfig {
 
       return {
         theoryConfig: ADVERBS_THEORY_CONFIG,
-        studyTitle: { bn: '১৯টি প্রয়োজনীয় A1 ক্রিয়াবিশেষণ', en: '19 Essential A1 Adverbs' },
+        studyTitle: {
+          bn: '১৯টি প্রয়োজনীয় A1 ক্রিয়াবিশেষণ',
+          en: '19 Essential A1 Adverbs',
+          it: '19 avverbi essenziali A1',
+        },
         studyItems: items,
         studyGroupedSections: A1_ADVERB_CATEGORIES.map((cat) => ({
           id: `adv-cat-${cat.id}`,
@@ -236,9 +270,11 @@ function buildPhaseBConfig(moduleId: PhaseBModuleId): PhaseBModuleConfig {
         phoneticEn: prep.phoneticEn,
         meaningBn: prep.meaning.bn,
         meaningEn: prep.meaning.en,
+        meaningIt: prep.meaning.it ?? '',
         exampleIt: prep.exampleIt,
         exampleTrBn: prep.exampleTr.bn,
         exampleTrEn: prep.exampleTr.en,
+        exampleTrIt: prep.exampleTr.it ?? '',
         group: prep.group,
         badge: prep.groupLabel,
         crossLinkNote: prep.usageSummary,
@@ -248,7 +284,11 @@ function buildPhaseBConfig(moduleId: PhaseBModuleId): PhaseBModuleConfig {
 
       return {
         theoryConfig: PREPOSITIONS_THEORY_CONFIG,
-        studyTitle: { bn: 'সরল ও যুক্ত পদান্বয়ী অব্যয়', en: 'Simple & Articulated Prepositions' },
+        studyTitle: {
+          bn: 'সরল ও যুক্ত পদান্বয়ী অব্যয়',
+          en: 'Simple & Articulated Prepositions',
+          it: 'Preposizioni semplici e articolate',
+        },
         studyItems: items,
         studyGroupedSections: A1_PREPOSITION_GROUPS.map((grp) => ({
           id: `prep-grp-${grp.id}`,
@@ -269,9 +309,11 @@ function buildPhaseBConfig(moduleId: PhaseBModuleId): PhaseBModuleConfig {
         phoneticEn: c.phoneticEn,
         meaningBn: c.meaning.bn,
         meaningEn: c.meaning.en,
+        meaningIt: c.meaning.it ?? '',
         exampleIt: c.exampleIt,
         exampleTrBn: c.exampleTr.bn,
         exampleTrEn: c.exampleTr.en,
+        exampleTrIt: c.exampleTr.it ?? '',
         group: c.category,
         badge: c.categoryLabel,
         crossLinkNote: c.usageNote,
@@ -281,7 +323,11 @@ function buildPhaseBConfig(moduleId: PhaseBModuleId): PhaseBModuleConfig {
 
       return {
         theoryConfig: CONJUNCTIONS_THEORY_CONFIG,
-        studyTitle: { bn: '৯টি অপরিহার্য A1 সংযোজক অব্যয়', en: '9 Essential A1 Conjunctions' },
+        studyTitle: {
+          bn: '৯টি অপরিহার্য A1 সংযোজক অব্যয়',
+          en: '9 Essential A1 Conjunctions',
+          it: '9 congiunzioni essenziali A1',
+        },
         studyItems: items,
         studyGroupedSections: A1_CONJUNCTION_CATEGORIES.map((cat) => ({
           id: `conj-cat-${cat.id}`,

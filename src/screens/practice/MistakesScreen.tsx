@@ -59,7 +59,7 @@ export interface PuzzleMistakeItem {
   correctAnswer: string;
 }
 
-export function collectQuizMistakes(state: ProgressState, lang: ExplainLang = 'bn'): QuizMistakeItem[] {
+export function collectQuizMistakes(state: ProgressState, lang: ExplainLang = 'en'): QuizMistakeItem[] {
   return Object.entries(state.mistakes).flatMap(([key, count]) => {
     const [lessonId = '', qid = ''] = key.split(':');
     const found = findLesson(lessonId);
@@ -105,7 +105,7 @@ export function collectPuzzleMistakes(state: ProgressState): PuzzleMistakeItem[]
 
 /** Total reviewable mistakes across both lesson quizzes and puzzles. */
 export function countReviewableMistakes(state: ProgressState): number {
-  return collectQuizMistakes(state).length + collectPuzzleMistakes(state).length;
+  return collectQuizMistakes(state, state.settings.explainLang).length + collectPuzzleMistakes(state).length;
 }
 
 type ReviewMode =

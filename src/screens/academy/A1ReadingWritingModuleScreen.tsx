@@ -71,6 +71,7 @@ function ReadingWritingStudy({ ctx }: { ctx: StructuredStudyRenderContext }) {
           : tr({
               bn: `ড্রিলে যেতে আরও ${remaining}টি সম্পন্ন করুন (${studiedCount}/${totalRequired})`,
               en: `Continue (${remaining} remaining · ${studiedCount}/${totalRequired})`,
+              it: `Continua (altri ${remaining} · ${studiedCount}/${totalRequired})`,
             })}
       </span>
       {canContinue && <ArrowRight size={17} />}
@@ -92,7 +93,7 @@ function ReadingWritingStudy({ ctx }: { ctx: StructuredStudyRenderContext }) {
         >
           <BookOpenText size={16} />
           <span className="bn">
-            {tr({ bn: 'পঠন (Reading)', en: 'Reading' })} ({readingDone}/{A1_READING_PASSAGES.length})
+            {tr({ bn: 'পঠন (Reading)', en: 'Reading', it: 'Lettura' })} ({readingDone}/{A1_READING_PASSAGES.length})
           </span>
         </button>
 
@@ -108,7 +109,7 @@ function ReadingWritingStudy({ ctx }: { ctx: StructuredStudyRenderContext }) {
         >
           <PenLine size={16} />
           <span className="bn">
-            {tr({ bn: 'লিখন (Writing)', en: 'Writing' })} ({writingDone}/{A1_WRITING_TASKS.length})
+            {tr({ bn: 'লিখন (Writing)', en: 'Writing', it: 'Scrittura' })} ({writingDone}/{A1_WRITING_TASKS.length})
           </span>
         </button>
       </div>
@@ -140,7 +141,7 @@ function ReadingWritingStudy({ ctx }: { ctx: StructuredStudyRenderContext }) {
                     <button
                       type="button"
                       onClick={() => playPassage(passage.it)}
-                      aria-label={tr({ bn: 'অনুচ্ছেদ শুনুন', en: 'Listen to passage' })}
+                      aria-label={tr({ bn: 'অনুচ্ছেদ শুনুন', en: 'Listen to passage', it: 'Ascolta il brano' })}
                       className="inline-flex h-8 w-8 items-center justify-center rounded-full bg-grad-primary text-navy-950"
                     >
                       <Volume2 size={14} />
@@ -172,8 +173,8 @@ function ReadingWritingStudy({ ctx }: { ctx: StructuredStudyRenderContext }) {
                     {transOpen ? <EyeOff size={13} /> : <Eye size={13} />}
                     <span className="bn">
                       {transOpen
-                        ? tr({ bn: 'অনুবাদ লুকান', en: 'Hide Translation' })
-                        : tr({ bn: 'অনুবাদ দেখুন', en: 'Show Translation' })}
+                        ? tr({ bn: 'অনুবাদ লুকান', en: 'Hide Translation', it: 'Nascondi traduzione' })
+                        : tr({ bn: 'অনুবাদ দেখুন', en: 'Show Translation', it: 'Mostra traduzione' })}
                     </span>
                   </button>
 
@@ -264,14 +265,18 @@ function ReadingWritingStudy({ ctx }: { ctx: StructuredStudyRenderContext }) {
                   value={draft}
                   onChange={(e) => setDrafts((prev) => ({ ...prev, [task.id]: e.target.value }))}
                   rows={3}
-                  placeholder="Scrivi qui in italiano..."
+                  placeholder={tr({
+                    bn: 'এখানে ইতালিয়ানে লিখুন...',
+                    en: 'Write here in Italian...',
+                    it: 'Scrivi qui in italiano...',
+                  })}
                   className="w-full rounded-xl border border-white/15 bg-black/30 p-3 text-sm text-white placeholder:text-ink-3 focus:border-neon focus:outline-none"
                 />
 
                 <div className="flex flex-wrap items-center gap-2">
                   <Button className="px-3 py-1.5 text-xs" onClick={() => handleEvaluateTask(task.id)}>
                     <CheckCircle2 size={14} />
-                    <span className="bn">{tr({ bn: 'লেখা যাচাই করুন', en: 'Check Writing' })}</span>
+                    <span className="bn">{tr({ bn: 'লেখা যাচাই করুন', en: 'Check Writing', it: 'Verifica testo' })}</span>
                   </Button>
                   <button
                     type="button"
@@ -283,8 +288,8 @@ function ReadingWritingStudy({ ctx }: { ctx: StructuredStudyRenderContext }) {
                     {modelVisible ? <EyeOff size={13} /> : <Eye size={13} />}
                     <span className="bn">
                       {modelVisible
-                        ? tr({ bn: 'নমুনা উত্তর লুকান', en: 'Hide Model' })
-                        : tr({ bn: 'নমুনা উত্তর দেখুন', en: 'Model Answer' })}
+                        ? tr({ bn: 'নমুনা উত্তর লুকান', en: 'Hide Model', it: 'Nascondi modello' })
+                        : tr({ bn: 'নমুনা উত্তর দেখুন', en: 'Model Answer', it: 'Risposta modello' })}
                     </span>
                   </button>
                 </div>
@@ -335,7 +340,7 @@ function ReadingWritingStudy({ ctx }: { ctx: StructuredStudyRenderContext }) {
                       <button
                         type="button"
                         onClick={() => playPassage(task.modelAnswerIt)}
-                        aria-label="Play model answer"
+                        aria-label={tr({ bn: 'নমুনা উত্তর শুনুন', en: 'Play model answer', it: 'Ascolta risposta modello' })}
                         className="inline-flex h-7 w-7 shrink-0 items-center justify-center rounded-full bg-grad-primary text-navy-950"
                       >
                         <Volume2 size={13} />
@@ -383,6 +388,7 @@ export function A1ReadingWritingModuleScreen() {
         exampleIt: r.it,
         exampleTrBn: r.translation.bn,
         exampleTrEn: r.translation.en,
+        exampleTrIt: r.translation.it ?? '',
         audioText: r.it,
       })),
       ...A1_WRITING_TASKS.map((w) => ({
@@ -394,6 +400,7 @@ export function A1ReadingWritingModuleScreen() {
         exampleIt: w.modelAnswerIt,
         exampleTrBn: w.modelAnswerTr.bn,
         exampleTrEn: w.modelAnswerTr.en,
+        exampleTrIt: w.modelAnswerTr.it ?? '',
         audioText: w.modelAnswerIt,
       })),
     ],
@@ -409,6 +416,7 @@ export function A1ReadingWritingModuleScreen() {
       studyTitle={{
         bn: 'পঠন (২০টি) ও লিখন (১৫টি) অনুশীলন',
         en: 'Reading (20) & Guided Writing (15)',
+        it: 'Lettura (20) e scrittura guidata (15)',
       }}
       studyItems={stubItems}
       drillItems={A1_READING_WRITING_DRILL_ITEMS}

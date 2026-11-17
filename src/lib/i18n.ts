@@ -103,9 +103,9 @@ const STRINGS = {
   wordBank: { bn: 'শব্দভাণ্ডার', en: 'Vocabulary', it: 'Vocabolario' },
   wordBankSub: { bn: '{level}: {n}টি শব্দ', en: '{level}: {n} words', it: '{level}: {n} parole' },
   searchWords: {
-    bn: 'ইতালিয়ান, ইংরেজি বা বাংলায় খুঁজুন',
-    en: 'Search Italian, English, or Bengali',
-    it: 'Cerca in italiano, inglese o bengalese',
+    bn: 'ইতালিয়ান বা বাংলায় খুঁজুন',
+    en: 'Search Italian or English',
+    it: 'Cerca in italiano',
   },
   all: { bn: 'সব', en: 'All', it: 'Tutto' },
   wordsShown: { bn: '{n}টি শব্দ', en: '{n} words', it: '{n} parole' },
@@ -316,32 +316,55 @@ const STRINGS = {
     en: 'Microphone ready — tap to speak the Italian phrase.',
     it: 'Microfono pronto — tocca per pronunciare la frase.',
   },
-} satisfies Record<string, Tr>;
+} satisfies Record<string, Required<Tr>>;
 
 export type StringKey = keyof typeof STRINGS;
 
-/** Strictly resolves a Tr object or plain string without ever leaking Bengali into English/Italian modes. */
-export function resolveTr(lang: ExplainLang, text: string | Tr): string {
-  if (typeof text === 'string') return text;
-  if (lang === 'bn') return text.bn;
-  if (lang === 'it') return text.it ?? text.en;
-  return text.en;
+/**
+ * Strictly resolves a Tr object or plain string into the exact selected language (`en`, `bn`, or `it`).
+ * Never leaks Bengali into English/Italian modes and never falls back to English in Italian mode.
+ */
+export function getLocalizedText(item: string | Tr, lang: ExplainLang): string {
+  if (typeof item === 'string') return item;
+  if (lang === 'bn') return item.bn;
+  if (lang === 'it') return item.it ?? '';
+  return item.en;
 }
 
-/** Resolves per-language options array for questions supporting localizedOptions. */
+/** Alias preserving existing call sites while delegating to strict getLocalizedText. */
+export function resolveTr(lang: ExplainLang, text: string | Tr): string {
+  return getLocalizedText(text, lang);
+}
+
+/** Checks whether a search query matches the Italian text, extras, or ONLY the active UI language meaning. */
+export function matchesLocalizedSearch(
+  query: string,
+  lang: ExplainLang,
+  italianText: string,
+  trText: Tr,
+  extras: readonly (string | undefined)[] = [],
+): boolean {
+  const q = query.trim().toLowerCase();
+  if (!q) return true;
+  if (italianText.toLowerCase().includes(q)) return true;
+  if (getLocalizedText(trText, lang).toLowerCase().includes(q)) return true;
+  return extras.some((extra) => Boolean(extra && extra.toLowerCase().includes(q)));
+}
+
+/** Resolves per-language options array strictly in the active language without falling back to English. */
 export function resolveExamOptions(
   q: { options: string[]; localizedOptions?: { bn: string[]; en: string[]; it?: string[] } },
   lang: ExplainLang,
 ): string[] {
   if (!q.localizedOptions) return q.options;
   if (lang === 'bn') return q.localizedOptions.bn ?? q.options;
-  if (lang === 'it') return q.localizedOptions.it ?? q.localizedOptions.en ?? q.options;
+  if (lang === 'it') return q.localizedOptions.it ?? q.options;
   return q.localizedOptions.en ?? q.options;
 }
 
 export function translate(lang: ExplainLang, key: StringKey, vars?: Record<string, string | number>): string {
   const entry = STRINGS[key];
-  let text = lang === 'bn' ? entry.bn : lang === 'it' ? (entry.it ?? entry.en) : entry.en;
+  let text = lang === 'bn' ? entry.bn : lang === 'it' ? entry.it : entry.en;
   if (vars) for (const [k, v] of Object.entries(vars)) text = text.replace(`{${k}}`, String(v));
   return text;
 }
@@ -353,6 +376,6 @@ export function useI18n() {
   return {
     lang,
     t: (key: StringKey, vars?: Record<string, string | number>) => translate(lang, key, vars),
-    tr: (text: string | Tr) => resolveTr(lang, text),
+    tr: (text: string | Tr) => getLocalizedText(text, lang),
   };
 }

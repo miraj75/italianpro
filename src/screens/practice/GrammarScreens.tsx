@@ -63,7 +63,7 @@ export function GrammarTopicScreen({ id }: { id: string }) {
         <div>
           <p className="text-xs font-bold tracking-wide text-mint uppercase">{t('ruleSummary')}</p>
           <p className="bn mt-1 text-[1.05rem] leading-relaxed font-semibold">{tr(topic.rule)}</p>
-          {topic.rule.bn !== topic.explanation.bn && (
+          {tr(topic.rule) !== tr(topic.explanation) && (
             <p className="bn mt-2 text-[0.95rem] leading-relaxed text-ink-2">{tr(topic.explanation)}</p>
           )}
         </div>

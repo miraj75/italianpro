@@ -249,6 +249,7 @@ export interface AcademyTheoryConfig {
 export interface AcademyDrillOption {
   id: string;
   primaryLabel: string;
+  primaryLabelTr?: Tr;
   secondaryLabel?: string;
   secondaryLabelTr?: Tr;
 }
@@ -274,6 +275,8 @@ export interface AcademyDrillItem {
   audioIt: string;
   /** Primary display token on the choice option card (e.g. 'T' or '21'). */
   primaryLabel: string;
+  /** Optional localized primary label when the choice text is not pure Italian. */
+  primaryLabelTr?: Tr;
   /** Secondary subtitle on the choice option card (e.g. 'ti' or 'ventuno'). */
   secondaryLabel: string;
   /** Optional localized subtitle for the correct option when language separation is needed. */

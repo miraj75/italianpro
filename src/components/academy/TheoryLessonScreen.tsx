@@ -303,7 +303,7 @@ export function TheoryLessonScreen({
                             lang === 'bn'
                               ? ex.phoneticBn
                               : lang === 'it'
-                                ? (ex.phoneticIt ?? ex.phoneticEn)
+                                ? (ex.phoneticIt ?? '')
                                 : ex.phoneticEn;
                           return (
                             <div

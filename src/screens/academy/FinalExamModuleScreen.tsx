@@ -40,7 +40,7 @@ export function FinalExamModuleScreen() {
   return (
     <div className="animate-rise space-y-4">
       <SubHeader
-        title={`${meta.order}. ${meta.title}`}
+        title={`${meta.order}. ${tr({ bn: meta.subtitle.bn, en: meta.title, it: meta.subtitle.it ?? meta.title })}`}
         subtitle={
           testingOverride
             ? tr({
@@ -108,7 +108,12 @@ export function FinalExamModuleScreen() {
             {nextPending && nextPending.id !== 'final-exam' && (
               <Button onClick={() => navigate(nextPending.route)}>
                 <span className="bn">
-                  {nextPending.order}. {nextPending.title}
+                  {nextPending.order}.{' '}
+                  {tr({
+                    bn: nextPending.subtitle.bn,
+                    en: nextPending.title,
+                    it: nextPending.subtitle.it ?? nextPending.title,
+                  })}
                 </span>
               </Button>
             )}

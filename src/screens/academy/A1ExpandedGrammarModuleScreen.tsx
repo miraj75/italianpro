@@ -68,9 +68,11 @@ function makeStubDialogueStudyItems(dialogues: (A1GreetingDialogue | A1TimeDialo
     phoneticEn: '',
     meaningBn: d.title.bn,
     meaningEn: d.title.en,
+    meaningIt: d.title.it ?? '',
     exampleIt: d.lines[0]?.it ?? '',
     exampleTrBn: d.lines[0]?.tr.bn ?? '',
     exampleTrEn: d.lines[0]?.tr.en ?? '',
+    exampleTrIt: d.lines[0]?.tr.it ?? '',
     audioText: d.lines.map((l) => l.it).join('. '),
   }));
 }
@@ -91,9 +93,11 @@ function buildExpandedConfig(moduleId: A1ExpandedGrammarModuleId): ExpandedConfi
         phoneticEn: g.phoneticEn,
         meaningBn: g.meaning.bn,
         meaningEn: g.meaning.en,
+        meaningIt: g.meaning.it ?? '',
         exampleIt: g.exampleIt,
         exampleTrBn: g.exampleTr.bn,
         exampleTrEn: g.exampleTr.en,
+        exampleTrIt: g.exampleTr.it ?? '',
         group: g.category,
         badge: g.categoryLabel,
         crossLinkNote: g.usageNote,
@@ -106,6 +110,7 @@ function buildExpandedConfig(moduleId: A1ExpandedGrammarModuleId): ExpandedConfi
         studyTitle: {
           bn: '৩৬টি সম্ভাষণ-পরিচয় ও ১০টি বাস্তব সংলাপ',
           en: '36 Greetings & Intro Phrases + 10 Real Dialogues',
+          it: '36 saluti, presentazioni e 10 dialoghi reali',
         },
         studyItems: [...items, ...makeStubDialogueStudyItems(A1_GREETING_DIALOGUES)],
         studyGroupedSections: A1_GREETING_CATEGORIES.map((cat) => ({
@@ -128,9 +133,11 @@ function buildExpandedConfig(moduleId: A1ExpandedGrammarModuleId): ExpandedConfi
         phoneticEn: n.phoneticEn,
         meaningBn: n.meaning.bn,
         meaningEn: n.meaning.en,
+        meaningIt: n.meaning.it ?? '',
         exampleIt: n.exampleIt,
         exampleTrBn: n.exampleTr.bn,
         exampleTrEn: n.exampleTr.en,
+        exampleTrIt: n.exampleTr.it ?? '',
         group: n.category,
         badge: n.categoryLabel,
         crossLinkNote: n.ruleNote,
@@ -143,6 +150,7 @@ function buildExpandedConfig(moduleId: A1ExpandedGrammarModuleId): ExpandedConfi
         studyTitle: {
           bn: '১০২টি একবচন-বহুবচন বিশেষ্য ও ব্যতিক্রম',
           en: '102 Singular/Plural Nouns & Exceptions',
+          it: '102 sostantivi singolari/plurali ed eccezioni',
         },
         studyItems: items,
         studyGroupedSections: A1_NOUN_CATEGORIES.map((cat) => ({
@@ -164,9 +172,11 @@ function buildExpandedConfig(moduleId: A1ExpandedGrammarModuleId): ExpandedConfi
         phoneticEn: p.phoneticEn,
         meaningBn: p.meaning.bn,
         meaningEn: p.meaning.en,
+        meaningIt: p.meaning.it ?? '',
         exampleIt: p.exampleIt,
         exampleTrBn: p.exampleTr.bn,
         exampleTrEn: p.exampleTr.en,
+        exampleTrIt: p.exampleTr.it ?? '',
         group: p.category,
         badge: p.categoryLabel,
         crossLinkNote: p.note,
@@ -179,6 +189,7 @@ function buildExpandedConfig(moduleId: A1ExpandedGrammarModuleId): ExpandedConfi
         studyTitle: {
           bn: 'ব্যক্তিবাচক ও অধিকারসূচক সর্বনাম (৪২টি আইটেম)',
           en: 'Personal & Possessive Pronouns (42 Items)',
+          it: 'Pronomi personali e possessivi (42 voci)',
         },
         studyItems: items,
         studyGroupedSections: A1_PRONOUN_POSS_CATEGORIES.map((cat) => ({
@@ -200,9 +211,11 @@ function buildExpandedConfig(moduleId: A1ExpandedGrammarModuleId): ExpandedConfi
         phoneticEn: s.phoneticEn,
         meaningBn: s.meaning.bn,
         meaningEn: s.meaning.en,
+        meaningIt: s.meaning.it ?? '',
         exampleIt: s.secondaryIt ?? s.it,
         exampleTrBn: s.secondaryTr?.bn ?? s.meaning.bn,
         exampleTrEn: s.secondaryTr?.en ?? s.meaning.en,
+        exampleTrIt: s.secondaryTr?.it ?? s.meaning.it ?? '',
         group: s.category,
         badge: s.categoryLabel,
         crossLinkNote: s.note,
@@ -215,6 +228,7 @@ function buildExpandedConfig(moduleId: A1ExpandedGrammarModuleId): ExpandedConfi
         studyTitle: {
           bn: 'বাক্য গঠন ও প্রশ্নবোধক কাঠামো (৬২টি প্যাটার্ন)',
           en: 'Sentence Building & Question Patterns (62 Items)',
+          it: 'Struttura della frase e domande (62 modelli)',
         },
         studyItems: items,
         studyGroupedSections: A1_SENTENCE_CATEGORIES.map((cat) => ({
@@ -236,9 +250,11 @@ function buildExpandedConfig(moduleId: A1ExpandedGrammarModuleId): ExpandedConfi
         phoneticEn: td.phoneticEn,
         meaningBn: td.meaning.bn,
         meaningEn: td.meaning.en,
+        meaningIt: td.meaning.it ?? '',
         exampleIt: td.exampleIt,
         exampleTrBn: td.exampleTr.bn,
         exampleTrEn: td.exampleTr.en,
+        exampleTrIt: td.exampleTr.it ?? '',
         group: td.category,
         badge: td.categoryLabel,
         crossLinkNote: td.note,
@@ -251,6 +267,7 @@ function buildExpandedConfig(moduleId: A1ExpandedGrammarModuleId): ExpandedConfi
         studyTitle: {
           bn: 'সময়, দিন, মাস, তারিখ ও ১৫টি সংলাপ',
           en: 'Time, Days, Months, Dates & 15 Dialogues',
+          it: 'Ora, giorni, mesi, date e 15 dialoghi',
         },
         studyItems: [...items, ...makeStubDialogueStudyItems(A1_TIME_DATES_DIALOGUES)],
         studyGroupedSections: A1_TIME_DATE_CATEGORIES.map((cat) => ({
@@ -299,12 +316,14 @@ function DialogueExplorerSection({
               {tr({
                 bn: `বাস্তব সংলাপ অনুশীলন (${dialogues.length}টি সংলাপ)`,
                 en: `Interactive Mini-Dialogues (${dialogues.length} Dialogues)`,
+                it: `Mini-dialoghi interattivi (${dialogues.length} dialoghi)`,
               })}
             </h3>
             <p className="bn text-xs text-ink-2">
               {tr({
                 bn: 'প্রতিটি সংলাপ শুনে বা ট্যাপ করে সম্পন্ন হিসেবে চিহ্নিত করুন',
                 en: 'Tap any dialogue or play audio to mark it studied',
+                it: 'Tocca un dialogo o ascolta l’audio per segnarlo come studiato',
               })}
             </p>
           </div>
@@ -341,7 +360,7 @@ function DialogueExplorerSection({
                       {isStudied ? (
                         <>
                           <CheckCircle2 size={14} className="text-neon shrink-0" />
-                          <span className="bn">{tr({ bn: 'সম্পন্ন', en: 'Studied' })}</span>
+                          <span className="bn">{tr({ bn: 'সম্পন্ন', en: 'Studied', it: 'Studiato' })}</span>
                         </>
                       ) : (
                         <span className="inline-block h-3.5 w-3.5 rounded-full border border-white/25" />
@@ -349,7 +368,11 @@ function DialogueExplorerSection({
                     </span>
                     {'register' in dlg && (
                       <span className="rounded-md border border-cyan/30 bg-cyan/10 px-2 py-0.5 text-[10px] font-extrabold uppercase text-cyan">
-                        {dlg.register}
+                        {dlg.register === 'formal'
+                          ? tr({ bn: 'formal', en: 'formal', it: 'formale' })
+                          : dlg.register === 'informal'
+                            ? tr({ bn: 'informal', en: 'informal', it: 'informale' })
+                            : dlg.register}
                       </span>
                     )}
                   </div>
@@ -363,7 +386,7 @@ function DialogueExplorerSection({
                     e.stopPropagation();
                     playDialogue(dlg);
                   }}
-                  aria-label={tr({ bn: 'পুরো সংলাপ শুনুন', en: 'Play full dialogue' })}
+                  aria-label={tr({ bn: 'পুরো সংলাপ শুনুন', en: 'Play full dialogue', it: 'Riproduci dialogo completo' })}
                   className="inline-flex h-8 w-8 shrink-0 items-center justify-center rounded-full bg-grad-primary text-navy-950 transition hover:brightness-110 active:scale-95"
                 >
                   <Volume2 size={15} />
@@ -395,7 +418,11 @@ function DialogueExplorerSection({
                         e.stopPropagation();
                         playLine(line.it, dlg.id);
                       }}
-                      aria-label={`Play ${line.speaker}`}
+                      aria-label={tr({
+                        bn: `${line.speaker} শুনুন`,
+                        en: `Play ${line.speaker}`,
+                        it: `Ascolta ${line.speaker}`,
+                      })}
                       className="mt-1 inline-flex h-7 w-7 shrink-0 items-center justify-center rounded-full border border-white/15 bg-white/8 text-neon hover:bg-neon/15"
                     >
                       <Volume2 size={13} />

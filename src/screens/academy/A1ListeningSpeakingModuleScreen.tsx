@@ -96,6 +96,7 @@ function ListeningSpeakingStudy({ ctx }: { ctx: StructuredStudyRenderContext }) 
           : tr({
               bn: `ড্রিলে যেতে আরও ${remaining}টি অনুশীলন করুন (${studiedCount}/${totalRequired})`,
               en: `Continue (${remaining} remaining · ${studiedCount}/${totalRequired})`,
+              it: `Continua (altri ${remaining} · ${studiedCount}/${totalRequired})`,
             })}
       </span>
       {canContinue && <ArrowRight size={17} />}
@@ -117,7 +118,7 @@ function ListeningSpeakingStudy({ ctx }: { ctx: StructuredStudyRenderContext }) 
         >
           <Headphones size={16} />
           <span className="bn">
-            {tr({ bn: 'শ্রবণ (Listening)', en: 'Listening' })} ({listeningDone}/{A1_LISTENING_EXERCISES.length})
+            {tr({ bn: 'শ্রবণ (Listening)', en: 'Listening', it: 'Ascolto' })} ({listeningDone}/{A1_LISTENING_EXERCISES.length})
           </span>
         </button>
 
@@ -133,7 +134,7 @@ function ListeningSpeakingStudy({ ctx }: { ctx: StructuredStudyRenderContext }) 
         >
           <Mic size={16} />
           <span className="bn">
-            {tr({ bn: 'কথন (Speaking)', en: 'Speaking' })} ({speakingDone}/{A1_SPEAKING_EXERCISES.length})
+            {tr({ bn: 'কথন (Speaking)', en: 'Speaking', it: 'Parlato' })} ({speakingDone}/{A1_SPEAKING_EXERCISES.length})
           </span>
         </button>
       </div>
@@ -170,7 +171,7 @@ function ListeningSpeakingStudy({ ctx }: { ctx: StructuredStudyRenderContext }) 
                     onClick={() => playAudio(ex.audioIt, 0.92)}
                   >
                     <Volume2 size={14} />
-                    <span className="bn">{tr({ bn: 'স্বাভাবিক গতিতে শুনুন', en: 'Play Normal' })}</span>
+                    <span className="bn">{tr({ bn: 'স্বাভাবিক গতিতে শুনুন', en: 'Play Normal', it: 'Velocità normale' })}</span>
                   </Button>
                   <Button
                     className="px-3 py-1.5 text-xs"
@@ -178,7 +179,7 @@ function ListeningSpeakingStudy({ ctx }: { ctx: StructuredStudyRenderContext }) 
                     onClick={() => playAudio(ex.audioIt, 0.68)}
                   >
                     <Gauge size={14} />
-                    <span className="bn">{tr({ bn: 'ধীরে শুনুন', en: 'Play Slow' })}</span>
+                    <span className="bn">{tr({ bn: 'ধীরে শুনুন', en: 'Play Slow', it: 'Riproduci lento' })}</span>
                   </Button>
                   <button
                     type="button"
@@ -190,8 +191,8 @@ function ListeningSpeakingStudy({ ctx }: { ctx: StructuredStudyRenderContext }) 
                     {transcriptVisible ? <EyeOff size={13} /> : <Eye size={13} />}
                     <span className="bn">
                       {transcriptVisible
-                        ? tr({ bn: 'লিপি লুকান', en: 'Hide Script' })
-                        : tr({ bn: 'লিপি দেখুন', en: 'Transcript' })}
+                        ? tr({ bn: 'লিপি লুকান', en: 'Hide Script', it: 'Nascondi testo' })
+                        : tr({ bn: 'লিপি দেখুন', en: 'Transcript', it: 'Trascrizione' })}
                     </span>
                   </button>
                 </div>
@@ -250,6 +251,7 @@ function ListeningSpeakingStudy({ ctx }: { ctx: StructuredStudyRenderContext }) 
                 {tr({
                   bn: 'অফলাইন মডেল গাইড: অডিও শুনে উচ্চারণ গাইড অনুসরণ করে জোরে বলুন এবং নিজে যাচাই করে "জোরে অনুশীলন করেছি" চাপুন।',
                   en: 'Listen to the Italian model audio, repeat aloud using the phonetic guide, and mark each prompt once practiced.',
+                  it: 'Ascolta l’audio modello in italiano, ripeti ad alta voce e segna ogni esercizio come praticato.',
                 })}
               </span>
             </div>
@@ -257,7 +259,11 @@ function ListeningSpeakingStudy({ ctx }: { ctx: StructuredStudyRenderContext }) 
 
           {micError && (
             <div className="rounded-xl border border-gold/40 bg-gold/10 px-3 py-2 text-xs text-gold font-bold">
-              Mic status: {micError}
+              {tr({
+                bn: `মাইক্রোফোন অবস্থা: ${micError}`,
+                en: `Mic status: ${micError}`,
+                it: `Stato microfono: ${micError}`,
+              })}
             </div>
           )}
 
@@ -291,16 +297,18 @@ function ListeningSpeakingStudy({ ctx }: { ctx: StructuredStudyRenderContext }) 
                       <button
                         type="button"
                         onClick={() => playAudio(sp.targetIt, 0.88)}
-                        aria-label={`Play ${sp.targetIt}`}
+                        aria-label={tr({ bn: `${sp.targetIt} শুনুন`, en: `Play ${sp.targetIt}`, it: `Ascolta ${sp.targetIt}` })}
                         className="inline-flex h-8 w-8 shrink-0 items-center justify-center rounded-full bg-grad-primary text-navy-950"
                       >
                         <Volume2 size={14} />
                       </button>
                     </div>
                     <p className="bn text-xs font-bold text-mint">{tr(sp.targetTr)}</p>
-                    <p className="bn text-xs text-ink-3">
-                      /{lang === 'bn' ? sp.phoneticBn : sp.phoneticEn}/
-                    </p>
+                    {(lang === 'bn' ? sp.phoneticBn : lang === 'it' ? '' : sp.phoneticEn) && (
+                      <p className="bn text-xs text-ink-3">
+                        /{lang === 'bn' ? sp.phoneticBn : sp.phoneticEn}/
+                      </p>
+                    )}
                   </div>
 
                   <p className="bn text-[11px] text-gold font-semibold">{tr(sp.tip)}</p>
@@ -309,7 +317,11 @@ function ListeningSpeakingStudy({ ctx }: { ctx: StructuredStudyRenderContext }) 
                     <div className="rounded-xl border border-cyan/30 bg-cyan/10 px-3 py-2 text-xs space-y-0.5">
                       <p className="font-bold text-white">“{spoken}”</p>
                       <p className="text-cyan font-extrabold">
-                        Word match: {match.matched.length}/{match.matched.length + match.missed.length} ({match.percent}%)
+                        {tr({
+                          bn: `শব্দ মিল: ${match.matched.length}/${match.matched.length + match.missed.length} (${match.percent}%)`,
+                          en: `Word match: ${match.matched.length}/${match.matched.length + match.missed.length} (${match.percent}%)`,
+                          it: `Parole riconosciute: ${match.matched.length}/${match.matched.length + match.missed.length} (${match.percent}%)`,
+                        })}
                       </p>
                     </div>
                   )}
@@ -323,8 +335,8 @@ function ListeningSpeakingStudy({ ctx }: { ctx: StructuredStudyRenderContext }) 
                       <CheckCircle2 size={14} />
                       <span className="bn">
                         {isStudied
-                          ? tr({ bn: 'অনুশীলন সম্পন্ন', en: 'Practiced' })
-                          : tr({ bn: 'জোরে অনুশীলন করেছি', en: 'Mark Practiced' })}
+                          ? tr({ bn: 'অনুশীলন সম্পন্ন', en: 'Practiced', it: 'Praticato' })
+                          : tr({ bn: 'জোরে অনুশীলন করেছি', en: 'Mark Practiced', it: 'Segna praticato' })}
                       </span>
                     </Button>
 
@@ -337,8 +349,8 @@ function ListeningSpeakingStudy({ ctx }: { ctx: StructuredStudyRenderContext }) 
                         {isListening ? <Square size={14} /> : <Mic size={14} />}
                         <span className="bn">
                           {isListening
-                            ? tr({ bn: 'থামান', en: 'Stop Mic' })
-                            : tr({ bn: 'মাইক পরীক্ষা', en: 'Test Mic' })}
+                            ? tr({ bn: 'থামান', en: 'Stop Mic', it: 'Ferma microfono' })
+                            : tr({ bn: 'মাইক পরীক্ষা', en: 'Test Mic', it: 'Prova microfono' })}
                         </span>
                       </Button>
                     )}
@@ -383,6 +395,7 @@ export function A1ListeningSpeakingModuleScreen() {
         exampleIt: l.audioIt,
         exampleTrBn: l.transcriptTr.bn,
         exampleTrEn: l.transcriptTr.en,
+        exampleTrIt: l.transcriptTr.it ?? '',
         audioText: l.audioIt,
       })),
       ...A1_SPEAKING_EXERCISES.map((s) => ({
@@ -394,6 +407,7 @@ export function A1ListeningSpeakingModuleScreen() {
         exampleIt: s.targetIt,
         exampleTrBn: s.targetTr.bn,
         exampleTrEn: s.targetTr.en,
+        exampleTrIt: s.targetTr.it ?? '',
         audioText: s.targetIt,
       })),
     ],
@@ -409,6 +423,7 @@ export function A1ListeningSpeakingModuleScreen() {
       studyTitle={{
         bn: 'শ্রবণ (৩০টি) ও কথন (৩০টি) অনুশীলন',
         en: 'Listening (30) & Guided Speaking (30)',
+        it: 'Ascolto (30) e produzione orale (30)',
       }}
       studyItems={stubItems}
       drillItems={A1_LISTENING_SPEAKING_DRILL_ITEMS}

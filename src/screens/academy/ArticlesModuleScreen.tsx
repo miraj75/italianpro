@@ -180,7 +180,13 @@ export function ArticlesModuleScreen() {
                     <h2 className="bn text-lg sm:text-xl font-extrabold text-white">{tr(rule.title)}</h2>
                     <p className="bn mt-1 text-sm font-semibold text-mint">{tr(rule.summary)}</p>
                   </div>
-                  {studied && <CheckCircle2 size={22} className="shrink-0 text-neon" aria-label="studied" />}
+                  {studied && (
+                    <CheckCircle2
+                      size={22}
+                      className="shrink-0 text-neon"
+                      aria-label={tr({ bn: 'সম্পন্ন', en: 'studied', it: 'studiato' })}
+                    />
+                  )}
                 </div>
 
                 <p className="bn text-sm leading-relaxed text-ink">{tr(rule.explanation)}</p>

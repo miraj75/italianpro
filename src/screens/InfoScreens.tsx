@@ -34,7 +34,7 @@ export function SavedScreen() {
               </div>
               <button
                 type="button"
-                aria-label="Remove"
+                aria-label={tr({ bn: 'সরান', en: 'Remove', it: 'Rimuovi' })}
                 onClick={() => dispatch({ type: 'toggleSaved', key })}
                 className="flex h-10 w-10 items-center justify-center"
               >
@@ -49,7 +49,7 @@ export function SavedScreen() {
 }
 
 export function AboutScreen() {
-  const { lang } = useI18n();
+  const { lang, tr } = useI18n();
   const totalWords = WORDS.A1.length + WORDS.A2.length + WORDS.B1.length + WORDS.B2.length;
   const totalSentences = SENTENCES.A1.length + SENTENCES.A2.length + SENTENCES.B1.length + SENTENCES.B2.length;
   const totalGrammar = GRAMMAR_TOPICS.length;
@@ -75,39 +75,68 @@ export function AboutScreen() {
     'Important Verbs, Survival Italian, and Review Mistakes',
   ];
 
+  const featuresIt = [
+    `Percorso completo CEFR A1, A2, B1 e B2 (${totalLessons} lezioni strutturate con verifiche ed esami finali)`,
+    `Oltre ${totalWords} vocaboli con pronuncia, plurali, esempi contestuali e flashcard a ripetizione dilazionata`,
+    `Oltre ${totalSentences} frasi modello ed espressioni idiomatiche B1`,
+    `${totalGrammar} argomenti di grammatica con tabelle, errori comuni e quiz interattivi`,
+    'Oltre 145 storie interattive con glossario cliccabile, analisi grammaticale, audio e verifiche di comprensione',
+    'Laboratorio d’ascolto, lettura, 12 modalità di costruzione frasi, scrittura guidata e pratica del parlato',
+    'Verbi principali, italiano per viaggiare e ripasso degli errori',
+  ];
+
+  const features = lang === 'bn' ? featuresBn : lang === 'it' ? featuresIt : featuresEn;
+
   return (
     <div className="animate-rise space-y-4">
-      <SubHeader title="ItalianPro" subtitle="Learn Italian. Live Italian." />
+      <SubHeader
+        title="ItalianPro"
+        subtitle={tr({
+          bn: 'Learn Italian. Live Italian.',
+          en: 'Learn Italian. Live Italian.',
+          it: 'Impara l’italiano. Vivi l’italiano.',
+        })}
+      />
 
       <GlassCard neon className="bn space-y-3 p-5 text-ink">
         <div className="flex items-center justify-between gap-2">
           <p className="flex items-center gap-2 text-lg font-extrabold text-white">
             <Sparkles size={18} className="text-neon" />
-            <span>{lang === 'bn' ? 'ItalianPro একাডেমি' : 'ItalianPro Academy'}</span>
+            <span>
+              {tr({
+                bn: 'ItalianPro একাডেমি',
+                en: 'ItalianPro Academy',
+                it: 'Accademia ItalianPro',
+              })}
+            </span>
           </p>
           <span className="rounded-full border border-neon/45 bg-neon/12 px-3 py-0.5 text-xs font-extrabold text-neon">
             v2.0 · A1–B2
           </span>
         </div>
 
-        {lang === 'bn' ? (
-          <p className="text-ink-2">
-            ItalianPro হলো CEFR A1 থেকে B2 পর্যন্ত সম্পূর্ণ ইতালিয়ান ভাষা শেখার একটি আধুনিক একাডেমি অ্যাপ, যেখানে প্রতিটি পাঠ, শব্দ, বাক্য, ব্যাকরণ এবং অনুশীলন বাংলা ও ইংরেজি ব্যাখ্যাসহ সাজানো হয়েছে।
-          </p>
-        ) : (
-          <p className="text-ink-2">
-            ItalianPro is a comprehensive Italian language learning academy covering CEFR A1 through B2 with full Bengali and English explanations across every lesson, word, grammar topic, story, and skill module.
-          </p>
-        )}
+        <p className="text-ink-2">
+          {tr({
+            bn: 'ItalianPro হলো CEFR A1 থেকে B2 পর্যন্ত সম্পূর্ণ ইতালিয়ান ভাষা শেখার একটি আধুনিক একাডেমি অ্যাপ, যেখানে প্রতিটি পাঠ, শব্দ, বাক্য, ব্যাকরণ এবং অনুশীলন বাংলা, ইংরেজি ও ইতালিয়ান ব্যাখ্যাসহ সাজানো হয়েছে।',
+            en: 'ItalianPro is a comprehensive Italian language learning academy covering CEFR A1 through B2 with dedicated interface support across every lesson, word, grammar topic, story, and skill module.',
+            it: 'ItalianPro è un’accademia completa per l’apprendimento dell’italiano dal livello A1 al B2 con spiegazioni, lessico, grammatica, storie ed esercizi interattivi.',
+          })}
+        </p>
       </GlassCard>
 
       <GlassCard className="bn space-y-3 p-5">
         <h2 className="flex items-center gap-2 text-base font-extrabold text-white">
           <BookOpen size={18} className="text-cyan" />
-          <span>{lang === 'bn' ? 'অন্তর্ভুক্ত ফিচারসমূহ' : 'Included Learning Modules'}</span>
+          <span>
+            {tr({
+              bn: 'অন্তর্ভুক্ত ফিচারসমূহ',
+              en: 'Included Learning Modules',
+              it: 'Moduli didattici inclusi',
+            })}
+          </span>
         </h2>
         <ul className="space-y-2 text-sm text-ink-2">
-          {(lang === 'bn' ? featuresBn : featuresEn).map((feat) => (
+          {features.map((feat) => (
             <li key={feat} className="flex items-start gap-2.5">
               <CheckCircle2 size={17} className="mt-0.5 shrink-0 text-neon" />
               <span>{feat}</span>
@@ -119,15 +148,23 @@ export function AboutScreen() {
       <GlassCard className="bn flex items-start gap-3 p-4 text-sm text-ink-2">
         <ShieldCheck size={20} className="mt-0.5 shrink-0 text-gold" />
         <p>
-          {lang === 'bn'
-            ? 'আপনার সমস্ত শেখার অগ্রগতি, ফ্ল্যাশকার্ড এবং সংরক্ষিত বাক্যাংশ সম্পূর্ণ অফলাইনে আপনার ডিভাইসেই সুরক্ষিতভাবে সংরক্ষিত থাকে।'
-            : 'All of your learning progress, flashcards, and saved phrases are stored locally on your device for full offline reliability.'}
+          {tr({
+            bn: 'আপনার সমস্ত শেখার অগ্রগতি, ফ্ল্যাশকার্ড এবং সংরক্ষিত বাক্যাংশ সম্পূর্ণ অফলাইনে আপনার ডিভাইসেই সুরক্ষিতভাবে সংরক্ষিত থাকে।',
+            en: 'All of your learning progress, flashcards, and saved phrases are stored locally on your device for full offline reliability.',
+            it: 'Tutti i progressi di studio, le flashcard e le frasi salvate vengono memorizzati in locale sul dispositivo per funzionare anche offline.',
+          })}
         </p>
       </GlassCard>
 
       <GlassCard className="bn flex items-center gap-3 p-4 text-xs text-ink-3">
         <Layers size={16} className="shrink-0 text-neon" />
-        <span>ItalianPro v2.0 · Complete CEFR A1–B2 Curriculum · Offline-Ready</span>
+        <span>
+          {tr({
+            bn: 'ItalianPro v2.0 · সম্পূর্ণ CEFR A1–B2 পাঠ্যক্রম · অফলাইন প্রস্তুত',
+            en: 'ItalianPro v2.0 · Complete CEFR A1–B2 Curriculum · Offline-Ready',
+            it: 'ItalianPro v2.0 · Programma completo CEFR A1–B2 · Pronto offline',
+          })}
+        </span>
       </GlassCard>
     </div>
   );

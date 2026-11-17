@@ -16,14 +16,24 @@ import { PHRASES, RICH_WORDS, topicsOf } from '../../../content/bank';
 import { dayKey } from '../../../lib/date';
 import { shuffleArray } from '../../../lib/examEngine';
 import { speakItalian, startSpeechSession } from '../../../lib/speech';
-import { useI18n } from '../../../lib/i18n';
+import { matchesLocalizedSearch, resolveTr, useI18n } from '../../../lib/i18n';
 import { loadModulePosition, saveModulePosition } from '../../../lib/modulePosition';
 import { useProgress } from '../../../state/ProgressContext';
 import { Button, GlassCard, ProgressBar, cx } from '../../../components/ui';
 import { SpeakButton } from '../../../components/SpeakButton';
 import { AcademyExamRunner } from '../../../components/AcademyExamRunner';
+import type { Tr } from '../../../content/types';
 
 type Tab = 'learn' | 'practice' | 'exam';
+type RegisterKey = 'all' | 'idiomatic' | 'formal' | 'colloquial' | 'academic';
+
+const REGISTER_LABELS: Record<RegisterKey, Tr> = {
+  all: { bn: 'সব', en: 'All', it: 'Tutte' },
+  idiomatic: { bn: 'বাগধারা', en: 'Idiomatic', it: 'Idiomatico' },
+  formal: { bn: 'আনুষ্ঠানিক', en: 'Formal', it: 'Formale' },
+  academic: { bn: 'একাডেমিক', en: 'Academic', it: 'Accademico' },
+  colloquial: { bn: 'কথ্য', en: 'Colloquial', it: 'Colloquiale' },
+};
 
 const TILE_HUES = [
   'from-[#084438]/90 via-[#072e28]/90 to-[#05201d]/95 border-neon/40',
@@ -54,7 +64,7 @@ export function LevelVocabularyView({
   onNavigateModule,
 }: LevelVocabularyViewProps) {
   const { state, dispatch } = useProgress();
-  const { t, tr } = useI18n();
+  const { lang, t, tr } = useI18n();
   const [tab, setTab] = useState<Tab>(() => {
     const saved = loadModulePosition(levelId, meta.id)?.tab;
     return saved === 'learn' || saved === 'practice' || saved === 'exam' ? saved : 'learn';
@@ -67,7 +77,7 @@ export function LevelVocabularyView({
 
   const [activeTopicEn, setActiveTopicEn] = useState<string | null>(null);
   const [query, setQuery] = useState('');
-  const [registerFilter, setRegisterFilter] = useState<'all' | 'idiomatic' | 'formal' | 'colloquial' | 'academic'>('all');
+  const [registerFilter, setRegisterFilter] = useState<RegisterKey>('all');
   const [practiceRound, setPracticeRound] = useState(1);
   const [practiceIdx, setPracticeIdx] = useState(0);
   const [practicePick, setPracticePick] = useState<string | null>(null);
@@ -77,16 +87,14 @@ export function LevelVocabularyView({
   const levelWords = RICH_WORDS[levelId];
 
   const searchedWords = useMemo(() => {
-    const q = query.trim().toLowerCase();
+    const q = query.trim();
     const base = activeTopicEn ? levelWords.filter((w) => w.topic.en === activeTopicEn) : levelWords;
     if (!q) return activeTopicEn ? base : [];
-    return base.filter(
-      (w) => w.it.toLowerCase().includes(q) || w.tr.bn.includes(q) || w.tr.en.toLowerCase().includes(q),
-    );
-  }, [activeTopicEn, query, levelWords]);
+    return base.filter((w) => matchesLocalizedSearch(q, lang, w.it, w.tr));
+  }, [activeTopicEn, query, lang, levelWords]);
 
   const idiomsList = useMemo(() => {
-    const q = query.trim().toLowerCase();
+    const q = query.trim();
     if (levelId === 'B1') {
       const b1Items = PHRASES.map((p) => ({
         id: p.key,
@@ -97,18 +105,14 @@ export function LevelVocabularyView({
         exampleTr: p.tr,
         isRequired: meta.requiredItemIds.includes(p.key),
       }));
-      return q
-        ? b1Items.filter((x) => x.it.toLowerCase().includes(q) || x.tr.bn.includes(q) || x.tr.en.toLowerCase().includes(q))
-        : b1Items;
+      return q ? b1Items.filter((x) => matchesLocalizedSearch(q, lang, x.it, x.tr)) : b1Items;
     }
     const b2Colls = B2_COLLOCATIONS.filter((c) => registerFilter === 'all' || c.register === registerFilter).map((c) => ({
       ...c,
       isRequired: meta.requiredItemIds.includes(c.id),
     }));
-    return q
-      ? b2Colls.filter((x) => x.it.toLowerCase().includes(q) || x.tr.bn.includes(q) || x.tr.en.toLowerCase().includes(q))
-      : b2Colls;
-  }, [levelId, query, registerFilter, meta.requiredItemIds]);
+    return q ? b2Colls.filter((x) => matchesLocalizedSearch(q, lang, x.it, x.tr)) : b2Colls;
+  }, [levelId, query, lang, registerFilter, meta.requiredItemIds]);
 
   const practicePool = useMemo(() => {
     if (isIdioms) {
@@ -120,7 +124,7 @@ export function LevelVocabularyView({
               it: c.it,
               tr: c.tr,
               exampleIt: c.exampleIt,
-              tag: { bn: c.register, en: c.register, it: c.register },
+              tag: REGISTER_LABELS[c.register] ?? { bn: c.register, en: c.register, it: c.register },
             })),
       );
     }
@@ -131,11 +135,18 @@ export function LevelVocabularyView({
 
   const currentPractice = practicePool[practiceIdx % Math.max(1, practicePool.length)]!;
   const practiceOptions = useMemo(() => {
+    const curTr = resolveTr(lang, currentPractice.tr);
     const others = shuffleArray(
-      practicePool.filter((o) => o.it !== currentPractice.it && o.tr.en !== currentPractice.tr.en),
+      practicePool.filter(
+        (o) =>
+          o.it !== currentPractice.it &&
+          o.tr.en !== currentPractice.tr.en &&
+          o.tr.bn !== currentPractice.tr.bn &&
+          resolveTr(lang, o.tr) !== curTr,
+      ),
     ).slice(0, 3);
     return shuffleArray([currentPractice, ...others]);
-  }, [currentPractice, practicePool]);
+  }, [currentPractice, lang, practicePool]);
 
   return (
     <div className="space-y-3">
@@ -202,13 +213,13 @@ export function LevelVocabularyView({
                       type="button"
                       onClick={() => setRegisterFilter(reg)}
                       className={cx(
-                        'min-h-9 rounded-xl border px-3 text-xs font-extrabold capitalize transition',
+                        'bn min-h-9 rounded-xl border px-3 text-xs font-extrabold transition',
                         registerFilter === reg
                           ? 'bg-grad-primary border-transparent text-navy-950'
                           : 'border-white/15 bg-white/5 text-ink-2 hover:text-white',
                       )}
                     >
-                      {reg}
+                      {tr(REGISTER_LABELS[reg])}
                     </button>
                   ))}
                 </div>
@@ -221,7 +232,7 @@ export function LevelVocabularyView({
                     <div className="flex items-start justify-between gap-3">
                       <div className="min-w-0 flex-1">
                         <div className="flex items-center gap-2 text-[10px] font-extrabold uppercase">
-                          <span className="text-cyan">{item.register}</span>
+                          <span className="bn text-cyan">{tr(REGISTER_LABELS[item.register] ?? { bn: item.register, en: item.register, it: item.register })}</span>
                           {item.isRequired && (
                             <>
                               <span className="text-ink-3" aria-hidden="true">·</span>
@@ -279,7 +290,13 @@ export function LevelVocabularyView({
                   >
                     <div className="flex items-start justify-between gap-2">
                       <BookOpen size={24} className="text-neon" />
-                      {topicDone && <CheckCircle2 size={17} className="text-neon" aria-label="Completed" />}
+                      {topicDone && (
+                        <CheckCircle2
+                          size={17}
+                          className="text-neon"
+                          aria-label={tr({ bn: 'সম্পন্ন', en: 'Completed', it: 'Completato' })}
+                        />
+                      )}
                     </div>
                     <div className="my-1.5 min-w-0">
                       <p className="bn text-[0.95rem] leading-tight font-extrabold text-white line-clamp-2">{tr(topic)}</p>
@@ -311,7 +328,10 @@ export function LevelVocabularyView({
                   </button>
                   <div className="min-w-0 flex-1 text-right">
                     <p className="bn text-sm font-extrabold text-white truncate">
-                      {tr(topics.find((tp) => tp.en === activeTopicEn) ?? activeTopicEn)}
+                      {(() => {
+                        const found = topics.find((tp) => tp.en === activeTopicEn);
+                        return found ? tr(found) : activeTopicEn;
+                      })()}
                     </p>
                   </div>
                   <Button
@@ -346,7 +366,8 @@ export function LevelVocabularyView({
                               </span>
                             </p>
                             <p className="text-xs font-semibold text-ink-3">
-                              /{w.pronunciation}/{w.plural ? ` · Pl: ${w.plural}` : ''}
+                              /{w.pronunciation}/
+                              {w.plural ? ` · ${tr({ bn: 'বহু:', en: 'Pl:', it: 'Pl:' })} ${w.plural}` : ''}
                             </p>
                             <p className="bn mt-1 text-sm font-bold text-ink">{tr(w.tr)}</p>
                           </div>

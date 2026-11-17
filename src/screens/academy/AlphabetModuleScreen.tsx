@@ -18,20 +18,20 @@ export function AlphabetModuleScreen() {
         italianLabel: l.italianName,
         phoneticBn: l.phoneticBn,
         phoneticEn: l.phoneticEn,
-        phoneticIt: l.phoneticEn,
+        phoneticIt: l.italianName,
         audioText: `${l.italianName}. ${l.exampleIt}`,
         categoryLabel: l.isVowel
           ? tr({ bn: 'স্বরবর্ণ', en: 'Vowel', it: 'Vocale' })
           : tr({ bn: 'ব্যঞ্জনবর্ণ', en: 'Consonant', it: 'Consonante' }),
         guideBn: l.guide.bn,
         guideEn: l.guide.en,
-        guideIt: l.guide.it ?? l.guide.en,
+        guideIt: l.guide.it ?? '',
         exampleIt: l.exampleIt,
         examplePhoneticBn: l.examplePhoneticBn,
         examplePhoneticEn: l.examplePhoneticEn,
         exampleTrBn: l.exampleTr.bn,
         exampleTrEn: l.exampleTr.en,
-        exampleTrIt: l.exampleTr.it ?? l.exampleTr.en,
+        exampleTrIt: l.exampleTr.it ?? '',
       })),
     [tr],
   );
@@ -45,7 +45,7 @@ export function AlphabetModuleScreen() {
         secondaryLabel: l.italianName,
         cueBn: l.phoneticBn,
         cueEn: l.phoneticEn,
-        cueIt: l.phoneticEn,
+        cueIt: l.italianName,
         feedbackDetail: {
           bn: `বর্ণ ${l.letter} (${l.lower}) = "${l.italianName}" · উদাহরণ: ${l.exampleIt} (${l.exampleTr.bn})`,
           en: `Letter ${l.letter} (${l.lower}) = "${l.italianName}" · Example: ${l.exampleIt} (${l.exampleTr.en})`,

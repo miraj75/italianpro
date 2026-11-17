@@ -33,7 +33,7 @@ import { RICH_WORDS } from '../../content/bank';
 import { shuffleArray } from '../../lib/examEngine';
 import { dayKey } from '../../lib/date';
 import { speakItalian, startSpeechSession } from '../../lib/speech';
-import { useI18n } from '../../lib/i18n';
+import { matchesLocalizedSearch, resolveTr, useI18n } from '../../lib/i18n';
 import { loadModulePosition, saveModulePosition } from '../../lib/modulePosition';
 import { useRouter } from '../../app/router';
 import { useProgress, useStudyTimer } from '../../state/ProgressContext';
@@ -104,7 +104,7 @@ export function VocabularyModuleScreen() {
   useStudyTimer();
   const { state, dispatch } = useProgress();
   const { route, navigate } = useRouter();
-  const { t, tr } = useI18n();
+  const { lang, t, tr } = useI18n();
   const backRoute = route.params.get('from') === 'home' ? '/' : '/level/A1';
 
   const [tab, setTab] = useState<Tab>(() => {
@@ -134,16 +134,11 @@ export function VocabularyModuleScreen() {
   );
 
   const searchedWords = useMemo(() => {
-    const q = query.trim().toLowerCase();
+    const q = query.trim();
     if (!q) return activeTopic ? activeTopic.words : [];
     const base = activeTopic ? activeTopic.words : RICH_WORDS.A1;
-    return base.filter(
-      (w) =>
-        w.it.toLowerCase().includes(q) ||
-        w.tr.bn.includes(q) ||
-        w.tr.en.toLowerCase().includes(q),
-    );
-  }, [activeTopic, query]);
+    return base.filter((w) => matchesLocalizedSearch(q, lang, w.it, w.tr));
+  }, [activeTopic, lang, query]);
 
   const markWordStudied = (wordKey: string) => {
     dispatch({ type: 'studyAcademyItem', moduleId: 'vocabulary', itemId: wordKey });
@@ -153,11 +148,18 @@ export function VocabularyModuleScreen() {
   const practiceDeck = useMemo(() => shuffleArray(RICH_WORDS.A1), [practiceRound]);
   const currentPractice = practiceDeck[practiceIdx % practiceDeck.length]!;
   const practiceOptions = useMemo(() => {
+    const curTr = resolveTr(lang, currentPractice.tr);
     const others = shuffleArray(
-      RICH_WORDS.A1.filter((w) => w.key !== currentPractice.key && w.tr.en !== currentPractice.tr.en),
+      RICH_WORDS.A1.filter(
+        (w) =>
+          w.key !== currentPractice.key &&
+          w.tr.en !== currentPractice.tr.en &&
+          w.tr.bn !== currentPractice.tr.bn &&
+          resolveTr(lang, w.tr) !== curTr,
+      ),
     ).slice(0, 3);
     return shuffleArray([currentPractice, ...others]);
-  }, [currentPractice]);
+  }, [currentPractice, lang]);
 
   if (!unlocked && !testingOverride) {
     return (
@@ -281,7 +283,13 @@ export function VocabularyModuleScreen() {
                   >
                     <div className="flex items-start justify-between gap-2">
                       <Icon size={26} strokeWidth={1.85} className={hue.icon} aria-hidden="true" />
-                      {topicDone && <CheckCircle2 size={16} className="text-neon" aria-label="Completed" />}
+                      {topicDone && (
+                        <CheckCircle2
+                          size={16}
+                          className="text-neon"
+                          aria-label={tr({ bn: 'সম্পন্ন', en: 'Completed', it: 'Completato' })}
+                        />
+                      )}
                     </div>
 
                     <div className="my-1.5 min-w-0">
@@ -341,7 +349,8 @@ export function VocabularyModuleScreen() {
                               </span>
                             </p>
                             <p className="text-xs font-semibold text-ink-3">
-                              /{w.pronunciation}/{w.plural ? ` · Pl: ${w.plural}` : ''}
+                              /{w.pronunciation}/
+                              {w.plural ? ` · ${tr({ bn: 'বহু:', en: 'Pl:', it: 'Pl:' })} ${w.plural}` : ''}
                             </p>
                             <p className="bn mt-1 text-sm font-bold text-ink">{tr(w.tr)}</p>
                           </div>

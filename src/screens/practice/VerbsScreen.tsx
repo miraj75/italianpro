@@ -14,8 +14,11 @@ export function VerbsScreen() {
 
   return (
     <div className="animate-rise max-w-full space-y-3 overflow-x-hidden">
-      <SubHeader title="Important Verbs" subtitle="A1 · presente" />
-      <FilterChipRow label="Verbs">
+      <SubHeader
+        title={tr({ bn: 'গুরুত্বপূর্ণ ক্রিয়া', en: 'Important Verbs', it: 'Verbi importanti' })}
+        subtitle={tr({ bn: 'A1 · বর্তমান কাল (Presente)', en: 'A1 · Present Tense', it: 'A1 · Presente' })}
+      />
+      <FilterChipRow label={tr({ bn: 'ক্রিয়া', en: 'Verbs', it: 'Verbi' })}>
         {VERBS.map((v) => (
           <Pill key={v.id} active={v.id === id} onClick={() => setId(v.id)}>
             {v.infinitive}
@@ -28,7 +31,10 @@ export function VerbsScreen() {
           <div>
             <h2 className="text-2xl font-bold">{verb.infinitive}</h2>
             <p className="bn text-ink-2">
-              {tr(verb.meaning)} · {verb.irregular ? 'irregolare' : 'regolare (-are)'}
+              {tr(verb.meaning)} ·{' '}
+              {verb.irregular
+                ? tr({ bn: 'অনিয়মিত', en: 'Irregular', it: 'Irregolare' })
+                : tr({ bn: 'নিয়মিত (-are)', en: 'Regular (-are)', it: 'Regolare (-are)' })}
             </p>
           </div>
         </div>

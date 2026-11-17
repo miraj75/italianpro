@@ -54,6 +54,7 @@ function q(
   options: [string, string, string, string],
   answer: number,
   explanation: Tr,
+  localizedOptions?: { bn: string[]; en: string[]; it: string[] },
 ): AcademyExamQuestion {
   const prefix = id.split('-')[2];
   const moduleId: AcademyModuleId =
@@ -66,7 +67,7 @@ function q(
           : prefix === 'w'
             ? 'a2-work-social'
             : 'a2-functional-comm';
-  return { id, moduleId, prompt, it, options, answer, explanation };
+  return { id, moduleId, prompt, it, options, localizedOptions, answer, explanation };
 }
 
 export const A2_HOUSING_DATA: A2CommunicationModuleData = {
@@ -346,10 +347,34 @@ export const A2_HOUSING_DATA: A2CommunicationModuleData = {
     q('q-a2-h-4', { bn: 'বাসায় আসবাবপত্র আছে কিনা জানতে:', en: 'Asking if a flat is furnished:' }, 'Scusi, l’appartamento è ___?', ['arredato', 'scaduto', 'bagnato', 'ritardato'], 0, { bn: 'আসবাবপত্রসহ = arredato।', en: 'arredato = furnished.' }),
     q('q-a2-h-5', { bn: 'বর্জ্য আলাদা করে ফেলাকে কী বলে?', en: 'What is sorting recycling called?' }, undefined, ['fare la raccolta differenziata', 'fare il preavviso', 'firmare la delega', 'accendere la luce'], 0, { bn: 'বর্জ্য পৃথকীকরণ = la raccolta differenziata।', en: 'la raccolta differenziata.' }),
     q('q-a2-h-6', { bn: 'রুম ছাড়ার আগে নোটিশ দেওয়াকে বলে:', en: 'Giving advance notice to leave a flat:' }, 'Devo dare tre mesi di ___ prima di partire.', ['preavviso', 'affitto', 'condominio', 'lavello'], 0, { bn: 'আগাম নোটিশ = il preavviso।', en: 'Advance notice = preavviso.' }),
-    q('q-a2-h-7', { bn: '“riscaldamento autonomo” অর্থ কী?', en: 'What does "riscaldamento autonomo" mean?' }, undefined, ['নিজস্ব নিয়ন্ত্রিত হিটিং (নিজের খরচ অনুযায়ী)', 'বাসায় কোনো হিটিং নেই', 'পুরো শহরের হিটিং', 'শীতাতপ নিয়ন্ত্রণ'], 0, { bn: 'নিজস্ব হিটিং যা নিজের মিটারে চলে।', en: 'Independent heating paid per household use.' }),
-    q('q-a2-h-8', { bn: 'বিদ্যুৎ-গ্যাস বিলকে কী বলে?', en: 'Electricity and gas bills are called:' }, undefined, ['le bollette', 'le scale', 'le chiavi', 'le tendine'], 0, { bn: 'বিল = la bolletta / le bollette।', en: 'Utility bills = le bollette.' }),
-    q('q-a2-h-9', { bn: 'রাত দশটার পর প্রতিবেশীর সাথে ভদ্র আচরণ:', en: 'Polite rule after 10 p.m.:' }, 'Dopo le ventidue bisogna ___ la musica.', ['abbassare', 'alzare', 'comprare', 'aprire'], 0, { bn: 'আওয়াজ কমানো = abbassare।', en: 'Turn down = abbassare.' }),
-    q('q-a2-h-10', { bn: '“bilocale” বলতে কেমন ফ্ল্যাট বোঝায়?', en: 'What is a "bilocale"?' }, undefined, ['লিভিং রুমসহ ১ বেডরুম (দুই কক্ষের ফ্ল্যাট)', 'ছয় তলা বাড়ি', 'শুধু একটি গ্যারেজ', 'তিন তলা দোকান'], 0, { bn: 'দুই কক্ষের ফ্ল্যাট (বসার ঘর + ১ বেডরুম)।', en: 'Two main rooms: living/kitchen + 1 bedroom.' }),
+    q(
+      'q-a2-h-7',
+      { bn: '“riscaldamento autonomo” অর্থ কী?', en: 'What does "riscaldamento autonomo" mean?', it: 'Che cosa significa «riscaldamento autonomo»?' },
+      undefined,
+      ['Independent heating paid per household', 'No heating in the home', 'City-wide district heating', 'Air conditioning only'],
+      0,
+      { bn: 'নিজস্ব হিটিং যা নিজের মিটারে চলে।', en: 'Independent heating paid per household use.', it: 'Impianto di riscaldamento indipendente gestito dal singolo appartamento.' },
+      {
+        bn: ['নিজস্ব নিয়ন্ত্রিত হিটিং (নিজের খরচ অনুযায়ী)', 'বাসায় কোনো হিটিং নেই', 'পুরো শহরের হিটিং', 'শীতাতপ নিয়ন্ত্রণ'],
+        en: ['Independent heating paid per household', 'No heating in the home', 'City-wide district heating', 'Air conditioning only'],
+        it: ['Riscaldamento indipendente con contatore proprio', 'Assenza di riscaldamento in casa', 'Riscaldamento centrale cittadino', 'Solo aria condizionata'],
+      },
+    ),
+    q('q-a2-h-8', { bn: 'বিদ্যুৎ-গ্যাস বিলকে কী বলে?', en: 'Electricity and gas bills are called:', it: 'Come si chiamano le fatture di luce e gas?' }, undefined, ['le bollette', 'le scale', 'le chiavi', 'le tendine'], 0, { bn: 'বিল = la bolletta / le bollette।', en: 'Utility bills = le bollette.', it: 'Le utenze domestiche si pagano con «le bollette».' }),
+    q('q-a2-h-9', { bn: 'রাত দশটার পর প্রতিবেশীর সাথে ভদ্র আচরণ:', en: 'Polite rule after 10 p.m.:', it: 'Comportamento educato dopo le 22:00:' }, 'Dopo le ventidue bisogna ___ la musica.', ['abbassare', 'alzare', 'comprare', 'aprire'], 0, { bn: 'আওয়াজ কমানো = abbassare।', en: 'Turn down = abbassare.', it: '«Abbassare» significa ridurre il volume.' }),
+    q(
+      'q-a2-h-10',
+      { bn: '“bilocale” বলতে কেমন ফ্ল্যাট বোঝায়?', en: 'What is a "bilocale"?', it: 'Che tipo di appartamento è un «bilocale»?' },
+      undefined,
+      ['Two-room flat (living room + 1 bedroom)', 'Six-storey building', 'Only a garage', 'Three-floor shop'],
+      0,
+      { bn: 'দুই কক্ষের ফ্ল্যাট (বসার ঘর + ১ বেডরুম)।', en: 'Two main rooms: living/kitchen + 1 bedroom.', it: 'Appartamento composto da soggiorno con angolo cottura e una camera da letto.' },
+      {
+        bn: ['লিভিং রুমসহ ১ বেডরুম (দুই কক্ষের ফ্ল্যাট)', 'ছয় তলা বাড়ি', 'শুধু একটি গ্যারেজ', 'তিন তলা দোকান'],
+        en: ['Two-room flat (living room + 1 bedroom)', 'Six-storey building', 'Only a garage', 'Three-floor shop'],
+        it: ['Appartamento con soggiorno e una camera da letto', 'Edificio di sei piani', 'Solo un garage', 'Negozio su tre piani'],
+      },
+    ),
     q('q-a2-h-11', { bn: 'রুম দেখতে সময় চাইতে ভদ্র প্রশ্ন:', en: 'Asking politely to view a flat:' }, 'Quando ___ venire a visitare la casa?', ['potrei', 'potrò fare', 'posso stare', 'sono potuto'], 0, { bn: 'ভদ্র অনুরোধ = Quando potrei venire…?', en: 'Polite request uses potrei.' }),
     q('q-a2-h-12', { bn: 'রুম ছাড়ার আগে আনুষ্ঠানিক চিঠি বা ডিজিটাল মেইল:', en: 'Official notice channel in Italy:' }, 'Mandi una ___ per confermare la disdetta.', ['raccomandata o PEC', 'ricetta medica', 'carta d’imbarco', 'tessera del bus'], 0, { bn: 'সরকারি/চুক্তিভিত্তিক নোটিশে raccomandata বা PEC।', en: 'Registered post (raccomandata) or certified email (PEC).' }),
     q('q-a2-h-13', { bn: 'ভাড়ার রুম শেয়ার করলে খরচ ভাগ করতে বলবেন:', en: 'Splitting bills among flatmates:' }, 'Alla fine del mese ___ le bollette in tre.', ['dividiamo', 'chiudiamo', 'buttiamo', 'fermiamo'], 0, { bn: 'ভাগ করা = dividere (dividiamo)।', en: 'dividiamo = we split.' }),
@@ -923,7 +948,19 @@ export const A2_TRAVEL_DATA: A2CommunicationModuleData = {
     q('q-a2-t-3', { bn: 'বিমানবন্দরের বোর্ডিং পাস কোনটি?', en: 'Which is "boarding pass"?' }, undefined, ['la carta d’imbarco', 'la marca da bollo', 'la bolletta del gas', 'la tessera del bar'], 0, { bn: 'বোর্ডিং পাস = la carta d’imbarco।', en: 'la carta d’imbarco.' }),
     q('q-a2-t-4', { bn: '“ট্রেনটি ১০ মিনিট দেরি করছে” কীভাবে বলবেন?', en: 'Say "The train is 10 minutes late":' }, 'Il treno ___ dieci minuti di ritardo.', ['porta', 'compra', 'salta', 'firma'], 0, { bn: 'portare / avere ritardo ব্যবহার হয়।', en: 'porta / ha dieci minuti di ritardo.' }),
     q('q-a2-t-5', { bn: 'প্ল্যাটফর্ম ও বগির ইতালিয়ান শব্দ দুটি:', en: 'Words for "platform" and "carriage":' }, undefined, ['binario e carrozza', 'sciopero e dogana', 'rubinetto e lavello', 'farmacia e ricetta'], 0, { bn: 'binario (প্ল্যাটফর্ম), carrozza (বগি)।', en: 'binario and carrozza.' }),
-    q('q-a2-t-6', { bn: 'যাতায়াতে ধর্মঘটকে কী বলে?', en: 'What does "sciopero" mean?' }, undefined, ['ধর্মঘট', 'অতিরিক্ত ছাড়', 'শীতকালীন সময়সূচি', 'দ্রুতগতির ট্রেন'], 0, { bn: 'sciopero = ধর্মঘট।', en: 'Strike.' }),
+    q(
+      'q-a2-t-6',
+      { bn: 'যাতায়াতে ধর্মঘটকে কী বলে?', en: 'What does "sciopero" mean?', it: 'Che cosa indica la parola «sciopero» nei trasporti?' },
+      undefined,
+      ['Transport strike', 'Extra discount', 'Winter timetable', 'High-speed train'],
+      0,
+      { bn: 'sciopero = ধর্মঘট।', en: 'Strike.', it: 'Interruzione collettiva del servizio lavorativo o dei trasporti.' },
+      {
+        bn: ['ধর্মঘট', 'অতিরিক্ত ছাড়', 'শীতকালীন সময়সূচি', 'দ্রুতগতির ট্রেন'],
+        en: ['Transport strike', 'Extra discount', 'Winter timetable', 'High-speed train'],
+        it: ['Sospensione del servizio per protesta sindacale', 'Sconto aggiuntivo', 'Orario invernale', 'Treno ad alta velocità'],
+      },
+    ),
     q('q-a2-t-7', { bn: 'হাতে রাখার ছোট ব্যাগকে বিমানবন্দরে বলে:', en: 'Carry-on baggage is called:' }, undefined, ['il bagaglio a mano', 'il bagaglio in stiva', 'il deposito cauzionale', 'il rimborso'], 0, { bn: 'হাতে রাখার ব্যাগ = il bagaglio a mano।', en: 'Carry-on luggage.' }),
     q('q-a2-t-8', { bn: 'যাওয়া ও ফিরে আসা উভয় দিকের টিকিট:', en: 'A round-trip ticket:' }, 'Vorrei un biglietto di ___ per Firenze.', ['andata e ritorno', 'solo ritorno', 'scadenza mensile', 'prima classe vuoto'], 0, { bn: 'যাওয়া-আসা টিকিট = andata e ritorno।', en: 'Return ticket.' }),
     q('q-a2-t-9', { bn: 'মাসিক পরিবহন পাসের নাম:', en: 'Monthly transit pass:' }, 'Conviene fare ___ mensile.', ['l’abbonamento', 'l’appartamento', 'il contratto', 'il pronto soccorso'], 0, { bn: 'l’abbonamento = মাসিক/বার্ষিক পাস।', en: 'l’abbonamento.' }),

@@ -62,10 +62,12 @@ export function SoundDrillScreen({
         id: opt.id,
         audioIt: activeItem.audioIt,
         primaryLabel: opt.primaryLabel,
+        primaryLabelTr: opt.primaryLabelTr,
         secondaryLabel: opt.secondaryLabel ?? '',
         secondaryLabelTr: opt.secondaryLabelTr,
         cueBn: activeItem.cueBn,
         cueEn: activeItem.cueEn,
+        cueIt: activeItem.cueIt,
         feedbackDetail: activeItem.feedbackDetail,
       }));
       return shuffleArray([activeItem, ...mappedOthers]);
@@ -262,10 +264,13 @@ export function SoundDrillScreen({
         open={feedbackOpen}
         correct={isAnswerCorrect}
         correctAnswerLabel={(() => {
+          const prim = activeItem.primaryLabelTr
+            ? tr(activeItem.primaryLabelTr)
+            : activeItem.primaryLabel;
           const sec = activeItem.secondaryLabelTr
             ? tr(activeItem.secondaryLabelTr)
             : activeItem.secondaryLabel;
-          return sec ? `${activeItem.primaryLabel} (${sec})` : activeItem.primaryLabel;
+          return sec ? `${prim} (${sec})` : prim;
         })()}
         detail={activeItem.feedbackDetail}
         onAcknowledge={handleAcknowledge}

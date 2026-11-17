@@ -38,6 +38,9 @@ function formatStudyDuration(seconds: number, lang: ExplainLang): string {
   if (lang === 'bn') {
     return hours > 0 ? `${hours}ঘ ${mins}মি` : `${totalMinutes} মি.`;
   }
+  if (lang === 'it') {
+    return hours > 0 ? `${hours} h ${mins} min` : `${totalMinutes} min`;
+  }
   return hours > 0 ? `${hours}h ${mins}m` : `${totalMinutes}m`;
 }
 
@@ -169,7 +172,7 @@ export function ProfileScreen() {
             role="radiogroup"
             aria-label={t('explainLang')}
           >
-            {(['bn', 'en', 'it'] as const).map((l) => (
+            {(['en', 'bn', 'it'] as const).map((l) => (
               <button
                 key={l}
                 type="button"

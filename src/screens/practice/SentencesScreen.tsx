@@ -3,7 +3,7 @@ import { Puzzle, Search, X } from 'lucide-react';
 import { PHRASES, RICH_SENTENCES, type BankLevel } from '../../content/bank';
 import { grammarById } from '../../content/grammar';
 import { useRouter } from '../../app/router';
-import { useI18n } from '../../lib/i18n';
+import { matchesLocalizedSearch, useI18n } from '../../lib/i18n';
 import { useStudyTimer } from '../../state/ProgressContext';
 import { Button, FilterChipRow, GlassCard, Pill } from '../../components/ui';
 import { SpeakButton } from '../../components/SpeakButton';
@@ -23,14 +23,15 @@ export function SentencesScreen() {
   const [showTr, setShowTr] = useState(true);
 
   const grammarIds = useMemo(() => [...new Set(RICH_SENTENCES[level].map((s) => s.grammar))], [level]);
-  const list = useMemo(() => {
-    const q = query.trim().toLowerCase();
-    return RICH_SENTENCES[level].filter(
-      (s) =>
-        (!grammar || s.grammar === grammar) &&
-        (!q || s.it.toLowerCase().includes(q) || s.tr.bn.includes(q) || s.tr.en.toLowerCase().includes(q)),
-    );
-  }, [level, grammar, query]);
+  const list = useMemo(
+    () =>
+      RICH_SENTENCES[level].filter(
+        (s) =>
+          (!grammar || s.grammar === grammar) &&
+          matchesLocalizedSearch(query, lang, s.it, s.tr),
+      ),
+    [level, grammar, query, lang],
+  );
 
   return (
     <div className="animate-rise max-w-full space-y-3 overflow-x-hidden">
@@ -94,19 +95,13 @@ export function SentencesScreen() {
       </div>
 
       <GlassCard className="divide-y divide-white/8">
-        {list.map((s) => {
-          const primaryMeaning = tr(s.tr);
-          const secondaryMeaning = lang === 'bn' ? s.tr.en : lang === 'en' ? s.tr.bn : `${s.tr.en} · ${s.tr.bn}`;
-          return (
+        {list.map((s) => (
             <div key={s.key} className="flex items-start gap-3 px-3.5 py-3.5 sm:px-4">
               <SpeakButton text={s.it} size={38} />
               <div className="min-w-0 flex-1">
                 <p className="text-base sm:text-lg leading-snug font-extrabold text-white break-words">{s.it}</p>
                 {showTr && (
-                  <div className="mt-1 space-y-0.5">
-                    <p className="bn text-sm font-semibold text-ink break-words">{primaryMeaning}</p>
-                    <p className="bn text-xs text-ink-2 break-words">{secondaryMeaning}</p>
-                  </div>
+                  <p className="bn mt-1 text-sm font-semibold text-ink break-words">{tr(s.tr)}</p>
                 )}
                 <div className="mt-2 flex flex-wrap items-center gap-2 text-xs text-ink-3">
                   <span className="bn">{tr(s.context)}</span>
@@ -120,8 +115,7 @@ export function SentencesScreen() {
                 </div>
               </div>
             </div>
-          );
-        })}
+        ))}
         {list.length === 0 && <p className="p-6 text-center text-ink-2">{t('vocabEmptySearch')}</p>}
       </GlassCard>
     </div>
@@ -129,26 +123,21 @@ export function SentencesScreen() {
 }
 
 export function PhrasesScreen() {
-  const { lang, t, tr } = useI18n();
+  const { t, tr } = useI18n();
   useStudyTimer();
   return (
     <div className="animate-rise max-w-full space-y-3 overflow-x-hidden">
       <SubHeader title={t('phrasesExpr')} subtitle={t('phrasesExprSub', { n: PHRASES.length })} />
       <div className="space-y-3">
-        {PHRASES.map((p) => {
-          const primaryMeaning = tr(p.tr);
-          const secondaryMeaning = lang === 'bn' ? p.tr.en : lang === 'en' ? p.tr.bn : `${p.tr.en} · ${p.tr.bn}`;
-          return (
-            <GlassCard key={p.key} className="flex items-start gap-3 p-4">
-              <SpeakButton text={p.it} size={38} />
-              <div className="min-w-0 flex-1">
-                <p className="text-base sm:text-lg font-extrabold text-mint break-words">{p.it}</p>
-                <p className="bn mt-1 text-sm font-semibold text-ink break-words">{primaryMeaning}</p>
-                <p className="bn text-xs text-ink-2 break-words">{secondaryMeaning}</p>
-              </div>
-            </GlassCard>
-          );
-        })}
+        {PHRASES.map((p) => (
+          <GlassCard key={p.key} className="flex items-start gap-3 p-4">
+            <SpeakButton text={p.it} size={38} />
+            <div className="min-w-0 flex-1">
+              <p className="text-base sm:text-lg font-extrabold text-mint break-words">{p.it}</p>
+              <p className="bn mt-1 text-sm font-semibold text-ink break-words">{tr(p.tr)}</p>
+            </div>
+          </GlassCard>
+        ))}
       </div>
     </div>
   );

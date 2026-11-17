@@ -98,7 +98,7 @@ export function PuzzleScreen() {
       />
 
       {availableTypes.length > 0 && (
-        <FilterChipRow label="Puzzle type">
+        <FilterChipRow label={tr({ bn: 'পাজলের ধরন', en: 'Puzzle type', it: 'Tipo di esercizio' })}>
           <Pill active={ptype === 'all'} onClick={() => setPtype('all')}>
             {t('all')}
           </Pill>
@@ -341,7 +341,7 @@ export function PuzzleCard({ item, onDone }: { item: PuzzleChallenge; onDone: (c
             <SpeakButton text={item.answerIt} size={34} />
             <p className="min-w-0 flex-1 text-base sm:text-lg font-bold break-words">{item.answerIt}</p>
           </div>
-          {item.explanation.bn && <p className="bn mt-2 text-sm text-ink-2 break-words">{tr(item.explanation)}</p>}
+          {tr(item.explanation) && <p className="bn mt-2 text-sm text-ink-2 break-words">{tr(item.explanation)}</p>}
         </div>
       )}
 

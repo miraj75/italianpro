@@ -647,7 +647,11 @@ export function StoryReaderScreen({ storyId }: { storyId: string }) {
                 <input
                   value={val}
                   onChange={(e) => setShortInputs((s) => ({ ...s, [sa.id]: e.target.value }))}
-                  placeholder="Scrivi in italiano..."
+                  placeholder={tr({
+                    bn: 'এখানে ইতালিয়ানে লিখুন...',
+                    en: 'Write in Italian...',
+                    it: 'Scrivi in italiano...',
+                  })}
                   className="glass min-h-11 flex-1 rounded-xl px-3 text-sm font-semibold outline-none placeholder:text-ink-3"
                 />
                 <Button className="min-h-11 px-4 text-sm" onClick={() => setShortChecked((c) => ({ ...c, [sa.id]: true }))}>
@@ -692,7 +696,11 @@ export function StoryReaderScreen({ storyId }: { storyId: string }) {
               rows={2}
               value={creativeNotes[item.key] ?? ''}
               onChange={(e) => setCreativeNotes((n) => ({ ...n, [item.key]: e.target.value }))}
-              placeholder="Scrivi qui in italiano..."
+              placeholder={tr({
+                bn: 'এখানে ইতালিয়ানে লিখুন...',
+                en: 'Write here in Italian...',
+                it: 'Scrivi qui in italiano...',
+              })}
               className="glass w-full rounded-xl p-3 text-sm font-semibold outline-none placeholder:text-ink-3"
             />
             {item.sample && (

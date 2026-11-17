@@ -11,7 +11,7 @@ import type { AcademyModuleMeta } from '../../../content/academy/types';
 import { SENTENCES } from '../../../content/bank';
 import { GRAMMAR_TOPICS } from '../../../content/grammar';
 import { generateAcademyModuleExam, shuffleArray } from '../../../lib/examEngine';
-import { resolveExamOptions, useI18n } from '../../../lib/i18n';
+import { matchesLocalizedSearch, resolveExamOptions, useI18n } from '../../../lib/i18n';
 import { loadModulePosition, saveModulePosition } from '../../../lib/modulePosition';
 import { Button, GlassCard, cx } from '../../../components/ui';
 import { SpeakButton } from '../../../components/SpeakButton';
@@ -83,13 +83,11 @@ export function SentencesModuleView({
 
   const activeGroup = groups.find((g) => g.tag === activeTag);
   const filteredSentences = useMemo(() => {
-    const q = query.trim().toLowerCase();
+    const q = query.trim();
     const base = activeGroup ? activeGroup.items : SENTENCES[levelId];
     if (!q) return activeGroup ? base : [];
-    return base.filter(
-      (s) => s.it.toLowerCase().includes(q) || s.tr.bn.includes(q) || s.tr.en.toLowerCase().includes(q),
-    );
-  }, [activeGroup, query, levelId]);
+    return base.filter((s) => matchesLocalizedSearch(q, lang, s.it, s.tr));
+  }, [activeGroup, lang, query, levelId]);
 
   const practicePool = useMemo(() => {
     const qs = generateAcademyModuleExam(meta.id, Math.random, levelId);

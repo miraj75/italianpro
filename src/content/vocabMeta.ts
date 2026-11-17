@@ -1175,6 +1175,7 @@ function buildExample(w: BankWord, pos: PartOfSpeech, gender: Gender): { it: str
   const it = w.it.trim();
   const bn = w.tr.bn.trim();
   const en = w.tr.en.trim();
+  const itDef = (w.tr.it ?? '').trim() || it;
   const topicEn = w.topic.en;
   const level = w.level;
 
@@ -1186,6 +1187,7 @@ function buildExample(w: BankWord, pos: PartOfSpeech, gender: Gender): { it: str
         tr: {
           bn: `আজ আমি আমার বন্ধুদের সাথে ${bn} চাই।`,
           en: `Today I want to ${cleanEn} with my friends.`,
+          it: `Esempio d’uso di «${it}» (${itDef}) in una frase semplice.`,
         },
       };
     }
@@ -1195,6 +1197,7 @@ function buildExample(w: BankWord, pos: PartOfSpeech, gender: Gender): { it: str
         tr: {
           bn: `বাইরে যাওয়ার আগে আমাদের শান্তভাবে ${bn} দরকার।`,
           en: `Before going out, we need to ${cleanEn} calmly.`,
+          it: `Frase pratica con il verbo «${it}» (${itDef}).`,
         },
       };
     }
@@ -1204,6 +1207,7 @@ function buildExample(w: BankWord, pos: PartOfSpeech, gender: Gender): { it: str
         tr: {
           bn: `এই পরিস্থিতিতে সঠিক সময়ে ${bn} পারা অত্যন্ত জরুরি।`,
           en: `In this situation it is essential to know how to ${cleanEn} at the right time.`,
+          it: `Contesto intermedio con il verbo «${it}» (${itDef}).`,
         },
       };
     }
@@ -1212,6 +1216,7 @@ function buildExample(w: BankWord, pos: PartOfSpeech, gender: Gender): { it: str
       tr: {
         bn: `কমিটি বিষয়টি কার্যকরভাবে মোকাবিলা করার জন্য ${bn} করার সিদ্ধান্ত নিয়েছে।`,
         en: `The committee decided to ${cleanEn} to address the issue effectively.`,
+        it: `Uso formale del verbo «${it}» (${itDef}) in ambito istituzionale.`,
       },
     };
   }
@@ -1224,6 +1229,7 @@ function buildExample(w: BankWord, pos: PartOfSpeech, gender: Gender): { it: str
         tr: {
           bn: `এই ঐতিহ্যবাহী খাবারটি তাজা এবং সত্যিই ${bn}।`,
           en: `This traditional dish is fresh and truly ${en}.`,
+          it: `Descrizione gastronomica con l’aggettivo «${it}» (${itDef}).`,
         },
       };
     }
@@ -1233,6 +1239,7 @@ function buildExample(w: BankWord, pos: PartOfSpeech, gender: Gender): { it: str
         tr: {
           bn: `খবরটি শোনার পর মার্কো সাথে সাথে ${bn} অনুভব করল।`,
           en: `After the news, Marco immediately felt ${en}.`,
+          it: `Espressione di stato d’animo con «${it}» (${itDef}).`,
         },
       };
     }
@@ -1242,6 +1249,7 @@ function buildExample(w: BankWord, pos: PartOfSpeech, gender: Gender): { it: str
         tr: {
           bn: `জুলিয়ার নতুন বাড়িটি খুব ${bn} এবং মনোরম।`,
           en: `Giulia's new home is very ${en} and welcoming.`,
+          it: `Aggettivo qualificativo «${it}» (${itDef}) concordato al femminile.`,
         },
       };
     }
@@ -1250,6 +1258,7 @@ function buildExample(w: BankWord, pos: PartOfSpeech, gender: Gender): { it: str
       tr: {
         bn: `প্রকল্পটির উন্নয়নের জন্য এটি একটি ${bn} সিদ্ধান্ত।`,
         en: `This is a ${en} choice for the development of the project.`,
+        it: `Uso dell’aggettivo «${it}» (${itDef}) in un contesto progettuale.`,
       },
     };
   }
@@ -1260,6 +1269,7 @@ function buildExample(w: BankWord, pos: PartOfSpeech, gender: Gender): { it: str
       tr: {
         bn: `ইতালিয়ান কোর্সে ${bn} জন অংশগ্রহণকারী নিবন্ধিত আছেন।`,
         en: `There are ${en} participants enrolled in the Italian course.`,
+        it: `Uso del numerale «${it}» (${itDef}) per indicare una quantità.`,
       },
     };
   }
@@ -1270,6 +1280,7 @@ function buildExample(w: BankWord, pos: PartOfSpeech, gender: Gender): { it: str
       tr: {
         bn: `সংলাপে ধারণাগুলো স্পষ্টভাবে যুক্ত করতে আমরা «${it}» (${bn}) ব্যবহার করি।`,
         en: `In dialogue we use "${it}" (${en}) to connect ideas clearly.`,
+        it: `Impiego del connettivo o preposizione «${it}» (${itDef}).`,
       },
     };
   }
@@ -1280,6 +1291,7 @@ function buildExample(w: BankWord, pos: PartOfSpeech, gender: Gender): { it: str
       tr: {
         bn: `আজকের পাঠের জন্য তুমি ${bn} বেছে নিতে পছন্দ করো তা আমাকে বলো।`,
         en: `Tell me freely ${en} you prefer to choose for today's lesson.`,
+        it: `Uso del pronome «${it}» (${itDef}) in una frase interrogativa indiretta.`,
       },
     };
   }
@@ -1291,6 +1303,7 @@ function buildExample(w: BankWord, pos: PartOfSpeech, gender: Gender): { it: str
         tr: {
           bn: `${bn}, আমরা বিকেল পাঁচটায় চত্বরে দেখা করব।`,
           en: `${en.charAt(0).toUpperCase() + en.slice(1)}, we meet in the square at five o'clock.`,
+          it: `Frase d’uso quotidiano con l’espressione «${it}» (${itDef}).`,
         },
       };
     }
@@ -1299,6 +1312,7 @@ function buildExample(w: BankWord, pos: PartOfSpeech, gender: Gender): { it: str
       tr: {
         bn: `${bn}, উপলব্ধ সব বিকল্পগুলো মূল্যায়ন করা সমীচীন।`,
         en: `${en.charAt(0).toUpperCase() + en.slice(1)}, it is appropriate to evaluate all available alternatives.`,
+        it: `Uso argomentativo di «${it}» (${itDef}) a livello intermedio-avanzato.`,
       },
     };
   }
@@ -1313,6 +1327,7 @@ function buildExample(w: BankWord, pos: PartOfSpeech, gender: Gender): { it: str
       tr: {
         bn: `স্থানীয় বাজার থেকে আমি সবসময় উন্নত মানের ${bn} কিনি।`,
         en: `At the local market I always buy top-quality ${cleanEnNoun}.`,
+        it: `Esempio alimentare con il termine «${it}» (${itDef}).`,
       },
     };
   }
@@ -1322,6 +1337,7 @@ function buildExample(w: BankWord, pos: PartOfSpeech, gender: Gender): { it: str
       tr: {
         bn: `শহরের কেন্দ্রে পৌঁছাতে আমরা আগে ${bn} দেখে নিই।`,
         en: `To get downtown, we check the ${cleanEnNoun} first.`,
+        it: `Esempio legato a viaggi e spostamenti con «${it}» (${itDef}).`,
       },
     };
   }
@@ -1331,6 +1347,7 @@ function buildExample(w: BankWord, pos: PartOfSpeech, gender: Gender): { it: str
       tr: {
         bn: `বৈঠকের সময় আমরা প্রতিটি খুঁটিনাটিসহ ${bn} বিশ্লেষণ করেছি।`,
         en: `During the meeting we analyzed the ${cleanEnNoun} in every detail.`,
+        it: `Contesto professionale con il sostantivo «${it}» (${itDef}).`,
       },
     };
   }
@@ -1340,6 +1357,7 @@ function buildExample(w: BankWord, pos: PartOfSpeech, gender: Gender): { it: str
       tr: {
         bn: `বিশেষজ্ঞরা ব্যাখ্যা করেন কেন ${bn} একটি অপরিহার্য ভূমিকা পালন করে।`,
         en: `Experts explain why the ${cleanEnNoun} plays an essential role.`,
+        it: `Contesto informativo con il termine «${it}» (${itDef}).`,
       },
     };
   }
@@ -1349,6 +1367,7 @@ function buildExample(w: BankWord, pos: PartOfSpeech, gender: Gender): { it: str
       tr: {
         bn: `দৈনন্দিন জীবনে আমাদের প্রায়ই ${bn} প্রয়োজন হয়।`,
         en: `In everyday life we often need the ${cleanEnNoun}.`,
+        it: `Uso quotidiano del vocabolo «${it}» (${itDef}).`,
       },
     };
   }
@@ -1357,6 +1376,7 @@ function buildExample(w: BankWord, pos: PartOfSpeech, gender: Gender): { it: str
     tr: {
       bn: `বর্তমান বিতর্কটি ${bn} এবং এর সামাজিক ফলাফল নিয়ে।`,
       en: `The current debate concerns the ${cleanEnNoun} and its social consequences.`,
+      it: `Uso formale di «${it}» (${itDef}) in ambito sociale o culturale.`,
     },
   };
 }
@@ -1411,6 +1431,7 @@ export function enrichSentence(s: BankSentence, idx: number): RichSentenceItem {
     context: {
       bn: `${s.level} দৈনন্দিন ব্যবহার (${s.grammar})`,
       en: `${s.level} everyday usage (${s.grammar})`,
+      it: `Uso quotidiano livello ${s.level} (${s.grammar})`,
     },
   };
 }

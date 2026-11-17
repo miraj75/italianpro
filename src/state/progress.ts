@@ -69,7 +69,7 @@ export interface ProgressState {
 export function initialState(): ProgressState {
   return {
     version: 1,
-    settings: { explainLang: 'bn', dailyGoalMinutes: 25, currentLevel: 'A1', showAllLockedModules: false },
+    settings: { explainLang: 'en', dailyGoalMinutes: 25, currentLevel: 'A1', showAllLockedModules: false },
     lessons: {},
     cards: {},
     mistakes: {},

@@ -57,7 +57,7 @@ interface Module {
   id: string;
   icon: LucideIcon;
   hue: Hue;
-  title: string;
+  title: Tr;
   sub: Tr;
   route: string;
   proTag?: boolean;
@@ -70,40 +70,40 @@ const MODULES: Module[] = [
     id: 'words',
     icon: BookOpen,
     hue: 'emerald',
-    title: 'Vocabulary',
-    sub: { bn: `${total}+ গুরুত্বপূর্ণ শব্দ`, en: `${total}+ essential words` },
+    title: { bn: 'শব্দভাণ্ডার', en: 'Vocabulary', it: 'Vocabolario' },
+    sub: { bn: `${total}+ গুরুত্বপূর্ণ শব্দ`, en: `${total}+ essential words`, it: `Oltre ${total} parole essenziali` },
     route: '/practice/words',
   },
   {
     id: 'grammar',
     icon: Layers,
     hue: 'violet',
-    title: 'Grammar',
-    sub: { bn: 'ব্যাকরণ ও নিয়ম', en: 'Grammar & rules' },
+    title: { bn: 'ব্যাকরণ', en: 'Grammar', it: 'Grammatica' },
+    sub: { bn: 'ব্যাকরণ ও নিয়ম', en: 'Grammar & rules', it: 'Regole ed esercizi' },
     route: '/practice/grammar',
   },
   {
     id: 'puzzle',
     icon: Puzzle,
     hue: 'cyan',
-    title: 'Sentence Builder',
-    sub: { bn: 'সঠিক বাক্য গঠন অনুশীলন', en: '12 sentence & grammar puzzles' },
+    title: { bn: 'বাক্য গঠন পাজল', en: 'Sentence Builder', it: 'Costruzione frasi' },
+    sub: { bn: 'সঠিক বাক্য গঠন অনুশীলন', en: '12 sentence & grammar puzzles', it: '12 modalità di esercizi' },
     route: '/practice/puzzle',
   },
   {
     id: 'sentences',
     icon: Text,
     hue: 'blue',
-    title: 'Sentences',
-    sub: { bn: 'বহুল ব্যবহৃত বাক্য', en: 'Common model sentences' },
+    title: { bn: 'বাক্য', en: 'Sentences', it: 'Frasi' },
+    sub: { bn: 'বহুল ব্যবহৃত বাক্য', en: 'Common model sentences', it: 'Frasi modello comuni' },
     route: '/practice/sentences',
   },
   {
     id: 'cards',
     icon: SpellCheck,
     hue: 'pink',
-    title: 'Flashcards',
-    sub: { bn: 'দ্রুত মনে রাখুন', en: 'Spaced repetition' },
+    title: { bn: 'ফ্ল্যাশকার্ড', en: 'Flashcards', it: 'Flashcard' },
+    sub: { bn: 'দ্রুত মনে রাখুন', en: 'Spaced repetition', it: 'Ripetizione dilazionata' },
     route: '/practice/vocabulary',
     proTag: true,
   },
@@ -111,72 +111,72 @@ const MODULES: Module[] = [
     id: 'phrases',
     icon: MessageSquareQuote,
     hue: 'gold',
-    title: 'Phrases (B1)',
-    sub: { bn: 'দৈনন্দিন কথোপকথন', en: 'Idioms & expressions' },
+    title: { bn: 'এক্সপ্রেশন (B1)', en: 'Phrases (B1)', it: 'Espressioni (B1)' },
+    sub: { bn: 'দৈনন্দিন কথোপকথন', en: 'Idioms & expressions', it: 'Modi di dire ed espressioni' },
     route: '/practice/phrases',
   },
   {
     id: 'listening',
     icon: Headphones,
     hue: 'cyan',
-    title: 'Listening',
-    sub: { bn: 'শুনে শিখুন', en: 'Audio & comprehension' },
+    title: { bn: 'শোনা', en: 'Listening', it: 'Ascolto' },
+    sub: { bn: 'শুনে শিখুন', en: 'Audio & comprehension', it: 'Audio e comprensione' },
     route: '/practice/listening',
   },
   {
     id: 'verbs',
     icon: InfinityIcon,
     hue: 'violet',
-    title: 'Important Verbs',
-    sub: { bn: 'গুরুত্বপূর্ণ ১০০টি ক্রিয়া', en: 'Key verb conjugations' },
+    title: { bn: 'গুরুত্বপূর্ণ ক্রিয়াপদ', en: 'Important Verbs', it: 'Verbi principali' },
+    sub: { bn: 'গুরুত্বপূর্ণ ১০০টি ক্রিয়া', en: 'Key verb conjugations', it: 'Coniugazioni essenziali' },
     route: '/practice/verbs',
   },
   {
     id: 'survival',
     icon: Signpost,
     hue: 'gold',
-    title: 'Survival Italian',
-    sub: { bn: 'ইতালিতে টিকে থাকার বাক্য', en: 'Real situations in Italy' },
+    title: { bn: 'সারভাইভাল ইতালিয়ান', en: 'Survival Italian', it: 'Italiano essenziale' },
+    sub: { bn: 'ইতালিতে টিকে থাকার বাক্য', en: 'Real situations in Italy', it: 'Situazioni reali in Italia' },
     route: '/practice/survival',
   },
   {
     id: 'mistakes',
     icon: RotateCcw,
     hue: 'pink',
-    title: 'Review Mistakes',
-    sub: { bn: 'ভুলগুলো দেখুন এবং শুদ্ধ করুন', en: 'Practise past mistakes' },
+    title: { bn: 'ভুল পর্যালোচনা', en: 'Review Mistakes', it: 'Rivedi errori' },
+    sub: { bn: 'ভুলগুলো দেখুন এবং শুদ্ধ করুন', en: 'Practise past mistakes', it: 'Ripassa gli errori passati' },
     route: '/practice/mistakes',
   },
   {
     id: 'speaking',
     icon: Mic,
     hue: 'violet',
-    title: 'Speaking',
-    sub: { bn: 'উচ্চারণ ও বলার অনুশীলন', en: 'Mic & pronunciation' },
+    title: { bn: 'স্পিকিং', en: 'Speaking', it: 'Parlato' },
+    sub: { bn: 'উচ্চারণ ও বলার অনুশীলন', en: 'Mic & pronunciation', it: 'Microfono e pronuncia' },
     route: '/practice/speaking',
   },
   {
     id: 'reading',
     icon: FileText,
     hue: 'emerald',
-    title: 'Reading',
-    sub: { bn: 'পড়া ও বোঝা অনুশীলন', en: 'Reading comprehension' },
+    title: { bn: 'পড়া', en: 'Reading', it: 'Lettura' },
+    sub: { bn: 'পড়া ও বোঝা অনুশীলন', en: 'Reading comprehension', it: 'Comprensione scritta' },
     route: '/practice/reading',
   },
   {
     id: 'writing',
     icon: FilePenLine,
     hue: 'cyan',
-    title: 'Writing',
-    sub: { bn: 'ইতালিয়ান ভাষায় লেখার অনুশীলন', en: 'Guided writing & rubric' },
+    title: { bn: 'লেখা', en: 'Writing', it: 'Scrittura' },
+    sub: { bn: 'ইতালিয়ান ভাষায় লেখার অনুশীলন', en: 'Guided writing & rubric', it: 'Scrittura guidata' },
     route: '/practice/writing',
   },
   {
     id: 'stories',
     icon: BookMarked,
     hue: 'blue',
-    title: 'Stories',
-    sub: { bn: 'গল্পভিত্তিক ব্যাকরণ ও পাঠ', en: 'Story-based learning' },
+    title: { bn: 'গল্প', en: 'Stories', it: 'Storie' },
+    sub: { bn: 'গল্পভিত্তিক ব্যাকরণ ও পাঠ', en: 'Story-based learning', it: 'Apprendimento con storie' },
     route: '/practice/stories',
   },
 ];
@@ -228,8 +228,8 @@ export function PracticeHub() {
                 className={cx(hue.icon, 'shrink-0 drop-shadow-[0_0_12px_currentColor]')}
                 aria-hidden
               />
-              <span className="mt-2.5 w-full text-[0.98rem] sm:text-[1.08rem] leading-tight font-extrabold text-white break-words">
-                {m.title}
+              <span className="bn mt-2.5 w-full text-[0.98rem] sm:text-[1.08rem] leading-tight font-extrabold text-white break-words">
+                {tr(m.title)}
               </span>
               <span className="bn mt-1 line-clamp-2 w-full text-[0.76rem] sm:text-[0.84rem] leading-snug font-semibold text-ink-2 break-words">
                 {tr(m.sub)}

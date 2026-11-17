@@ -44,9 +44,9 @@ export function ModuleCompletionScreen({
   const displayMistakes = latestResult?.incorrect ?? latestAttempt?.incorrect ?? Math.max(0, displayTotal - displayCorrect);
   const bestPct = Math.round(Math.max(modProgress.bestScore * 100, displayPercentage));
 
-  const localizedMetaTitle = tr({ bn: meta.subtitle.bn, en: meta.title, it: meta.title });
+  const localizedMetaTitle = tr({ bn: meta.subtitle.bn, en: meta.title, it: meta.subtitle.it ?? meta.title });
   const localizedNextTitle = nextModule
-    ? tr({ bn: nextModule.subtitle.bn, en: nextModule.title, it: nextModule.title })
+    ? tr({ bn: nextModule.subtitle.bn, en: nextModule.title, it: nextModule.subtitle.it ?? nextModule.title })
     : '';
 
   return (
@@ -72,13 +72,13 @@ export function ModuleCompletionScreen({
             {previewMode
               ? tr({
                   bn: `${localizedMetaTitle} প্রিভিউ সম্পন্ন হয়েছে!`,
-                  en: `${meta.title} preview completed!`,
-                  it: `Anteprima «${meta.title}» completata!`,
+                  en: `${localizedMetaTitle} preview completed!`,
+                  it: `Anteprima «${localizedMetaTitle}» completata!`,
                 })
               : tr({
                   bn: `অভিনন্দন! ${localizedMetaTitle} মডিউল সম্পন্ন হয়েছে।`,
-                  en: `Congratulations! You completed ${meta.title}.`,
-                  it: `Complimenti! Hai completato «${meta.title}».`,
+                  en: `Congratulations! You completed ${localizedMetaTitle}.`,
+                  it: `Complimenti! Hai completato «${localizedMetaTitle}».`,
                 })}
           </h2>
         </div>
@@ -124,8 +124,8 @@ export function ModuleCompletionScreen({
               <span className="bn">
                 {tr({
                   bn: `পরবর্তী: ${nextModule.order}. ${localizedNextTitle}`,
-                  en: `Continue to ${nextModule.order}. ${nextModule.title}`,
-                  it: `Continua: ${nextModule.order}. ${nextModule.title}`,
+                  en: `Continue to ${nextModule.order}. ${localizedNextTitle}`,
+                  it: `Continua: ${nextModule.order}. ${localizedNextTitle}`,
                 })}
               </span>
               <ArrowRight size={18} />
@@ -163,9 +163,9 @@ export function ModuleCompletionScreen({
                     <div className="flex items-center gap-2 shrink-0">
                       {entry.question.audioIt && <SpeakButton text={entry.question.audioIt} size={32} />}
                       {entry.correct ? (
-                        <CheckCircle2 size={18} className="text-neon" aria-label="correct" />
+                        <CheckCircle2 size={18} className="text-neon" aria-label={tr({ bn: 'সঠিক', en: 'correct', it: 'corretta' })} />
                       ) : (
-                        <XCircle size={18} className="text-pink" aria-label="incorrect" />
+                        <XCircle size={18} className="text-pink" aria-label={tr({ bn: 'ভুল', en: 'incorrect', it: 'errata' })} />
                       )}
                     </div>
                   </div>

@@ -20,7 +20,10 @@ export function SurvivalScreen() {
   useStudyTimer();
   return (
     <div className="animate-rise">
-      <SubHeader title="Survival Italian" subtitle="A1" />
+      <SubHeader
+        title={tr({ bn: 'জরুরি ইতালিয়ান', en: 'Survival Italian', it: 'Italiano essenziale' })}
+        subtitle="A1"
+      />
       <div className="space-y-4">
         {SURVIVAL_TOPICS.map((topic) => (
           <GlassCard key={topic.id} className="p-4">

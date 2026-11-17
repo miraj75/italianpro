@@ -20,7 +20,7 @@ export function AcademyPreviewScreen({ moduleId }: { moduleId: A1AcademyModuleId
 
   if (!meta) return null;
 
-  const localizedTitle = tr({ bn: meta.subtitle.bn, en: meta.title, it: meta.title });
+  const localizedTitle = tr({ bn: meta.subtitle.bn, en: meta.title, it: meta.subtitle.it ?? meta.title });
 
   const compactBack = (
     <div className="flex items-center gap-2.5 pb-1 border-b border-white/10">

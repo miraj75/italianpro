@@ -38,6 +38,7 @@ import { GRAMMAR_DETAILS_B1 } from '../content/grammarDetailsB1';
 import { GRAMMAR_DETAILS_B2 } from '../content/grammarDetailsB2';
 import { loadLevelBundle } from '../content/registry';
 import type { LevelId } from '../content/types';
+import { resolveTr } from './i18n';
 
 export interface ExamAnswerRecord {
   question: AcademyExamQuestion;
@@ -188,13 +189,18 @@ function buildGrammarModulePool(moduleId: string, level: 'A2' | 'B1' | 'B2', rng
     const matchingSentences = SENTENCES[level].filter((s) => s.grammar === gid);
     const otherSentences = SENTENCES[level].filter((s) => s.grammar !== gid);
     for (const s of matchingSentences.slice(0, 2)) {
+      const sIt = resolveTr('it', s.tr);
       const distractors = shuffleArray(
-        otherSentences.filter((o) => o.tr.en !== s.tr.en && o.tr.bn !== s.tr.bn),
+        otherSentences.filter((o) => {
+          const oIt = resolveTr('it', o.tr);
+          return o.tr.en !== s.tr.en && o.tr.bn !== s.tr.bn && oIt !== sIt;
+        }),
         rng,
       ).slice(0, 3);
       if (distractors.length === 3) {
         const bnOpts = [s.tr.bn, ...distractors.map((d) => d.tr.bn)];
         const enOpts = [s.tr.en, ...distractors.map((d) => d.tr.en)];
+        const itOpts = [sIt, ...distractors.map((d) => resolveTr('it', d.tr))];
         out.push({
           id: `${moduleId}-sent-${s.key}`,
           moduleId,
@@ -206,12 +212,12 @@ function buildGrammarModulePool(moduleId: string, level: 'A2' | 'B1' | 'B2', rng
           it: s.it,
           audioIt: s.it,
           options: enOpts,
-          localizedOptions: { bn: bnOpts, en: enOpts, it: enOpts },
+          localizedOptions: { bn: bnOpts, en: enOpts, it: itOpts },
           answer: 0,
           explanation: {
             bn: `${s.it} → ${s.tr.bn} (${topic?.explanation.bn ?? ''})`,
             en: `${s.it} → ${s.tr.en}`,
-            it: `${s.it} → ${s.tr.en}`,
+            it: `${s.it} → ${sIt}`,
           },
         });
       }
@@ -249,7 +255,7 @@ function buildVerbModulePool(moduleId: string, level: 'A2' | 'B1' | 'B2', rng: R
           prompt: {
             bn: `«${verb.infinitive}» (${verb.meaning.bn}) — ${table.tense.bn}-এ «${PRONOUN_LABELS[idx]}» রূপ কোনটি?`,
             en: `Conjugate «${verb.infinitive}» (${verb.meaning.en}) for «${PRONOUN_LABELS[idx]}» in ${table.tense.en}:`,
-            it: `Coniuga «${verb.infinitive}» per «${PRONOUN_LABELS[idx]}» (${table.tense.it ?? table.tense.en}):`,
+            it: `Coniuga «${verb.infinitive}» per «${PRONOUN_LABELS[idx]}» (${resolveTr('it', table.tense)}):`,
           },
           it: `${PRONOUN_LABELS[idx]} + ${verb.infinitive}`,
           audioIt: verb.examples[0]?.it,
@@ -258,7 +264,7 @@ function buildVerbModulePool(moduleId: string, level: 'A2' | 'B1' | 'B2', rng: R
           explanation: {
             bn: `${PRONOUN_LABELS[idx]} → ${correctForm}। ${verb.usageNote.bn}`,
             en: `${PRONOUN_LABELS[idx]} → ${correctForm}. ${verb.usageNote.en}`,
-            it: `${PRONOUN_LABELS[idx]} → ${correctForm}. ${verb.usageNote.it ?? verb.usageNote.en}`,
+            it: `${PRONOUN_LABELS[idx]} → ${correctForm}. ${resolveTr('it', verb.usageNote)}`,
           },
         });
       }
@@ -273,8 +279,12 @@ function buildLevelVocabularyExamPool(moduleId: string, level: BankLevel, rng: R
   const out: AcademyExamQuestion[] = [];
 
   for (const w of pool) {
+    const wIt = resolveTr('it', w.tr);
     const distractors = shuffleArray(
-      WORDS[level].filter((o) => o.key !== w.key && o.tr.bn !== w.tr.bn && o.tr.en !== w.tr.en),
+      WORDS[level].filter((o) => {
+        const oIt = resolveTr('it', o.tr);
+        return o.key !== w.key && o.tr.bn !== w.tr.bn && o.tr.en !== w.tr.en && oIt !== wIt;
+      }),
       rng,
     ).slice(0, 3);
     if (distractors.length < 3) continue;
@@ -282,23 +292,24 @@ function buildLevelVocabularyExamPool(moduleId: string, level: BankLevel, rng: R
     if (out.length % 2 === 0) {
       const bnOpts = [w.tr.bn, ...distractors.map((d) => d.tr.bn)];
       const enOpts = [w.tr.en, ...distractors.map((d) => d.tr.en)];
+      const itOpts = [wIt, ...distractors.map((d) => resolveTr('it', d.tr))];
       out.push({
         id: `${moduleId}-it2tr-${w.key}`,
         moduleId,
         prompt: {
           bn: `এই ${level} শব্দটির সঠিক অর্থ বেছে নিন (${w.topic.bn}):`,
           en: `Select the accurate meaning for this ${level} word (${w.topic.en}):`,
-          it: `Seleziona il significato corretto (${w.topic.it ?? w.topic.en}):`,
+          it: `Seleziona il significato corretto (${resolveTr('it', w.topic)}):`,
         },
         it: w.it,
         audioIt: w.it,
         options: enOpts,
-        localizedOptions: { bn: bnOpts, en: enOpts, it: enOpts },
+        localizedOptions: { bn: bnOpts, en: enOpts, it: itOpts },
         answer: 0,
         explanation: {
           bn: `${w.it} অর্থ «${w.tr.bn}»।`,
           en: `${w.it} means "${w.tr.en}".`,
-          it: `${w.it} = "${w.tr.en}".`,
+          it: `${w.it} = «${wIt}».`,
         },
       });
     } else {
@@ -308,7 +319,7 @@ function buildLevelVocabularyExamPool(moduleId: string, level: BankLevel, rng: R
         prompt: {
           bn: `«${w.tr.bn}» — এর সঠিক ইতালিয়ান শব্দ কোনটি?`,
           en: `Pick the Italian word meaning "${w.tr.en}":`,
-          it: `Scegli la parola italiana per "${w.tr.en}":`,
+          it: `Scegli la parola italiana per «${wIt}»:`,
         },
         options: [w.it, ...distractors.map((d) => d.it)],
         answer: 0,
@@ -329,13 +340,18 @@ function buildIdiomsExamPool(moduleId: string, level: 'B1' | 'B2', rng: RandomFn
   if (level === 'B1') {
     const sample = shuffleArray(PHRASES, rng).slice(0, 30);
     for (const phrase of sample) {
+      const pIt = resolveTr('it', phrase.tr);
       const distractors = shuffleArray(
-        PHRASES.filter((o) => o.key !== phrase.key && o.tr.bn !== phrase.tr.bn && o.tr.en !== phrase.tr.en),
+        PHRASES.filter((o) => {
+          const oIt = resolveTr('it', o.tr);
+          return o.key !== phrase.key && o.tr.bn !== phrase.tr.bn && o.tr.en !== phrase.tr.en && oIt !== pIt;
+        }),
         rng,
       ).slice(0, 3);
       if (distractors.length === 3) {
         const bnOpts = [phrase.tr.bn, ...distractors.map((d) => d.tr.bn)];
         const enOpts = [phrase.tr.en, ...distractors.map((d) => d.tr.en)];
+        const itOpts = [pIt, ...distractors.map((d) => resolveTr('it', d.tr))];
         out.push({
           id: `${moduleId}-${phrase.key}`,
           moduleId,
@@ -347,12 +363,12 @@ function buildIdiomsExamPool(moduleId: string, level: 'B1' | 'B2', rng: RandomFn
           it: phrase.it,
           audioIt: phrase.it,
           options: enOpts,
-          localizedOptions: { bn: bnOpts, en: enOpts, it: enOpts },
+          localizedOptions: { bn: bnOpts, en: enOpts, it: itOpts },
           answer: 0,
           explanation: {
             bn: `«${phrase.it}» অর্থ: ${phrase.tr.bn}।`,
             en: `"${phrase.it}" means: ${phrase.tr.en}.`,
-            it: `"${phrase.it}" = ${phrase.tr.en}.`,
+            it: `«${phrase.it}» = ${pIt}.`,
           },
         });
       }
@@ -360,13 +376,18 @@ function buildIdiomsExamPool(moduleId: string, level: 'B1' | 'B2', rng: RandomFn
   } else {
     const b2ExprWords = WORDS.B2.filter((w) => w.topic.en.includes('expressions') || w.topic.en.includes('analysis'));
     for (const col of B2_COLLOCATIONS) {
+      const cIt = resolveTr('it', col.tr);
       const distractors = shuffleArray(
-        B2_COLLOCATIONS.filter((o) => o.id !== col.id && o.tr.bn !== col.tr.bn && o.tr.en !== col.tr.en),
+        B2_COLLOCATIONS.filter((o) => {
+          const oIt = resolveTr('it', o.tr);
+          return o.id !== col.id && o.tr.bn !== col.tr.bn && o.tr.en !== col.tr.en && oIt !== cIt;
+        }),
         rng,
       ).slice(0, 3);
       if (distractors.length === 3) {
         const bnOpts = [col.tr.bn, ...distractors.map((d) => d.tr.bn)];
         const enOpts = [col.tr.en, ...distractors.map((d) => d.tr.en)];
+        const itOpts = [cIt, ...distractors.map((d) => resolveTr('it', d.tr))];
         out.push({
           id: `${moduleId}-${col.id}`,
           moduleId,
@@ -378,24 +399,29 @@ function buildIdiomsExamPool(moduleId: string, level: 'B1' | 'B2', rng: RandomFn
           it: col.it,
           audioIt: col.exampleIt,
           options: enOpts,
-          localizedOptions: { bn: bnOpts, en: enOpts, it: enOpts },
+          localizedOptions: { bn: bnOpts, en: enOpts, it: itOpts },
           answer: 0,
           explanation: {
             bn: `${col.it} → ${col.tr.bn}। উদাহরণ: ${col.exampleIt}`,
             en: `${col.it} → ${col.tr.en}. Example: ${col.exampleIt}`,
-            it: `${col.it} → ${col.tr.en}. Esempio: ${col.exampleIt}`,
+            it: `${col.it} → ${cIt}. Esempio: ${col.exampleIt}`,
           },
         });
       }
     }
     for (const w of shuffleArray(b2ExprWords, rng).slice(0, 15)) {
+      const wIt = resolveTr('it', w.tr);
       const distractors = shuffleArray(
-        b2ExprWords.filter((o) => o.key !== w.key && o.tr.bn !== w.tr.bn && o.tr.en !== w.tr.en),
+        b2ExprWords.filter((o) => {
+          const oIt = resolveTr('it', o.tr);
+          return o.key !== w.key && o.tr.bn !== w.tr.bn && o.tr.en !== w.tr.en && oIt !== wIt;
+        }),
         rng,
       ).slice(0, 3);
       if (distractors.length === 3) {
         const bnOpts = [w.tr.bn, ...distractors.map((d) => d.tr.bn)];
         const enOpts = [w.tr.en, ...distractors.map((d) => d.tr.en)];
+        const itOpts = [wIt, ...distractors.map((d) => resolveTr('it', d.tr))];
         out.push({
           id: `${moduleId}-expr-${w.key}`,
           moduleId,
@@ -407,12 +433,12 @@ function buildIdiomsExamPool(moduleId: string, level: 'B1' | 'B2', rng: RandomFn
           it: w.it,
           audioIt: w.it,
           options: enOpts,
-          localizedOptions: { bn: bnOpts, en: enOpts, it: enOpts },
+          localizedOptions: { bn: bnOpts, en: enOpts, it: itOpts },
           answer: 0,
           explanation: {
             bn: `${w.it} → ${w.tr.bn}।`,
             en: `${w.it} → ${w.tr.en}.`,
-            it: `${w.it} → ${w.tr.en}.`,
+            it: `${w.it} → ${wIt}.`,
           },
         });
       }
@@ -427,31 +453,36 @@ function buildSentencesExamPool(moduleId: string, level: BankLevel, rng: RandomF
   const out: AcademyExamQuestion[] = [];
 
   for (const s of sample) {
+    const sIt = resolveTr('it', s.tr);
     const distractors = shuffleArray(
-      SENTENCES[level].filter((o) => o.key !== s.key && o.tr.en !== s.tr.en && o.tr.bn !== s.tr.bn),
+      SENTENCES[level].filter((o) => {
+        const oIt = resolveTr('it', o.tr);
+        return o.key !== s.key && o.tr.en !== s.tr.en && o.tr.bn !== s.tr.bn && oIt !== sIt;
+      }),
       rng,
     ).slice(0, 3);
     if (distractors.length < 3) continue;
     const gTitle = topicsMap.get(s.grammar)?.title ?? s.grammar;
     const bnOpts = [s.tr.bn, ...distractors.map((d) => d.tr.bn)];
     const enOpts = [s.tr.en, ...distractors.map((d) => d.tr.en)];
+    const itOpts = [sIt, ...distractors.map((d) => resolveTr('it', d.tr))];
     out.push({
       id: `${moduleId}-${s.key}`,
       moduleId,
       prompt: {
         bn: `নিচের ${level} বাক্যটির সঠিক অর্থ বেছে নিন (${gTitle}):`,
         en: `Select the accurate translation for this ${level} sentence (${gTitle}):`,
-        it: `Seleziona la traduzione corretta per questa frase ${level} (${gTitle}):`,
+        it: `Seleziona il significato corretto per questa frase ${level} (${gTitle}):`,
       },
       it: s.it,
       audioIt: s.it,
       options: enOpts,
-      localizedOptions: { bn: bnOpts, en: enOpts, it: enOpts },
+      localizedOptions: { bn: bnOpts, en: enOpts, it: itOpts },
       answer: 0,
       explanation: {
         bn: `${s.it} → ${s.tr.bn}`,
         en: `${s.it} → ${s.tr.en}`,
-        it: `${s.it} → ${s.tr.en}`,
+        it: `${s.it} → ${sIt}`,
       },
     });
   }
@@ -572,7 +603,7 @@ export async function generateAcademyModuleExamAsync(
           prompt: {
             bn: `পাঠ «${passage.title.bn}» — ${q.prompt.bn}`,
             en: `Reading «${passage.title.en}» — ${q.prompt.en}`,
-            it: `Lettura «${passage.titleIt}» — ${q.prompt.it ?? q.prompt.en}`,
+            it: `Lettura «${passage.titleIt}» — ${resolveTr('it', q.prompt)}`,
           },
           it: q.it ?? passage.titleIt,
           audioIt: leadText || passage.titleIt,
@@ -597,7 +628,7 @@ export async function generateAcademyModuleExamAsync(
           prompt: {
             bn: `অডিও «${ex.title.bn}» শুনে উত্তর দিন — ${q.prompt.bn}`,
             en: `Listen «${ex.title.en}» — ${q.prompt.en}`,
-            it: `Ascolto «${ex.titleIt}» — ${q.prompt.it ?? q.prompt.en}`,
+            it: `Ascolto «${ex.titleIt}» — ${resolveTr('it', q.prompt)}`,
           },
           it: q.it ?? ex.titleIt,
           audioIt: fullAudio || ex.titleIt,
@@ -615,33 +646,38 @@ export async function generateAcademyModuleExamAsync(
     const pool: AcademyExamQuestion[] = [];
     for (const wr of bundle.writing) {
       for (const kp of wr.keyPhrases) {
+        const kpIt = resolveTr('it', kp.tr);
         const otherPhrases = shuffleArray(
           bundle.writing
             .filter((o) => o.id !== wr.id)
             .flatMap((o) => o.keyPhrases)
-            .filter((o) => o.tr.bn !== kp.tr.bn && o.tr.en !== kp.tr.en),
+            .filter((o) => {
+              const oIt = resolveTr('it', o.tr);
+              return o.tr.bn !== kp.tr.bn && o.tr.en !== kp.tr.en && oIt !== kpIt;
+            }),
           rng,
         ).slice(0, 3);
         if (otherPhrases.length === 3) {
           const bnOpts = [kp.tr.bn, ...otherPhrases.map((o) => o.tr.bn)];
           const enOpts = [kp.tr.en, ...otherPhrases.map((o) => o.tr.en)];
+          const itOpts = [kpIt, ...otherPhrases.map((o) => resolveTr('it', o.tr))];
           pool.push({
             id: `${moduleId}-${wr.id}-${kp.it}`,
             moduleId,
             prompt: {
               bn: `লিখন টাস্ক «${wr.title.bn}» — এই কার্যকর বাক্যাংশটির অর্থ কী?`,
               en: `Writing «${wr.title.en}» — What does this key expression mean?`,
-              it: `Scrittura «${wr.title.it ?? wr.title.en}» — Cosa significa questa espressione chiave?`,
+              it: `Scrittura «${resolveTr('it', wr.title)}» — Cosa significa questa espressione chiave?`,
             },
             it: kp.it,
             audioIt: kp.it,
             options: enOpts,
-            localizedOptions: { bn: bnOpts, en: enOpts, it: enOpts },
+            localizedOptions: { bn: bnOpts, en: enOpts, it: itOpts },
             answer: 0,
             explanation: {
               bn: `${kp.it} → ${kp.tr.bn}`,
               en: `${kp.it} → ${kp.tr.en}`,
-              it: `${kp.it} → ${kp.tr.en}`,
+              it: `${kp.it} → ${kpIt}`,
             },
           });
         }
@@ -667,30 +703,35 @@ export async function generateAcademyModuleExamAsync(
   if (meta.kind === 'speaking') {
     const pool: AcademyExamQuestion[] = [];
     for (const sp of bundle.speaking) {
+      const spIt = resolveTr('it', sp.targetTr);
       const distractors = shuffleArray(
-        bundle.speaking.filter((o) => o.id !== sp.id && o.targetTr.bn !== sp.targetTr.bn && o.targetTr.en !== sp.targetTr.en),
+        bundle.speaking.filter((o) => {
+          const oIt = resolveTr('it', o.targetTr);
+          return o.id !== sp.id && o.targetTr.bn !== sp.targetTr.bn && o.targetTr.en !== sp.targetTr.en && oIt !== spIt;
+        }),
         rng,
       ).slice(0, 3);
       if (distractors.length === 3) {
         const bnOpts = [sp.targetTr.bn, ...distractors.map((d) => d.targetTr.bn)];
         const enOpts = [sp.targetTr.en, ...distractors.map((d) => d.targetTr.en)];
+        const itOpts = [spIt, ...distractors.map((d) => resolveTr('it', d.targetTr))];
         pool.push({
           id: `${moduleId}-${sp.id}-meaning`,
           moduleId,
           prompt: {
             bn: `কথন পরিস্থিতি «${sp.title.bn}» — এই ইতালীয় সংলাপটির অর্থ কোনটি?`,
             en: `Speaking «${sp.title.en}» — Pick the meaning of this spoken response:`,
-            it: `Parlato «${sp.title.it ?? sp.title.en}» — Scegli il significato della risposta:`,
+            it: `Parlato «${resolveTr('it', sp.title)}» — Scegli il significato della risposta:`,
           },
           it: sp.targetIt,
           audioIt: sp.targetIt,
           options: enOpts,
-          localizedOptions: { bn: bnOpts, en: enOpts, it: enOpts },
+          localizedOptions: { bn: bnOpts, en: enOpts, it: itOpts },
           answer: 0,
           explanation: {
             bn: `${sp.targetIt} → ${sp.targetTr.bn}`,
             en: `${sp.targetIt} → ${sp.targetTr.en}`,
-            it: `${sp.targetIt} → ${sp.targetTr.en}`,
+            it: `${sp.targetIt} → ${spIt}`,
           },
         });
       }
@@ -701,7 +742,7 @@ export async function generateAcademyModuleExamAsync(
           prompt: {
             bn: `পরিস্থিতি: ${sp.prompt.bn} — এর জন্য সবচেয়ে উপযুক্ত ইতালীয় উক্তি কোনটি?`,
             en: `Situation: ${sp.prompt.en} — Choose the best Italian response:`,
-            it: `Situazione: ${sp.prompt.it ?? sp.prompt.en} — Scegli la risposta italiana migliore:`,
+            it: `Situazione: ${resolveTr('it', sp.prompt)} — Scegli la risposta italiana migliore:`,
           },
           options: [sp.targetIt, ...distractors.map((d) => d.targetIt)],
           answer: 0,
@@ -720,63 +761,73 @@ export async function generateAcademyModuleExamAsync(
     const pool: AcademyExamQuestion[] = [];
     for (const wr of bundle.writing) {
       for (const kp of wr.keyPhrases) {
+        const kpIt = resolveTr('it', kp.tr);
         const otherPhrases = shuffleArray(
           bundle.writing
             .filter((o) => o.id !== wr.id)
             .flatMap((o) => o.keyPhrases)
-            .filter((o) => o.tr.bn !== kp.tr.bn && o.tr.en !== kp.tr.en),
+            .filter((o) => {
+              const oIt = resolveTr('it', o.tr);
+              return o.tr.bn !== kp.tr.bn && o.tr.en !== kp.tr.en && oIt !== kpIt;
+            }),
           rng,
         ).slice(0, 3);
         if (otherPhrases.length === 3) {
           const bnOpts = [kp.tr.bn, ...otherPhrases.map((o) => o.tr.bn)];
           const enOpts = [kp.tr.en, ...otherPhrases.map((o) => o.tr.en)];
+          const itOpts = [kpIt, ...otherPhrases.map((o) => resolveTr('it', o.tr))];
           pool.push({
             id: `${moduleId}-wr-${wr.id}-${kp.it}`,
             moduleId,
             prompt: {
               bn: `লিখন টাস্ক «${wr.title.bn}» — এই কার্যকর বাক্যাংশটির অর্থ কী?`,
               en: `Writing «${wr.title.en}» — What does this key expression mean?`,
-              it: `Scrittura «${wr.title.it ?? wr.title.en}» — Cosa significa questa espressione chiave?`,
+              it: `Scrittura «${resolveTr('it', wr.title)}» — Cosa significa questa espressione chiave?`,
             },
             it: kp.it,
             audioIt: kp.it,
             options: enOpts,
-            localizedOptions: { bn: bnOpts, en: enOpts, it: enOpts },
+            localizedOptions: { bn: bnOpts, en: enOpts, it: itOpts },
             answer: 0,
             explanation: {
               bn: `${kp.it} → ${kp.tr.bn}`,
               en: `${kp.it} → ${kp.tr.en}`,
-              it: `${kp.it} → ${kp.tr.en}`,
+              it: `${kp.it} → ${kpIt}`,
             },
           });
         }
       }
     }
     for (const sp of bundle.speaking) {
+      const spIt = resolveTr('it', sp.targetTr);
       const distractors = shuffleArray(
-        bundle.speaking.filter((o) => o.id !== sp.id && o.targetTr.bn !== sp.targetTr.bn && o.targetTr.en !== sp.targetTr.en),
+        bundle.speaking.filter((o) => {
+          const oIt = resolveTr('it', o.targetTr);
+          return o.id !== sp.id && o.targetTr.bn !== sp.targetTr.bn && o.targetTr.en !== sp.targetTr.en && oIt !== spIt;
+        }),
         rng,
       ).slice(0, 3);
       if (distractors.length === 3) {
         const bnOpts = [sp.targetTr.bn, ...distractors.map((d) => d.targetTr.bn)];
         const enOpts = [sp.targetTr.en, ...distractors.map((d) => d.targetTr.en)];
+        const itOpts = [spIt, ...distractors.map((d) => resolveTr('it', d.targetTr))];
         pool.push({
           id: `${moduleId}-sp-${sp.id}-meaning`,
           moduleId,
           prompt: {
             bn: `কথন পরিস্থিতি «${sp.title.bn}» — এই ইতালীয় সংলাপটির অর্থ কোনটি?`,
             en: `Speaking «${sp.title.en}» — Pick the meaning of this spoken response:`,
-            it: `Parlato «${sp.title.it ?? sp.title.en}» — Scegli il significato della risposta:`,
+            it: `Parlato «${resolveTr('it', sp.title)}» — Scegli il significato della risposta:`,
           },
           it: sp.targetIt,
           audioIt: sp.targetIt,
           options: enOpts,
-          localizedOptions: { bn: bnOpts, en: enOpts, it: enOpts },
+          localizedOptions: { bn: bnOpts, en: enOpts, it: itOpts },
           answer: 0,
           explanation: {
             bn: `${sp.targetIt} → ${sp.targetTr.bn}`,
             en: `${sp.targetIt} → ${sp.targetTr.en}`,
-            it: `${sp.targetIt} → ${sp.targetTr.en}`,
+            it: `${sp.targetIt} → ${spIt}`,
           },
         });
         pool.push({
@@ -785,7 +836,7 @@ export async function generateAcademyModuleExamAsync(
           prompt: {
             bn: `পরিস্থিতি: ${sp.prompt.bn} — এর জন্য সবচেয়ে উপযুক্ত ইতালীয় উক্তি কোনটি?`,
             en: `Situation: ${sp.prompt.en} — Choose the best Italian response:`,
-            it: `Situazione: ${sp.prompt.it ?? sp.prompt.en} — Scegli la risposta italiana migliore:`,
+            it: `Situazione: ${resolveTr('it', sp.prompt)} — Scegli la risposta italiana migliore:`,
           },
           options: [sp.targetIt, ...distractors.map((d) => d.targetIt)],
           answer: 0,
@@ -841,7 +892,7 @@ export async function generateAcademyModuleExamAsync(
         prompt: {
           bn: `পাঠ «${r.title.bn}» — ${q.prompt.bn}`,
           en: `Reading «${r.title.en}» — ${q.prompt.en}`,
-          it: `Lettura «${r.titleIt}» — ${q.prompt.it ?? q.prompt.en}`,
+          it: `Lettura «${r.titleIt}» — ${resolveTr('it', q.prompt)}`,
         },
         it: q.it ?? r.titleIt,
         options: [...q.options],

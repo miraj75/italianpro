@@ -165,7 +165,7 @@ export function buildSpeaking(
   prompt: Tr,
   targetIt: string,
   targetTr: Tr,
-  pronunciationHint: string,
+  pronunciationHint: Tr,
   grammarIds: string[],
   extra?: { imageAsset?: string; dialogueCue?: { speaker: string; it: string; tr: Tr }; followUps?: { it: string; tr: Tr }[] },
 ): SpeakingExercise {
