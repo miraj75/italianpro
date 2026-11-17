@@ -10,7 +10,6 @@ import { SplashScreen } from '../components/SplashScreen';
 import { stopSpeaking } from '../lib/speech';
 import { HomeScreen } from '../screens/HomeScreen';
 import { CoursesScreen, LevelScreen } from '../screens/CoursesScreen';
-import { LessonScreen } from '../screens/LessonScreen';
 import { ProfileScreen } from '../screens/ProfileScreen';
 import { AboutScreen, SavedScreen } from '../screens/InfoScreens';
 import { PracticeHub } from '../screens/practice/PracticeHub';
@@ -27,7 +26,6 @@ import { ListeningScreen } from '../screens/practice/ListeningScreen';
 import { ReadingScreen } from '../screens/practice/ReadingScreen';
 import { WritingScreen } from '../screens/practice/WritingScreen';
 import { SpeakingScreen } from '../screens/practice/SpeakingScreen';
-import { AssessmentScreen } from '../screens/AssessmentScreen';
 import { A1AcademyHubScreen } from '../screens/academy/A1AcademyHubScreen';
 import { AlphabetModuleScreen } from '../screens/academy/AlphabetModuleScreen';
 import { NumbersModuleScreen } from '../screens/academy/NumbersModuleScreen';
@@ -41,11 +39,37 @@ import { A1ReadingWritingModuleScreen } from '../screens/academy/A1ReadingWritin
 import { FinalExamModuleScreen } from '../screens/academy/FinalExamModuleScreen';
 import { LevelAcademyHubScreen } from '../screens/academy/LevelAcademyHubScreen';
 import { LevelModuleScreen } from '../screens/academy/LevelModuleScreen';
-import { LEVEL_ORDER } from '../content/courses';
+import { findLesson, LEVEL_ORDER } from '../content/courses';
 import type { LevelId } from '../content/types';
+import { getNextAcademyModuleTarget } from '../state/academyProgress';
+import { useProgress } from '../state/ProgressContext';
+import { getCurrentLevel, isLevelUnlocked } from '../state/progress';
 
-function Screen() {
+function resolveLegacyLevel(raw: string | undefined, fallback: LevelId): LevelId {
+  if (!raw) return fallback;
+  const upper = raw.slice(0, 2).toUpperCase();
+  if ((LEVEL_ORDER as string[]).includes(upper)) return upper as LevelId;
+  return fallback;
+}
+
+function LegacyAcademyRedirect({ levelId }: { levelId: LevelId }) {
+  const { state } = useProgress();
+  const { navigate } = useRouter();
+  const unlocked = isLevelUnlocked(state, levelId);
+  const targetRoute = unlocked
+    ? getNextAcademyModuleTarget(state.academy, levelId).route
+    : `/level/${levelId}`;
+
+  useEffect(() => {
+    navigate(targetRoute);
+  }, [navigate, targetRoute]);
+
+  return <LevelScreen key={levelId} id={levelId} />;
+}
+
+export function Screen() {
   const { route } = useRouter();
+  const { state } = useProgress();
   const path = route.path;
 
   if (path === '/splash') {
@@ -54,9 +78,11 @@ function Screen() {
 
   const lesson = matchPath('/lesson/:id', path);
   if (lesson) {
+    const found = lesson.id ? findLesson(lesson.id) : undefined;
+    const targetLevel = found?.level.id ?? resolveLegacyLevel(lesson.id, getCurrentLevel(state));
     return (
-      <AppShell hideNav>
-        <LessonScreen key={lesson.id} lessonId={lesson.id!} />
+      <AppShell>
+        <LegacyAcademyRedirect levelId={targetLevel} />
       </AppShell>
     );
   }
@@ -89,7 +115,7 @@ function Screen() {
   if (assessment && (LEVEL_ORDER as string[]).includes(assessment.level!)) {
     return (
       <AppShell>
-        <AssessmentScreen key={`${assessment.level}-${assessment.id}`} level={assessment.level as LevelId} id={assessment.id!} />
+        <LegacyAcademyRedirect levelId={assessment.level as LevelId} />
       </AppShell>
     );
   }

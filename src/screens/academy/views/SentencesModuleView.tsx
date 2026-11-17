@@ -1,4 +1,4 @@
-import { useMemo, useState } from 'react';
+import { useEffect, useMemo, useState } from 'react';
 import {
   ArrowLeft,
   CheckCircle2,
@@ -12,6 +12,7 @@ import { SENTENCES } from '../../../content/bank';
 import { GRAMMAR_TOPICS } from '../../../content/grammar';
 import { generateAcademyModuleExam, shuffleArray } from '../../../lib/examEngine';
 import { resolveExamOptions, useI18n } from '../../../lib/i18n';
+import { loadModulePosition, saveModulePosition } from '../../../lib/modulePosition';
 import { Button, GlassCard, cx } from '../../../components/ui';
 import { SpeakButton } from '../../../components/SpeakButton';
 import { AcademyExamRunner } from '../../../components/AcademyExamRunner';
@@ -23,6 +24,7 @@ interface SentencesModuleViewProps {
   levelId: 'A2' | 'B1' | 'B2';
   studiedSet: Set<string>;
   readyForExam: boolean;
+  previewMode?: boolean;
   onMarkStudied: (itemId: string) => void;
   onNavigateModule: (route: string) => void;
 }
@@ -32,11 +34,21 @@ export function SentencesModuleView({
   levelId,
   studiedSet,
   readyForExam,
+  previewMode = false,
   onMarkStudied,
   onNavigateModule,
 }: SentencesModuleViewProps) {
   const { lang, t, tr } = useI18n();
-  const [tab, setTab] = useState<Tab>('groups');
+  const [tab, setTab] = useState<Tab>(() => {
+    const saved = loadModulePosition(levelId, meta.id)?.tab;
+    return saved === 'groups' || saved === 'practice' || saved === 'exam' ? saved : 'groups';
+  });
+
+  useEffect(() => {
+    if (previewMode) return;
+    saveModulePosition(levelId, meta.id, { tab });
+  }, [levelId, meta.id, tab, previewMode]);
+
   const [activeTag, setActiveTag] = useState<string | null>(null);
   const [query, setQuery] = useState('');
   const [practiceRound, setPracticeRound] = useState(1);

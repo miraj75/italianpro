@@ -116,7 +116,7 @@ export function AcademyExamRunner({
         </span>
         <div className="space-y-1.5">
           <h2 className="text-xl font-extrabold text-white">
-            {tr({ bn: meta.subtitle.bn, en: meta.title, it: meta.title })} ·{' '}
+            {tr({ bn: meta.subtitle.bn, en: meta.title, it: meta.subtitle.it ?? meta.title })} ·{' '}
             {tr({ bn: 'সেকশন পরীক্ষা', en: 'Section Exam', it: 'Esame di sezione' })}
           </h2>
           <p className="bn text-base font-semibold text-gold">{t('testingModePreviewBanner')}</p>
@@ -137,7 +137,7 @@ export function AcademyExamRunner({
         </span>
         <div className="space-y-1.5">
           <h2 className="text-xl font-extrabold text-white">
-            {tr({ bn: meta.subtitle.bn, en: meta.title, it: meta.title })} ·{' '}
+            {tr({ bn: meta.subtitle.bn, en: meta.title, it: meta.subtitle.it ?? meta.title })} ·{' '}
             {tr({ bn: 'সেকশন পরীক্ষা', en: 'Section Exam', it: 'Esame di sezione' })}
           </h2>
           <p className="bn text-base font-semibold text-ink-2">

@@ -159,13 +159,13 @@ export function ProfileScreen() {
           </div>
         </div>
 
-        <div className="flex min-h-16 items-center gap-3 px-4 py-3">
+        <div className="flex flex-wrap min-h-16 items-center justify-between gap-3 px-4 py-3">
           <span className="inline-flex h-10 w-10 shrink-0 items-center justify-center rounded-full border border-neon/35 bg-neon/12 text-neon">
             <Languages size={20} />
           </span>
-          <span className="bn flex-1 text-base font-extrabold text-white">{t('explainLang')}</span>
+          <span className="bn min-w-28 flex-1 text-base font-extrabold text-white">{t('explainLang')}</span>
           <div
-            className="flex rounded-full border border-neon/35 bg-[#041d19] p-1"
+            className="flex shrink-0 rounded-full border border-neon/35 bg-[#041d19] p-1"
             role="radiogroup"
             aria-label={t('explainLang')}
           >

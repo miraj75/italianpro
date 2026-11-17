@@ -213,7 +213,7 @@ export const A2_LISTENING_1: ListeningExercise[] = [
     explanation: { bn: 'ক্যান্টিনে primo (পাস্তা/স্যুপ), secondo (মাংস/মাছ), contorno (সবজি/সালাদ) ক্রম মানা হয়।', en: 'Italian canteens follow primo, secondo, and contorno.' },
     vocabList: [{ it: 'al pomodoro fresco', tr: { bn: 'তাজা টমেটো সসে', en: 'with fresh tomato sauce' } }],
     vocabKeys: ['w:A2:la mensa', 'w:A2:le lenticchie', 'w:A2:il contorno'],
-    grammarIds: ['condizionale', 'ce'],
+    grammarIds: ['condizionale', 'preposizioni-articolate'],
     questions: [
       { id: 'ls2-12-q1', prompt: { bn: 'ছাত্রটি কোন প্রথম খাবার বেছে নিল?', en: 'Which first course did the student pick?' }, options: ['টমেটো পাস্তা', 'মসুর ডালের স্যুপ', 'চিংড়ি রিসোত্তো', 'লাসানিয়া'], answer: 1, explanation: { bn: 'সঠিক উত্তর: মসুর ডালের স্যুপ — পাঠ্যাংশে বলা হয়েছে: «স্যুপটা নেব, ধন্যবাদ! আর পার্শ্ব খাবার হিসেবে সালাদও চাই।» (Prendo la zuppa (di lenticchie))।', en: 'Lentil soup.' } },
       { id: 'ls2-12-q2', prompt: { bn: 'পার্শ্ব খাবার হিসেবে কী নিয়েছে?', en: 'What side dish did he ask for?' }, options: ['ভাজা আলু', 'সালাদ', 'ফল', 'দই'], answer: 1, explanation: { bn: 'সঠিক উত্তর: সালাদ — পাঠ্যাংশে বলা হয়েছে: «স্যুপটা নেব, ধন্যবাদ! আর পার্শ্ব খাবার হিসেবে সালাদও চাই।» (l’insalata come contorno)।', en: 'Salad.' } },
@@ -284,7 +284,7 @@ export const A2_LISTENING_1: ListeningExercise[] = [
     explanation: { bn: 'Si ricorda (মনে করিয়ে দেওয়া হচ্ছে) ও è necessario + infinito (করা প্রয়োজন)।', en: 'Impersonal si ricorda and è necessario + infinitive.' },
     vocabList: [{ it: 'sostenere la prova', tr: { bn: 'পরীক্ষা দেওয়া', en: 'to sit the test' } }],
     vocabKeys: ["w:A2:l'iscrizione", "w:A2:l'esame", "w:A2:l'aula"],
-    grammarIds: ['si-impersonale-a2', 'ora-data'],
+    grammarIds: ['si-impersonale-a2', 'espressioni-tempo-futuro'],
     questions: [
       { id: 'ls2-16-q1', prompt: { bn: 'পরীক্ষার নিবন্ধন কখন বন্ধ হবে?', en: 'When does exam registration close?' }, options: ['সোমবার সন্ধ্যা ৬টায়', 'মঙ্গলবার সকাল ১০টায়', 'শুক্রবার', 'রোববার'], answer: 0, explanation: { bn: 'সঠিক উত্তর: সোমবার সন্ধ্যা ৬টায় — পাঠ্যাংশে বলা হয়েছে: «ছাত্রদের মনে করিয়ে দেওয়া হচ্ছে যে জুলাইয়ের পরীক্ষার নিবন্ধন সোমবার সন্ধ্যা ছয়টায় বন্ধ হবে।» (lunedì alle diciotto)।', en: 'Monday at 18:00.' } },
       { id: 'ls2-16-q2', prompt: { bn: 'পরীক্ষা হলে কী নিয়ে যাওয়া বাধ্যতামূলক?', en: 'What must students bring?' }, options: ['অভিধান', 'বৈধ পরিচয়পত্র', 'ল্যাপটপ', 'সার্টিফিকেট'], answer: 1, explanation: { bn: 'সঠিক উত্তর: বৈধ পরিচয়পত্র — পাঠ্যাংশে বলা হয়েছে: «তিন নম্বর শ্রেণিকক্ষে পরীক্ষায় অংশ নিতে বৈধ পরিচয়পত্র সাথে আনা আবশ্যক।» (un documento d’identità valido)।', en: 'Valid ID document.' } },
@@ -376,8 +376,8 @@ export const A2_LISTENING_1: ListeningExercise[] = [
     vocabKeys: ["w:A2:l'infanzia", 'w:A2:la spiaggia', 'w:A2:correre'],
     grammarIds: ['imperfetto', 'doppia-negazione'],
     questions: [
-      { id: 'ls2-21-q1', prompt: { bn: 'সকাল সাতটায় সৈকতে কেমন ভিড় থাকত?', en: 'How crowded was the beach at 7 AM?' }, options: ['খুব ভিড়', 'প্রায় কেউ থাকত না', 'পর্যটকে ভরা', 'বৃষ্টি ছিল'], answer: 1, explanation: { bn: 'সঠিক উত্তর: প্রায় কেউ থাকত না — পাঠ্যাংশে বলা হয়েছে: «শুভ সন্ধ্যা, আমি সুইমিং পুল ও জিমের জন্য মাসিক সাবস্ক্রিপশন করতে চাই।» (non c’era quasi nessuno)।', en: 'Almost nobody was there.' } },
-      { id: 'ls2-21-q2', prompt: { bn: 'বাড়ি ফেরার পর দাদি কী বানাতেন?', en: 'What did grandma make when they got home?' }, options: ['স্যুপ', 'কেক', 'তাজা পাস্তা', 'মাছ'], answer: 2, explanation: { bn: 'সঠিক উত্তর: তাজা পাস্তা — পাঠ্যাংশে বলা হয়েছে: «শুভ সন্ধ্যা, আমি সুইমিং পুল ও জিমের জন্য মাসিক সাবস্ক্রিপশন করতে চাই।» (la pasta fresca)।', en: 'Fresh pasta.' } },
+      { id: 'ls2-21-q1', prompt: { bn: 'সকাল সাতটায় সৈকতে কেমন ভিড় থাকত?', en: 'How crowded was the beach at 7 AM?' }, options: ['খুব ভিড়', 'প্রায় কেউ থাকত না', 'পর্যটকে ভরা', 'বৃষ্টি ছিল'], answer: 1, explanation: { bn: 'সঠিক উত্তর: প্রায় কেউ থাকত না — পাঠ্যাংশে বলা হয়েছে: «পানি ছিল একদম স্বচ্ছ আর প্রায় কেউই থাকত না।» (non c’era quasi nessuno)।', en: 'Almost nobody was there.' } },
+      { id: 'ls2-21-q2', prompt: { bn: 'বাড়ি ফেরার পর দাদি কী বানাতেন?', en: 'What did grandma make when they got home?' }, options: ['স্যুপ', 'কেক', 'তাজা পাস্তা', 'মাছ'], answer: 2, explanation: { bn: 'সঠিক উত্তর: তাজা পাস্তা — পাঠ্যাংশে বলা হয়েছে: «তারপর ক্ষুধার্ত হয়ে বাড়ি ফিরতাম আর দাদি সবসময় তাজা পাস্তা বানাতেন।» (la pasta fresca)।', en: 'Fresh pasta.' } },
     ],
   }),
 ];

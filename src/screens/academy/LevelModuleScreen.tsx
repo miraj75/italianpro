@@ -32,12 +32,13 @@ import { A2CommunicationView } from './views/A2CommunicationView';
 export function LevelModuleScreen({ levelId, moduleId }: { levelId: LevelId; moduleId: string }) {
   useStudyTimer();
   const { state, dispatch } = useProgress();
-  const { navigate } = useRouter();
+  const { route, navigate } = useRouter();
   const { t, tr } = useI18n();
 
   const resolvedLevel = (levelId === 'A2' || levelId === 'B1' || levelId === 'B2'
     ? levelId
     : inferLevelFromModuleId(moduleId)) as 'A2' | 'B1' | 'B2';
+  const backRoute = route.params.get('from') === 'home' ? '/' : `/level/${resolvedLevel}`;
 
   const meta = findAcademyModule(moduleId, resolvedLevel);
   const prev = meta ? getPreviousAcademyModule(meta.id, resolvedLevel) : undefined;
@@ -55,7 +56,7 @@ export function LevelModuleScreen({ levelId, moduleId }: { levelId: LevelId; mod
         <div className="flex items-center gap-2.5 pb-1 border-b border-white/10">
           <button
             type="button"
-            onClick={() => navigate(`/level/${resolvedLevel}`)}
+            onClick={() => navigate(backRoute)}
             aria-label={tr({ bn: 'ফিরুন', en: 'Back', it: 'Indietro' })}
             className="inline-flex h-8 w-8 shrink-0 items-center justify-center rounded-full border border-white/10 bg-white/5 text-ink-2 hover:border-neon/40 hover:text-white transition"
           >
@@ -67,7 +68,7 @@ export function LevelModuleScreen({ levelId, moduleId }: { levelId: LevelId; mod
           <p className="bn text-base font-bold text-ink-2">
             {tr({ bn: 'মডিউলটি পাওয়া যায়নি।', en: 'Module not found.', it: 'Modulo non trovato.' })}
           </p>
-          <Button onClick={() => navigate(`/level/${resolvedLevel}`)}>{t('backToCourses')}</Button>
+          <Button onClick={() => navigate(backRoute)}>{t('backToCourses')}</Button>
         </GlassCard>
       </div>
     );
@@ -79,14 +80,14 @@ export function LevelModuleScreen({ levelId, moduleId }: { levelId: LevelId; mod
         <div className="flex items-center gap-2.5 pb-1 border-b border-white/10">
           <button
             type="button"
-            onClick={() => navigate(`/level/${resolvedLevel}`)}
+            onClick={() => navigate(backRoute)}
             aria-label={tr({ bn: 'ফিরুন', en: 'Back', it: 'Indietro' })}
             className="inline-flex h-8 w-8 shrink-0 items-center justify-center rounded-full border border-white/10 bg-white/5 text-ink-2 hover:border-neon/40 hover:text-white transition"
           >
             <ArrowLeft size={16} />
           </button>
           <span className="text-sm font-extrabold text-white truncate">
-            {meta.order}. {tr({ bn: meta.subtitle.bn, en: meta.title, it: meta.title })}
+            {meta.order}. {tr({ bn: meta.subtitle.bn, en: meta.title, it: meta.subtitle.it ?? meta.title })}
           </span>
         </div>
         <GlassCard className="p-6 text-center space-y-4">
@@ -94,7 +95,7 @@ export function LevelModuleScreen({ levelId, moduleId }: { levelId: LevelId; mod
           <p className="bn text-base font-bold text-ink-2">{t('academyModuleLocked')}</p>
           {prev ? (
             <Button onClick={() => navigate(prev.route)}>
-              {prev.order}. {tr({ bn: prev.subtitle.bn, en: prev.title, it: prev.title })}
+              {prev.order}. {tr({ bn: prev.subtitle.bn, en: prev.title, it: prev.subtitle.it ?? prev.title })}
             </Button>
           ) : (
             <Button onClick={() => navigate(`/level/${resolvedLevel}`)}>{t('backToCourses')}</Button>
@@ -116,7 +117,7 @@ export function LevelModuleScreen({ levelId, moduleId }: { levelId: LevelId; mod
       <div className="flex items-center gap-2.5 pb-1 border-b border-white/10">
         <button
           type="button"
-          onClick={() => navigate(`/level/${resolvedLevel}`)}
+          onClick={() => navigate(backRoute)}
           aria-label={tr({ bn: 'ফিরুন', en: 'Back', it: 'Indietro' })}
           className="inline-flex h-8 w-8 shrink-0 items-center justify-center rounded-full border border-white/10 bg-white/5 text-ink-2 hover:border-neon/40 hover:text-white transition"
         >
@@ -134,7 +135,7 @@ export function LevelModuleScreen({ levelId, moduleId }: { levelId: LevelId; mod
           </>
         ) : (
           <span className="text-xs font-extrabold text-ink-2 truncate">
-            {resolvedLevel} · {meta.order}. {tr({ bn: meta.subtitle.bn, en: meta.title, it: meta.title })}
+            {resolvedLevel} · {meta.order}. {tr({ bn: meta.subtitle.bn, en: meta.title, it: meta.subtitle.it ?? meta.title })}
           </span>
         )}
       </div>
@@ -155,6 +156,7 @@ export function LevelModuleScreen({ levelId, moduleId }: { levelId: LevelId; mod
           levelId={resolvedLevel}
           studiedSet={studiedSet}
           readyForExam={stats.readyForExam}
+          previewMode={testingOverride}
           onMarkStudied={markStudied}
           onNavigateModule={(r) => navigate(r)}
         />
@@ -166,6 +168,7 @@ export function LevelModuleScreen({ levelId, moduleId }: { levelId: LevelId; mod
           levelId={resolvedLevel}
           studiedSet={studiedSet}
           readyForExam={stats.readyForExam}
+          previewMode={testingOverride}
           onMarkStudied={markStudied}
           onNavigateModule={(r) => navigate(r)}
         />
@@ -177,6 +180,7 @@ export function LevelModuleScreen({ levelId, moduleId }: { levelId: LevelId; mod
           levelId={resolvedLevel}
           studiedSet={studiedSet}
           readyForExam={stats.readyForExam}
+          previewMode={testingOverride}
           onMarkStudied={markStudied}
           onNavigateModule={(r) => navigate(r)}
         />
@@ -188,6 +192,7 @@ export function LevelModuleScreen({ levelId, moduleId }: { levelId: LevelId; mod
           levelId={resolvedLevel}
           studiedSet={studiedSet}
           readyForExam={stats.readyForExam}
+          previewMode={testingOverride}
           onMarkStudied={markStudied}
           onNavigateModule={(r) => navigate(r)}
         />
@@ -198,6 +203,7 @@ export function LevelModuleScreen({ levelId, moduleId }: { levelId: LevelId; mod
           meta={meta}
           studiedSet={studiedSet}
           readyForExam={stats.readyForExam}
+          previewMode={testingOverride}
           onMarkStudied={markStudied}
           onNavigateModule={(r) => navigate(r)}
         />
@@ -216,6 +222,7 @@ export function LevelModuleScreen({ levelId, moduleId }: { levelId: LevelId; mod
           levelId={resolvedLevel}
           studiedSet={studiedSet}
           readyForExam={stats.readyForExam}
+          previewMode={testingOverride}
           onMarkStudied={markStudied}
           onNavigateModule={(r) => navigate(r)}
         />

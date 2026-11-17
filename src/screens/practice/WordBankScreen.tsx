@@ -25,6 +25,7 @@ import { useRouter } from '../../app/router';
 import { useI18n, type StringKey } from '../../lib/i18n';
 import { dayKey } from '../../lib/date';
 import { speakItalian } from '../../lib/speech';
+import { buildPrioritizedRoundWords, getVocabRevisionSummary } from '../../lib/vocabRevision';
 import { useProgress, useStudyTimer } from '../../state/ProgressContext';
 import {
   isValidBankLevel,
@@ -180,9 +181,11 @@ interface RecallSessionState {
   recordedDone: boolean;
 }
 
-function createListenSession(pool: RichVocabItem[]): ListenSessionState {
+type RoundBuilder = (pool: RichVocabItem[], count?: number) => RichVocabItem[];
+
+function createListenSession(pool: RichVocabItem[], buildRound: RoundBuilder = buildRoundWords): ListenSessionState {
   return {
-    round: buildRoundWords(pool, PRACTICE_ROUND_SIZE),
+    round: buildRound(pool, PRACTICE_ROUND_SIZE),
     idx: 0,
     pickedKey: null,
     correctCount: 0,
@@ -190,8 +193,8 @@ function createListenSession(pool: RichVocabItem[]): ListenSessionState {
   };
 }
 
-function createMatchSession(pool: RichVocabItem[]): MatchSessionState {
-  const pairs = buildRoundWords(pool, PRACTICE_ROUND_SIZE);
+function createMatchSession(pool: RichVocabItem[], buildRound: RoundBuilder = buildRoundWords): MatchSessionState {
+  const pairs = buildRound(pool, PRACTICE_ROUND_SIZE);
   let rightOrder = shuffleWithRng(pairs);
   if (pairs.length > 1 && rightOrder.every((item, i) => item.key === pairs[i]!.key)) {
     rightOrder = [...rightOrder.slice(1), rightOrder[0]!];
@@ -209,9 +212,16 @@ function createMatchSession(pool: RichVocabItem[]): MatchSessionState {
   };
 }
 
-function createRecallSession(pool: RichVocabItem[], customRound?: RichVocabItem[]): RecallSessionState {
+function createRecallSession(
+  pool: RichVocabItem[],
+  customRound?: RichVocabItem[],
+  buildRound: RoundBuilder = buildRoundWords,
+): RecallSessionState {
   return {
-    round: customRound && customRound.length > 0 ? shuffleWithRng(customRound) : buildRoundWords(pool, PRACTICE_ROUND_SIZE),
+    round:
+      customRound && customRound.length > 0
+        ? shuffleWithRng(customRound)
+        : buildRound(pool, PRACTICE_ROUND_SIZE),
     idx: 0,
     revealed: false,
     showHint: false,
@@ -228,12 +238,16 @@ export function WordBankScreen() {
   const { t, tr, lang } = useI18n();
   useStudyTimer();
 
+  const paramLevel = route.params.get('level');
+  const paramMode = route.params.get('mode');
+  const isRevision = route.params.get('revision') === '1' || route.params.get('activity') === 'vocab';
+  const fromHome = route.params.get('from') === 'home';
+
   const [prefs, setPrefs] = useState<VocabPreferences>(() => {
     const saved = loadVocabPrefs();
-    const paramLevel = route.params.get('level');
-    const paramMode = route.params.get('mode');
     const level = isValidBankLevel(paramLevel) ? paramLevel : saved.level;
-    const mode = isValidVocabMode(paramMode) ? paramMode : saved.mode;
+    const mode = isValidVocabMode(paramMode) ? paramMode : isRevision ? 'recall' : saved.mode;
+    const hasDeepParams = isValidBankLevel(paramLevel) || isValidVocabMode(paramMode) || isRevision;
     const topicValid =
       saved.topic && topicsOf(level).some((tp) => tp.en === saved.topic) ? saved.topic : null;
     const next: VocabPreferences = {
@@ -241,11 +255,44 @@ export function WordBankScreen() {
       level,
       mode,
       lastPracticeMode: mode !== 'browse' ? mode : saved.lastPracticeMode,
-      topic: level === saved.level ? topicValid : null,
+      topic: isRevision ? null : (hasDeepParams && level !== saved.level ? null : topicValid),
+      query: isRevision ? '' : saved.query,
+      bookmarkedOnly: isRevision ? false : saved.bookmarkedOnly,
     };
     saveVocabPrefs(next);
     return next;
   });
+
+  useEffect(() => {
+    if (!isValidBankLevel(paramLevel) && !isValidVocabMode(paramMode) && !isRevision) return;
+    setPrefs((prev) => {
+      const nextLevel = isValidBankLevel(paramLevel) ? paramLevel : prev.level;
+      const nextMode = isValidVocabMode(paramMode) ? paramMode : isRevision ? 'recall' : prev.mode;
+      const nextTopic = isRevision ? null : (nextLevel === prev.level ? prev.topic : null);
+      const nextQuery = isRevision ? '' : prev.query;
+      const nextBookmarkedOnly = isRevision ? false : prev.bookmarkedOnly;
+      if (
+        prev.level === nextLevel &&
+        prev.mode === nextMode &&
+        prev.topic === nextTopic &&
+        prev.query === nextQuery &&
+        prev.bookmarkedOnly === nextBookmarkedOnly
+      ) {
+        return prev;
+      }
+      const next: VocabPreferences = {
+        ...prev,
+        level: nextLevel,
+        mode: nextMode,
+        lastPracticeMode: nextMode !== 'browse' ? nextMode : prev.lastPracticeMode,
+        topic: nextTopic,
+        query: nextQuery,
+        bookmarkedOnly: nextBookmarkedOnly,
+      };
+      saveVocabPrefs(next);
+      return next;
+    });
+  }, [paramLevel, paramMode, isRevision]);
 
   const [expandedKey, setExpandedKey] = useState<string | null>(null);
 
@@ -288,17 +335,28 @@ export function WordBankScreen() {
     [words, state.cards],
   );
 
+  const revisionSummary = useMemo(
+    () => getVocabRevisionSummary(state, level, dayKey()),
+    [state, level],
+  );
+
+  // When launched for Daily Vocabulary Revision, prioritize bookmarked, weak/due SRS, and previously studied words.
+  const buildRound: RoundBuilder = (pool, count = PRACTICE_ROUND_SIZE) =>
+    isRevision
+      ? buildPrioritizedRoundWords(pool, state, level, dayKey(), count)
+      : buildRoundWords(pool, count);
+
   // Use filtered pool for practice when enough distinct items exist; otherwise fall back smoothly to full level pool.
   const practicePool = words.length >= PRACTICE_ROUND_SIZE ? words : levelWords;
-  const poolSignature = `${level}::${topic ?? ''}::${bookmarkedOnly ? '1' : '0'}::${practicePool.length}`;
+  const poolSignature = `${level}::${topic ?? ''}::${bookmarkedOnly ? '1' : '0'}::${practicePool.length}::${isRevision ? 'rev' : 'std'}`;
 
   const [listenSessions, setListenSessions] = useState<Record<string, ListenSessionState>>({});
   const [matchSessions, setMatchSessions] = useState<Record<string, MatchSessionState>>({});
   const [recallSessions, setRecallSessions] = useState<Record<string, RecallSessionState>>({});
 
-  const listenState = listenSessions[poolSignature] ?? createListenSession(practicePool);
-  const matchState = matchSessions[poolSignature] ?? createMatchSession(practicePool);
-  const recallState = recallSessions[poolSignature] ?? createRecallSession(practicePool);
+  const listenState = listenSessions[poolSignature] ?? createListenSession(practicePool, buildRound);
+  const matchState = matchSessions[poolSignature] ?? createMatchSession(practicePool, buildRound);
+  const recallState = recallSessions[poolSignature] ?? createRecallSession(practicePool, undefined, buildRound);
 
   // Lazily seed the session entry on first render of a signature so randomized items stay stable across re-renders.
   useEffect(() => {
@@ -342,7 +400,7 @@ export function WordBankScreen() {
         subtitle={`${level} · ${WORDS[level].length} ${t('wordsLabel')}${
           bookmarkedInLevelCount > 0 ? ` · ${bookmarkedInLevelCount} ${t('vocabBookmarked')}` : ''
         }`}
-        backTo="/practice"
+        backTo={fromHome ? '/' : '/practice'}
         right={
           mode === 'browse' ? (
             <button
@@ -678,11 +736,40 @@ export function WordBankScreen() {
         </section>
       )}
 
+      {isRevision && mode !== 'browse' && (
+        <div
+          data-testid="daily-vocab-revision-banner"
+          className="rounded-2xl border border-violet/35 bg-violet/10 px-3.5 py-2.5 text-xs font-bold text-ink"
+        >
+          <p className="bn text-neon font-extrabold">
+            {tr({
+              bn: `${level} দৈনিক শব্দভাণ্ডার রিভিশন`,
+              en: `${level} Daily Vocabulary Revision`,
+              it: `Ripasso lessico giornaliero ${level}`,
+            })}
+          </p>
+          <p className="bn mt-0.5 text-ink-2">
+            {revisionSummary.priorityCount > 0
+              ? tr({
+                  bn: `বুকমার্ক (${revisionSummary.bookmarkedCount}), দুর্বল/বাকি কার্ড (${revisionSummary.weakOrDueCount}) ও পঠিত শব্দ (${revisionSummary.studiedCount}) অগ্রাধিকার পাচ্ছে।`,
+                  en: `Prioritizing bookmarked (${revisionSummary.bookmarkedCount}), weak/due (${revisionSummary.weakOrDueCount}), and studied (${revisionSummary.studiedCount}) words first.`,
+                  it: `Priorità a preferiti (${revisionSummary.bookmarkedCount}), da ripassare (${revisionSummary.weakOrDueCount}) e parole studiate (${revisionSummary.studiedCount}).`,
+                })
+              : tr({
+                  bn: `${level} স্তরের মূল শব্দ দিয়ে রিভিশন শুরু হয়েছে (${revisionSummary.totalWords}টি শব্দ)।`,
+                  en: `Starting revision with ${level} core words (${revisionSummary.totalWords} words).`,
+                  it: `Avvio ripasso con le parole chiave ${level} (${revisionSummary.totalWords} parole).`,
+                })}
+          </p>
+        </div>
+      )}
+
       {mode === 'listen' && (
         <ListenChoosePanel
           state={listenState}
           pool={practicePool}
           savedSet={savedSet}
+          buildRound={buildRound}
           onUpdate={(updater) =>
             setListenSessions((prev) => ({
               ...prev,
@@ -698,6 +785,7 @@ export function WordBankScreen() {
         <MatchPairsPanel
           state={matchState}
           pool={practicePool}
+          buildRound={buildRound}
           onUpdate={(updater) =>
             setMatchSessions((prev) => ({
               ...prev,
@@ -713,6 +801,7 @@ export function WordBankScreen() {
           state={recallState}
           pool={practicePool}
           cards={state.cards}
+          buildRound={buildRound}
           onUpdate={(updater) =>
             setRecallSessions((prev) => ({
               ...prev,
@@ -724,6 +813,8 @@ export function WordBankScreen() {
             if (known) {
               if (state.cards[word.key]) {
                 dispatch({ type: 'reviewCard', key: word.key, remembered: true, today });
+              } else {
+                dispatch({ type: 'addCards', keys: [word.key], today });
               }
             } else {
               if (!state.cards[word.key]) {
@@ -744,6 +835,7 @@ function ListenChoosePanel({
   state,
   pool,
   savedSet,
+  buildRound,
   onUpdate,
   onBookmark,
   onCompleteRound,
@@ -751,6 +843,7 @@ function ListenChoosePanel({
   state: ListenSessionState;
   pool: RichVocabItem[];
   savedSet: ReadonlySet<string>;
+  buildRound: RoundBuilder;
   onUpdate: (updater: (prev: ListenSessionState) => ListenSessionState) => void;
   onBookmark: (key: string) => void;
   onCompleteRound: () => void;
@@ -773,7 +866,7 @@ function ListenChoosePanel({
             {t('score')}: {state.correctCount} / {state.round.length}
           </p>
         </div>
-        <Button onClick={() => onUpdate(() => createListenSession(pool))}>
+        <Button onClick={() => onUpdate(() => createListenSession(pool, buildRound))}>
           <RotateCcw size={16} /> {t('newRound')}
         </Button>
       </GlassCard>
@@ -807,7 +900,7 @@ function ListenChoosePanel({
         </p>
         <button
           type="button"
-          onClick={() => onUpdate(() => createListenSession(pool))}
+          onClick={() => onUpdate(() => createListenSession(pool, buildRound))}
           className="inline-flex min-h-9 items-center gap-1.5 rounded-xl border border-white/12 bg-white/5 px-3 text-xs font-bold text-ink-2 hover:text-white"
         >
           <RotateCcw size={13} /> {t('newRound')}
@@ -933,11 +1026,13 @@ function ListenChoosePanel({
 function MatchPairsPanel({
   state,
   pool,
+  buildRound,
   onUpdate,
   onCompleteRound,
 }: {
   state: MatchSessionState;
   pool: RichVocabItem[];
+  buildRound: RoundBuilder;
   onUpdate: (updater: (prev: MatchSessionState) => MatchSessionState) => void;
   onCompleteRound: () => void;
 }) {
@@ -1025,7 +1120,7 @@ function MatchPairsPanel({
 
         <button
           type="button"
-          onClick={() => onUpdate(() => createMatchSession(pool))}
+          onClick={() => onUpdate(() => createMatchSession(pool, buildRound))}
           className="inline-flex min-h-9 items-center gap-1.5 rounded-xl border border-white/12 bg-white/5 px-3 text-xs font-bold text-ink-2 hover:text-white"
         >
           <RotateCcw size={13} /> {t('newRound')}
@@ -1113,7 +1208,7 @@ function MatchPairsPanel({
         <div className="flex flex-col items-center gap-2 rounded-2xl border border-neon/40 bg-neon/10 p-4 text-center">
           <CheckCircle2 size={26} className="text-neon" />
           <p className="bn text-base font-extrabold text-neon">{t('sessionDone')}</p>
-          <Button className="mt-1 min-h-10 px-4 text-xs" onClick={() => onUpdate(() => createMatchSession(pool))}>
+          <Button className="mt-1 min-h-10 px-4 text-xs" onClick={() => onUpdate(() => createMatchSession(pool, buildRound))}>
             <RotateCcw size={14} /> {t('newRound')}
           </Button>
         </div>
@@ -1126,6 +1221,7 @@ function WordRecallPanel({
   state,
   pool,
   cards,
+  buildRound,
   onUpdate,
   onMarkWord,
   onCompleteRound,
@@ -1133,6 +1229,7 @@ function WordRecallPanel({
   state: RecallSessionState;
   pool: RichVocabItem[];
   cards: Record<string, unknown>;
+  buildRound: RoundBuilder;
   onUpdate: (updater: (prev: RecallSessionState) => RecallSessionState) => void;
   onMarkWord: (word: RichVocabItem, known: boolean) => void;
   onCompleteRound: () => void;
@@ -1156,14 +1253,14 @@ function WordRecallPanel({
             <Button
               variant="ghost"
               className="min-h-11 px-4 text-xs"
-              onClick={() => onUpdate(() => createRecallSession(pool, reviewItems))}
+              onClick={() => onUpdate(() => createRecallSession(pool, reviewItems, buildRound))}
             >
               <RotateCcw size={14} /> {t('vocabPracticeReview', { n: reviewItems.length })}
             </Button>
           )}
           <Button
             className="min-h-11 px-4 text-xs"
-            onClick={() => onUpdate(() => createRecallSession(pool))}
+            onClick={() => onUpdate(() => createRecallSession(pool, undefined, buildRound))}
           >
             <RotateCcw size={14} /> {t('newRound')}
           </Button>
@@ -1201,7 +1298,7 @@ function WordRecallPanel({
         </p>
         <button
           type="button"
-          onClick={() => onUpdate(() => createRecallSession(pool))}
+          onClick={() => onUpdate(() => createRecallSession(pool, undefined, buildRound))}
           className="inline-flex min-h-9 items-center gap-1.5 rounded-xl border border-white/12 bg-white/5 px-3 text-xs font-bold text-ink-2 hover:text-white"
         >
           <RotateCcw size={13} /> {t('newRound')}

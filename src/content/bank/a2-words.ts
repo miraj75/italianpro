@@ -110,7 +110,7 @@ l'aceto|সিরকা|vinegar
 il pepe|গোলমরিচ|pepper
 l'aglio|রসুন|garlic
 il burro|মাখন|butter
-la farina|ময়দা|flour
+il basilico|তুলসী / বেসিল পাতা|basil
 il prosciutto|প্রসিউত্তো (হ্যাম)|ham
 il manzo|গরুর মাংস|beef
 l'agnello|ভেড়ার মাংস|lamb
@@ -436,7 +436,7 @@ la rete|নেটওয়ার্ক|network
 il sito|ওয়েবসাইট|website
 la password|পাসওয়ার্ড|password
 l'applicazione|অ্যাপ|app
-lo schermo|স্ক্রিন|screen
+la stampante|প্রিন্টার|printer
 la tastiera|কিবোর্ড|keyboard
 scaricare|ডাউনলোড করা|to download
 caricare|আপলোড / চার্জ করা|to upload / charge
@@ -557,7 +557,7 @@ onesto|সৎ|honest
 intelligente|বুদ্ধিমান|intelligent
 curioso|কৌতূহলী|curious
 paziente|ধৈর্যশীল|patient
-la paura|ভয়|fear
+il coraggio|সাহস|courage
 la gioia|আনন্দ|joy
 la rabbia|রাগ|anger
 la speranza|আশা|hope

@@ -66,7 +66,7 @@ export const A2_FINAL_EXAM_POOL: A2FinalExamQuestion[] = [
   // 1. GRAMMAR (32 Qs)
   // =========================================================================
   makeQ('a2-fin-001', 'grammar', { bn: 'essere-সহ পাস্ট পার্টিসিপলের মিল নির্বাচন করুন:', en: 'Pick the correct participle agreement with essere:' }, ['partito', 'partita', 'partiti', 'partite'], 3, { bn: '«Le mie sorelle» স্ত্রীলিঙ্গ বহুবচন হওয়ায় পার্টিসিপল শেষে -e (partite) হয়।', en: 'With essere, a feminine plural subject (Le mie sorelle) requires -e: partite.' }, { it: 'Le mie sorelle sono ___ stamattina presto.' }),
-  makeQ('a2-fin-002', 'grammar', { bn: 'গতির ক্রিয়া ও সহায়ক ক্রিয়া:', en: 'Choose the right auxiliary for movimento vs attività:' }, ['sono andato / abbiamo camminato', 'ho andato / siamo camminati', 'sono andato / siamo camminato', 'ho andato / abbiamo camminato'], 0, { bn: 'andare (গন্তব্যসহ গতি) essere নেয়; camminare (কাজ/হাঁটা) avere নেয়।', en: 'andare takes essere (sono andato), while activity verb camminare takes avere (abbiamo camminato).' }, { it: 'Ieri io ___ in centro e poi ___ per due ore.' }),
+  makeQ('a2-fin-002', 'grammar', { bn: 'গতির ক্রিয়া ও সহায়ক ক্রিয়া:', en: 'Choose the right auxiliary for movimento vs attività:' }, ['sono andato / ho camminato', 'ho andato / sono camminato', 'sono andato / sono camminato', 'ho andato / ho camminato'], 0, { bn: 'andare (গন্তব্যসহ গতি) essere নেয়; camminare (কাজ/হাঁটা) avere নেয়।', en: 'andare takes essere (sono andato), while activity verb camminare takes avere (ho camminato).' }, { it: 'Ieri io ___ in centro e poi ___ per due ore.' }),
   makeQ('a2-fin-003', 'grammar', { bn: 'অনিয়মিত পাস্ট পার্টিসিপল (chiedere):', en: 'Irregular past participle of chiedere:' }, ['chieduto', 'chiesto', 'chiedito', 'chieso'], 1, { bn: 'chiedere-এর অনিয়মিত পার্টিসিপল হলো chiesto।', en: 'The irregular past participle of chiedere is chiesto.' }, { it: 'Ho ___ informazioni allo sportello.' }),
   makeQ('a2-fin-004', 'grammar', { bn: 'অনিয়মিত পাস্ট পার্টিসিপল (aprire):', en: 'Irregular past participle of aprire:' }, ['aprito', 'apruto', 'aperto', 'apreso'], 2, { bn: 'aprire → aperto (যেমন: offrire→offerto, coprire→coperto)।', en: 'aprire has the irregular participle aperto.' }, { it: 'Chi ha ___ la finestra della cucina?' }),
   makeQ('a2-fin-005', 'grammar', { bn: 'প্রত্যক্ষ সর্বনামের সাথে পার্টিসিপলের মিল:', en: 'Agreement with preceding direct pronoun:' }, ['comprato', 'comprata', 'comprati', 'comprate'], 3, { bn: 'সর্বনাম «le» (le scarpe = স্ত্রী বহুবচন) আগে থাকায় comprate হয়।', en: 'Preceding feminine plural pronoun le triggers agreement: comprate.' }, { it: 'Le scarpe nere? Le ho ___ ieri in saldo.' }),
@@ -78,7 +78,7 @@ export const A2_FINAL_EXAM_POOL: A2FinalExamQuestion[] = [
   makeQ('a2-fin-011', 'grammar', { bn: 'অতীত ও ভবিষ্যৎ সময়ের চিহ্নিতকারী:', en: 'Choose between fa (ago) and fra (in):' }, ['fa / fra', 'fra / fa', 'da / fa', 'per / da'], 0, { bn: '«এক মাস আগে» = un mese fa; «তিন দিন পর» = fra tre giorni।', en: 'fa = ago (past); fra = in (future).' }, { it: 'Sono arrivato un mese ___ e partirò ___ tre giorni.' }),
   makeQ('a2-fin-012', 'grammar', { bn: 'অতীত গল্পের সূচনা ও উপসংহার সংযোজক:', en: 'Pick the logical narrative conclusion:' }, ['All’improvviso', 'Alla fine', 'Prima di tutto', 'Nel frattempo'], 1, { bn: 'অবশেষে গল্পের শেষ বোঝাতে Alla fine (শেষ পর্যন্ত)।', en: 'Closing a story takes Alla fine ("in the end").' }, { it: 'Dopo molta attesa allo sportello, ___ abbiamo risolto tutto.' }),
   makeQ('a2-fin-013', 'grammar', { bn: 'অতীতে প্রতিফলক ক্রিয়া (svegliarsi, noi):', en: 'Reflexive verb in passato prossimo for noi:' }, ['abbiamo svegliati', 'ci abbiamo svegliato', 'ci siamo svegliati', 'siamo svegliato'], 2, { bn: 'প্রতিফলক ক্রিয়া সর্বদা essere নেয় এবং পার্টিসিপল কর্তার সাথে মেলে: ci siamo svegliati।', en: 'Reflexives take essere and agree with the subject: ci siamo svegliati.' }, { it: 'Stamattina noi ___ alle cinque e mezza.' }),
-  makeQ('a2-fin-014', 'grammar', { bn: 'মডাল ক্রিয়া + গতির ক্রিয়া (অতীতে):', en: 'Past modal before a motion verb:' }, ['abbiamo dovuto / siamo dovuti', 'siamo dovuti', 'ho dovuto', 'dovremo'], 1, { bn: 'partire essere নেয়, তাই বহুবচন পুংলিঙ্গে sono/siamo dovuti partire।', en: 'Before essere verb partire, formal agreement uses siamo dovuti.' }, { it: 'Noi amici ___ partire subito per prendere l’ultimo treno.' }),
+  makeQ('a2-fin-014', 'grammar', { bn: 'মডাল ক্রিয়া + গতির ক্রিয়া (অতীতে):', en: 'Past modal before a motion verb:' }, ['abbiamo dovuti', 'siamo dovuti', 'ho dovuto', 'dovremo'], 1, { bn: 'partire essere নেয়, তাই বহুবচন পুংলিঙ্গে sono/siamo dovuti partire।', en: 'Before essere verb partire, formal agreement uses siamo dovuti.' }, { it: 'Noi amici ___ partire subito per prendere l’ultimo treno.' }),
   makeQ('a2-fin-015', 'grammar', { bn: 'sapere বনাম conoscere-এর সঠিক ব্যবহার:', en: 'Distinguish sapere vs conoscere:' }, ['sai', 'conosci', 'sapete', 'conosco'], 1, { bn: 'শহর, মানুষ বা স্থানের সাথে পরিচিত থাকা বোঝাতে conoscere বসে।', en: 'Being familiar with people or places uses conoscere (Conosci bene Bologna?).' }, { it: 'Scusa, ___ un buon ristorante vicino al duomo?' }),
   makeQ('a2-fin-016', 'grammar', { bn: 'প্রত্যক্ষ কর্ম সর্বনাম (lo/la/li/le):', en: 'Choose the right direct object pronoun:' }, ['Lo', 'La', 'Li', 'Le'], 2, { bn: 'i documenti পুংলিঙ্গ বহুবচন → Li।', en: 'i documenti is masculine plural → Li.' }, { it: 'Hai preso i documenti? Sì, ___ ho messi nella cartella.' }),
   makeQ('a2-fin-017', 'grammar', { bn: 'পরোক্ষ কর্ম সর্বনাম (a Maria):', en: 'Indirect object pronoun for "to Maria":' }, ['la', 'lo', 'le', 'gli'], 2, { bn: 'একজন নারীকে (a Maria) বোঝাতে পরোক্ষ সর্বনাম le বসে।', en: '"to her" = indirect pronoun le.' }, { it: 'È il compleanno di Maria: ___ telefono stasera.' }),
@@ -109,7 +109,7 @@ export const A2_FINAL_EXAM_POOL: A2FinalExamQuestion[] = [
   makeQ('a2-fin-038', 'vocabulary', { bn: 'ব্যাংক থেকে “বেতন”-এর স্লিপকে বলে:', en: 'Monthly payslip in Italian:' }, ['la busta paga', 'la marca da bollo', 'la fermata', 'la febbre'], 0, { bn: 'la busta paga = বেতন স্লিপ।', en: 'la busta paga = payslip.' }),
   makeQ('a2-fin-039', 'vocabulary', { bn: '“যানজট” বোঝাতে কোন শব্দটি বসে?', en: 'Which word means "traffic jam / traffic"?' }, ['il traffico', 'il temporale', 'il turno', 'il tavolo'], 0, { bn: 'il traffico = যানবাহনের ভিড়/জ্যাম।', en: 'il traffico.' }),
   makeQ('a2-fin-040', 'vocabulary', { bn: 'গরম পানির “বয়লার / হিটার”:', en: 'Household boiler / water heater:' }, ['la caldaia', 'la farmacia', 'la cartolina', 'la carrozza'], 0, { bn: 'la caldaia = ঘরের হিটার ও গরম পানির মেশিন।', en: 'la caldaia.' }),
-  makeQ('a2-fin-041', 'vocabulary', { bn: 'কোন শব্দটি “অ্যালার্জি” বা “পার্শ্বপ্রতিক্রিয়া”-সংক্রান্ত নয়?', en: 'Pick the word meaning "sore throat":' }, ['il mal di gola', 'il mal di schiena', 'la caviglia gonfia', 'il mal di testa'], 0, { bn: 'il mal di gola = গলা ব্যথা।', en: 'il mal di gola = sore throat.' }),
+  makeQ('a2-fin-041', 'vocabulary', { bn: 'কোন শব্দটির অর্থ “গলা ব্যথা”?', en: 'Pick the word meaning "sore throat":' }, ['il mal di gola', 'il mal di schiena', 'la caviglia gonfia', 'il mal di testa'], 0, { bn: 'il mal di gola = গলা ব্যথা।', en: 'il mal di gola = sore throat.' }),
   makeQ('a2-fin-042', 'vocabulary', { bn: 'অনলাইন বা দোকানে কেনার পর কাগজের রসিদ:', en: 'Store purchase receipt:' }, ['lo scontrino', 'lo sciopero', 'lo sportello', 'lo scaffale'], 0, { bn: 'lo scontrino = কেনাকাটার রসিদ।', en: 'lo scontrino = receipt.' }),
   makeQ('a2-fin-043', 'vocabulary', { bn: '“আবাসিক ভাড়া” বোঝাতে কোন শব্দ?', en: 'Monthly rent in Italian:' }, ['l’affitto', 'il biglietto', 'il prelievo', 'il risparmio'], 0, { bn: 'l’affitto = বাড়ি/রুম ভাড়া।', en: 'l’affitto = rent.' }),
   makeQ('a2-fin-044', 'vocabulary', { bn: 'পরিবেশবান্ধব “বর্জ্য পৃথকীকরণ”:', en: 'Waste sorting / recycling in Italy:' }, ['la raccolta differenziata', 'la carta d’imbarco', 'la camera singola', 'la visita medica'], 0, { bn: 'বর্জ্য পৃথকীকরণ = la raccolta differenziata।', en: 'la raccolta differenziata.' }),
@@ -117,7 +117,7 @@ export const A2_FINAL_EXAM_POOL: A2FinalExamQuestion[] = [
   makeQ('a2-fin-046', 'vocabulary', { bn: 'কোন শব্দটি “কানেক্টিং ট্রেন / সংযোগ”?', en: 'Train/flight connection:' }, ['la coincidenza', 'la condizionata', 'la colazione', 'la comprensione'], 0, { bn: 'la coincidenza = কানেক্টিং ট্রেন/ফ্লাইট।', en: 'la coincidenza = connection.' }),
   makeQ('a2-fin-047', 'vocabulary', { bn: 'অফিসের কাজের “শিফট”:', en: 'Work shift:' }, ['il turno', 'il tirocinio', 'il turismo', 'il terreno'], 0, { bn: 'il turno (যথা: il turno di notte = রাতের শিফট)।', en: 'il turno.' }),
   makeQ('a2-fin-048', 'vocabulary', { bn: 'ক্ষতিপূরণ বা পণ্যের “টাকা ফেরত”:', en: 'Money refund:' }, ['il rimborso', 'il riscaldamento', 'il ritardo', 'il ristorante'], 0, { bn: 'il rimborso = রিফান্ড।', en: 'il rimborso.' }),
-  makeQ('a2-fin-049', 'vocabulary', { bn: '“রসিদ ছাড়া ছাড়া / নির্দ্বিধায়”-এর বিপরীত “হড়বড় বা তাড়াহুড়ো করে”:', en: 'Phrase meaning "in a hurry / in a rush":' }, ['di fretta', 'a digiuno', 'd’accordo', 'con calma'], 0, { bn: 'di fretta বা avere fretta = তাড়াহুড়োয় থাকা।', en: 'di fretta = in a rush.' }),
+  makeQ('a2-fin-049', 'vocabulary', { bn: '“হড়বড় বা তাড়াহুড়ো করে” বোঝাতে কোন ইতালিয়ান বাক্যাংশ বসে?', en: 'Phrase meaning "in a hurry / in a rush":' }, ['di fretta', 'a digiuno', 'd’accordo', 'con calma'], 0, { bn: 'di fretta বা avere fretta = তাড়াহুড়োয় থাকা।', en: 'di fretta = in a rush.' }),
   makeQ('a2-fin-050', 'vocabulary', { bn: 'পোশাকের “মাপ বা সাইজ”:', en: 'Clothing size:' }, ['la taglia', 'la tassa', 'la tenda', 'la tosse'], 0, { bn: 'la taglia = পোশাকের সাইজ (S, M, L)।', en: 'la taglia = size.' }),
   makeQ('a2-fin-051', 'vocabulary', { bn: 'আবহাওয়ার পূর্বাভাস কোনটি?', en: 'Weather forecast:' }, ['le previsioni del tempo', 'le spese condominiali', 'le ore di punta', 'le scarpe comode'], 0, { bn: 'আবহাওয়ার পূর্বাভাস = le previsioni del tempo।', en: 'le previsioni del tempo.' }),
   makeQ('a2-fin-052', 'vocabulary', { bn: 'পানির মিস্ত্রির ইতালিয়ান পেশা:', en: 'Occupation "plumber":' }, ['l’idraulico', 'l’ingegnere', 'l’infermiere', 'l’avvocato'], 0, { bn: 'l’idraulico = প্লাম্বার/পানির মিস্ত্রি।', en: 'l’idraulico.' }),
@@ -167,7 +167,7 @@ export const A2_FINAL_EXAM_POOL: A2FinalExamQuestion[] = [
     {
       it: '«Chiuso la domenica. Per urgenze, oggi è aperta la Farmacia Centrale di turno in Via Roma 18 (orario continuato).»',
       localizedOptions: {
-        bn: ['ভিয়া রোমা ১৮-এর দিউটি ফার্মেসি চেন্ত্রালে-তে', 'সোমবার সকাল আটটা পর্যন্ত অপেক্ষা করতে হবে', 'এই দোকানের ভেতরেই', 'রেলস্টেশনে'],
+        bn: ['ভিয়া রোমা ১৮-এর ডিউটি ফার্মেসি চেন্ত্রালে-তে', 'সোমবার সকাল আটটা পর্যন্ত অপেক্ষা করতে হবে', 'এই দোকানের ভেতরেই', 'রেলস্টেশনে'],
         en: ['At Farmacia Centrale in Via Roma 18', 'Wait until Monday 8:00', 'Here inside this shop', 'At the train station'],
       },
     },
@@ -340,7 +340,7 @@ export const A2_FINAL_EXAM_POOL: A2FinalExamQuestion[] = [
   makeQ(
     'a2-fin-069',
     'reading',
-    { bn: 'পাশের বার্তাটি পড়ে বলুন: কে এখন কাজ করছে?', en: 'Read carefully: who will do the cleaning today?' },
+    { bn: 'বার্তাটি পড়ে বলুন: আজ কে কী কাজ করবে?', en: 'Read carefully: who will do the cleaning today?' },
     ['Marco cleans the kitchen, Sara buys supplies', 'Nobody is cleaning today', 'Marco goes to school all day', 'Only Sara cleans the stairs'],
     0,
     { bn: 'মার্কো রান্নাঘর পরিষ্কার করবে এবং সারা বিকেলে বাজার করবে।', en: 'Marco cleans the kitchen and Sara shops after 17:00.' },
@@ -411,7 +411,7 @@ export const A2_FINAL_EXAM_POOL: A2FinalExamQuestion[] = [
     {
       audioIt: 'Ecco le chiavi della Sua camera 208 al secondo piano. La colazione inizia alle sette e le ricordiamo che il check-out è entro le dieci e trenta.',
       localizedOptions: {
-        bn: ['দোতলা রুম ২০৮; চেক-আউট সকাল ১০:৩০-এর মধ্যে', 'নিচতলা রুম ১০২; চেক-আউট দুপুর ২:০০', 'চারতলা; নাস্তা নেই', 'রুম ২০৮; সন্ধ্যা ৬:০০-টায় চেক-আউট'],
+        bn: ['দোতলা রুম ২০৮; চেক-আউট সকাল ১০:৩০-এর মধ্যে', 'নিচতলা রুম ১০২; চেক-আউট দুপুর ২:০০', 'তিনতলা (৩য় তলা); নাস্তা নেই', 'রুম ২০৮; সন্ধ্যা ৬:০০-টায় চেক-আউট'],
         en: ['Second floor room 208; check-out before 10:30', 'Ground floor room 102; check-out 14:00', 'Third floor; no breakfast', 'Room 208; check-out 18:00'],
       },
     },
@@ -569,7 +569,7 @@ export const A2_FINAL_EXAM_POOL: A2FinalExamQuestion[] = [
   makeQ(
     'a2-fin-084',
     'listening',
-    { bn: 'চাকরির সাক্ষাৎকার শুনুন: প্রার্থী সপ্তাহে কত ঘণ্টা ও কী ভাষায় কাজ করতে পারবেন?', en: 'Listen to the interview clip: how long has the candidate worked in logistics?' },
+    { bn: 'চাকরির সাক্ষাৎকার শুনুন: প্রার্থীর কী কাজের অভিজ্ঞতা ও লাইসেন্স আছে?', en: 'Listen to the interview clip: how long has the candidate worked in logistics?' },
     ['Three years in logistics with forklift licence', 'Two months in a bakery', 'Ten years as a bus driver', 'Zero experience'],
     0,
     { bn: 'প্রার্থী তিন বছর গুদাম-লজিস্টিক্সে কাজ করেছেন এবং ফর্কলিফট চালানোর লাইসেন্স আছে।', en: 'Candidate worked three years in logistics and holds a forklift certificate.' },

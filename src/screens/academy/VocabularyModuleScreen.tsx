@@ -1,4 +1,4 @@
-import { useMemo, useState } from 'react';
+import { useEffect, useMemo, useState } from 'react';
 import {
   Apple,
   ArrowLeft,
@@ -34,6 +34,7 @@ import { shuffleArray } from '../../lib/examEngine';
 import { dayKey } from '../../lib/date';
 import { speakItalian, startSpeechSession } from '../../lib/speech';
 import { useI18n } from '../../lib/i18n';
+import { loadModulePosition, saveModulePosition } from '../../lib/modulePosition';
 import { useRouter } from '../../app/router';
 import { useProgress, useStudyTimer } from '../../state/ProgressContext';
 import { isShowAllLockedModulesEnabled } from '../../state/progress';
@@ -102,10 +103,14 @@ const HUES: Record<Hue, { tile: string; icon: string }> = {
 export function VocabularyModuleScreen() {
   useStudyTimer();
   const { state, dispatch } = useProgress();
-  const { navigate } = useRouter();
+  const { route, navigate } = useRouter();
   const { t, tr } = useI18n();
+  const backRoute = route.params.get('from') === 'home' ? '/' : '/level/A1';
 
-  const [tab, setTab] = useState<Tab>('learn');
+  const [tab, setTab] = useState<Tab>(() => {
+    const saved = loadModulePosition('A1', 'vocabulary')?.tab;
+    return saved === 'learn' || saved === 'practice' || saved === 'exam' ? saved : 'learn';
+  });
   const [activeTopicId, setActiveTopicId] = useState<string | null>(null);
   const [query, setQuery] = useState('');
   const [practiceRound, setPracticeRound] = useState(1);
@@ -117,6 +122,11 @@ export function VocabularyModuleScreen() {
   const modProg = getAcademyModuleProgress(state.academy, 'vocabulary');
   const studiedSet = useMemo(() => new Set(modProg.studiedItems), [modProg.studiedItems]);
   const stats = academyStudyStats(state.academy, 'vocabulary');
+
+  useEffect(() => {
+    if (!unlocked || testingOverride) return;
+    saveModulePosition('A1', 'vocabulary', { tab });
+  }, [unlocked, testingOverride, tab]);
 
   const activeTopic: A1VocabTopicGroup | undefined = useMemo(
     () => A1_VOCAB_TOPICS.find((tp) => tp.id === activeTopicId),
@@ -155,7 +165,7 @@ export function VocabularyModuleScreen() {
         <div className="flex items-center gap-2.5 pb-1 border-b border-white/10">
           <button
             type="button"
-            onClick={() => navigate('/level/A1')}
+            onClick={() => navigate(backRoute)}
             aria-label={tr({ bn: 'ফিরুন', en: 'Back', it: 'Indietro' })}
             className="inline-flex h-8 w-8 shrink-0 items-center justify-center rounded-full border border-white/10 bg-white/5 text-ink-2 hover:border-neon/40 hover:text-white transition"
           >
@@ -179,7 +189,7 @@ export function VocabularyModuleScreen() {
         <div className="flex items-center gap-2.5">
           <button
             type="button"
-            onClick={() => navigate('/level/A1')}
+            onClick={() => navigate(backRoute)}
             aria-label={tr({ bn: 'ফিরুন', en: 'Back', it: 'Indietro' })}
             className="inline-flex h-8 w-8 shrink-0 items-center justify-center rounded-full border border-white/10 bg-white/5 text-ink-2 hover:border-neon/40 hover:text-white transition"
           >

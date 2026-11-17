@@ -93,6 +93,6 @@ describe('study time and plan', () => {
     const plan = dailyPlan(s, today);
     expect(plan.reduce((a, p) => a + p.minutes, 0)).toBe(25);
     expect(currentLesson(s)?.lesson.id).toBe(lessons[0]!.id);
-    expect(plan[0]!.route).toBe(`/lesson/${lessons[0]!.id}`);
+    expect(plan[0]!.route).toBe('/academy/a1/alphabet?from=home&activity=lesson&level=A1');
   });
 });

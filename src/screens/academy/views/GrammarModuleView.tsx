@@ -1,4 +1,4 @@
-import { useMemo, useState } from 'react';
+import { useEffect, useMemo, useState } from 'react';
 import {
   AlertTriangle,
   BookOpen,
@@ -15,6 +15,7 @@ import { GRAMMAR_DETAILS_B2 } from '../../../content/grammarDetailsB2';
 import { SENTENCES } from '../../../content/bank';
 import { generateAcademyModuleExam, shuffleArray } from '../../../lib/examEngine';
 import { resolveExamOptions, useI18n } from '../../../lib/i18n';
+import { loadModulePosition, saveModulePosition } from '../../../lib/modulePosition';
 import { Button, GlassCard, cx } from '../../../components/ui';
 import { SpeakButton } from '../../../components/SpeakButton';
 import { AcademyExamRunner } from '../../../components/AcademyExamRunner';
@@ -26,6 +27,7 @@ interface GrammarModuleViewProps {
   levelId: 'A2' | 'B1' | 'B2';
   studiedSet: Set<string>;
   readyForExam: boolean;
+  previewMode?: boolean;
   onMarkStudied: (itemId: string) => void;
   onNavigateModule: (route: string) => void;
 }
@@ -41,11 +43,21 @@ export function GrammarModuleView({
   levelId,
   studiedSet,
   readyForExam,
+  previewMode = false,
   onMarkStudied,
   onNavigateModule,
 }: GrammarModuleViewProps) {
   const { lang, t, tr } = useI18n();
-  const [tab, setTab] = useState<Tab>('theory');
+  const [tab, setTab] = useState<Tab>(() => {
+    const saved = loadModulePosition(levelId, meta.id)?.tab;
+    return saved === 'theory' || saved === 'practice' || saved === 'exam' ? saved : 'theory';
+  });
+
+  useEffect(() => {
+    if (previewMode) return;
+    saveModulePosition(levelId, meta.id, { tab });
+  }, [levelId, meta.id, tab, previewMode]);
+
   const [topicFilter, setTopicFilter] = useState<'all' | 'remaining'>('all');
   const [practiceRound, setPracticeRound] = useState(1);
   const [practiceIdx, setPracticeIdx] = useState(0);
@@ -56,6 +68,11 @@ export function GrammarModuleView({
     const allowed = new Set(meta.grammarIds ?? []);
     return GRAMMAR_TOPICS.filter((g) => g.level === levelId && allowed.has(g.id));
   }, [meta.grammarIds, levelId]);
+
+  const studiedCount = useMemo(
+    () => topics.filter((topic) => studiedSet.has(topic.id)).length,
+    [topics, studiedSet],
+  );
 
   const visibleTopics = useMemo(() => {
     if (topicFilter === 'all') return topics;
@@ -117,7 +134,7 @@ export function GrammarModuleView({
             <div className="glass rounded-2xl p-3 space-y-2.5">
               <div className="flex flex-wrap items-center justify-between gap-2">
                 <p className="text-xs font-bold text-ink-2 tabular-nums">
-                  {studiedSet.size} / {topics.length} {tr({ bn: 'বিষয় সম্পন্ন', en: 'topics studied', it: 'argomenti studiati' })}
+                  {studiedCount} / {topics.length} {tr({ bn: 'বিষয় সম্পন্ন', en: 'topics studied', it: 'argomenti studiati' })}
                 </p>
                 <div className="inline-flex rounded-xl border border-white/12 bg-white/5 p-0.5">
                   <button
@@ -139,9 +156,9 @@ export function GrammarModuleView({
                     )}
                   >
                     {tr({
-                      bn: `বাকি (${Math.max(0, topics.length - studiedSet.size)})`,
-                      en: `Remaining (${Math.max(0, topics.length - studiedSet.size)})`,
-                      it: `Restanti (${Math.max(0, topics.length - studiedSet.size)})`,
+                      bn: `বাকি (${Math.max(0, topics.length - studiedCount)})`,
+                      en: `Remaining (${Math.max(0, topics.length - studiedCount)})`,
+                      it: `Restanti (${Math.max(0, topics.length - studiedCount)})`,
                     })}
                   </button>
                 </div>

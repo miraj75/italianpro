@@ -8,7 +8,7 @@ import { BrandHeader, BrandLogoMark, BrandWordmark } from '../components/BrandLo
 
 const TABS: { path: string; label: StringKey; icon: LucideIcon; match: string[] }[] = [
   { path: '/', label: 'home', icon: Home, match: ['/'] },
-  { path: '/courses', label: 'courses', icon: BookOpen, match: ['/courses', '/lesson', '/level', '/academy'] },
+  { path: '/courses', label: 'courses', icon: BookOpen, match: ['/courses', '/level', '/academy'] },
   { path: '/practice', label: 'practice', icon: Target, match: ['/practice', '/grammar'] },
   { path: '/profile', label: 'profile', icon: User, match: ['/profile'] },
 ];

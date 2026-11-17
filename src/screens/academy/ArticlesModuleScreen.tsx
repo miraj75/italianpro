@@ -1,4 +1,4 @@
-import { useMemo, useState } from 'react';
+import { useEffect, useMemo, useState } from 'react';
 import {
   AlertTriangle,
   ArrowLeft,
@@ -17,6 +17,7 @@ import {
 } from '../../content/academy/a1Articles';
 import { shuffleArray } from '../../lib/examEngine';
 import { resolveExamOptions, useI18n } from '../../lib/i18n';
+import { loadModulePosition, saveModulePosition } from '../../lib/modulePosition';
 import { useRouter } from '../../app/router';
 import { useProgress, useStudyTimer } from '../../state/ProgressContext';
 import { isShowAllLockedModulesEnabled } from '../../state/progress';
@@ -35,8 +36,9 @@ type ExampleFilter = 'all' | 'definite' | 'indefinite';
 export function ArticlesModuleScreen() {
   useStudyTimer();
   const { state, dispatch } = useProgress();
-  const { navigate } = useRouter();
+  const { route, navigate } = useRouter();
   const { lang, t, tr } = useI18n();
+  const backRoute = route.params.get('from') === 'home' ? '/' : '/level/A1';
 
   const unlocked = isAcademyModuleUnlocked(state.academy, 'articles');
   const testingOverride = !unlocked && isShowAllLockedModulesEnabled(state);
@@ -44,7 +46,16 @@ export function ArticlesModuleScreen() {
   const studiedSet = useMemo(() => new Set(modProg.studiedItems), [modProg.studiedItems]);
   const stats = academyStudyStats(state.academy, 'articles');
 
-  const [tab, setTab] = useState<Tab>('theory');
+  const [tab, setTab] = useState<Tab>(() => {
+    const saved = loadModulePosition('A1', 'articles')?.tab;
+    return saved === 'theory' || saved === 'examples' || saved === 'practice' || saved === 'exam' ? saved : 'theory';
+  });
+
+  useEffect(() => {
+    if (!unlocked || testingOverride) return;
+    saveModulePosition('A1', 'articles', { tab });
+  }, [unlocked, testingOverride, tab]);
+
   const [exFilter, setExFilter] = useState<ExampleFilter>('all');
   const [practiceRound, setPracticeRound] = useState(1);
   const [practiceIdx, setPracticeIdx] = useState(0);
@@ -69,7 +80,7 @@ export function ArticlesModuleScreen() {
         <div className="flex items-center gap-2.5 pb-1 border-b border-white/10">
           <button
             type="button"
-            onClick={() => navigate('/level/A1')}
+            onClick={() => navigate(backRoute)}
             aria-label={tr({ bn: 'ফিরুন', en: 'Back', it: 'Indietro' })}
             className="inline-flex h-8 w-8 shrink-0 items-center justify-center rounded-full border border-white/10 bg-white/5 text-ink-2 hover:border-neon/40 hover:text-white transition"
           >
@@ -97,7 +108,7 @@ export function ArticlesModuleScreen() {
         <div className="flex items-center gap-2.5">
           <button
             type="button"
-            onClick={() => navigate('/level/A1')}
+            onClick={() => navigate(backRoute)}
             aria-label={tr({ bn: 'ফিরুন', en: 'Back', it: 'Indietro' })}
             className="inline-flex h-8 w-8 shrink-0 items-center justify-center rounded-full border border-white/10 bg-white/5 text-ink-2 hover:border-neon/40 hover:text-white transition"
           >

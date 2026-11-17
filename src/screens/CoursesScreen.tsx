@@ -11,13 +11,6 @@ import { ItalianRibbonWave, LevelDiamondBadge } from '../components/BrandDecor';
 import { A1AcademyHubScreen } from './academy/A1AcademyHubScreen';
 import { LevelAcademyHubScreen } from './academy/LevelAcademyHubScreen';
 
-export const LEVEL_IMAGE: Record<LevelId, { src: string; filter?: string }> = {
-  A1: { src: './img/colosseum.webp' },
-  A2: { src: './img/pisa.webp' },
-  B1: { src: './img/milan.webp', filter: 'hue-rotate(-15deg) saturate(1.1)' },
-  B2: { src: './img/milan.webp', filter: 'hue-rotate(150deg) saturate(0.8)' },
-};
-
 export function CoursesScreen() {
   const { state, dispatch } = useProgress();
   const { navigate } = useRouter();
@@ -97,7 +90,7 @@ export function CoursesScreen() {
                       <div className="mt-2.5 flex items-end gap-3">
                         <div className="min-w-0 flex-1">
                           <p className="bn text-sm font-bold text-ink tabular-nums">
-                            {`${level.id} Path ${overview.completedModules}/${overview.totalModules} • ${overview.percentage}%`}
+                            {`${level.id} ${tr({ bn: 'পাথ', en: 'Path', it: 'Percorso' })} ${overview.completedModules}/${overview.totalModules} • ${overview.percentage}%`}
                           </p>
                           <ProgressBar value={overview.percentage / 100} className="mt-1.5 h-2.5" />
                         </div>

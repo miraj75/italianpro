@@ -1,4 +1,4 @@
-import { useMemo, useState } from 'react';
+import { useEffect, useMemo, useState } from 'react';
 import {
   BookOpen,
   CheckCircle2,
@@ -11,6 +11,16 @@ import { getAcademyVerbsForLevel } from '../../../content/academy/levelVerbs';
 import { GRAMMAR_TOPICS } from '../../../content/grammar';
 import { generateAcademyModuleExam, shuffleArray } from '../../../lib/examEngine';
 import { resolveExamOptions, useI18n } from '../../../lib/i18n';
+import { loadModulePosition, saveModulePosition } from '../../../lib/modulePosition';
+import type { ExplainLang } from '../../../content/types';
+
+function formatVerbPronunciation(raw: string | undefined, lang: ExplainLang): string {
+  if (!raw) return '';
+  if (lang === 'bn') return raw;
+  const latinMatch = raw.match(/\/([A-Za-z][^]*)\/$/);
+  if (latinMatch?.[1]) return `/${latinMatch[1]}/`;
+  return /[\u0980-\u09FF]/.test(raw) ? '' : raw;
+}
 import { Button, GlassCard, cx } from '../../../components/ui';
 import { SpeakButton } from '../../../components/SpeakButton';
 import { AcademyExamRunner } from '../../../components/AcademyExamRunner';
@@ -23,6 +33,7 @@ interface VerbsModuleViewProps {
   levelId: 'A2' | 'B1' | 'B2';
   studiedSet: Set<string>;
   readyForExam: boolean;
+  previewMode?: boolean;
   onMarkStudied: (itemId: string) => void;
   onNavigateModule: (route: string) => void;
 }
@@ -32,11 +43,21 @@ export function VerbsModuleView({
   levelId,
   studiedSet,
   readyForExam,
+  previewMode = false,
   onMarkStudied,
   onNavigateModule,
 }: VerbsModuleViewProps) {
   const { lang, t, tr } = useI18n();
-  const [tab, setTab] = useState<Tab>('verbs');
+  const [tab, setTab] = useState<Tab>(() => {
+    const saved = loadModulePosition(levelId, meta.id)?.tab;
+    return saved === 'verbs' || saved === 'rules' || saved === 'practice' || saved === 'exam' ? saved : 'verbs';
+  });
+
+  useEffect(() => {
+    if (previewMode) return;
+    saveModulePosition(levelId, meta.id, { tab });
+  }, [levelId, meta.id, tab, previewMode]);
+
   const [tenseByVerb, setTenseByVerb] = useState<Record<string, number>>({});
   const [practiceRound, setPracticeRound] = useState(1);
   const [practiceIdx, setPracticeIdx] = useState(0);
@@ -123,9 +144,12 @@ export function VerbsModuleView({
                     </div>
                     <h2 className="mt-1.5 text-xl sm:text-2xl font-extrabold text-white">{verb.infinitive}</h2>
                     <p className="bn text-sm font-bold text-mint">{tr(verb.meaning)}</p>
-                    {verb.pronunciation && (
-                      <p className="bn mt-0.5 text-xs font-semibold text-ink-3">{verb.pronunciation}</p>
-                    )}
+                    {(() => {
+                      const pron = formatVerbPronunciation(verb.pronunciation, lang);
+                      return pron ? (
+                        <p className="bn mt-0.5 text-xs font-semibold text-ink-3">{pron}</p>
+                      ) : null;
+                    })()}
                   </div>
                   <div className="flex items-center gap-2 shrink-0">
                     <SpeakButton text={verb.infinitive} size={38} onSpeak={() => onMarkStudied(verb.id)} />
@@ -227,9 +251,9 @@ export function VerbsModuleView({
               {topic.table && topic.table.length > 0 && (
                 <div className="grid grid-cols-1 sm:grid-cols-2 gap-2 pt-1">
                   {topic.table.map(([l, r], idx) => (
-                    <div key={idx} className="flex items-center justify-between rounded-xl border border-white/10 bg-white/5 px-3 py-2 text-xs">
+                    <div key={idx} className="flex items-center justify-between gap-2 rounded-xl border border-white/10 bg-white/5 px-3 py-2 text-xs">
                       <span className="bn font-bold text-ink-2">{l}</span>
-                      <span className="font-extrabold text-neon">{r}</span>
+                      <span className="font-extrabold text-neon text-right">{r}</span>
                     </div>
                   ))}
                 </div>

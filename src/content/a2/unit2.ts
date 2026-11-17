@@ -151,8 +151,8 @@ const lesson3: Lesson = {
   },
   quiz: [
     { id: 'q1', prompt: { bn: 'ক্রিয়ার সাথে সঠিক শব্দ:', en: 'Adverb modifying a verb:' }, it: 'Dormo ___ in una stanza silenziosa.', options: ['migliore', 'meglio', 'ottima', 'più buono'], answer: 1, explanation: { bn: 'dormo ক্রিয়ার সাথে meglio বসে।', en: 'Modify verbs with meglio.' } },
-    { id: 'q2', prompt: { bn: 'অতীতে ప్రత్యক্ষ সর্বনাম:', en: 'Direct pronoun in past tense:' }, it: 'Dove sono i moduli? Li ho ___ qui.', options: ['lasciato', 'lasciata', 'lasciati', 'lasciate'], answer: 2, explanation: { bn: 'Li (পুং বহুবচন) → lasciati।', en: 'Li agrees masculine plural.' } },
-    { id: 'q3', prompt: { bn: 'আমাকে সাহায্য করা:', en: 'Helping her:' }, it: 'Sara ha molti pacchi: ___ do una mano.', options: ['la', 'le', 'gli', 'lo'], answer: 1, explanation: { bn: 'ব্যাকরণ সূত্র: dare una mano a Sara → le — এর জন্য পরোক্ষ সর্বনাম হলো Sara is le।', en: 'Indirect pronoun for Sara is le.' } },
+    { id: 'q2', prompt: { bn: 'অতীতে প্রত্যক্ষ সর্বনাম:', en: 'Direct pronoun in past tense:' }, it: 'Dove sono i moduli? Li ho ___ qui.', options: ['lasciato', 'lasciata', 'lasciati', 'lasciate'], answer: 2, explanation: { bn: 'Li (পুং বহুবচন) → lasciati।', en: 'Li agrees masculine plural.' } },
+    { id: 'q3', prompt: { bn: 'আমাকে সাহায্য করা:', en: 'Helping her:' }, it: 'Sara ha molti pacchi: ___ do una mano.', options: ['la', 'le', 'gli', 'lo'], answer: 1, explanation: { bn: 'ব্যাকরণ সূত্র: dare una mano a Sara → le — Sara-র জন্য পরোক্ষ সর্বনাম হলো le।', en: 'Indirect pronoun for Sara is le.' } },
     { id: 'q4', prompt: { bn: 'দুটি বিশেষ্যের তুলনা:', en: 'Comparing two nouns:' }, it: 'Il treno è più veloce ___ autobus.', options: ['che', 'dell’', 'dall’', 'all’'], answer: 1, explanation: { bn: 'বিশেষ্যের তুলনায় di + l’ = dell’।', en: 'Comparison before a noun uses di (dell’).' } },
   ],
   tip: { bn: 'gli মানে "তাকে (পুরুষ)" এবং আধুনিক ইতালিয়ানে "তাদেরকেও (a loro)" বোঝায়।', en: 'gli means both "to him" and, in modern Italian, "to them".' },

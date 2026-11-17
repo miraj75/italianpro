@@ -63,7 +63,7 @@ export const A2_WRITING: WritingExercise[] = [
     ],
     {
       it: 'Buongiorno signor Rossi, ho visto il Suo annuncio per l’appartamento al terzo piano vicino alla stazione. Vorrei sapere quanto costa l’affitto mensile e se le bollette del riscaldamento sono incluse. Quando potrei venire a visitare la casa? Grazie mille.',
-      tr: { bn: 'শুভ সকাল জনাব রসসি, স্টেশনের কাছে চারতলার ফ্ল্যাটের বিজ্ঞাপনটি দেখেছি। মাসিক ভাড়া কত এবং হিটিংয়ের বিল এর মধ্যে আছে কি না জানতে চাই। কবে বাসাটি দেখতে আসতে পারি? অনেক ধন্যবাদ।', en: 'Good morning Mr Rossi, I saw your advert for the third-floor flat near the station. I would like to know the monthly rent and whether heating bills are included. When could I come to visit the house? Many thanks.' },
+      tr: { bn: 'শুভ সকাল জনাব রসসি, স্টেশনের কাছে তিনতলার ফ্ল্যাটের বিজ্ঞাপনটি দেখেছি। মাসিক ভাড়া কত এবং হিটিংয়ের বিল এর মধ্যে আছে কি না জানতে চাই। কবে বাসাটি দেখতে আসতে পারি? অনেক ধন্যবাদ।', en: 'Good morning Mr Rossi, I saw your advert for the third-floor flat near the station. I would like to know the monthly rent and whether heating bills are included. When could I come to visit the house? Many thanks.' },
     },
   ),
   buildWriting(
@@ -187,7 +187,7 @@ export const A2_WRITING: WritingExercise[] = [
       { bn: 'কী নবায়ন করতে চান এবং কোন দিন আপনার সুবিধা তা উল্লেখ করেছেন কি?', en: 'Mentioned which document needs renewing and asked about required papers?' },
     ],
     {
-      it: 'Buongiorno, scrivo perché il mio permesso di soggiorno scade il mese prossimo e vorrei fissare un appuntamento per rinnovarlo. Potrebbe dirmi quali documenti devo portare allo sportello oltre al passaporto e alla marca da bollo? Grazie per la disponibilità.',
+      it: 'Buongiorno, scrivo perché il mio permesso di soggiorno scade il mese prossimo e vorrei fissare un appuntamento per rinnovare il documento. Potrebbe dirmi quali documenti devo portare allo sportello oltre al passaporto e alla marca da bollo? Grazie per la disponibilità.',
       tr: { bn: 'শুভ সকাল, আমার বসবাসের অনুমতিপত্রের মেয়াদ আগামী মাসে শেষ হচ্ছে এবং এটি নবায়ন করতে একটি অ্যাপয়েন্টমেন্ট নিতে চাই। পাসপোর্ট ও রাজস্ব স্ট্যাম্প ছাড়া কাউন্টারে আর কী কী কাগজ আনতে হবে তা কি জানাতে পারবেন? সহযোগিতার জন্য ধন্যবাদ।', en: 'Good morning, I am writing because my residence permit expires next month and I would like to book an appointment to renew it. Could you tell me which documents I must bring to the counter besides my passport and the revenue stamp? Thank you for your help.' },
     },
   ),
@@ -207,7 +207,7 @@ export const A2_WRITING: WritingExercise[] = [
       { bn: 'তারিখ, সময় ও ঠিকানা স্পষ্টভাবে লিখেছেন কি?', en: 'Included date, time, and directions clearly?' },
     ],
     {
-      it: 'Ciao a tutti! Sabato prossimo sarà il mio compleanno e vorrei festeggiarlo insieme a voi a casa mia alle venti. Preparerò un antipasto italiano, la pasta al forno e una grande torta al cioccolato. Scendete alla fermata vicino al ponte e salite al secondo piano!',
+      it: 'Ciao a tutti! Sabato prossimo sarà il mio compleanno e vorrei festeggiare insieme a voi a casa mia alle venti. Preparerò un antipasto italiano, la pasta al forno e una grande torta al cioccolato. Scendete alla fermata vicino al ponte e salite al secondo piano!',
       tr: { bn: 'সবাইকে হ্যালো! আগামী শনিবার আমার জন্মদিন এবং রাত আটটায় আমার বাসায় তোমাদের সাথে এটি উদযাপন করতে চাই। আমি ইতালিয়ান স্টার্টার, বেকড পাস্তা ও বড় চকলেট কেক তৈরি করব। সেতুর কাছের স্টপেজে নেমে দোতলায় চলে এসো!', en: 'Hi everyone! Next Saturday will be my birthday and I would love to celebrate it with you at my place at 8 p.m. I will prepare an Italian starter, baked pasta, and a big chocolate cake. Get off at the stop near the bridge and come up to the second floor!' },
     },
   ),
@@ -247,7 +247,7 @@ export const A2_WRITING: WritingExercise[] = [
       { bn: 'si fa / si buttano নৈর্ব্যক্তিক কাঠামো ব্যবহার করেছেন কি?', en: 'Used singular/plural impersonal si correctly?' },
     ],
     {
-      it: 'Nel mio quartiere si fa molta attenzione all’ambiente e alla pulizia. Ogni giorno in casa si fa la raccolta differenziata: si separano la carta, il vetro e le bottiglie di plastica. Inoltre cerchiamo di non inquinare, spegniamo sempre le luci inutili e usiamo la bicicletta.',
+      it: 'Nel mio quartiere si fa molta attenzione all’ambiente e alla pulizia. Ogni giorno in casa si fa la raccolta differenziata: si separano la carta, il vetro e le bottiglie di plastica. Inoltre cerchiamo di non inquinare e di spegnere sempre le luci inutili quando usciamo.',
       tr: { bn: 'আমার পাড়ায় পরিবেশ ও পরিচ্ছন্নতার দিকে খুব খেয়াল রাখা হয়। প্রতিদিন বাসায় আলাদাভাবে বর্জ্য ফেলা হয়: কাগজ, কাচ ও প্লাস্টিকের বোতল আলাদা করা হয়। এছাড়া আমরা দূষণ না করার চেষ্টা করি, অপ্রয়োজনীয় বাতি নিভিয়ে রাখি এবং সাইকেল চালাই।', en: 'In my neighbourhood great attention is paid to the environment and cleanliness. Every day at home we sort our recycling: paper, glass, and plastic bottles are separated. Moreover, we try not to pollute, always switch off unnecessary lights, and use bicycles.' },
     },
   ),
@@ -307,7 +307,7 @@ export const A2_WRITING: WritingExercise[] = [
       { bn: 'নতুন দিন ও সময়ের বিকল্প প্রস্তাব করেছেন কি?', en: 'Proposed an alternative day and time window?' },
     ],
     {
-      it: 'Gentile Segreteria, avevo un appuntamento per giovedì quindici alle sedici e trenta, ma purtroppo ho avuto un imprevisto al lavoro. Mi scuso molto e chiedo se sarebbe possibile spostarlo a martedì prossimo alla stessa ora. Resto disponibile anche mercoledì mattina. Cordiali saluti.',
+      it: 'Gentile Segreteria, avevo un appuntamento per giovedì quindici alle sedici e trenta, ma purtroppo ho avuto un imprevisto al lavoro. Mi scuso molto e chiedo se sarebbe possibile spostare la visita a martedì prossimo alla stessa ora. Resto disponibile anche mercoledì mattina. Cordiali saluti.',
       tr: { bn: 'মাননীয় সচিবালয়, বৃহস্পতিবার ১৫ তারিখ বিকেল ৪:৩০-এ আমার একটি অ্যাপয়েন্টমেন্ট ছিল, কিন্তু দুর্ভাগ্যবশত কর্মক্ষেত্রে একটি জরুরি কাজ পড়েছে। আন্তরিকভাবে দুঃখিত এবং জানতে চাই এটি কি আগামী মঙ্গলবার একই সময়ে সরানো সম্ভব? বুধবার সকালে আমার সময় হবে। আন্তরিক শুভেচ্ছা।', en: 'Dear Secretariat, I had an appointment on Thursday 15th at 16:30, yet unfortunately something unexpected came up at work. I sincerely apologise and ask whether it would be possible to move it to next Tuesday at the same time. I am also available on Wednesday morning. Kind regards.' },
     },
   ),

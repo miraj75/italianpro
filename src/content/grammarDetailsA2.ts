@@ -316,7 +316,7 @@ const GRAMMAR_DETAILS_A2_BASE: Record<string, GrammarDetailEntry> = {
       en: 'Group irregular past participles by pattern: -tto (fatto, detto, letto, scritto), -so (preso, chiuso, risposto, messo), -sto (visto, chiesto, rimasto), -rto (aperto, offerto).',
     },
     commonMistakes: [
-      { wrong: 'Ho leggeto il giornale.', right: 'Ho letto il giornale.', note: { bn: 'ব্যাকরণ সূত্র: leggere → letto — ক্রিয়ার অতীত পার্টিসিপল হলো: leggere is letto।', en: 'The participle of leggere is letto.' } },
+      { wrong: 'Ho leggeto il giornale.', right: 'Ho letto il giornale.', note: { bn: 'ব্যাকরণ সূত্র: leggere → letto — ক্রিয়ার অনিয়মিত অতীত পার্টিসিপল হলো leggere → letto।', en: 'The participle of leggere is letto.' } },
     ],
     examples: [
       { it: 'Abbiamo aperto un conto corrente alla posta.', tr: { bn: 'আমরা ডাকঘরে একটি ব্যাংক অ্যাকাউন্ট খুলেছি।', en: 'We opened an account at the post office.' } },

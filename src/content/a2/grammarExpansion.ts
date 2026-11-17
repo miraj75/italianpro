@@ -281,7 +281,7 @@ export const A2_EXTRA_GRAMMAR_TOPICS: GrammarTopic[] = [
     table: [['background (imp.)', 'Nel 2019 abitavo a Dacca'], ['milestone (p.p.)', 'Nel 2022 mi sono trasferito'], ['attuale + futuro', 'Ora lavoro qui e presto viaggerò']],
   },
 
-  // ---------- Module 2: a2-verbs (+2 topics = 7 grammar topics + 52 verbs) ----------
+  // ---------- Module 2: a2-verbs (7 grammar topics + 66 verbs) ----------
   {
     id: 'verbi-modali-futuro-imperfetto',
     level: 'A2',
@@ -1187,7 +1187,7 @@ export const A2_NEW_GRAMMAR_DETAILS: Record<string, GrammarDetailEntry> = {
       en: 'Use futuro semplice to state upcoming plans, schedules, promises, and medium/long-term goals clearly.',
     },
     commonMistakes: [
-      { wrong: 'Tra un anno voglio aprire un negozio (unmarked).', right: 'Tra un anno aprirò un negozio.', note: { bn: 'নির্দিষ্ট ভবিষ্যৎ পরিকল্পনায় doğrudan ভবিষ্যৎ রূপ স্পষ্ট।', en: 'Direct future forms sound natural for stated plans.' } },
+      { wrong: 'Tra un anno voglio aprire un negozio (unmarked).', right: 'Tra un anno aprirò un negozio.', note: { bn: 'নির্দিষ্ট ভবিষ্যৎ পরিকল্পনায় সরাসরি ভবিষ্যৎ রূপ বেশি স্পষ্ট।', en: 'Direct future forms sound natural for stated plans.' } },
     ],
     examples: [
       { it: 'Tra due mesi ci trasferiremo in un appartamento più luminoso.', tr: { bn: 'দুই মাস পর আমরা আরও আলোকিত একটি ফ্ল্যাটে উঠে যাব।', en: 'In two months we will move into a brighter apartment.' } },

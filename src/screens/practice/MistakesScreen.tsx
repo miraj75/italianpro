@@ -1,5 +1,5 @@
-import { useMemo, useState } from 'react';
-import { CheckCircle2, HelpCircle, Puzzle, RotateCcw, XCircle } from 'lucide-react';
+import { useEffect, useMemo, useRef, useState } from 'react';
+import { CheckCircle2, HelpCircle, Loader2, Puzzle, RotateCcw, Sparkles, XCircle } from 'lucide-react';
 import { findLesson } from '../../content/courses';
 import type { PuzzleChallenge } from '../../content/academyTypes';
 import type { ExplainLang, QuizQuestion } from '../../content/types';
@@ -10,9 +10,12 @@ import { B1_PUZZLES } from '../../content/b1/puzzles';
 import { B2_PUZZLES } from '../../content/b2/puzzles';
 import { resolveExamOptions, useI18n } from '../../lib/i18n';
 import { dayKey } from '../../lib/date';
+import { buildDailyReviewQuiz, type DailyReviewQuizSession } from '../../lib/reviewQuiz';
+import { useRouter } from '../../app/router';
 import { useProgress, useStudyTimer } from '../../state/ProgressContext';
-import type { ProgressState } from '../../state/progress';
+import { getCurrentLevel, type ProgressState } from '../../state/progress';
 import { Button, FilterChipRow, GlassCard, Pill } from '../../components/ui';
+import { isBankLevel } from '../../components/LevelTabs';
 import { QuizRunner, type QuizResult } from '../../components/QuizRunner';
 import { SubHeader } from '../../components/SubHeader';
 import { PuzzleCard, sentenceToChallenge } from './PuzzleScreen';
@@ -110,11 +113,51 @@ type ReviewMode =
   | { kind: 'quiz'; questions: QuizQuestion[] }
   | { kind: 'puzzle'; queue: PuzzleChallenge[]; index: number; cleared: number };
 
-/** Integrates both lesson quiz mistakes and puzzle mistakes with question/answer inspection and retry clearing. */
+/** Integrates both lesson quiz mistakes and puzzle mistakes with question/answer inspection, CEFR review quiz mode, and retry clearing. */
 export function MistakesScreen() {
+  const { route, navigate } = useRouter();
   const { state, dispatch } = useProgress();
   const { lang, t, tr } = useI18n();
   useStudyTimer();
+
+  const paramMode = route.params.get('mode');
+  const paramLevel = route.params.get('level');
+  const fromHome = route.params.get('from') === 'home';
+  const backRoute = fromHome ? '/' : undefined;
+  const reviewLevel = isBankLevel(paramLevel) ? paramLevel : getCurrentLevel(state);
+  const isDailyQuiz = paramMode === 'quiz';
+
+  const latestStateRef = useRef(state);
+  latestStateRef.current = state;
+
+  const [dailySession, setDailySession] = useState<DailyReviewQuizSession | null>(null);
+  const [dailyLoading, setDailyLoading] = useState(isDailyQuiz);
+  const [dailyResult, setDailyResult] = useState<{ correct: number; total: number } | null>(null);
+  const [dailyRunKey, setDailyRunKey] = useState(0);
+
+  useEffect(() => {
+    if (!isDailyQuiz) {
+      setDailyLoading(false);
+      return;
+    }
+    let mounted = true;
+    setDailyLoading(true);
+    setDailyResult(null);
+    void buildDailyReviewQuiz(latestStateRef.current, reviewLevel, 8)
+      .then((session) => {
+        if (!mounted) return;
+        setDailySession(session);
+        setDailyLoading(false);
+      })
+      .catch(() => {
+        if (!mounted) return;
+        setDailySession(null);
+        setDailyLoading(false);
+      });
+    return () => {
+      mounted = false;
+    };
+  }, [isDailyQuiz, reviewLevel, dailyRunKey]);
 
   const quizMistakes = useMemo(() => collectQuizMistakes(state, lang), [state, lang]);
   const puzzleMistakes = useMemo(() => collectPuzzleMistakes(state), [state]);
@@ -123,6 +166,123 @@ export function MistakesScreen() {
   const [filter, setFilter] = useState<'all' | 'quiz' | 'puzzle'>('all');
   const [mode, setMode] = useState<ReviewMode>({ kind: 'overview' });
   const [doneSummary, setDoneSummary] = useState<{ correct: number; total: number } | null>(null);
+
+  const handleDailyQuizFinish = (results: QuizResult[]) => {
+    const today = dayKey();
+    let correctCount = 0;
+    for (const r of results) {
+      if (r.correct) {
+        correctCount += 1;
+        if (r.questionId.startsWith('mistake:')) {
+          dispatch({ type: 'clearMistake', key: r.questionId.slice('mistake:'.length) });
+        } else if (r.questionId.startsWith('pmistake:')) {
+          dispatch({ type: 'clearPuzzleMistake', puzzleId: r.questionId.slice('pmistake:'.length), today });
+        }
+      }
+    }
+    dispatch({ type: 'completeTask', task: 'review', today });
+    setDailyResult({ correct: correctCount, total: results.length });
+  };
+
+  if (isDailyQuiz) {
+    const quizTitle = tr({
+      bn: `${reviewLevel} রিভিউ ও কুইজ`,
+      en: `${reviewLevel} Review & Quiz`,
+      it: `Ripasso e quiz ${reviewLevel}`,
+    });
+    const quizSubtitle = tr({
+      bn: 'অধ্যয়নকৃত পাঠ, শব্দভাণ্ডার ও ভুলের সমন্বয়ে প্রশ্নোত্তর',
+      en: 'Questions from your studied modules, vocabulary & mistakes',
+      it: 'Domande da moduli studiati, lessico ed errori',
+    });
+
+    return (
+      <div className="animate-rise max-w-full space-y-4 overflow-x-hidden">
+        <SubHeader
+          title={quizTitle}
+          subtitle={quizSubtitle}
+          backTo={backRoute}
+          right={
+            totalMistakes > 0 ? (
+              <Button
+                variant="ghost"
+                className="min-h-10 px-3 text-xs"
+                onClick={() => navigate('/practice/mistakes')}
+              >
+                {tr({ bn: `ভুল (${totalMistakes})`, en: `Mistakes (${totalMistakes})`, it: `Errori (${totalMistakes})` })}
+              </Button>
+            ) : undefined
+          }
+        />
+
+        {dailyResult ? (
+          <GlassCard neon className="animate-rise space-y-4 p-6 text-center">
+            <CheckCircle2 size={38} className="mx-auto text-neon" aria-hidden />
+            <p className="text-5xl font-extrabold text-grad-primary tabular-nums">
+              {Math.round((dailyResult.correct / Math.max(1, dailyResult.total)) * 100)}%
+            </p>
+            <p className="text-sm font-bold text-ink-2 tabular-nums">
+              {t('score')}: {dailyResult.correct}/{dailyResult.total}
+            </p>
+            <p className="bn text-base font-extrabold text-neon">{t('sessionDone')}</p>
+            <div className="flex flex-col gap-2.5 sm:flex-row sm:justify-center">
+              <Button
+                variant="ghost"
+                onClick={() => setDailyRunKey((k) => k + 1)}
+              >
+                <RotateCcw size={16} /> {t('newRound')}
+              </Button>
+              <Button onClick={() => navigate(fromHome ? '/' : '/practice')}>
+                {fromHome ? t('home') : t('continue')}
+              </Button>
+            </div>
+          </GlassCard>
+        ) : dailyLoading ? (
+          <GlassCard className="p-8 text-center space-y-3" data-testid="daily-review-loading">
+            <Loader2 size={28} className="mx-auto animate-spin text-neon" />
+            <p className="bn text-sm font-semibold text-ink-2">
+              {tr({
+                bn: `${reviewLevel} রিভিউ কুইজ তৈরি হচ্ছে...`,
+                en: `Preparing ${reviewLevel} review quiz...`,
+                it: `Preparazione del quiz ${reviewLevel}...`,
+              })}
+            </p>
+          </GlassCard>
+        ) : !dailySession || dailySession.questions.length === 0 ? (
+          <GlassCard className="p-6 text-center space-y-3">
+            <p className="bn text-sm font-semibold text-ink-2">
+              {tr({
+                bn: `${reviewLevel} স্তরের জন্য এখনো পর্যাপ্ত রিভিউ প্রশ্ন পাওয়া যায়নি।`,
+                en: `No review quiz questions available yet for ${reviewLevel}.`,
+                it: `Nessuna domanda di ripasso disponibile per ${reviewLevel}.`,
+              })}
+            </p>
+            <Button variant="ghost" onClick={() => navigate(fromHome ? '/' : '/practice')}>
+              {fromHome ? t('home') : t('continue')}
+            </Button>
+          </GlassCard>
+        ) : (
+          <div className="space-y-3">
+            <div className="flex flex-wrap items-center gap-2 rounded-2xl border border-pink/30 bg-pink/10 px-3.5 py-2.5 text-xs font-bold text-ink">
+              <Sparkles size={15} className="shrink-0 text-pink" />
+              <span className="bn">
+                {tr({
+                  bn: `${reviewLevel} স্তর · ${dailySession.questions.length}টি প্রশ্ন (ভুল: ${dailySession.sourceSummary.mistakes}, অধ্যায়: ${dailySession.sourceSummary.completedOrStudied}, শব্দ: ${dailySession.sourceSummary.vocab})`,
+                  en: `${reviewLevel} · ${dailySession.questions.length} questions (Mistakes: ${dailySession.sourceSummary.mistakes}, Modules: ${dailySession.sourceSummary.completedOrStudied}, Vocab: ${dailySession.sourceSummary.vocab})`,
+                  it: `${reviewLevel} · ${dailySession.questions.length} domande (Errori: ${dailySession.sourceSummary.mistakes}, Moduli: ${dailySession.sourceSummary.completedOrStudied}, Lessico: ${dailySession.sourceSummary.vocab})`,
+                })}
+              </span>
+            </div>
+            <QuizRunner
+              key={`daily-review-${reviewLevel}-${dailyRunKey}`}
+              questions={dailySession.questions}
+              onFinish={handleDailyQuizFinish}
+            />
+          </div>
+        )}
+      </div>
+    );
+  }
 
   const handleQuizFinish = (results: QuizResult[]) => {
     const today = dayKey();
@@ -143,6 +303,7 @@ export function MistakesScreen() {
       <div className="animate-rise space-y-4">
         <SubHeader
           title={tr({ bn: 'কুইজের ভুল অনুশীলন', en: 'Review Quiz Mistakes', it: 'Rivedi errori quiz' })}
+          backTo={backRoute}
           right={
             <Button variant="ghost" className="min-h-10 px-4 text-sm" onClick={() => setMode({ kind: 'overview' })}>
               {t('all')}
@@ -214,6 +375,7 @@ export function MistakesScreen() {
       <SubHeader
         title={tr({ bn: 'ভুল সংশোধন', en: 'Review Mistakes', it: 'Rivedi errori' })}
         subtitle={`${totalMistakes} ${tr({ bn: 'টি সংশোধনযোগ্য আইটেম', en: 'reviewable items', it: 'elementi da rivedere' })}`}
+        backTo={backRoute}
       />
 
       {doneSummary && (

@@ -947,7 +947,7 @@ export const A2_EXTRA_VERBS: AcademyVerbEntry[] = [
     meaning: { bn: 'ভাবা / মনস্থির করা', en: 'to plan to / think about' },
     category: { bn: 'অব্যয়সহ ক্রিয়া (di vs a)', en: 'Verb + di / a' },
     irregular: false,
-    pronunciation: 'পেন-সা-রে /pen-SAH-reh/',
+    pronunciation: 'পেন-সা-রে দি / আ /pen-SAH-reh dee / ah/',
     usageNote: {
       bn: 'কোনো কাজের পরিকল্পনা বোঝাতে pensare di + infinito; কাউকে/কিছু নিয়ে ভাবতে pensare a + noun।',
       en: 'pensare di + infinitive means intending/planning; pensare a + noun means thinking of.',

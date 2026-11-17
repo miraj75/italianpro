@@ -1,4 +1,4 @@
-import { useMemo, useState } from 'react';
+import { useEffect, useMemo, useState } from 'react';
 import {
   ArrowLeft,
   BookOpen,
@@ -17,6 +17,7 @@ import { dayKey } from '../../../lib/date';
 import { shuffleArray } from '../../../lib/examEngine';
 import { speakItalian, startSpeechSession } from '../../../lib/speech';
 import { useI18n } from '../../../lib/i18n';
+import { loadModulePosition, saveModulePosition } from '../../../lib/modulePosition';
 import { useProgress } from '../../../state/ProgressContext';
 import { Button, GlassCard, ProgressBar, cx } from '../../../components/ui';
 import { SpeakButton } from '../../../components/SpeakButton';
@@ -38,6 +39,7 @@ interface LevelVocabularyViewProps {
   levelId: 'A2' | 'B1' | 'B2';
   studiedSet: Set<string>;
   readyForExam: boolean;
+  previewMode?: boolean;
   onMarkStudied: (itemId: string) => void;
   onNavigateModule: (route: string) => void;
 }
@@ -47,12 +49,22 @@ export function LevelVocabularyView({
   levelId,
   studiedSet,
   readyForExam,
+  previewMode = false,
   onMarkStudied,
   onNavigateModule,
 }: LevelVocabularyViewProps) {
   const { state, dispatch } = useProgress();
   const { t, tr } = useI18n();
-  const [tab, setTab] = useState<Tab>('learn');
+  const [tab, setTab] = useState<Tab>(() => {
+    const saved = loadModulePosition(levelId, meta.id)?.tab;
+    return saved === 'learn' || saved === 'practice' || saved === 'exam' ? saved : 'learn';
+  });
+
+  useEffect(() => {
+    if (previewMode) return;
+    saveModulePosition(levelId, meta.id, { tab });
+  }, [levelId, meta.id, tab, previewMode]);
+
   const [activeTopicEn, setActiveTopicEn] = useState<string | null>(null);
   const [query, setQuery] = useState('');
   const [registerFilter, setRegisterFilter] = useState<'all' | 'idiomatic' | 'formal' | 'colloquial' | 'academic'>('all');

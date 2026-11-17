@@ -1,3 +1,4 @@
+import { useState } from 'react';
 import {
   BookOpen,
   CalendarCheck,
@@ -10,9 +11,10 @@ import {
   Target,
   type LucideIcon,
 } from 'lucide-react';
-import type { LevelId } from '../content/types';
+import type { LevelId, Tr } from '../content/types';
 import { useRouter } from '../app/router';
 import { useI18n } from '../lib/i18n';
+import { openDailyPlanActivity } from '../lib/dailyPlanNavigation';
 import { useProgress } from '../state/ProgressContext';
 import { getCurrentLevel, minutesToday, type TaskKind } from '../state/progress';
 import { dailyPlan } from '../state/plan';
@@ -43,6 +45,8 @@ export function HomeScreen() {
   const activeLevel = getCurrentLevel(state);
   const overview = getCourseOverview(state, activeLevel);
   const plan = dailyPlan(state);
+  const completedPlanCount = plan.filter((item) => item.done).length;
+  const [planNotice, setPlanNotice] = useState<Tr | null>(null);
 
   const courseCounterText =
     overview.unitKind === 'modules'
@@ -157,24 +161,51 @@ export function HomeScreen() {
 
       {/* Today's Learning Plan */}
       <GlassCard className="p-4 sm:p-5">
-        <h2 className="bn mb-2 flex items-center gap-2 text-xl font-extrabold text-white">
-          <CalendarCheck size={18} className="text-neon" /> {t('todaysPlan')}
-        </h2>
+        <div className="mb-2 flex items-center justify-between gap-2">
+          <h2 className="bn flex items-center gap-2 text-xl font-extrabold text-white">
+            <CalendarCheck size={18} className="text-neon" /> {t('todaysPlan')}
+          </h2>
+          <span className="text-xs font-extrabold text-neon tabular-nums">
+            {completedPlanCount}/{plan.length}
+          </span>
+        </div>
+
+        {planNotice && (
+          <div
+            role="status"
+            className="mb-2 flex items-center justify-between gap-2 rounded-2xl border border-gold/40 bg-gold/10 px-3.5 py-2.5 text-xs font-bold text-gold"
+          >
+            <span className="bn">{tr(planNotice)}</span>
+            <button
+              type="button"
+              onClick={() => setPlanNotice(null)}
+              className="shrink-0 rounded-lg px-2 py-1 text-[11px] font-extrabold text-white/80 hover:text-white"
+            >
+              ×
+            </button>
+          </div>
+        )}
+
         <ul className="divide-y divide-white/5">
           {plan.map((item) => {
             const meta = PLAN_ICONS[item.task];
             return (
-              <li key={item.task}>
+              <li key={item.action.actionId}>
                 <button
                   type="button"
-                  onClick={() => navigate(item.route)}
-                  className="flex min-h-14 w-full items-center gap-3 py-2 text-left"
+                  data-daily-activity={item.task}
+                  data-daily-level={item.action.level}
+                  onClick={() => {
+                    setPlanNotice(null);
+                    openDailyPlanActivity(item, navigate, (reason) => setPlanNotice(reason));
+                  }}
+                  className="group flex min-h-14 w-full items-center gap-3 rounded-2xl px-2 py-2.5 text-left transition hover:bg-white/[0.04] active:scale-[0.99] active:bg-neon/[0.08]"
                 >
                   <IconTile icon={meta.icon} tone={meta.tone} size="sm" />
                   <span className="min-w-0 flex-1">
                     <span
                       className={cx(
-                        'block text-[1.05rem] font-bold',
+                        'block text-[1.05rem] font-bold transition group-hover:text-white',
                         item.done && 'text-ink-2 line-through decoration-ink-3',
                       )}
                     >
@@ -182,13 +213,13 @@ export function HomeScreen() {
                     </span>
                     <span className="bn block truncate text-xs text-ink-3">{tr(item.detail)}</span>
                   </span>
-                  <span className="text-sm text-ink-2">
+                  <span className="shrink-0 text-sm text-ink-2 tabular-nums">
                     {item.minutes} {t('minutes')}
                   </span>
                   {item.done ? (
-                    <CheckCircle2 size={22} className="text-neon" aria-label={t('completed')} />
+                    <CheckCircle2 size={22} className="shrink-0 text-neon" aria-label={t('completed')} />
                   ) : (
-                    <Circle size={22} className="text-ink-3" />
+                    <Circle size={22} className="shrink-0 text-ink-3 transition group-hover:text-ink-2" />
                   )}
                 </button>
               </li>

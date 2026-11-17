@@ -10,6 +10,7 @@ import { useRouter } from '../../app/router';
 import { useI18n } from '../../lib/i18n';
 import { dayKey } from '../../lib/date';
 import { isSpeechSessionActive, speakItalian, startSpeechSession, stopSpeaking } from '../../lib/speech';
+import { getCurrentLevel } from '../../state/progress';
 import { useProgress, useStudyTimer } from '../../state/ProgressContext';
 import { Button, FilterChipRow, GlassCard, Pill, cx } from '../../components/ui';
 import { SpeakButton } from '../../components/SpeakButton';
@@ -35,8 +36,12 @@ export function ListeningScreen() {
   const { t, tr } = useI18n();
   useStudyTimer();
 
-  const initial = route.params.get('level');
-  const [level, setLevel] = useState<BankLevel>(isBankLevel(initial) ? initial : 'A1');
+  const paramLevel = route.params.get('level');
+  const fromHome = route.params.get('from') === 'home';
+  const fromDailyPlan = route.params.get('activity') === 'listening';
+  const [level, setLevel] = useState<BankLevel>(
+    isBankLevel(paramLevel) ? paramLevel : getCurrentLevel(state),
+  );
   const [exercises, setExercises] = useState<ListeningExercise[]>([]);
   const [loading, setLoading] = useState(true);
   const [kind, setKind] = useState<ListeningKind | 'all'>('all');
@@ -57,6 +62,13 @@ export function ListeningScreen() {
   };
 
   useEffect(() => {
+    if (isBankLevel(paramLevel) && paramLevel !== level) {
+      setLevel(paramLevel);
+      setKind('all');
+    }
+  }, [paramLevel, level]);
+
+  useEffect(() => {
     let mounted = true;
     stopAudio();
     setLoading(true);
@@ -75,10 +87,16 @@ export function ListeningScreen() {
   }, [level]);
 
   const kinds = useMemo(() => [...new Set(exercises.map((e) => e.kind))], [exercises]);
-  const filtered = useMemo(
-    () => (kind === 'all' ? exercises : exercises.filter((e) => e.kind === kind)),
-    [exercises, kind],
-  );
+  const filtered = useMemo(() => {
+    const base = kind === 'all' ? exercises : exercises.filter((e) => e.kind === kind);
+    if (!fromDailyPlan) return base;
+    // Show uncompleted exercises at the user's active level first when coming from Today's Plan.
+    return [...base].sort((a, b) => {
+      const aDone = state.listeningScores[a.id] !== undefined ? 1 : 0;
+      const bDone = state.listeningScores[b.id] !== undefined ? 1 : 0;
+      return aDone - bDone;
+    });
+  }, [exercises, kind, fromDailyPlan, state.listeningScores]);
 
   const playAll = async (ex: ListeningExercise, rate: number) => {
     const sessionId = startSpeechSession();
@@ -107,6 +125,11 @@ export function ListeningScreen() {
         <SubHeader
           title={active.titleIt}
           subtitle={`${active.level} · ${tr(active.title)}`}
+          onBack={() => {
+            stopAudio();
+            setQuizResult(null);
+            setActive(null);
+          }}
           right={
             <Button variant="ghost" className="min-h-10 px-3.5 text-sm" onClick={() => { stopAudio(); setQuizResult(null); setActive(null); }}>
               {t('all')}
@@ -271,7 +294,11 @@ export function ListeningScreen() {
 
   return (
     <div className="animate-rise max-w-full space-y-3 overflow-x-hidden">
-      <SubHeader title={t('listeningLab')} subtitle={t('listeningLabSub')} />
+      <SubHeader
+        title={t('listeningLab')}
+        subtitle={t('listeningLabSub')}
+        backTo={fromHome ? '/' : undefined}
+      />
       <p className="rounded-xl border border-cyan/20 bg-cyan/8 px-3 py-2 text-xs font-semibold text-ink-2">
         {t('ttsNotice')}
       </p>
@@ -291,7 +318,14 @@ export function ListeningScreen() {
       {loading ? (
         <GlassCard className="p-6 text-center text-ink-2">...</GlassCard>
       ) : filtered.length === 0 ? (
-        <GlassCard className="p-6 text-center text-ink-2">{t('inPreparation')}</GlassCard>
+        <GlassCard className="p-6 text-center space-y-3 text-ink-2">
+          <p className="bn">{t('inPreparation')}</p>
+          {fromHome && (
+            <Button variant="ghost" className="min-h-10 px-4 text-xs" onClick={() => navigate('/')}>
+              {t('home')}
+            </Button>
+          )}
+        </GlassCard>
       ) : (
         <div className="grid gap-3 sm:grid-cols-2">
           {filtered.map((ex) => {

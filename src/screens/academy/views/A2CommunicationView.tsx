@@ -1,4 +1,4 @@
-import { useMemo, useState } from 'react';
+import { useEffect, useMemo, useState } from 'react';
 import {
   CheckCircle2,
   Compass,
@@ -14,6 +14,7 @@ import {
 } from '../../../content/a2/communicationModules';
 import { generateAcademyModuleExam, shuffleArray } from '../../../lib/examEngine';
 import { resolveExamOptions, useI18n } from '../../../lib/i18n';
+import { loadModulePosition, saveModulePosition } from '../../../lib/modulePosition';
 import { speakItalian, startSpeechSession } from '../../../lib/speech';
 import { Button, GlassCard, cx } from '../../../components/ui';
 import { SpeakButton } from '../../../components/SpeakButton';
@@ -26,6 +27,7 @@ interface A2CommunicationViewProps {
   meta: AcademyModuleMeta;
   studiedSet: Set<string>;
   readyForExam: boolean;
+  previewMode?: boolean;
   onMarkStudied: (itemId: string) => void;
   onNavigateModule: (route: string) => void;
 }
@@ -34,11 +36,21 @@ export function A2CommunicationView({
   meta,
   studiedSet,
   readyForExam,
+  previewMode = false,
   onMarkStudied,
   onNavigateModule,
 }: A2CommunicationViewProps) {
   const { lang, t, tr } = useI18n();
-  const [tab, setTab] = useState<Tab>('study');
+  const [tab, setTab] = useState<Tab>(() => {
+    const saved = loadModulePosition('A2', meta.id)?.tab;
+    return saved === 'study' || saved === 'practice' || saved === 'exam' ? saved : 'study';
+  });
+
+  useEffect(() => {
+    if (previewMode) return;
+    saveModulePosition('A2', meta.id, { tab });
+  }, [meta.id, tab, previewMode]);
+
   const [subTab, setSubTab] = useState<StudySubTab>('expressions');
   const [dialogueAnswers, setDialogueAnswers] = useState<Record<string, number>>({});
   const [practiceRound, setPracticeRound] = useState(1);
@@ -163,7 +175,7 @@ export function A2CommunicationView({
                     <div className="flex items-start justify-between gap-3">
                       <div className="min-w-0 flex-1">
                         <p className="text-[11px] font-extrabold uppercase tracking-wide text-cyan tabular-nums">
-                          #{idx + 1} · {exp.phoneticBn}
+                          #{idx + 1}{lang === 'bn' ? ` · ${exp.phoneticBn}` : ''}
                         </p>
                         <h3 className="mt-0.5 text-lg font-extrabold text-white leading-snug">{exp.it}</h3>
                         <p className="bn text-sm font-bold text-mint mt-0.5">{tr(exp.meaning)}</p>

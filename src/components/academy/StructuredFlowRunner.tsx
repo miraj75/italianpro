@@ -14,6 +14,7 @@ import {
 import { dayKey } from '../../lib/date';
 import type { EvaluatedExamResult } from '../../lib/examEngine';
 import { useI18n } from '../../lib/i18n';
+import { loadModulePosition, saveModulePosition } from '../../lib/modulePosition';
 import { useRouter } from '../../app/router';
 import { useProgress, useStudyTimer } from '../../state/ProgressContext';
 import {
@@ -80,8 +81,9 @@ export function StructuredFlowRunner({
 }: StructuredFlowRunnerProps) {
   useStudyTimer();
   const { state, dispatch } = useProgress();
-  const { navigate } = useRouter();
+  const { route, navigate } = useRouter();
   const { t, tr } = useI18n();
+  const resolvedBackTo = route.params.get('from') === 'home' ? '/' : backTo;
 
   const meta = findAcademyModule(moduleId, 'A1');
   const nextModule = getNextAcademyModule(moduleId, 'A1');
@@ -111,8 +113,28 @@ export function StructuredFlowRunner({
   const drillCompleted = testingOverride ? previewDrillDone : Boolean(modProg.drillCompleted);
   const examPassed = testingOverride ? previewPassedResult !== null : modProg.completed;
 
+  const unlockedStages: Record<AcademyModuleStage, boolean> = {
+    theory: true,
+    study: theoryCompleted,
+    drill: theoryCompleted && studyCompleted,
+    exam: theoryCompleted && studyCompleted && drillCompleted,
+    result: theoryCompleted && studyCompleted && drillCompleted && examPassed,
+  };
+
   const resolveDefaultStage = (): AcademyModuleStage => {
     if (testingOverride) return 'theory';
+    const savedStage = loadModulePosition('A1', moduleId)?.stage as AcademyModuleStage | undefined;
+    if (
+      savedStage &&
+      (savedStage === 'theory' ||
+        savedStage === 'study' ||
+        savedStage === 'drill' ||
+        savedStage === 'exam' ||
+        savedStage === 'result') &&
+      unlockedStages[savedStage]
+    ) {
+      return savedStage;
+    }
     if (!theoryCompleted) return 'theory';
     if (!studyCompleted) return 'study';
     if (!drillCompleted) return 'drill';
@@ -122,6 +144,12 @@ export function StructuredFlowRunner({
 
   const [stage, setStage] = useState<AcademyModuleStage>(resolveDefaultStage);
   const [latestPassResult, setLatestPassResult] = useState<EvaluatedExamResult | null>(null);
+
+  // Persist current stage for seamless Daily Plan resume
+  useEffect(() => {
+    if (!unlocked || testingOverride) return;
+    saveModulePosition('A1', moduleId, { stage });
+  }, [unlocked, testingOverride, moduleId, stage]);
 
   // Sync stage if module unlocks / loads with different persisted stage
   useEffect(() => {
@@ -141,7 +169,7 @@ export function StructuredFlowRunner({
   if (!unlocked && !testingOverride) {
     return (
       <div className="animate-rise space-y-4">
-        <SubHeader title={meta.title} backTo={backTo} />
+        <SubHeader title={meta.title} backTo={resolvedBackTo} />
         <GlassCard className="p-6 text-center space-y-4">
           <Lock className="mx-auto text-gold" size={38} />
           <p className="bn text-base font-bold text-ink-2">{t('academyModuleLocked')}</p>
@@ -155,13 +183,7 @@ export function StructuredFlowRunner({
     );
   }
 
-  const unlockedStages: Record<AcademyModuleStage, boolean> = {
-    theory: true,
-    study: theoryCompleted,
-    drill: theoryCompleted && studyCompleted,
-    exam: theoryCompleted && studyCompleted && drillCompleted,
-    result: theoryCompleted && studyCompleted && drillCompleted && examPassed,
-  };
+
 
   const completedStages: Record<AcademyModuleStage, boolean> = {
     theory: theoryCompleted,
@@ -261,7 +283,7 @@ export function StructuredFlowRunner({
       <StageFlowHeader
         title={`${meta.order}. ${meta.title}`}
         subtitle={subtitleText}
-        backTo={backTo}
+        backTo={resolvedBackTo}
         currentStage={stage}
         unlockedStages={unlockedStages}
         completedStages={completedStages}

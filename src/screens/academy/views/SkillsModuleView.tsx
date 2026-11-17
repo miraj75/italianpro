@@ -23,6 +23,7 @@ import type {
 import { loadLevelBundle, type LevelAcademyBundle } from '../../../content/registry';
 import { speakItalian, startSpeechSession } from '../../../lib/speech';
 import { resolveExamOptions, useI18n } from '../../../lib/i18n';
+import { loadModulePosition, saveModulePosition } from '../../../lib/modulePosition';
 import { Button, GlassCard, cx } from '../../../components/ui';
 import { SpeakButton } from '../../../components/SpeakButton';
 import { AcademyExamRunner } from '../../../components/AcademyExamRunner';
@@ -34,6 +35,7 @@ interface SkillsModuleViewProps {
   levelId: 'A2' | 'B1' | 'B2';
   studiedSet: Set<string>;
   readyForExam: boolean;
+  previewMode?: boolean;
   onMarkStudied: (itemId: string) => void;
   onNavigateModule: (route: string) => void;
 }
@@ -43,11 +45,22 @@ export function SkillsModuleView({
   levelId,
   studiedSet,
   readyForExam,
+  previewMode = false,
   onMarkStudied,
   onNavigateModule,
 }: SkillsModuleViewProps) {
   const { lang, t, tr } = useI18n();
-  const [tab, setTab] = useState<Tab>(meta.kind === 'final-exam' ? 'exam' : 'study');
+  const [tab, setTab] = useState<Tab>(() => {
+    if (meta.kind === 'final-exam') return 'exam';
+    const saved = loadModulePosition(levelId, meta.id)?.tab;
+    return saved === 'study' || saved === 'exam' ? saved : 'study';
+  });
+
+  useEffect(() => {
+    if (previewMode || meta.kind === 'final-exam') return;
+    saveModulePosition(levelId, meta.id, { tab });
+  }, [levelId, meta.id, meta.kind, tab, previewMode]);
+
   const [bundle, setBundle] = useState<LevelAcademyBundle | null>(null);
   const [loading, setLoading] = useState(meta.kind !== 'final-exam');
 
@@ -93,7 +106,7 @@ export function SkillsModuleView({
           <div className="flex items-center gap-2.5">
             <Award size={22} className="text-gold shrink-0" />
             <h2 className="bn text-lg font-extrabold text-white">
-              {tr({ bn: meta.subtitle.bn, en: meta.title, it: meta.title })}
+              {tr({ bn: meta.subtitle.bn, en: meta.title, it: meta.subtitle.it ?? meta.title })}
             </h2>
           </div>
           <p className="bn text-sm text-ink-2">{tr(meta.description)}</p>
@@ -326,13 +339,13 @@ export function SkillsModuleView({
 
                 <GlassCard neon={studiedSet.has(selectedListening.id)} className="p-4 sm:p-5 space-y-4">
                   <div className="flex items-start justify-between gap-3">
-                    <div>
+                    <div className="min-w-0 flex-1">
                       <p className="text-xs font-extrabold uppercase text-cyan">{selectedListening.kind}</p>
                       <h2 className="mt-0.5 text-xl font-extrabold text-white">{selectedListening.titleIt}</h2>
                       <p className="bn text-sm font-bold text-mint">{tr(selectedListening.title)}</p>
                     </div>
                     <Button
-                      className="min-h-11 px-4 text-xs"
+                      className="min-h-11 shrink-0 px-4 text-xs"
                       onClick={() => {
                         const text = selectedListening.lines.map((l) => l.it).join('. ');
                         void speakItalian(text, 0.88, startSpeechSession()).catch(() => {});
@@ -590,7 +603,9 @@ export function SkillsModuleView({
                       <div className="min-w-0 flex-1 space-y-1">
                         <p className="text-base font-extrabold text-white leading-snug">{sp.targetIt}</p>
                         <p className="bn text-xs font-semibold text-mint">{tr(sp.targetTr)}</p>
-                        <p className="text-[11px] font-semibold text-ink-3">/{sp.pronunciationHint}/</p>
+                        {sp.pronunciationHint && (lang === 'bn' || !/[\u0980-\u09FF]/.test(sp.pronunciationHint)) && (
+                          <p className="text-[11px] font-semibold text-ink-3">/{sp.pronunciationHint}/</p>
+                        )}
                       </div>
                       <SpeakButton text={sp.targetIt} size={40} onSpeak={() => onMarkStudied(sp.id)} />
                     </div>

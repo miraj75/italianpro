@@ -7,11 +7,13 @@ export function SubHeader({
   subtitle,
   right,
   backTo,
+  onBack,
 }: {
   title: string;
   subtitle?: string;
   right?: ReactNode;
   backTo?: string;
+  onBack?: () => void;
 }) {
   const { back, navigate } = useRouter();
   return (
@@ -19,7 +21,11 @@ export function SubHeader({
       <div className="flex min-w-0 flex-1 items-start gap-2.5 sm:gap-3">
         <button
           type="button"
-          onClick={() => (backTo ? navigate(backTo) : back())}
+          onClick={() => {
+            if (onBack) onBack();
+            else if (backTo) navigate(backTo);
+            else back();
+          }}
           aria-label="Back"
           className="flex h-11 w-11 shrink-0 items-center justify-center rounded-full hover:bg-white/5"
         >

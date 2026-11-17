@@ -79,7 +79,7 @@ export const A2_LISTENING_2: ListeningExercise[] = [
     topic: { bn: 'বই ও ক্রমবাচক সংখ্যা', en: 'Books & ordinals' },
     lines: [
       { speaker: 'Rahim', it: 'Scusi, cerco il romanzo di cui parlava ieri la radio. Sa se è disponibile?', tr: { bn: 'মাফ করবেন, গতকাল রেডিওতে যে উপন্যাসটির কথা বলছিল সেটা খুঁজছি। জানেন কি ওটা আছে কিনা?', en: 'Excuse me, I’m looking for the novel the radio talked about yesterday. Do you know if it’s in stock?' } },
-      { speaker: 'Libraio', it: 'Sì, eccolo sullo scaffale al primo piano, terza fila a sinistra!', tr: { bn: 'হ্যাঁ, এই যে দোতলার (প্রথম ফ্লোরের) তাকে, বামদিকে তৃতীয় সারিতে!', en: 'Yes, it’s on the shelf on the first floor, third row on the left!' } },
+      { speaker: 'Libraio', it: 'Sì, eccolo sullo scaffale al primo piano, terza fila a sinistra!', tr: { bn: 'হ্যাঁ, এই যে ১ম তলার (নিচতলার ওপরের তলা) তাকে, বামদিকে তৃতীয় সারিতে!', en: 'Yes, it’s on the shelf on the first floor, third row on the left!' } },
       { speaker: 'Rahim', it: 'Grazie! Se compro due copie, c’è ancora lo sconto per gli studenti?', tr: { bn: 'ধন্যবাদ! দুটো কপি কিনলে কি এখনো ছাত্রদের ছাড় আছে?', en: 'Thanks! If I buy two copies, is there still the student discount?' } },
     ],
     explanation: { bn: 'di cui = যার সম্পর্কে (oblique relative pronoun); primo/terza = ক্রমবাচক সংখ্যা।', en: 'di cui means "about which"; primo/terza are ordinals.' },
@@ -266,10 +266,10 @@ export const A2_LISTENING_2: ListeningExercise[] = [
     explanation: { bn: 'Le conviene + infinito = আপনার জন্য করা লাভজনক/উচিত হবে।', en: 'conviene + infinitive gives practical advice.' },
     vocabList: [{ it: 'gomme', tr: { bn: 'গাড়ির টায়ার/চাকা', en: 'tyres' } }],
     vocabKeys: ['w:A2:il distributore', 'w:A2:il pieno', 'w:A2:lungo'],
-    grammarIds: ['pronomi-indiretti', 'modali'],
+    grammarIds: ['pronomi-indiretti', 'verbi-servizio-a2'],
     questions: [
       { id: 'ls2-36-q1', prompt: { bn: 'চালক কত ইউরোর তেল চেয়েছেন?', en: 'How many euros of petrol did the driver ask for?' }, options: ['২০ ইউরো', '৩০ ইউরো', '৪০ ইউরো', '৫০ ইউরো'], answer: 1, explanation: { bn: 'সঠিক উত্তর: ৩০ ইউরো — পাঠ্যাংশে বলা হয়েছে: «শুভ সকাল, ত্রিশ ইউরোর পেট্রোল দেবেন এবং চাকাগুলো একটু দেখে দেবেন?» (trenta euro di benzina)।', en: '30 euros.' } },
-      { id: 'ls2-36-q2', prompt: { bn: 'কর্মী আর কী চেক করার পরামর্শ দিলেন?', en: 'What else did the attendant advise checking?' }, options: ['জানালা', 'ইঞ্জিন অয়েল', 'আয়না', 'ব্যাটারি'], answer: 1, explanation: { bn: 'সঠিক উত্তর: ইঞ্জিন অয়েল — পাঠ্যাংশে বলা হয়েছে: «শুভ সকাল, ত্রিশ ইউরোর পেট্রোল দেবেন এবং চাকাগুলো একটু দেখে দেবেন?» (controllare anche l’olio)।', en: 'The oil.' } },
+      { id: 'ls2-36-q2', prompt: { bn: 'কর্মী আর কী চেক করার পরামর্শ দিলেন?', en: 'What else did the attendant advise checking?' }, options: ['জানালা', 'ইঞ্জিন অয়েল', 'আয়না', 'ব্যাটারি'], answer: 1, explanation: { bn: 'সঠিক উত্তর: ইঞ্জিন অয়েল — পাঠ্যাংশে বলা হয়েছে: «এখনই! দেখছি আপনি লম্বা ভ্রমণে যাচ্ছেন: তেলও চেক করে নেওয়া ভালো হবে।» (controllare anche l’olio)।', en: 'The oil.' } },
     ],
   }),
   buildListening({

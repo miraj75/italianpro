@@ -21,8 +21,9 @@ import { Button, GlassCard, ProgressBar } from '../../components/ui';
 export function FinalExamModuleScreen() {
   useStudyTimer();
   const { state } = useProgress();
-  const { navigate } = useRouter();
+  const { route, navigate } = useRouter();
   const { t, tr } = useI18n();
+  const backRoute = route.params.get('from') === 'home' ? '/' : '/level/A1';
 
   const meta = findAcademyModule('final-exam', 'A1');
   const unlocked = isAcademyModuleUnlocked(state.academy, 'final-exam', 'A1');
@@ -49,7 +50,7 @@ export function FinalExamModuleScreen() {
               })
             : tr(meta.subtitle)
         }
-        backTo="/level/A1"
+        backTo={backRoute}
       />
 
       {testingOverride && (
@@ -111,7 +112,7 @@ export function FinalExamModuleScreen() {
                 </span>
               </Button>
             )}
-            <Button variant="ghost" onClick={() => navigate('/level/A1')}>
+            <Button variant="ghost" onClick={() => navigate(backRoute)}>
               <span className="bn">{t('backToCourses')}</span>
             </Button>
           </div>

@@ -293,7 +293,7 @@ export const A2_STORIES_1: StoryItem[] = [
       { id: 'st2-8-q1', prompt: { bn: 'লিফটে কী সমস্যা ছিল?', en: 'What was wrong with the lift?' }, options: ['ছোট ছিল', 'বন্ধ ছিল / নষ্ট ছিল', 'অন্ধকার ছিল', 'ধীরগতির ছিল'], answer: 1, explanation: { bn: 'l’ascensore rotto = নষ্ট লিফট।', en: 'It was broken.' } },
     ],
     trueFalse: [
-      { id: 'st2-8-tf1', statementIt: 'La signora Conti abita al primo piano.', statement: { bn: 'মিসেস কন্তি দোতলায় (প্রথম তলায়) থাকেন।', en: 'Mrs Conti lives on the first floor.' }, answer: false, explanation: { bn: 'al quarto piano (চারতলায়)।', en: 'She lives on the fourth floor.' } },
+      { id: 'st2-8-tf1', statementIt: 'La signora Conti abita al primo piano.', statement: { bn: 'মিসেস কন্তি প্রথম তলায় (১ম তলায়) থাকেন।', en: 'Mrs Conti lives on the first floor.' }, answer: false, explanation: { bn: 'al quarto piano (চারতলায়)।', en: 'She lives on the fourth floor.' } },
     ],
     fillBlank: [
       { id: 'st2-8-fb1', sentence: 'La nostra vicina è gentile: domani ___ portiamo i fiori.', options: ['la', 'le', 'gli', 'ne'], answer: 1, explanation: { bn: 'তাঁকে (মহিলাকে) দিতে → le।', en: 'To her = le.' } },

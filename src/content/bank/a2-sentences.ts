@@ -189,7 +189,7 @@ Ti aspetto fino alle otto.|আমি আটটা পর্যন্ত তো�
 Prima di uscire, chiudo la finestra.|বের হওয়ার আগে আমি জানালা বন্ধ করি।|Before going out, I close the window.|tempo
 Dopo cena guardiamo un film.|রাতের খাবারের পরে আমরা একটা সিনেমা দেখি।|After dinner we watch a film.|tempo
 Ho fatto il permesso di soggiorno in questura.|আমি পুলিশ দপ্তরে পারমেসো দি সজর্নো করেছি।|I got my residence permit at the police HQ.|passato-prossimo
-Devo rinnovare il passaporto.|আমাকে পাসপোর্ট নবায়ন করতে হবে।|I have to renew my passport.|modali
+Ho dovuto rinnovare il passaporto.|আমাকে পাসপোর্ট নবায়ন করতে হয়েছে।|I had to renew my passport.|modali-passato
 Ho chiesto un appuntamento in comune.|আমি পৌরসভায় অ্যাপয়েন্টমেন্ট চেয়েছি।|I asked for an appointment at the town hall.|passato-prossimo
 Il medico mi ha dato una ricetta.|ডাক্তার আমাকে একটা প্রেসক্রিপশন দিয়েছেন।|The doctor gave me a prescription.|passato-prossimo
 Abbiamo diviso il conto.|আমরা বিল ভাগ করে দিয়েছি।|We split the bill.|passato-prossimo
